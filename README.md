@@ -81,7 +81,9 @@ references are the substance rather than an appendix:
 - **Node-RED troubleshooting** — a static analyser (`scripts/analyze_flow.py`) that reads a
   flow JSON and reports the failure modes that actually occur in this estate, plus a
   symptom-to-cause table for what static analysis cannot see
-- **signal standardization** — the canonical vocabulary mined from 260 signal names in use,
+- **signal standardization** — reads the machine context (PLC program, sequence chart, layout,
+  handbook, HMI) alongside the tag list and writes a defined signal analysis report; the
+  canonical vocabulary mined from 260 signal names in use,
   the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
   PackML), the normative KPI standards behind each capability, search patterns that cluster a
   raw signal list by functional area with an importance ranking, and an analyser

@@ -180,6 +180,22 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**The signal skill takes two inputs because one was never enough.** A tag list gives names;
+only the machine context gives meanings, and `CycleTime` from two plants is not comparable
+unless somebody knows where each machine's cycle starts. The context sources are ranked by
+confidence rather than treated as equivalent — a live data-point config is verified, a
+deployed PLC program is high, a tag export is high for existence and low for meaning, a verbal
+description is low. The reason this had to be written at all is a gap in the estate:
+`documentation_available` and `documentation_link` exist as fields on all 1,715 machine rows
+and are populated on none, so there is no system of record for the context and it must be
+gathered per machine.
+
+The output is a defined report, and the split between what the tool fills and what it leaves
+as `⟨…⟩` is deliberate. Inventory, canonical mapping, clustering, coverage and findings are
+derivable from names and are generated. How the machine works, which sources were used, units,
+collection method and owners are not, and a report that guessed at them would be worse than
+one that asks — that guess is exactly how `AverageMeltTempature` reached 34 flows.
+
 **The requirements skill formalizes a template the estate had already half-written.** The
 headings it uses — `Use Case Target Overview` (99 use cases), `Major Issue` / `Key Problem`
 (44), `Tags of Interest` (29), `Acceptance criteria` (13), `Traces to` (13), `Major` / `Minor

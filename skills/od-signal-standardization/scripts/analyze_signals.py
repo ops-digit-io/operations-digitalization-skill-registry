@@ -4,6 +4,7 @@
     python3 analyze_signals.py POINTS.json [--capability oee] [--json]
     python3 analyze_signals.py POINTS.csv  --capability cycle-time
     python3 analyze_signals.py POINTS.json --cluster        # functional area + importance
+    python3 analyze_signals.py POINTS.json --report > report.md   # the structured report
 
 Input is the data-point list for one machine or datatron — the shape the IIoT edge
 platform returns from `/api/datatrons/{id}/data_points`, or a CSV with `uuid,label`
@@ -340,10 +341,139 @@ def cluster_report(rows: list[dict]) -> None:
     print("  cases and targets on 59, so a low score means unknown demand, not no demand.")
 
 
+ACTION = {"canonical": "use", "variant": "rename", "raw": "name it — BLOCKER",
+          "unknown": "confirm or drop"}
+
+
+def emit_report(path: str, rows: list[dict], findings: list[dict], capability: str | None) -> None:
+    """Write the machine-derivable half of the signal analysis report.
+
+    Sections a tool cannot know — how the machine works, which sources were used,
+    the standard mapping, owners and dates — are emitted as ⟨…⟩ placeholders to be
+    filled from the machine context. See references/machine-context.md and
+    assets/signal-analysis-report.md.
+    """
+    print("# Signal Analysis — ⟨Machine⟩ ⟨(EQ id)⟩\n")
+    print("| | |\n|---|---|")
+    print("| **Plant** | ⟨plant⟩ |")
+    print("| **Machine** | ⟨name⟩ ⟨(EQ id)⟩ · ⟨vendor⟩ ⟨PLC model⟩ |")
+    print("| **Process group** | ⟨group⟩ · family ⟨Rubber / Plastic / Metal / Assembly⟩ |")
+    print(f"| **Capability in scope** | {capability or '⟨capability, or inventory only⟩'} |")
+    print("| **Analyst / date** | ⟨name⟩ · ⟨date⟩ |")
+    blockers = sum(1 for f in findings if f["severity"] == "BLOCKER")
+    verdict = "gaps block delivery" if blockers else "ready — confirm context sections"
+    print(f"| **Overall verdict** | {verdict} |")
+    print(f"| **Input** | `{path}` — {len(rows)} data points |")
+
+    print("\n---\n\n## 1 · How the machine works\n")
+    print("⟨Three or four sentences: what it makes, what one cycle is, where it waits, and")
+    print("what makes a part good. If this cannot be written, the context is not yet")
+    print("sufficient and everything below is a guess.⟩\n")
+    print("**Cycle boundary.** ⟨what starts and ends a cycle, and which signal marks each⟩  ")
+    print("**Wait states.** ⟨where it waits, and on what⟩  ")
+    print("**Good-part definition.** ⟨what makes a part countable, and at which station⟩")
+
+    print("\n## 2 · Sources used\n")
+    print("| Source | Obtained | Contributed | Confidence |\n|---|---|---|---|")
+    print(f"| Data-point list (`{path}`) | yes | the inventory below | Verified for existence |")
+    for s, c in [("PLC program ⟨version⟩", "High"), ("Tag / symbol export", "High for existence, low for meaning"),
+                 ("Sequence / flow chart", "Medium"), ("Layout", "Medium"),
+                 ("Machine handbook", "Medium"), ("HMI observation", "Medium — high for importance"),
+                 ("Proven instance at ⟨plant⟩", "Medium"), ("Operator / setter", "Low until confirmed")]:
+        print(f"| {s} | ⟨yes/no⟩ | ⟨what it gave⟩ | {c} |")
+    print("\n**Context situation:** ⟨full context · tag export only · handbook only · "
+          "nothing but the machine · adopting a proven instance⟩")
+
+    print("\n## 3 · Signal inventory\n")
+    print("| Candidate (as found) | Canonical name | Area | Dir | Exists? | Unit | Collection | Action |")
+    print("|---|---|---|---|---|---|---|---|")
+    for r in rows:
+        label = (r.get("label") or r.get("name") or "").strip()
+        uuid = (r.get("uuid") or r.get("id") or "").strip()
+        area, sp = classify(label)
+        n = norm(label)
+        if n in CANON_LOWER:
+            canon, kind = CANON_LOWER[n], "canonical"
+        elif n in VARIANT_OF:
+            canon, kind = VARIANT_OF[n], "variant"
+        elif area == "raw-tag":
+            canon, kind = "⟨name it⟩", "raw"
+        else:
+            canon, kind = "⟨confirm⟩", "unknown"
+        exists = f"yes `{uuid[:8]}`" if uuid else "**no uuid**"
+        marks = area + ("+setpoint" if sp else "")
+        print(f"| `{label or '⟨unnamed⟩'}` | {canon} | {marks} | in | {exists} | ⟨unit⟩ | "
+              f"⟨transition / sample⟩ | {ACTION[kind]} |")
+    print("\n**Legend — Action.** `use` already canonical · `rename` variant → canonical · "
+          "`name it` raw PLC tag, blocker · `confirm or drop` outside the catalogue.")
+    print("\n⟨Add a row per derived **output** signal this machine should publish, direction "
+          "`out`, action `register on the edge platform`.⟩")
+
+    print("\n## 4 · Functional areas and priority\n")
+    print("```")
+    cluster_report(rows)
+    print("```")
+
+    print("\n## 5 · Standard and data model\n")
+    print("| | |\n|---|---|")
+    print("| Cluster | ⟨C01…C12⟩ |")
+    print("| Standard KPIs required | ⟨from the cluster KPI set — see references/standards.md⟩ |")
+    print("| Public data model available | ⟨EUROMAP 77/83/84 · OPC UA for Machinery · PackML · none⟩ |")
+    print("| Machine already exposes it? | ⟨yes — the integration route changes / no / not checked⟩ |")
+    print("| State model | ⟨PackML mapping, or the raw code table with meanings⟩ |")
+    print("| Deltas from the standard | ⟨only what this machine does differently⟩ |")
+
+    print("\n## 6 · Capability coverage\n")
+    if capability:
+        req = CAPABILITY_REQUIREMENTS.get(capability, [])
+        present = {norm(l) for l in (str(r.get("label") or r.get("name") or "") for r in rows)}
+        present |= {norm(VARIANT_OF[p]) for p in list(present) if p in VARIANT_OF}
+        miss = [s for s in req if norm(s) not in present]
+        print("| Capability | Requires | Missing | Verdict |\n|---|---|---|---|")
+        print(f"| {capability} | {', '.join(req) or '⟨unknown⟩'} | "
+              f"{', '.join(miss) or '—'} | {'blocked' if miss else 'buildable'} |")
+        if miss:
+            print("\n| Missing signal | Cause | Owner |\n|---|---|---|")
+            for s in miss:
+                print(f"| {s} | ⟨PLC does not expose it / not configured on the edge platform / "
+                      "no sensor exists⟩ | ⟨engineering / integration / investment⟩ |")
+    else:
+        print("⟨Run again with `--capability <name>` to fill this, or complete by hand.⟩")
+
+    print("\n## 7 · Findings\n")
+    if not findings:
+        print("None.")
+    else:
+        print("| Severity | Finding | Detail | Fix |\n|---|---|---|---|")
+        for f in sorted(findings, key=lambda x: SEV_ORDER[x["severity"]]):
+            msg = f["message"].replace("|", "\\|").replace("\n", " ")
+            fix = (f["fix"] or "—").replace("|", "\\|").replace("\n", " ")
+            print(f"| {f['severity']} | `{f['check']}` | {msg} | {fix} |")
+
+    print("\n## 8 · Recommended actions\n")
+    print("| # | Action | Owner | Depends on | By |\n|---|---|---|---|---|")
+    i = 0
+    for f in sorted(findings, key=lambda x: SEV_ORDER[x["severity"]]):
+        if f["severity"] == "INFO":
+            continue
+        i += 1
+        print(f"| {i} | {f['message'].split('.')[0]} | ⟨owner⟩ | — | ⟨date⟩ |")
+    if not i:
+        print("| 1 | ⟨confirm the context sections above⟩ | ⟨owner⟩ | — | ⟨date⟩ |")
+    print("\n**Renaming a live signal is a breaking change**, not a tidy-up. Any rename above "
+          "needs its consumers listed and a migration, or the deviation recorded instead.")
+
+    print("\n## 9 · Open questions\n\n- ⟨what could not be established, and who can answer it⟩")
+    print("\n## 10 · Feeds\n")
+    print("`od-requirements-breakdown` §5 Tags of Interest · `od-machine-integration-guidance` · "
+          "`od-node-red-flow-builder` flow config · the Machine CV")
+
+
 def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     as_json = "--json" in argv
     do_cluster = "--cluster" in argv
+    do_report = "--report" in argv
     cap = None
     if "--capability" in argv:
         i = argv.index("--capability")
@@ -366,6 +496,9 @@ def main(argv):
         worst = max(worst, 2 if c["BLOCKER"] else 1 if c["WARN"] else 0)
         if as_json:
             out.append({"file": path, "capability": cap, "findings": rep.sorted()})
+            continue
+        if do_report:
+            emit_report(path, load(path), rep.sorted(), cap)
             continue
         print(f"\n=== {rep.name}" + (f"  [capability: {cap}]" if cap else ""))
         for f in rep.sorted():
