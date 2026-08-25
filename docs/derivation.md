@@ -89,7 +89,7 @@ is derived from that material.
 | `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
 | `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
-| `od-machine-integration-guidance` | `_apps/machine-integration-guidance-app/{rules,rules-next}.json` (incl. the Softing dataFEED procedures it carries); `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
+| `od-machine-integration-guidance` | `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
@@ -140,12 +140,16 @@ a distribution table tells a reader what the estate looks like, not what to do n
 the few figures that genuinely change a routing decision now sit in `SKILL.md` with the
 consequence attached.
 
-**One Softing gap is stated rather than filled.** Softing's own product documentation was
-not reachable from the environment this was written in — `industrial.softing.com` and its
-mirrors are blocked by the network egress policy. The configuration procedures therefore
-come from the OESL guidance captured in `rules-next.json`, which references two OESL
-guideline documents by name; vendor capability claims are labelled as unverified, and both
-the manual and the guideline documents are recorded as open gaps rather than reconstructed.
+**The Softing material is now grounded in the vendor manual, and the disagreements are
+reported rather than resolved.** The dataFEED OPC Suite V5.70 manual (1,540 pp.) reached the
+bundle after the first pass; the Softing references were rewritten against it with page
+references throughout, and two OESL recommendations turned out to describe steps the product
+cannot perform — a Beckhoff/ADS data source that does not exist, and a NetLink protocol
+discontinued in V5.38. Neither was quietly corrected in the skill: `rules.json` stays
+authoritative for what OESL permits and the manual for what the product does, the mismatch
+is stated in `SKILL.md` and both references, and the fix is recorded in `registry.yaml` as a
+change owed to `rules.json`. A skill that silently patched the guidance would leave the tool
+everyone actually uses still wrong.
 
 **Secrets found in the source are named, never reproduced.** The flow corpus contains 23
 literal Teams webhook URLs and 30 literal Bearer tokens. The Node-RED skill states the

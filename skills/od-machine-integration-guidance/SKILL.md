@@ -26,8 +26,7 @@ metadata:
   derived_from:
     - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules.json
     - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules-next.json
-    - OESL guideline "Machine Integration — Softing DataFeed — Siemens S7-300/400/1200/1500" (referenced by the guide)
-    - OESL guideline "Machine Integration — Softing dataFEED — Beckhoff PLC Integration" (referenced by the guide)
+    - ops-knowledge-graph/_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf (Softing dataFEED OPC Suite V5.70 manual, 1,540 pp., 2026-02-16)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (1,715 Machine + 26 Connector nodes)
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
@@ -48,7 +47,8 @@ each route. When the two disagree, `rules.json` wins — it is the maintained ar
 | File | Use it for |
 |---|---|
 | [`references/decision-paths.md`](references/decision-paths.md) | Routing: the four gates, PLC family → available routes, connector selection, and where a path dead-ends |
-| [`references/softing-datafeed.md`](references/softing-datafeed.md) | The **Central Aggregation Server** pattern in configuration detail — per-driver procedures for Siemens S7/TIA, Beckhoff, Rockwell, Modbus and OPC-UA sources |
+| [`references/softing-datafeed.md`](references/softing-datafeed.md) | The **Central Aggregation Server** pattern from the dataFEED V5.70 manual — the real driver list, licensing, per-driver settings for Siemens, Rockwell, Modbus and OPC-UA sources, and **where the OESL guidance does not match the product** |
+| [`references/softing-tag-syntax.md`](references/softing-tag-syntax.md) | Tag identifier syntax per family — S7 areas and bit masking, Modbus areas with the UnitID and Group prefixes, PLC-5 / SLC file types, arrays and suffixes |
 | [`references/iiot-edge-platform.md`](references/iiot-edge-platform.md) | The **IIoT Edge** pattern in detail — the six phases, the hardware sequence, device sizing, non-PLC endpoint classes |
 | [`references/fallbacks.md`](references/fallbacks.md) | The eight ways an integration blocks, what to try before declaring each one blocked, and when to stop |
 
@@ -97,6 +97,28 @@ a machine blocked on it, work the seven non-PLC rungs in
 [`fallbacks.md`](references/fallbacks.md) §1 — a great many "no program" machines turn out
 to be file-drop, vendor-interface or already-on-OPC-UA machines that nobody checked.
 
+## ⚠ Two things the OESL guidance gets wrong
+
+Checked against the **Softing dataFEED OPC Suite V5.70 manual**, now in the bundle. Both
+sit in the happy path of a route somebody will try this month.
+
+**There is no Beckhoff data source.** The recommendation *Central Aggregation Server —
+Beckhoff Integration* says to select **Beckhoff** and choose the **ADS** protocol. dataFEED
+V5.70 has neither; "Beckhoff" appears once in 1,540 pages, as an example of a vendor whose
+controllers speak **Modbus**. Reach a Beckhoff PLC via Modbus TCP, or via a TwinCAT OPC UA /
+OPC DA server. The native ADS path is the **edge** connector — and that branch is `TODO`.
+**Beckhoff therefore has no fully-written route on either platform.** Say so; take it to the
+IIAE.
+
+**NetLink is discontinued.** The Siemens recommendations list `Netlink` as a protocol
+option. It was discontinued in V5.38, is retained only for legacy configurations, and
+Softing strongly recommends migrating them to `Siemens S7`. A **Helmholz NetLink gateway**
+is still the right hardware for a PLC with no Ethernet of its own — you address it with the
+Siemens S7 protocol. The guidance conflates the hardware with the protocol name.
+
+Both are recorded as open gaps in `registry.yaml`: the source of truth is `rules.json`, and
+fixing them is a change there, not here.
+
 ## Three live constraints worth knowing before you plan
 
 **Only the large edge device is approved.** `rules.json` answers *both* the medium and the
@@ -110,9 +132,14 @@ OPC-UA-server on the aggregation server are `TODO` in `rules.json`. For the firs
 **aggregation route is fully documented and is the real answer**; for the third,
 `rules-next.json` has the procedure. Never compose a procedure for an unwritten branch.
 
-**Softing can do more than the OESL tree routes** — S5, FANUC CNC, and file/database
-sources are product capabilities with no OESL route. A capability is not an approved route:
-put it to the IIAE, and if adopted it becomes a change to `rules.json`.
+**Softing does more than the OESL tree routes.** Data sources with no route: FANUC CNC,
+database read (ODBC), MQTT Broker and MQTT Publisher as *sources*, file read, OPC Classic,
+OPC Classic Tunnel. Siemens S5 has a full driver and no route either. A capability is not an
+approved route: put it to the IIAE, and if adopted it becomes a change to `rules.json`.
+Note also that **each PLC family needs its own licence** (`dataFEED OPC Server Siemens /
+CNC / Rockwell / Mitsubishi / Modbus / B&R`) unless Suite Extended is in place — check that
+before promising a route, and remember the server runs at most **50 concurrent
+configurations** of a possible 100.
 
 ## What the estate means for a routing decision
 
@@ -149,17 +176,26 @@ connectivity problems at all.**
   readiness dimension "Available" without evidence.
 - **Never invent a route** for a branch the guide marks `TODO`.
 
-## Sourcing and what is missing
+## Sourcing
 
-The Softing configuration patterns are the OESL integration guidance captured in
-`rules-next.json`, which itself references the OESL guideline documents *"Machine
-Integration — Softing DataFeed — Siemens S7-300/400/1200/1500"* and *"… — Beckhoff PLC
-Integration"*.
+**Product behaviour** — the **Softing dataFEED OPC Suite V5.70 operating manual** (German,
+1,540 pp., dated 2026-02-16) at
+`_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` in the knowledge
+bundle. `softing-datafeed.md` and `softing-tag-syntax.md` carry page references throughout,
+so any claim can be checked against the source. The manual is a Git-LFS object — `git lfs
+pull` before expecting to read it.
 
-**Softing's own product documentation was not reachable from the environment this was
-written in** (`industrial.softing.com` and the mirrors are blocked by the network egress
-policy). Vendor capability statements are marked as such in `softing-datafeed.md` and
-should be checked against the current Softing manual before being relied on.
+**OESL process** — the Equipment integration guide's `rules.json` (live) and
+`rules-next.json` (next), which also reference two OESL guideline documents by name:
+*"Machine Integration — Softing DataFeed — Siemens S7-300/400/1200/1500"* and
+*"… — Beckhoff PLC Integration"*.
 
-⟨To attach: the Softing dataFEED OPC Suite manual, and the two OESL guideline documents
-themselves — this skill points at them but does not contain them.⟩
+Where the manual and the OESL guidance disagree, the disagreement is stated rather than
+resolved: `rules.json` is authoritative for **what OESL permits**, the manual for **what the
+product does**, and a procedure that names a menu item the product does not have cannot be
+followed by anyone.
+
+⟨To attach: the two OESL guideline documents themselves — this skill points at them but
+does not contain them. Also unverified: whether any OESL plant still runs a NetLink
+configuration, and the German manual's own contradiction over which unsigned-type mode is
+the default.⟩

@@ -6,9 +6,16 @@ and where a path genuinely dead-ends. Source: the Equipment integration guide's
 `rules.json` is authoritative for an answer today.
 
 Read this first, then the pattern file for the route you land on:
-[`softing-datafeed.md`](softing-datafeed.md) for the Central Aggregation Server,
+[`softing-datafeed.md`](softing-datafeed.md) for the Central Aggregation Server (with
+[`softing-tag-syntax.md`](softing-tag-syntax.md) for tag identifiers),
 [`iiot-edge-platform.md`](iiot-edge-platform.md) for the edge. When a branch is blocked,
 go to [`fallbacks.md`](fallbacks.md).
+
+> **Two rows below correct the OESL guidance against the product manual.** dataFEED OPC
+> Suite V5.70 has **no Beckhoff data source**, and the **NetLink protocol was discontinued
+> in V5.38** — both are still in the OESL recommendation text. See
+> [`softing-datafeed.md`](softing-datafeed.md) § *Where the OESL guidance does not match the
+> product*.
 
 ---
 
@@ -55,15 +62,15 @@ below, not by a vendor policy.
 |---|---|---|---|---|
 | **Siemens** | S7 (300/400/1200/1500) | ✅ | ✅ | Both fully documented. Aggregation avoids cabinet work; edge avoids a server dependency |
 | | S7 Net / low frequency | ✅ | — | The low-frequency answer to "no approved small edge device" |
-| | TIA | ✅ | ✅ | On Softing use protocol **Siemens S7-2**, S7-1200/1500 only |
-| | S5 | — | ⟨`rules-next` adds an S5 question⟩ | Softing supports S5; the OESL tree does not route it yet |
+| | TIA | ✅ | ✅ | On Softing use protocol **Siemens S7-2** — S7-1200/1500 **only**, and the one protocol with per-connection advanced settings |
+| | S5 | — | driver exists | dataFEED has a full S5 driver and syntax; the OESL tree does not route it. `rules-next` adds an S5 question |
 | **Siemens NCU** | Sinumerik 840D / 840 UDP | ✅ | ✅ *(next)* | Dedicated connector on the edge side |
 | | Sinuvars | ✅ | ✅ *(next)* | Edge only in the live tree |
-| **Beckhoff** | — | ⚠️ `TODO` | ✅ | **Aggregation is the documented route.** The edge recommendation body is unwritten |
+| **Beckhoff** | — | ⚠️ `TODO` | ❌ **no driver** | **Neither route works as written.** dataFEED has no Beckhoff/ADS data source; the edge body is unwritten. Reach it via Modbus TCP, or a TwinCAT OPC UA / OPC DA server. IIAE question |
 | **B&R** | INA2000 | — | ⚠️ `TODO` | Neither route has a written body — IIAE question |
 | **Omron** | NJ / CJ | ⚠️ `TODO` | ✅ *(next)* | Edge body is a task stub, no procedure |
 | **Rockwell / Allen Bradley** | CLX · SLC / PLC-5 | ✅ | ✅ | Aggregation procedure is fully written in `rules-next` |
-| **Modbus** | TCP / RTU | ⚠️ `TODO` | ✅ | **Aggregation is the documented route** |
+| **Modbus** | TCP / RTU | ⚠️ `TODO` | ✅ | **Aggregation is the documented route.** Also the practical route for a Beckhoff or Wago PLC that speaks Modbus TCP |
 | **Mitsubishi** | Melsec-Q | — | ✅ (task list only) | Aggregation only |
 | **OPC-UA server** already present | — | ✅ | ✅ *(next)* | Cheapest path in the tree — see below |
 | **Anything else** | — | by exception | — | → *Integration of Other PLCs*: connector development, long lead times |
@@ -136,12 +143,18 @@ generically. Engel, Piovan, Keyence, Zwick and Optris all have one.
 | SFT-SIMATIC S7-Connector | Siemens S7 family |
 | SFT-OPC-Suite | The dataFEED OPC Suite itself, aggregating all its data sources |
 
-Softing's own driver set is broader than these two rows suggest — its published
-capabilities cover Siemens S5/S7/SINUMERIK, FANUC CNC, Rockwell SLC-500/PLC-5/ControlLogix/
-CompactLogix, Mitsubishi MELSEC-Q, B&R and Modbus TCP, plus any device with an integrated
-OPC UA server or MQTT publisher. Where the OESL tree has no route but Softing has a driver
-(S5, FANUC, Mitsubishi beyond Melsec-Q), that is a **question for the IIAE**, not a
-licence to configure it: the constraint is the OESL standard, not the product.
+Softing's driver set is broader than these two rows suggest. From the V5.70 manual the
+data sources are: **Siemens** (S7 · S7-2 · S5 · Send/Receive) · **SINUMERIK CNC** ·
+**Modbus** · **Rockwell** · **B&R** · **Mitsubishi** · **FANUC CNC** · **OPC UA Server** ·
+**OPC Server (Classic)** · **OPC Classic Tunnel Server** · **database read (ODBC)** ·
+**MQTT Broker** · **MQTT Publisher** · **file read** · local datapoints.
+
+**No Beckhoff. No ADS.** Five of the rest — FANUC, database read, MQTT as a source, file
+read, OPC Classic — have no OESL route. A product capability is **not** an approved route:
+put the case to the IIAE, and if adopted it becomes a change to `rules.json`. Each PLC
+family also needs **its own licence** (`dataFEED OPC Server Siemens / CNC / Rockwell /
+Mitsubishi / Modbus / B&R`) unless Suite Extended is in place — check that before promising
+a route.
 
 Input protocol is unrecorded on 11 of the 26 connector rows. That is the export's state,
 not a claim that the connector is protocol-free — confirm before quoting one.

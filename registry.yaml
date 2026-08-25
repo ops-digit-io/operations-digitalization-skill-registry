@@ -29,6 +29,7 @@ registry:
         paths:
           - _knowledge/_apps/machine-integration-guidance-app/rules.json
           - _knowledge/_apps/machine-integration-guidance-app/rules-next.json
+          - _knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf  # Softing dataFEED OPC Suite V5.70 manual (LFS)
           - _knowledge/90-Sources/generated/kg_nodes.csv    # 1,715 Machine + 26 Connector nodes
       - name: Operations Digitalization department map
         paths:
@@ -230,6 +231,9 @@ open_gaps:
   - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
   - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); B&R INA2000 on aggregation and Omron NJ on edge are stubs.
   - No approved medium or small edge device — large device or low-frequency collection only. Confirm current status.
-  - Softing dataFEED vendor manual and the two OESL "Machine Integration — Softing DataFeed" guideline documents are referenced but not attached; vendor docs were unreachable from the authoring environment.
+  - rules.json tells users to select a "Beckhoff" data source with an "ADS" protocol in Softing dataFEED. V5.70 has neither — Beckhoff has no fully-written route on either platform. Fix in rules.json.
+  - rules.json lists "Netlink" as a Siemens protocol option. Discontinued in dataFEED V5.38; legacy configurations should migrate to Siemens S7. Fix in rules.json.
+  - Whether any OESL plant still runs a NetLink-based dataFEED configuration.
+  - The two OESL "Machine Integration — Softing DataFeed" guideline documents are referenced by rules-next.json but not attached to the bundle.
   - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on all 1,715 machine rows.
   - 23 literal Teams webhook URLs and 30 literal Bearer tokens are committed in Node-RED flow JSON and need rotating out.

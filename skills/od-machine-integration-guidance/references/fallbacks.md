@@ -154,21 +154,54 @@ out loud: the guidance exists, it is just not live yet.
 
 ---
 
-## 7. Softing has a driver but OESL has no route
+## 7. The OESL guidance does not match the product
 
-Softing's published capabilities cover more than the OESL tree routes — **Siemens S5**,
-**FANUC CNC**, **Mitsubishi beyond Melsec-Q**, and file/database sources (XML, TXT, CSV,
-ODBC, MongoDB, CouchDB, InfluxDB).
+Two OESL recommendations describe steps that cannot be performed in dataFEED OPC Suite
+V5.70. Both sit in the happy path of a route somebody will try this month.
 
-**A product capability is not an approved route.** The constraint is the OESL standard, not
-the product. If one of these would solve a machine:
+### Beckhoff — there is no Beckhoff data source
+
+*Central Aggregation Server — Beckhoff Integration* says to select **Beckhoff** under Data
+Sources and choose the **ADS** protocol. **dataFEED V5.70 has neither.** The word
+"Beckhoff" appears once in the 1,540-page manual — as an example of a vendor whose
+controllers speak **Modbus**.
+
+| Reach a Beckhoff PLC via | Requires |
+|---|---|
+| **Modbus data source** | The PLC exposes Modbus TCP |
+| **OPC UA Server data source** | A TwinCAT OPC UA Server in front of it |
+| **OPC Server (Classic) data source** | A TwinCAT OPC DA server |
+
+The native ADS path is the **edge** connector `DTQ-Beckhoff-Connector` — and that branch is
+`TODO` in `rules.json`. **Beckhoff therefore has no fully-written route on either
+platform.** State that and take it to the IIAE; do not follow the written procedure, because
+the menu item it names does not exist.
+
+### NetLink — discontinued since V5.38
+
+The Siemens recommendations list `Netlink` among the protocol options. The manual: *the
+NetLink protocol was discontinued with version 5.38*, is retained only for configurations
+carried over from older versions, and Softing *strongly recommends* migrating those to
+`Siemens S7`.
+
+A **Helmholz NetLink gateway** is still the right OT hardware for a PLC with no Ethernet of
+its own — you address it with the **Siemens S7** protocol. The hardware and the protocol
+name are different things and the OESL text conflates them.
+
+### And: Softing does more than the tree routes
+
+Data sources with **no OESL route**: FANUC CNC, database read (ODBC), MQTT Broker and MQTT
+Publisher as *sources*, file read, OPC Server (Classic), OPC Classic Tunnel Server. Siemens
+S5 has a full driver and syntax and no route either.
+
+**A product capability is not an approved route.** If one would solve a machine:
 
 1. Put it to the IIAE with the machine and the dependent use case.
 2. If adopted, it becomes a change to `rules.json` — the tree is data, that is the point.
-3. Do **not** configure it on the server because the product allows it. An undocumented
-   data source on a shared aggregation server is a support burden nobody agreed to.
+3. Do **not** configure it because the product allows it. An undocumented data source on a
+   shared aggregation server is a support burden nobody agreed to.
 
-`rules-next.json` already adds an `siemens_s5` question, so that gap at least is known.
+`rules-next.json` already adds a `siemens_s5` question, so that gap at least is known.
 
 ---
 
@@ -184,7 +217,13 @@ The integration "worked" and there is no data. In order of likelihood:
 | Beckhoff connection refuses despite correct IP | **AMS route** missing on the PLC side |
 | Modbus values present but nonsense | **No conversion** — raw counts were never scaled to engineering units. Modbus has no type system and will not complain |
 | Values arrive but no use case can compare them across plants | **Tags were structured to the PLC layout, not to a data model.** `Data model standardization (CT Base)` is the estate's most-recorded blocker at 23 machines |
-| Aggregation server degrading as machines are added | **Cyclic read intervals** below the guidance values; **read optimization** off |
+| A PLC-5 / SLC tag reads a real but wrong value | **Input and output files are octal-addressed**; every other file type is decimal |
+| A string comes back truncated or with two junk characters | **S7 strings carry a two-byte length prefix, S5 strings do not** — same syntax, different encoding. Check the global string-interpretation setting |
+| Aggregation server degrading as machines are added | **Cyclic read intervals** below the guidance values; **read optimization** off; **tag browsing** left on after commissioning |
+| S7-1200/1500 connection dropping roughly hourly | **Security connection timeout** (default 55 min) exceeds the controller's own monitoring interval. Siemens firmware forces an hourly security-token exchange; data is lost between drop and reconnect |
+| Data lost during a network outage | **Store and Forward** buffers locally and resumes. OPC UA S&F is **Suite Extended only** |
+| ControlLogix reports "datapoint not available" right after a restart | Enable *wait for ControlLogix browsing to finish before registering datapoints* |
+| A data source cannot be deleted | A datapoint from its address space is still used by a processing function or a data target |
 
 **A connection that comes up and carries nothing is worse than one that refuses**, because
 it looks finished. That is why the Connection Test comes before tag definition, and why the

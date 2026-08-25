@@ -1,234 +1,371 @@
 # Pattern — Central Aggregation Server (Softing dataFEED OPC Suite)
 
 The aggregation pattern: a Softing dataFEED OPC Suite server holds the driver connections
-to the PLCs and exposes them as one OPC-UA address space, which the IIoT Edge Platform (or
-another consumer) reads. No edge device in the machine cabinet, no 24 V supply, no
-mounting — the cost sits in the server and its licences instead.
+to the PLCs and exposes them as one address space, which the IIoT Edge Platform (or another
+client) reads. No edge device in the machine cabinet, no 24 V supply, no mounting — the
+cost sits in the server, its licences and its operation instead.
 
-**Valid for BROWNFIELD.** (The OPC-UA-server data-source pattern is the one exception —
-valid for brownfield *and* greenfield.)
+**Valid for BROWNFIELD.** (The OPC-UA-server data source is the exception — brownfield and
+greenfield.)
 
-> **Sourcing note.** The procedures below are the OESL integration guidance captured in the
-> Equipment integration guide's `rules-next.json`, which references the OESL guideline
-> documents *"Machine Integration — Softing DataFeed — Siemens S7-300 / S7-400 / S7-1200 /
-> S7-1500 Integration"* and *"Machine Integration — Softing dataFEED — Beckhoff PLC
-> Integration"*. Softing's own product documentation was **not reachable from this
-> environment** (`industrial.softing.com` is blocked by the network egress policy), so
-> vendor capability statements here are marked as such and should be checked against the
-> current Softing manual before being relied on. ⟨Vendor manual — to attach.⟩
+**Sources.** Product behaviour is from the **Softing dataFEED OPC Suite V5.70 operating
+manual** (German, 1,540 pp., dated 2026-02-16), in the knowledge bundle at
+`_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf`. Page references
+below are to that manual. OESL process is from the Equipment integration guide
+(`rules.json` / `rules-next.json`). Where the two disagree, **§ Where the OESL guidance
+does not match the product** says so — read that section before following any procedure.
 
 ---
 
-## The shape of every dataFEED data-source pattern
+## ⚠ Where the OESL guidance does not match the product
 
-Whatever the driver, the procedure is the same eleven moves. Learn the shape once; the
-per-driver sections below only differ in the italicised parts.
+Two things in the OESL recommendations cannot be done as written in V5.70. Both are in the
+happy path of a route somebody will try this month.
 
-```
-Log in to the Softing OPC-UA Aggregation Server
- 1. Data Sources → select the *driver family*
- 2. Create a new connection
- 3. Name it uniquely — use the PLC name or machine name, matching the Machine List
- 4. Enable the connection
- 5. Select the *specific protocol variant*
- 6. Configure the PLC address — IPv4, IPv6 or hostname
- 7. Configure *protocol-specific advanced settings*
- 8. Configure Read Optimization — do not read whole blocks for single variables
- 9. Set the Cyclic Read interval
-10. Prioritize read requests ahead of writes in the queue
-11. Set value conversion (e.g. DateTime → text)
-    → Connection Test
-    → Define tags (three methods, below)
-```
+### 1. There is no Beckhoff data source
 
-**Name the connection after the machine, not the PLC's role.** The connection name is what
-ties the OPC-UA node back to a Machine List row; a connection called `PLC1` is unjoinable
-six months later.
+The OESL recommendation *Central Aggregation Server — Beckhoff Integration* says:
 
-**Read Optimization and Cyclic Read are where an aggregation server is won or lost.** One
-server carries many machines. A 100 ms cyclic read on a machine that reports a counter is
-load spent for nothing; the guidance's own examples are **1000 ms** for Siemens, Rockwell
-and Modbus, **500 ms** for Beckhoff. Start at the guidance value and justify anything
-faster against a use case that needs it.
+> *"Navigate to Data Sources and select **Beckhoff** … Choose the appropriate Beckhoff
+> protocol (such as **ADS**) … Configure advanced settings specific to Beckhoff
+> Communication Protocol, focusing on **ADS port, target and source IDs**…"*
 
----
+**dataFEED OPC Suite V5.70 has no Beckhoff data source and no ADS driver.** The complete
+data-source list is below; Beckhoff is not on it. In the entire 1,540-page manual the word
+"Beckhoff" appears **once** — as an example of a vendor whose controllers speak *Modbus*
+(p. 222).
 
-## Tag definition — three methods, in order of preference
+So a Beckhoff PLC reaches the aggregation server only by one of:
 
-Every driver offers the same three. This is the highest-leverage choice in the pattern.
-
-| Method | What it is | Use when | Cost of getting it wrong |
-|---|---|---|---|
-| **Symbol File Import** | Import an **SDFI** file exported from the PLC program (S7 project etc.) | Default. You have the PLC program — which the breakpoint already required | — |
-| **Import Items Wizard** | Import a `.txt` in Softing's custom data format | You have a tag list but not an importable project | Format errors surface as missing items, not as an error |
-| **Manual Definition** | Type each tag: name + syntax identifier | A handful of tags, or a protocol with no symbol export | Silent address typos; unmaintainable past ~20 tags |
-
-Syntax identifiers differ per driver:
-
-| Driver | Example identifier |
+| Route | Requires |
 |---|---|
-| Siemens S7 / TIA | `DB15,INT1032` |
-| Beckhoff ADS | `GlobalVar.intSpeed` |
-| Modbus | `Holding Register, HR300` |
-| Rockwell | `DB15,INT1032` *(as written in the guidance)* |
+| **Modbus data source** | The Beckhoff PLC exposes Modbus TCP — the manual's own example vendor list for Modbus is "Schneider Electric, Wago, **Beckhoff**" |
+| **OPC UA Server data source** | A TwinCAT OPC UA Server in front of the PLC |
+| **OPC Server (Classic) data source** | A TwinCAT OPC DA server |
 
-**Structure the tags to a data model, not to the PLC's layout.** The guidance says to
-define tags "in a structured way (e.g. **CT Base** or other data model integration)". This
-is the moment cross-plant comparability is decided: a tag named for its data-block address
-is a tag nobody at another plant can match. `Data model standardization (CT Base)` is
-already the single most-recorded integration blocker in the estate — 23 machines — which is
-what it looks like when this step is deferred.
+The native ADS path is the **edge** route and its `DTQ-Beckhoff-Connector` — which is the
+branch `rules.json` still marks `TODO`. Net effect: **Beckhoff has no fully-written route
+on either platform.** Say that plainly and take it to the IIAE rather than following a
+procedure for a driver that is not there.
 
-**Split mandatory from optional tags in the Machine CV.** Every route asks for it. A
+### 2. NetLink is discontinued
+
+The OESL recommendations list the Siemens protocol options as *"Siemens S7, Siemens S7-2,
+Siemens S5, **Netlink**, etc."*. The manual (p. 161):
+
+> *"The NetLink protocol was discontinued with version 5.38. In existing configurations
+> based on older versions that still use NetLink, the protocol remains available. We
+> strongly recommend migrating these configurations to Siemens S7."*
+
+Do not select NetLink on a new connection — it is not offered. A **Helmholz NetLink
+gateway** is still the right OT hardware for a PLC with no Ethernet of its own; you simply
+address it with the **Siemens S7** protocol now. The hardware and the protocol name are two
+different things, and the OESL text conflates them.
+
+Existing configurations still running NetLink are migration candidates. ⟨Whether any OESL
+plant has one — to check.⟩
+
+---
+
+## What dataFEED can actually connect (V5.70)
+
+**Data sources** (p. 153 ff.) — where datapoints are defined:
+
+| Data source | Manual p. | In the OESL tree? |
+|---|--:|---|
+| Siemens devices (S7 · S7-2 · S5 · Send/Receive) | 155 | ✅ |
+| Siemens SINUMERIK CNC devices | 183 | ✅ *(next tree)* |
+| Modbus devices | 222 | ✅ |
+| Rockwell devices | 242 | ✅ |
+| B&R devices | 257 | ⚠️ `TODO` |
+| Mitsubishi devices | 272 | ✅ (task list only) |
+| **FANUC CNC devices** | 287 | ❌ no route |
+| OPC UA Server | 315 | ✅ *(next tree)* |
+| OPC Server (Classic) | 368 | ❌ no route |
+| OPC Classic Tunnel Server | 404 | ❌ no route |
+| **Database read** (ODBC) | 439 | ❌ no route |
+| **MQTT Broker** | 484 | ❌ no route |
+| **MQTT Publisher** | 548 | ❌ no route |
+| **File read** | 580 | ❌ no route |
+| Local datapoints | 616 | — |
+
+**Data targets** (p. 844 ff.) — who consumes them: OPC UA Client · OPC Client · OPC Classic
+Tunnel Client · MQTT Broker · Database · REST Server · MPDV MIP Server · NoSQL database ·
+File · Web Service.
+
+> "Data source" and "data target" **do not describe flow direction** (p. 25). They say who
+> *defines* the datapoints and who *uses* them; the actual flow is usually bidirectional.
+
+**Also available, and relevant to OESL:**
+
+- **Store and Forward** — buffers locally when the connection drops and resumes when it
+  returns. OPC Classic S&F is in Base and Extended; **OPC UA Store and Forward (server
+  side) is Extended only** (p. 46). This is the answer to "what happens to data during a
+  network outage", and it is a licensing question before it is a configuration one.
+- **Preprocessing Engine** (p. 764) — mathematical and logical calculations across
+  datapoints, written into other datapoints. Deriving a value here rather than downstream
+  is a **data-model decision**, not a local convenience → `od-signal-standardization`.
+- **Exchange** (p. 25) — server-to-server or server-to-PLC data exchange.
+
+Five of these — FANUC, database read, MQTT as a *source*, file read, OPC Classic — are
+product capabilities the OESL tree has no route for. **A capability is not an approved
+route.** Put the case to the IIAE; if adopted it becomes a change to `rules.json`.
+
+---
+
+## Licences, before anything else
+
+Licensing is per driver family, and a missing one is the fastest way to lose an afternoon
+(p. 45–54):
+
+| Licence | Unlocks |
+|---|---|
+| **dataFEED OPC Suite Extended** | Everything: OPC Classic + UA client/server, both tunnels, **OPC Classic and OPC UA Store and Forward**, Exchange, Local Items, SQL (ODBC) and NoSQL, file read/write, and connections to the **SINUMERIK, Rockwell and Mitsubishi** families |
+| dataFEED OPC Suite Base | The classic/UA interfaces and OPC Classic Store and Forward, without the extended set |
+| dataFEED **OPC Server Siemens / CNC / Rockwell / Mitsubishi / Modbus / B&R** | One PLC family each |
+| dataFEED OPC Server **Extension 50** | Concurrent access to up to **50** OPC UA / OPC / tunnel servers |
+| OPC Organizer Classic / UA | Gateway between OPC standards — but **limited to 1 server connection** without the Extension licence |
+
+Three rules that bite:
+
+1. **The licence major version must match the product major.** A 5.00 key unlocks 5.xx; a
+   4.00 key does not. Higher-version licences do unlock lower product versions.
+2. **Only *started* configurations consume licence items.** Stopped configurations are free.
+3. **Changing licences while the local application is running stops it**, and the
+   configuration shows the expired-demonstration icon.
+
+**Capacity:** up to **100 configurations**, of which **50 can run concurrently** (p. 25).
+Split configurations so that connections you want to start, stop or test together live
+together — that is the manual's own advice, and it is what lets one plant's machines be
+restarted without touching another's.
+
+---
+
+## The shape of every data-source pattern
+
+Whatever the driver, the moves are the same. Learn the shape once; the per-driver sections
+only differ in the italicised parts.
+
+```
+Configurator → Data Sources → *driver family*
+ 1. Add a connection                                    (button, context menu, or CTRL+A)
+ 2. Name it — unique in the configuration
+ 3. Enable it                                           (disabled = greyed out, ignored at runtime)
+ 4. Select the *application protocol*
+ 5. Target address — IPv4, IPv6 or DNS host name
+ 6. *Protocol-specific advanced communication settings*
+ 7. Global settings (all connections of that family) vs Advanced settings (this connection)
+ 8. Connection Test  ← before defining a single tag
+ 9. Define the address space — three import methods
+```
+
+**The connection name becomes the root of that device's namespace** (p. 156), so it is what
+every OPC-UA node id downstream is prefixed with. Three consequences:
+
+- **Name it after the machine**, matching the Machine List. A connection called `PLC1` is
+  unjoinable six months later.
+- It must be **unique** in the configuration.
+- It must contain **no address-space delimiters, no multi-byte characters and no spaces**.
+  This is a hard constraint, not a style preference.
+
+**Copy Connection** (context menu only) duplicates a connection, proposing `<name>_Copy` and
+defaulting the address to `localhost` (p. 159). For a line of near-identical machines this
+is the right tool — and remember to change *both* the name and the address.
+
+**A connection cannot be deleted** while any datapoint from its address space is still used
+by a processing function or a data target (p. 158). If a delete is refused, that is why.
+
+**Simulation mode** puts a connection into simulation (it shows red in the list) — useful
+to build and test a configuration before the machine exists. **Not available for S7-2
+connections.**
+
+---
+
+## Tag definition — three methods
+
+Every PLC driver offers the same three. This is the highest-leverage choice in the pattern.
+Syntax detail for every family is in [`softing-tag-syntax.md`](softing-tag-syntax.md).
+
+| Method | What it is | Use when | Failure mode |
+|---|---|---|---|
+| **Symbol file import** | Import an **SDFI** file exported from the PLC program (p. 637) | Default — you already had to have the PLC program to pass the breakpoint | Mismatch against the *deployed* program version |
+| **Import Items Wizard** | Import a `.txt` in Softing's format (p. 646) | You have a tag list but not an importable project | Format errors surface as missing items, not as an error |
+| **Manual definition** | Type each tag: name + syntax identifier (p. 688) | A handful of tags, or a family with no symbol export | Silent address typos; unmaintainable past ~20 tags |
+
+When adding a datapoint manually, **access rights and data type are read-only** — access
+rights come from the connection, and the data type is derived automatically from the syntax
+you type (p. 688). A tag whose type is not what you expected is a syntax problem, not a
+type problem.
+
+**Structure tags to the data model, not to the PLC's layout.** The OESL guidance says "in a
+structured way (e.g. **CT Base**)". This is the moment cross-plant comparability is decided:
+a tag named for its data-block address is a tag nobody at another plant can match.
+*Data model standardization (CT Base)* is already the most-recorded integration blocker in
+the estate — 23 machines — which is what deferring this step looks like.
+
+**Split mandatory from optional tags in the Machine CV.** Every OESL route asks for it. A
 mandatory tag missing at acceptance is a rework; an optional one missing is a note.
 
 ---
 
-## Driver pattern — Siemens S7 (S7-300 / 400 / 1200 / 1500)
+## Driver — Siemens (S7-300 / 400 / 1200 / 1500, S5)
 
-*Data source:* **Siemens**
+*Data Sources → Siemens.* Manual p. 155–182, advanced comms p. 163.
 
-| Step | Setting |
+**Application protocols (p. 161):** `Siemens S7` · `Siemens S7-2` **(SIMATIC S7-1200 and
+S7-1500 only)** · `Siemens S5` · `Send/Receive`. NetLink is discontinued — see the warning
+at the top.
+
+### Advanced communication settings — S7
+
+| Setting | What it does | Guidance |
+|---|---|---|
+| **No header** | For partners speaking raw TCP/IP only; the application must monitor both ends | — |
+| **RFC1006** | Packs H1 telegrams into TCP/IP | The normal choice for S7 |
+| **Life Data Acks** | Empty user-data telegrams to hold an idle connection open | **Softing recommends OFF for S7 PLCs** |
+| **Acks** (keep-alive) | Enables socket-library connection monitoring | **Softing recommends ON.** With it off, the connection is considered closed after KeepAliveTime *without telling the partner* |
+| **Write allowed** | Permits writing to the PLC and opens a write connection | **Leave off unless a use case writes.** Note: every write is preceded by a read |
+| **Use High Performance Protocol** | Converts accesses to variables in *different* operand areas (`DB5.W3 + MW1 + T2`) into a single field access | Fewer packets, better packing, lower network load, faster server. Turn it on |
+| **Read / write ports** | 16-bit, 1–65535 | Must be **identical on both sides**. Read, write and event ports must **differ from each other**. Avoid 1–1023 (well-known ports) |
+
+### RFC1006 settings — the classic failure
+
+| Field | Values |
 |---|---|
-| Protocol variant | Siemens S7 · **Siemens S7-2** · Siemens S5 · **Netlink** · … |
-| Address | IPv4 / IPv6 / hostname |
-| Advanced | **Header definition** (e.g. RFC1006 header) · **Write permission** (only if values must be sent *to* the PLC) · **RFC1006 settings**: Service, **Rack**, **Slot** |
-| Read optimization | On — avoid reading complete blocks for single variables |
-| Cyclic read | e.g. **1000 ms** |
-| Request priority | Reads before writes |
-| Conversion | DateTime → text |
-| Verify | **Connection Test** |
+| **Service** | `01` PG or PC · `02` OS (operator/monitoring device) · `03` Others (e.g. OPC server, SIMATIC S7 PLC) |
+| **Rack** | The rack holding the CPU: **0 to 7** |
+| **Slot** | The slot holding the CPU: **0 to 31**. **For an S7-300 the slot is always 2** |
+| **Local / remote TSAP** | Required for RFC1006. **They must cross-match**: the local TSAP of one system must equal the remote TSAP of the other, or the connection will not come up |
 
-**Rack and slot are the classic failure.** An S7-300 and an S7-1500 do not use the same
-rack/slot pair, and a wrong one produces a connection that refuses rather than one that
-returns bad data — which is the good failure mode. Use the Connection Test before defining
-a single tag.
+Rack and slot are the most common Siemens misconfiguration, and they fail *well* — the
+connection refuses rather than returning bad data. **Run the Connection Test before defining
+a single tag.**
 
-**Leave Write Permission off unless a use case writes to the PLC.** Read-only is the
-default posture; enabling writes on an aggregation server that fronts many machines widens
-the blast radius of a misconfigured item far beyond one machine.
+### S7-2 advanced settings (S7-1200 / 1500 only)
 
-**Netlink is the protocol variant for a Helmholz NetLink gateway** — the OT device the
-budget block keeps naming. That is the route for a PLC with no Ethernet interface of its
-own: the gateway bridges MPI/PROFIBUS to Ethernet and dataFEED speaks to the gateway.
+`Advanced settings` is available **only for S7-2 connections** (p. 157). All values are
+per-connection, and the configurator validates the constraints between them (p. 683–686):
 
-## Driver pattern — Siemens TIA
+| Parameter | Default | Range |
+|---|---|---|
+| Service timeout | 30 s | 1–600 s |
+| Service queue size | 1000 | 100–5000 — calls beyond the queue are rejected |
+| Connection timeout | 10 s | 1–600 s — also the watchdog: no traffic for this long and the connection is dropped |
+| Connection check period | 5 s | 1–600 s — the keep-alive interval |
+| Request timeout | 5 s | tune to network latency and PLC performance |
+| **Security connection timeout** | **55 minutes** | see below |
 
-Identical to S7, with one binding constraint:
-
-> **Protocol variant `Siemens S7-2` is for SIMATIC S7-1200 and S7-1500 only.**
-
-Selecting S7-2 for an S7-300/400 is a misconfiguration. Given that the S7-300 is the single
-largest PLC model in the estate, this is a mistake with plenty of opportunity to occur.
-
-## Driver pattern — Beckhoff
-
-*Data source:* **Beckhoff**
-
-| Step | Setting |
-|---|---|
-| Protocol variant | **ADS** |
-| Address | PLC IP plus **port and route settings** |
-| Advanced | **ADS port**, **target and source AMS Net IDs**, synchronization settings |
-| Read optimization | On |
-| Cyclic read | e.g. **500 ms** |
-| Request priority | Reads and writes both managed |
-| Verify | Connection Test |
-| Tags | `GlobalVar.intSpeed` style symbolic names |
-
-**ADS needs a route on both ends.** Unlike the Siemens pattern, the target PLC must know
-the AMS Net ID of the requesting system. An ADS connection that fails despite a correct IP
-is almost always a missing route entry on the PLC side, not a network problem.
-
-Beckhoff's OT hardware line in the budget block is **EtherCAT terminals**, not a NetLink
-gateway — the shopping list differs from the Siemens one.
-
-## Driver pattern — Rockwell / Allen Bradley
-
-*Data source:* **Rockwell**
-
-| Step | Setting |
-|---|---|
-| Protocol variant | per Rockwell family (ControlLogix / CompactLogix / SLC-500 / PLC-5) |
-| Address | IP plus **port settings and network configuration** |
-| Advanced | **Network timeouts**, **data refresh rates**, **error handling** |
-| Read optimization | On — explicitly to minimise network load |
-| Cyclic read | e.g. **1000 ms** |
-| Request priority | Reads and writes sequenced |
-| Verify | Connection Test |
-
-Rockwell is the second-largest vendor family in the estate and carries the largest share of
-`EVALUATION ONGOING` machines — the route decision is genuinely open more often here than
-for Siemens. Where the estate records a route, it splits edge / aggregation roughly 78 / 30.
-
-## Driver pattern — Modbus
-
-*Data source:* **Modbus**
-
-| Step | Setting |
-|---|---|
-| Protocol variant | **TCP** or **RTU** |
-| Address | IPv4 / IPv6 / hostname |
-| Advanced | **Timeouts**, **polling intervals**, **retries** |
-| Read optimization | On |
-| Cyclic read | e.g. **1000 ms** |
-| Conversion | **Raw counts → engineering units** |
-| Tags | `Holding Register, HR300` |
-
-Two things are Modbus-specific and both are silent failures:
-
-- **Modbus has no type system.** A holding register is sixteen bits and nothing tells you
-  it is a temperature in tenths of a degree. The conversion step is where that meaning is
-  applied, and if it is skipped the data flows and is wrong — no error anywhere.
-- **RTU is serial.** Choosing RTU means a serial link and its own physical constraints;
-  it is not a variant of TCP with a different checkbox.
-
-## Driver pattern — OPC-UA server as a data source
-
-*Data source:* **OPC UA Server** · **valid for BROWNFIELD and GREENFIELD**
-
-| Step | Setting |
-|---|---|
-| Create | New server instance |
-| Identity | Unique server name; **URL and port** |
-| Enable | Activate the instance |
-| Security | **Encryption and authentication methods** |
-| Endpoints | **Security profiles**; any **user roles** |
-| Communication | **Session timeouts**, **data transfer limits** |
-| Performance | Tune for expected traffic and data load |
-| Verify | Test connectivity **and** security settings |
-| Deploy | Go live |
-| Operate | Monitor performance and stability with dataFEED's own tools; keep server and security settings updated |
-
-This pattern's preparation block is different from the PLC ones: the breakpoint is
-**server software and licences**, not a PLC program, and the record is a **Server List**
-(name, URL, port, security settings) rather than the Machine List alone.
-
-It is the only pattern in the guide that carries an explicit **operate** phase. Take that
-seriously — an aggregation server is a shared dependency, and "monitor performance and
-stability" is the difference between one machine failing and every machine behind that
-server failing at once.
+> **Security connection timeout is a real operational trap.** Siemens devices require a
+> periodic security-token exchange, and current firmware requires it **hourly**; the
+> connection is dropped automatically if the exchange fails. The manual warns: **if this
+> value is larger than the controller's own connection-monitoring interval, data can be
+> lost** between the disconnect and dataFEED re-establishing the connection. Leave it at 55
+> minutes unless you know the controller's interval, and if you change it, change it *down*.
 
 ---
 
-## What Softing can do that the OESL tree does not route
+## Driver — Rockwell / Allen Bradley
 
-From Softing's published product capabilities (search-result summary; **vendor manual not
-verified from this environment**):
+*Data Sources → Rockwell.* Manual p. 242–256. Covers ControlLogix / CompactLogix and the
+PLC-5 / SLC families (separate tag syntax — see [`softing-tag-syntax.md`](softing-tag-syntax.md)).
 
-- **Controllers:** Siemens S5, S7 and SINUMERIK · FANUC CNC · Rockwell SLC-500, PLC-5,
-  ControlLogix, CompactLogix · Mitsubishi MELSEC-Q · B&R · Modbus TCP devices
-- **Also as sources:** any controller with an integrated OPC UA server or MQTT publisher
-- **Files and databases:** XML, TXT and CSV read/write; ODBC-compatible databases; MongoDB,
-  CouchDB, InfluxDB
-- **As sinks:** production data to file, SQL database, MongoDB or CouchDB
+One ControlLogix-specific global setting is worth knowing before anyone reports a bug
+(p. 657):
 
-Three of these are routes the OESL tree has no entry for — **S5**, **FANUC CNC**, and the
-file/database sources. A product capability is **not** an approved OESL route. If one of
-them would solve a machine, that is a case to put to the IIAE and, if adopted, a change to
-`rules.json` — not something to configure on the server because the product allows it.
+> **"Wait for ControlLogix browsing to finish before registering datapoints."** After a
+> program start the tags of a CLX connection are compared against the online PLC, and this
+> can take a while. Registering datapoints during that window makes the server report
+> *datapoint not available*. With this option on, registration blocks the OPC client until
+> browsing completes.
 
-`rules-next.json` adds an `siemens_s5` question, so the S5 gap at least is known.
+A CLX connection that reports missing datapoints immediately after a restart and is fine
+later is this, not a wiring fault.
+
+Rockwell is the second-largest vendor family in the OESL estate and carries the largest
+share of `EVALUATION ONGOING` machines — the route decision is genuinely open more often
+here than for Siemens.
+
+## Driver — Modbus
+
+*Data Sources → Modbus.* Manual p. 222–241. Protocol variants **TCP** and **RTU**; the
+manual's example device vendors are *Schneider Electric, Wago, Beckhoff*.
+
+Two Modbus-specific behaviours, both silent:
+
+- **Modbus has no type system.** A holding register is sixteen bits and nothing says it is a
+  temperature in tenths of a degree. Conversion to engineering units is where meaning is
+  applied; skip it and the data flows and is wrong, with no error anywhere.
+- **Discrete inputs and outputs are read-modify-written 8 bits at a time.** They occupy one
+  bit on the PLC, but a write reads 8 bits, flips the one, and writes 8 back. The manual's
+  own warning: *if another bit of that byte changes in the meantime, it is overwritten with
+  the old value.* One more reason to leave write access off.
+
+Global setting: **Discard read responses of invalid byte count** — discards TCP
+retransmissions of Modbus read responses (p. 657).
+
+**RTU is serial.** It is not a checkbox variant of TCP; it brings its own physical layer.
+
+## Driver — B&R, Mitsubishi, SINUMERIK, FANUC
+
+All four exist as data sources (p. 257, 272, 183, 287) with their own connection wizards.
+Each needs its **own licence** — `dataFEED OPC Server B&R`, `… Mitsubishi`, `… CNC` — or
+Suite Extended.
+
+**FANUC CNC has no OESL route at all**, and the manual carries a FOCAS2 address-space and
+error-code section (p. 310–314) for it. If OESL has FANUC CNCs that need integrating, that
+is an IIAE conversation, not a configuration task.
+
+## Driver — OPC UA Server as a data source
+
+*Data Sources → OPC UA Server.* Manual p. 315–367. **Valid for brownfield and greenfield.**
+
+This is the route when a machine already fronts itself with an OPC UA server — the cheapest
+path in the whole guide, because there is no PLC program, no tag export and no cabinet work.
+
+**Security configuration** (p. 354):
+
+| Setting | Options |
+|---|---|
+| **Message security mode** | `None` (readable on the wire; fastest and least secure) · `Sign` (integrity, body not encrypted) · `Sign & Encrypt` (private and integrity-assured) |
+| **Security policy** | `None` · `Basic128RSA15` · `Basic256Sha256` |
+| **Server application certificate** | Accept **all** server certificates automatically · Accept **only trusted** certificates (trust one via certificate management) |
+| **Authentication** | `Anonymous` · `User name` + password · `Certificate` |
+
+**"Accept all server certificates automatically" defeats the point of the certificate.** It
+is a commissioning convenience. Endpoints must be connected per OT cyber-security rules
+(Connext Wiki), and that means named trust, not blanket acceptance. Note also that with
+`Basic256Sha256` enabled, regenerating certificates with a smaller key size disables the
+Basic256Sha256 endpoint (p. 340).
+
+**Advanced connection settings** (p. 325–327): session name (auto-generated as
+`Softing dataFEED Suite <ConfigurationName>`), **session timeout** default 60 s (1–3600),
+network timeout default 60 s.
+
+**Reverse connections need an openable port.** The connection test starts a Reverse
+Listener and waits for the server to connect; if the port on the client endpoint URL is
+already held by another application, another dataFEED configuration, or the running runtime
+of *this* configuration, **the test fails** (p. 325). A reverse-connection test that fails
+while everything looks correct is usually this.
+
+The connection-test dialog **cannot be cancelled** and can run for the full network timeout.
+
+---
+
+## Commissioning hygiene
+
+**Turn tag browsing off once commissioning is done** (p. 657). Where a server has a large
+symbol table, browsing transfers it to the client on request — memory and CPU. Switching it
+off after commissioning shortens server start-up after a restart. On an aggregation server
+carrying many machines this is not a micro-optimisation.
+
+**Cyclic read intervals are where a shared server is won or lost.** The OESL guidance's own
+examples are **1000 ms** for Siemens, Rockwell and Modbus. A 100 ms read on a machine that
+reports a counter is load spent for nothing. Start at the guidance value and justify
+anything faster against a use case that needs it.
+
+**Enable read optimization**, and on Siemens enable **High Performance Protocol** — both
+reduce packet count rather than data volume, which is what saturates a server carrying
+dozens of connections.
 
 ---
 
@@ -236,11 +373,17 @@ them would solve a machine, that is a case to put to the IIAE and, if adopted, a
 
 | Situation | Do this |
 |---|---|
-| Softing server **not available** at the plant | The aggregation route is **closed**. Go to the edge route, or to rollout preparation. There is no partial version |
-| Server available but **no licence** for the driver | Procurement, not configuration. The OPC-UA pattern names this as its own breakpoint |
-| **PLC program unavailable** | The breakpoint applies here too — see [`fallbacks.md`](fallbacks.md) |
-| PLC has **no Ethernet interface** | Helmholz NetLink or equivalent gateway, then the **Netlink** protocol variant |
-| Connection Test **fails** | Siemens → rack/slot and RFC1006 header. Beckhoff → AMS route on the PLC. Rockwell → timeouts and port. Do not start defining tags |
-| Connection up, **tags empty or wrong** | Symbol file mismatch against the running PLC program version. Re-export from the deployed program, not from an archived project |
-| Server **overloaded** as machines are added | Raise cyclic-read intervals to the guidance values first; read optimization on; only then discuss a second server |
+| **No Softing server** at the plant | The aggregation route is **closed**. Go to the edge route or to rollout preparation. There is no partial version |
+| Server present, **driver licence missing** | Procurement, not configuration. Check whether Suite Extended already covers it |
+| **Beckhoff PLC** | No Beckhoff driver exists. Modbus TCP, or a TwinCAT OPC UA / OPC DA server in front. Native ADS is the edge route — and that branch is `TODO` |
+| Somebody asks for **NetLink** | Discontinued since 5.38. Use the **Siemens S7** protocol; the Helmholz NetLink *hardware* is still fine |
+| **PLC program unavailable** | The breakpoint applies here too — see [`fallbacks.md`](fallbacks.md) §1 |
+| PLC has **no Ethernet interface** | Helmholz NetLink or equivalent gateway, addressed as Siemens S7 |
+| **Connection Test fails** | Siemens → rack/slot, RFC1006 header, TSAP cross-match. Rockwell → timeouts and port. OPC UA → certificate trust, and for reverse connections a free listener port. **Do not start defining tags** |
+| Connection up, **tags empty or wrong** | Symbol file mismatch — re-export from the **deployed** program version, not an archived project |
+| CLX reports **"datapoint not available"** after a restart | Enable *wait for ControlLogix browsing to finish* |
+| **Delete refused** on a data source | A datapoint from its address space is still used by a processing function or data target |
+| Data lost during **network outages** | Store and Forward. OPC UA S&F needs **Suite Extended** |
+| Server **degrading** as machines are added | Cyclic-read intervals up to the guidance values, read optimization on, High Performance Protocol on, tag browsing off. Only then a second server — or split into more configurations (100 max, 50 concurrent) |
+| S7-1200/1500 dropping **roughly hourly** | Security connection timeout vs the controller's monitoring interval. Lower it |
 | Machine is a **camera** | Not connectable to any aggregation server. Edge only |

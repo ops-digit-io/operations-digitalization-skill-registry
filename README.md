@@ -63,10 +63,11 @@ These carry `references/` alongside `SKILL.md`, and for the two derived skills t
 references are the substance rather than an appendix:
 
 - **machine integration** — `decision-paths.md` (the four gates, PLC family → available
-  routes, connector selection, dead ends), `softing-datafeed.md` (per-driver configuration
-  procedures for the Central Aggregation Server: Siemens S7/TIA, Beckhoff, Rockwell, Modbus,
-  OPC-UA sources), `iiot-edge-platform.md` (the six phases and the hardware sequence),
-  `fallbacks.md` (the eight ways an integration blocks and what to try first)
+  routes, connector selection, dead ends), `softing-datafeed.md` (the Central Aggregation
+  Server from the Softing dataFEED V5.70 manual: driver list, licensing, per-driver settings,
+  and where the OESL guidance does not match the product), `softing-tag-syntax.md` (tag
+  identifiers per family), `iiot-edge-platform.md` (the six phases and the hardware
+  sequence), `fallbacks.md` (the eight ways an integration blocks and what to try first)
 - **Node-RED** — the canonical flow walkthrough, the PLCPacket schema, the topic grammar,
   the standard function bodies and the instance inventory
 
