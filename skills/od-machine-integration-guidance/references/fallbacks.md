@@ -67,22 +67,24 @@ owners and conflating them hides the real one.
 
 ## 3. The target platform is not installed at the plant
 
-Read this with the topology in mind: **both paths end at the IIoT Edge Platform.** The
-Central Aggregation Server is a concentrator in front of it, bridged by the
-`DTQ-OPCUA-Connector` — so the edge is not one option of two, it is the terminus.
+Read this with the topology in mind: **all three ingress variants end at the IIoT Edge
+Platform** — ① via an edge device, ② via a connector without one, ③ via the aggregation
+server bridged by `DTQ-OPCUA-Connector`. The edge is not one option of three, it is the
+terminus.
 
-**No IIoT Edge Platform** → **nothing works**, on either path. The guide says so directly:
+**No IIoT Edge Platform** → **nothing works**, on any variant. The guide says so directly:
 you cannot connect the PLCs *"when you have chosen the OPC-UA server as the connectivity
 framework and you don't have the IIoT Edge Computing Platform available"*. A Softing server
 alone concentrates protocols and publishes to nobody.
 
-**Edge platform present, no edge device on site** → the edge-device hardware branch comes
-first; it is a prerequisite, not a step of the integration. Note that a machine reached via
-the aggregation server still needs an edge device somewhere — just not in that machine's
-cabinet.
+**Edge platform present, no edge device on site** → ① is blocked and the edge-device hardware
+branch comes first; it is a prerequisite, not a step of the integration. ③ still needs an edge
+device somewhere for the bridge — just not in that machine's cabinet. ② is the variant that
+needs no device at all, and it has one deployment and no written route: an IIAE conversation,
+not a fallback you can take yourself.
 
-**No Softing server** → the aggregation path is closed outright; reach the PLC with a native
-edge connector instead. There is no partial version and no workaround at machine level.
+**No Softing server** → ③ is closed outright; reach the PLC with variant ①. There is no
+partial version and no workaround at machine level.
 
 **Neither** → this is not an integration question at all. Take the *nothing standard
 installed* branch:

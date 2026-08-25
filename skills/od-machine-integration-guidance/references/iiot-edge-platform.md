@@ -133,36 +133,68 @@ IIAE — this is the kind of line that changes without the tree changing.⟩
 
 ---
 
-## The three integration concepts, and the two paths
+## The three integration concepts = the three ingress variants
 
-The knowledge graph records **three integration concepts** as tools in their own right. The
-Equipment integration guide offers **two paths to one terminus**. They are not the same list, and the
-mapping is worth stating once:
+The knowledge graph records three integration concepts as tools in their own right, and the
+department numbers them. They are exactly the three shapes a machine can take into the
+platform:
 
-| Integration concept (knowledge graph) | Guide path | Shape |
-|---|---|---|
-| **IIoT edge computing platform** | **IIoT Edge Platform** | Device per machine or cell, connector per protocol. Greenfield-capable; the only route for cameras; no shared-server dependency |
-| **Central OPC-UA server** | **Central Aggregation Server**, running Softing dataFEED OPC Suite | One server, driver connections, one address space. Brownfield at density; no cabinet work; the natural route when the machine already speaks OPC UA — see [`softing-datafeed.md`](softing-datafeed.md) |
-| **Container-based machine integration** | *(no route)* | Recorded as a concept; the guide does not route to it. ⟨IIAE question — do not invent the procedure⟩ |
+| Concept (Tool Overview) | Variant | Shape | Plants |
+|---|---|---|--:|
+| **Concept 3 — IIoT Edge Computing Platform** | **①** | PLC → **edge device** with connector → IIoT platform. Device per machine or cell; the only variant for cameras | **20** |
+| **Concept 2 — container-based Machine Integration** | **②** | PLC → **connector** → IIoT platform. The connector runs without a dedicated edge device at the machine | **1** (Carei) |
+| **Concept 1 — Central OPC-UA Server** | **③** | PLC → **aggregation server** → IIoT platform. Softing dataFEED concentrates the drivers; the edge reads its address space — see [`softing-datafeed.md`](softing-datafeed.md) | **11** |
 
-So "central OPC-UA server" (the concept, as the department notes call it) and "Central
-Aggregation Server" (the path, as the guide calls it) are **the same thing seen from two
-sides**. Both names are in use. Prefer the guide's when handing someone a procedure, because
-that is the label on the screen in front of them.
+**These are not three destinations.** The IIoT Edge Platform is the terminus in all three;
+① and ② differ only in *where the connector runs*, and ③ adds a concentrator in front,
+bridged back by `DTQ-OPCUA-Connector` — see § *The bridge* above.
 
-And note what the table does **not** say: these are not two destinations. The aggregation
-server concentrates protocols and is then bridged into the IIoT Edge Platform by
-`DTQ-OPCUA-Connector` — see § *The bridge* above.
+**A naming trap:** "IIoT Edge Computing Platform" is both the name of Concept 3 (variant ①,
+*use an edge device*) and the name of the platform that terminates all three. When somebody
+says "we're on the edge platform" they may mean either. Ask which.
+
+Similarly, "central OPC-UA server" (Concept 1, as the department names it) and "Central
+Aggregation Server" (as the guide labels the route) are the same thing seen from two sides.
+Prefer the guide's wording when handing someone a procedure — it is the label on their
+screen.
+
+### Variant ② — real, and barely deployed
+
+Concept 2 is recorded at **one plant, Carei**, which also runs ①. The Equipment integration
+guide has **no written route for it**. That combination — a live concept with a single
+deployment and no procedure — means: do not offer ② as a standard option, and do not invent
+the procedure. If a machine looks like a ② candidate, it is an IIAE conversation.
+
+What ② looks like in the field is visible in the estate's `integration_approach` values:
+**"Low Cost — Direct Connection"** (50 machines) and **"Low Cost — Helmholz"** (19), alongside
+bare protocol entries like "TCP/IP Ethernet driver" (30). The *low cost* is precisely the
+absence of edge-device hardware. ⟨Whether every one of those rows is Concept 2 rather than a
+device-less description of ① is not recorded — confirm with the IIAE before counting them.⟩
+
+### Which variants a plant has
+
+Not one per plant. Of the 23 plants with any concept recorded:
+
+| | Plants |
+|---|--:|
+| ① only | 11 — Auburn, Delicias, Dolne Vestenice, Hann. Münden, Karben, Monterrey, Northeim, San Luis Potosi, Subotica, Timisoara, Vac |
+| ③ only | 3 — Ostrava, Ponta Grossa, Sun Prairie |
+| **① and ③ both** | **8** — Caluire, Changchun, Changshu, Korbach, Mako, Qingdao, Somersworth, Waltershausen |
+| ② | 1 — Carei, alongside ① |
+
+Eight plants carry both ① and ③, so *"which platform does this plant have"* is often the
+wrong question. Ten of the 33 plants have no concept recorded at all — there the first
+conversation is rollout, not integration.
 
 ## Choosing between the two, when both are open
 
 Gate 0 usually settles this — a plant has one platform, not both. Where both are genuinely
 available:
 
-Remember both end at the edge — this is a choice of *how the edge reaches the PLC*, not of
-destination.
+Remember all three end at the edge — this is a choice of *how the PLC reaches it*, not of
+destination. ② is excluded here because it has no written route.
 
-| Favours a **direct** native connector | Favours going **via** the aggregation server |
+| Favours **①** — an edge device | Favours **③** — via the aggregation server |
 |---|---|
 | Greenfield machine, or a new machine being ordered | Brownfield, at density — many machines at one site |
 | Camera, remote sensor, file drop or vendor-specific endpoint | Machine already fronted by an OPC UA server |
@@ -175,17 +207,21 @@ everything**, and for some machines the honest answer is that no route is fully 
 that rather than forcing one.
 
 **The failure domains differ, and it is not a detail.** An edge device failing takes one
-machine off. An aggregation server failing takes every machine behind it off at once — which
-is why its "operate" phase, cyclic-read budget and licence headroom matter in a way the
-edge's do not.
+machine off — or one cell, where a device is shared, and the estate does record shared
+devices (*"Edge Device [Same as BM11 device] via Siemens TCP/IP Ethernet Driver"*, Beckhoff
+I/O clamps daisy-chained into one device). An aggregation server failing takes **every machine
+behind it** off at once, which is why its "operate" phase, cyclic-read budget and licence
+headroom matter in a way ①'s do not. Where a device is shared, record it — the failure domain
+is no longer one machine.
 
 ---
 
 ## The bridge — `DTQ-OPCUA-Connector`
 
-**Everything ends here.** The IIoT Edge Platform is the common terminus for both paths: a
-machine reached by a native DTQ connector, and a machine reached through the Central
-Aggregation Server, both arrive at the edge and leave it on MQTT.
+**Everything ends here.** The IIoT Edge Platform is the terminus for all three ingress
+variants — a machine reached by an edge device (①), a machine reached by a connector with no
+device (②), and a machine reached through the Central Aggregation Server (③) all arrive at
+the edge and leave it on MQTT.
 
 The link from the aggregation server is the **`DTQ-OPCUA-Connector`**, and it is the one
 connector in the set that does not reach a machine — it reaches an OPC UA **server**:

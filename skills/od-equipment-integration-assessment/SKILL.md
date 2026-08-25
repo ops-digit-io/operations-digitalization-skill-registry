@@ -70,12 +70,19 @@ The Equipment integration guide routes to two of them, under its own names: the
 Suite; legacy Kepware) — the latter being the central OPC-UA server concept seen from the
 route side. Container-based integration is recorded as a concept with **no written route**.
 
-**They are not two destinations.** The IIoT Edge Platform is the common terminus: machines
-connected through the aggregation server are then integrated into the edge **via OPC UA**,
-using the `DTQ-OPCUA-Connector`, and reach the MDL through it like every other machine. The
-aggregation path therefore needs **both** pieces — a Softing server with no edge platform
-behind it delivers nothing. Per-machine routing, the configuration patterns and the
-fallbacks are in `od-machine-integration-guidance`.
+**They are not separate destinations.** The three concepts are the three ways a PLC reaches
+the **IIoT Edge Platform**, which is the terminus in all of them:
+
+| Concept | Ingress shape | Plants |
+|---|---|--:|
+| Concept 3 — IIoT Edge Computing Platform | PLC → **edge device** with connector → platform | 20 |
+| Concept 2 — container-based Machine Integration | PLC → **connector** → platform (no device at the machine) | 1 |
+| Concept 1 — Central OPC-UA Server | PLC → **aggregation server** → platform, over OPC UA via `DTQ-OPCUA-Connector` | 11 |
+
+The aggregation shape therefore needs **both** pieces — a Softing server with no edge
+platform behind it delivers nothing. Eight plants carry both the edge and the aggregation
+concept, so this is a per-machine decision rather than a plant policy. Per-machine routing,
+the configuration patterns and the fallbacks are in `od-machine-integration-guidance`.
 
 That decision was turned into a guided questionnaire — the **Equipment integration
 guide**, a Streamlit app over a rules file (`_apps/machine-integration-guidance-app`,

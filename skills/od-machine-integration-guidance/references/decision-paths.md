@@ -13,7 +13,7 @@ Read this first, then the pattern file for the route you land on:
 - **IIoT Edge Platform** → [`iiot-edge-platform.md`](iiot-edge-platform.md)
 - **Blocked** → [`fallbacks.md`](fallbacks.md)
 
-Canonical names for the two paths, and their aliases, are in the skill's *Terminology*
+Canonical names for the three variants, and their aliases, are in the skill's *Terminology*
 section. In short: **Central Aggregation Server** is the guide's name for the route that the
 department notes call the *central OPC-UA server* concept, and it runs **Softing dataFEED
 OPC Suite**.
@@ -34,9 +34,9 @@ available.
 
 | Answer | Route | If it turns out to be wrong |
 |---|---|---|
-| **IIoT Edge Platform** available | → Gate 1, edge column | If no edge device exists → edge-device hardware path first |
+| **IIoT Edge Platform** available | → Gate 1, variants ① and ② | If no edge device exists → edge-device hardware path first. Note ② needs no device at the machine, but it has no written route |
 | **Edge device on hand, not installed** | → Edge device hardware installation | Only the **large** device is approved — see below |
-| **Central Aggregation Server** (Softing dataFEED; legacy Kepware) available | → Gate 1, aggregation column | **The aggregation path also needs the IIoT Edge Platform** — the server is a concentrator, not a destination. Without the server the path is closed; without the edge it delivers nothing |
+| **Central Aggregation Server** (Softing dataFEED; legacy Kepware) available | → Gate 1, variant ③ | **③ also needs the IIoT Edge Platform** — the server is a concentrator, not a destination. Without the server ③ is closed; without the edge it delivers nothing |
 | **Not sure what is installed** | → *Plant Capabilities & System Availability & Rollout* list | Then a ≤30 min call with MPEE OD |
 | **Nothing standard installed** | → Rollout preparation, not integration | Bring: the urgent need and use case, a Machine List, a Use Case List, and calculated benefits |
 | **Ordering a new machine** | → *Electrical Standard — Equipment Integration Extension* in Compliance Quest | Not an integration path at all |
@@ -59,19 +59,19 @@ this is the kind of line that changes without the tree changing.
 
 ---
 
-## Gate 1 — PLC family → available paths
+## Gate 1 — PLC family → available variants
 
-The question at this gate is **not** "which platform" — the edge is the terminus either way.
-It is:
+The question at this gate is **not** "which platform" — the edge is the terminus in all three
+shapes. It is:
 
-> **Does the edge reach this PLC directly with a native connector, or via the aggregation
-> server using the `DTQ-OPCUA-Connector`?**
+> **Which of ①, ② or ③ reaches this PLC?**
 
-Both are used at scale for Siemens and Rockwell. **Neither is the default for a vendor** —
-the choice is per machine, decided by Gate 0 and the constraints below, not by a vendor
-policy.
+① and ③ are both used at scale for Siemens and Rockwell, and **eight plants have both**, so
+this is a per-machine decision — not a vendor policy and not a plant policy. ② has one
+deployment and no written route; treat it as an IIAE conversation rather than a column in the
+table below.
 
-| PLC family | Sub-choice | Direct to edge | Via aggregation server | Notes on choosing |
+| PLC family | Sub-choice | ① edge device | ③ via aggregation server | Notes on choosing |
 |---|---|---|---|---|
 | **Siemens** | S7 (300/400/1200/1500) | ✅ | ✅ | Both fully documented. Aggregation avoids cabinet work; edge avoids a server dependency |
 | | S7 Net / low frequency | ✅ | — | The low-frequency answer to "no approved small edge device" |
@@ -91,18 +91,29 @@ policy.
 ⚠️ `TODO` means the guide has the branch but not the procedure. **Do not compose one.**
 Route it to the IIAE and say which branch is unwritten.
 
-### The bridge, and the cheapest path in the tree
+### The three variants, and the bridge
 
-Both paths end at the **IIoT Edge Platform** — it is the common terminus, and the MDL is
-reached only through it. The Central Aggregation Server is a **protocol concentrator
-upstream of the edge**, and the machines behind it are integrated into the edge **via OPC
-UA**, using the `DTQ-OPCUA-Connector`.
+All three end at the **IIoT Edge Platform** — it is the terminus, and the MDL is reached only
+through it. The department numbers the three shapes itself, in the Tool Overview:
 
 ```
-PLC ──native DTQ connector──────────────────────────────────► IIoT Edge ──MQTT──► Node-RED ──► MDL
-PLC ──Softing driver──► Central Aggregation Server ──OPC UA──►  Platform
-                        (dataFEED OPC Suite)      DTQ-OPCUA-Connector
+ ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► MDL
+                                        Platform          Concept 3, 20 plants
+ ②  PLC ──────(connector)─────────────►  IIoT
+                                        Platform          Concept 2, 1 plant (Carei)
+ ③  PLC ──► OPC-UA aggregation server ─►  IIoT
+            (Softing dataFEED)  OPC UA   Platform          Concept 1, 11 plants
+            └ DTQ-OPCUA-Connector ┘
 ```
+
+① and ② differ in **where the connector runs** — on a dedicated edge device at the machine,
+or without one. ③ puts a **protocol concentrator** in front, and the link back to the edge is
+the `DTQ-OPCUA-Connector`.
+
+**② is barely deployed** — one plant, and no written route in the guide. If a machine looks
+like a ② candidate, that is an IIAE conversation. The estate's *"Low Cost — Direct
+Connection"* (50 machines) and *"Low Cost — Helmholz"* (19) approaches are what ② looks like
+in the field; the "low cost" is the absence of edge-device hardware.
 
 The guide's recommendation for the second case is **`IIoT Edge Platform → OPC-UA Server`**,
 reached when the plant has the edge platform and the PLC type is *OPC-UA Server*. Its eight

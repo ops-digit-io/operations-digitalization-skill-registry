@@ -65,12 +65,13 @@ a judgement.
 Three integration concepts sit above them: a central OPC-UA server, container-based machine
 integration, and an IIoT edge computing platform.
 
-The guide routes to two of these, under its own names — the **IIoT Edge Platform** and the
-**Central Aggregation Server** (running Softing dataFEED OPC Suite). The edge is the common
-terminus: machines behind the aggregation server are integrated into it **via OPC UA**
-(`DTQ-OPCUA-Connector`), so that path needs both pieces. For a specific machine,
-`od-machine-integration-guidance` carries the routing, the per-driver configuration patterns
-and the fallbacks when a path blocks.
+Those three are the three ways a PLC reaches the **IIoT Edge Platform**, which is the
+terminus in all of them: via an **edge device** running the connector (Concept 3, 20 plants),
+via a **connector with no device** at the machine (Concept 2, 1 plant, no written route), or
+via the **Softing dataFEED aggregation server** bridged back over OPC UA with
+`DTQ-OPCUA-Connector` (Concept 1, 11 plants). The aggregation shape needs both pieces. For a
+specific machine, `od-machine-integration-guidance` carries the routing, the per-driver
+configuration patterns and the fallbacks when a path blocks.
 
 ## Error paths
 

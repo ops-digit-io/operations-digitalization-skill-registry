@@ -77,13 +77,13 @@ the guide's wording when handing someone a procedure: it is the label on their s
 
 1. **Gate 0 — what is installed at this plant?** Not the PLC. The tree starts here because
    it decides which patterns are available at all. → `decision-paths.md`
-2. **Ask the cheap question first: is the machine already on an OPC-UA server?** If yes, the
-   path is the bridge — `DTQ-OPCUA-Connector` into the edge — and neither the PLC program nor
-   cabinet work is needed. Largest single cost difference in the guide, and the easiest to
-   skip past.
-3. **Gate 1 — decide the path**: does the edge reach this PLC family **directly** with a
-   native connector, or **via** the aggregation server? Both carry Siemens and Rockwell at
-   scale, so this is a per-machine decision, not a vendor policy.
+2. **Ask the cheap question first: is the machine already on an OPC-UA server?** If yes the
+   variant is ③, the bridge is `DTQ-OPCUA-Connector`, and neither the PLC program nor cabinet
+   work is needed. Largest single cost difference in the guide, and the easiest to skip past.
+3. **Gate 1 — decide the variant** for this PLC family: ① edge device, ② connector without a
+   device, or ③ via the aggregation server. Both ① and ③ carry Siemens and Rockwell at scale,
+   and eight plants have both, so this is a per-machine decision rather than a vendor or
+   plant policy.
 4. **Gate 2 — pick the connector** (edge) or the **data source driver** (aggregation).
 5. **Walk the pattern** in `softing-datafeed.md` or `iiot-edge-platform.md`.
 6. **Gate 3 — clear the preparation blocks** in order: budget → infrastructure → **PLC
@@ -93,67 +93,88 @@ the guide's wording when handing someone a procedure: it is the label on their s
    Device List, inform MPEE OD. Status moves to `INTEGRATED` only after
    `od-acceptance-test` passes.
 
-## The topology — both paths end at the edge
+## The topology — three ingress variants, one terminus
 
-This is the thing most often got wrong, including in an earlier version of this skill. The
-Central Aggregation Server is **not** an alternative destination. It is a **protocol
-concentrator upstream of the IIoT Edge Platform**, and the machines behind it are then
-integrated into the edge **via OPC UA**.
+Every machine reaches the MDL through the **IIoT Edge Platform**. What varies is how the
+PLC gets to it, and there are exactly three shapes. The department numbers them itself —
+they are recorded as tools in the Tool Overview as *Concept 1*, *2* and *3*.
 
 ```
-                       ┌───────────────── native DTQ connector ─────────────────┐
-   PLC / machine ──────┤                                                        ├──► IIoT Edge
-                       │                                                        │     Platform
-                       └─► Central Aggregation Server ──OPC UA──────────────────┘        │
-                             (Softing dataFEED OPC Suite)   ▲                            │
-                             Siemens · Rockwell · Modbus    │                       MQTT │ protobuf
-                             B&R · Mitsubishi · SINUMERIK   │                            ▼
-                             FANUC · OPC UA · OPC Classic   │                        Node-RED
-                                                            │                            │
-                                          DTQ-OPCUA-Connector  ◄── the bridge            ▼
-                                                                                        MDL
-                                                                                         │
-                                                                                         ▼
-                                                                                    use case
+ ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► MDL ──► use case
+                                        Platform
+ ②  PLC ──────(connector)─────────────►  IIoT
+                                        Platform
+ ③  PLC ──► OPC-UA aggregation server ─►  IIoT
+            (Softing dataFEED)  OPC UA   Platform
+            └ DTQ-OPCUA-Connector ┘
 ```
 
-**The IIoT Edge Platform is the common terminus.** Every machine reaches the MDL through it,
-whichever path it took to get there. What actually gets chosen per machine is:
+| # | Shape | Department's name | Plants |
+|---|---|---|--:|
+| **①** | **PLC → edge device with connector → IIoT platform.** A DATATRONiQ edge device in or beside the cabinet runs the connector | **Concept 3 — IIoT Edge Computing Platform** | **20** |
+| **②** | **PLC → connector → IIoT platform.** The connector runs without a dedicated edge device at the machine | **Concept 2 — container-based Machine Integration** | **1** (Carei) |
+| **③** | **PLC → OPC-UA aggregation server → IIoT platform.** A Softing dataFEED server concentrates the drivers; the edge reads its address space over OPC UA | **Concept 1 — Central OPC-UA Server** | **11** |
 
-> **Does the edge reach this PLC directly with a native connector, or via the aggregation
-> server using the `DTQ-OPCUA-Connector`?**
+**The IIoT Edge Platform is the terminus in all three.** ① and ② differ in *where the
+connector runs*, not in where the data goes. ③ puts a protocol concentrator in front, and
+the link back is the **`DTQ-OPCUA-Connector`** — the one connector in the set of 26 that
+reaches a *server* rather than a machine.
 
-The guide's own recommendation for the second case is
-**`IIoT Edge Platform → OPC-UA Server`** — reached when the plant has the edge platform and
-the PLC type is *OPC-UA Server*. Its tasks are exactly the bridge: machines connected to the
-Softing server, endpoint details available, **the server's address-space structure known**,
-the edge installed with its endpoints known, then *"establish the connection between the
-OPC-UA Aggregation Server and the IIoT Edge Platform"*.
+The guide's recommendation for ③ is **`IIoT Edge Platform → OPC-UA Server`**, reached when
+the plant has the edge platform and the PLC type is *OPC-UA Server*. Its tasks are the
+bridge itself: machines connected to the Softing server, endpoint details available, **the
+server's address-space structure known**, the edge installed with its endpoints known, then
+*"establish the connection between the OPC-UA Aggregation Server and the IIoT Edge
+Platform"*.
 
-**Consequence, stated in the guide itself:** the aggregation path needs **both** pieces. The
-Siemens S7 aggregation recommendation says you cannot connect the PLCs *"when you have chosen
-the OPC-UA server as the connectivity framework **and you don't have the IIoT Edge Computing
-Platform available**"*. A Softing server with no edge platform behind it delivers nothing to
-the MDL.
+> **③ needs both pieces, and the guide says so.** The Siemens S7 aggregation recommendation
+> states that you cannot connect the PLCs *"when you have chosen the OPC-UA server as the
+> connectivity framework **and you don't have the IIoT Edge Computing Platform
+> available**"*. A Softing server with no edge platform behind it delivers nothing to the
+> MDL.
 
-## Choosing the path for one machine
+**Variant ② is real but barely deployed** — one plant, Carei, which also runs ①. Treat it as
+a live concept with **no written route in the guide**, not as a standard option: if a machine
+looks like a ② candidate, that is an IIAE conversation. The estate's *"Low Cost — Direct
+Connection"* (50 machines) and *"Low Cost — Helmholz"* (19) approaches are the shape ② takes
+in practice — the "low cost" being the absence of edge-device hardware.
 
-| | **Direct — native edge connector** | **Via the aggregation server — `DTQ-OPCUA-Connector`** |
-|---|---|---|
-| Shape | Edge device per machine or cell, one connector per protocol | One Softing server holds the driver connections; the edge reads its OPC UA address space |
-| Needs | IIoT Edge Platform | IIoT Edge Platform **and** the Softing server — both |
-| Valid for | **Brownfield and greenfield** | Brownfield (the OPC-UA data source is also greenfield) |
-| Cabinet work | Mount, 24 V, shopfloor Ethernet, ETH1 | **None at the machine** |
-| PLC program needed | Yes, for a PLC endpoint | Yes, for a PLC data source — it is where the symbol file comes from |
-| Cameras | **Yes — the only route** | **No.** Cameras cannot be connected to any aggregation server |
-| File drops, vendor systems, sensors | Yes, via dedicated connectors — **no PLC program** | Not routed |
-| Failure domain | One machine | **Every machine behind that server** |
-| Driver gaps that decide it | Modbus and Beckhoff edge branches are `TODO` | **No Beckhoff / ADS driver at all** |
-| Blocked if… | No approved edge device on site | No Softing server **or** no edge platform |
+## Which variants a plant actually has
 
-The two driver-gap rows are the practical decider more often than any principle: **Beckhoff
-has an edge connector and no Softing driver; Modbus has a Softing driver and an unwritten
-edge branch.** Neither path covers everything.
+Not one platform per plant. Of the 23 plants with any concept recorded:
+
+| | Plants |
+|---|--:|
+| ① only | 11 — Auburn, Delicias, Dolne Vestenice, Hann. Münden, Karben, Monterrey, Northeim, San Luis Potosi, Subotica, Timisoara, Vac |
+| ③ only | 3 — Ostrava, Ponta Grossa, Sun Prairie |
+| **① and ③ both** | **8** — Caluire, Changchun, Changshu, Korbach, Mako, Qingdao, Somersworth, Waltershausen |
+| ② | 1 — Carei (alongside ①) |
+
+**Eight plants carry both ① and ③**, so "which platform does this plant have" is often the
+wrong question — both are available and the choice is per machine. Ten of the 33 plants have
+no concept recorded at all; there, the first conversation is rollout, not integration.
+
+## Choosing the variant for one machine
+
+| | **① edge device** | **② connector, no device** | **③ via aggregation server** |
+|---|---|---|---|
+| Needs | IIoT Edge Platform + an approved edge device | IIoT Edge Platform | IIoT Edge Platform **and** the Softing server |
+| Valid for | **Brownfield and greenfield** | ⟨not written up⟩ | Brownfield (the OPC-UA data source is also greenfield) |
+| Cabinet work | Mount, 24 V, shopfloor Ethernet, ETH1 | None at the machine | None at the machine |
+| PLC program | Yes, for a PLC endpoint | Yes | Yes, for a PLC data source — it is where the symbol file comes from |
+| Cameras | **Yes — the only variant** | No | **No.** Cameras cannot be connected to any aggregation server |
+| File drops, vendor systems, sensors | Yes, dedicated connectors, **no PLC program** | — | Not routed |
+| Failure domain | One machine, or one cell where a device is shared | Per connector | **Every machine behind that server** |
+| Driver gaps that decide it | Beckhoff has a connector here and **no Softing driver** | — | Modbus has a driver here and an **unwritten edge branch** |
+| Maturity | 20 plants, fully routed | **1 plant, no written route** | 11 plants, fully routed |
+
+The driver-gap row is the practical decider more often than any principle: **Beckhoff has an
+edge connector and no Softing driver; Modbus has a Softing driver and an unwritten edge
+branch.** No variant covers everything.
+
+An edge device is not always one per machine — the estate records devices shared across a
+cell (*"Edge Device [Same as BM11 device] via Siemens TCP/IP Ethernet Driver"*), and Beckhoff
+I/O clamps daisy-chained into one device. Sharing changes the failure domain; record it.
 
 ## The breakpoint, quoted
 

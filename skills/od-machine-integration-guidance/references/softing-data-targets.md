@@ -61,9 +61,10 @@ PLC ──driver──► dataFEED data source ──► local address space ─
 ```
 
 **The edge is the UA client, and `DTQ-OPCUA-Connector` is how it connects.** That makes the
-aggregation server a concentrator in front of the edge rather than a parallel route: every
-machine behind it still reaches the MDL through the IIoT Edge Platform. Both pieces are
-required — a Softing server with no edge platform behind it delivers nothing.
+aggregation server a concentrator in front of the edge rather than a parallel route: this is
+**variant ③** of three ingress shapes, and every machine behind it still reaches the MDL
+through the IIoT Edge Platform. Both pieces are required — a Softing server with no edge
+platform behind it delivers nothing.
 
 The OESL tasks for this route — *"connection details available (IP addresses, credentials,
 certificates)"*, *"the structure on the OPC-UA Server is clear and known"*, *"endpoints

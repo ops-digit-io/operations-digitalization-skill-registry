@@ -151,16 +151,26 @@ is stated in `SKILL.md` and both references, and the fix is recorded in `registr
 change owed to `rules.json`. A skill that silently patched the guidance would leave the tool
 everyone actually uses still wrong.
 
-**A topology error, corrected in place.** An earlier version of the machine-integration
-skill presented the IIoT Edge Platform and the Central Aggregation Server as alternative
-destinations. They are not: the edge is the common terminus, and machines behind the Softing
-server are integrated into it **via OPC UA** using the `DTQ-OPCUA-Connector`. The guide says
-so in two places — its `IIoT Edge Platform → OPC-UA Server` recommendation is that bridge,
-and its Siemens S7 aggregation recommendation states that the PLCs cannot be connected
-without the edge platform as well. The correction propagated through all six references, the
-skill's own topology diagram, and the two adjacent skills that name the routes; the wording
-moved from "two routes" to "two paths to one terminus" throughout, because the earlier phrase
-was itself carrying the error.
+**A topology error, corrected twice.** An earlier version of the machine-integration skill
+presented the IIoT Edge Platform and the Central Aggregation Server as alternative
+destinations. They are not: the edge is the terminus, and machines behind the Softing server
+are integrated into it **via OPC UA** using the `DTQ-OPCUA-Connector`. The guide says so in
+two places — its `IIoT Edge Platform → OPC-UA Server` recommendation *is* that bridge, and
+its Siemens S7 aggregation recommendation states the PLCs cannot be connected without the
+edge platform as well.
+
+The second correction split the remaining "direct" case in two, giving **three ingress
+variants**: PLC → **edge device** with connector → platform; PLC → **connector** → platform,
+with no device at the machine; PLC → **aggregation server** → platform. That is not an
+invention — it is exactly the three concepts the Tool Overview already records as *Concept 3
+— IIoT Edge Computing Platform* (20 plants), *Concept 2 — container-based Machine
+Integration* (1 plant), *Concept 1 — Central OPC-UA Server* (11 plants). Reading the rollout
+histories also killed a second assumption: **eight plants carry both the edge and the
+aggregation concept**, so "which platform does this plant have" is often the wrong question.
+
+Both corrections propagated through all six references, the skill's topology diagram, the
+worked example and the two adjacent skills. Wording moved from "two routes" to "three ingress
+variants, one terminus", because the earlier phrasing was itself carrying the error.
 
 **One name per thing, stated once.** The sources disagree on what to call the two routes —
 the Equipment integration guide says *IIoT Edge Platform* and *Central Aggregation Server*,
