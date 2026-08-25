@@ -72,10 +72,19 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 | [`references/plc-packet.md`](references/plc-packet.md) | The PLCPacket protobuf schema and the packed `sysTime` |
 | [`references/topic-conventions.md`](references/topic-conventions.md) | Both MQTT topic grammars and their vocabularies |
 | [`references/standard-functions.js`](references/standard-functions.js) | The standard function bodies, verbatim |
+| [`references/deployable-flow.md`](references/deployable-flow.md) | **Read before generating a flow file.** The palette module, the config nodes the corpus exports do not contain, the structural envelope, and how to verify a flow actually starts |
 | [`references/instances.md`](references/instances.md) | The 53 instances, naming, and the documentation pipeline |
 
 **A broken flow rather than a new one?** Use `od-node-red-flow-troubleshooting`, which runs
 a static analyser over the flow JSON.
+
+> **The corpus these references come from is incomplete in one specific way.** The per-flow
+> exports contain a tab and its nodes and **nothing else** — across all 825 there are **zero
+> config nodes**. So the patterns here describe a correct transformation but not a
+> *deployable file*: `decode`/`encode` need the `node-red-contrib-protobuf` palette module,
+> and both the MQTT and protobuf nodes reference config nodes that must be added by hand.
+> [`deployable-flow.md`](references/deployable-flow.md) covers that layer, verified against
+> Node-RED v5.0.4.
 
 ## The canonical seven-group layout
 

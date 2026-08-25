@@ -157,6 +157,16 @@ distinct clock (145 flows), and timer-driven emit. `composing-transformations.md
 because a catalogue answers "what has been built" and a builder also needs "what do I do
 when mine is not in it".
 
+**The Node-RED builder was tested by actually deploying its output.** A flow was generated
+from the skill alone and started in Node-RED v5.0.4. It reached `Started flows` — but only
+after three additions the skill did not mention, and the reason it did not is structural:
+the corpus is the *per-flow* export, which contains a tab and its nodes and **nothing else**.
+Across all 825 exports there are zero config nodes. So the derived patterns described a
+correct transformation and an undeployable file. `deployable-flow.md` closes that, with the
+palette module named and the config-node shapes taken from the flow that actually ran. It is
+also a caution about derivation in general: a corpus can be complete for what it shows and
+silently missing a whole layer.
+
 **Examples are generalized on purpose.** Every example in `artefacts.md` uses `cfg.<name>`
 config keys and `⟨…⟩` placeholders — no real UUIDs, machine names, endpoints or credentials,
 verified by grep. The corpus has 42 flows with committed secrets; a reference that pasted

@@ -1,0 +1,202 @@
+# Making the flow actually deployable
+
+The transformation is the interesting half. This is the other half — the structure and the
+configuration layer Node-RED needs before a flow will start.
+
+**Why this file exists.** The corpus these references are derived from is the *per-flow*
+export produced by `node-red-auto-docs`, which contains the tab and its nodes and **nothing
+else**. Across all 825 exports there are **zero config nodes**: no `mqtt-broker`, no
+`protobuf-file`. A flow built from the patterns alone therefore imports with dangling
+references, connects to no broker, and decodes nothing.
+
+Everything below was **verified by deploying a generated flow into Node-RED v5.0.4**, which
+reported `Started flows` only once all three pieces were present.
+
+---
+
+## 1 · The palette module
+
+`decode`, `encode` and `protobuf-file` are **not core Node-RED**. They come from:
+
+```bash
+npm install node-red-contrib-protobuf     # v1.1.2 verified
+```
+
+It registers exactly three types: `decode`, `encode`, `protobuf-file`.
+
+Without it, Node-RED starts, loads the flow, and then sits at:
+
+```
+[info] Waiting for missing types to be registered:
+ -  decode
+ -  encode
+ -  protobuf-file
+```
+
+The flow is **not running** in that state, and nothing else in the log says so. If a flow
+looks deployed but moves no data on a fresh instance, check the log for this before anything
+else.
+
+⟨Which other contrib modules the estate's instances carry — the `OPCUA-IIoT-*`, `ui-*` and
+`influxdb` nodes in the corpus all come from further modules — is not recorded. Check the
+target instance's palette before using a node type outside core.⟩
+
+## 2 · The config nodes
+
+Config nodes have **no `z`** (they do not belong to a tab) and no position. They sit in the
+same top-level array as everything else.
+
+### `mqtt-broker`
+
+```json
+{
+  "id": "<16 hex chars>",
+  "type": "mqtt-broker",
+  "name": "plant broker",
+  "broker": "⟨host⟩",
+  "port": "1883",
+  "clientid": "⟨unique per instance⟩",
+  "autoConnect": true,
+  "usetls": false,
+  "protocolVersion": "4",
+  "keepalive": "60",
+  "cleansession": true
+}
+```
+
+Every `mqtt in` / `mqtt out` node references it by `"broker": "<that id>"`.
+
+> **`clientid` must be unique on the broker.** If two instances or a cloned configuration
+> share one, the broker disconnects one and **the client cannot tell** — see
+> [`streaming.md`](streaming.md). Name it after the instance and the flow, not the machine.
+
+**Credentials are not in the flow file.** Username and password live in
+`flows_cred.json`, encrypted. Exporting a flow does not carry them, and importing one does
+not create them — they are entered on the target instance. That is a feature: it is why a
+flow JSON is safe to commit, and why the 42 flows carrying literal webhook URLs and tokens
+are a defect rather than a convention.
+
+### `protobuf-file`
+
+```json
+{
+  "id": "<16 hex chars>",
+  "type": "protobuf-file",
+  "protopath": "/data/plcschema.proto",
+  "watchFile": false,
+  "keepCase": false
+}
+```
+
+`decode` and `encode` reference it by `"protofile": "<that id>"`, plus
+`"protoType": "PLCPacketList"`.
+
+**`/data/plcschema.proto` has to exist on the instance.** The estate writes it from a flow —
+35 flows carry a `Generate Text for Protobuffer Schema` function and an
+`Inject protobuffer config once` tab that writes the schema to the Node-RED file store. On a
+new instance, that flow runs first. The schema itself is in
+[`plc-packet.md`](plc-packet.md).
+
+**`keepCase: false` is why the JavaScript sees camelCase.** The `.proto` declares
+`sys_time`, `value_integer`, `plc_packets`; with `keepCase` false the decoder converts to
+`sysTime`, `valueInteger`, `plcPackets` — which is what every function in the corpus expects.
+Setting it true silently breaks every downstream field reference.
+
+## 3 · The structural envelope
+
+Per-flow exports show this, but it is easy to omit when generating a flow from scratch.
+
+| Field | On | Notes |
+|---|---|---|
+| `id` | everything | 16 hex characters, unique within the file |
+| `type` | everything | — |
+| `z` | every node on a tab | The **tab's id**. Config nodes have none |
+| `g` | every node inside a group | The **group's id** |
+| `x`, `y` | every node on a tab | Coordinates. Node-RED tolerates missing ones but the editor stacks them |
+| `wires` | every node with outputs | Array of arrays — one inner array per output |
+
+### The tab
+
+```json
+{ "id": "<id>", "type": "tab", "label": "⟨Asset⟩ - ⟨Artefact⟩",
+  "disabled": false, "info": "⟨the flow description — see the documentation section⟩" }
+```
+
+`info` is the field that becomes the generated page's description, and the one **1 % of the
+corpus fills in**.
+
+### Groups are double-linked
+
+A group both lists its members **and** each member points back:
+
+```json
+{ "id": "<gid>", "type": "group", "z": "<tab id>", "name": "config flow",
+  "style": { "label": true }, "nodes": ["<id>", "<id>"], "x": 20, "y": 20, "w": 600, "h": 160 }
+```
+
+…and every member carries `"g": "<gid>"`. **Both directions are required.** Setting only one
+gives a group that renders wrong or loses its members on the next deploy. A group may
+contain another group — the canonical layout nests `set inputs for config flow` inside
+`config flow`.
+
+### Link nodes are double-linked too
+
+`link out` carries `"links": ["<link in id>"]` and the matching `link in` carries
+`"links": ["<link out id>"]`. One-sided links are the `orphan-link-out` finding in the
+troubleshooting analyser.
+
+---
+
+## The minimal deployable skeleton
+
+Ordered as Node-RED writes it: tab, groups, nodes, config nodes last.
+
+```
+[
+  { tab },
+  { group: "config flow" }, { group: "set inputs for config flow" },
+  { group: "mqtt connection and message decoding" },
+  { group: "set message filters" },
+  { group: "prepare and convert payload" },
+  { group: "message encoding and connection" },
+
+  … the nodes, each with z, g, x, y, wires …
+
+  { "type": "mqtt-broker",   … },      ← no z
+  { "type": "protobuf-file", … }       ← no z
+]
+```
+
+## Verifying before you hand it over
+
+```bash
+# 1 · static analysis — zero blockers is the bar
+python3 <registry>/skills/od-node-red-flow-troubleshooting/scripts/analyze_flow.py flow.json
+
+# 2 · does Node-RED actually accept it?
+npm install node-red node-red-contrib-protobuf
+node-red -u ./nrdata -s ./nrdata/settings.js
+```
+
+Read the log. Three outcomes, and only one is success:
+
+| Log says | Means |
+|---|---|
+| `Started flows` | The flow is structurally sound and every node type resolved |
+| `Waiting for missing types to be registered` | A palette module is missing — **the flow is not running** |
+| `Connection failed to broker` after `Started flows` | The flow is fine; the broker is unreachable. Expected off-site |
+
+The analyser cannot catch a missing palette module or a dangling config-node reference,
+because a flow JSON with those problems is still valid JSON with valid node objects. **A
+local Node-RED start is the only check that catches them**, and it takes a minute.
+
+## What still needs the real instance
+
+Even a flow that starts locally is not proven. These need the target:
+
+- **Credentials** — entered per instance, never in the file.
+- **The `.proto` on disk** at the configured path.
+- **The output data point registered** on the IIoT edge platform, or nothing downstream
+  consumes what you publish.
+- **The palette** — confirm the target instance carries every contrib module your flow uses.
+- **Deploy to `test` first.** Promoting to a prod instance is human-approved.
