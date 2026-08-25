@@ -66,7 +66,9 @@ Three integration concepts sit above them: a central OPC-UA server, container-ba
 integration, and an IIoT edge computing platform.
 
 The guide routes to two of these, under its own names — the **IIoT Edge Platform** and the
-**Central Aggregation Server** (running Softing dataFEED OPC Suite). For a specific machine,
+**Central Aggregation Server** (running Softing dataFEED OPC Suite). The edge is the common
+terminus: machines behind the aggregation server are integrated into it **via OPC UA**
+(`DTQ-OPCUA-Connector`), so that path needs both pieces. For a specific machine,
 `od-machine-integration-guidance` carries the routing, the per-driver configuration patterns
 and the fallbacks when a path blocks.
 

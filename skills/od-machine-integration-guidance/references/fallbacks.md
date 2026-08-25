@@ -55,8 +55,8 @@ This is a **resourcing and scheduling** block, not an engineering one. It needs 
 with the toolchain and a maintenance window on a production line.
 
 - **Try:** schedule against a planned line stop rather than requesting one.
-- **Try:** the aggregation route — a read-only Softing data source may need no program
-  change, only the symbol file.
+- **Try:** the aggregation path — a read-only Softing data source may need no program
+  change, only the symbol file. It still bridges back to the edge via `DTQ-OPCUA-Connector`.
 - **Escalate as:** a capability gap, per the department's own record of it (signal
   standardization and edge integration are named skill gaps against IIAE capacity).
 
@@ -67,11 +67,22 @@ owners and conflating them hides the real one.
 
 ## 3. The target platform is not installed at the plant
 
-**No Softing server** → the aggregation route is closed outright. There is no partial
-version and no workaround at machine level.
+Read this with the topology in mind: **both paths end at the IIoT Edge Platform.** The
+Central Aggregation Server is a concentrator in front of it, bridged by the
+`DTQ-OPCUA-Connector` — so the edge is not one option of two, it is the terminus.
 
-**No IIoT Edge Platform and no edge device** → the edge-device hardware branch comes first;
-it is a prerequisite, not a step of the integration.
+**No IIoT Edge Platform** → **nothing works**, on either path. The guide says so directly:
+you cannot connect the PLCs *"when you have chosen the OPC-UA server as the connectivity
+framework and you don't have the IIoT Edge Computing Platform available"*. A Softing server
+alone concentrates protocols and publishes to nobody.
+
+**Edge platform present, no edge device on site** → the edge-device hardware branch comes
+first; it is a prerequisite, not a step of the integration. Note that a machine reached via
+the aggregation server still needs an edge device somewhere — just not in that machine's
+cabinet.
+
+**No Softing server** → the aggregation path is closed outright; reach the PLC with a native
+edge connector instead. There is no partial version and no workaround at machine level.
 
 **Neither** → this is not an integration question at all. Take the *nothing standard
 installed* branch:

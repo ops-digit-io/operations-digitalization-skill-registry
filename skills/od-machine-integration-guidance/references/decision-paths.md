@@ -13,7 +13,7 @@ Read this first, then the pattern file for the route you land on:
 - **IIoT Edge Platform** → [`iiot-edge-platform.md`](iiot-edge-platform.md)
 - **Blocked** → [`fallbacks.md`](fallbacks.md)
 
-Canonical names for the two routes, and their aliases, are in the skill's *Terminology*
+Canonical names for the two paths, and their aliases, are in the skill's *Terminology*
 section. In short: **Central Aggregation Server** is the guide's name for the route that the
 department notes call the *central OPC-UA server* concept, and it runs **Softing dataFEED
 OPC Suite**.
@@ -36,7 +36,7 @@ available.
 |---|---|---|
 | **IIoT Edge Platform** available | → Gate 1, edge column | If no edge device exists → edge-device hardware path first |
 | **Edge device on hand, not installed** | → Edge device hardware installation | Only the **large** device is approved — see below |
-| **Central Aggregation Server** (Softing dataFEED; legacy Kepware) available | → Gate 1, aggregation column | If the Softing server is not actually available, **the aggregation route is closed** — no workaround |
+| **Central Aggregation Server** (Softing dataFEED; legacy Kepware) available | → Gate 1, aggregation column | **The aggregation path also needs the IIoT Edge Platform** — the server is a concentrator, not a destination. Without the server the path is closed; without the edge it delivers nothing |
 | **Not sure what is installed** | → *Plant Capabilities & System Availability & Rollout* list | Then a ≤30 min call with MPEE OD |
 | **Nothing standard installed** | → Rollout preparation, not integration | Bring: the urgent need and use case, a Machine List, a Use Case List, and calculated benefits |
 | **Ordering a new machine** | → *Electrical Standard — Equipment Integration Extension* in Compliance Quest | Not an integration path at all |
@@ -59,13 +59,19 @@ this is the kind of line that changes without the tree changing.
 
 ---
 
-## Gate 1 — PLC family → available routes
+## Gate 1 — PLC family → available paths
 
-Both platforms are used at scale for Siemens and Rockwell. **Neither platform is the
-default for a vendor** — the choice is per machine, decided by Gate 0 and the constraints
-below, not by a vendor policy.
+The question at this gate is **not** "which platform" — the edge is the terminus either way.
+It is:
 
-| PLC family | Sub-choice | IIoT Edge | Softing Aggregation | Notes on choosing |
+> **Does the edge reach this PLC directly with a native connector, or via the aggregation
+> server using the `DTQ-OPCUA-Connector`?**
+
+Both are used at scale for Siemens and Rockwell. **Neither is the default for a vendor** —
+the choice is per machine, decided by Gate 0 and the constraints below, not by a vendor
+policy.
+
+| PLC family | Sub-choice | Direct to edge | Via aggregation server | Notes on choosing |
 |---|---|---|---|---|
 | **Siemens** | S7 (300/400/1200/1500) | ✅ | ✅ | Both fully documented. Aggregation avoids cabinet work; edge avoids a server dependency |
 | | S7 Net / low frequency | ✅ | — | The low-frequency answer to "no approved small edge device" |
@@ -79,22 +85,41 @@ below, not by a vendor policy.
 | **Rockwell / Allen Bradley** | CLX · SLC / PLC-5 | ✅ | ✅ | Aggregation procedure is fully written in `rules-next` |
 | **Modbus** | TCP / RTU | ⚠️ `TODO` | ✅ | **Aggregation is the documented route.** Also the practical route for a Beckhoff or Wago PLC that speaks Modbus TCP |
 | **Mitsubishi** | Melsec-Q | — | ✅ (task list only) | Aggregation only |
-| **OPC-UA server** already present | — | ✅ | ✅ *(next)* | Cheapest path in the tree — see below |
+| **OPC-UA server** already present | — | ✅ **this is the bridge** | ✅ *(next)* | Cheapest path in the tree — see above |
 | **Anything else** | — | by exception | — | → *Integration of Other PLCs*: connector development, long lead times |
 
 ⚠️ `TODO` means the guide has the branch but not the procedure. **Do not compose one.**
 Route it to the IIAE and say which branch is unwritten.
 
-### The cheapest path in the tree
+### The bridge, and the cheapest path in the tree
 
-If the machine is **already on an OPC-UA server**, neither the PLC program nor cabinet work
-is needed. The route becomes: confirm endpoint details (IP, credentials, certificates),
-confirm the server's address space structure, connect it to the IIoT Edge Platform per the
-linked instruction, check it against OT cyber-security rules, inform MPEE OD. That is the
-whole procedure.
+Both paths end at the **IIoT Edge Platform** — it is the common terminus, and the MDL is
+reached only through it. The Central Aggregation Server is a **protocol concentrator
+upstream of the edge**, and the machines behind it are integrated into the edge **via OPC
+UA**, using the `DTQ-OPCUA-Connector`.
 
-**Always ask whether an OPC-UA server already fronts the machine before entering the PLC
-branch.** It is the single largest cost difference in this tree and it is easy to skip past.
+```
+PLC ──native DTQ connector──────────────────────────────────► IIoT Edge ──MQTT──► Node-RED ──► MDL
+PLC ──Softing driver──► Central Aggregation Server ──OPC UA──►  Platform
+                        (dataFEED OPC Suite)      DTQ-OPCUA-Connector
+```
+
+The guide's recommendation for the second case is **`IIoT Edge Platform → OPC-UA Server`**,
+reached when the plant has the edge platform and the PLC type is *OPC-UA Server*. Its eight
+tasks are the bridge itself: machines connected to the Softing server, endpoint details (IP,
+credentials, certificates), **the server's address-space structure known**, the edge
+installed with all endpoints known, *"establish the connection between the OPC-UA
+Aggregation Server and the IIoT Edge Platform"*, OT cyber-security rules, inform MPEE OD.
+
+If the machine is **already on an OPC-UA server**, that is the whole procedure — no PLC
+program, no tag export, no cabinet work. **Always ask whether an OPC-UA server already fronts
+the machine before entering the PLC branch.** It is the single largest cost difference in
+this tree and it is easy to skip past.
+
+> **The aggregation path needs both pieces.** The guide states it in the Siemens S7
+> aggregation recommendation: you cannot connect the PLCs *"when you have chosen the OPC-UA
+> server as the connectivity framework **and you don't have the IIoT Edge Computing Platform
+> available**"*. A Softing server with no edge platform behind it delivers nothing to the MDL.
 
 ---
 
@@ -105,8 +130,13 @@ machine; a **tool** is a system a plant uses; they are never the same row.
 
 ### Edge platform — DATATRONiQ connectors
 
+**`DTQ-OPCUA-Connector` is the one that is not like the others.** Every other connector
+reaches a *machine*; this one reaches an OPC UA **server** — which is how the edge reads the
+Central Aggregation Server, and equally how it reads a machine's own embedded UA server.
+
 | Connector | Reaches | Via |
 |---|---|---|
+| **DTQ-OPCUA-Connector** | **Any OPC UA server — including the Central Aggregation Server** | **OPC-UA** |
 | DTQ-S7-Connector | Siemens S7 | PROFINET IO |
 | DTQ-S7-NET-Connector | Siemens S7, low frequency | ⟨not recorded⟩ |
 | DTQ-TIA-Connector | Siemens TIA | ⟨not recorded⟩ |
@@ -120,7 +150,6 @@ machine; a **tool** is a system a plant uses; they are never the same row.
 | DTQ-ALLENBRADLEY-ROCKWELL-Connector | Rockwell | ⟨not recorded⟩ |
 | DTQ-OMRON FINS-Connector | Omron | OMRON FINS |
 | DTQ-MODBUS-Connector | Modbus device | Modbus TCP |
-| DTQ-OPCUA-Connector | Any OPC-UA server | OPC-UA |
 | DTQ-RS232-Connector | Serial device | RS232 |
 
 ### Edge platform — non-PLC connectors (the overlooked fallback)
@@ -147,8 +176,12 @@ generically. Engel, Piovan, Keyence, Zwick and Optris all have one.
 
 | Connector | Reaches |
 |---|---|
-| SFT-SIMATIC S7-Connector | Siemens S7 family |
+| SFT-SIMATIC S7-Connector | Siemens S7 family, from the Softing server |
 | SFT-OPC-Suite | The dataFEED OPC Suite itself, aggregating all its data sources |
+
+These two are the *server* side of the concentrator. The *edge* side of the same link is
+`DTQ-OPCUA-Connector`. A machine on this path is reached by two connectors in series, and
+both belong in its Machine List row.
 
 Softing's driver set is broader than these two rows suggest. From the V5.70 manual the
 data sources are: **Siemens** (S7 · S7-2 · S5 · Send/Receive) · **SINUMERIK CNC** ·
@@ -194,7 +227,7 @@ people negotiate with it:
 Raise it at the first conversation, not at the integration date. Asking a machine supplier
 for a PLC program has a lead time measured in weeks and sometimes a commercial negotiation.
 
-Note the asymmetry: **the aggregation route still needs the PLC program** for a PLC data
+Note the asymmetry: **the aggregation path still needs the PLC program** for a PLC data
 source (it is how tags are derived) but needs **no cabinet work and no edge device**. The
 OPC-UA-server-already-present route needs neither.
 
@@ -237,9 +270,10 @@ it is already decisive and worth knowing now:
 *"We need cycle time off an S7-300 at a plant that has the aggregation server but no edge
 devices. The machine builder is gone and nobody can find the PLC program."*
 
-**Gate 0.** Softing server present, no edge devices → the aggregation column. The edge is
-not available without first taking the hardware branch, which is a budget and lead-time
-conversation, not a step of this integration.
+**Gate 0.** Softing server present, no edge devices. Note what that means: the aggregation
+path concentrates the PLCs but still has to be bridged into the IIoT Edge Platform with
+`DTQ-OPCUA-Connector`, so an edge device is needed **somewhere** — just not in this
+machine's cabinet. That is a budget and lead-time conversation before anything else.
 
 **The cheap question.** Is the machine already on the OPC UA server? No — it is not
 connected at all. So the PLC branch it is.
@@ -254,8 +288,8 @@ machine as blocked, work [`fallbacks.md`](fallbacks.md) §1:
 1. Already on an OPC UA server? No.
 2. Vendor-specific connector? Not applicable to a generic S7.
 3. Writes a file? **Worth checking** — many older lines drop a shift log to a share, and
-   `DTQ-SMB-Connector` needs no program. But the plant has no edge device, so this rung
-   only helps if the edge branch is opened.
+   `DTQ-SMB-Connector` needs no program. It runs on the edge, which this plant has to stand
+   up regardless.
 4. HTTP/SOAP? No.
 5. Serial? No.
 6. **Is cycle time available on a neighbouring PLC?** The line PLC may already count parts

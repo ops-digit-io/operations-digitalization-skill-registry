@@ -69,8 +69,13 @@ The Equipment integration guide routes to two of them, under its own names: the
 **IIoT Edge Platform** and the **Central Aggregation Server** (running Softing dataFEED OPC
 Suite; legacy Kepware) — the latter being the central OPC-UA server concept seen from the
 route side. Container-based integration is recorded as a concept with **no written route**.
-Per-machine routing, the configuration patterns and the fallbacks are in
-`od-machine-integration-guidance`.
+
+**They are not two destinations.** The IIoT Edge Platform is the common terminus: machines
+connected through the aggregation server are then integrated into the edge **via OPC UA**,
+using the `DTQ-OPCUA-Connector`, and reach the MDL through it like every other machine. The
+aggregation path therefore needs **both** pieces — a Softing server with no edge platform
+behind it delivers nothing. Per-machine routing, the configuration patterns and the
+fallbacks are in `od-machine-integration-guidance`.
 
 That decision was turned into a guided questionnaire — the **Equipment integration
 guide**, a Streamlit app over a rules file (`_apps/machine-integration-guidance-app`,

@@ -151,6 +151,17 @@ is stated in `SKILL.md` and both references, and the fix is recorded in `registr
 change owed to `rules.json`. A skill that silently patched the guidance would leave the tool
 everyone actually uses still wrong.
 
+**A topology error, corrected in place.** An earlier version of the machine-integration
+skill presented the IIoT Edge Platform and the Central Aggregation Server as alternative
+destinations. They are not: the edge is the common terminus, and machines behind the Softing
+server are integrated into it **via OPC UA** using the `DTQ-OPCUA-Connector`. The guide says
+so in two places — its `IIoT Edge Platform → OPC-UA Server` recommendation is that bridge,
+and its Siemens S7 aggregation recommendation states that the PLCs cannot be connected
+without the edge platform as well. The correction propagated through all six references, the
+skill's own topology diagram, and the two adjacent skills that name the routes; the wording
+moved from "two routes" to "two paths to one terminus" throughout, because the earlier phrase
+was itself carrying the error.
+
 **One name per thing, stated once.** The sources disagree on what to call the two routes —
 the Equipment integration guide says *IIoT Edge Platform* and *Central Aggregation Server*,
 the department notes say *IIoT edge computing platform* and *central OPC-UA server*, and the

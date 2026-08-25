@@ -133,29 +133,36 @@ IIAE — this is the kind of line that changes without the tree changing.⟩
 
 ---
 
-## The three integration concepts, and the two routes
+## The three integration concepts, and the two paths
 
 The knowledge graph records **three integration concepts** as tools in their own right. The
-Equipment integration guide offers **two routes**. They are not the same list, and the
+Equipment integration guide offers **two paths to one terminus**. They are not the same list, and the
 mapping is worth stating once:
 
-| Integration concept (knowledge graph) | Guide route | Shape |
+| Integration concept (knowledge graph) | Guide path | Shape |
 |---|---|---|
 | **IIoT edge computing platform** | **IIoT Edge Platform** | Device per machine or cell, connector per protocol. Greenfield-capable; the only route for cameras; no shared-server dependency |
 | **Central OPC-UA server** | **Central Aggregation Server**, running Softing dataFEED OPC Suite | One server, driver connections, one address space. Brownfield at density; no cabinet work; the natural route when the machine already speaks OPC UA — see [`softing-datafeed.md`](softing-datafeed.md) |
 | **Container-based machine integration** | *(no route)* | Recorded as a concept; the guide does not route to it. ⟨IIAE question — do not invent the procedure⟩ |
 
 So "central OPC-UA server" (the concept, as the department notes call it) and "Central
-Aggregation Server" (the route, as the guide calls it) are **the same thing seen from two
+Aggregation Server" (the path, as the guide calls it) are **the same thing seen from two
 sides**. Both names are in use. Prefer the guide's when handing someone a procedure, because
 that is the label on the screen in front of them.
+
+And note what the table does **not** say: these are not two destinations. The aggregation
+server concentrates protocols and is then bridged into the IIoT Edge Platform by
+`DTQ-OPCUA-Connector` — see § *The bridge* above.
 
 ## Choosing between the two, when both are open
 
 Gate 0 usually settles this — a plant has one platform, not both. Where both are genuinely
 available:
 
-| Favours the **edge** | Favours the **aggregation server** |
+Remember both end at the edge — this is a choice of *how the edge reaches the PLC*, not of
+destination.
+
+| Favours a **direct** native connector | Favours going **via** the aggregation server |
 |---|---|
 | Greenfield machine, or a new machine being ordered | Brownfield, at density — many machines at one site |
 | Camera, remote sensor, file drop or vendor-specific endpoint | Machine already fronted by an OPC UA server |
@@ -174,9 +181,36 @@ edge's do not.
 
 ---
 
+## The bridge — `DTQ-OPCUA-Connector`
+
+**Everything ends here.** The IIoT Edge Platform is the common terminus for both paths: a
+machine reached by a native DTQ connector, and a machine reached through the Central
+Aggregation Server, both arrive at the edge and leave it on MQTT.
+
+The link from the aggregation server is the **`DTQ-OPCUA-Connector`**, and it is the one
+connector in the set that does not reach a machine — it reaches an OPC UA **server**:
+
+```
+PLC ──Softing driver──► Central Aggregation Server ──OPC UA──► IIoT Edge ──MQTT──► Node-RED
+                        (dataFEED OPC Suite)                     Platform
+                        server side: SFT-OPC-Suite       edge side: DTQ-OPCUA-Connector
+```
+
+A machine on that path is reached by **two connectors in series** — the Softing driver on
+the server and the OPC-UA connector on the edge — and both belong in its Machine List row.
+The same connector also reaches a machine's own embedded UA server, which is why the guide
+treats "OPC-UA Server" as a PLC type in its own right.
+
+**The dependency runs both ways.** The aggregation path needs the edge platform, not just
+the server: the guide's Siemens S7 aggregation recommendation says you cannot connect the
+PLCs *"when you have chosen the OPC-UA server as the connectivity framework and you don't
+have the IIoT Edge Computing Platform available"*. A Softing server with nothing behind it
+delivers nothing to the MDL.
+
 ## Connecting an existing OPC-UA server to the edge — the short path
 
-When the machines are **already** on an OPC-UA server, the edge route collapses to eight
+This is the bridge procedure, and it is also what a machine with its own embedded UA server
+takes. When the machines are **already** on an OPC-UA server, the route collapses to eight
 tasks and no cabinet work:
 
 1. Machine details in the Machine List.
@@ -191,6 +225,12 @@ tasks and no cabinet work:
 Note what is absent: no PLC program, no tag export, no `.S7P`, no mounting, no 24 V.
 **Always test for this case before entering the PLC branch** — it is the largest single
 cost difference available in the guide.
+
+Task 4 is the one that gets skipped and should not be. *"The structure on the OPC-UA Server
+is clear and known"* means the address space is an interface: node ids are
+`<connection name>.<tag name>`, so the connection names chosen on the Softing side are what
+the edge subscribes to. Rename a connection later and every subscription breaks. See
+[`softing-data-targets.md`](softing-data-targets.md).
 
 The budget block still applies, and still names OT devices such as Helmholz NetLink,
 switches and cabling: "already on an OPC-UA server" does not always mean "already reachable
@@ -226,7 +266,7 @@ unavailable, the first question is whether the data is reachable another way —
 | Medium or small device planned | Not approved — large device, or low-frequency collection |
 | **PLC program unavailable** | [`fallbacks.md`](fallbacks.md) — check the non-PLC routes before declaring it blocked |
 | PLC program available, **nobody can modify it** | Blocked at step 5. This is a resourcing escalation, not an engineering one |
-| No cabinet space or no 24 V | Low-frequency collection, or the aggregation route if a server exists |
+| No cabinet space or no 24 V | Low-frequency collection, or reach the PLC via the aggregation server and bridge it back with `DTQ-OPCUA-Connector` — the edge device is still needed, just not at the machine |
 | Legacy PLC, **no protocol** in the connector set | *Integration of Other PLCs* — connector development, long OT/IT cyber-security lead times. Name the dependent use cases |
 | Device cabled but reporting nothing | Check dashboard registration (step 6) and cluster membership (step 9) before suspecting the PLC |
 | Cyber-security sign-off missing | The machine waits. No expedited path |

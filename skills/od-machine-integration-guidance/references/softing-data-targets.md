@@ -51,14 +51,19 @@ recommendation text describes it from the *edge* side and the manual describes i
 ```
 PLC ──driver──► dataFEED data source ──► local address space ──► OPC UA server interface
                                                                           │
-                                                              OPC UA ─────┤
+                                                      OPC UA  ────────────┤
                                                                           ▼
-                                                            IIoT Edge Platform (UA client)
+                                             IIoT Edge Platform  ── DTQ-OPCUA-Connector
                                                                           │
                                                                     MQTT / protobuf
                                                                           ▼
                                                           Node-RED  →  MDL  →  use case
 ```
+
+**The edge is the UA client, and `DTQ-OPCUA-Connector` is how it connects.** That makes the
+aggregation server a concentrator in front of the edge rather than a parallel route: every
+machine behind it still reaches the MDL through the IIoT Edge Platform. Both pieces are
+required — a Softing server with no edge platform behind it delivers nothing.
 
 The OESL tasks for this route — *"connection details available (IP addresses, credentials,
 certificates)"*, *"the structure on the OPC-UA Server is clear and known"*, *"endpoints
