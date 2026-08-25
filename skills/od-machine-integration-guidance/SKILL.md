@@ -49,8 +49,28 @@ each route. When the two disagree, `rules.json` wins — it is the maintained ar
 | [`references/decision-paths.md`](references/decision-paths.md) | Routing: the four gates, PLC family → available routes, connector selection, and where a path dead-ends |
 | [`references/softing-datafeed.md`](references/softing-datafeed.md) | The **Central Aggregation Server** pattern from the dataFEED V5.70 manual — the real driver list, licensing, per-driver settings for Siemens, Rockwell, Modbus and OPC-UA sources, and **where the OESL guidance does not match the product** |
 | [`references/softing-tag-syntax.md`](references/softing-tag-syntax.md) | Tag identifier syntax per family — S7 areas and bit masking, Modbus areas with the UnitID and Group prefixes, PLC-5 / SLC file types, arrays and suffixes |
+| [`references/softing-data-targets.md`](references/softing-data-targets.md) | How the data leaves dataFEED — the OPC UA path the edge reads, Store and Forward, the Preprocessing Engine, and the MQTT capability that has no OESL route |
 | [`references/iiot-edge-platform.md`](references/iiot-edge-platform.md) | The **IIoT Edge** pattern in detail — the six phases, the hardware sequence, device sizing, non-PLC endpoint classes |
 | [`references/fallbacks.md`](references/fallbacks.md) | The eight ways an integration blocks, what to try before declaring each one blocked, and when to stop |
+
+## Terminology — one name per thing
+
+The sources use several names for the same things. These are canonical in this registry;
+the aliases are listed because you will meet them in the guide, the manual and the
+department notes.
+
+| Canonical | Also called | Is |
+|---|---|---|
+| **IIoT Edge Platform** | IIoT Edge Computing Platform; "the edge"; iiot edge platform | The route: DATATRONiQ edge devices on the plant Kubernetes runtime, one connector per protocol |
+| **Central Aggregation Server** | Central OPC-UA Aggregation Server; Softing OPC-UA Aggregation Server; **central OPC-UA server** (the department's name for the *concept*); legacy: Kepware | The route: one server running **Softing dataFEED OPC Suite**, exposing all its drivers as one OPC UA address space |
+| **Softing dataFEED OPC Suite** | dataFEED; DataFeed; the Suite | The product that runs on the Central Aggregation Server. Version documented here: **V5.70** |
+| **Connector** | driver; DTQ connector | Reaches a machine. 24 DATATRONiQ + 2 Softing |
+| **Data source** | driver connection | dataFEED's term for a connection that *defines* datapoints. Does **not** mean "upstream" |
+| **Tool** | — | A system a plant uses. Never the same row as a connector |
+
+"Central OPC-UA server" and "Central Aggregation Server" are the same thing seen from two
+sides — the department records the *integration concept*, the guide labels the *route*. Use
+the guide's wording when handing someone a procedure: it is the label on their screen.
 
 ## How to use this skill
 

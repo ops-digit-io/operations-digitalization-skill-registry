@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.2.0
+  version: 0.3.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -208,7 +208,7 @@ skills:
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend a route; never connect, never approve an external connection
-    summary: Routes a machine to the edge or the Softing dataFEED aggregation server, walks that route's configuration pattern, and takes the right fallback when a path blocks.
+    summary: Routes a machine to the IIoT Edge Platform or the Softing dataFEED Central Aggregation Server, walks that route's configuration pattern from the V5.70 manual, and takes the right fallback when a path blocks.
 
   - id: od-node-red-flow-builder
     tier: technical

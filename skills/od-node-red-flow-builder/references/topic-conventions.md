@@ -24,6 +24,12 @@ datatroniq/data/protob/plc/<edge-device>/<driver>/<id>
 These name the connector family reaching the PLC — see
 `od-machine-integration-guidance` for the connector table.
 
+`ads` is the `DTQ-Beckhoff-Connector`, and it is worth knowing that this is the **only ADS
+path in the estate**: the Central Aggregation Server's Softing dataFEED has no Beckhoff
+driver and no ADS at all. A Beckhoff machine seen on this spine got there through an edge
+device, and it cannot be moved to the aggregation server without changing protocol
+(Modbus TCP, or a TwinCAT OPC UA server in front).
+
 **Edge device names observed:** `ski4-bm01`…`ski4-bm12`, `mx-datatron02`, `sklx004x`,
 `datatron-pink`, `datatron-grazioli`, `ka-tscc41005346`, `ka-tscc41005381`, `csedge004`,
 `lj-ed-pots`, `wte0060x`, `hmi-notification-system`.

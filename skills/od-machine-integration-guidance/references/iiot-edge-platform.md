@@ -8,7 +8,29 @@ server that every machine depends on.
 **Valid for BROWNFIELD and GREENFIELD** — the only OESL route that covers new machines.
 
 Pairs with [`decision-paths.md`](decision-paths.md) for routing and
-[`fallbacks.md`](fallbacks.md) when a step blocks.
+[`fallbacks.md`](fallbacks.md) when a step blocks. The other route is
+[`softing-datafeed.md`](softing-datafeed.md).
+
+## What "the platform" actually is
+
+Three things travel under one name, and confusing them causes most of the
+cross-conversation friction on this route:
+
+| Layer | What it is | Where it appears |
+|---|---|---|
+| **Edge device** | The hardware in or beside the machine cabinet. Currently one approved size | Edge Device List; the hardware branch of the guide |
+| **Connector** | The protocol driver reaching the PLC — 26 of them, 24 DATATRONiQ, 2 Softing | Connector Overview list; [`decision-paths.md`](decision-paths.md) |
+| **Platform** | The DATATRONiQ dashboard and server cluster the devices register into, on the plant Kubernetes runtime | Steps 6 and 9 of the hardware sequence |
+
+A machine is integrated only when all three are done. Cabled and addressed but not
+registered in the dashboard and not in the cluster is a device that reports nothing and
+looks, from the cabinet, entirely healthy.
+
+**Where the connector name surfaces later:** the driver family becomes a segment of the MQTT
+topic the platform publishes on — `datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`,
+with `<driver>` observed across the estate as `dqcdc`, `cifx`, `tia`, `ads`, `abrock`. The
+connector chosen here is visible in every Node-RED flow downstream, and the edge device name
+chosen at registration is the `<edge-device>` segment. See `od-node-red-flow-builder`.
 
 ---
 
@@ -111,18 +133,44 @@ IIAE — this is the kind of line that changes without the tree changing.⟩
 
 ---
 
-## The three integration concepts
+## The three integration concepts, and the two routes
 
-The edge platform is one of three concepts recorded as tools in their own right:
+The knowledge graph records **three integration concepts** as tools in their own right. The
+Equipment integration guide offers **two routes**. They are not the same list, and the
+mapping is worth stating once:
 
-| Concept | Shape | Choose when |
+| Integration concept (knowledge graph) | Guide route | Shape |
 |---|---|---|
-| **IIoT edge computing platform** | Device per machine or cell, connector per protocol | Greenfield; no aggregation server; camera and sensor endpoints; where a shared-server dependency is unwanted |
-| **Central OPC-UA server** | One server, driver connections, one address space | Brownfield at density; no cabinet work possible; machine already speaks OPC-UA — see [`softing-datafeed.md`](softing-datafeed.md) |
-| **Container-based machine integration** | Containerised connector | ⟨Route not written up in the guide — IIAE question⟩ |
+| **IIoT edge computing platform** | **IIoT Edge Platform** | Device per machine or cell, connector per protocol. Greenfield-capable; the only route for cameras; no shared-server dependency |
+| **Central OPC-UA server** | **Central Aggregation Server**, running Softing dataFEED OPC Suite | One server, driver connections, one address space. Brownfield at density; no cabinet work; the natural route when the machine already speaks OPC UA — see [`softing-datafeed.md`](softing-datafeed.md) |
+| **Container-based machine integration** | *(no route)* | Recorded as a concept; the guide does not route to it. ⟨IIAE question — do not invent the procedure⟩ |
 
-The third is recorded in the estate as a concept but the Equipment integration guide does
-not route to it. Do not invent the procedure; ask.
+So "central OPC-UA server" (the concept, as the department notes call it) and "Central
+Aggregation Server" (the route, as the guide calls it) are **the same thing seen from two
+sides**. Both names are in use. Prefer the guide's when handing someone a procedure, because
+that is the label on the screen in front of them.
+
+## Choosing between the two, when both are open
+
+Gate 0 usually settles this — a plant has one platform, not both. Where both are genuinely
+available:
+
+| Favours the **edge** | Favours the **aggregation server** |
+|---|---|
+| Greenfield machine, or a new machine being ordered | Brownfield, at density — many machines at one site |
+| Camera, remote sensor, file drop or vendor-specific endpoint | Machine already fronted by an OPC UA server |
+| Cabinet space and 24 V available | No cabinet work possible or permitted |
+| A shared failure domain is unacceptable — one device, one machine | Cabinet access is the expensive part, not the licence |
+| The driver exists as a DTQ connector but **not** as a dataFEED data source — **Beckhoff / ADS is exactly this** | The driver exists in dataFEED but the **edge branch is unwritten** — **Modbus is exactly this** |
+
+That last row cuts both ways, and it is the practical one: **neither platform covers
+everything**, and for some machines the honest answer is that no route is fully written. Say
+that rather than forcing one.
+
+**The failure domains differ, and it is not a detail.** An edge device failing takes one
+machine off. An aggregation server failing takes every machine behind it off at once — which
+is why its "operate" phase, cyclic-read budget and licence headroom matter in a way the
+edge's do not.
 
 ---
 
@@ -182,3 +230,4 @@ unavailable, the first question is whether the data is reachable another way —
 | Legacy PLC, **no protocol** in the connector set | *Integration of Other PLCs* — connector development, long OT/IT cyber-security lead times. Name the dependent use cases |
 | Device cabled but reporting nothing | Check dashboard registration (step 6) and cluster membership (step 9) before suspecting the PLC |
 | Cyber-security sign-off missing | The machine waits. No expedited path |
+| **Beckhoff PLC** | The `DTQ-Beckhoff-Connector` (ADS) is the native path, but the edge recommendation body is `TODO` — **and dataFEED has no Beckhoff driver at all**, so the aggregation server is not a fallback here. Modbus TCP or a TwinCAT OPC UA server, else IIAE |

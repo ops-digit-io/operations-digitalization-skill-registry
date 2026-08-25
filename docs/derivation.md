@@ -151,6 +151,17 @@ is stated in `SKILL.md` and both references, and the fix is recorded in `registr
 change owed to `rules.json`. A skill that silently patched the guidance would leave the tool
 everyone actually uses still wrong.
 
+**One name per thing, stated once.** The sources disagree on what to call the two routes —
+the Equipment integration guide says *IIoT Edge Platform* and *Central Aggregation Server*,
+the department notes say *IIoT edge computing platform* and *central OPC-UA server*, and the
+recommendation bodies add *Softing OPC-UA Aggregation Server* and *Softing DataFeed*. Rather
+than pick one and silently rewrite the others, `od-machine-integration-guidance` carries a
+Terminology table mapping canonical name to alias to what the thing actually is, states that
+the concept and the route are the same thing seen from two sides, and the adjacent skills
+(`od-equipment-integration-assessment`, `od-information-integration-service`) now name both
+and point here for per-machine routing. The rule for prose: use the guide's wording when
+handing someone a procedure, because that is the label on their screen.
+
 **Secrets found in the source are named, never reproduced.** The flow corpus contains 23
 literal Teams webhook URLs and 30 literal Bearer tokens. The Node-RED skill states the
 counts and makes replacing them a guardrail; no skill or reference file contains one, and

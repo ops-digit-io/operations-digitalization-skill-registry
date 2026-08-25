@@ -62,12 +62,16 @@ concept-by-concept trace.
 These carry `references/` alongside `SKILL.md`, and for the two derived skills the
 references are the substance rather than an appendix:
 
-- **machine integration** — `decision-paths.md` (the four gates, PLC family → available
-  routes, connector selection, dead ends), `softing-datafeed.md` (the Central Aggregation
-  Server from the Softing dataFEED V5.70 manual: driver list, licensing, per-driver settings,
-  and where the OESL guidance does not match the product), `softing-tag-syntax.md` (tag
-  identifiers per family), `iiot-edge-platform.md` (the six phases and the hardware
-  sequence), `fallbacks.md` (the eight ways an integration blocks and what to try first)
+- **machine integration** (six files, ~1,600 lines) — `decision-paths.md` (the four gates,
+  PLC family → available routes, connector selection, dead ends, and a worked routing end to
+  end), `softing-datafeed.md` (the Central Aggregation Server from the Softing dataFEED
+  **V5.70 manual** with page references: driver list, licensing, per-driver settings, and
+  where the OESL guidance does not match the product), `softing-tag-syntax.md` (tag
+  identifiers per family), `softing-data-targets.md` (how the data leaves — the OPC UA path
+  the edge reads, Store and Forward, the Preprocessing Engine, the unrouted MQTT capability),
+  `iiot-edge-platform.md` (the three layers, six phases, hardware sequence, and how to choose
+  when both routes are open), `fallbacks.md` (the eight ways an integration blocks and what
+  to try first)
 - **Node-RED** — the canonical flow walkthrough, the PLCPacket schema, the topic grammar,
   the standard function bodies and the instance inventory
 

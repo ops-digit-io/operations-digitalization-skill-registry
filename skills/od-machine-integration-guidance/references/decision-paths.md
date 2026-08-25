@@ -6,10 +6,17 @@ and where a path genuinely dead-ends. Source: the Equipment integration guide's
 `rules.json` is authoritative for an answer today.
 
 Read this first, then the pattern file for the route you land on:
-[`softing-datafeed.md`](softing-datafeed.md) for the Central Aggregation Server (with
-[`softing-tag-syntax.md`](softing-tag-syntax.md) for tag identifiers),
-[`iiot-edge-platform.md`](iiot-edge-platform.md) for the edge. When a branch is blocked,
-go to [`fallbacks.md`](fallbacks.md).
+
+- **Central Aggregation Server** → [`softing-datafeed.md`](softing-datafeed.md), with
+  [`softing-tag-syntax.md`](softing-tag-syntax.md) for tag identifiers and
+  [`softing-data-targets.md`](softing-data-targets.md) for how the data leaves
+- **IIoT Edge Platform** → [`iiot-edge-platform.md`](iiot-edge-platform.md)
+- **Blocked** → [`fallbacks.md`](fallbacks.md)
+
+Canonical names for the two routes, and their aliases, are in the skill's *Terminology*
+section. In short: **Central Aggregation Server** is the guide's name for the route that the
+department notes call the *central OPC-UA server* concept, and it runs **Softing dataFEED
+OPC Suite**.
 
 > **Two rows below correct the OESL guidance against the product manual.** dataFEED OPC
 > Suite V5.70 has **no Beckhoff data source**, and the **NetLink protocol was discontinued
@@ -222,3 +229,47 @@ it is already decisive and worth knowing now:
 
 > **Camera systems cannot be connected to any Central Aggregation Server.** Cameras are an
 > edge-only endpoint class.
+
+---
+
+## A worked routing, end to end
+
+*"We need cycle time off an S7-300 at a plant that has the aggregation server but no edge
+devices. The machine builder is gone and nobody can find the PLC program."*
+
+**Gate 0.** Softing server present, no edge devices → the aggregation column. The edge is
+not available without first taking the hardware branch, which is a budget and lead-time
+conversation, not a step of this integration.
+
+**The cheap question.** Is the machine already on the OPC UA server? No — it is not
+connected at all. So the PLC branch it is.
+
+**Gate 1.** Siemens → S7. Both platforms support it; only one is available. → Softing,
+`Data Sources → Siemens`, application protocol **Siemens S7**. (Not S7-2: that is
+S7-1200/1500 only. Not NetLink: discontinued in V5.38.)
+
+**Gate 3, and it stops here.** No PLC program → the breakpoint. Before recording the
+machine as blocked, work [`fallbacks.md`](fallbacks.md) §1:
+
+1. Already on an OPC UA server? No.
+2. Vendor-specific connector? Not applicable to a generic S7.
+3. Writes a file? **Worth checking** — many older lines drop a shift log to a share, and
+   `DTQ-SMB-Connector` needs no program. But the plant has no edge device, so this rung
+   only helps if the edge branch is opened.
+4. HTTP/SOAP? No.
+5. Serial? No.
+6. **Is cycle time available on a neighbouring PLC?** The line PLC may already count parts
+   — the estate records exactly this pattern for robot signals on 5 machines. **Check this
+   before anything else**, because it costs a conversation rather than a procurement.
+7. Add a sensor instead? A part-present sensor into a remote-sensor endpoint would give
+   cycle time without touching the machine at all — but again needs the edge.
+
+**The honest answer**, if 3 and 6 come back negative: the machine is blocked pending the PLC
+program, the supplier request goes out today, and the machine is recorded in the Machine
+List with that blocker and its owner. Meanwhile the *use case* may still be servable from
+the neighbouring PLC — which is a different machine, a different route, and a conversation
+worth having before anyone waits three months.
+
+**What this example shows:** the tree is short, the fallbacks are where the work is, and
+the answer that unblocks a use case is often a different machine rather than a harder attempt
+at this one.

@@ -56,9 +56,21 @@ RS232, and vendor-specific ones for Engel, Piovan, Keyence, Zwick and Optris. A 
 only ever reaches a machine. It is not a system a plant uses, which is why it is kept
 distinct from a tool.
 
-**Integration concept** — three sit above the connectors and are recorded as tools in
-their own right: a **central OPC-UA server**, **container-based machine integration**, and
-the **IIoT edge computing platform**. Which one applies depends on the machine.
+These 26 are the **edge** connector set. The Central Aggregation Server has its own driver
+list, and it is not the same one — notably it has **no Beckhoff / ADS driver**. Do not
+assume a machine routable on one platform is routable on the other; check per machine in
+`od-machine-integration-guidance`.
+
+**Integration concept** — three sit above the connectors and are recorded as tools in their
+own right: a **central OPC-UA server**, **container-based machine integration**, and the
+**IIoT edge computing platform**. Which one applies depends on the machine.
+
+The Equipment integration guide routes to two of them, under its own names: the
+**IIoT Edge Platform** and the **Central Aggregation Server** (running Softing dataFEED OPC
+Suite; legacy Kepware) — the latter being the central OPC-UA server concept seen from the
+route side. Container-based integration is recorded as a concept with **no written route**.
+Per-machine routing, the configuration patterns and the fallbacks are in
+`od-machine-integration-guidance`.
 
 That decision was turned into a guided questionnaire — the **Equipment integration
 guide**, a Streamlit app over a rules file (`_apps/machine-integration-guidance-app`,

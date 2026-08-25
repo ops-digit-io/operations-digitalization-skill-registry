@@ -61,9 +61,14 @@ number, network protocol and criticality: **821 `INTEGRATED`**, **395 `NOT INTEG
 part of it is machines nobody has needed data from yet. The field records the state, not
 a judgement.
 
-26 connectors, one per protocol or vendor family. Three integration concepts sit above
-them: a central OPC-UA server, container-based machine integration, and an IIoT edge
-computing platform.
+26 connectors, one per protocol or vendor family — 24 DATATRONiQ, 2 Softing Industrial.
+Three integration concepts sit above them: a central OPC-UA server, container-based machine
+integration, and an IIoT edge computing platform.
+
+The guide routes to two of these, under its own names — the **IIoT Edge Platform** and the
+**Central Aggregation Server** (running Softing dataFEED OPC Suite). For a specific machine,
+`od-machine-integration-guidance` carries the routing, the per-driver configuration patterns
+and the fallbacks when a path blocks.
 
 ## Error paths
 
