@@ -67,6 +67,7 @@ argument for doing this before a flow is built rather than after.
 |---|---|
 | [`references/signal-catalogue.md`](references/signal-catalogue.md) | The canonical vocabulary by family, the variance quantified, the naming rules, and what must never be a signal name |
 | [`references/standards.md`](references/standards.md) | The normative KPI definitions — ISO 22400-2, VDI 3423, ISA-95, ISO 22005 — and what each capability's checklist requires *before* you choose signals |
+| [`references/multilingual-tags.md`](references/multilingual-tags.md) | **Tags are not in English.** Chinese, German, Spanish, French, Romanian, Hungarian, Slovak/Czech, Serbian and Portuguese terms, the normalization that must happen before any comparison, and why the local name is an alias rather than a replacement |
 | [`references/machine-context.md`](references/machine-context.md) | **The other input.** What a PLC program, sequence chart, layout, handbook, HMI or schematic each tells you about how the machine works, with confidence per source and what to do when the context is thin |
 | [`assets/signal-analysis-report.md`](assets/signal-analysis-report.md) | The defined output format — the report this skill produces |
 | [`references/public-data-models.md`](references/public-data-models.md) | **Check before defining anything.** OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84 for Plastic and Rubber, PackML's 17-state model — and what each solves here |
@@ -76,7 +77,10 @@ argument for doing this before a flow is built rather than after.
 ## Two inputs, one output
 
 **Input A — the tag list.** What the machine emits: the data-point list from the edge
-platform, or a tag/symbol export. Machine-readable, and what the analyser consumes.
+platform, or a tag/symbol export. Machine-readable, and what the analyser consumes —
+**in whatever language the PLC programmer thinks in**. The corpus already carries Chinese
+(`存储设定值`), German (`Rüstzeit`) and Spanish (`Pza`, `Contador`) tags, and six more plant
+languages are in scope. → [`multilingual-tags.md`](references/multilingual-tags.md)
 
 **Input B — the machine context.** How the machine *works*: a PLC program, a sequence or flow
 chart, a layout, the handbook, the HMI, an electrical schematic, a proven instance at another
@@ -136,6 +140,9 @@ columns. Exit **2** on blockers, **1** on warnings, **0** clean.
 | `missing-uuid`, `duplicate-uuid` | BLOCKER | A point no flow can filter for |
 | `unnamed-point` | BLOCKER | A point nothing can describe |
 | `name-collision` | BLOCKER | `MachineState` vs `machinestate` — a consumer silently misses half |
+| `mixed-script-name` | BLOCKER | `Temp压力` — Latin and non-Latin in one label, unmatchable in both |
+| `local-language-name` | WARN | A term in one of nine plant languages, with the canonical suggestion |
+| `non-latin-script` | WARN | Chinese, Cyrillic, Japanese, Korean, Greek, Arabic labels |
 | `raw-plc-tag` | BLOCKER | `DB15.DBW20`, `_part0_io` — an address is not a name |
 | `capability-gap` | BLOCKER | The use case cannot be built to the standard yet |
 | `non-canonical-name` | WARN | A known variant of a canonical name |
@@ -219,6 +226,7 @@ Patterns, the German-language caution and the full scoring model:
 |---|---|---|
 | **Canonical** | It is in the vocabulary | Use the name as-is |
 | **Variant** | Same concept, different spelling | Rename to canonical — before anything consumes it |
+| **Local language** | The concept in the plant's language | Map to canonical; **keep the original as an alias** in the report and Machine CV |
 | **Genuinely machine-specific** | No other plant has this machine | Keep it, name it by concept, record why |
 | **Raw PLC tag** | An address or an internal tag | Must be named. Blocker |
 | **Derived** | Computed, not read | It is an *output* data point — see step 5 |
@@ -293,6 +301,19 @@ assume more certainty than exists, and that assumption is how `AverageMeltTempat
 The report feeds `od-requirements-breakdown` §5 *Tags of Interest*,
 `od-machine-integration-guidance`, the flow config in `od-node-red-flow-builder`, and the
 Machine CV.
+
+## A word on language
+
+**The canonical name is English; the local name is an alias, not a replacement.** Not because
+English is better, but because a name only one plant can read defeats the point of having a
+canonical vocabulary at all.
+
+The data-point contract has one label field, so the label carries the canonical name and the
+local name lives in the report and the Machine CV. **Never machine-translate a signal name and
+use the result directly** — Chinese `设定值` renders as "set value", which reads like a command
+rather than a setpoint, and a wrong reading becomes an interface within a few flows. Get a
+native reading from the plant. Details, the term table and the normalization:
+[`multilingual-tags.md`](references/multilingual-tags.md).
 
 ## Decision rights
 

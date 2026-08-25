@@ -180,6 +180,22 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**Tags are multilingual, and the corpus proved it rather than the assumption doing so.**
+Scanning every label, node name and comment for non-ASCII characters found Chinese at Qingdao
+and Changshu (`存储设定值` — store setpoint value; `流程` — process), German at Waltershausen and
+Karben (`Rüstzeit`, `Rüstmonitor`, `Heizungsart`), and Spanish at Delicias and Monterrey
+(`Pza`, `Contador`, and the misspelling `Cointador`). Six further plant languages are in scope
+and simply have not reached the corpus yet.
+
+Building the matcher took three rounds of correction, each caught by testing rather than
+review: `Rüstzeit` was missed because accent-folding gives `rustzeit` while the dictionary key
+was `ruestzeit`; `Darabszamlalo` was missed because Hungarian and German compound their words,
+so a substring pass had to follow the token pass; and English `Temperature` was *wrongly*
+reported as German `Temperatur`, which a guard list of English terms now vetoes — a check that
+mislabels English as foreign would be worse than no check. The rule the reference settles is
+that the canonical name is English and the local name is an alias, kept in the report and the
+Machine CV because the data-point contract has only one label field.
+
 **The signal skill takes two inputs because one was never enough.** A tag list gives names;
 only the machine context gives meanings, and `CycleTime` from two plants is not comparable
 unless somebody knows where each machine's cycle starts. The context sources are ranked by

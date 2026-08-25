@@ -82,7 +82,8 @@ references are the substance rather than an appendix:
   flow JSON and reports the failure modes that actually occur in this estate, plus a
   symptom-to-cause table for what static analysis cannot see
 - **signal standardization** — reads the machine context (PLC program, sequence chart, layout,
-  handbook, HMI) alongside the tag list and writes a defined signal analysis report; the
+  handbook, HMI) alongside the tag list, translates tags from nine plant languages, and writes
+  a defined signal analysis report; the
   canonical vocabulary mined from 260 signal names in use,
   the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
   PackML), the normative KPI standards behind each capability, search patterns that cluster a

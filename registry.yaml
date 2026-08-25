@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.1.0
+  version: 1.2.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -218,7 +218,7 @@ skills:
     origin: derived
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend on standards; configure the offload
-    summary: Reads the machine context (PLC program, sequence chart, layout, handbook, HMI) alongside the tag list, maps signals to the canonical vocabulary and the public data models, clusters and ranks them, and writes a defined signal analysis report.
+    summary: Reads the machine context (PLC program, sequence chart, layout, handbook, HMI) alongside the tag list, maps signals to the canonical vocabulary and the public data models, clusters and ranks them, translates tags from nine plant languages, and writes a defined signal analysis report.
 
   - id: od-node-red-flow-troubleshooting
     tier: technical
@@ -280,6 +280,9 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - Tags arrive in the plant language. The corpus already carries Chinese, German and Spanish labels; Romanian, French, Hungarian, Serbian, Slovak/Czech and Portuguese plants are in scope and not yet represented.
+  - The data-point contract has one label field, so a local-language name cannot be carried alongside the canonical one. Whether the edge platform can hold a second display field is unconfirmed.
+  - The term table covers nine languages and is a starting point; each plant's entries need a native speaker's confirmation.
   - 260 distinct signal names for a far smaller set of concepts; eight for machine state alone. AverageMeltTempature is a misspelling with 34 references and is now an interface.
   - Which machines already expose an OPC UA companion specification (OPC UA for Machinery, EUROMAP 77/83/84) is not recorded anywhere; it would change the integration route for each of them.
   - Whether the machine purchase requirement spec (PRS, Doc ID 215534) asks for a companion specification - a one-line change with a large downstream effect.
