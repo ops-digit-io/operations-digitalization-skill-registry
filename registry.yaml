@@ -207,7 +207,7 @@ skills:
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend a route; never connect, never approve an external connection
-    summary: Which integration route and connector a given machine takes, and the preparation checklist it has to clear first.
+    summary: Routes a machine to the edge or the Softing dataFEED aggregation server, walks that route's configuration pattern, and takes the right fallback when a path blocks.
 
   - id: od-node-red-flow-builder
     tier: technical
@@ -228,6 +228,8 @@ open_gaps:
   - Escalation windows for ODEC and COP.
   - A dedicated OD use-case one-pager / business-case template.
   - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
-  - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server).
+  - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); B&R INA2000 on aggregation and Omron NJ on edge are stubs.
+  - No approved medium or small edge device — large device or low-frequency collection only. Confirm current status.
+  - Softing dataFEED vendor manual and the two OESL "Machine Integration — Softing DataFeed" guideline documents are referenced but not attached; vendor docs were unreachable from the authoring environment.
   - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on all 1,715 machine rows.
   - 23 literal Teams webhook URLs and 30 literal Bearer tokens are committed in Node-RED flow JSON and need rotating out.

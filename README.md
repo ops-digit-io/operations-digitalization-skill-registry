@@ -59,10 +59,16 @@ concept-by-concept trace.
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
 | [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
 
-These carry `references/` alongside `SKILL.md` — the decision tree, the connector table and
-the machine estate for machine integration; the canonical flow walkthrough, the PLCPacket
-schema, the topic grammar, the standard function bodies and the instance inventory for
-Node-RED.
+These carry `references/` alongside `SKILL.md`, and for the two derived skills the
+references are the substance rather than an appendix:
+
+- **machine integration** — `decision-paths.md` (the four gates, PLC family → available
+  routes, connector selection, dead ends), `softing-datafeed.md` (per-driver configuration
+  procedures for the Central Aggregation Server: Siemens S7/TIA, Beckhoff, Rockwell, Modbus,
+  OPC-UA sources), `iiot-edge-platform.md` (the six phases and the hardware sequence),
+  `fallbacks.md` (the eight ways an integration blocks and what to try first)
+- **Node-RED** — the canonical flow walkthrough, the PLCPacket schema, the topic grammar,
+  the standard function bodies and the instance inventory
 
 `build-grafana-ops-dashboard` is **vendored** — the author's own skill, body and references
 unchanged, keeping its original name rather than an `od-` prefix. Only a `metadata:` block

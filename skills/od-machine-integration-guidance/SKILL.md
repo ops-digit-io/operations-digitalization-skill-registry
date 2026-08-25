@@ -1,15 +1,15 @@
 ---
 name: od-machine-integration-guidance
 description: >-
-  Decide how to connect a specific machine to the OESL Smart Factory architecture and say
-  what has to be true before it can happen — pick between the IIoT Edge Computing Platform
-  and the Central OPC-UA Aggregation Server, map the PLC vendor and protocol onto one of
-  the 26 connectors, and work the preparation checklist (budget, infrastructure, PLC
-  program, tag export, Machine List, Machine CV, edge-device list, Cyber Security). Use
-  when someone asks how to connect a machine or PLC, which integration route or connector
-  applies to a Siemens / Rockwell / Beckhoff / B&R / Omron / Mitsubishi / Modbus / OPC-UA
-  device, why a machine cannot be connected, what an integration wave needs, or what to
-  specify when ordering a new machine.
+  Guide a machine integration end to end in the OESL Smart Factory architecture — route the
+  machine to the IIoT Edge Computing Platform or the Softing dataFEED Central OPC-UA
+  Aggregation Server, walk the detailed configuration pattern for that route (driver,
+  protocol variant, addressing, read optimization, cyclic read, tag definition), clear the
+  preparation gates, and take the right fallback when a path is blocked. Use when someone
+  asks how to connect a machine or PLC, which route or connector applies to a Siemens /
+  Rockwell / Beckhoff / B&R / Omron / Mitsubishi / Modbus / OPC-UA device, how to configure
+  a data source in Softing dataFEED, why a machine cannot be connected, or what to specify
+  when ordering a new machine.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
 metadata:
   id: od-machine-integration-guidance
@@ -18,7 +18,7 @@ metadata:
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  authority_level: recommend a route; never connect, never approve an external connection
+  authority_level: recommend a route and a configuration; never connect, never approve an external connection
   status: stable
   last_verified: 2026-08-25
   requires: [od-context]
@@ -26,6 +26,8 @@ metadata:
   derived_from:
     - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules.json
     - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules-next.json
+    - OESL guideline "Machine Integration — Softing DataFeed — Siemens S7-300/400/1200/1500" (referenced by the guide)
+    - OESL guideline "Machine Integration — Softing dataFEED — Beckhoff PLC Integration" (referenced by the guide)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (1,715 Machine + 26 Connector nodes)
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
@@ -33,168 +35,131 @@ metadata:
 
 # Machine integration guidance
 
-Read `od-context` first. This skill answers one machine's question. For a whole plant or
-wave, start at `od-equipment-integration-assessment` and come back here per machine.
+Read `od-context` first. This skill guides **one machine**. For a whole plant or wave,
+start at `od-equipment-integration-assessment` and come back here per machine.
 
 The authoritative interactive form of this decision is the **Equipment integration guide**
 (`_apps/machine-integration-guidance-app`, a Streamlit app whose tree lives in
-`rules.json`). This skill is the same tree in readable form plus what the Machine List
-says about the estate it is applied to. When the two disagree, `rules.json` wins — it is
-the maintained artefact.
+`rules.json`). This skill is that tree made walkable, plus the configuration detail behind
+each route. When the two disagree, `rules.json` wins — it is the maintained artefact.
 
-## Step 1 — Which precondition applies
+## The references are the substance
 
-The first question is not about the PLC. It is about what is already installed:
-
-| Answer | Goes to |
+| File | Use it for |
 |---|---|
-| **IIoT Edge Platform** | PLC type → an edge-platform route |
-| **IIoT Edge Platform — Edge Device Hardware Installation** | Large / Medium / Small edge device install guidance |
-| **Central Aggregation Server** (Softing DataFEED; legacy: Kepware) | PLC type → an aggregation-server route |
-| **No standard systems installed** | Rollout preconditions first — there is nothing to connect to yet |
-| **Ordering a new machine, need a standard document** | The requirement-spec route (PRS), not an integration route |
+| [`references/decision-paths.md`](references/decision-paths.md) | Routing: the four gates, PLC family → available routes, connector selection, and where a path dead-ends |
+| [`references/softing-datafeed.md`](references/softing-datafeed.md) | The **Central Aggregation Server** pattern in configuration detail — per-driver procedures for Siemens S7/TIA, Beckhoff, Rockwell, Modbus and OPC-UA sources |
+| [`references/iiot-edge-platform.md`](references/iiot-edge-platform.md) | The **IIoT Edge** pattern in detail — the six phases, the hardware sequence, device sizing, non-PLC endpoint classes |
+| [`references/fallbacks.md`](references/fallbacks.md) | The eight ways an integration blocks, what to try before declaring each one blocked, and when to stop |
 
-The last one matters more than its position suggests: **specifying connectivity at
-purchase is the cheapest integration there is.** A machine bought without the PLC program
-clause is a machine that may never be connectable — see the hard gate below.
+## How to use this skill
 
-## Step 2 — PLC type → route
+1. **Gate 0 — what is installed at this plant?** Not the PLC. The tree starts here because
+   it decides which patterns are available at all. → `decision-paths.md`
+2. **Ask the cheap question first: is the machine already on an OPC-UA server?** If yes,
+   neither the PLC program nor cabinet work is needed. It is the largest single cost
+   difference in the guide and the easiest to skip past.
+3. **Gate 1 — route the PLC family** to edge, aggregation, or both. Neither platform is a
+   vendor default; both carry Siemens and Rockwell at scale.
+4. **Gate 2 — pick the connector** (edge) or the **data source driver** (aggregation).
+5. **Walk the pattern** in `softing-datafeed.md` or `iiot-edge-platform.md`.
+6. **Gate 3 — clear the preparation blocks** in order: budget → infrastructure → **PLC
+   program** → tags → cyber security.
+7. **Blocked?** → `fallbacks.md` before recording it as blocked.
+8. **Gate 4 — record it**: Machine List, Machine CV (mandatory vs optional tags), Edge
+   Device List, inform MPEE OD. Status moves to `INTEGRATED` only after
+   `od-acceptance-test` passes.
 
-| PLC family | Sub-choice | IIoT Edge | Central OPC-UA Aggregation Server |
-|---|---|---|---|
-| **Siemens** | S7 | yes | yes |
-| | S7 Net / low frequency | yes | — (edge only) |
-| | TIA | yes | yes |
-| **Siemens NCU** | Sinumerik 840D / 840 UDP | yes | yes *(in `rules-next`)* |
-| | Sinuvars | yes | yes *(in `rules-next`)* |
-| **Beckhoff** | — | yes | yes |
-| **B&R** | INA2000 | — | yes |
-| **Omron** | NJ / CJ | yes | yes *(in `rules-next`)* |
-| **Rockwell / Allen Bradley** | CLX | yes | yes |
-| | SLC / PLC-5 | yes | yes |
-| **OPC-UA Server** | — | yes | ⟨route documented as TODO in `rules.json`⟩ |
-| **Modbus** | — | ⟨TODO in `rules.json`⟩ | yes |
-| **Mitsubishi** | Melsec-Q | — | yes |
-| **Other PLC** | — | edge only, by exception | — |
+## The two routes, in one table
 
-Two entries in `rules.json` are explicitly `TODO` (Beckhoff on edge, Modbus on edge,
-OPC-UA on the aggregation server). Say so rather than inventing the procedure — an unwritten
-route is a question for the IIAE, not a gap to fill.
+| | **IIoT Edge Computing Platform** | **Central Aggregation Server** (Softing dataFEED OPC Suite) |
+|---|---|---|
+| Shape | Device per machine or cell, connector per protocol | One server, driver connections, one OPC-UA address space |
+| Valid for | **Brownfield and greenfield** | Brownfield (OPC-UA data source: also greenfield) |
+| Cabinet work | Mount, 24 V, shopfloor Ethernet, ETH1 | **None** |
+| PLC program needed | Yes, for a PLC endpoint | Yes, for a PLC data source — it is where the symbol file comes from |
+| Cameras | **Yes — edge only** | **No.** Cameras cannot be connected to any aggregation server |
+| File drops, vendor systems, sensors | Yes, via dedicated connectors — **no PLC program** | Not routed |
+| Shared failure domain | One machine | **Every machine behind that server** |
+| Blocks entirely if… | No approved edge device on site | **No Softing server at the plant — route closed, no workaround** |
 
-The full tree, including the edge-device hardware branch and what `rules-next.json` adds,
-is in [`references/decision-tree.md`](references/decision-tree.md).
+## The breakpoint, quoted
 
-## Step 3 — Which connector
+Every PLC route in the guide carries the same gate, and people negotiate with it, so quote
+it rather than paraphrasing:
 
-26 connectors exist, one per protocol or vendor family — 24 from DATATRONiQ, 2 from
-Softing Industrial. A connector only ever reaches a machine; it is **not** a system a
-plant uses, which is why it is kept distinct from a tool. Full table with input protocols:
-[`references/connectors.md`](references/connectors.md).
+> **"In case you do not have the PLC program or you did not request the PLC program / you
+> did not receive the PLC program, we CAN NOT connect the PLC!"**
 
-## Step 4 — The preparation checklist
+Raise it at the first conversation, not at the integration date. Requesting a program from
+a machine supplier takes weeks and is sometimes a commercial negotiation. Before declaring
+a machine blocked on it, work the seven non-PLC rungs in
+[`fallbacks.md`](references/fallbacks.md) §1 — a great many "no program" machines turn out
+to be file-drop, vendor-interface or already-on-OPC-UA machines that nobody checked.
 
-Every edge-platform route in `rules.json` carries the same five-block checklist. The
-blocks are not advisory; they are what an integration slips on.
+## Three live constraints worth knowing before you plan
 
-**Budget planning** — edge device plus OT hardware (switches, cabling); IT infrastructure
-(software subscriptions, cabling edge → OT switch). Use the budget planning template.
+**Only the large edge device is approved.** `rules.json` answers *both* the medium and the
+small device with: *there is no approved small edge device available; go with the large
+edge device or with a low-frequency data-collection method.* A wave sized around medium or
+small devices is sized around hardware that does not exist yet. ⟨Confirm current status
+with the IIAE.⟩
 
-**Infrastructure preconditions** — IT cabling present; power supply for the edge device
-confirmed against its datasheet.
+**Three branches of the live tree are unwritten** — Beckhoff on edge, Modbus on edge, and
+OPC-UA-server on the aggregation server are `TODO` in `rules.json`. For the first two the
+**aggregation route is fully documented and is the real answer**; for the third,
+`rules-next.json` has the procedure. Never compose a procedure for an unwritten branch.
 
-**PLC / machine preparation** — this is where integrations die:
+**Softing can do more than the OESL tree routes** — S5, FANUC CNC, and file/database
+sources are product capabilities with no OESL route. A capability is not an approved route:
+put it to the IIAE, and if adopted it becomes a change to `rules.json`.
 
-1. Machine details (interfaces, PLC types, HMIs and other endpoints) recorded in the
-   **Machine List**.
-2. A machine-specific **integration plan** — network diagram with endpoints, protocols,
-   connections.
-3. **The PLC program**, in an appropriate format (the entire program including the `.S7P`
-   for Siemens). If it is not available, request it from the machine supplier.
-   > **Hard gate, quoted from the guide: without the PLC program the PLC cannot be
-   > connected.** Not "harder", not "later" — not at all. Raise this at the first
-   > conversation, not at the integration date.
-4. The capability to **adjust the PLC program** — implement the function block, adjust the
-   hardware configuration.
-5. Upload the PLC program to the **Machine CV**.
-6. **Export the tags** from the PLC program using the available export tools.
-7. Provide the **PLC IP address and connection details**.
-8. Add the edge device to the **Edge Device List**.
+## What the estate means for a routing decision
 
-**IT tasks** — provide the edge-device IP; configure it on ETH1.
+1,715 machines: **821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 ongoing, 451 with no status
+recorded.** Three things follow that change how you answer.
 
-**Machine tasks** — connect PLC to edge device; mount the edge device in the machine
-cabinet with 24 V supply.
+- **`NOT INTEGRATED` is not a backlog of failures.** A large part of it is machines nobody
+  has needed data from yet. Check whether a use case wants the data before reporting a gap.
+- **Siemens is 60 % of the estate** (1,032 machines, dominated by the legacy S7-300), so
+  the S7 route, its PLC-program requirement and the TIA V16→V17 upgrade come up more than
+  anything else. Rockwell is second at 220 and carries the most `EVALUATION ONGOING`
+  machines — its route decision is genuinely open more often.
+- **`production_criticality`, `cyber_security_status`, `machine_blockers` and
+  `input_protocol` are empty on all 1,715 rows.** Unpopulated fields, not a statement that
+  no machine is critical. Never read one as a value.
 
-The OPC-UA aggregation route differs: it is **brownfield only**, needs the machines already
-on the Softing DataFEED OPC Suite, needs the server endpoint details (IP, credentials,
-certificates) and a known server structure, and ends by informing the MPEE Operations
-Digitalization team.
-
-## Step 5 — Record it, then hand on
-
-The **Machine List is the record**, not a form to fill afterwards. Update integration
-status (`INTEGRATED` / `NOT INTEGRATED` / `INTEGRATION ONGOING`) only after
-`od-acceptance-test` passes. Then the signals go to `od-signal-standardization`, and the
-data-path build to `od-node-red-flow-builder`.
-
-## What the estate actually looks like
-
-1,715 machines. Full breakdown: [`references/estate.md`](references/estate.md).
-
-| | |
-|---|--:|
-| `INTEGRATED` | 821 |
-| `NOT INTEGRATED` | 395 |
-| `INTEGRATION ONGOING` | 48 |
-| status not recorded | 451 |
-
-**Siemens is 1,032 of 1,715 machines** — 60 % of the estate, dominated by SIMATIC S7-300
-(324), S7-1200 (264) and S7-1500 (171). Rockwell/Allen-Bradley is the second family at 220.
-Route chosen where recorded: **IIoT Edge 672 · Central OPC-UA Aggregation Server 384 ·
-evaluation ongoing 117**, with 542 machines carrying no method yet.
-
-**`NOT INTEGRATED` is not a backlog of failures.** A large part of it is machines nobody
-has needed data from yet. Check whether a use case wants the data before reporting it as a
-gap. Equally, `production_criticality`, `cyber_security_status` and `machine_blockers` are
-**empty on all 1,715 rows** — those fields exist and have never been populated. Do not
-read an empty criticality as "not critical".
-
-## Recorded blockers, in the estate's own words
-
-125 machines carry an integration blocker. The recurring ones:
-
-| Blocker | Machines |
-|---|--:|
-| Data model standardization (CT Base) | 23 |
-| Firmware patching required for cyber security | 13 |
-| TIA V16 → V17 upgrade needed | 12 |
-| Cyber-security vulnerability, patch before integration | 5 |
-| Robot signals possibly available via the related PLC — unconfirmed | 5 |
-| Camera hardware and integration | 2 |
-| No PLC on an IM151-1 standard — PLC type unknown | 2 |
-
-Three of the top four are **not** connectivity problems: they are a data-model decision, a
-firmware policy and a toolchain upgrade. That matches the department's wider finding —
-what stalls is almost never the engineering.
+The recorded blockers say the same thing the department says everywhere else: of the top
+four — data-model standardization (CT Base, 23 machines), firmware patching for cyber
+security (13), TIA V16→V17 upgrade (12), cyber-security vulnerability (5) — **three are not
+connectivity problems at all.**
 
 ## Guardrails
 
 - **Never connect a machine and never approve an external connection.** Both are human,
-  `execute-with-approval`, Tandem with Plant ME / Plant IT, and external connections need
-  Cyber Security / OT sign-off first. There is no expedited path.
-- **Never change a signal or data-model standard** to make a machine easier — Consultation
+  `execute-with-approval`, Tandem with Plant ME / Plant IT; external connections need Cyber
+  Security / OT sign-off **first**. There is no expedited path.
+- **Never enable Write Permission** on an aggregation-server data source unless a use case
+  writes to the PLC. Read-only is the default posture.
+- **Never structure tags to the PLC's layout.** Structure to the data model (CT Base). This
+  is the moment cross-plant comparability is decided.
+- **Never change a signal or data-model standard** to make one machine easier — Consultation
   with ContiTech central, and interface compatibility is a standing constraint.
-- **Never mark a machine `INTEGRATED`** before its acceptance test passes.
-- **Never invent a route** for a branch `rules.json` marks TODO.
-- **Never claim a readiness dimension "Available"** without evidence.
+- **Never mark a machine `INTEGRATED`** before its acceptance test passes, and never claim a
+  readiness dimension "Available" without evidence.
+- **Never invent a route** for a branch the guide marks `TODO`.
 
-## What is coming
+## Sourcing and what is missing
 
-`rules-next.json` is the newer tree beside the live one — 35 questions against 25, 31
-recommendations against 27. It adds routes for **camera systems** and **remote sensors** on
-both platforms, completes Rockwell, Omron, Sinuvars and Sinumerik on the aggregation
-server, and adds assessment questions the current tree does not ask: data acquisition, data
-buffering, local dashboarding / HMI, rule-engine transformation, analytics use cases, PLC
-hardware and software standardization, process complexity and maturity, strategic
-priorities. It is **not** the live tree; treat it as the direction, and use `rules.json`
-for an answer today.
+The Softing configuration patterns are the OESL integration guidance captured in
+`rules-next.json`, which itself references the OESL guideline documents *"Machine
+Integration — Softing DataFeed — Siemens S7-300/400/1200/1500"* and *"… — Beckhoff PLC
+Integration"*.
+
+**Softing's own product documentation was not reachable from the environment this was
+written in** (`industrial.softing.com` and the mirrors are blocked by the network egress
+policy). Vendor capability statements are marked as such in `softing-datafeed.md` and
+should be checked against the current Softing manual before being relied on.
+
+⟨To attach: the Softing dataFEED OPC Suite manual, and the two OESL guideline documents
+themselves — this skill points at them but does not contain them.⟩

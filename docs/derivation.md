@@ -89,7 +89,7 @@ is derived from that material.
 | `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
 | `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
-| `od-machine-integration-guidance` | `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
+| `od-machine-integration-guidance` | `_apps/machine-integration-guidance-app/{rules,rules-next}.json` (incl. the Softing dataFEED procedures it carries); `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
@@ -129,6 +129,23 @@ edit is an added `metadata:` block in the frontmatter. That made a second scope 
 `portable` skill instead ships an `od_integration` note saying what changes when it is used
 for OD work. The validator enforces both halves, so a future vendored skill cannot quietly
 skip the integration note.
+
+**References carry patterns, not statistics.** The machine-integration references were
+rebuilt around what a reader has to *do*: `decision-paths.md` (four gates, routing,
+connector selection, dead ends), `softing-datafeed.md` (per-driver configuration procedures
+for the Central Aggregation Server), `iiot-edge-platform.md` (the six phases and the
+hardware sequence) and `fallbacks.md` (the eight ways an integration blocks and what to try
+first). An earlier pair of reference files that were mostly estate breakdowns was removed —
+a distribution table tells a reader what the estate looks like, not what to do next, and
+the few figures that genuinely change a routing decision now sit in `SKILL.md` with the
+consequence attached.
+
+**One Softing gap is stated rather than filled.** Softing's own product documentation was
+not reachable from the environment this was written in — `industrial.softing.com` and its
+mirrors are blocked by the network egress policy. The configuration procedures therefore
+come from the OESL guidance captured in `rules-next.json`, which references two OESL
+guideline documents by name; vendor capability claims are labelled as unverified, and both
+the manual and the guideline documents are recorded as open gaps rather than reconstructed.
 
 **Secrets found in the source are named, never reproduced.** The flow corpus contains 23
 literal Teams webhook URLs and 30 literal Bearer tokens. The Node-RED skill states the
