@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.7.0
+  version: 0.8.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -130,12 +130,6 @@ skills:
     authority_level: draft / recommend
     summary: Inventory the estate, pick the integration concept and connector, sequence and size the wave.
 
-  - id: od-signal-standardization
-    tier: practice
-    lane: information-integration-service
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: configure pipelines; recommend on standards
-    summary: Standardize signals and offload into the data platform (Databricks -> Azure Storage Account, Parquet); keep the data model harmonized.
 
   - id: od-acceptance-test
     tier: practice
@@ -210,6 +204,15 @@ skills:
     authority_level: recommend a route; never connect, never approve an external connection
     summary: Picks the ingress variant for a machine — edge device, connector without a device, or Softing dataFEED aggregation server bridged by DTQ-OPCUA-Connector — all terminating at the IIoT Edge Platform; walks that variant's configuration pattern from the V5.70 manual and takes the right fallback when it blocks.
 
+  - id: od-signal-standardization
+    tier: technical
+    lane: information-integration-service
+    scope: od
+    origin: derived
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: recommend on standards; configure the offload
+    summary: Analyse a machine's data points against the canonical vocabulary and what a capability requires, then standardize name, meaning, unit and collection method so a second plant can consume the signal without asking.
+
   - id: od-node-red-flow-troubleshooting
     tier: technical
     lane: information-integration-service
@@ -264,5 +267,8 @@ open_gaps:
   - Which contrib palette modules each instance carries is not recorded; the corpus uses OPCUA-IIoT-*, ui-* and influxdb node types from further modules.
   - The estate's `file` nodes use the pre-V3 filename form. Any flow generated with filenameType "msg" must set filename to the message property name, or it writes nothing and logs no error.
   - Timezone convention for shift and day boundaries in Node-RED flows is not recorded.
+  - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
+  - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
+  - 260 distinct signal names for a far smaller set of concepts; eight for machine state alone. AverageMeltTempature is a misspelling with 34 references and is now an interface.
   - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics (75 flows). No stated rule on which to use where.
   - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.
