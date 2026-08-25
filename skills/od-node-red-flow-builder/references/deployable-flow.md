@@ -94,8 +94,24 @@ are a defect rather than a convention.
 **`/data/plcschema.proto` has to exist on the instance.** The estate writes it from a flow —
 35 flows carry a `Generate Text for Protobuffer Schema` function and an
 `Inject protobuffer config once` tab that writes the schema to the Node-RED file store. On a
-new instance, that flow runs first. The schema itself is in
-[`plc-packet.md`](plc-packet.md).
+new instance, that flow runs first.
+
+**Use the ready asset:**
+[`assets/protobuf-schema-bootstrap.flow.json`](../assets/protobuf-schema-bootstrap.flow.json).
+Import it, set `protoPath` in its `Set flow config` node, deploy. It fires once on deploy,
+writes the schema, and is idempotent (`overwriteFile: true`), so redeploying is safe. It
+carries the standard four-node error path and passes the troubleshooting analyser with zero
+findings. Verified on Node-RED v5.0.4: the file lands and the schema round-trips through
+protobufjs.
+
+> **The `file` node's filename is a trap when you copy the corpus.** The estate's flows carry
+> `"filename": "/data/plcschema.proto"` with **no** `filenameType` — the pre-V3 form, which
+> Node-RED upgrades in place to a literal string. If you set `filenameType: "msg"` you must
+> also set `filename` to the **name of the message property** — `"filename": "filename"` —
+> not to a path and not to `""`. With `filenameType: "msg"` and an empty `filename`, the node
+> evaluates an unnamed property, **writes nothing, and logs no error**. The flow starts, the
+> debug node shows the payload, and the file is simply absent. This cost a test cycle to find
+> and it is invisible from the flow JSON alone.
 
 **`keepCase: false` is why the JavaScript sees camelCase.** The `.proto` declares
 `sys_time`, `value_integer`, `plc_packets`; with `keepCase` false the decoder converts to

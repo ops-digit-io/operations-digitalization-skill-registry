@@ -167,6 +167,17 @@ palette module named and the config-node shapes taken from the flow that actuall
 also a caution about derivation in general: a corpus can be complete for what it shows and
 silently missing a whole layer.
 
+**The one shipped flow asset was deployed before it was documented, and the test found a
+bug in it.** `assets/protobuf-schema-bootstrap.flow.json` writes the PLCPacketList schema to
+a new instance's file store. The first version started cleanly, logged no error, and wrote
+nothing: it set the `file` node's `filenameType` to `msg` while leaving `filename` empty, so
+the node evaluated an unnamed property. The estate's own flows avoid this only because they
+use the pre-V3 form Node-RED upgrades in place — copying their `file` node into a modern
+flow and modernising one field breaks it silently. The asset now sets
+`filename: "filename"`, and both the write and a protobufjs round-trip of the written schema
+are verified on Node-RED v5.0.4. The analyser also caught a real defect in the first draft
+(`protoPath` read but never set), which is the tooling working on its own registry's output.
+
 **Examples are generalized on purpose.** Every example in `artefacts.md` uses `cfg.<name>`
 config keys and `⟨…⟩` placeholders — no real UUIDs, machine names, endpoints or credentials,
 verified by grep. The corpus has 42 flows with committed secrets; a reference that pasted

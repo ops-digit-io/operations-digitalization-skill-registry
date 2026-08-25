@@ -73,6 +73,7 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 | [`references/topic-conventions.md`](references/topic-conventions.md) | Both MQTT topic grammars and their vocabularies |
 | [`references/standard-functions.js`](references/standard-functions.js) | The standard function bodies, verbatim |
 | [`references/deployable-flow.md`](references/deployable-flow.md) | **Read before generating a flow file.** The palette module, the config nodes the corpus exports do not contain, the structural envelope, and how to verify a flow actually starts |
+| [`assets/protobuf-schema-bootstrap.flow.json`](assets/protobuf-schema-bootstrap.flow.json) | **Importable flow.** Writes the PLCPacketList schema to the instance's file store — run once on any new instance before any decode/encode flow |
 | [`references/instances.md`](references/instances.md) | The 53 instances, naming, and the documentation pipeline |
 
 **A broken flow rather than a new one?** Use `od-node-red-flow-troubleshooting`, which runs
@@ -84,7 +85,9 @@ a static analyser over the flow JSON.
 > *deployable file*: `decode`/`encode` need the `node-red-contrib-protobuf` palette module,
 > and both the MQTT and protobuf nodes reference config nodes that must be added by hand.
 > [`deployable-flow.md`](references/deployable-flow.md) covers that layer, verified against
-> Node-RED v5.0.4.
+> Node-RED v5.0.4, and
+> [`assets/protobuf-schema-bootstrap.flow.json`](assets/protobuf-schema-bootstrap.flow.json)
+> is an importable flow that puts the schema on the instance.
 
 ## The canonical seven-group layout
 
