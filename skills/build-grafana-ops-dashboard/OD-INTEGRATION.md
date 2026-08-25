@@ -21,33 +21,27 @@ panel may show:
   a false floor. Filter to rows that carry a value and show the coverage denominator
   alongside, or bucket `UNKNOWN` as its own visible category.
 
-## The datasource is Databricks — and that touches one of the skill's hard rules
+## Grafana is local, per plant
 
-OD's shopfloor history lives on the **data platform**: the IIoT Edge Platform offloads
-through **Databricks** to an **Azure Storage Account**, main file format **Parquet**. That
-is what an OD Grafana panel queries.
+**A Grafana instance belongs to one location.** It builds that plant's manufacturing
+dashboards from that plant's data — it is a shop-floor tool, not a company-wide reporting
+layer.
 
-The skill's **Rule 2** requires every query to be **PostgreSQL *and* DuckDB compatible**,
-because the same SQL string is sent to both engines through different datasources. **That
-premise does not hold for OD data** — the engine here is Databricks SQL, which is neither.
+Two things follow, and both are easy to get wrong:
 
-Treat the rule as follows for an OD dashboard:
+- **Do not point a plant's Grafana at the global data platform.** Global analytics live
+  elsewhere; a local dashboard that queries a central lake inherits its latency, its cost
+  model and its access story for no benefit, and stops working the moment the site link
+  does. Keep the query local to the plant.
+- **Do not build a cross-plant view here.** If a panel needs several sites at once, it is
+  not a local manufacturing dashboard and this is the wrong instance to build it on. Raise it
+  as a portfolio or reporting question instead.
 
-- **Rule 1 stands unchanged.** Grafana's time macros — `$__timeFilter()`,
-  `$__timeGroup()`, `$__interval` — are datasource-independent and are still mandatory.
-  Hand-rolled time bounds are still a bug.
-- **Rule 2's *spirit* stands, its letter does not.** The point of it is portability, and
-  the habits it forbids (Postgres-only casts, `DISTINCT ON`, and so on) are mostly things
-  Databricks SQL rejects too. Keep the discipline; do not contort a query to satisfy DuckDB
-  when no DuckDB datasource exists.
-- ⟨**To confirm:** whether a Postgres-compatible serving layer sits in front of Databricks
-  for Grafana, or whether Grafana connects to Databricks SQL directly. That decides whether
-  Rule 2 applies literally.⟩
-
-**Parquet on object storage has a cost model the patterns assume away.** Partition pruning is
-the difference between a panel that returns and one that scans the lake. Filter on the
-partition columns — usually date, often plant — in the same `WHERE` as the time macro, and
-prefer the `timeseries` archetype's patterns, which is the shape this data already has.
+⟨**To confirm:** the local datasource each plant's Grafana reads — engine, and whether it is
+uniform across sites. That decides how literally the skill's PostgreSQL/DuckDB portability
+rule applies here; until it is confirmed, keep the rule as written, since its whole purpose
+is that the same dashboard JSON survives being moved between instances — which is exactly
+what a per-plant Grafana estate needs.⟩
 
 ## Grafana's place in the OD landscape
 
@@ -66,9 +60,10 @@ cases that record an output asset are dashboards. Two consequences:
 ## Before building: two OD gates
 
 - **`od-data-availability-check`** — walk machine → connector → integration concept →
-  offload → data platform before promising a panel. A Grafana panel over a signal that is not
+  local datasource before promising a panel. A Grafana panel over a signal that is not
   standardized is a per-plant transformation buried in a query, and that is how cross-plant
-  comparability is lost.
+  comparability is lost — the fact that the dashboard is local is not a licence to skip the
+  standard.
 - **`od-analytics-asset-build`** — name the **ritual** the dashboard is read inside (daily
   Gemba, shift check, Andon escalation) before choosing panels. A dashboard that is not read
   inside a ritual is a dashboard nobody reads: 8 of the use cases that record a utilization
@@ -81,7 +76,7 @@ the dashboard is the default, and the default is worth questioning.
 ## Timeseries archetype ↔ the OESL signal model
 
 The skill's **timeseries archetype** (UUID-keyed long-format telemetry) is the shape the
-shop-floor data already arrives in, and it is the shape it keeps on the way to Parquet. The `PLCPacket` record carried over MQTT is
+shop-floor data already arrives in. The `PLCPacket` record carried over MQTT is
 UUID-keyed, with a `sys_time` epoch and a `oneof` measured value —
 see `od-node-red-flow-builder` for the full schema and the UUID→label lookup. When you
 pick the timeseries patterns, that is the model you are matching, and the label dimension

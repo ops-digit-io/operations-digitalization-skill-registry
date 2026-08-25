@@ -120,9 +120,9 @@ there, not in a downstream copy.
 | Business Cases (AI at Operations) | The strategic business-case set |
 
 **Read surfaces.** The Digitalization Scorecard and the two OD Power BI reports
-(`OD-Report-Use_Case_Integration`, `OD-Report-Equipment_Integration`); Grafana, where
-most delivered dashboards are actually seen; and the knowledge graph, which is rebuilt
-from the lists and does **not** travel corrections back.
+(`OD-Report-Use_Case_Integration`, `OD-Report-Equipment_Integration`); **Grafana — a local
+instance per plant**, where most delivered dashboards are actually seen; and the knowledge
+graph, which is rebuilt from the lists and does **not** travel corrections back.
 
 **The data path.** Where shopfloor data goes after it is read:
 
@@ -139,9 +139,14 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
 ```
 
 **Databricks** is the data platform the IIoT Edge Platform offloads through; the target is an
-**Azure Storage Account**, and the main file format is **Parquet**. Anything that reads
-shopfloor history reads from there. ⟨Access paths, workspace and container naming, and the
-catalog layout are not recorded here — to confirm.⟩
+**Azure Storage Account**, and the main file format is **Parquet**. ⟨Access paths, workspace
+and container naming, and the catalog layout are not recorded here — to confirm.⟩
+
+**Global platform, local dashboards.** Databricks and the storage account are the **global**
+layer, where cross-plant analysis happens. **Grafana is a local instance per plant**, building
+that plant's manufacturing dashboards from that plant's data. A line-side dashboard belongs
+on the local instance; a cross-plant question belongs on the global platform. Do not point a
+plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
 
 **Shop-floor tools.** Sixteen are rolled out at plants: the MSB family (1.0, 2.0, 4.0)
 as the rollout backbone, MDA/PDA (1.0, 2.0, 3.0), MES 1.0, MIL 1.0, QFPR, Energy

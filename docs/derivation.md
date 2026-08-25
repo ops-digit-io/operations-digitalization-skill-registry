@@ -96,8 +96,11 @@ is derived from that material.
 ## Where this registry deliberately contradicts the bundle
 
 **Read this before regenerating anything from the knowledge graph.** Three facts in the
-bundle are out of date, corrected here on the owner's instruction, and **not yet fixed at
-source**. A naive re-derivation would reintroduce all three.
+source decks are out of date and were corrected here on the owner's instruction. Two of the
+three are **now also fixed in the bundle** (`ops-knowledge-graph`, same branch): the
+department instance no longer names MDL or ContiTech. The raw exports under `90-Sources/`
+are never hand-edited, so the decks themselves still say the old thing — which is why this
+table stays.
 
 | The bundle says | Actually |
 |---|---|
@@ -114,9 +117,14 @@ What was **kept**, deliberately, because they are live identifiers rather than r
 - **CT Base** as the recorded name of the data-model blocker on 23 machines — the estate
   says that, so the estate is quoted, with the current model name marked `⟨confirm⟩`.
 
-The fix belongs upstream: `10-Department/Systems of record.md`, the `00-core/` charter,
-strategy, decision-rights, glossary and risks files, and the four lane packs all still name
-MDL and ContiTech. Until they are updated, this table is the reconciliation.
+**Fixed upstream** in the same branch of `ops-knowledge-graph`: `10-Department/Systems of
+record.md` (which now carries the data path and the local-versus-global rule), the `00-core/`
+charter, strategy, objectives, service-catalog, decision-rights, risks, SWOT, glossary and
+resources files, all four lane packs, the smart-factory module, `OD_Skill_Map.md`, and the OD
+README, which carries its own corrections table.
+
+**Still outstanding upstream:** the `90-Sources/` decks (raw exports, not hand-edited) and
+the OESL → neuwerk rename.
 
 ## Editorial decisions worth knowing about
 

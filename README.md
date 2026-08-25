@@ -113,10 +113,15 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
 **Azure Storage Account**, and the main file format is **Parquet**. Anything that reads
 shopfloor history reads from there.
 
-> The knowledge bundle these skills derive from still names an **MDL** and treats
-> **ContiTech** as a shared-services partner and standing constraint. **Neither is used**;
-> both were removed here on the owner's instruction and the bundle is not yet fixed at source
-> — see [`docs/derivation.md`](docs/derivation.md) § *Where this registry deliberately
+**Global platform, local dashboards.** Databricks and the storage account are the global
+layer. **Grafana is a local instance per plant**, building that plant's manufacturing
+dashboards from that plant's data. A line-side dashboard belongs on the local instance; a
+cross-plant question belongs on the global platform.
+
+> The source decks still name an **MDL** and treat **ContiTech** as a shared-services partner
+> and standing constraint. **Neither is used.** Both were removed here and in the knowledge
+> bundle; the raw exports under `90-Sources/` are never hand-edited, so they still say the old
+> thing — see [`docs/derivation.md`](docs/derivation.md) § *Where this registry deliberately
 > contradicts the bundle* before regenerating anything.
 
 ## What the skills are opinionated about

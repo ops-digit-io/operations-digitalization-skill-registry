@@ -219,8 +219,9 @@ skills:
 
 open_gaps:
   # Corrections applied here that are NOT yet fixed in the knowledge bundle — see docs/derivation.md
-  - The bundle still names MDL as the data platform. It is not used; the IIoT Edge Platform offloads through Databricks to an Azure Storage Account, main file format Parquet. Fix at source.
-  - The bundle still carries ContiTech as shared-services partner, standing interface constraint and decision counterpart. Not used; removed here. Fix at source.
+  - MDL and ContiTech are fixed in the bundle as well (ops-knowledge-graph, same branch). The raw 90-Sources decks still say the old thing and are never hand-edited.
+  - Grafana is a LOCAL instance per plant for that plant's manufacturing dashboards; Databricks and the Azure Storage Account are the GLOBAL layer. Do not point a plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
+  - The local datasource each plant's Grafana reads - engine, and whether it is uniform across sites - is not recorded.
   - Data platform detail not recorded anywhere - access paths, workspace and container naming, catalog layout, and how far back history is kept.
   - Decision counterparts left as to-confirm where ContiTech used to sit: tool/system rollout, and data-model / signal standardization.
   - The business is now neuwerk (former OESL); the registry has not been renamed and the bundle still says OESL.
