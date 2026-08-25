@@ -80,6 +80,7 @@ is derived from that material.
 | `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
 | `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
 | `od-equipment-integration-assessment` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*` |
+| `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across 650 use cases, the latent heading grammar inside `target_text`/`blockers`, and the 268 legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
 | `od-signal-standardization` | `node-red-auto-docs/docs/**` (260 signal names in use across 3,400 references); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
 | `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
 | `od-handover-and-adoption` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
@@ -178,6 +179,21 @@ any are chosen, and an analyser that checks a data-point list for collisions, ra
 and coverage gaps. Its rule — a signal is standardized when a second plant can consume it
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
+
+**The requirements skill formalizes a template the estate had already half-written.** The
+headings it uses — `Use Case Target Overview` (99 use cases), `Major Issue` / `Key Problem`
+(44), `Tags of Interest` (29), `Acceptance criteria` (13), `Traces to` (13), `Major` / `Minor
+Blocking Points` (162) — were found inside the existing free-text `target_text` and `blockers`
+fields, not designed. Imposing a new form on a department that already has one would have
+been the wrong move; the finding is that the form exists and is used on about one use case in
+eight.
+
+The field-population profile also decided the *order* of the elicitation questions.
+`savings_eur` is populated on 100 % of 650 use cases and `targets` on 9 %, while `comment`,
+`methods`, `actions`, `utilization` and `csp_decision` are on none — what gets asked for in a
+meeting is recorded, what needs a conversation with the operator is not. The question rounds
+are ordered to get the 0 % and 9 % answers first, because the savings figure will be filled in
+regardless.
 
 **Two things in the signal skill come from outside the bundle, and are labelled as such.**
 The public data models — OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84, PackML

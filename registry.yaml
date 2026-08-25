@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.9.0
+  version: 1.0.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -101,6 +101,13 @@ skills:
     owner_role: OD lead (Thomas Zipf)
     authority_level: recommend
     summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
+
+  - id: od-requirements-breakdown
+    tier: practice
+    lane: all
+    owner_role: DBVE or IIAE, per lane
+    authority_level: draft the requirement; accept or refuse per intake; approvals are human
+    summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, and the lane handover packet. Covers all four service lines.
 
   - id: od-use-case-definition
     tier: practice
@@ -228,6 +235,9 @@ skills:
     summary: The house Node-RED pattern - seven-group layout, the transformation patterns plus a method for composing one that is not in the catalogue, the streaming mechanics, the artefact catalogue with a sanitized example per artefact, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
 
 open_gaps:
+  - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
+  - comment, methods, actions, utilization and csp_decision are populated on 0 of 650 use cases; the requirement template asks for what those fields were meant to hold.
+  - 128 of 268 legacy applications carry an unknown licence position, and 114 carry no support concept.
   # Corrections applied here that are NOT yet fixed in the knowledge bundle — see docs/derivation.md
   - MDL and ContiTech are fixed in the bundle as well (ops-knowledge-graph, same branch). The raw 90-Sources decks still say the old thing and are never hand-edited.
   - Grafana is a LOCAL instance per plant for that plant's manufacturing dashboards; Databricks and the Azure Storage Account are the GLOBAL layer. Do not point a plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
