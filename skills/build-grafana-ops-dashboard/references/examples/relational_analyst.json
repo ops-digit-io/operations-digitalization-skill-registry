@@ -1,0 +1,1408 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_NAME",
+      "label": "Data Source",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "postgres",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bilibala-echarts-panel",
+      "name": "Echarts",
+      "version": "2.2.4"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.5.22"
+    },
+    {
+      "type": "datasource",
+      "id": "postgres",
+      "name": "PostgreSQL",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 200,
+      "panels": [],
+      "title": "\ud83c\udfaf KPIs \u2014 selected window",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 120
+              },
+              {
+                "color": "red",
+                "value": 480
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 201,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), $__timeTo()::timestamptz)\n- GREATEST(di.start_time,             $__timeFrom()::timestamptz)))) / 60.0 AS NUMERIC), 1) AS minutes\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.is_archived = false\n  -- interval-overlap: dropping rows fully outside the visible window\n  AND di.start_time   <  $__timeTo()::timestamptz\n  AND COALESCE(di.end_time, NOW()) >= $__timeFrom()::timestamptz\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 Total clipped",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 202,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) AS n\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.is_archived = false\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\n  AND EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)) / 60.0\n        >= $min_duration_min",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 45
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 203,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ROUND(CAST(AVG(EXTRACT(EPOCH FROM (di.end_time - di.start_time))) / 60.0\n       AS NUMERIC), 1) AS mttr_min\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.end_time IS NOT NULL\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 MTTR (closed)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 204,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ROUND(CAST(PERCENTILE_CONT(0.95) WITHIN GROUP (\n    ORDER BY EXTRACT(EPOCH FROM (di.end_time - di.start_time)) / 60.0\n  ) AS NUMERIC), 1) AS p95_min\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.end_time IS NOT NULL\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 P95 duration",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "red",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "id": 205,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH t AS (\n  SELECT di.reason_id\n  FROM downtime_incidents di\n  LEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\n  WHERE di.is_archived = false\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\n  AND EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)) / 60.0\n        >= $min_duration_min\n)\nSELECT CASE WHEN COUNT(*) = 0 THEN 0\n            ELSE ROUND(100.0 *\n                       SUM(CASE WHEN reason_id IS NULL THEN 1 ELSE 0 END)\n                       / COUNT(*), 1)\n       END AS unassigned_pct\nFROM t",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 % unclassified",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "id": 206,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH t AS (\n  SELECT di.is_auto_detected\n  FROM downtime_incidents di\n  LEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\n  WHERE di.is_archived = false\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\n  AND EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)) / 60.0\n        >= $min_duration_min\n)\nSELECT CASE WHEN COUNT(*) = 0 THEN 0\n            ELSE ROUND(100.0 *\n                       SUM(CASE WHEN is_auto_detected THEN 1 ELSE 0 END)\n                       / COUNT(*), 1)\n       END AS auto_pct\nFROM t",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 % auto-detected",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 207,
+      "panels": [],
+      "title": "\ud83d\udcc8 Trends \u2014 bucketed views",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 70,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "id": 208,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__timeGroup(di.start_time, $__interval) AS time,\n  COALESCE(dr.name, 'Unassigned')          AS metric,\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), $__timeTo()::timestamptz)\n- GREATEST(di.start_time,             $__timeFrom()::timestamptz)))) / 60.0 AS NUMERIC), 1) AS value\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.is_archived = false\n  -- interval-overlap: dropping rows fully outside the visible window\n  AND di.start_time   <  $__timeTo()::timestamptz\n  AND COALESCE(di.end_time, NOW()) >= $__timeFrom()::timestamptz\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\nGROUP BY 1, 2\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 by reason (stacked)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 70,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "id": 209,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH daily AS (\n  SELECT\n    date_trunc('day', di.start_time) AS day,\n    AVG(EXTRACT(EPOCH FROM (di.end_time - di.start_time))) / 60.0 AS mttr_min\n  FROM downtime_incidents di\n  LEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\n  WHERE di.end_time IS NOT NULL\n    AND $__timeFilter(di.start_time)\n    AND di.machine_id IN ($machine)\n    AND di.account_id IN ($account)\n  GROUP BY 1\n)\nSELECT\n  day AS time,\n  AVG(mttr_min) OVER (ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)\n    AS \"MTTR 7d rolling [min]\"\nFROM daily\nORDER BY day",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 MTTR rolling 7-day",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 210,
+      "panels": [],
+      "title": "\ud83c\udfc6 Rankings",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "id": 211,
+      "options": {
+        "followTheme": false,
+        "getOption": "let data = data.series[0]?.fields;\nif (!data || data.length < 2) {\n  return { title: { text: 'No data', left: 'center', top: 'middle',\n                    textStyle: { color: '#888' } } };\n}\nconst labels = data[0].values;\nconst values = data[1].values;\nlet cum = 0; const total = values.reduce((a,b)=>a+b, 0);\nconst cumPct = values.map(v => { cum += v; return total ? (cum/total*100) : 0; });\nreturn {\n  tooltip: { trigger: 'axis' },\n  grid: { left: 60, right: 60, top: 30, bottom: 80 },\n  xAxis: { type: 'category', data: labels, axisLabel: { rotate: 35 } },\n  yAxis: [\n    { type: 'value', name: 'Minutes' },\n    { type: 'value', name: '%', max: 100, axisLabel: { formatter: '{value}%' } }\n  ],\n  series: [\n    { type: 'bar',  data: values, name: 'Minutes', itemStyle: { color: '#888' } },\n    { type: 'line', data: cumPct, name: 'Cumulative %', yAxisIndex: 1,\n      lineStyle: { color: '#222' }, symbol: 'circle' }\n  ]\n};\n"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  m.name || ' :: ' || COALESCE(dr.name, 'Unassigned') AS metric,\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), $__timeTo()::timestamptz)\n- GREATEST(di.start_time,             $__timeFrom()::timestamptz)))) / 60.0 AS NUMERIC), 1) AS value\nFROM downtime_incidents di\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nLEFT JOIN machines m          ON m.id  = di.machine_id\nWHERE di.is_archived = false\n  -- interval-overlap: dropping rows fully outside the visible window\n  AND di.start_time   <  $__timeTo()::timestamptz\n  AND COALESCE(di.end_time, NOW()) >= $__timeFrom()::timestamptz\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\nGROUP BY 1\nORDER BY value DESC\nLIMIT 20",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 Pareto by machine \u00d7 reason",
+      "type": "bilibala-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total min"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 60
+                    },
+                    {
+                      "color": "red",
+                      "value": 180
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "m"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 220
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 15
+      },
+      "id": 212,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  m.name AS \"Machine\",\n  COUNT(*) AS \"Incidents\",\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)))\n        / 60.0 AS NUMERIC), 1) AS \"Total min\",\n  ROUND(CAST(AVG(EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)))\n        / 60.0 AS NUMERIC), 1) AS \"Avg min\",\n  ROUND(CAST(MAX(EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)))\n        / 60.0 AS NUMERIC), 1) AS \"Worst min\"\nFROM downtime_incidents di\nJOIN machines m ON m.id = di.machine_id\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nWHERE di.is_archived = false\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\n  AND EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)) / 60.0\n        >= $min_duration_min\nGROUP BY m.name\nORDER BY \"Total min\" DESC\nLIMIT 50",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 by machine",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 213,
+      "panels": [],
+      "title": "\ud83d\udd0e Drill-down \u2014 incident detail",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reason"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 220
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Notes"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 320
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Duration (min)"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 15
+                    },
+                    {
+                      "color": "red",
+                      "value": 60
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "m"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 214,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  di.start_time AS \"Start\",\n  di.end_time   AS \"End\",\n  m.name        AS \"Machine\",\n  COALESCE(dr.name, 'Unassigned')              AS \"Reason\",\n  COALESCE(CAST(dr.severity AS TEXT), 'unset') AS \"Severity\",\n  ROUND(CAST(EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time))\n        / 60.0 AS NUMERIC), 1) AS \"Duration (min)\",\n  CASE WHEN di.is_auto_detected THEN 'auto' ELSE 'manual' END AS \"Source\",\n  COALESCE(u.first_name || ' ' || u.last_name, '\u2014') AS \"Reported by\",\n  di.affected_item AS \"Affected\",\n  di.notes         AS \"Notes\"\nFROM downtime_incidents di\nLEFT JOIN machines m          ON m.id  = di.machine_id\nLEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\nLEFT JOIN users u             ON u.id  = di.reported_by_id\nWHERE di.is_archived = false\n  AND $__timeFilter(di.start_time)\n  AND di.machine_id IN ($machine)\n  AND di.account_id IN ($account)\n  AND ((di.reason_id IN ($reason)) OR di.reason_id IS NULL)\n  AND ('$severity' = 'all' OR CAST(dr.severity AS TEXT) = '$severity')\n  AND ($auto_detected = -1\n       OR CAST(di.is_auto_detected AS INTEGER) = $auto_detected)\n  AND EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time)) / 60.0\n        >= $min_duration_min\nORDER BY \"Duration (min)\" DESC\nLIMIT 500",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "[Analyst] Downtime \u2014 Incident detail (top 500)",
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "operations"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "postgres",
+          "uid": "${DS_NAME}"
+        },
+        "definition": "SELECT name AS __text, id AS __value FROM accounts ORDER BY name",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Account",
+        "multi": false,
+        "name": "account",
+        "options": [],
+        "query": "SELECT name AS __text, id AS __value FROM accounts ORDER BY name",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "postgres",
+          "uid": "${DS_NAME}"
+        },
+        "definition": "\nSELECT m.name AS __text, m.id AS __value\nFROM machines m\nWHERE m.is_ignored = false\n  AND m.account_id IN ($account)\nORDER BY m.name",
+        "description": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Machine",
+        "multi": true,
+        "name": "machine",
+        "options": [],
+        "query": "\nSELECT m.name AS __text, m.id AS __value\nFROM machines m\nWHERE m.is_ignored = false\n  AND m.account_id IN ($account)\nORDER BY m.name",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "postgres",
+          "uid": "${DS_NAME}"
+        },
+        "definition": "\nSELECT dr.name AS __text, dr.id AS __value\nFROM downtime_reasons dr\nWHERE dr.is_archived = false\n  AND dr.is_active   = true\n  AND dr.account_id IN ($account)\nORDER BY dr.name",
+        "description": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Reason",
+        "multi": true,
+        "name": "reason",
+        "options": [],
+        "query": "\nSELECT dr.name AS __text, dr.id AS __value\nFROM downtime_reasons dr\nWHERE dr.is_archived = false\n  AND dr.is_active   = true\n  AND dr.account_id IN ($account)\nORDER BY dr.name",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "all",
+          "value": "all"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Severity",
+        "multi": false,
+        "name": "severity",
+        "options": [
+          {
+            "selected": true,
+            "text": "all",
+            "value": "all"
+          },
+          {
+            "selected": false,
+            "text": "critical",
+            "value": "critical"
+          },
+          {
+            "selected": false,
+            "text": "major",
+            "value": "major"
+          },
+          {
+            "selected": false,
+            "text": "minor",
+            "value": "minor"
+          }
+        ],
+        "query": "all, critical, major, minor",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "-1"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Source",
+        "multi": false,
+        "name": "auto_detected",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "-1"
+          },
+          {
+            "selected": false,
+            "text": "Auto",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "Manual",
+            "value": "0"
+          }
+        ],
+        "query": "All : -1, Auto : 1, Manual : 0",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0",
+          "value": "0"
+        },
+        "hide": 0,
+        "label": "Min duration (min)",
+        "name": "min_duration_min",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          }
+        ],
+        "query": "0",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Downtime \u2014 Analyst View (Historical)",
+  "uid": null,
+  "version": 1,
+  "weekStart": ""
+}

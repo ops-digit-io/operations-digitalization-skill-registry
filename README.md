@@ -15,7 +15,7 @@ concept-by-concept trace.
 > excluded. The Digital Unit will be a new department; this registry describes Operations
 > Digitalization as it works today.
 
-## The 19 skills
+## The 22 skills
 
 ### Foundation — load first
 
@@ -50,6 +50,27 @@ concept-by-concept trace.
 | [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Any cut of the 650 use cases or the 553 saving rows |
 | [`od-decision-routing`](skills/od-decision-routing/SKILL.md) | "Am I allowed to do this, and if not, who decides?" |
 | [`od-sharepoint-list-export`](skills/od-sharepoint-list-export/SKILL.md) | OD source data has to leave SharePoint, with its version history intact |
+
+### Technical — hands-on build guidance, with reference material
+
+| Skill | Use it when | Scope |
+|---|---|---|
+| [`od-machine-integration-guidance`](skills/od-machine-integration-guidance/SKILL.md) | Deciding how to connect a specific machine — route, connector, and the checklist it must clear | OD |
+| [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
+| [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
+
+These carry `references/` alongside `SKILL.md` — the decision tree, the connector table and
+the machine estate for machine integration; the canonical flow walkthrough, the PLCPacket
+schema, the topic grammar, the standard function bodies and the instance inventory for
+Node-RED.
+
+`build-grafana-ops-dashboard` is **vendored** — the author's own skill, body and references
+unchanged, keeping its original name rather than an `od-` prefix. Only a `metadata:` block
+was added to its frontmatter so it satisfies the registry contract, and
+[`OD-INTEGRATION.md`](skills/build-grafana-ops-dashboard/OD-INTEGRATION.md) beside it says
+what changes when the dashboard is an OD deliverable. It is the registry's one `portable`
+skill; every other skill is `od`-scoped and must require `od-context`, which the validator
+enforces.
 
 A consolidated view of what each lane may work with — and what the overlaps mean — is in
 [`docs/skill-map.md`](docs/skill-map.md).
@@ -88,9 +109,10 @@ four that change answers most often:
 ## Figures, and when they were read
 
 Scorecard and Power BI values: **2026-08-10**. Portfolio and savings-ledger figures from
-the knowledge bundle: **2026-08-24**. Both drift — every skill that quotes a number says so
-and tells you to refetch. `registry.yaml` carries both dates as `data_as_of` and
-`graph_as_of`.
+the knowledge bundle: **2026-08-24**. Node-RED flow corpus and machine estate:
+**2026-08-25**. All drift — every skill that quotes a number says so and tells you to
+refetch. `registry.yaml` carries the three dates as `data_as_of`, `graph_as_of` and
+`flows_as_of`.
 
 ## Verification status
 
@@ -102,11 +124,12 @@ in `registry.yaml` under `open_gaps` and appear as `⟨…⟩` in the skills the
 ## Repository layout
 
 ```
-registry.yaml                  machine-readable index: tiers, owners, authority levels, open gaps
-skills/<skill-id>/SKILL.md     one skill
-docs/skill-map.md              the four lanes' skills/tools/interfaces, consolidated
-docs/derivation.md             concept-by-concept trace back to the knowledge graph
-scripts/validate_registry.py   guard: registry ↔ folders ↔ frontmatter ↔ cross-references
+registry.yaml                    machine-readable index: tiers, owners, authority levels, open gaps
+skills/<skill-id>/SKILL.md       one skill
+skills/<skill-id>/references/    supporting material for the technical skills
+docs/skill-map.md                the four lanes' skills/tools/interfaces, consolidated
+docs/derivation.md               concept-by-concept trace back to the knowledge graph
+scripts/validate_registry.py     guard: registry ↔ folders ↔ frontmatter ↔ cross-references
 ```
 
 ## Validating a change
@@ -118,8 +141,9 @@ python3 scripts/validate_registry.py
 
 It checks that every folder has a registry entry and vice versa, that frontmatter parses,
 that each `name` and `metadata.id` matches its directory, that descriptions are substantial
-enough to trigger on, that tiers agree between the two, that every skill requires
-`od-context`, and that no `requires` or `composes` points at a skill that does not exist.
+enough to trigger on, that tiers agree between the two, that every `od`-scoped skill
+requires `od-context` while a `portable` one instead ships a real `od_integration` note, and
+that no `requires` or `composes` points at a skill that does not exist.
 
 When a source concept changes, follow "Keeping this registry true" in
 [`docs/derivation.md`](docs/derivation.md).

@@ -1,0 +1,818 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_NAME",
+      "label": "Data Source",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "postgres",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bilibala-echarts-panel",
+      "name": "Echarts",
+      "version": "2.2.4"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.5.22"
+    },
+    {
+      "type": "datasource",
+      "id": "postgres",
+      "name": "PostgreSQL",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "panels": [],
+      "title": "\ud83c\udfaf Fleet KPIs \u2014 last 7 days",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 101,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH samples AS (\n  SELECT\n    s.machine_id,\n    t.systime,\n    COALESCE(t.value_double, t.value_integer, CAST(t.value_bool AS INTEGER)) AS state,\n    LEAD(t.systime) OVER (PARTITION BY t.uuid ORDER BY t.systime) AS next_systime\n  FROM telemetry t\n  JOIN signal_metadata s ON s.uuid = t.uuid\n  JOIN machines m ON m.id = s.machine_id\n  WHERE s.name = 'machine_state'\n    AND m.account_id IN ($account)\n    AND m.is_ignored = false\n    AND t.systime >= NOW() - INTERVAL '7 days' - INTERVAL '1 hour'\n    -- one-hour pre-roll so the first interval inside the window has a start\n    AND t.is_delta IN ('t', 'f')\n)\nSELECT\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (\n    LEAST(COALESCE(next_systime, NOW()), NOW())\n    - GREATEST(systime,                     NOW() - INTERVAL '7 days')\n  ))) / 3600.0 AS NUMERIC), 1) AS hours\nFROM samples\nWHERE state = 0\n  AND systime < NOW()\n  AND COALESCE(next_systime, NOW()) >= NOW() - INTERVAL '7 days'",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Total stopped time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 1
+      },
+      "id": 102,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(DISTINCT s.machine_id) AS n\nFROM telemetry t\nJOIN signal_metadata s ON s.uuid = t.uuid\nJOIN machines m ON m.id = s.machine_id\nWHERE s.name = 'machine_state'\n  AND m.account_id IN ($account)\n  AND m.is_ignored = false\n  AND t.systime >= NOW() - INTERVAL '7 days'\n  AND t.is_delta IN ('t', 'f')\n  AND COALESCE(t.value_double, t.value_integer, CAST(t.value_bool AS INTEGER)) = 0",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Machines stopped at any point",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "Total state changes this week. Spikes can indicate sensor flapping.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 1
+      },
+      "id": 103,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) AS n\nFROM telemetry t\nJOIN signal_metadata s ON s.uuid = t.uuid\nJOIN machines m ON m.id = s.machine_id\nWHERE s.name = 'machine_state'\n  AND m.account_id IN ($account)\n  AND t.systime >= NOW() - INTERVAL '7 days'\n  AND t.is_delta = 't'",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "State transitions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "Minutes since the most recent sample. Above 15 means the pipeline is broken.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 15
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 104,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ROUND(CAST(EXTRACT(EPOCH FROM (NOW() - MAX(t.systime))) / 60.0 AS NUMERIC), 1)\n  AS minutes_stale\nFROM telemetry t\nJOIN signal_metadata s ON s.uuid = t.uuid\nJOIN machines m ON m.id = s.machine_id\nWHERE m.account_id IN ($account)\n  AND m.is_ignored = false",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Data staleness",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 105,
+      "panels": [],
+      "title": "\ud83d\udea8 Stopped time by machine \u2014 last 7 days",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Stopped hours"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 4
+                    },
+                    {
+                      "color": "red",
+                      "value": 12
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "h"
+              },
+              {
+                "id": "custom.width",
+                "value": 160
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "% of week"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 2.5
+                    },
+                    {
+                      "color": "red",
+                      "value": 10
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 240
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 106,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH samples AS (\n  SELECT\n    s.machine_id,\n    t.systime,\n    COALESCE(t.value_double, t.value_integer, CAST(t.value_bool AS INTEGER)) AS state,\n    LEAD(t.systime) OVER (PARTITION BY t.uuid ORDER BY t.systime) AS next_systime\n  FROM telemetry t\n  JOIN signal_metadata s ON s.uuid = t.uuid\n  JOIN machines m ON m.id = s.machine_id\n  WHERE s.name = 'machine_state'\n    AND m.account_id IN ($account)\n    AND m.is_ignored = false\n    AND t.systime >= NOW() - INTERVAL '7 days' - INTERVAL '1 hour'\n    AND t.is_delta IN ('t', 'f')\n),\nclipped AS (\n  SELECT\n    machine_id,\n    SUM(EXTRACT(EPOCH FROM (\n      LEAST(COALESCE(next_systime, NOW()), NOW())\n      - GREATEST(systime,                     NOW() - INTERVAL '7 days')\n    ))) AS stopped_seconds\n  FROM samples\n  WHERE state = 0\n    AND systime < NOW()\n    AND COALESCE(next_systime, NOW()) >= NOW() - INTERVAL '7 days'\n  GROUP BY machine_id\n)\nSELECT\n  m.name AS \"Machine\",\n  ROUND(CAST(COALESCE(c.stopped_seconds, 0) / 3600.0 AS NUMERIC), 1) AS \"Stopped hours\",\n  ROUND(CAST(COALESCE(c.stopped_seconds, 0) / 3600.0 / (7 * 24) * 100 AS NUMERIC), 1)\n    AS \"% of week\"\nFROM machines m\nLEFT JOIN clipped c ON c.machine_id = m.id\nWHERE m.is_ignored = false\n  AND m.account_id IN ($account)\nORDER BY \"Stopped hours\" DESC\nLIMIT 15",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Top stopped machines",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 107,
+      "panels": [],
+      "title": "\ud83d\udcc8 Daily fleet stopped time (last 14 days)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 70,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 108,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH days AS (\n  SELECT generate_series(\n    date_trunc('day', NOW() - INTERVAL '13 days'),\n    date_trunc('day', NOW()),\n    INTERVAL '1 day'\n  ) AS day\n),\nsamples AS (\n  SELECT\n    t.systime,\n    COALESCE(t.value_double, t.value_integer, CAST(t.value_bool AS INTEGER)) AS state,\n    LEAD(t.systime) OVER (PARTITION BY t.uuid ORDER BY t.systime) AS next_systime\n  FROM telemetry t\n  JOIN signal_metadata s ON s.uuid = t.uuid\n  JOIN machines m ON m.id = s.machine_id\n  WHERE s.name = 'machine_state'\n    AND m.account_id IN ($account)\n    AND m.is_ignored = false\n    AND t.systime >= NOW() - INTERVAL '14 days' - INTERVAL '1 hour'\n    AND t.is_delta IN ('t', 'f')\n)\nSELECT\n  d.day AS time,\n  COALESCE(ROUND(CAST(SUM(EXTRACT(EPOCH FROM (\n    LEAST(COALESCE(samples.next_systime, NOW()), d.day + INTERVAL '1 day')\n    - GREATEST(samples.systime, d.day)\n  ))) / 3600.0 AS NUMERIC), 1), 0) AS \"Stopped hours\"\nFROM days d\nLEFT JOIN samples\n  ON samples.state = 0\n  AND samples.systime < d.day + INTERVAL '1 day'\n  AND COALESCE(samples.next_systime, NOW()) >= d.day\nGROUP BY d.day\nORDER BY d.day",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Daily stopped hours \u2014 last 14 days",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "operations"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "postgres",
+          "uid": "${DS_NAME}"
+        },
+        "definition": "SELECT name AS __text, id AS __value FROM accounts ORDER BY name",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Account",
+        "multi": false,
+        "name": "account",
+        "options": [],
+        "query": "SELECT name AS __text, id AS __value FROM accounts ORDER BY name",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "Machine State \u2014 Manager View (Fleet)",
+  "uid": null,
+  "version": 1,
+  "weekStart": ""
+}

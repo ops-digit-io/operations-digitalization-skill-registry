@@ -18,6 +18,29 @@ _knowledge/OperationsDigitalization-Department/20-lanes/<lane>/
   agent-brief.md  may / may not / authority_level / guardrails / escalation
 ```
 
+**The Node-RED flow corpus** — 825 exported flow JSON files and their generated pages
+across 53 `ct-oesl-*-nodered-*` instances, plus the generator that produces them:
+
+```
+_knowledge/node-red-auto-docs/docs/<instance>/<Flow_Name>.json   the flow, tab + nodes
+_knowledge/node-red-auto-docs/docs/<instance>/<Flow_Name>.md     the generated page
+_knowledge/node-red-auto-docs/generate_docs.py                   what reads which field
+```
+
+**The machine estate and its integration guidance** — the decision tree the Equipment
+integration guide walks, and the machine and connector rows behind it:
+
+```
+_knowledge/_apps/machine-integration-guidance-app/rules.json       live tree, 25 q / 27 recs
+_knowledge/_apps/machine-integration-guidance-app/rules-next.json  next tree, 35 q / 31 recs
+_knowledge/90-Sources/generated/kg_nodes.csv                       1,715 Machine + 26 Connector
+```
+
+The raw SharePoint exports under `90-Sources/**/*.json` are Git-LFS pointers and were not
+pulled; the machine and connector figures therefore come from the graph export
+(`kg_nodes.csv`), which is the same data after the pipeline. Stated here because the two
+could drift and the export is the one that was actually read.
+
 **The Operations Digitalization department map** — how the department works:
 
 ```
@@ -66,6 +89,9 @@ is derived from that material.
 | `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
 | `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
+| `od-machine-integration-guidance` | `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
+| `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
+| `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
 ## Editorial decisions worth knowing about
 
@@ -87,6 +113,29 @@ Every skill that carries a number says when it was read and tells the reader to 
 **Gaps stay gaps.** `⟨…⟩` is copied through. A registry that quietly resolves an open
 question is worse than one that shows where the department has not decided yet.
 
+**The technical tier is measured, not asserted.** The Node-RED and machine-integration
+skills state frequencies (620 of 825 flows carry a *prepare and convert payload* group;
+1,032 of 1,715 machines are Siemens; 1 % of flows carry a description) because a house
+pattern claimed without a count is one person's preference. Every number in those two
+skills was computed over the corpus, and the computation is reproducible from the paths in
+the traceability table. Where the corpus is inconsistent, the skill says so rather than
+picking a winner.
+
+**One skill is vendored, and it kept its name.** `build-grafana-ops-dashboard` is
+domain-generic and already had an identity, including a cross-reference to `/build-dashboard`
+that would break under a rename. Its body and its 22 reference files are unchanged; the only
+edit is an added `metadata:` block in the frontmatter. That made a second scope necessary:
+`od` skills inherit the department's vocabulary and must require `od-context`, while a
+`portable` skill instead ships an `od_integration` note saying what changes when it is used
+for OD work. The validator enforces both halves, so a future vendored skill cannot quietly
+skip the integration note.
+
+**Secrets found in the source are named, never reproduced.** The flow corpus contains 23
+literal Teams webhook URLs and 30 literal Bearer tokens. The Node-RED skill states the
+counts and makes replacing them a guardrail; no skill or reference file contains one, and
+the finding is listed in `registry.yaml` under `open_gaps` so it reaches someone who can
+rotate them.
+
 **Some procedures deliberately became one skill, not several.** Signal standardization and
 pipeline construction are steps 3 and 4 of one playbook but one write right and one
 decision mode, so they are one skill. Acceptance testing appears in two lanes with one
@@ -100,7 +149,9 @@ or a `10-Department` concept changes:
 1. Re-read the changed concept.
 2. Update the skills listed against it in the traceability table.
 3. Update `last_verified` in the affected skills' frontmatter and the `data_as_of` /
-   `graph_as_of` fields in `registry.yaml`.
+   `graph_as_of` / `flows_as_of` fields in `registry.yaml`.
+   For the technical tier, re-run the counts over the corpus rather than editing a figure
+   by hand — the numbers are the evidence, and a hand-edited one stops being that.
 4. Run `python3 scripts/validate_registry.py`.
 
 Corrections to the underlying facts do not belong here or in the graph — they go to the
@@ -108,6 +159,7 @@ SharePoint list that owns them. See `od-context`, "Where the truth lives".
 
 ## Verification status
 
-**Unverified.** Every skill was drafted from the bundle; nobody has read them line by line
-against the source systems. That is accurate, not modest — it matches the source bundle's
+**Unverified.** Every derived skill was drafted from the bundle; nobody has read them line
+by line against the source systems. `build-grafana-ops-dashboard` is vendored and carries
+its author's own status. That is accurate, not modest — it matches the source bundle's
 own trust statement. Add a verification note to a skill's frontmatter once somebody has.

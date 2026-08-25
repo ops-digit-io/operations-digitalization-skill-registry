@@ -113,8 +113,21 @@ def main() -> int:
                 fail(f"skills/{name}/SKILL.md: metadata.{field} is missing")
         if meta.get("tier") and meta["tier"] not in tiers:
             fail(f"skills/{name}/SKILL.md: tier '{meta['tier']}' is not one of {sorted(tiers)}")
-        if name != "od-context" and "od-context" not in (meta.get("requires") or []):
-            fail(f"skills/{name}/SKILL.md: every skill must require od-context")
+
+        scope = meta.get("scope", "od")
+        if scope not in ("od", "portable"):
+            fail(f"skills/{name}/SKILL.md: metadata.scope '{scope}' is not 'od' or 'portable'")
+        # OD-scoped skills inherit the department's vocabulary and honesty rules. A
+        # portable skill is domain-generic and must instead say how it plugs in.
+        if scope == "od" and name != "od-context":
+            if "od-context" not in (meta.get("requires") or []):
+                fail(f"skills/{name}/SKILL.md: every od-scoped skill must require od-context")
+        if scope == "portable":
+            note = meta.get("od_integration")
+            if not note:
+                fail(f"skills/{name}/SKILL.md: a portable skill must declare metadata.od_integration")
+            elif not (ROOT / note).exists():
+                fail(f"skills/{name}/SKILL.md: metadata.od_integration path '{note}' does not exist")
 
     for name, fm in frontmatters.items():
         meta = fm.get("metadata") or {}

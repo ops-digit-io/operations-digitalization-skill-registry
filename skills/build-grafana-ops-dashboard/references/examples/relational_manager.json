@@ -1,0 +1,1020 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_NAME",
+      "label": "Data Source",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "postgres",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bilibala-echarts-panel",
+      "name": "Echarts",
+      "version": "2.2.4"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.5.22"
+    },
+    {
+      "type": "datasource",
+      "id": "postgres",
+      "name": "PostgreSQL",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "panels": [],
+      "title": "\ud83c\udfaf Fleet KPIs \u2014 last 7 days",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 101,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ROUND(CAST(SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), NOW())\n- GREATEST(di.start_time,            NOW() - INTERVAL '7 days')))) / 3600.0 AS NUMERIC), 1)\n    AS hours\nFROM downtime_incidents di\nWHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Total downtime",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 15
+              },
+              {
+                "color": "red",
+                "value": 40
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 102,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) AS incidents\nFROM downtime_incidents di\nWHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 45
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 103,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(CAST(\n  AVG(EXTRACT(EPOCH FROM (di.end_time - di.start_time))) / 60.0\n  AS NUMERIC), 1) AS mttr_min\nFROM downtime_incidents di\nWHERE di.is_archived = false\n  AND di.end_time IS NOT NULL\n  AND di.end_time   >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "MTTR",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "Data quality KPI. Above 25% means reasons aren't being captured.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "red",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 104,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH t AS (\n  SELECT di.reason_id\n  FROM downtime_incidents di\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)\n)\nSELECT CASE WHEN COUNT(*) = 0 THEN 0\n            ELSE ROUND(100.0 *\n                       SUM(CASE WHEN reason_id IS NULL THEN 1 ELSE 0 END)\n                       / COUNT(*), 1)\n       END AS unassigned_pct\nFROM t",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Unclassified",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "id": 105,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(DISTINCT di.machine_id) AS n\nFROM downtime_incidents di\nWHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)\n  AND (LEAST(COALESCE(di.end_time, NOW()), NOW())\n- GREATEST(di.start_time,            NOW() - INTERVAL '7 days')) > INTERVAL '0 minutes'",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Machines affected",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "Negative = improvement vs prior week.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": -5
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "id": 106,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH this_w AS (\n  SELECT SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), NOW())\n- GREATEST(di.start_time,            NOW() - INTERVAL '7 days')))) / 3600.0 AS h\n  FROM downtime_incidents di\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)\n),\nprev_w AS (\n  SELECT SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), NOW() - INTERVAL '7 days')\n- GREATEST(di.start_time,            NOW() - INTERVAL '14 days')))) / 3600.0 AS h\n  FROM downtime_incidents di\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW() - INTERVAL '7 days'\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '14 days'\n  AND di.account_id IN ($account)\n)\nSELECT ROUND(CAST(COALESCE(this_w.h, 0) - COALESCE(prev_w.h, 0) AS NUMERIC), 1)\n  AS delta_hours\nFROM this_w, prev_w",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "WoW delta (hours)",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 107,
+      "panels": [],
+      "title": "\ud83d\udea8 Action board \u2014 where to send attention",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hours"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 2
+                    },
+                    {
+                      "color": "red",
+                      "value": 5
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "h"
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\u0394 vs prev wk"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 0
+                    },
+                    {
+                      "color": "green",
+                      "value": -1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "h"
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Top reason"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 240
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 108,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH this_week AS (\n  SELECT di.machine_id,\n         SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), NOW())\n- GREATEST(di.start_time,            NOW() - INTERVAL '7 days')))) / 3600.0 AS hours,\n         COUNT(*) AS incidents\n  FROM downtime_incidents di\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)\n  GROUP BY di.machine_id\n),\nprev_week AS (\n  SELECT di.machine_id,\n         SUM(EXTRACT(EPOCH FROM (LEAST(COALESCE(di.end_time, NOW()), NOW() - INTERVAL '7 days')\n- GREATEST(di.start_time,            NOW() - INTERVAL '14 days')))) / 3600.0 AS hours\n  FROM downtime_incidents di\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW() - INTERVAL '7 days'\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '14 days'\n  AND di.account_id IN ($account)\n  GROUP BY di.machine_id\n),\nreason_totals AS (\n  SELECT\n    di.machine_id,\n    COALESCE(dr.name, 'Unassigned') AS reason,\n    SUM(EXTRACT(EPOCH FROM (COALESCE(di.end_time, NOW()) - di.start_time))) AS r_seconds\n  FROM downtime_incidents di\n  LEFT JOIN downtime_reasons dr ON dr.id = di.reason_id\n  WHERE di.is_archived = false\n  AND di.start_time   <  NOW()\n  AND COALESCE(di.end_time, NOW()) >= NOW() - INTERVAL '7 days'\n  AND di.account_id IN ($account)\n  GROUP BY di.machine_id, COALESCE(dr.name, 'Unassigned')\n),\ntop_reason AS (\n  SELECT machine_id, reason FROM (\n    SELECT machine_id, reason,\n           ROW_NUMBER() OVER (PARTITION BY machine_id ORDER BY r_seconds DESC) AS rn\n    FROM reason_totals\n  ) ranked\n  WHERE rn = 1\n)\nSELECT\n  m.name AS \"Machine\",\n  ROUND(CAST(COALESCE(t.hours, 0) AS NUMERIC), 1) AS \"Hours\",\n  ROUND(CAST(COALESCE(t.hours, 0) - COALESCE(p.hours, 0) AS NUMERIC), 1) AS \"\u0394 vs prev wk\",\n  COALESCE(t.incidents, 0) AS \"Incidents\",\n  COALESCE(tr.reason, '\u2014') AS \"Top reason\"\nFROM machines m\nLEFT JOIN this_week t   ON t.machine_id  = m.id\nLEFT JOIN prev_week p   ON p.machine_id  = m.id\nLEFT JOIN top_reason tr ON tr.machine_id = m.id\nWHERE m.is_ignored = false\n  AND m.account_id IN ($account)\n  AND (t.hours IS NOT NULL OR p.hours IS NOT NULL)\nORDER BY \"Hours\" DESC\nLIMIT 10",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Top 10 machines this week",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 109,
+      "panels": [],
+      "title": "\ud83d\udcc8 Trend \u2014 fleet downtime by day (zero-filled)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "${DS_NAME}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 70,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 110,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "8.5.22",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "${DS_NAME}"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH days AS (\n  SELECT generate_series(\n    date_trunc('day', NOW() - INTERVAL '13 days'),\n    date_trunc('day', NOW()),\n    INTERVAL '1 day'\n  ) AS day\n)\nSELECT\n  d.day AS time,\n  COALESCE(ROUND(CAST(SUM(EXTRACT(EPOCH FROM (\n    LEAST(COALESCE(di.end_time, NOW()), d.day + INTERVAL '1 day')\n    - GREATEST(di.start_time, d.day)\n  ))) / 3600.0 AS NUMERIC), 1), 0) AS \"Downtime hours\"\nFROM days d\nLEFT JOIN downtime_incidents di\n  ON di.is_archived = false\n  AND di.start_time   <  d.day + INTERVAL '1 day'\n  AND COALESCE(di.end_time, NOW()) >= d.day\n  AND di.account_id IN ($account)\nGROUP BY d.day\nORDER BY d.day",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Daily fleet downtime \u2014 last 14 days",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "operations"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "postgres",
+          "uid": "${DS_NAME}"
+        },
+        "definition": "SELECT name AS __text, id AS __value\nFROM accounts\nORDER BY name",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Account",
+        "multi": false,
+        "name": "account",
+        "options": [],
+        "query": "SELECT name AS __text, id AS __value\nFROM accounts\nORDER BY name",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "Downtime \u2014 Manager View (Fleet)",
+  "uid": null,
+  "version": 1,
+  "weekStart": ""
+}

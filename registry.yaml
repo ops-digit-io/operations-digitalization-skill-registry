@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.1.0
+  version: 0.2.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -21,6 +21,15 @@ registry:
           - _knowledge/OperationsDigitalization-Department/20-lanes/*/playbook.md
           - _knowledge/OperationsDigitalization-Department/20-lanes/*/metrics.md
           - _knowledge/OperationsDigitalization-Department/20-lanes/*/agent-brief.md
+      - name: Node-RED flow corpus
+        paths:
+          - _knowledge/node-red-auto-docs/docs/**          # 825 flow JSON + 827 generated pages
+          - _knowledge/node-red-auto-docs/generate_docs.py
+      - name: Machine estate and integration guidance
+        paths:
+          - _knowledge/_apps/machine-integration-guidance-app/rules.json
+          - _knowledge/_apps/machine-integration-guidance-app/rules-next.json
+          - _knowledge/90-Sources/generated/kg_nodes.csv    # 1,715 Machine + 26 Connector nodes
       - name: Operations Digitalization department map
         paths:
           - _knowledge/OperationsDigitalization-Department/00-core/*.md
@@ -30,14 +39,20 @@ registry:
     excluded:
       - _knowledge/260825_DU_Pilot_Business-Cases.md   # Digital Unit — a new department, out of scope
       - _knowledge/90-Sources/du-overview/**            # Digital Unit source material, out of scope
+  vendored:
+    - id: build-grafana-ops-dashboard
+      source: author's skill, uploaded 2026-08-25
+      modified: frontmatter metadata block added; body and references unchanged
   data_as_of: 2026-08-10          # Scorecard / Power BI figures
   graph_as_of: 2026-08-24         # portfolio and ledger figures from the knowledge bundle
+  flows_as_of: 2026-08-25         # Node-RED corpus and machine estate
   status: draft                   # unverified — drafted from the bundle, not yet read line by line
 
 tiers:
   foundation: Shared ground truth every other skill loads first.
   lane: One per OD service line — the whole lane end to end.
   practice: One repeatable procedure, composable across lanes.
+  technical: Hands-on build guidance for a specific technology, with reference material.
 
 skills:
   - id: od-context
@@ -177,6 +192,30 @@ skills:
     authority_level: read-only
     summary: Full list export including version history, from the browser console, with its stated limits.
 
+  - id: build-grafana-ops-dashboard
+    tier: technical
+    lane: [analytical-support-service, use-case-support-service]
+    scope: portable
+    origin: vendored
+    owner_role: human:jakob.gabriel
+    authority_level: author the dashboard; publishing to a shared Grafana is human-approved
+    summary: Grafana JSON dashboards over SQL for operations data — relational and timeseries archetypes, ECharts panels, audience tiers.
+    od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
+
+  - id: od-machine-integration-guidance
+    tier: technical
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: recommend a route; never connect, never approve an external connection
+    summary: Which integration route and connector a given machine takes, and the preparation checklist it has to clear first.
+
+  - id: od-node-red-flow-builder
+    tier: technical
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: author on a test instance; deploying to prod is human-approved
+    summary: The house Node-RED pattern — seven-group layout, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
+
 open_gaps:
   - Named owners per lane — role labels (DBVE, IIAE) only today; deputy for the OD lead unconfirmed.
   - Target lead time per lane.
@@ -188,3 +227,7 @@ open_gaps:
   - MES / MDA-PDA interface detail, write rights and freshness.
   - Escalation windows for ODEC and COP.
   - A dedicated OD use-case one-pager / business-case template.
+  - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
+  - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server).
+  - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on all 1,715 machine rows.
+  - 23 literal Teams webhook URLs and 30 literal Bearer tokens are committed in Node-RED flow JSON and need rotating out.
