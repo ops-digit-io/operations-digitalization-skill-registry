@@ -80,7 +80,7 @@ is derived from that material.
 | `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
 | `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
 | `od-equipment-integration-assessment` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*` |
-| `od-signal-standardization` | `20-lanes/information-integration-service/*`; `10-modules/smart-factory-use-case/systems-of-record`; `00-core/08-decision-rights` |
+| `od-signal-standardization` | `node-red-auto-docs/docs/**` (260 signal names in use across 3,400 references); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
 | `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
 | `od-handover-and-adoption` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
 | `od-data-availability-check` | `20-lanes/analytical-support-service/{playbook,tasks}`; `10-Department/Machine integration`; `10-modules/.../systems-of-record` |
@@ -166,6 +166,28 @@ correct transformation and an undeployable file. `deployable-flow.md` closes tha
 palette module named and the config-node shapes taken from the flow that actually ran. It is
 also a caution about derivation in general: a corpus can be complete for what it shows and
 silently missing a whole layer.
+
+**`od-signal-standardization` was promoted from practice to technical, because the evidence
+turned it into a real analysis job.** Mining the flow corpus for `datapoint*` config keys
+found **260 distinct signal names across 3,400 references** — eight for machine state alone,
+seven for part number, and `AverageMeltTempature`, a misspelling with 34 references that is
+now an interface. That is *data model standardization*, the estate's most-recorded
+integration blocker at 23 machines, in measurable form. The skill gained a canonical
+vocabulary, the normative KPI standards that decide which signals a capability needs before
+any are chosen, and an analyser that checks a data-point list for collisions, raw PLC tags
+and coverage gaps. Its rule — a signal is standardized when a second plant can consume it
+without asking a question, which needs a name, a meaning, a unit and a collection method —
+exists because the first three are visible in the data and the fourth is not.
+
+**Two things in the signal skill come from outside the bundle, and are labelled as such.**
+The public data models — OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84, PackML
+(ISA-TR88.00.02) — were retrieved from the specification bodies' own pages and are cited
+inline; the specifications themselves were not read in full, so the mappings are marked as a
+starting point to confirm rather than a conformance statement. The clustering and importance
+patterns are the opposite: derived entirely from the portfolio's own `ai_cluster`,
+`business_process` and `targets` fields, which is why the reference states plainly that those
+fields are populated on 150 and 59 of 650 use cases and that a low rank therefore means
+unknown demand rather than none.
 
 **The one shipped flow asset was deployed before it was documented, and the test found a
 bug in it.** `assets/protobuf-schema-bootstrap.flow.json` writes the PLCPacketList schema to

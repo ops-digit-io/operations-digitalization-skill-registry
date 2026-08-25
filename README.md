@@ -41,7 +41,6 @@ concept-by-concept trace.
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
-| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | A connected machine's signals have to become comparable data on the data platform |
 | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | An integration or solution is being declared done |
 | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Handing to a plant, or asking whether something is actually in use |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data |
@@ -58,6 +57,7 @@ concept-by-concept trace.
 | [`od-machine-integration-guidance`](skills/od-machine-integration-guidance/SKILL.md) | Deciding how to connect a specific machine — route, connector, and the checklist it must clear | OD |
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
 | [`od-node-red-flow-troubleshooting`](skills/od-node-red-flow-troubleshooting/SKILL.md) | Diagnosing a flow that is silent, wrong, or broken — from its exported JSON | OD |
+| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | Analysing a machine's data points and standardizing them so another plant can consume them | OD |
 | [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
 
 These carry `references/` alongside `SKILL.md`, and for the two derived skills the
@@ -80,6 +80,12 @@ references are the substance rather than an appendix:
 - **Node-RED troubleshooting** — a static analyser (`scripts/analyze_flow.py`) that reads a
   flow JSON and reports the failure modes that actually occur in this estate, plus a
   symptom-to-cause table for what static analysis cannot see
+- **signal standardization** — the canonical vocabulary mined from 260 signal names in use,
+  the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
+  PackML), the normative KPI standards behind each capability, search patterns that cluster a
+  raw signal list by functional area with an importance ranking, and an analyser
+  (`scripts/analyze_signals.py`) that checks a machine's data points for collisions, raw PLC
+  tags and capability coverage gaps
 
 `build-grafana-ops-dashboard` is **vendored** — the author's own skill, body and references
 unchanged, keeping its original name rather than an `od-` prefix. Only a `metadata:` block
