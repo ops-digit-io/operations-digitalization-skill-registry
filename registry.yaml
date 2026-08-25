@@ -1,0 +1,242 @@
+# MPEE Operations Digitalization — Skill Registry
+# Derived from the ops-knowledge-graph bundle. Regenerate the derivation notes in
+# docs/derivation.md when a source concept changes. Validate with scripts/validate_registry.py.
+
+registry:
+  name: operations-digitalization-skill-registry
+  version: 0.3.0
+  department: MPEE Operations Digitalization (OD)
+  business: OESL
+  owner: Thomas Zipf (OD lead)
+  language: en
+  format: Agent Skills (SKILL.md with YAML frontmatter)
+  derived_from:
+    repo: ops-digit-io/ops-knowledge-graph
+    bundle: _knowledge/ (Open Knowledge Format v0.2)
+    maps:
+      - name: Skill map
+        paths:
+          - _knowledge/OperationsDigitalization-Department/20-lanes/*/skills.md
+          - _knowledge/OperationsDigitalization-Department/20-lanes/*/tasks.md
+          - _knowledge/OperationsDigitalization-Department/20-lanes/*/playbook.md
+          - _knowledge/OperationsDigitalization-Department/20-lanes/*/metrics.md
+          - _knowledge/OperationsDigitalization-Department/20-lanes/*/agent-brief.md
+      - name: Node-RED flow corpus
+        paths:
+          - _knowledge/node-red-auto-docs/docs/**          # 825 flow JSON + 827 generated pages
+          - _knowledge/node-red-auto-docs/generate_docs.py
+      - name: Machine estate and integration guidance
+        paths:
+          - _knowledge/_apps/machine-integration-guidance-app/rules.json
+          - _knowledge/_apps/machine-integration-guidance-app/rules-next.json
+          - _knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf  # Softing dataFEED OPC Suite V5.70 manual (LFS)
+          - _knowledge/90-Sources/generated/kg_nodes.csv    # 1,715 Machine + 26 Connector nodes
+      - name: Operations Digitalization department map
+        paths:
+          - _knowledge/OperationsDigitalization-Department/00-core/*.md
+          - _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/*.md
+          - _knowledge/10-Department/*.md
+          - _knowledge/20-Done/*.md
+    excluded:
+      - _knowledge/260825_DU_Pilot_Business-Cases.md   # Digital Unit — a new department, out of scope
+      - _knowledge/90-Sources/du-overview/**            # Digital Unit source material, out of scope
+  vendored:
+    - id: build-grafana-ops-dashboard
+      source: author's skill, uploaded 2026-08-25
+      modified: frontmatter metadata block added; body and references unchanged
+  data_as_of: 2026-08-10          # Scorecard / Power BI figures
+  graph_as_of: 2026-08-24         # portfolio and ledger figures from the knowledge bundle
+  flows_as_of: 2026-08-25         # Node-RED corpus and machine estate
+  status: draft                   # unverified — drafted from the bundle, not yet read line by line
+
+tiers:
+  foundation: Shared ground truth every other skill loads first.
+  lane: One per OD service line — the whole lane end to end.
+  practice: One repeatable procedure, composable across lanes.
+  technical: Hands-on build guidance for a specific technology, with reference material.
+
+skills:
+  - id: od-context
+    tier: foundation
+    lane: all
+    owner_role: OD lead (Thomas Zipf)
+    authority_level: read-only
+    summary: Vocabulary, service lines, systems of record, decision gates and the honesty rules.
+
+  - id: od-use-case-support-service
+    tier: lane
+    lane: use-case-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: draft / recommend
+    trigger: Plant use-case demand or a definition-workshop request.
+    definition_of_done: Use case defined, prioritized, impact-evaluated and handed to integration with a business case.
+
+  - id: od-information-integration-service
+    tier: lane
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: draft / recommend; execution human-only
+    trigger: Equipment integration or data-model harmonization need per roadmap.
+    definition_of_done: Machine or equipment integrated, signals standardized, data flowing into the MDL.
+
+  - id: od-project-support-consultancy
+    tier: lane
+    lane: project-support-consultancy
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: draft / recommend
+    trigger: Digital investment project kick-off.
+    definition_of_done: Integration project managed to acceptance test; application consulted and accepted.
+
+  - id: od-analytical-support-service
+    tier: lane
+    lane: analytical-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: read-only / draft; execute-autonomously on ad-hoc delivery
+    trigger: Analytical request or ad-hoc process-insight need.
+    definition_of_done: Process diagnostics / analytical insight delivered.
+
+  - id: od-use-case-intake-triage
+    tier: practice
+    lane: all
+    owner_role: OD lead (Thomas Zipf)
+    authority_level: recommend
+    summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
+
+  - id: od-use-case-definition
+    tier: practice
+    lane: use-case-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: draft
+    summary: Scope one plant's instance of one need, on its capability and process group, with the fields that make it evaluable.
+
+  - id: od-benefit-calculation
+    tier: practice
+    lane: use-case-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: draft / recommend
+    summary: Build the OD business case and write saving rows; keep tracked and proven apart.
+
+  - id: od-use-case-standardization
+    tier: practice
+    lane: use-case-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: recommend
+    summary: Capability templates, the reference library, the CSP gate and the twelve cluster tags.
+
+  - id: od-equipment-integration-assessment
+    tier: practice
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: draft / recommend
+    summary: Inventory the estate, pick the integration concept and connector, sequence and size the wave.
+
+  - id: od-signal-standardization
+    tier: practice
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: configure pipelines; recommend on standards
+    summary: Standardize signals and build pipelines into the MDL; keep the data model harmonized.
+
+  - id: od-acceptance-test
+    tier: practice
+    lane: [information-integration-service, project-support-consultancy]
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: draft the protocol; sign-off human-only
+    summary: Define pass before the build, verify along the whole data path, route failures into the right rework loop.
+
+  - id: od-handover-and-adoption
+    tier: practice
+    lane: all
+    owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns adoption
+    authority_level: draft / report
+    summary: The three-question handover test, its definition of done, and what to do about an asset nobody opens.
+
+  - id: od-data-availability-check
+    tier: practice
+    lane: [analytical-support-service, use-case-support-service]
+    owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE
+    authority_level: read-only
+    summary: Walk machine → connector → concept → pipeline → MDL before promising an answer; name the gap.
+
+  - id: od-analytics-asset-build
+    tier: practice
+    lane: [analytical-support-service, use-case-support-service]
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: author; external publishing human-approved
+    summary: Choose the asset type and design it for the ritual that consumes it.
+
+  - id: od-scorecard-reporting
+    tier: practice
+    lane: all
+    owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
+    authority_level: read-only on sources; draft on reports
+    summary: Fetch, assess and report OD's numbers against targets and thresholds; prepare and follow up ODEC and COP.
+
+  - id: od-portfolio-and-savings-analysis
+    tier: practice
+    lane: [analytical-support-service, use-case-support-service]
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: read-only
+    summary: Cut the 650-use-case portfolio and the 553-row ledger without the three standard misreadings.
+
+  - id: od-decision-routing
+    tier: practice
+    lane: all
+    owner_role: OD lead (Thomas Zipf)
+    authority_level: read-only
+    summary: Owner, mode, threshold and authority level per decision; the five gates; escalation triggers.
+
+  - id: od-sharepoint-list-export
+    tier: practice
+    lane: all
+    owner_role: human:jakob.gabriel
+    authority_level: read-only
+    summary: Full list export including version history, from the browser console, with its stated limits.
+
+  - id: build-grafana-ops-dashboard
+    tier: technical
+    lane: [analytical-support-service, use-case-support-service]
+    scope: portable
+    origin: vendored
+    owner_role: human:jakob.gabriel
+    authority_level: author the dashboard; publishing to a shared Grafana is human-approved
+    summary: Grafana JSON dashboards over SQL for operations data — relational and timeseries archetypes, ECharts panels, audience tiers.
+    od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
+
+  - id: od-machine-integration-guidance
+    tier: technical
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: recommend a route; never connect, never approve an external connection
+    summary: Picks the ingress variant for a machine — edge device, connector without a device, or Softing dataFEED aggregation server bridged by DTQ-OPCUA-Connector — all terminating at the IIoT Edge Platform; walks that variant's configuration pattern from the V5.70 manual and takes the right fallback when it blocks.
+
+  - id: od-node-red-flow-builder
+    tier: technical
+    lane: information-integration-service
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: author on a test instance; deploying to prod is human-approved
+    summary: The house Node-RED pattern — seven-group layout, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
+
+open_gaps:
+  - Named owners per lane — role labels (DBVE, IIAE) only today; deputy for the OD lead unconfirmed.
+  - Target lead time per lane.
+  - Value delivery cycle — metric definition and source system.
+  - How plant adoption of a use case is confirmed and recorded.
+  - Central ticket queue / mailbox for intake.
+  - Formal prioritization rule.
+  - Budget figure and investment threshold.
+  - MES / MDA-PDA interface detail, write rights and freshness.
+  - Escalation windows for ODEC and COP.
+  - A dedicated OD use-case one-pager / business-case template.
+  - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
+  - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); B&R INA2000 on aggregation and Omron NJ on edge are stubs.
+  - No approved medium or small edge device — large device or low-frequency collection only. Confirm current status.
+  - Concept 2 (container-based machine integration, ingress variant 2) has one deployment (Carei) and no written route in rules.json.
+  - Whether the estate's "Low Cost - Direct Connection" (50) and "Low Cost - Helmholz" (19) approaches are all Concept 2, or device-less descriptions of Concept 3.
+  - Ten of the 33 plants have no integration concept recorded at all.
+  - rules.json tells users to select a "Beckhoff" data source with an "ADS" protocol in Softing dataFEED. V5.70 has neither — Beckhoff has no fully-written route on either platform. Fix in rules.json.
+  - rules.json lists "Netlink" as a Siemens protocol option. Discontinued in dataFEED V5.38; legacy configurations should migrate to Siemens S7. Fix in rules.json.
+  - Whether any OESL plant still runs a NetLink-based dataFEED configuration.
+  - The two OESL "Machine Integration — Softing DataFeed" guideline documents are referenced by rules-next.json but not attached to the bundle.
+  - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on all 1,715 machine rows.
+  - 23 literal Teams webhook URLs and 30 literal Bearer tokens are committed in Node-RED flow JSON and need rotating out.

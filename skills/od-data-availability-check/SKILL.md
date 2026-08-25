@@ -1,0 +1,75 @@
+---
+name: od-data-availability-check
+description: >-
+  Check whether the data a use case or an analysis needs actually exists, is reachable and
+  is fit for use — before anything is promised. Walks the path from the machine through
+  its connector and integration concept to the MDL, distinguishes "not integrated" from
+  "not standardized" from "not fit for use", and turns a shortfall into a named data gap
+  routed to the Information Integration lane rather than an approximation. Use at the
+  start of any analytical request, before scoping a use case, and whenever an analysis is
+  about to be built on data whose provenance has not been checked.
+license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+metadata:
+  id: od-data-availability-check
+  tier: practice
+  lane: [analytical-support-service, use-case-support-service]
+  owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
+  authority_level: read-only
+  status: stable
+  last_verified: 2026-08-10
+  requires: [od-context]
+  composes: [od-equipment-integration-assessment, od-signal-standardization]
+  derived_from:
+    - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
+    - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
+    - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
+---
+
+# Data availability check
+
+Read `od-context` first. This is step 2 of the Analytical lane and a precondition of any
+use-case scope. It exists to stop the most expensive mistake in the function: promising an
+answer the data cannot support.
+
+## Walk the path, in this order
+
+| # | Question | Where to look | If no |
+|---|---|---|---|
+| 1 | Does a **machine** produce the signal at this plant? | Machine List — 1,715 rows with vendor, PLC, protocol, criticality | Not a data gap; a measurement gap. Say so. |
+| 2 | Is the machine **integrated**? | Machine List status — 821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 `ONGOING` | → `od-equipment-integration-assessment` |
+| 3 | Is there a **connector and concept** for it? | Connector Overview — 26 connectors; three integration concepts | Barrier: log it in the landscape module |
+| 4 | Is the signal **standardized** into the MDL? | The transformation pipelines | → `od-signal-standardization` |
+| 5 | Is the data in the MDL **fit for use** — right granularity, freshness, completeness? | MDL | Data gap, with the reason named |
+| 6 | Does an **existing asset** already answer this? | Use-case portfolio; the reference library | Do not rebuild it |
+
+The three failures at steps 2, 4 and 5 look identical from a dashboard and are entirely
+different problems. Name which one you have.
+
+## Freshness expectations
+
+Machine signals arrive **near real-time** at the edge; MDL data lands **per pipeline**;
+MSB exchange is **event-driven**; the Digitalization Scorecard refreshes **monthly**. An
+analysis whose conclusion depends on data being fresher than its pipeline delivers is not
+supportable — check the cadence before the query, not after.
+
+## What to do with a shortfall
+
+**Flag the data gap rather than filling it.** That is a standing guardrail of the
+Analytical lane. Concretely:
+
+- Route it to the Information Integration lane as a named request — which machines, which
+  signals, which plant, which use case is waiting.
+- Record it as a **dependency** on the use case record so it stays visible after the
+  requester has moved on. `MACHINE INTEGRATION` is already a recorded dependency class on
+  savings rows.
+- Tell the requester what *can* be answered with what exists, and what cannot. A partial
+  answer that is labelled is useful; an unlabelled one is not.
+
+## Do not
+
+- Do not substitute a proxy signal without saying so in the deliverable.
+- Do not read a missing field as a zero. Absence is common in this portfolio and is not a
+  value.
+- Do not treat the knowledge graph as the check — it is a rebuilt read surface. Check the
+  Machine List and the MDL.
+- Do not promise a turnaround before step 5 has been answered.
