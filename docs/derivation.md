@@ -147,6 +147,42 @@ Every skill that carries a number says when it was read and tells the reader to 
 **Gaps stay gaps.** `⟨…⟩` is copied through. A registry that quietly resolves an open
 question is worse than one that shows where the department has not decided yet.
 
+**The Node-RED builder was re-measured after review, and the first cut was wrong about the
+majority case.** The ten patterns were all framed single-input. Counting distinct
+`datapoint*` config keys per flow showed **461 of 665 configured flows read two or more** —
+so multi-input is the norm, not an edge case, and the latch-and-evaluate shape it requires
+was absent. The same pass surfaced three more gaps the catalogue hid: windowed aggregation
+(36 flows), a second timestamp envelope on JSON topics (75 flows) alongside `plcTime` as a
+distinct clock (145 flows), and timer-driven emit. `composing-transformations.md` exists
+because a catalogue answers "what has been built" and a builder also needs "what do I do
+when mine is not in it".
+
+**The Node-RED builder was tested by actually deploying its output.** A flow was generated
+from the skill alone and started in Node-RED v5.0.4. It reached `Started flows` — but only
+after three additions the skill did not mention, and the reason it did not is structural:
+the corpus is the *per-flow* export, which contains a tab and its nodes and **nothing else**.
+Across all 825 exports there are zero config nodes. So the derived patterns described a
+correct transformation and an undeployable file. `deployable-flow.md` closes that, with the
+palette module named and the config-node shapes taken from the flow that actually ran. It is
+also a caution about derivation in general: a corpus can be complete for what it shows and
+silently missing a whole layer.
+
+**The one shipped flow asset was deployed before it was documented, and the test found a
+bug in it.** `assets/protobuf-schema-bootstrap.flow.json` writes the PLCPacketList schema to
+a new instance's file store. The first version started cleanly, logged no error, and wrote
+nothing: it set the `file` node's `filenameType` to `msg` while leaving `filename` empty, so
+the node evaluated an unnamed property. The estate's own flows avoid this only because they
+use the pre-V3 form Node-RED upgrades in place — copying their `file` node into a modern
+flow and modernising one field breaks it silently. The asset now sets
+`filename: "filename"`, and both the write and a protobufjs round-trip of the written schema
+are verified on Node-RED v5.0.4. The analyser also caught a real defect in the first draft
+(`protoPath` read but never set), which is the tooling working on its own registry's output.
+
+**Examples are generalized on purpose.** Every example in `artefacts.md` uses `cfg.<name>`
+config keys and `⟨…⟩` placeholders — no real UUIDs, machine names, endpoints or credentials,
+verified by grep. The corpus has 42 flows with committed secrets; a reference that pasted
+real identifiers would propagate exactly that.
+
 **One skill ships an executable, and it was calibrated on the corpus rather than guessed.**
 `od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over all 825 flows with zero
 parse failures, and every check earns its place by finding a defect that is actually present.

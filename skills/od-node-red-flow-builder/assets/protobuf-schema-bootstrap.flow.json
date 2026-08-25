@@ -1,0 +1,265 @@
+[
+  {
+    "id": "a1b2c3d4e5f60001",
+    "type": "tab",
+    "label": "Inject protobuffer config once",
+    "disabled": false,
+    "info": "Writes the PLCPacketList protobuf schema to the Node-RED file store so the\n`protobuf-file` config node has something to load.\n\n**Run this once on every new instance, before any flow that decodes or encodes.**\nWithout it, `decode`/`encode` reference a path that does not exist and every\nprotobuf flow on the instance fails silently.\n\nOutput: the schema file at the path in `protoPath` (default `/data/plcschema.proto`).\nSet the `protobuf-file` config node's `protopath` to the same value.\n\nRe-run after changing the schema. `overwriteFile` is true, so it is idempotent."
+  },
+  {
+    "id": "a1b2c3d4e5f60002",
+    "type": "group",
+    "z": "a1b2c3d4e5f60001",
+    "name": "write protobuf config to nodered file store",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "a1b2c3d4e5f60008",
+      "a1b2c3d4e5f60003",
+      "a1b2c3d4e5f6000d",
+      "a1b2c3d4e5f60004",
+      "a1b2c3d4e5f60005",
+      "a1b2c3d4e5f60006",
+      "a1b2c3d4e5f60007"
+    ],
+    "x": 34,
+    "y": 34,
+    "w": 1210,
+    "h": 142
+  },
+  {
+    "id": "a1b2c3d4e5f60008",
+    "type": "comment",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "write protobuf config to nodered file store",
+    "info": "# Protobuf schema bootstrap\n\n1. `protoPath` (flow variable, optional) - where to write. Defaults to `/data/plcschema.proto`.\n2. The directory must already exist: `createDir` is false, deliberately, so a typo\n   fails loudly instead of creating `/dta/`.\n3. The `protobuf-file` config node used by every decode/encode node must point at\n   the same path.\n\nDeploy triggers this automatically (`once`), so a redeploy re-writes the file.",
+    "x": 190,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "a1b2c3d4e5f60003",
+    "type": "inject",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "Trigger once",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "0",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 140,
+    "y": 130,
+    "wires": [
+      [
+        "a1b2c3d4e5f6000d"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f6000d",
+    "type": "change",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "Set flow config",
+    "rules": [
+      {
+        "t": "set",
+        "p": "protoPath",
+        "pt": "flow",
+        "to": "/data/plcschema.proto",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 300,
+    "y": 130,
+    "wires": [
+      [
+        "a1b2c3d4e5f60004"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f60004",
+    "type": "function",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "Generate Text for Protobuffer Schema",
+    "func": "// The PLCPacketList schema every datatroniq topic on this estate is encoded with.\n// Keep this text and the `protobuf-file` config node's protopath in step.\nconst data = `syntax = \"proto3\";\n\npackage datatron;\n\noption go_package = \"/internal/protobuf\";\n\nmessage PLCPacket {\n  string uuid = 1;\n  int32 sequence_number = 2;\n\n  uint64 sys_time = 3;\n  uint64 plc_time = 4;\n\n\n  oneof measured_value {\n    sint64 value_integer = 5;\n    string value_string = 6;\n    double value_double = 7;\n    bool value_bool = 8;\n    bytes value_bytes = 9;\n  }\n\n  bool is_delta = 10;\n}\n\n\nmessage PLCPacketList {\n  repeated PLCPacket plc_packets = 1;\n}`\n\n// Set BOTH: the file node takes msg.filename, the payload is what gets written.\nmsg.filename = flow.get('protoPath');\nif (!msg.filename) {\n    node.error('protoPath not set - check the Set flow config node', msg);\n    return null;\n}\nmsg.payload = data;\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 520,
+    "y": 130,
+    "wires": [
+      [
+        "a1b2c3d4e5f60005"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f60005",
+    "type": "file",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "Write protobuffer file",
+    "filename": "filename",
+    "filenameType": "msg",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 790,
+    "y": 130,
+    "wires": [
+      [
+        "a1b2c3d4e5f60006"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f60006",
+    "type": "function",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "Debug protobuf file config",
+    "func": "return {\n    payload: msg.payload,\n    filepath: msg.filename,\n    debugInfo: \"Protobuf file configured/changed\"\n};\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1000,
+    "y": 130,
+    "wires": [
+      [
+        "a1b2c3d4e5f60007"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f60007",
+    "type": "debug",
+    "z": "a1b2c3d4e5f60001",
+    "g": "a1b2c3d4e5f60002",
+    "name": "debug message",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1180,
+    "y": 130,
+    "wires": []
+  },
+  {
+    "id": "a1b2c3d4e5f60009",
+    "type": "catch",
+    "z": "a1b2c3d4e5f60001",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 140,
+    "y": 240,
+    "wires": [
+      [
+        "a1b2c3d4e5f6000a"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f6000a",
+    "type": "change",
+    "z": "a1b2c3d4e5f60001",
+    "name": "get env variables of flow",
+    "rules": [
+      {
+        "t": "set",
+        "p": "flow_id",
+        "pt": "msg",
+        "to": "$env('NR_FLOW_ID')",
+        "tot": "jsonata"
+      },
+      {
+        "t": "set",
+        "p": "flow_name",
+        "pt": "msg",
+        "to": "$env('NR_FLOW_NAME')",
+        "tot": "jsonata"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 360,
+    "y": 240,
+    "wires": [
+      [
+        "a1b2c3d4e5f6000b"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f6000b",
+    "type": "template",
+    "z": "a1b2c3d4e5f60001",
+    "name": "create error message",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "handlebars",
+    "syntax": "mustache",
+    "template": "[error] flow_id: {{flow_id}}, flow_name: {{flow_name}}, node_id: {{error.source.id}}, node_name: {{error.source.name}}, {{error.message}}",
+    "output": "str",
+    "x": 600,
+    "y": 240,
+    "wires": [
+      [
+        "a1b2c3d4e5f6000c"
+      ]
+    ]
+  },
+  {
+    "id": "a1b2c3d4e5f6000c",
+    "type": "debug",
+    "z": "a1b2c3d4e5f60001",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 800,
+    "y": 240,
+    "wires": []
+  }
+]

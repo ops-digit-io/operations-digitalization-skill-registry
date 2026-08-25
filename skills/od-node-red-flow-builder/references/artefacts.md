@@ -78,6 +78,212 @@ The exact artefact string after the ` - `, top of the distribution:
 Six flows exist whose whole artefact is **Error Handling** — a dedicated tab that collects
 and routes errors rather than the per-flow catch. Worth knowing before building a seventh.
 
+## Generalized example per artefact
+
+One sanitized shape per family — **no real UUIDs, machine names, endpoints or credentials**.
+Every identifier is a config key you set in `Set flow config`; every value is a placeholder.
+Copy the shape, then fill the config from the machine's own data points.
+
+**Convention used below.** `cfg.<name>` means a flow variable set in the config group and
+read with `flow.get('<name>')`. `⟨…⟩` is a value you must supply. Nothing here is
+copy-pasteable as a literal, deliberately.
+
+### Part / piece counter — trigger and total
+
+```
+config:  cfg.datapointPartTrigger   ⟨input  uuid⟩
+         cfg.datapointPartTotal     ⟨output uuid⟩
+
+filter uuids [cfg.datapointPartTrigger] → split → convert sysTime
+  → switch  payload.isDelta is true                       ← P1 delta gate
+  → function: total = (flow.get('partTotal') || 0) + 1; flow.set('partTotal', total)
+  → change  set payload.isDelta      = true
+            set payload.valueInteger = flow.partTotal
+            set payload.uuid         = cfg.datapointPartTotal
+  → prepare for protob encoding → convert sysTime back → encode → mqtt out
+```
+
+Shift variant: identical, plus a reset. `inject` on the shift boundary →
+`flow.set('partTotal', 0)`. **State the timezone** the boundary is evaluated in.
+
+### Cycle time — between two trigger events
+
+```
+config:  cfg.datapointCycleStart ⟨uuid⟩  cfg.datapointCycleEnd ⟨uuid⟩
+         cfg.datapointCycleTime  ⟨output uuid⟩
+
+filter uuids [start, end] → split → convert sysTime (prefer plcTime if present)
+  → switch payload.uuid
+      ├─ start → change: set flow.sysTimeStart = payload.sysTime      (latch)
+      └─ end   → function: compute and emit
+```
+
+```javascript
+const start = flow.get('sysTimeStart');
+if (start === undefined) { node.warn('cycle end without a start — cold start?'); return null; }
+
+const seconds = (msg.payload.sysTime - start) / 1000;
+if (!Number.isFinite(seconds)) { node.warn('cycle_time not finite'); return null; }
+if (seconds < 0)               { node.warn('negative cycle_time — events out of order'); return null; }
+
+flow.set('sysTimeStart', undefined);        // arm for the next cycle
+msg.payload.valueDouble = seconds;
+return msg;
+```
+
+### Threshold crossing — estimation on a process value
+
+```
+config:  cfg.datapointProcessValue ⟨uuid⟩   cfg.threshold ⟨number⟩
+         cfg.datapointDuration     ⟨output uuid⟩
+
+filter → split → convert
+  → function: msg.payload.isHigh = msg.payload.valueDouble > flow.get('threshold')
+  → rbe  (property: payload.isHigh)                       ← edges only
+  → switch payload.isHigh
+      ├─ true  → latch the rising-edge timestamp
+      └─ false → compute duration from the latch (as cycle time above)
+```
+
+Add hysteresis if the signal noise band straddles the threshold — two limits, enter above
+the upper, leave below the lower. Raising the rate limit does not fix edge chatter.
+
+### Machine state / mode normalization
+
+```
+config:  cfg.datapointModeRaw ⟨uuid⟩   cfg.datapointModeName ⟨output uuid⟩
+
+filter → split → convert → switch payload.isDelta is true
+  → switch payload.valueInteger
+      ├─ eq ⟨code⟩ → change: set payload.valueString = "⟨StateName⟩"
+      ├─ eq ⟨code⟩ → change: set payload.valueString = "⟨StateName⟩"
+      └─ else      → debug / node.warn   ← WIRE THIS
+  → change: set payload.uuid = cfg.datapointModeName, delete payload.valueInteger
+```
+
+**Publish the name, not the code.** A downstream consumer that has to know that 15 means
+Setup is a consumer coupled to one PLC program.
+
+### Alerting — code to message, CSV-backed
+
+```
+startup:  inject (once) → file in ⟨path⟩ → split → join (array, ⟨n⟩, \n)
+          → csv (sep ';', columns: error_code,error_message)
+          → change: set flow.alertTable = payload
+
+runtime:  filter [cfg.datapointAlertCode] → split → convert
+          → function: look the code up in flow.alertTable
+          → change: set payload.uuid = cfg.datapointAlertText
+```
+
+```javascript
+const table = flow.get('alertTable');
+if (!Array.isArray(table)) { node.warn('alert table not loaded'); return null; }
+
+const hit = table.find(e => String(e.error_code) === String(msg.payload.valueInteger));
+if (!hit) { node.warn(`no alert text for code ${msg.payload.valueInteger}`); return null; }
+
+msg.payload.valueString = hit.error_message;
+return msg;
+```
+
+**Never put a webhook URL or token in the flow.** If an alert is pushed to a chat channel,
+the endpoint comes from `$env(...)` or Node-RED credentials. 42 flows in the estate get this
+wrong and the values are in git history.
+
+### Tool / mould id → part number
+
+Identical to alerting, different table: `csv` columns `tool_id,internal_partnumber`, output
+written to `payload.valueString`. Same two guards — table loaded, and a miss branch.
+
+### Tolerance / quality event — multi-input
+
+```
+config:  cfg.datapointCurrentValue  cfg.datapointUpperLimit
+         cfg.datapointLowerLimit    cfg.datapointMachineMode
+         cfg.datapointVerdict ⟨output⟩
+
+function "Define filter array" → filter uuids (array) → split → convert
+  → switch payload.uuid
+      ├─ limits, mode → change: set flow.value<Name> = payload.value*   (latch only)
+      └─ current value → function "evaluate"                            (triggers)
+```
+
+The evaluation, the cold-start guard and the trigger-selection trap are in
+[`composing-transformations.md`](composing-transformations.md) — this is the shape **461 of
+665** configured flows actually use, and the one most worth getting right.
+
+### Rate / output per period — windowed
+
+```
+config:  cfg.datapointCumulative ⟨uuid⟩   cfg.datapointRate ⟨output uuid⟩
+         cfg.windowSeconds ⟨number⟩
+
+filter → split → convert → function "record over the window" → function "difference"
+  → change: set payload.uuid = cfg.datapointRate, set payload.valueDouble = ⟨rate⟩
+```
+
+Buffer shape and the **counter wrap-around** trap: see `composing-transformations.md` §Q2.
+`last - first` is wrong whenever the PLC counter resets inside the window.
+
+### Composite KPI — availability × performance × quality
+
+```
+config:  one uuid per component input, plus cfg.datapointKpi ⟨output⟩
+         plus static references: cfg.standardSpeed, cfg.plannedTime ⟨numbers⟩
+
+multi-input latch (as tolerance above)
+  → function: compute each component, then the product
+  → guard every divisor, clamp each component to [0,1], emit valueDouble
+```
+
+```javascript
+const a = plannedTime > 0 ? runTime / plannedTime : null;
+const p = idealRate  > 0 ? actualRate / idealRate : null;
+const q = totalCount > 0 ? goodCount / totalCount : null;
+if ([a, p, q].some(x => x === null)) { node.warn('KPI skipped — divisor zero or input missing'); return null; }
+
+const clamp = x => Math.min(Math.max(x, 0), 1);
+msg.payload.valueDouble = clamp(a) * clamp(p) * clamp(q);
+return msg;
+```
+
+**A KPI that silently returns 0 because a divisor was 0 is worse than one that does not
+publish.** Guard first, warn, then drop.
+
+### Composite string split
+
+```
+config:  cfg.datapointComposite ⟨uuid⟩ + one output uuid per extracted field
+
+filter → split → convert → function: split, validate field count and types, emit N packets
+```
+
+```javascript
+const parts = String(msg.payload.valueString).split('⟨separator⟩');
+if (parts.length !== ⟨expected⟩) {
+    node.warn(`composite string has ${parts.length} fields, expected ⟨expected⟩ — PLC program changed?`);
+    return null;
+}
+```
+
+**Validate the field count every time.** A PLC program change silently reorders the fields
+and every derived value is then wrong with no error anywhere.
+
+### Timer-driven emit
+
+```
+inject (repeat ⟨interval⟩ / crontab ⟨schedule⟩)
+  → function "create object": build a packet from config and pack sysTime yourself
+  → encode → mqtt out
+```
+
+Use when the output must exist even if nothing changed — a target value, a plan figure, a
+heartbeat. There is no inbound packet to re-pack from, so pack the timestamp explicitly
+(P8 in [`transformation-patterns.md`](transformation-patterns.md)).
+
+---
+
 ## The building blocks these are made of
 
 The reusable pieces, with how many flows carry each. Copy them; do not rewrite them.

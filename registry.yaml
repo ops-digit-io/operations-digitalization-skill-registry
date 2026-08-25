@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.4.0
+  version: 0.7.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -222,7 +222,7 @@ skills:
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: author on a test instance; deploying to prod is human-approved
-    summary: The house Node-RED pattern - seven-group layout, ten transformation patterns, the streaming mechanics, the artefact catalogue, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
+    summary: The house Node-RED pattern - seven-group layout, the transformation patterns plus a method for composing one that is not in the catalogue, the streaming mechanics, the artefact catalogue with a sanitized example per artefact, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
 
 open_gaps:
   # Corrections applied here that are NOT yet fixed in the knowledge bundle — see docs/derivation.md
@@ -260,3 +260,9 @@ open_gaps:
   - 102 flows have a severed pipeline (decode/split/encode/mqtt-out with no inbound wire).
   - node.error and node.status appear 6 and 8 times across 825 flows - dropped messages are essentially unobservable.
   - Subflow contents are not in the per-flow exports; five subflows are in use and must be read on the instance.
+  - The per-flow exports contain zero config nodes (mqtt-broker, protobuf-file). Verified by deploying a generated flow to Node-RED v5.0.4: it needs node-red-contrib-protobuf plus hand-added config nodes before it starts.
+  - Which contrib palette modules each instance carries is not recorded; the corpus uses OPCUA-IIoT-*, ui-* and influxdb node types from further modules.
+  - The estate's `file` nodes use the pre-V3 filename form. Any flow generated with filenameType "msg" must set filename to the message property name, or it writes nothing and logs no error.
+  - Timezone convention for shift and day boundaries in Node-RED flows is not recorded.
+  - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics (75 flows). No stated rule on which to use where.
+  - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.
