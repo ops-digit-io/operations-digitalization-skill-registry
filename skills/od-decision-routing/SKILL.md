@@ -40,8 +40,8 @@ engineering.**
 | Use-case prioritization & selection | DBVE | Plant ME | Tandem | no | yes | within plant roadmap scope | `recommend` |
 | Equipment integration go-ahead | IIAE | Plant ME / Plant IT | Tandem | **yes** | partially | per investment plan; Cyber Security sign-off for external connection | `execute-with-approval` |
 | Digitalization investment planning | OD lead | BA Operations | Consultation | **yes** | no | ⟨budget threshold — to confirm⟩ | `recommend` |
-| Tool/system rollout (MES, MDL, MSB, IIoT Edge…) | OD lead | ContiTech central | Tandem | **yes** | no | strategic-plant scope; ContiTech interface compatibility | `execute-with-approval` |
-| Data-model / signal standardization | IIAE | ContiTech central | Consultation | no | yes | must maintain ContiTech interface compatibility | `recommend` |
+| Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | ⟨counterpart to confirm⟩ | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
+| Data-model / signal standardization | IIAE | ⟨counterpart to confirm⟩ | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
 | Ad-hoc analytics delivery | DBVE | — | — | no | yes | read-only on source systems | `execute-autonomously` |
 
@@ -76,7 +76,7 @@ urgency substitutes.
 
 Sign off acceptance · connect a machine or write to a production system · approve an
 external connection without Cyber Security / OT sign-off · commit investment or allocate
-resources · change a signal or data-model standard · make ContiTech licensing commitments
+resources · change a signal or data-model standard · make licensing commitments
 · publish externally · commit a use case to industrialization without the responsible
 human · present unvalidated insight as fact.
 
@@ -90,10 +90,10 @@ Escalate on these triggers from the risk register:
 
 | Risk | Escalation trigger |
 |---|---|
-| Missing operations concept for MDL / MSB / MDA-PDA | Rollout blocked at a strategic plant |
+| Missing operations concept for the data platform / MSB / MDA-PDA | Rollout blocked at a strategic plant |
 | Key-person / staffing gaps (open roles Asia, Americas) | Open role beyond ⟨n⟩ months |
-| Limited internal IT knowledge (MDL, MDA/PDA) | A single point of failure identified |
-| ContiTech tooling dependence (MES/ERP, DeepSpect, licensing) | CT decision delayed past plan |
+| Limited internal IT knowledge (the data platform, MDA/PDA) | A single point of failure identified |
+| External tooling dependence (MES/ERP, licensing) ⟨owner to confirm⟩ | Decision delayed past plan |
 | Cyber Security / OT exposure on machine connection | A security gap on a connected asset |
 | Value not materializing from investment | Impact below target for the quarter |
 

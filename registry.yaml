@@ -77,7 +77,7 @@ skills:
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: draft / recommend; execution human-only
     trigger: Equipment integration or data-model harmonization need per roadmap.
-    definition_of_done: Machine or equipment integrated, signals standardized, data flowing into the MDL.
+    definition_of_done: Machine or equipment integrated, signals standardized, data landing on the data platform.
 
   - id: od-project-support-consultancy
     tier: lane
@@ -135,7 +135,7 @@ skills:
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: configure pipelines; recommend on standards
-    summary: Standardize signals and build pipelines into the MDL; keep the data model harmonized.
+    summary: Standardize signals and offload into the data platform (Databricks -> Azure Storage Account, Parquet); keep the data model harmonized.
 
   - id: od-acceptance-test
     tier: practice
@@ -156,7 +156,7 @@ skills:
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE
     authority_level: read-only
-    summary: Walk machine → connector → concept → pipeline → MDL before promising an answer; name the gap.
+    summary: Walk machine → connector → ingress variant → edge → offload → data platform before promising an answer; name the gap.
 
   - id: od-analytics-asset-build
     tier: practice
@@ -218,6 +218,12 @@ skills:
     summary: The house Node-RED pattern — seven-group layout, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
 
 open_gaps:
+  # Corrections applied here that are NOT yet fixed in the knowledge bundle — see docs/derivation.md
+  - The bundle still names MDL as the data platform. It is not used; the IIoT Edge Platform offloads through Databricks to an Azure Storage Account, main file format Parquet. Fix at source.
+  - The bundle still carries ContiTech as shared-services partner, standing interface constraint and decision counterpart. Not used; removed here. Fix at source.
+  - Data platform detail not recorded anywhere - access paths, workspace and container naming, catalog layout, and how far back history is kept.
+  - Decision counterparts left as to-confirm where ContiTech used to sit: tool/system rollout, and data-model / signal standardization.
+  - The business is now neuwerk (former OESL); the registry has not been renamed and the bundle still says OESL.
   - Named owners per lane — role labels (DBVE, IIAE) only today; deputy for the OD lead unconfirmed.
   - Target lead time per lane.
   - Value delivery cycle — metric definition and source system.

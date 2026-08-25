@@ -28,7 +28,7 @@ concept-by-concept trace.
 | Skill | Trigger | Definition of done | Owner |
 |---|---|---|---|
 | [`od-use-case-support-service`](skills/od-use-case-support-service/SKILL.md) | Plant use-case demand or a definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE |
-| [`od-information-integration-service`](skills/od-information-integration-service/SKILL.md) | Equipment integration or data-model harmonization need per roadmap | Machine integrated, signals standardized, data flowing into the MDL | IIAE |
+| [`od-information-integration-service`](skills/od-information-integration-service/SKILL.md) | Equipment integration or data-model harmonization need per roadmap | Machine integrated, signals standardized, data landing on the data platform | IIAE |
 | [`od-project-support-consultancy`](skills/od-project-support-consultancy/SKILL.md) | Digital investment project kick-off | Integration project managed to acceptance; application consulted and accepted | IIAE |
 | [`od-analytical-support-service`](skills/od-analytical-support-service/SKILL.md) | Analytical or ad-hoc process-insight request | Process diagnostics / analytical insight delivered | DBVE |
 
@@ -41,7 +41,7 @@ concept-by-concept trace.
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
-| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | A connected machine's signals have to become comparable data in the MDL |
+| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | A connected machine's signals have to become comparable data on the data platform |
 | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | An integration or solution is being declared done |
 | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Handing to a plant, or asking whether something is actually in use |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data |
@@ -101,6 +101,23 @@ the work in hand; each declares what it composes with.
 mkdir -p .claude/skills
 for s in skills/*/; do ln -sfn "$(pwd)/$s" ".claude/skills/$(basename "$s")"; done
 ```
+
+## The data path, in one line
+
+```
+PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT──► Node-RED
+                                                 └── offload ──► Databricks ──► Azure Storage Account (Parquet)
+```
+
+**Databricks** is the data platform the IIoT Edge Platform offloads through, the target is an
+**Azure Storage Account**, and the main file format is **Parquet**. Anything that reads
+shopfloor history reads from there.
+
+> The knowledge bundle these skills derive from still names an **MDL** and treats
+> **ContiTech** as a shared-services partner and standing constraint. **Neither is used**;
+> both were removed here on the owner's instruction and the bundle is not yet fixed at source
+> — see [`docs/derivation.md`](docs/derivation.md) § *Where this registry deliberately
+> contradicts the bundle* before regenerating anything.
 
 ## What the skills are opinionated about
 

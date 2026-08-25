@@ -241,7 +241,7 @@ treats "OPC-UA Server" as a PLC type in its own right.
 the server: the guide's Siemens S7 aggregation recommendation says you cannot connect the
 PLCs *"when you have chosen the OPC-UA server as the connectivity framework and you don't
 have the IIoT Edge Computing Platform available"*. A Softing server with nothing behind it
-delivers nothing to the MDL.
+delivers nothing onward.
 
 ## Connecting an existing OPC-UA server to the edge — the short path
 

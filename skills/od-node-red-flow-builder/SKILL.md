@@ -38,6 +38,19 @@ consistent, that consistency is the standard; where it is not, this file says so
 ## Where a flow sits
 
 A Node-RED flow is the **transformation stage** between a connected machine and a use case.
+
+```
+PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node-RED ──► IIoT Edge Platform
+                                                                          │ offload
+                                                                          ▼
+                                                    Databricks ──► Azure Storage Account
+                                                                        (Parquet)
+```
+
+Flows publish back onto the MQTT spine; the platform offloads from there through
+**Databricks** to an **Azure Storage Account** in **Parquet**, which is what analytics and
+dashboards read. A flow that derives a signal is therefore writing something that lands in
+the lake — which is why the output UUID and the `isDelta` semantics matter beyond the flow.
 The machine is connected per `od-machine-integration-guidance`; the signal standard is set
 per `od-signal-standardization`; the flow is what turns raw `PLCPacket` messages into the
 derived signal a use case consumes — a cycle time, a part count, a quality event, an alert.
@@ -232,11 +245,11 @@ fix available in this corpus, and it costs one field.
 - **Never invent a UUID.** Fetch the data-point config from the edge platform.
 - **Never change the signal standard from inside a flow.** A per-plant fix-up buried in a
   `function` node is how cross-plant comparability is lost — that is a
-  `od-signal-standardization` decision, Consultation with ContiTech central.
+  `od-signal-standardization` decision, Consultation ⟨counterpart to confirm⟩.
 - **Never leave `debug` nodes enabled at volume in prod.** 1,976 debug nodes exist across
   the corpus; they are a development aid.
 - **A flow is not done until its acceptance test passes** end to end — machine → connector →
-  edge → flow → MDL → the asset the plant opens. See `od-acceptance-test`.
+  edge → flow → data platform → the asset the plant opens. See `od-acceptance-test`.
 
 ## Reviewing someone else's flow
 

@@ -240,8 +240,8 @@ The integration "worked" and there is no data. In order of likelihood:
 
 **A connection that comes up and carries nothing is worse than one that refuses**, because
 it looks finished. That is why the Connection Test comes before tag definition, and why the
-acceptance test walks the full path — machine → connector → concept → pipeline → MDL → the
-asset the plant opens — rather than stopping at the server. See `od-acceptance-test`.
+acceptance test walks the full path — machine → connector → ingress variant → edge →
+offload → data platform → the asset the plant opens — rather than stopping at the server. See `od-acceptance-test`.
 
 ---
 
@@ -251,7 +251,6 @@ asset the plant opens — rather than stopping at the server. See `od-acceptance
 - Marking a machine `INTEGRATED` before its acceptance test passes.
 - Marking a readiness dimension "Available" without evidence.
 - Changing a signal or data-model standard to make one machine easier — that is a
-  Consultation decision with ContiTech central, and interface compatibility is a standing
-  constraint.
+  Consultation decision ⟨counterpart to confirm⟩, not a per-machine convenience.
 - Inventing a procedure for a `TODO` branch.
 - Adding a tool to the footprint. Broad tool proliferation is an explicit non-bet.

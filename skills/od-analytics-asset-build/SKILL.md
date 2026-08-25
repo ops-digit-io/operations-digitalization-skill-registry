@@ -70,6 +70,10 @@ separately (the dashboard-screenshot automation in `_apps/`). Plan for that: if 
 of your dashboard needs to appear in a report or a review, it goes through the screenshot
 route, not through a Grafana export.
 
+**The data underneath comes from the data platform** — the IIoT Edge Platform offloads
+through **Databricks** to an **Azure Storage Account**, main file format **Parquet**. A panel
+that reads anywhere else is reading a copy.
+
 **Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the
 steering layer, not the shop-floor layer. Do not build a line-side asset there.
 

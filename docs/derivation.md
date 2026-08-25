@@ -93,6 +93,31 @@ is derived from that material.
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
+## Where this registry deliberately contradicts the bundle
+
+**Read this before regenerating anything from the knowledge graph.** Three facts in the
+bundle are out of date, corrected here on the owner's instruction, and **not yet fixed at
+source**. A naive re-derivation would reintroduce all three.
+
+| The bundle says | Actually |
+|---|---|
+| **MDL** — "OESL Manufacturing Data Lake", the asset-to-cloud platform every lane reads and writes | **Not used.** The IIoT Edge Platform offloads through **Databricks** to an **Azure Storage Account**; the main file format is **Parquet** |
+| **ContiTech** — shared services, interface compatibility as a standing constraint, ContiTech central as the counterpart on tool-rollout and data-model decisions, ContiTech tooling dependence as a standing risk | **Not used.** Removed throughout. Where a decision genuinely has a second party, the counterpart is left as `⟨to confirm⟩` rather than guessed |
+| **OESL** as the business name | The business is now **neuwerk**. Prose that quotes or cites a source keeps the source's own wording; ⟨a full rename has not been done — see open gaps⟩ |
+
+What was **kept**, deliberately, because they are live identifiers rather than references:
+
+- the `ct-oesl-*-nodered-*` **repository names** — the doc generator matches on
+  `^ct-oesl-.*-nodered-(prod|test).*`, so renaming them makes 825 flows undocumentable;
+- the **`CT/…` MQTT topic root** and its `OESL` / `MFS` segments — a topic is an interface
+  and every subscriber breaks; both are marked as legacy in `od-node-red-flow-builder`;
+- **CT Base** as the recorded name of the data-model blocker on 23 machines — the estate
+  says that, so the estate is quoted, with the current model name marked `⟨confirm⟩`.
+
+The fix belongs upstream: `10-Department/Systems of record.md`, the `00-core/` charter,
+strategy, decision-rights, glossary and risks files, and the four lane packs all still name
+MDL and ContiTech. Until they are updated, this table is the reconciliation.
+
 ## Editorial decisions worth knowing about
 
 **Three tiers, not one flat list.** The source has two natural layers — a department layer

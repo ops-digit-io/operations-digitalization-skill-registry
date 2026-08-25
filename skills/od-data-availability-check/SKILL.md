@@ -3,7 +3,7 @@ name: od-data-availability-check
 description: >-
   Check whether the data a use case or an analysis needs actually exists, is reachable and
   is fit for use — before anything is promised. Walks the path from the machine through
-  its connector and integration concept to the MDL, distinguishes "not integrated" from
+  its connector and integration variant to the data platform, distinguishes "not integrated" from
   "not standardized" from "not fit for use", and turns a shortfall into a named data gap
   routed to the Information Integration lane rather than an approximation. Use at the
   start of any analytical request, before scoping a use case, and whenever an analysis is
@@ -38,8 +38,8 @@ answer the data cannot support.
 | 1 | Does a **machine** produce the signal at this plant? | Machine List — 1,715 rows with vendor, PLC, protocol, criticality | Not a data gap; a measurement gap. Say so. |
 | 2 | Is the machine **integrated**? | Machine List status — 821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 `ONGOING` | → `od-equipment-integration-assessment` |
 | 3 | Is there a **connector and concept** for it? | Connector Overview — 26 connectors; three integration concepts | Barrier: log it in the landscape module |
-| 4 | Is the signal **standardized** into the MDL? | The transformation pipelines | → `od-signal-standardization` |
-| 5 | Is the data in the MDL **fit for use** — right granularity, freshness, completeness? | MDL | Data gap, with the reason named |
+| 4 | Is the signal **standardized** and offloaded to the data platform? | The edge offload | → `od-signal-standardization` |
+| 5 | Is the data **fit for use** — right granularity, freshness, completeness? | Databricks / the Azure Storage Account | Data gap, with the reason named |
 | 6 | Does an **existing asset** already answer this? | Use-case portfolio; the reference library | Do not rebuild it |
 
 The three failures at steps 2, 4 and 5 look identical from a dashboard and are entirely
@@ -47,7 +47,8 @@ different problems. Name which one you have.
 
 ## Freshness expectations
 
-Machine signals arrive **near real-time** at the edge; MDL data lands **per pipeline**;
+Machine signals arrive **near real-time** at the edge; data platform history lands **per
+offload**;
 MSB exchange is **event-driven**; the Digitalization Scorecard refreshes **monthly**. An
 analysis whose conclusion depends on data being fresher than its pipeline delivers is not
 supportable — check the cadence before the query, not after.
@@ -71,5 +72,5 @@ Analytical lane. Concretely:
 - Do not read a missing field as a zero. Absence is common in this portfolio and is not a
   value.
 - Do not treat the knowledge graph as the check — it is a rebuilt read surface. Check the
-  Machine List and the MDL.
+  Machine List and the data platform.
 - Do not promise a turnaround before step 5 has been answered.

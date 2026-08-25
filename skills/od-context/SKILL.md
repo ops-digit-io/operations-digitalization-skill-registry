@@ -6,7 +6,8 @@ description: >-
   and the honesty rules every other OD skill inherits. Load this before any OD work:
   before answering a question about a use case, a machine, a saving, a plant or a
   scorecard figure; before routing a request to a service line; before quoting any OD
-  number. Use it whenever terms like use case, asset, equipment integration, MDL, MSB,
+  number. Use it whenever terms like use case, asset, equipment integration, the data
+  platform, Databricks, MSB,
   IIoT Edge, MDA/PDA, MES, ODEC, COP, DBVE, IIAE, Digitalization Scorecard, CSP, eCR or
   SPRINT appear and must resolve to exactly one meaning.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
@@ -45,10 +46,9 @@ piece of work is recorded against one plant, one of four material families (Rubb
 Plastic, Metal, Assembly), and one of eleven cross-plant digital capabilities. That
 three-way coordinate is what makes a use case at one plant findable from another.
 
-**Mandate.** Enable OESL manufacturing on its "Road to Smart Factory": generate
-measurable value from shopfloor data through digital use cases, delivered maximally
-value-adding, lean, standardized and scalable — as a shared Smart Factory vision with
-ContiTech.
+**Mandate.** Enable manufacturing on its "Road to Smart Factory": generate measurable
+value from shopfloor data through digital use cases, delivered maximally value-adding, lean,
+standardized and scalable.
 
 **Not OD's** (refuse or route, do not absorb): functional lead of Plant ME and
 automation-solution development; customer-project industrialization, RFQ and
@@ -61,26 +61,28 @@ not own them.
 | Lane | Trigger | Definition of done | Owner | Skill |
 |---|---|---|---|---|
 | Smart Factory Use Case Support Service (incl. Process First-Aid Kit) | Plant use-case demand or definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE (2 roles) | `od-use-case-support-service` |
-| Information Integration Service | Equipment integration or data-model harmonization need per roadmap | Machine/equipment integrated, signals standardized, data flowing into MDL | IIAE (3 roles) | `od-information-integration-service` |
+| Information Integration Service | Equipment integration or data-model harmonization need per roadmap | Machine/equipment integrated, signals standardized, data landing on the data platform | IIAE (3 roles) | `od-information-integration-service` |
 | Project Support & Application Consultancy | Digital investment project kick-off | Integration project managed to acceptance test; application consulted and accepted | IIAE | `od-project-support-consultancy` |
 | Analytical Support Service (incl. Ad-Hoc Analytics) | Analytical request or ad-hoc process-insight need | Process diagnostics / analytical insight delivered | DBVE | `od-analytical-support-service` |
 
 Lane cut rule: **one lane = one trigger + one definition of done + one autonomy
-profile.** Service lines are delivered partly as Shared Services with ContiTech, and
-interface compatibility to ContiTech is a standing constraint.
+profile.**
 
 ## Vocabulary — one term, one meaning
 
 | Term | Means here | Not to be confused with |
 |---|---|---|
 | Use Case | A defined shopfloor digitalization solution delivering measurable operational value | Asset (its delivered form) |
-| Asset | The delivered form of a use case — Dashboard, Analytics, Report, App or Agent | MDL asset (a connected data point) |
+| Asset | The delivered form of a use case — Dashboard, Analytics, Report, App or Agent | A connected data point |
 | Equipment / Machine Integration | Connecting a machine or workplace to the digital platform for data read/write | Use-case delivery, which comes after |
 | Capability | One of eleven cross-plant templates a use case hangs off | Cluster tag (a classification, not a template) |
 | Cluster tag | One of twelve C01–C12 tags assigned by a deterministic classifier | Capability |
-| IIoT Edge | Plant Kubernetes runtime for data acquisition and app deployment | MDL, the lake it feeds |
-| MDL | OESL Manufacturing Data Lake — asset-to-cloud integration and use-case platform | MSB, the bus |
-| MSB | Manufacturing Service Bus — use-case enabler / integration backbone | MDL |
+| IIoT Edge | Plant Kubernetes runtime for data acquisition and app deployment | The data platform it offloads to |
+| Data platform | Where shopfloor data lands for analysis — the IIoT Edge Platform offloads through **Databricks** to an **Azure Storage Account**, main file format **Parquet** | MSB, the bus |
+| Databricks | The data platform the edge offloads through | The storage account it writes to |
+| Azure Storage Account | The offload target | Databricks, which writes it |
+| Parquet | The main file format on the storage account | — |
+| MSB | Manufacturing Service Bus — use-case enabler / integration backbone | The data platform |
 | MES | Manufacturing Execution System — rollout on hold, ERP/S4HANA-dependent | MDA/PDA (acquisition, not execution) |
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |
 | Digitalization Scorecard | The authoritative Power BI report of OD targets vs. actuals and readiness | The Use Case / Equipment Integration reports, which feed it |
@@ -122,6 +124,25 @@ there, not in a downstream copy.
 most delivered dashboards are actually seen; and the knowledge graph, which is rebuilt
 from the lists and does **not** travel corrections back.
 
+**The data path.** Where shopfloor data goes after it is read:
+
+```
+PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT──► Node-RED
+                                                  │
+                                              offload
+                                                  ▼
+                                            Databricks ──► Azure Storage Account
+                                                                 (Parquet)
+                                                                     │
+                                                                     ▼
+                                                        analytics · dashboards · use cases
+```
+
+**Databricks** is the data platform the IIoT Edge Platform offloads through; the target is an
+**Azure Storage Account**, and the main file format is **Parquet**. Anything that reads
+shopfloor history reads from there. ⟨Access paths, workspace and container naming, and the
+catalog layout are not recorded here — to confirm.⟩
+
 **Shop-floor tools.** Sixteen are rolled out at plants: the MSB family (1.0, 2.0, 4.0)
 as the rollout backbone, MDA/PDA (1.0, 2.0, 3.0), MES 1.0, MIL 1.0, QFPR, Energy
 Management (1.0, 2.0), RuleEngine 2.0, the Data Science Factory, and the three
@@ -159,8 +180,7 @@ The function proposes; other people decide. Four of the five gates sit outside O
 5. **Version history carries text the current record does not.** Rationale, blockers and
    comments were often written during active work and later tidied back to `-`.
 6. **The graph is a read surface.** Corrections go to the SharePoint list.
-7. **Maintain ContiTech interface compatibility**, and never act on an external machine
-   connection without Cyber Security / OT sign-off.
+7. **Never act on an external machine connection** without Cyber Security / OT sign-off.
 
 ## Escalation
 

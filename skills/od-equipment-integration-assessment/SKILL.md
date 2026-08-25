@@ -115,7 +115,7 @@ Machines & Equipment**, Doc ID 215534 (OESL Engineering Standards library).
 - **No route exists for a machine** → log the barrier in the landscape module and escalate
   it into the roadmap. Do not leave it as a silent omission in the wave.
 - **Cyber Security sign-off missing** → the machine waits. There is no expedited path.
-- **Operations concept missing for the target system** (MSB / MDL) → escalate to strategy
+- **Operations concept missing for the target system** (MSB / the data platform) → escalate to strategy
   as a tool-rollout decision; the machine can be connected and still have nowhere to send
   data.
 
@@ -136,5 +136,4 @@ lane is currently the one that is ahead; do not plan as though it were the const
 - Do not record a machine as integrated before its acceptance test passes.
 - Do not claim a readiness dimension is "Available" without evidence.
 - Do not change signal or data-model standards to make a machine easier — that is a
-  Consultation decision with ContiTech central, and interface compatibility is a standing
-  constraint.
+  Consultation decision ⟨counterpart to confirm⟩, not a per-machine convenience.

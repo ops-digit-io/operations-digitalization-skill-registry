@@ -93,11 +93,11 @@ Route it to the IIAE and say which branch is unwritten.
 
 ### The three variants, and the bridge
 
-All three end at the **IIoT Edge Platform** — it is the terminus, and the MDL is reached only
-through it. The department numbers the three shapes itself, in the Tool Overview:
+All three end at the **IIoT Edge Platform** — it is the terminus, and the data platform is
+reached only through it. The department numbers the three shapes itself, in the Tool Overview:
 
 ```
- ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► MDL
+ ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► data platform
                                         Platform          Concept 3, 20 plants
  ②  PLC ──────(connector)─────────────►  IIoT
                                         Platform          Concept 2, 1 plant (Carei)
@@ -130,7 +130,7 @@ this tree and it is easy to skip past.
 > **The aggregation path needs both pieces.** The guide states it in the Siemens S7
 > aggregation recommendation: you cannot connect the PLCs *"when you have chosen the OPC-UA
 > server as the connectivity framework **and you don't have the IIoT Edge Computing Platform
-> available**"*. A Softing server with no edge platform behind it delivers nothing to the MDL.
+> available**"*. A Softing server with no edge platform behind it delivers nothing onward.
 
 ---
 

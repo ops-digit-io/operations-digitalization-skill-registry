@@ -35,9 +35,6 @@ Read `od-context` first.
 consulted and accepted. **Customer.** Plant / project teams. **Scope:** regional.
 **Lead time:** ⟨to confirm⟩.
 
-Delivered partly as Shared Services with ContiTech; interface compatibility must be
-maintained.
-
 ## Happy path
 
 | # | Step | Who | Control point |
@@ -59,12 +56,12 @@ Step 5 → `od-acceptance-test`. Step 6 → `od-handover-and-adoption`. Step 7 �
   and is flagged **blocked**. A blocked project is steering information, not a failure to
   hide: blocking points say why value is not flowing.
 - **Solution fails acceptance** → rework loop back to step 3.
-- **ContiTech tool or licensing dependency unresolved** → wait state.
+- **Tool or licensing dependency unresolved** → wait state ⟨owner to confirm⟩.
 
 ## Wait states
 
-Awaiting resource allocation to prioritize the digital initiative · awaiting a ContiTech
-decision (tool, licensing, DeepSpect dependency) · awaiting Cyber Security sign-off.
+Awaiting resource allocation to prioritize the digital initiative · awaiting a tool or
+licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off.
 
 ## Recurring tasks
 
@@ -94,7 +91,7 @@ the end-to-end chain is not yet named — to confirm.⟩
 Project management method / tracker (read / update) · Manufacturing Software Suite
 (configure ⟨scope to confirm⟩) · Manufacturing Apps / app store on IIoT Edge (deploy) ·
 acceptance-test protocols (author) · ODEC reporting (read / update) · investment planning
-templates (author) · ContiTech shared-services interface (consult).
+templates (author).
 
 Reference: **ProView Support Process** (incident management, Hannover et al.) as the
 support/handover reference.
@@ -104,9 +101,9 @@ support/handover reference.
 **May** — read the project tracker and roadmaps; draft kick-off agendas, requirement
 specs and status reports; assemble ODEC progress/impact reporting; flag blocked projects.
 **May not** — commit investment or allocate resources; approve acceptance; deploy to
-production; make ContiTech licensing commitments.
+production; make licensing commitments.
 **Guardrails** — never sign off acceptance; never invent progress or impact figures;
-respect Cyber Security sign-off and ContiTech interface compatibility.
+respect Cyber Security sign-off.
 
 ## Metrics for this lane
 

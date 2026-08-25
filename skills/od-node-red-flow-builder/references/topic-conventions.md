@@ -56,7 +56,7 @@ CT / <BA> / <region> / <country> / <plant> / <area> / <sub-area> / <machine> / <
  │     │       │          └───────────────────────────────────────────────────────── CHN, USA
  │     │       └──────────────────────────────────────────────────────────────────── AS, NA
  │     └──────────────────────────────────────────────────────────────────────────── OESL, MFS
- └────────────────────────────────────────────────────────────────────────────────── ContiTech
+ └────────────────────────────────────────────────────────────────────────────────── legacy root
 ```
 
 Observed vocabulary per position:
@@ -72,12 +72,17 @@ Observed vocabulary per position:
 | Machine | `AC301/307/311/313/324_Braider` · `AC402_Cover_Extrusion_line` |
 | Signal | `production_output` · `MachineStatus` · `StandardOperationTime` · `StandardSpeed` · `RecipeIDRunning` · `ProcessTime` · `ProcessCycleCount` · `*_sv` setpoints · `*_Filtered` |
 
+> **`CT` is a legacy root.** The topic tree, the `ct-oesl-*` instance names and the `OESL` /
+> `MFS` business-area segments all date from before the rebrand. **Do not rename them** — a
+> topic is an interface and every subscriber breaks, and the doc generator matches instance
+> repositories on `^ct-oesl-.*-nodered-(prod|test).*`. Changing either is a data-model and
+> tooling decision, not a tidy-up. ⟨Whether a new root is planned — to confirm.⟩
+
 Plant codes here match the Node-RED instance codes: `QDA` → `ct-oesl-qda-*`,
 `SPR` → `ct-oesl-spr-*`, `CSHZ` → `ct-oesl-cshz-*`.
 
 **One signal per topic, not a packet.** This family is the *published* shape for
-consumers that want a named value at a path — dashboards, other systems, ContiTech-side
-consumers. It is the readable counterpart to the UUID-keyed `datatroniq` spine.
+consumers that want a named value at a path — dashboards and other systems. It is the readable counterpart to the UUID-keyed `datatroniq` spine.
 
 **Subscribing uses `#` at the machine level** (`…/AC324_Braider/#`) to take all of a
 machine's signals at once — 30 of the 144 `CT` topics end in `#`.
