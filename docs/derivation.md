@@ -80,6 +80,7 @@ is derived from that material.
 | `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
 | `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
 | `od-equipment-integration-assessment` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*` |
+| `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across 650 use cases, the latent heading grammar inside `target_text`/`blockers`, and the 268 legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
 | `od-signal-standardization` | `node-red-auto-docs/docs/**` (260 signal names in use across 3,400 references); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
 | `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
 | `od-handover-and-adoption` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
@@ -178,6 +179,53 @@ any are chosen, and an analyser that checks a data-point list for collisions, ra
 and coverage gaps. Its rule — a signal is standardized when a second plant can consume it
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
+
+**Tags are multilingual, and the corpus proved it rather than the assumption doing so.**
+Scanning every label, node name and comment for non-ASCII characters found Chinese at Qingdao
+and Changshu (`存储设定值` — store setpoint value; `流程` — process), German at Waltershausen and
+Karben (`Rüstzeit`, `Rüstmonitor`, `Heizungsart`), and Spanish at Delicias and Monterrey
+(`Pza`, `Contador`, and the misspelling `Cointador`). Six further plant languages are in scope
+and simply have not reached the corpus yet.
+
+Building the matcher took three rounds of correction, each caught by testing rather than
+review: `Rüstzeit` was missed because accent-folding gives `rustzeit` while the dictionary key
+was `ruestzeit`; `Darabszamlalo` was missed because Hungarian and German compound their words,
+so a substring pass had to follow the token pass; and English `Temperature` was *wrongly*
+reported as German `Temperatur`, which a guard list of English terms now vetoes — a check that
+mislabels English as foreign would be worse than no check. The rule the reference settles is
+that the canonical name is English and the local name is an alias, kept in the report and the
+Machine CV because the data-point contract has only one label field.
+
+**The signal skill takes two inputs because one was never enough.** A tag list gives names;
+only the machine context gives meanings, and `CycleTime` from two plants is not comparable
+unless somebody knows where each machine's cycle starts. The context sources are ranked by
+confidence rather than treated as equivalent — a live data-point config is verified, a
+deployed PLC program is high, a tag export is high for existence and low for meaning, a verbal
+description is low. The reason this had to be written at all is a gap in the estate:
+`documentation_available` and `documentation_link` exist as fields on all 1,715 machine rows
+and are populated on none, so there is no system of record for the context and it must be
+gathered per machine.
+
+The output is a defined report, and the split between what the tool fills and what it leaves
+as `⟨…⟩` is deliberate. Inventory, canonical mapping, clustering, coverage and findings are
+derivable from names and are generated. How the machine works, which sources were used, units,
+collection method and owners are not, and a report that guessed at them would be worse than
+one that asks — that guess is exactly how `AverageMeltTempature` reached 34 flows.
+
+**The requirements skill formalizes a template the estate had already half-written.** The
+headings it uses — `Use Case Target Overview` (99 use cases), `Major Issue` / `Key Problem`
+(44), `Tags of Interest` (29), `Acceptance criteria` (13), `Traces to` (13), `Major` / `Minor
+Blocking Points` (162) — were found inside the existing free-text `target_text` and `blockers`
+fields, not designed. Imposing a new form on a department that already has one would have
+been the wrong move; the finding is that the form exists and is used on about one use case in
+eight.
+
+The field-population profile also decided the *order* of the elicitation questions.
+`savings_eur` is populated on 100 % of 650 use cases and `targets` on 9 %, while `comment`,
+`methods`, `actions`, `utilization` and `csp_decision` are on none — what gets asked for in a
+meeting is recorded, what needs a conversation with the operator is not. The question rounds
+are ordered to get the 0 % and 9 % answers first, because the savings figure will be filled in
+regardless.
 
 **Two things in the signal skill come from outside the bundle, and are labelled as such.**
 The public data models — OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84, PackML

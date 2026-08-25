@@ -15,7 +15,7 @@ concept-by-concept trace.
 > excluded. The Digital Unit will be a new department; this registry describes Operations
 > Digitalization as it works today.
 
-## The 23 skills
+## The 24 skills
 
 ### Foundation — load first
 
@@ -38,6 +38,7 @@ concept-by-concept trace.
 |---|---|
 | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | A request arrives and it is not clear whether it is OD's, which lane, or whether to refuse |
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | A demand has to become a defined use case, or a workshop needs preparing |
+| [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | An accepted demand has to become a requirement another lane can act on — all four lanes |
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
@@ -80,7 +81,10 @@ references are the substance rather than an appendix:
 - **Node-RED troubleshooting** — a static analyser (`scripts/analyze_flow.py`) that reads a
   flow JSON and reports the failure modes that actually occur in this estate, plus a
   symptom-to-cause table for what static analysis cannot see
-- **signal standardization** — the canonical vocabulary mined from 260 signal names in use,
+- **signal standardization** — reads the machine context (PLC program, sequence chart, layout,
+  handbook, HMI) alongside the tag list, translates tags from nine plant languages, and writes
+  a defined signal analysis report; the
+  canonical vocabulary mined from 260 signal names in use,
   the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
   PackML), the normative KPI standards behind each capability, search patterns that cluster a
   raw signal list by functional area with an importance ranking, and an analyser

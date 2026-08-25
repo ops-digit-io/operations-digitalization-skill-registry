@@ -42,7 +42,7 @@ integration **with a business case**.
 |---|---|---|---|
 | 1 | Collect plant use-case demand (workshop or request) | DBVE + Plant ME | Demand logged against the plant roadmap |
 | 2 | Plant- and process-specific use-case definition; process diagnostics and analytical insight | both | Use case scoped with a clear objective |
-| 3 | Break down the customer/process requirement; assess (legacy) MF IT systems | DBVE | System assessment complete |
+| 3 | Break down the customer/process requirement; assess (legacy) MF IT systems | DBVE | System assessment complete — see `od-requirements-breakdown` |
 | 4 | Plan the OD benefit calculation and business case; prioritize by value (savings / lead-time / cost avoidance) | both | Business case and priority agreed with Plant ME |
 | 5 | Hand to Information Integration Service for equipment/solution integration | DBVE | Integration request accepted |
 | 6 | System qualification and training; use-case execution support | DBVE | Use case running on the shopfloor |

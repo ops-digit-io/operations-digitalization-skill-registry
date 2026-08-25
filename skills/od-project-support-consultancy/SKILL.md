@@ -40,7 +40,7 @@ consulted and accepted. **Customer.** Plant / project teams. **Scope:** regional
 | # | Step | Who | Control point |
 |---|---|---|---|
 | 1 | Digital investment project initiated per plant roadmap | Plant + OD | Project in plan |
-| 2 | Kick-off with the MPEE OD team; scope and requirements | IIAE/DBVE + Plant | Scope agreed |
+| 2 | Kick-off with the MPEE OD team; scope and requirements | IIAE/DBVE + Plant | Scope agreed — see `od-requirements-breakdown` |
 | 3 | Equipment and solution integration project management | IIAE | Milestones tracked |
 | 4 | Application consultancy (Manufacturing Software Suite, apps) | Human | Solution design accepted |
 | 5 | Acceptance testing | IIAE | Acceptance passed |

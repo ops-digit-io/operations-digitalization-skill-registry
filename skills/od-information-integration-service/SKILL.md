@@ -42,7 +42,7 @@ nobody is reading off the line.
 
 | # | Step | Who | Control point |
 |---|---|---|---|
-| 1 | Equipment assessment and integration roadmap per plant | IIAE + Plant ME/IT | Equipment inventory and roadmap agreed |
+| 1 | Equipment assessment and integration roadmap per plant | IIAE + Plant ME/IT | Equipment inventory and roadmap agreed — requirement via `od-requirements-breakdown` |
 | 2 | Integration investment planning | IIAE + OD lead | Investment approved |
 | 3 | Machine/equipment integration planning and execution (data acquisition) | IIAE | Machine connected to IIoT Edge |
 | 4 | Process-related signal standardization; offload into the data platform | both | Signals standardized; data on the data platform |

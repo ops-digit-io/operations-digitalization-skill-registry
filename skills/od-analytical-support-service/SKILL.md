@@ -41,7 +41,7 @@ solution — and knowing which of the two is being asked for is step one.
 
 | # | Step | Who | Control point |
 |---|---|---|---|
-| 1 | Analytical / ad-hoc request received (Process First-Aid Kit) | Plant / OPEX + DBVE | Request scoped |
+| 1 | Analytical / ad-hoc request received (Process First-Aid Kit) | Plant / OPEX + DBVE | Request scoped — see `od-requirements-breakdown` |
 | 2 | Check data availability on the data platform | both | Data present and fit for use |
 | 3 | Process diagnostics and analytical process insight | DBVE | Insight validated |
 | 4 | Build the asset — dashboard / report / analytics / app | both | Asset produced |

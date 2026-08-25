@@ -4,6 +4,7 @@
     python3 analyze_signals.py POINTS.json [--capability oee] [--json]
     python3 analyze_signals.py POINTS.csv  --capability cycle-time
     python3 analyze_signals.py POINTS.json --cluster        # functional area + importance
+    python3 analyze_signals.py POINTS.json --report > report.md   # the structured report
 
 Input is the data-point list for one machine or datatron — the shape the IIoT edge
 platform returns from `/api/datatrons/{id}/data_points`, or a CSV with `uuid,label`
@@ -23,6 +24,7 @@ import csv
 import json
 import re
 import sys
+import unicodedata
 from collections import Counter, defaultdict
 
 # ── the canonical vocabulary ────────────────────────────────────────────────
@@ -123,13 +125,206 @@ AREA_DEMAND = {
     "process-value": 48, "identification": 16, "alerting": 56, "energy": 8, "unclassified": 0,
 }
 
+# ── multilingual tags ───────────────────────────────────────────────────────
+# The estate spans 33 plants in three regions, and tags arrive in the plant's
+# language. All of these terms were found in the flow corpus or are the standard
+# shop-floor term in a plant language. canonical=None means "signals a family,
+# not a specific name" — the analyst still has to choose.
+TERMS: dict[str, tuple[str, str, str | None]] = {
+    # term (folded, lowercase)      language        canonical hint
+    # --- German (Northeim, Waltershausen, Karben, Korbach, Hannover) --------
+    "ruestzeit":       ("German", "SetupTime"), "ruestmonitor": ("German", None),
+    "ruestvorgang":    ("German", None),        "ruesten":      ("German", "MachineSetup"),
+    "stueckzahl":      ("German", "TotalPartCounter"),
+    "zykluszeit":      ("German", "CycleTime"), "zyklus":       ("German", "CycleTime"),
+    "druck":           ("German", "Pressure"),  "temperatur":   ("German", "Temperature"),
+    "heizung":         ("German", "HeatingProgram"),
+    "heizungsart":     ("German", "HeatingProgram"),
+    "sollwert":        ("German", None),        "istwert":      ("German", None),
+    "stoerung":        ("German", "ErrorActive"), "meldung":    ("German", "AlertMessage"),
+    "betriebsart":     ("German", "MachineMode"), "zaehler":    ("German", "TotalPartCounter"),
+    "geschwindigkeit": ("German", "StandardSpeed"),
+    "extrusionslinie": ("German", None),        "kessel":       ("German", None),
+    "werkzeug":        ("German", "ToolId"),
+    # --- Spanish (Monterrey, Delicias, Tlalnepantla, Montemorelos, S.L.P.) --
+    "pza":             ("Spanish", "TotalPartCounter"),
+    "pieza":           ("Spanish", "TotalPartCounter"),
+    "piezas":          ("Spanish", "TotalPartCounter"),
+    "contador":        ("Spanish", "TotalPartCounter"),
+    "ciclo":           ("Spanish", "CycleTime"),  "tiempo":     ("Spanish", None),
+    "presion":         ("Spanish", "Pressure"),   "temperatura":("Spanish", "Temperature"),
+    "velocidad":       ("Spanish", "StandardSpeed"),
+    "alarma":          ("Spanish", "AlertMessage"), "falla":    ("Spanish", "ErrorActive"),
+    "molde":           ("Spanish", "ToolId"),     "turno":      ("Spanish", None),
+    "descarga":        ("Spanish", None),         "succion":    ("Spanish", None),
+    # --- Portuguese (Ponta Grossa) -----------------------------------------
+    "peca":            ("Portuguese", "TotalPartCounter"),
+    "contagem":        ("Portuguese", "TotalPartCounter"),
+    "pressao":         ("Portuguese", "Pressure"),
+    "temperatura_pt":  ("Portuguese", "Temperature"),
+    "velocidade":      ("Portuguese", "StandardSpeed"),
+    "molde_pt":        ("Portuguese", "ToolId"),
+    # --- French (Caluire, Rennes, Tanger) -----------------------------------
+    "piece":           ("French", "TotalPartCounter"),
+    "compteur":        ("French", "TotalPartCounter"),
+    "cycle_fr":        ("French", "CycleTime"),
+    "pression":        ("French", "Pressure"),
+    "temperature_fr":  ("French", "Temperature"),
+    "vitesse":         ("French", "StandardSpeed"),
+    "defaut":          ("French", "ErrorActive"),
+    "moule":           ("French", "ToolId"),
+    "consigne":        ("French", None),
+    # --- Romanian (Carei, Timisoara) ----------------------------------------
+    "piesa":           ("Romanian", "TotalPartCounter"),
+    "contor":          ("Romanian", "TotalPartCounter"),
+    "presiune":        ("Romanian", "Pressure"),
+    "viteza":          ("Romanian", "StandardSpeed"),
+    "matrita":         ("Romanian", "ToolId"),
+    "defect":          ("Romanian", "ErrorActive"),
+    # --- Hungarian (Mako) ----------------------------------------------------
+    "darab":           ("Hungarian", "TotalPartCounter"),
+    "szamlalo":        ("Hungarian", "TotalPartCounter"),
+    "nyomas":          ("Hungarian", "Pressure"),
+    "homerseklet":     ("Hungarian", "Temperature"),
+    # --- Slovak / Czech (Dolne Vestenice, Ostrava) ---------------------------
+    "pocitadlo":       ("Slovak/Czech", "TotalPartCounter"),
+    "tlak":            ("Slovak/Czech", "Pressure"),
+    "teplota":         ("Slovak/Czech", "Temperature"),
+    "porucha":         ("Slovak/Czech", "ErrorActive"),
+    # --- Serbian latin (Subotica) -------------------------------------------
+    "brojac":          ("Serbian", "TotalPartCounter"),
+    "pritisak":        ("Serbian", "Pressure"),
+    "temperatura_sr":  ("Serbian", "Temperature"),
+}
+# Chinese (Changshu, Qingdao, Changchun) — matched on the characters themselves.
+CJK_TERMS: dict[str, tuple[str, str | None]] = {
+    "设定值": ("Chinese", None),            # setpoint value -> the _sv modifier
+    "存储":   ("Chinese", None),            # store / storage
+    "流程":   ("Chinese", None),            # process / flow
+    "计数":   ("Chinese", "TotalPartCounter"),
+    "计数器": ("Chinese", "TotalPartCounter"),
+    "周期":   ("Chinese", "CycleTime"),
+    "压力":   ("Chinese", "Pressure"),
+    "温度":   ("Chinese", "Temperature"),
+    "速度":   ("Chinese", "StandardSpeed"),
+    "状态":   ("Chinese", "MachineStatus"),
+    "报警":   ("Chinese", "AlertMessage"),
+    "故障":   ("Chinese", "ErrorActive"),
+    "模具":   ("Chinese", "ToolId"),
+    "班次":   ("Chinese", None),            # shift
+}
+
+# Tokens that prove a label is already English — stops "Temperature" being read
+# as the German "Temperatur", and similar near-collisions.
+ENGLISH_STOP = {
+    "temperature", "pressure", "speed", "counter", "count", "cycle", "time",
+    "status", "state", "mode", "tool", "part", "number", "alert", "alarm",
+    "error", "setpoint", "value", "shift", "piece", "pieces", "process",
+}
+
+# Expand the dictionary with the accent-folded spelling of every term, because
+# both Rüstzeit and Rustzeit occur in practice, and strip the _xx disambiguators.
+def _build_lookup() -> dict[str, tuple[str, str | None]]:
+    out: dict[str, tuple[str, str | None]] = {}
+    for term, val in TERMS.items():
+        base = term.split("_")[0]
+        out.setdefault(base, val)
+        folded = (base.replace("ue", "u").replace("oe", "o")
+                      .replace("ae", "a").replace("ss", "s"))
+        if folded != base and len(folded) >= 4:
+            out.setdefault(folded, val)
+    return out
+
+
+SCRIPTS = [("chinese", r"[一-鿿]"), ("cyrillic", r"[Ѐ-ӿ]"),
+           ("japanese", r"[぀-ヿ]"), ("korean", r"[가-힯]"),
+           ("greek", r"[Ͱ-Ͽ]"), ("arabic", r"[؀-ۿ]")]
+
+
+_TERM_LOOKUP = _build_lookup()
+
+
+def detect_script(label: str) -> str:
+    for name, pat in SCRIPTS:
+        if re.search(pat, label or ""):
+            return name
+    return "latin"
+
+
+UMLAUT = str.maketrans({"ü": "ue", "ö": "oe", "ä": "ae", "ß": "ss",
+                        "Ü": "ue", "Ö": "oe", "Ä": "ae"})
+
+
+def tokens(label: str) -> set[str]:
+    """Split a label into comparable word tokens.
+
+    camelCase, snake_case, spaces and digits all separate. German umlauts are
+    expanded (Rüstzeit -> ruestzeit) as well as accent-folded (rustzeit), because
+    both spellings occur.
+    """
+    s = clean(label)
+    out: set[str] = set()
+    for variant in (fold(s).lower(), s.translate(UMLAUT).lower()):
+        spaced = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", variant)
+        out |= {w for w in re.split(r"[^a-z]+", spaced.lower()) if w}
+    return out
+
+
+def translate_hint(label: str):
+    """Return (term, language, canonical|None) if the label carries a local term.
+
+    Returns None for anything already canonical or a known English variant — an
+    English name must never be reported as a foreign one.
+    """
+    label = clean(label)
+    if not label:
+        return None
+    for term, (lang, canon) in CJK_TERMS.items():
+        if term in label:
+            return term, lang, canon
+    n = norm(label)
+    if n in CANON_LOWER or n in VARIANT_OF:
+        return None
+    toks = tokens(label)
+    for term, (lang, canon) in _TERM_LOOKUP.items():
+        if term in toks and term not in ENGLISH_STOP:
+            return term, lang, canon
+    # The English guard applies only below: substring matching is what would read
+    # the English "Temperature" as the German "Temperatur".
+    if toks & ENGLISH_STOP:
+        return None
+    # Compounding languages (German, Hungarian) glue terms together:
+    # Darabszamlalo, Zykluszeitmessung. Substring match, long terms only.
+    flat = fold(clean(label)).lower().replace(" ", "")
+    for term, (lang, canon) in _TERM_LOOKUP.items():
+        if len(term) >= 5 and term in flat:
+            return term, lang, canon
+    return None
+
+
 SEV_ORDER = {"BLOCKER": 0, "WARN": 1, "INFO": 2}
 ICON = {"BLOCKER": "✗", "WARN": "!", "INFO": "·"}
 
 
+def clean(s: str) -> str:
+    """Unicode-normalise and strip invisible characters before anything else.
+
+    Zero-width spaces and non-breaking spaces occur in the estate's own text and
+    make two visually identical names compare unequal.
+    """
+    s = unicodedata.normalize("NFC", s or "")
+    return "".join(ch for ch in s if unicodedata.category(ch) != "Cf").replace("\u00a0", " ").strip()
+
+
+def fold(s: str) -> str:
+    """Accent-fold for matching only: Rüstzeit -> rustzeit. Never for display."""
+    d = unicodedata.normalize("NFD", s or "")
+    return "".join(ch for ch in d if unicodedata.category(ch) != "Mn")
+
+
 def norm(s: str) -> str:
-    """Compare names ignoring case, spaces, underscores and hyphens."""
-    return re.sub(r"[\s_\-]+", "", (s or "")).lower()
+    """Compare names ignoring case, spaces, underscores, hyphens and accents."""
+    return re.sub(r"[\s_\-]+", "", fold(clean(s))).lower()
 
 
 class Report:
@@ -172,7 +367,7 @@ def analyze(path: str, capability: str | None = None) -> Report:
 
     labels, uuids = [], []
     for r in rows:
-        label = (r.get("label") or r.get("name") or r.get("Label") or "").strip()
+        label = clean(r.get("label") or r.get("name") or r.get("Label") or "")
         uuid = (r.get("uuid") or r.get("id") or r.get("UUID") or "").strip()
         labels.append(label)
         uuids.append(uuid)
@@ -258,6 +453,38 @@ def analyze(path: str, capability: str | None = None) -> Report:
                 fix="Genuinely machine-specific signals are fine. But check first — the "
                     "catalogue has 260 observed names for a much smaller set of concepts.")
 
+    # ── language ────────────────────────────────────────────────────────────
+    langs = Counter()
+    for l in labels:
+        if not l:
+            continue
+        script = detect_script(l)
+        if script != "latin":
+            langs[script] += 1
+        hit = translate_hint(l)
+        if hit:
+            term, lang, canon = hit
+            sev = "WARN" if canon else "INFO"
+            rep.add(sev, "local-language-name",
+                    f"'{l}' contains {lang} term '{term}'"
+                    + (f" — likely '{canon}'." if canon else "."),
+                    fix=("Canonical names are English. Keep the local name as an alias in the "
+                         "report and Machine CV, but the data-point label carries the canonical "
+                         "name. Confirm the reading with the plant before renaming — never "
+                         "machine-translate a signal name and use it directly."))
+    for script, n in langs.items():
+        rep.add("WARN", "non-latin-script",
+                f"{n} label(s) in {script} script.",
+                fix="Non-Latin labels do not survive every downstream consumer, and cannot be "
+                    "matched against the canonical vocabulary. Transliterate and translate with "
+                    "the plant, then record the original as an alias.")
+    mixed = [l for l in labels
+             if l and re.search(r"[A-Za-z]", l) and detect_script(l) != "latin"]
+    if mixed:
+        rep.add("BLOCKER", "mixed-script-name",
+                f"{len(mixed)} label(s) mix scripts: " + ", ".join(mixed[:3]),
+                fix="A mixed-script name is unmatchable and often a copy-paste artefact.")
+
     # ── capability coverage ─────────────────────────────────────────────────
     if capability:
         req = CAPABILITY_REQUIREMENTS.get(capability)
@@ -313,7 +540,7 @@ def cluster_report(rows: list[dict]) -> None:
     """Print the functional-area clustering and the standardize-first order."""
     buckets = defaultdict(list)
     for r in rows:
-        label = (r.get("label") or r.get("name") or "").strip()
+        label = clean(r.get("label") or r.get("name") or "")
         area, sp = classify(label)
         buckets[area].append((label, sp, norm(label) in CANON_LOWER))
 
@@ -340,10 +567,142 @@ def cluster_report(rows: list[dict]) -> None:
     print("  cases and targets on 59, so a low score means unknown demand, not no demand.")
 
 
+ACTION = {"canonical": "use", "variant": "rename", "raw": "name it — BLOCKER",
+          "unknown": "confirm or drop"}
+
+
+def emit_report(path: str, rows: list[dict], findings: list[dict], capability: str | None) -> None:
+    """Write the machine-derivable half of the signal analysis report.
+
+    Sections a tool cannot know — how the machine works, which sources were used,
+    the standard mapping, owners and dates — are emitted as ⟨…⟩ placeholders to be
+    filled from the machine context. See references/machine-context.md and
+    assets/signal-analysis-report.md.
+    """
+    print("# Signal Analysis — ⟨Machine⟩ ⟨(EQ id)⟩\n")
+    print("| | |\n|---|---|")
+    print("| **Plant** | ⟨plant⟩ |")
+    print("| **Machine** | ⟨name⟩ ⟨(EQ id)⟩ · ⟨vendor⟩ ⟨PLC model⟩ |")
+    print("| **Process group** | ⟨group⟩ · family ⟨Rubber / Plastic / Metal / Assembly⟩ |")
+    print(f"| **Capability in scope** | {capability or '⟨capability, or inventory only⟩'} |")
+    print("| **Analyst / date** | ⟨name⟩ · ⟨date⟩ |")
+    blockers = sum(1 for f in findings if f["severity"] == "BLOCKER")
+    verdict = "gaps block delivery" if blockers else "ready — confirm context sections"
+    print(f"| **Overall verdict** | {verdict} |")
+    print(f"| **Input** | `{path}` — {len(rows)} data points |")
+
+    print("\n---\n\n## 1 · How the machine works\n")
+    print("⟨Three or four sentences: what it makes, what one cycle is, where it waits, and")
+    print("what makes a part good. If this cannot be written, the context is not yet")
+    print("sufficient and everything below is a guess.⟩\n")
+    print("**Cycle boundary.** ⟨what starts and ends a cycle, and which signal marks each⟩  ")
+    print("**Wait states.** ⟨where it waits, and on what⟩  ")
+    print("**Good-part definition.** ⟨what makes a part countable, and at which station⟩")
+
+    print("\n## 2 · Sources used\n")
+    print("| Source | Obtained | Contributed | Confidence |\n|---|---|---|---|")
+    print(f"| Data-point list (`{path}`) | yes | the inventory below | Verified for existence |")
+    for s, c in [("PLC program ⟨version⟩", "High"), ("Tag / symbol export", "High for existence, low for meaning"),
+                 ("Sequence / flow chart", "Medium"), ("Layout", "Medium"),
+                 ("Machine handbook", "Medium"), ("HMI observation", "Medium — high for importance"),
+                 ("Proven instance at ⟨plant⟩", "Medium"), ("Operator / setter", "Low until confirmed")]:
+        print(f"| {s} | ⟨yes/no⟩ | ⟨what it gave⟩ | {c} |")
+    print("\n**Context situation:** ⟨full context · tag export only · handbook only · "
+          "nothing but the machine · adopting a proven instance⟩")
+
+    print("\n## 3 · Signal inventory\n")
+    print("| Candidate (as found) | Lang | Canonical name | Area | Dir | Exists? | Unit | Collection | Action |")
+    print("|---|---|---|---|---|---|---|---|---|")
+    for r in rows:
+        label = clean(r.get("label") or r.get("name") or "")
+        uuid = (r.get("uuid") or r.get("id") or "").strip()
+        area, sp = classify(label)
+        n = norm(label)
+        if n in CANON_LOWER:
+            canon, kind = CANON_LOWER[n], "canonical"
+        elif n in VARIANT_OF:
+            canon, kind = VARIANT_OF[n], "variant"
+        elif area == "raw-tag":
+            canon, kind = "⟨name it⟩", "raw"
+        else:
+            canon, kind = "⟨confirm⟩", "unknown"
+        exists = f"yes `{uuid[:8]}`" if uuid else "**no uuid**"
+        marks = area + ("+setpoint" if sp else "")
+        hint = translate_hint(label)
+        lang = detect_script(label)
+        lang = (hint[1] if hint else ("en" if lang == "latin" else lang))
+        print(f"| `{label or '⟨unnamed⟩'}` | {lang} | {canon} | {marks} | in | {exists} | ⟨unit⟩ | "
+              f"⟨transition / sample⟩ | {ACTION[kind]} |")
+    print("\n**Legend — Action.** `use` already canonical · `rename` variant → canonical · "
+          "`name it` raw PLC tag, blocker · `confirm or drop` outside the catalogue.")
+    print("\n⟨Add a row per derived **output** signal this machine should publish, direction "
+          "`out`, action `register on the edge platform`.⟩")
+
+    print("\n## 4 · Functional areas and priority\n")
+    print("```")
+    cluster_report(rows)
+    print("```")
+
+    print("\n## 5 · Standard and data model\n")
+    print("| | |\n|---|---|")
+    print("| Cluster | ⟨C01…C12⟩ |")
+    print("| Standard KPIs required | ⟨from the cluster KPI set — see references/standards.md⟩ |")
+    print("| Public data model available | ⟨EUROMAP 77/83/84 · OPC UA for Machinery · PackML · none⟩ |")
+    print("| Machine already exposes it? | ⟨yes — the integration route changes / no / not checked⟩ |")
+    print("| State model | ⟨PackML mapping, or the raw code table with meanings⟩ |")
+    print("| Deltas from the standard | ⟨only what this machine does differently⟩ |")
+
+    print("\n## 6 · Capability coverage\n")
+    if capability:
+        req = CAPABILITY_REQUIREMENTS.get(capability, [])
+        present = {norm(l) for l in (str(r.get("label") or r.get("name") or "") for r in rows)}
+        present |= {norm(VARIANT_OF[p]) for p in list(present) if p in VARIANT_OF}
+        miss = [s for s in req if norm(s) not in present]
+        print("| Capability | Requires | Missing | Verdict |\n|---|---|---|---|")
+        print(f"| {capability} | {', '.join(req) or '⟨unknown⟩'} | "
+              f"{', '.join(miss) or '—'} | {'blocked' if miss else 'buildable'} |")
+        if miss:
+            print("\n| Missing signal | Cause | Owner |\n|---|---|---|")
+            for s in miss:
+                print(f"| {s} | ⟨PLC does not expose it / not configured on the edge platform / "
+                      "no sensor exists⟩ | ⟨engineering / integration / investment⟩ |")
+    else:
+        print("⟨Run again with `--capability <name>` to fill this, or complete by hand.⟩")
+
+    print("\n## 7 · Findings\n")
+    if not findings:
+        print("None.")
+    else:
+        print("| Severity | Finding | Detail | Fix |\n|---|---|---|---|")
+        for f in sorted(findings, key=lambda x: SEV_ORDER[x["severity"]]):
+            msg = f["message"].replace("|", "\\|").replace("\n", " ")
+            fix = (f["fix"] or "—").replace("|", "\\|").replace("\n", " ")
+            print(f"| {f['severity']} | `{f['check']}` | {msg} | {fix} |")
+
+    print("\n## 8 · Recommended actions\n")
+    print("| # | Action | Owner | Depends on | By |\n|---|---|---|---|---|")
+    i = 0
+    for f in sorted(findings, key=lambda x: SEV_ORDER[x["severity"]]):
+        if f["severity"] == "INFO":
+            continue
+        i += 1
+        print(f"| {i} | {f['message'].split('.')[0]} | ⟨owner⟩ | — | ⟨date⟩ |")
+    if not i:
+        print("| 1 | ⟨confirm the context sections above⟩ | ⟨owner⟩ | — | ⟨date⟩ |")
+    print("\n**Renaming a live signal is a breaking change**, not a tidy-up. Any rename above "
+          "needs its consumers listed and a migration, or the deviation recorded instead.")
+
+    print("\n## 9 · Open questions\n\n- ⟨what could not be established, and who can answer it⟩")
+    print("\n## 10 · Feeds\n")
+    print("`od-requirements-breakdown` §5 Tags of Interest · `od-machine-integration-guidance` · "
+          "`od-node-red-flow-builder` flow config · the Machine CV")
+
+
 def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     as_json = "--json" in argv
     do_cluster = "--cluster" in argv
+    do_report = "--report" in argv
     cap = None
     if "--capability" in argv:
         i = argv.index("--capability")
@@ -366,6 +725,9 @@ def main(argv):
         worst = max(worst, 2 if c["BLOCKER"] else 1 if c["WARN"] else 0)
         if as_json:
             out.append({"file": path, "capability": cap, "findings": rep.sorted()})
+            continue
+        if do_report:
+            emit_report(path, load(path), rep.sorted(), cap)
             continue
         print(f"\n=== {rep.name}" + (f"  [capability: {cap}]" if cap else ""))
         for f in rep.sorted():
