@@ -16,12 +16,18 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: recommend
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   derived_from:
     - ops-knowledge-graph/.../00-core/05-intake.md
     - ops-knowledge-graph/.../00-core/04-service-catalog.md
     - ops-knowledge-graph/.../00-core/01-charter.md
+  okf:
+    type: Agent Skill
+    title: Use-case intake triage
+    tags: [all, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Use-case intake triage

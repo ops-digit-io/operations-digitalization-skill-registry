@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Epic and user stories
+description: The background description, which epic axis to use, how to cut stories that stand alone, and what makes acceptance testable.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [requirements, epic, user-stories]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The epic and its user stories
 
 The requirement (§1–§11) says **what must be true**. This says **how the work is cut up so

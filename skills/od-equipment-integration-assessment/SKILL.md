@@ -16,13 +16,19 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft on assessments and roadmaps; recommend on sequencing; never connect
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-signal-standardization, od-acceptance-test, od-decision-routing]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,tasks}.md
+  okf:
+    type: Agent Skill
+    title: Equipment integration assessment and roadmap
+    tags: [information-integration-service, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Equipment integration assessment and roadmap

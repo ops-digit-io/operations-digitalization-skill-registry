@@ -16,13 +16,19 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
   authority_level: draft and report; the plant decides PRODUCTIVE
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Handover.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
+  okf:
+    type: Agent Skill
+    title: Handover and adoption
+    tags: [all, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Handover and adoption

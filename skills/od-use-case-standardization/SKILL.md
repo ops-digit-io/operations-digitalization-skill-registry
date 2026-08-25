@@ -17,13 +17,19 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); CSP decision outside OD
   authority_level: recommend
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/20-Done/AI cluster classification.md
     - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
+  okf:
+    type: Agent Skill
+    title: Use-case standardization
+    tags: [practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Use-case standardization

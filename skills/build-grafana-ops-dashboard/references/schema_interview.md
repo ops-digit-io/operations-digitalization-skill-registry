@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Schema interview
+description: The interview that stops a dashboard being rebuilt because the first version assumed the wrong schema.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, schema, elicitation]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # schema_interview.md — Questions to ask before writing any SQL
 
 Most dashboard rebuilds happen because the first version was built on assumptions about the schema that turned out to be wrong. The interview below covers what you actually need to know before writing the first query.

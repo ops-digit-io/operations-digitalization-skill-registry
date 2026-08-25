@@ -19,7 +19,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: author flows on a test instance; deploying to a prod instance is human-approved
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   corpus: 825 flows across 53 ct-oesl Node-RED instances
   requires: [od-context]
   composes: [od-machine-integration-guidance, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
@@ -27,6 +27,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 exported flow JSON + 827 generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
+  okf:
+    type: Agent Skill
+    title: Node-RED flow builder
+    tags: [information-integration-service, od, technical]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Node-RED flow builder

@@ -228,11 +228,17 @@ def _build_lookup() -> dict[str, tuple[str, str | None]]:
     out: dict[str, tuple[str, str | None]] = {}
     for term, val in TERMS.items():
         base = term.split("_")[0]
-        out.setdefault(base, val)
+        prev = out.get(base)
+        if prev and prev[0] != val[0] and "/" not in prev[0]:
+            # two languages spell it the same; name both rather than pick one
+            val = (f"{prev[0]}/{val[0]}", prev[1] or val[1])
+        elif prev:
+            val = prev
+        out[base] = val
         folded = (base.replace("ue", "u").replace("oe", "o")
                       .replace("ae", "a").replace("ss", "s"))
         if folded != base and len(folded) >= 4:
-            out.setdefault(folded, val)
+            out.setdefault(folded, out[base])
     return out
 
 
@@ -264,7 +270,7 @@ def tokens(label: str) -> set[str]:
     """
     s = clean(label)
     out: set[str] = set()
-    for variant in (fold(s).lower(), s.translate(UMLAUT).lower()):
+    for variant in (fold(s), s.translate(UMLAUT)):
         spaced = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", variant)
         out |= {w for w in re.split(r"[^a-z]+", spaced.lower()) if w}
     return out
@@ -342,6 +348,21 @@ class Report:
         return Counter(f["severity"] for f in self.findings)
 
 
+def cell(row: dict, *names: str) -> str:
+    """First non-empty value among `names`, case-insensitively.
+
+    A tag export names its columns whatever the exporting tool felt like — `label`, `Label`,
+    `Name`, `TagName`. Three call sites here used to read three different key sets, so a
+    `uuid,Label` CSV analysed clean and then reported every signal as unnamed.
+    """
+    lower = {str(k).strip().lower(): v for k, v in row.items() if k is not None}
+    for n in names:
+        v = lower.get(n.lower())
+        if v is not None and str(v).strip():
+            return str(v)
+    return ""
+
+
 def load(path: str) -> list[dict]:
     if path.lower().endswith(".csv"):
         with open(path, encoding="utf-8-sig", newline="") as fh:
@@ -367,8 +388,8 @@ def analyze(path: str, capability: str | None = None) -> Report:
 
     labels, uuids = [], []
     for r in rows:
-        label = clean(r.get("label") or r.get("name") or r.get("Label") or "")
-        uuid = (r.get("uuid") or r.get("id") or r.get("UUID") or "").strip()
+        label = clean(cell(r, "label", "name", "tagname", "tag", "signal"))
+        uuid = cell(r, "uuid", "id", "datapointid").strip()
         labels.append(label)
         uuids.append(uuid)
 
@@ -436,7 +457,10 @@ def analyze(path: str, capability: str | None = None) -> Report:
     for l in unknown:
         low = l.lower()
         for typo, good in TYPO_HINTS.items():
-            if typo in low:
+            # "temperatur" is a substring of the correct "temperature", so a compound like
+            # HeadTemperature matched the typo hint. If the right spelling is already there,
+            # there is no typo.
+            if typo in low and good.lower() not in low:
                 rep.add("WARN", "likely-typo",
                         f"'{l}' looks like a misspelling of '{good}'.",
                         fix="A typo in a signal name propagates into every flow, topic and "
@@ -540,7 +564,7 @@ def cluster_report(rows: list[dict]) -> None:
     """Print the functional-area clustering and the standardize-first order."""
     buckets = defaultdict(list)
     for r in rows:
-        label = clean(r.get("label") or r.get("name") or "")
+        label = clean(cell(r, "label", "name", "tagname", "tag", "signal"))
         area, sp = classify(label)
         buckets[area].append((label, sp, norm(label) in CANON_LOWER))
 
@@ -614,8 +638,8 @@ def emit_report(path: str, rows: list[dict], findings: list[dict], capability: s
     print("| Candidate (as found) | Lang | Canonical name | Area | Dir | Exists? | Unit | Collection | Action |")
     print("|---|---|---|---|---|---|---|---|---|")
     for r in rows:
-        label = clean(r.get("label") or r.get("name") or "")
-        uuid = (r.get("uuid") or r.get("id") or "").strip()
+        label = clean(cell(r, "label", "name", "tagname", "tag", "signal"))
+        uuid = cell(r, "uuid", "id", "datapointid").strip()
         area, sp = classify(label)
         n = norm(label)
         if n in CANON_LOWER:
@@ -655,7 +679,7 @@ def emit_report(path: str, rows: list[dict], findings: list[dict], capability: s
     print("\n## 6 · Capability coverage\n")
     if capability:
         req = CAPABILITY_REQUIREMENTS.get(capability, [])
-        present = {norm(l) for l in (str(r.get("label") or r.get("name") or "") for r in rows)}
+        present = {norm(l) for l in (cell(r, "label", "name", "tagname", "tag", "signal") for r in rows)}
         present |= {norm(VARIANT_OF[p]) for p in list(present) if p in VARIANT_OF}
         miss = [s for s in req if norm(s) not in present]
         print("| Capability | Requires | Missing | Verdict |\n|---|---|---|---|")
@@ -698,21 +722,31 @@ def emit_report(path: str, rows: list[dict], findings: list[dict], capability: s
           "`od-node-red-flow-builder` flow config · the Machine CV")
 
 
+CAPABILITIES = ("oee", "downtime", "cycle-time", "spc", "energy", "quality",
+                "andon", "traceability", "maintenance", "recipe", "analytics")
+
+
 def main(argv):
-    args = [a for a in argv[1:] if not a.startswith("--")]
-    as_json = "--json" in argv
-    do_cluster = "--cluster" in argv
-    do_report = "--report" in argv
-    cap = None
-    if "--capability" in argv:
-        i = argv.index("--capability")
-        if i + 1 < len(argv):
-            cap = argv[i + 1].lower()
-            if cap in args:
-                args.remove(cap)
-    if not args:
+    import argparse
+    ap = argparse.ArgumentParser(add_help=False)
+    ap.add_argument("files", nargs="*")
+    ap.add_argument("--capability", type=str.lower)
+    ap.add_argument("--cluster", action="store_true")
+    ap.add_argument("--report", action="store_true")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("-h", "--help", action="store_true")
+    try:
+        ns = ap.parse_args(argv[1:])
+    except SystemExit:
+        return 2
+    if ns.help or not ns.files:
         print(__doc__)
         return 0
+    args, as_json, do_cluster, do_report, cap = (
+        ns.files, ns.json, ns.cluster, ns.report, ns.capability)
+    if cap and cap not in CAPABILITIES:
+        print(f"unknown capability '{cap}' — one of: {', '.join(CAPABILITIES)}", file=sys.stderr)
+        return 2
     worst, out = 0, []
     for path in args:
         try:

@@ -1,3 +1,12 @@
+---
+type: Map of Content
+title: Operations Digitalization skill registry
+description: What this registry is, the four lanes it serves, the tiers a skill can hold, and the index of all 24 skills.
+status: stable
+owner: human:jakob.gabriel
+tags: [registry, navigation]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Operations Digitalization — Skill Registry
 
 The repeatable procedures of **MPEE Operations Digitalization (OD)** at OESL, written as
@@ -170,6 +179,23 @@ line by line against the source systems. That matches the bundle's own trust sta
 is stated rather than glossed. The open gaps the department has not yet closed are listed
 in `registry.yaml` under `open_gaps` and appear as `⟨…⟩` in the skills themselves.
 
+## Format
+
+This registry is two things at once, and both are checked:
+
+- a library of **[Agent Skills](https://agentskills.io)** — one `SKILL.md` per skill, with
+  `references/`, `assets/` and `scripts/` beside it;
+- an **[Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing)
+  v0.2 bundle** — the same directory of Markdown files, readable as a knowledge graph by
+  anything that speaks OKF, including the `ops-knowledge-graph` bundle these were derived from.
+
+They conflict in exactly one place: OKF wants `type` and `title` at the top of the file, and
+the Agent Skills spec allows only six top-level keys in a `SKILL.md` — anything else makes
+packaging and upload fail with a hard error. So a skill carries its OKF fields under
+`metadata.okf`, which the spec reserves for exactly this purpose; every other concept carries
+ordinary top-level frontmatter. The contract, the type vocabulary and the identity rules are
+in [`docs/okf-conventions.md`](docs/okf-conventions.md).
+
 ## Repository layout
 
 ```
@@ -178,14 +204,21 @@ skills/<skill-id>/SKILL.md       one skill
 skills/<skill-id>/references/    supporting material for the technical skills
 docs/skill-map.md                the four lanes' skills/tools/interfaces, consolidated
 docs/derivation.md               concept-by-concept trace back to the knowledge graph
+docs/okf-conventions.md          the OKF contract, its three deviations, and what the guard refuses
+index.md, */index.md             generated OKF directory indexes (OKF §8)
+log.md                           bundle history (OKF §9)
 scripts/validate_registry.py     guard: registry ↔ folders ↔ frontmatter ↔ cross-references
+scripts/verify_okf.py            guard: the OKF contract
+scripts/build_okf_index.py       regenerates the directory indexes
 ```
 
 ## Validating a change
 
 ```bash
 pip install pyyaml
-python3 scripts/validate_registry.py
+python3 scripts/validate_registry.py       # registry.yaml and the skill frontmatter agree
+python3 scripts/verify_okf.py              # the OKF contract
+python3 scripts/build_okf_index.py --check # the generated indexes are current
 ```
 
 It checks that every folder has a registry entry and vice versa, that frontmatter parses,
@@ -193,6 +226,12 @@ that each `name` and `metadata.id` matches its directory, that descriptions are 
 enough to trigger on, that tiers agree between the two, that every `od`-scoped skill
 requires `od-context` while a `portable` one instead ships a real `od_integration` note, and
 that no `requires` or `composes` points at a skill that does not exist.
+
+`verify_okf.py` checks that every concept's frontmatter parses and declares a known `type`,
+that a `SKILL.md` carries only the six spec-allowed top-level keys and its OKF fields under
+`metadata.okf`, that every other `title` slugs to its filename, that `generated` names an OKF
+actor and an ISO timestamp, that every `resource`, path-shaped `derived_from` entry and
+in-bundle link resolves, and that no wikilink or bundle-relative link has crept in.
 
 When a source concept changes, follow "Keeping this registry true" in
 [`docs/derivation.md`](docs/derivation.md).

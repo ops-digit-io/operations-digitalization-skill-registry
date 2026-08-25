@@ -17,13 +17,19 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-use-case-standardization, od-benefit-calculation, od-data-availability-check]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
+  okf:
+    type: Agent Skill
+    title: Use-case definition
+    tags: [practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Use-case definition

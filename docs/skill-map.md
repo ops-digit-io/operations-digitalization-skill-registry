@@ -1,3 +1,13 @@
+---
+type: Map of Content
+title: Skill map
+description: "The four lane skill maps read as one: which capability each lane names, where they overlap, and which registry skill covers each."
+resource: ../registry.yaml
+status: stable
+owner: human:jakob.gabriel
+tags: [skill-map, lanes]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The OD skill map — consolidated
 
 The four lane `skills.md` files in the knowledge graph each answer the same question for

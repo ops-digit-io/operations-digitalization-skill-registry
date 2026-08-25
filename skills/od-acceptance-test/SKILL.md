@@ -15,12 +15,18 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft the protocol; report the result; sign-off is human-only
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-handover-and-adoption]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,tasks}.md
     - ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,tasks,agent-brief}.md
+  okf:
+    type: Agent Skill
+    title: Acceptance test
+    tags: [information-integration-service, practice, project-support-consultancy]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Acceptance test

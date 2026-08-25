@@ -19,7 +19,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
   authority_level: draft the requirement; accept or refuse per intake; approvals are human
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   requires: [od-context]
   composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-machine-integration-guidance, od-acceptance-test, od-handover-and-adoption]
   derived_from:
@@ -28,6 +28,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (650 use cases; field population, target_text and blockers grammar; 268 legacy applications)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/.../00-core/{05-intake,15-resources}.md
+  okf:
+    type: Agent Skill
+    title: Requirements breakdown
+    tags: [all, od, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Requirements breakdown

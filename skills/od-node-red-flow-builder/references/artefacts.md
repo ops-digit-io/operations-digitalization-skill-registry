@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Artefacts
+description: What the 825 flows across 53 instances actually build, crawled from their labels, with a generalized key-free example per artefact.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, artefacts]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The artefact catalogue
 
 What the 825 flows across 53 instances actually build. Crawled from the flow labels and

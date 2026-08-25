@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Transformation patterns
+description: Ten patterns covering almost every flow in the estate, each with its trigger, its state, its output and how it fails.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, transformation, patterns]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The transformation patterns
 
 Ten patterns cover almost every flow in the estate. Each is given with its trigger, its

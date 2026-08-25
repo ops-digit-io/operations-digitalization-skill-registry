@@ -16,13 +16,19 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft on the business case; recommend on prioritization; never assert proven
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
+  okf:
+    type: Agent Skill
+    title: Benefit calculation and savings
+    tags: [practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Benefit calculation and savings

@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Legacy system assessment
+description: "The other half of the requirement: checking the 268 legacy applications a demand touches and whether it fits the lean footprint."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [requirements, legacy, it-systems]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The (legacy) MF IT system assessment
 
 Half of UC-03's stated output: *"integration-ready requirement spec **+ legacy MF IT system

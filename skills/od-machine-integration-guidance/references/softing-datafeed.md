@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Softing dataFEED
+description: "The aggregation pattern: a Softing dataFEED OPC Suite server holding the driver connections and exposing them as one OPC UA server."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [integration, softing, opc-ua]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Pattern — Central Aggregation Server (Softing dataFEED OPC Suite)
 
 The aggregation pattern: a Softing dataFEED OPC Suite server holds the driver connections to

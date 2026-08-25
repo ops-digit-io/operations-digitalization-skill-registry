@@ -18,7 +18,7 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: read-only
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/01-charter.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
@@ -27,6 +27,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
     - ops-knowledge-graph/_knowledge/10-Department/Roles and organization.md
+  okf:
+    type: Agent Skill
+    title: OD context
+    tags: [all, foundation]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # OD context

@@ -14,16 +14,22 @@ metadata:
   id: od-analytical-support-service
   tier: lane
   lane: analytical-support-service
-  owner_role: Digital-Business-Value-Engineer (DBVE) — ⟨named person to confirm⟩
-  capacity: ⟨to confirm⟩
+  owner_role: Digital-Business-Value-Engineer (DBVE)
+  capacity: unknown
   authority_level: read-only on data sources; draft on assets and summaries; recommend on promotion
   escalation: Information Integration lane for data gaps; OD lead (Thomas Zipf) via COP otherwise
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-data-availability-check, od-analytics-asset-build, od-portfolio-and-savings-analysis, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
+  okf:
+    type: Agent Skill
+    title: Analytical Support Service
+    tags: [analytical-support-service, lane]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Analytical Support Service

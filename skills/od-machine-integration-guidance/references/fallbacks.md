@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Fallbacks
+description: The eight places an integration actually gets blocked, what each looks like, and the route around it.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [integration, blockers]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Fallbacks — when the path is blocked
 
 A blocked integration is usually blocked at one of eight places. For each: what it actually

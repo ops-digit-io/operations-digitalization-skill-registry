@@ -16,13 +16,19 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
   authority_level: read-only
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-equipment-integration-assessment, od-signal-standardization]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
+  okf:
+    type: Agent Skill
+    title: Data availability check
+    tags: [analytical-support-service, practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Data availability check

@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Topic conventions
+description: The two topic grammars the 825 flows publish and subscribe to, plus the small tail that follows neither.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, mqtt, topics]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # MQTT topic conventions
 
 What the 825 flows actually publish and subscribe to. Two families, plus a small tail.

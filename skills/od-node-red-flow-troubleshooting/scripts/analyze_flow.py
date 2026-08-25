@@ -96,7 +96,8 @@ def check_documentation(rep, tab, nodes):
                 fix="Name every node. `{{error.source.name}}` in the standard error "
                     "template resolves to this field, so an unnamed node produces an "
                     "error message identifying nothing.")
-    groups = {(n.get("name") or "").strip().lower() for n in nodes if n.get("type") == "group"}
+    groups = {g for g in ((n.get("name") or "").strip().lower()
+                          for n in nodes if n.get("type") == "group") if g}
     unnamed_groups = [n for n in nodes if n.get("type") == "group" and not (n.get("name") or "").strip()]
     if unnamed_groups:
         rep.add("INFO", "unnamed-group",
@@ -261,7 +262,7 @@ def check_streaming(rep, nodes):
     splits = [n for n in nodes if n.get("type") == "split"]
     joins = [n for n in nodes if n.get("type") == "join"]
     for s in splits:
-        if str(s.get("arraySplt")) not in ("1", "None", "") and s.get("spltType") == "str":
+        if str(s.get("arraySplt")) not in ("1", "None", "") and s.get("arraySpltType") == "len":
             rep.add("INFO", "unusual-split-size",
                     f"split arraySplt={s.get('arraySplt')}; the corpus splits one packet "
                     "at a time (640 of 648).", where=label_of(s))

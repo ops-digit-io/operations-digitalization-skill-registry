@@ -20,7 +20,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: recommend a route and a configuration; never connect, never approve an external connection
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   requires: [od-context]
   composes: [od-equipment-integration-assessment, od-signal-standardization, od-acceptance-test, od-node-red-flow-builder]
   derived_from:
@@ -30,6 +30,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (1,715 Machine + 26 Connector nodes)
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
+  okf:
+    type: Agent Skill
+    title: Machine integration guidance
+    tags: [information-integration-service, od, technical]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Machine integration guidance

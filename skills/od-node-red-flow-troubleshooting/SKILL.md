@@ -19,12 +19,18 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: read and diagnose; fixes on a test instance; prod deploys are human-approved
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   corpus: validated against 825 flows across 53 ct-oesl instances
   requires: [od-context]
   composes: [od-node-red-flow-builder, od-data-availability-check, od-acceptance-test]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 flow JSON exports)
+  okf:
+    type: Agent Skill
+    title: Node-RED flow troubleshooting
+    tags: [information-integration-service, od, technical]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Node-RED flow troubleshooting

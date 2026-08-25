@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Requirement template
+description: The ten core sections and the four lane variants, what each is for, and how each one fails in practice.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [requirements, template]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The requirement template
 
 **This template is not invented.** It is the structure the best-documented use cases in the

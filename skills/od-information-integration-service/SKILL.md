@@ -14,17 +14,23 @@ metadata:
   id: od-information-integration-service
   tier: lane
   lane: information-integration-service
-  owner_role: IIoT Interface & Automation Engineer (IIAE) — ⟨named person to confirm⟩
+  owner_role: IIoT Interface & Automation Engineer (IIAE)
   capacity: 3 IIAE roles
   authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
   escalation: OD lead (Thomas Zipf) via COP
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-equipment-integration-assessment, od-signal-standardization, od-acceptance-test, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
+  okf:
+    type: Agent Skill
+    title: Information Integration Service
+    tags: [information-integration-service, lane]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Information Integration Service

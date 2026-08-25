@@ -16,7 +16,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
   derived_from:
@@ -24,6 +24,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
+  okf:
+    type: Agent Skill
+    title: Analytics asset build
+    tags: [analytical-support-service, practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Analytics asset build

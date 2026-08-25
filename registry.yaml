@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.3.0
+  version: 1.4.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -67,7 +67,7 @@ skills:
     tier: lane
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: draft / recommend
+    authority_level: draft on definitions and reports; recommend on prioritization
     trigger: Plant use-case demand or a definition-workshop request.
     definition_of_done: Use case defined, prioritized, impact-evaluated and handed to integration with a business case.
 
@@ -75,7 +75,7 @@ skills:
     tier: lane
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: draft / recommend; execution human-only
+    authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
     trigger: Equipment integration or data-model harmonization need per roadmap.
     definition_of_done: Machine or equipment integrated, signals standardized, data landing on the data platform.
 
@@ -83,7 +83,7 @@ skills:
     tier: lane
     lane: project-support-consultancy
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: draft / recommend
+    authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
     trigger: Digital investment project kick-off.
     definition_of_done: Integration project managed to acceptance test; application consulted and accepted.
 
@@ -91,7 +91,7 @@ skills:
     tier: lane
     lane: analytical-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: read-only / draft; execute-autonomously on ad-hoc delivery
+    authority_level: read-only on data sources; draft on assets and summaries; recommend on promotion
     trigger: Analytical request or ad-hoc process-insight need.
     definition_of_done: Process diagnostics / analytical insight delivered.
 
@@ -120,7 +120,7 @@ skills:
     tier: practice
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: draft / recommend
+    authority_level: draft on the business case; recommend on prioritization; never assert proven
     summary: Build the OD business case and write saving rows; keep tracked and proven apart.
 
   - id: od-use-case-standardization
@@ -134,7 +134,7 @@ skills:
     tier: practice
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: draft / recommend
+    authority_level: draft on assessments and roadmaps; recommend on sequencing; never connect
     summary: Inventory the estate, pick the integration concept and connector, sequence and size the wave.
 
 
@@ -142,14 +142,14 @@ skills:
     tier: practice
     lane: [information-integration-service, project-support-consultancy]
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: draft the protocol; sign-off human-only
+    authority_level: draft the protocol; report the result; sign-off is human-only
     summary: Define pass before the build, verify along the whole data path, route failures into the right rework loop.
 
   - id: od-handover-and-adoption
     tier: practice
     lane: all
     owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns adoption
-    authority_level: draft / report
+    authority_level: draft and report; the plant decides PRODUCTIVE
     summary: The three-question handover test, its definition of done, and what to do about an asset nobody opens.
 
   - id: od-data-availability-check
@@ -163,7 +163,7 @@ skills:
     tier: practice
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: author; external publishing human-approved
+    authority_level: draft/author the asset; publishing externally is human-approved
     summary: Choose the asset type and design it for the ritual that consumes it.
 
   - id: od-scorecard-reporting
@@ -184,14 +184,14 @@ skills:
     tier: practice
     lane: all
     owner_role: OD lead (Thomas Zipf)
-    authority_level: read-only
+    authority_level: read-only — this skill routes decisions, it never takes them
     summary: Owner, mode, threshold and authority level per decision; the five gates; escalation triggers.
 
   - id: od-sharepoint-list-export
     tier: practice
     lane: all
     owner_role: human:jakob.gabriel
-    authority_level: read-only
+    authority_level: read-only on SharePoint
     summary: Full list export including version history, from the browser console, with its stated limits.
 
   - id: build-grafana-ops-dashboard
@@ -208,7 +208,7 @@ skills:
     tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: recommend a route; never connect, never approve an external connection
+    authority_level: recommend a route and a configuration; never connect, never approve an external connection
     summary: Picks the ingress variant for a machine — edge device, connector without a device, or Softing dataFEED aggregation server bridged by DTQ-OPCUA-Connector — all terminating at the IIoT Edge Platform; walks that variant's configuration pattern from the V5.70 manual and takes the right fallback when it blocks.
 
   - id: od-signal-standardization
@@ -231,7 +231,7 @@ skills:
     tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: author on a test instance; deploying to prod is human-approved
+    authority_level: author flows on a test instance; deploying to a prod instance is human-approved
     summary: The house Node-RED pattern - seven-group layout, the transformation patterns plus a method for composing one that is not in the catalogue, the streaming mechanics, the artefact catalogue with a sanitized example per artefact, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
 
 open_gaps:
@@ -280,6 +280,7 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - "Every concept in this bundle is OKF-unverified: derived from the knowledge graph and the source systems, but not read line by line by a person. Adding a `verified` stamp naming a human actor is a reading job nobody has been assigned."
   - The epic/user-story layer exists in the use case list already and is hollow: of 650 leaf stories, 59 carry an "I want" tag, 3 mention acceptance criteria, and 0 carry a "so that" that differs from the generated clause. Backfilling them is a portfolio exercise nobody has been assigned.
   - 334 leaf use cases carry only a capability parent and 291 only a process parent, so a rollup on either axis silently misses half the portfolio. Whether the source list can be corrected in place is unconfirmed.
   - Tags arrive in the plant language. The corpus already carries Chinese, German and Spanish labels; Romanian, French, Hungarian, Serbian, Slovak/Czech and Portuguese plants are in scope and not yet represented.

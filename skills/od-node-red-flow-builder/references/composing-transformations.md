@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Composing transformations
+description: "What to do when the transformation you need is not one of the ten patterns: how to compose one and how to prove it works."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, transformation]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # When no pattern fits — composing a transformation
 
 The catalogue tells you what exists. This tells you what to do when the thing you need is
@@ -255,7 +265,7 @@ packed convention — check the topic family first.
 Run the analyser before deploying — `od-node-red-flow-troubleshooting`:
 
 ```bash
-python3 scripts/analyze_flow.py MyNewFlow.json
+python3 ../od-node-red-flow-troubleshooting/scripts/analyze_flow.py MyNewFlow.json
 ```
 
 Zero blockers is the bar. Then the acceptance test walks the whole path, machine to asset —

@@ -16,12 +16,18 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   derived_from:
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
+  okf:
+    type: Agent Skill
+    title: Decision routing and escalation
+    tags: [all, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Decision routing and escalation

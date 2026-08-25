@@ -125,8 +125,13 @@ def analyze(path: str, lane: str | None):
     # signals table
     sig = sec.get("signals", "")
     rows = [l for l in sig.splitlines() if l.strip().startswith("|") and l.count("|") >= 4]
+    def is_header(row: str) -> bool:
+        cells = [c.strip().lower() for c in row.strip().strip("|").split("|")]
+        return cells[:2] in (["signal", "direction"], ["signal", "dir"]) or (
+            len(cells) > 1 and cells[0] == "signal" and "direction" in cells)
+
     body_rows = [r for r in rows if not re.search(r"^\|[\s\-:|]+\|$", r.strip())
-                 and "signal" not in r.lower()]
+                 and not is_header(r)]
     if sig.strip() and not body_rows:
         add("BLOCKER", "no-signals-listed",
             "§ Tags of Interest has no signal rows.",
@@ -157,7 +162,8 @@ def analyze(path: str, lane: str | None):
 
     # value: a figure without a reliability label
     val = sec.get("value", "")
-    if re.search(r"[€$]\s?\d|\d+\s?(k|k€|eur|euro)\b", val, re.I) and not re.search(
+    if re.search(r"[€$]\s?[\d,.]*\d|\b(eur|euro|usd)\b\s*[\d,.]*\d|"
+                 r"[\d,.]*\d\s*(k€|k\b|eur|euro)\b", val, re.I) and not re.search(
             r"calculation|estimation|not yet assessed", val, re.I):
         add("BLOCKER", "figure-without-reliability",
             "§ Value states a figure with no reliability label.",
@@ -188,19 +194,24 @@ def analyze(path: str, lane: str | None):
     return findings
 
 
+LANES = ("use-case", "integration", "project", "analytical")
+
+
 def main(argv):
-    args = [a for a in argv[1:] if not a.startswith("--")]
-    as_json = "--json" in argv
-    lane = None
-    if "--lane" in argv:
-        i = argv.index("--lane")
-        if i + 1 < len(argv):
-            lane = argv[i + 1].lower()
-            if lane in args:
-                args.remove(lane)
-    if not args:
+    import argparse
+    ap = argparse.ArgumentParser(add_help=False)
+    ap.add_argument("files", nargs="*")
+    ap.add_argument("--lane", type=str.lower, choices=LANES)
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("-h", "--help", action="store_true")
+    try:
+        ns = ap.parse_args(argv[1:])
+    except SystemExit:
+        return 2
+    if ns.help or not ns.files:
         print(__doc__)
         return 0
+    args, as_json, lane = ns.files, ns.json, ns.lane
     worst, out = 0, []
     for path in args:
         try:

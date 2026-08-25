@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Archetypes
+description: The two schemas an ops dashboard is built on - relational fact/dimension and UUID-keyed timeseries - and how to tell which one you have.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, schema]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Data model archetypes — how to choose
 
 Operations dashboards backed by SQL come from one of two fundamentally different schemas. Picking the wrong patterns wastes time and produces broken queries. Identify the archetype before writing any SQL.

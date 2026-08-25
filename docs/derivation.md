@@ -1,3 +1,13 @@
+---
+type: Design Record
+title: Derivation
+description: Every skill traced back to the knowledge graph concept it came from, with the judgement calls, the corrections the corpus forced, and what was deliberately left out.
+resource: ../registry.yaml
+status: stable
+owner: human:jakob.gabriel
+tags: [derivation, provenance]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # How this registry was derived
 
 Every skill in this registry traces to concepts in the `ops-digit-io/ops-knowledge-graph`
@@ -179,6 +189,53 @@ any are chosen, and an analyser that checks a data-point list for collisions, ra
 and coverage gaps. Its rule — a signal is standardized when a second plant can consume it
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
+
+**Adopting OKF was decided by one hard constraint, not by preference.** The registry was
+Agent Skills format derived *from* an OKF bundle; making it an OKF bundle itself meant putting
+`type` and `title` in the frontmatter. The Agent Skills spec allows exactly six top-level keys
+in a `SKILL.md` — `name`, `description`, `license`, `compatibility`, `metadata`,
+`allowed-tools` — and anything else fails packaging and upload with a hard error, not a
+warning. Top-level OKF fields would have made all 24 skills undistributable: conformance
+bought by breaking the artefact.
+
+So a skill carries its OKF fields under `metadata`, which the spec defines as a free-form map
+"read by your own tooling" — precisely this case. Every other concept carries ordinary
+top-level frontmatter. Checking that constraint also turned up a live defect:
+`build-grafana-ops-dashboard/SKILL.md` carried `argument-hint`, which is the exact key the
+error message names, so that skill would have failed upload today.
+
+Two of the knowledge-graph bundle's rules could not be copied unchanged. `title` must equal
+the filename there, because filenames are human titles; here they are slugs fixed by the skill
+layout, and renaming one breaks the paths inside `SKILL.md`. So `title` must *slug* to the
+filename — `PLC packet` → `plc-packet.md` — which keeps the rule's purpose. And `SKILL.md`
+carries no identity at all, being the same filename 24 times over, so the check moves to
+`name` against the directory, which is what the loader uses and a stronger guarantee than the
+rule it replaces.
+
+`last_verified: 2026-08-25` came off all 24 skills. OKF derives its trust tier from `verified`
+and nothing else; that field asserted a verification nobody performed and carried no actor, so
+it could not produce a tier either way. It is now `sources_read`, which is what it always
+meant. Every concept here is `unverified`, and that is accurate.
+
+**The review found real bugs, and the pattern in them was worth more than any single fix.**
+Four scripts hand-rolled their argument parsing, so `--lane=integration` and
+`--capability=oee` were silently ignored — the check never ran and the tool printed *"ready to
+hand over"*. That is worse than crashing. Both now use `argparse` with a closed choice list.
+Two more were the same shape of error: `tokens()` lowercased before the camelCase split, so
+the split never fired and the English guard was defeated, reporting `HeadTemperature` as a
+German tag; and `setdefault` made the Portuguese and Serbian entries unreachable behind
+Spanish, so `Temperatura_Bico` reported as Spanish. The second now reports
+`Spanish/Portuguese` — a term two languages spell the same way is ambiguous, and saying so
+beats picking one. Three call sites read the label column with three different key sets, so a
+`uuid,Label` export analysed clean and then reported every signal as unnamed; one `cell()`
+helper now reads all of them case-insensitively.
+
+The registry's `authority_level` had drifted into paraphrase of each skill's own, and in one
+case granted `execute-autonomously` where `od-analytical-support-service` capped at
+*recommend*. The two are now the same string and `validate_registry.py` fails if they differ,
+because a machine-readable index must not be able to widen a skill's authority. It also now
+refuses a `⟨…⟩` placeholder inside metadata: in prose a placeholder marks an open gap, which
+is the point; in metadata a consumer reads it as the value.
 
 **The epic layer was already there, and finding that changed what the skill had to do.**
 The plan was to design an epic/user-story format. Then `usecase-epics-user-stories.md` turned

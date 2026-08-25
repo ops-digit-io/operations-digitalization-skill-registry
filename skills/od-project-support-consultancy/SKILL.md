@@ -14,16 +14,22 @@ metadata:
   id: od-project-support-consultancy
   tier: lane
   lane: project-support-consultancy
-  owner_role: IIoT Interface & Automation Engineer (IIAE) — ⟨named person to confirm⟩
-  capacity: ⟨to confirm⟩
+  owner_role: IIoT Interface & Automation Engineer (IIAE)
+  capacity: unknown
   authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
   escalation: OD lead (Thomas Zipf) via ODEC
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-acceptance-test, od-handover-and-adoption, od-scorecard-reporting, od-decision-routing]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,skills,tasks,metrics,agent-brief}.md
+  okf:
+    type: Agent Skill
+    title: Project Support & Application Consultancy
+    tags: [lane, project-support-consultancy]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Project Support & Application Consultancy

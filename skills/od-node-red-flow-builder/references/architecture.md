@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Architecture
+description: A 41-node production flow walked end to end, so the shape of a real flow is concrete before you build one.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, architecture]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # A canonical flow, node by node
 
 Walkthrough of `BMW_Lean_Cell_-_Cycle_Time` on `ct-oesl-krb-nodered-prod` — 41 nodes,

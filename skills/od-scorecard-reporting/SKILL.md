@@ -16,13 +16,19 @@ metadata:
   owner_role: OD lead (Thomas Zipf); DBVE for use-case metrics, IIAE for equipment metrics
   authority_level: read-only on sources; draft on reports
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   valid_until: 2026-11-10
   requires: [od-context]
   derived_from:
     - ops-knowledge-graph/.../00-core/07-metrics.md
     - ops-knowledge-graph/.../00-core/06-operating-rhythm.md
     - ops-knowledge-graph/.../20-lanes/*/metrics.md
+  okf:
+    type: Agent Skill
+    title: Scorecard and ODEC reporting
+    tags: [all, practice]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Scorecard and ODEC reporting

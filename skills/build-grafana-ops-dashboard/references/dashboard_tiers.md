@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Dashboard tiers
+description: Manager, analyst and operations dashboards are three different products; the design rules and panel inventory for each.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, design]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Dashboard tiers — design rules and panel inventories
 
 The single biggest design decision when building an ops dashboard is **who is it for**. Three audiences, three different dashboards. Stuffing all three audiences into one dashboard produces a tool nobody uses well.

@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Streaming
+description: "The mechanics under every flow: how a PLC value reaches a derived signal, and what is synchronous, buffered or lost along the way."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, streaming, mqtt]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # How the real-time streaming works
 
 The mechanics underneath every flow: how a machine value gets from a PLC into a derived

@@ -21,9 +21,9 @@ metadata:
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  authority_level: recommend on standards ⟨decision counterpart to confirm⟩; configure the offload
+  authority_level: recommend on standards; configure the offload
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   corpus: 260 distinct signal names across 3,400 references in 825 flows
   requires: [od-context]
   composes: [od-machine-integration-guidance, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
@@ -33,6 +33,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills}.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
+  okf:
+    type: Agent Skill
+    title: Signal analysis and standardization
+    tags: [information-integration-service, od, technical]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Signal analysis and standardization

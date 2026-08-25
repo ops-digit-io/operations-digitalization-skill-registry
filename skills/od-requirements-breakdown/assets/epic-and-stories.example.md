@@ -1,3 +1,13 @@
+---
+type: Skill Asset
+title: Epic and stories example
+description: A filled epic for OEE at Mako that passes every check in check_epic.py; read it before the blank.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [requirements, epic, example]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # EPIC-C07-MAK · Mako · OEE Calculation
 
 ## Background — what this is used for

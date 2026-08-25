@@ -146,6 +146,23 @@ def main() -> int:
                 f"registry.yaml: '{entry['id']}' tier '{entry.get('tier')}' disagrees with "
                 f"its SKILL.md tier '{meta.get('tier')}'"
             )
+        # authority_level was cross-checked nowhere, and the registry had drifted into
+        # paraphrase - in one case granting execute-autonomously where the skill capped at
+        # recommend. The machine-readable index must not be able to widen a skill's authority.
+        if str(entry.get("authority_level", "")).strip() != str(
+                meta.get("authority_level", "")).strip():
+            fail(
+                f"registry.yaml: '{entry['id']}' authority_level disagrees with its SKILL.md\n"
+                f"      registry: {entry.get('authority_level')}\n"
+                f"      SKILL.md: {meta.get('authority_level')}"
+            )
+        for key, value in meta.items():
+            if isinstance(value, str) and "\u27e8" in value:
+                fail(
+                    f"{entry['id']}/SKILL.md: metadata.{key} carries a placeholder "
+                    f"({value!r}). A placeholder is fine in prose, where it marks an open "
+                    "gap; in machine-readable metadata a consumer reads it as the value."
+                )
 
     if errors:
         print(f"FAIL — {len(errors)} problem(s):\n", file=sys.stderr)

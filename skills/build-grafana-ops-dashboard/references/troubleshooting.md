@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Troubleshooting
+description: The errors an ops dashboard actually throws, what causes each, and the fix.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, troubleshooting]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Troubleshooting — common errors and fixes
 
 > **Reminder.** Two hard rules from `SKILL.md` apply to every query in this skill:

@@ -12,8 +12,8 @@ description: >
   or asks for "manager view" vs "analyst view" splits. Complements
   /build-dashboard (which produces self-contained HTML); use this skill instead
   when the deliverable is a Grafana .json file.
-argument-hint: "<domain> <schema or signal list>"
 metadata:
+  argument_hint: "<domain> <schema or signal list>"
   id: build-grafana-ops-dashboard
   tier: technical
   lane: [analytical-support-service, use-case-support-service]
@@ -22,11 +22,17 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: author the dashboard; publishing to a shared Grafana is human-approved
   status: stable
-  last_verified: 2026-08-25
+  sources_read: 2026-08-25
   related: [od-analytics-asset-build, od-data-availability-check, od-handover-and-adoption]
   od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
   derived_from:
     - vendored from the author's build-grafana-ops-dashboard skill (uploaded 2026-08-25)
+  okf:
+    type: Agent Skill
+    title: Grafana ops dashboard builder
+    tags: [analytical-support-service, portable, technical, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # build-grafana-ops-dashboard — Grafana JSON for Operations Data

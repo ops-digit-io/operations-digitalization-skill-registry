@@ -13,17 +13,23 @@ metadata:
   id: od-use-case-support-service
   tier: lane
   lane: use-case-support-service
-  owner_role: Digital-Business-Value-Engineer (DBVE) — ⟨named person to confirm⟩
+  owner_role: Digital-Business-Value-Engineer (DBVE)
   capacity: 2 DBVE roles
   authority_level: draft on definitions and reports; recommend on prioritization
   escalation: OD lead (Thomas Zipf) within the ODEC/COP window
   status: stable
-  last_verified: 2026-08-10
+  sources_read: 2026-08-10
   requires: [od-context]
   composes: [od-use-case-intake-triage, od-use-case-definition, od-benefit-calculation, od-use-case-standardization, od-handover-and-adoption, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
+  okf:
+    type: Agent Skill
+    title: Smart Factory Use Case Support Service
+    tags: [lane, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Smart Factory Use Case Support Service

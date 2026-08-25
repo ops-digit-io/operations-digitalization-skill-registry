@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Machine context
+description: The ten sources that say what a machine does rather than what it emits, ranked by how much confidence each earns.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [signals, machine-context]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Machine context — reading how the machine works
 
 A tag list says what the machine *emits*. It does not say what the machine *does*. Without

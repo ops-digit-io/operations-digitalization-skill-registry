@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Variables
+description: Every variable must be used in every panel where it is relevant; how to wire them and why a defined-but-unused one is the commonest silent failure.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, variables]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # variables.md — Grafana variable wiring reference
 
 Every variable defined in a dashboard must be used in every panel where it's logically relevant. A defined-but-unused variable is the most common silent bug in ops dashboards: filters look like they work, but specific panels ignore them and quietly show stale numbers.

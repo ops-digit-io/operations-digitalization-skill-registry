@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Signal catalogue
+description: "What the estate actually names its signals: 260 distinct names over 3,400 references, with the canonical name for each concept."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [signals, vocabulary]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The signal catalogue
 
 What the estate actually names its signals, mined from the flow corpus: **260 distinct

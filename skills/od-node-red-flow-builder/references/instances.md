@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Instances
+description: 53 instances and 825 flows as auto-documented, with what each instance is for and how much of it is configured.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [node-red, estate]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # The Node-RED estate
 
 53 instances, 825 flows, as auto-documented by `node-red-auto-docs`. Read 2026-08-25.

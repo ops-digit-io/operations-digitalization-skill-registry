@@ -16,7 +16,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: read-only
   status: stable
-  last_verified: 2026-08-24
+  sources_read: 2026-08-24
   requires: [od-context]
   composes: [od-sharepoint-list-export, od-benefit-calculation, od-use-case-standardization]
   derived_from:
@@ -24,6 +24,12 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
+  okf:
+    type: Agent Skill
+    title: Portfolio and savings analysis
+    tags: [analytical-support-service, practice, use-case-support-service]
+    owner: human:jakob.gabriel
+    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Portfolio and savings analysis

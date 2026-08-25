@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Signal matching
+description: "The timeseries archetype's core problem: the user knows what they want to see but not which UUIDs hold it."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, signals]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Signal matching — picking the right UUIDs from a description
 
 A core challenge of the timeseries archetype: **the user knows what they want to see, but not which UUIDs hold the data**. They tell you "I want to see energy consumption and power draw for machine X" — your job is to translate that into the specific UUIDs and queries.

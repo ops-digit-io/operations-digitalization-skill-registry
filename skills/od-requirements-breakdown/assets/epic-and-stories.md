@@ -1,3 +1,13 @@
+---
+type: Skill Asset
+title: Epic and stories
+description: "The blank epic to copy: background, epic statement, both epic axes, and the user story shape."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [requirements, epic, blank]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # EPIC-⟨id⟩ · ⟨plant⟩ · ⟨capability or process⟩
 
 ## Background — what this is used for

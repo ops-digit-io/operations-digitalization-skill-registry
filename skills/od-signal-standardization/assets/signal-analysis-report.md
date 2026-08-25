@@ -1,3 +1,13 @@
+---
+type: Skill Asset
+title: Signal analysis report
+description: The ten-section report the signal skill writes, so its output is a defined format rather than prose.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [signals, report, template]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Signal Analysis — ⟨Machine⟩ ⟨(EQ id)⟩
 
 | | |

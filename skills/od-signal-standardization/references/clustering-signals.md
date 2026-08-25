@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Clustering signals
+description: "Four axes for sorting a machine's hundreds of data points, the search patterns per cluster, and the importance score that ranks them."
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [signals, clustering]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Clustering input signals — search patterns and importance
 
 A machine exposes hundreds of data points. Most use cases need a handful. This is how to

@@ -1,3 +1,13 @@
+---
+type: Skill Reference
+title: Portability check
+description: How to test that every query runs on PostgreSQL and DuckDB, turning the portability rule from an aspiration into a check.
+resource: ../SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, sql, testing]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # portability_check.md — Verify queries on both engines before delivery
 
 Rule 2 from `SKILL.md` says every query must run on PostgreSQL **and** DuckDB. This file describes how to test that — turning the rule from aspiration into a verifiable check.

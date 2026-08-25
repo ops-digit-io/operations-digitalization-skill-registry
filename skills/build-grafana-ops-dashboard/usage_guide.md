@@ -1,3 +1,13 @@
+---
+type: Skill Guide
+title: Usage guide
+description: How an assistant running with the Grafana skill installed should drive it end to end, from schema interview to delivered JSON.
+resource: SKILL.md
+status: stable
+owner: human:jakob.gabriel
+tags: [grafana, dashboards]
+generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+---
 # Usage Guide — How to use the `build-grafana-ops-dashboard` skill
 
 This document is for the **assistant** running with the skill installed (Claude.ai with the skill in `/mnt/skills/user/`, Claude Code with the skill in the project, or any agent with the skill files accessible). It encodes the end-to-end workflow so a single user prompt becomes a working dashboard JSON without re-deriving the patterns from scratch each time.
