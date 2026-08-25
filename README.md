@@ -15,7 +15,7 @@ concept-by-concept trace.
 > excluded. The Digital Unit will be a new department; this registry describes Operations
 > Digitalization as it works today.
 
-## The 22 skills
+## The 23 skills
 
 ### Foundation — load first
 
@@ -28,7 +28,7 @@ concept-by-concept trace.
 | Skill | Trigger | Definition of done | Owner |
 |---|---|---|---|
 | [`od-use-case-support-service`](skills/od-use-case-support-service/SKILL.md) | Plant use-case demand or a definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE |
-| [`od-information-integration-service`](skills/od-information-integration-service/SKILL.md) | Equipment integration or data-model harmonization need per roadmap | Machine integrated, signals standardized, data flowing into the MDL | IIAE |
+| [`od-information-integration-service`](skills/od-information-integration-service/SKILL.md) | Equipment integration or data-model harmonization need per roadmap | Machine integrated, signals standardized, data landing on the data platform | IIAE |
 | [`od-project-support-consultancy`](skills/od-project-support-consultancy/SKILL.md) | Digital investment project kick-off | Integration project managed to acceptance; application consulted and accepted | IIAE |
 | [`od-analytical-support-service`](skills/od-analytical-support-service/SKILL.md) | Analytical or ad-hoc process-insight request | Process diagnostics / analytical insight delivered | DBVE |
 
@@ -41,7 +41,7 @@ concept-by-concept trace.
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
-| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | A connected machine's signals have to become comparable data in the MDL |
+| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | A connected machine's signals have to become comparable data on the data platform |
 | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | An integration or solution is being declared done |
 | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Handing to a plant, or asking whether something is actually in use |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data |
@@ -57,6 +57,7 @@ concept-by-concept trace.
 |---|---|---|
 | [`od-machine-integration-guidance`](skills/od-machine-integration-guidance/SKILL.md) | Deciding how to connect a specific machine — route, connector, and the checklist it must clear | OD |
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
+| [`od-node-red-flow-troubleshooting`](skills/od-node-red-flow-troubleshooting/SKILL.md) | Diagnosing a flow that is silent, wrong, or broken — from its exported JSON | OD |
 | [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
 
 These carry `references/` alongside `SKILL.md`, and for the two derived skills the
@@ -72,8 +73,13 @@ references are the substance rather than an appendix:
   `iiot-edge-platform.md` (the three layers, six phases, hardware sequence, and how to choose
   when both routes are open), `fallbacks.md` (the eight ways an integration blocks and what
   to try first)
-- **Node-RED** — the canonical flow walkthrough, the PLCPacket schema, the topic grammar,
-  the standard function bodies and the instance inventory
+- **Node-RED building** (eight files) — the artefact catalogue crawled from all 825 flows,
+  the ten transformation patterns with real implementations, how the real-time streaming
+  works, the canonical flow walkthrough, the PLCPacket schema, the topic grammar, the
+  standard function bodies and the instance inventory
+- **Node-RED troubleshooting** — a static analyser (`scripts/analyze_flow.py`) that reads a
+  flow JSON and reports the failure modes that actually occur in this estate, plus a
+  symptom-to-cause table for what static analysis cannot see
 
 `build-grafana-ops-dashboard` is **vendored** — the author's own skill, body and references
 unchanged, keeping its original name rather than an `od-` prefix. Only a `metadata:` block
@@ -101,6 +107,28 @@ the work in hand; each declares what it composes with.
 mkdir -p .claude/skills
 for s in skills/*/; do ln -sfn "$(pwd)/$s" ".claude/skills/$(basename "$s")"; done
 ```
+
+## The data path, in one line
+
+```
+PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT──► Node-RED
+                                                 └── offload ──► Databricks ──► Azure Storage Account (Parquet)
+```
+
+**Databricks** is the data platform the IIoT Edge Platform offloads through, the target is an
+**Azure Storage Account**, and the main file format is **Parquet**. Anything that reads
+shopfloor history reads from there.
+
+**Global platform, local dashboards.** Databricks and the storage account are the global
+layer. **Grafana is a local instance per plant**, building that plant's manufacturing
+dashboards from that plant's data. A line-side dashboard belongs on the local instance; a
+cross-plant question belongs on the global platform.
+
+> The source decks still name an **MDL** and treat **ContiTech** as a shared-services partner
+> and standing constraint. **Neither is used.** Both were removed here and in the knowledge
+> bundle; the raw exports under `90-Sources/` are never hand-edited, so they still say the old
+> thing — see [`docs/derivation.md`](docs/derivation.md) § *Where this registry deliberately
+> contradicts the bundle* before regenerating anything.
 
 ## What the skills are opinionated about
 

@@ -63,8 +63,8 @@ take it rather than be re-specified.
 ## Wait states
 
 Awaiting investment approval (OD lead / BA Operations) · awaiting Cyber Security sign-off
-for an external machine connection · awaiting a ContiTech decision on shared tooling or
-licensing.
+for an external machine connection · awaiting a decision on shared tooling or licensing
+⟨owner to confirm⟩.
 
 ## Recurring tasks
 
@@ -79,21 +79,21 @@ licensing.
 
 ## Systems and access
 
-MDL (read; write via pipelines) · IIoT Edge (read / deploy) · MSB (read / write ⟨scope to
+Data platform — Databricks / Azure Storage Account, Parquet (read; written by the edge
+offload) · IIoT Edge (read / deploy) · MSB (read / write ⟨scope to
 confirm⟩) · OESL Dashboards & Power BI (read / author) · use-case library and SharePoint
 (read / write) · process diagnostics and analytics tooling (read) · benefit-calculation
 method (author) · data pipelines (write, **with IIAE**).
 
 ## Autonomy
 
-**May** — read MDL, Scorecard and the use-case library; draft use-case definitions,
+**May** — read the data platform, the Scorecard and the use-case library; draft use-case definitions,
 benefit calculations and prioritization proposals; assemble impact reports; prepare
 workshop materials.
 **May not** — commit investment; approve equipment integration or an external machine
 connection; change data models or system rollouts; publish externally.
-**Guardrails** — never invent savings or impact figures, mark them to-be-collected;
-maintain ContiTech interface compatibility; respect Cyber Security sign-off before any
-connection action.
+**Guardrails** — never invent savings or impact figures, mark them to-be-collected; respect
+Cyber Security sign-off before any connection action.
 
 ## Metrics for this lane
 

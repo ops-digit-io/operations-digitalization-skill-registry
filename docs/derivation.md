@@ -91,7 +91,41 @@ is derived from that material.
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
 | `od-machine-integration-guidance` | `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
+| `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against all 825 flows, and its finding counts are the corpus's actual defect distribution |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
+
+## Where this registry deliberately contradicts the bundle
+
+**Read this before regenerating anything from the knowledge graph.** Three facts in the
+source decks are out of date and were corrected here on the owner's instruction. Two of the
+three are **now also fixed in the bundle** (`ops-knowledge-graph`, same branch): the
+department instance no longer names MDL or ContiTech. The raw exports under `90-Sources/`
+are never hand-edited, so the decks themselves still say the old thing — which is why this
+table stays.
+
+| The bundle says | Actually |
+|---|---|
+| **MDL** — "OESL Manufacturing Data Lake", the asset-to-cloud platform every lane reads and writes | **Not used.** The IIoT Edge Platform offloads through **Databricks** to an **Azure Storage Account**; the main file format is **Parquet** |
+| **ContiTech** — shared services, interface compatibility as a standing constraint, ContiTech central as the counterpart on tool-rollout and data-model decisions, ContiTech tooling dependence as a standing risk | **Not used.** Removed throughout. Where a decision genuinely has a second party, the counterpart is left as `⟨to confirm⟩` rather than guessed |
+| **OESL** as the business name | The business is now **neuwerk**. Prose that quotes or cites a source keeps the source's own wording; ⟨a full rename has not been done — see open gaps⟩ |
+
+What was **kept**, deliberately, because they are live identifiers rather than references:
+
+- the `ct-oesl-*-nodered-*` **repository names** — the doc generator matches on
+  `^ct-oesl-.*-nodered-(prod|test).*`, so renaming them makes 825 flows undocumentable;
+- the **`CT/…` MQTT topic root** and its `OESL` / `MFS` segments — a topic is an interface
+  and every subscriber breaks; both are marked as legacy in `od-node-red-flow-builder`;
+- **CT Base** as the recorded name of the data-model blocker on 23 machines — the estate
+  says that, so the estate is quoted, with the current model name marked `⟨confirm⟩`.
+
+**Fixed upstream** in the same branch of `ops-knowledge-graph`: `10-Department/Systems of
+record.md` (which now carries the data path and the local-versus-global rule), the `00-core/`
+charter, strategy, objectives, service-catalog, decision-rights, risks, SWOT, glossary and
+resources files, all four lane packs, the smart-factory module, `OD_Skill_Map.md`, and the OD
+README, which carries its own corrections table.
+
+**Still outstanding upstream:** the `90-Sources/` decks (raw exports, not hand-edited) and
+the OESL → neuwerk rename.
 
 ## Editorial decisions worth knowing about
 
@@ -112,6 +146,14 @@ Every skill that carries a number says when it was read and tells the reader to 
 
 **Gaps stay gaps.** `⟨…⟩` is copied through. A registry that quietly resolves an open
 question is worse than one that shows where the department has not decided yet.
+
+**One skill ships an executable, and it was calibrated on the corpus rather than guessed.**
+`od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over all 825 flows with zero
+parse failures, and every check earns its place by finding a defect that is actually present.
+Calibration mattered: an early version of the flow-context check fired on 575 flows, which is
+70 % and therefore noise. Splitting it into a real read of unset context (99) and a copied
+`Debug flow config` echo (94) made it a finding instead of a nag. The counts in the skill are
+the analyser's own output, so they can be re-derived by re-running it.
 
 **The technical tier is measured, not asserted.** The Node-RED and machine-integration
 skills state frequencies (620 of 825 flows carry a *prepare and convert payload* group;

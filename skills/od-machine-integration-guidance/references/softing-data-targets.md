@@ -57,13 +57,13 @@ PLC ──driver──► dataFEED data source ──► local address space ─
                                                                           │
                                                                     MQTT / protobuf
                                                                           ▼
-                                                          Node-RED  →  MDL  →  use case
+                                             Node-RED → Databricks → Azure Storage (Parquet)
 ```
 
 **The edge is the UA client, and `DTQ-OPCUA-Connector` is how it connects.** That makes the
 aggregation server a concentrator in front of the edge rather than a parallel route: this is
-**variant ③** of three ingress shapes, and every machine behind it still reaches the MDL
-through the IIoT Edge Platform. Both pieces are required — a Softing server with no edge
+**variant ③** of three ingress shapes, and every machine behind it still reaches the data
+platform through the IIoT Edge Platform. Both pieces are required — a Softing server with no edge
 platform behind it delivers nothing.
 
 The OESL tasks for this route — *"connection details available (IP addresses, credentials,
@@ -186,9 +186,9 @@ is also the easiest place in the estate to accidentally create a value that exis
 plant and nowhere else.
 
 **Deriving a value here is a data-model decision, not a local convenience.** The same
-finding sits at the top of the OESL blocker list: *Data model standardization (CT Base)*,
+finding sits at the top of the estate's blocker list: *Data model standardization (CT Base)*,
 23 machines. If a derived value is worth having at one plant it is worth defining once for
-all of them → `od-signal-standardization`, Consultation with ContiTech central. If it is
+all of them → `od-signal-standardization`, Consultation ⟨counterpart to confirm⟩. If it is
 genuinely local — a machine-specific scaling nobody else has the machine for — say so in
 the tag name and in the Machine CV.
 
@@ -203,8 +203,8 @@ Database, REST, NoSQL, file and web-service targets exist and have no OESL route
 anyone proposes one, the department's own position applies: the strategy is a deliberately
 **small operational footprint**, and broad tool proliferation is an explicit non-bet. A
 dataFEED target that writes directly into some other system is a second integration path
-around the MDL, and the MDL is the seam the whole department is built on.
+around the data platform, and the data platform is the seam the whole department is built on.
 
 The case that would justify opening one is a use case that cannot be served through the
-MDL, named, with its benefit calculated — the same bar as any other intake. Put it to the
+the data platform, named, with its benefit calculated — the same bar as any other intake. Put it to the
 IIAE and the OD lead, not into a configuration.

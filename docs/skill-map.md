@@ -13,7 +13,7 @@ Source: `_knowledge/OperationsDigitalization-Department/20-lanes/*/skills.md`, v
 
 | Skill / Tool / Interface | Use Case Support | Information Integration | Project Support | Analytical Support |
 |---|---|---|---|---|
-| **OESL Manufacturing Data Lake (MDL)** | read (write via pipelines) | write via pipelines | — | read |
+| **Data platform** — Databricks → Azure Storage Account, Parquet | read (written by the edge offload) | write via the offload | — | read |
 | **IIoT Edge Platform** (plant Kubernetes runtime) | read / deploy | deploy / configure | — | — |
 | **Manufacturing Service Bus (MSB)** | read / write ⟨scope to confirm⟩ | configure ⟨scope to confirm⟩ | — | — |
 | **Data pipelines** (transformation / standardization) | write ⟨with IIAE⟩ | write | — | — |
@@ -34,14 +34,14 @@ Source: `_knowledge/OperationsDigitalization-Department/20-lanes/*/skills.md`, v
 | **Acceptance-test protocols** | — | author | author | — |
 | **Investment planning templates** | — | investment planning | author | — |
 | **Cyber Security / OT interface** | respect the gate | consult | respect the gate | — |
-| **ContiTech shared services interface** | interface compatibility | interface compatibility | consult | — |
 
 ## What the overlaps say
 
-**The MDL is the seam of the whole department.** Information Integration writes it through
-pipelines; Use Case Support and Analytical Support read it. Every "where is my data?"
-question is a question about that seam, which is why `od-data-availability-check` exists as
-its own skill rather than a paragraph in two lanes.
+**The data platform is the seam of the whole department.** Information Integration writes it
+through the edge offload — Databricks to an Azure Storage Account, Parquet — and Use Case
+Support and Analytical Support read it. Every "where is my data?" question is a question
+about that seam, which is why `od-data-availability-check` exists as its own skill rather
+than a paragraph in two lanes.
 
 **Write rights are the real lane boundary.** Use Case Support may write pipelines only
 *with IIAE*. Project Support may deploy apps but never writes the data model. The lane cut
@@ -56,9 +56,8 @@ authority level.
 readiness, counts. `od-scorecard-reporting` collects those into one place so that a single
 figure does not get reported three ways.
 
-**Every lane carries a ContiTech constraint and three carry a Cyber Security gate.** They
-are constraints, not tasks, which is why they live in `od-context` and are inherited rather
-than restated per skill.
+**Three lanes carry a Cyber Security gate.** It is a constraint, not a task, which is why it
+lives in `od-context` and is inherited rather than restated per skill.
 
 ## Capability bottlenecks and skill gaps
 
@@ -68,15 +67,15 @@ department cannot currently do at volume:
 | Capability | Bottleneck | Skill gap |
 |---|---|---|
 | Machine & equipment integration | IIAE capacity — 3 roles, open positions Asia/Americas | Signal standardization, edge integration |
-| Data-model harmonization & pipelines | Operations concepts missing for MDL/MSB | Limited internal MDL / MDA-PDA IT knowledge |
+| Data-model harmonization & offload | Operations concepts missing for the data platform / MSB | Limited internal data-platform / MDA-PDA IT knowledge |
 | Use-case definition & benefit calculation | DBVE capacity — 2 roles | Process diagnostics + business-case skills |
-| Analytics / ML models | Data readiness in the MDL | ML labeling / training capability ⟨to confirm⟩ |
-| App / dashboard development | Shared with ContiTech; licensing | ⟨to confirm⟩ |
+| Analytics / ML models | Data readiness on the data platform | ML labeling / training capability ⟨to confirm⟩ |
+| App / dashboard development | Licensing | ⟨to confirm⟩ |
 
 Global staffing: open positions planned in Asia and the Americas; Europe partly staffed.
 
 These are the entries a registry cannot fix. A skill makes a procedure repeatable; it does
 not add an IIAE. Where a skill sits on top of a named bottleneck — `od-signal-standardization`
-on the MDL/MSB operations-concept gap, `od-equipment-integration-assessment` on IIAE
+on the data-platform / MSB operations-concept gap, `od-equipment-integration-assessment` on IIAE
 capacity — it says so in the body, so the reader knows the constraint is real and not a
 process failure.

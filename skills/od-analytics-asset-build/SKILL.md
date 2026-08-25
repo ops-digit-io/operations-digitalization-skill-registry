@@ -73,6 +73,12 @@ route, not through a Grafana export.
 **Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the
 steering layer, not the shop-floor layer. Do not build a line-side asset there.
 
+**Know which layer you are building on.** Grafana is a **local instance per plant**, reading
+that plant's data for that plant's manufacturing dashboards. **Databricks and the Azure
+Storage Account are the global data platform**, where the edge offload lands and where
+cross-plant analysis happens. A line-side dashboard belongs on the local instance; a
+portfolio or cross-plant question does not.
+
 ## Procedure
 
 1. Confirm data availability and fitness → `od-data-availability-check`.

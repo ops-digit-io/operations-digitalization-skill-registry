@@ -222,7 +222,7 @@ correct in magnitude but wrong in sign or width.
    and an SDFI import gets the syntax right by construction.
 2. **Re-export from the deployed program version**, not from an archived project. A symbol
    mismatch produces tags that connect and read nothing.
-3. **Name tags to the data model (CT Base), not to the address.** The identifier is the
+3. **Name tags to the agreed data model** (recorded as *CT Base*; ⟨confirm⟩), not to the address.** The identifier is the
    address; the *name* is what another plant matches on.
 4. **Never type an address you have not seen in the program.** A wrong address in the right
    area reads a real value that means something else, and no layer below the use case will

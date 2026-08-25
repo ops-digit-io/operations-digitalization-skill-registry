@@ -21,6 +21,28 @@ panel may show:
   a false floor. Filter to rows that carry a value and show the coverage denominator
   alongside, or bucket `UNKNOWN` as its own visible category.
 
+## Grafana is local, per plant
+
+**A Grafana instance belongs to one location.** It builds that plant's manufacturing
+dashboards from that plant's data — it is a shop-floor tool, not a company-wide reporting
+layer.
+
+Two things follow, and both are easy to get wrong:
+
+- **Do not point a plant's Grafana at the global data platform.** Global analytics live
+  elsewhere; a local dashboard that queries a central lake inherits its latency, its cost
+  model and its access story for no benefit, and stops working the moment the site link
+  does. Keep the query local to the plant.
+- **Do not build a cross-plant view here.** If a panel needs several sites at once, it is
+  not a local manufacturing dashboard and this is the wrong instance to build it on. Raise it
+  as a portfolio or reporting question instead.
+
+⟨**To confirm:** the local datasource each plant's Grafana reads — engine, and whether it is
+uniform across sites. That decides how literally the skill's PostgreSQL/DuckDB portability
+rule applies here; until it is confirmed, keep the rule as written, since its whole purpose
+is that the same dashboard JSON survives being moved between instances — which is exactly
+what a per-plant Grafana estate needs.⟩
+
 ## Grafana's place in the OD landscape
 
 Grafana is where **most of what the function builds is actually seen** — 173 of the 202 use
@@ -38,9 +60,10 @@ cases that record an output asset are dashboards. Two consequences:
 ## Before building: two OD gates
 
 - **`od-data-availability-check`** — walk machine → connector → integration concept →
-  pipeline → MDL before promising a panel. A Grafana panel over a signal that is not
+  local datasource before promising a panel. A Grafana panel over a signal that is not
   standardized is a per-plant transformation buried in a query, and that is how cross-plant
-  comparability is lost.
+  comparability is lost — the fact that the dashboard is local is not a licence to skip the
+  standard.
 - **`od-analytics-asset-build`** — name the **ritual** the dashboard is read inside (daily
   Gemba, shift check, Andon escalation) before choosing panels. A dashboard that is not read
   inside a ritual is a dashboard nobody reads: 8 of the use cases that record a utilization
@@ -52,7 +75,7 @@ the dashboard is the default, and the default is worth questioning.
 
 ## Timeseries archetype ↔ the OESL signal model
 
-The skill's **timeseries archetype** (UUID-keyed long-format telemetry) is the shape OESL
+The skill's **timeseries archetype** (UUID-keyed long-format telemetry) is the shape the
 shop-floor data already arrives in. The `PLCPacket` record carried over MQTT is
 UUID-keyed, with a `sys_time` epoch and a `oneof` measured value —
 see `od-node-red-flow-builder` for the full schema and the UUID→label lookup. When you

@@ -95,12 +95,15 @@ the guide's wording when handing someone a procedure: it is the label on their s
 
 ## The topology — three ingress variants, one terminus
 
-Every machine reaches the MDL through the **IIoT Edge Platform**. What varies is how the
+Every machine reaches **the data platform** through the **IIoT Edge Platform**. What varies is how the
 PLC gets to it, and there are exactly three shapes. The department numbers them itself —
 they are recorded as tools in the Tool Overview as *Concept 1*, *2* and *3*.
 
 ```
- ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► MDL ──► use case
+ ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED
+                                        Platform      │
+                                                   offload ▼  Databricks ──► Azure Storage
+                                                                              (Parquet)
                                         Platform
  ②  PLC ──────(connector)─────────────►  IIoT
                                         Platform
@@ -131,7 +134,7 @@ Platform"*.
 > states that you cannot connect the PLCs *"when you have chosen the OPC-UA server as the
 > connectivity framework **and you don't have the IIoT Edge Computing Platform
 > available**"*. A Softing server with no edge platform behind it delivers nothing to the
-> MDL.
+> data platform.
 
 **Variant ② is real but barely deployed** — one plant, Carei, which also runs ①. Treat it as
 a live concept with **no written route in the guide**, not as a standard option: if a machine
@@ -250,7 +253,7 @@ recorded.** Three things follow that change how you answer.
   no machine is critical. Never read one as a value.
 
 The recorded blockers say the same thing the department says everywhere else: of the top
-four — data-model standardization (CT Base, 23 machines), firmware patching for cyber
+four — data-model standardization (recorded as *CT Base*, 23 machines), firmware patching for cyber
 security (13), TIA V16→V17 upgrade (12), cyber-security vulnerability (5) — **three are not
 connectivity problems at all.**
 
@@ -261,10 +264,11 @@ connectivity problems at all.**
   Security / OT sign-off **first**. There is no expedited path.
 - **Never enable Write Permission** on an aggregation-server data source unless a use case
   writes to the PLC. Read-only is the default posture.
-- **Never structure tags to the PLC's layout.** Structure to the data model (CT Base). This
-  is the moment cross-plant comparability is decided.
+- **Never structure tags to the PLC's layout.** Structure to the agreed data model — the
+  estate records this as *CT Base*; ⟨confirm the current model name⟩. This is the moment
+  cross-plant comparability is decided.
 - **Never change a signal or data-model standard** to make one machine easier — Consultation
-  with ContiTech central, and interface compatibility is a standing constraint.
+  ⟨counterpart to confirm⟩, not a per-machine convenience.
 - **Never mark a machine `INTEGRATED`** before its acceptance test passes, and never claim a
   readiness dimension "Available" without evidence.
 - **Never invent a route** for a branch the guide marks `TODO`.

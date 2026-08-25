@@ -38,8 +38,9 @@ tests what was asked for. It states:
 
 1. **The signals or functions in scope**, named individually.
 2. **The expected value or behaviour** for each, with its tolerance.
-3. **The data path being verified** — machine → connector → concept → pipeline → MDL →
-   the asset the plant opens. A test that stops at the MDL has not tested the use case.
+3. **The data path being verified** — machine → connector → ingress variant → edge →
+   offload → data platform → the asset the plant opens. A test that stops at the data
+   platform has not tested the use case.
 4. **Who witnesses it** — the plant side, by name.
 5. **What a failure means** — which rework loop it triggers.
 
@@ -76,7 +77,7 @@ evidence.
 
 - Do not sign off acceptance as an agent, under any authority level.
 - Do not accept "it works on the edge" as an integration passing — the pipeline into the
-  MDL and the asset on top of it are in scope.
+  offload to the data platform and the asset on top of it are in scope.
 - Do not mark a machine `INTEGRATED` or a readiness dimension green ahead of the pass.
 - Do not treat a demonstration as an acceptance test. The plant owner has to have used it
   in a real shift; see `od-handover-and-adoption`.

@@ -8,7 +8,7 @@ supply, no mounting — the cost sits in the server, its licences and its operat
 > **This is a concentrator, not a destination.** It is **variant ③** of three ingress shapes
 > — the department's *Concept 1 — Central OPC-UA Server*, recorded at 11 plants. Machines
 > behind the Softing server are integrated into the IIoT Edge Platform via OPC UA and reach
-> the MDL through it like every other machine. ③ therefore needs **both** pieces — the
+> the data platform through it like every other machine. ③ therefore needs **both** pieces — the
 > guide's own Siemens S7 recommendation says you cannot connect the PLCs *"when you have
 > chosen the OPC-UA server as the connectivity framework **and you don't have the IIoT Edge
 > Computing Platform available**"*. See [`iiot-edge-platform.md`](iiot-edge-platform.md)
@@ -207,7 +207,8 @@ you type (p. 688). A tag whose type is not what you expected is a syntax problem
 type problem.
 
 **Structure tags to the data model, not to the PLC's layout.** The OESL guidance says "in a
-structured way (e.g. **CT Base**)". This is the moment cross-plant comparability is decided:
+structured way (e.g. **CT Base**)" — the name the estate still records; ⟨confirm the current
+model name⟩. This is the moment cross-plant comparability is decided:
 a tag named for its data-block address is a tag nobody at another plant can match.
 *Data model standardization (CT Base)* is already the most-recorded integration blocker in
 the estate — 23 machines — which is what deferring this step looks like.
@@ -383,7 +384,7 @@ dozens of connections.
 | Situation | Do this |
 |---|---|
 | **No Softing server** at the plant | The aggregation path is **closed**. Reach the PLC with a native edge connector instead, or go to rollout preparation. There is no partial version |
-| Softing server present but **no IIoT Edge Platform** | ③ still does not deliver. The server concentrates; the edge is what publishes to MQTT and reaches the MDL. Both are required |
+| Softing server present but **no IIoT Edge Platform** | ③ still does not deliver. The server concentrates; the edge is what publishes to MQTT and offloads to the data platform. Both are required |
 | Server present, **driver licence missing** | Procurement, not configuration. Check whether Suite Extended already covers it |
 | **Beckhoff PLC** | No Beckhoff driver exists. Modbus TCP, or a TwinCAT OPC UA / OPC DA server in front. Native ADS is the edge route — and that branch is `TODO` |
 | Somebody asks for **NetLink** | Discontinued since 5.38. Use the **Siemens S7** protocol; the Helmholz NetLink *hardware* is still fine |

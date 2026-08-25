@@ -4,7 +4,7 @@ description: >-
   Run the Information Integration Service lane — equipment assessment and integration
   roadmap per plant, integration investment planning, machine and equipment connection
   to the IIoT Edge, process-related signal standardization and data pipelines into the
-  MDL, interface and software integration consulting, acceptance testing, Manufacturing
+  the data platform, interface and software integration consulting, acceptance testing, Manufacturing
   Software Suite rollout preparation, and keeping the Equipment Integration report and
   the readiness matrix current. Use when a machine needs connecting, signals need
   standardizing, a data model needs harmonizing, or someone asks why a use case has no
@@ -33,7 +33,7 @@ Read `od-context` first.
 
 **Trigger.** An equipment-integration or data-model-harmonization need per the roadmap.
 **Definition of done.** Machine or equipment integrated, signals standardized, data
-flowing into the MDL. **Customer.** Plant ME / plant IT. **Lead time:** ⟨to confirm⟩.
+landing on the data platform. **Customer.** Plant ME / plant IT. **Lead time:** ⟨to confirm⟩.
 
 This lane gates a large part of the portfolio: a dashboard cannot show a cycle time
 nobody is reading off the line.
@@ -45,7 +45,7 @@ nobody is reading off the line.
 | 1 | Equipment assessment and integration roadmap per plant | IIAE + Plant ME/IT | Equipment inventory and roadmap agreed |
 | 2 | Integration investment planning | IIAE + OD lead | Investment approved |
 | 3 | Machine/equipment integration planning and execution (data acquisition) | IIAE | Machine connected to IIoT Edge |
-| 4 | Process-related signal standardization; transformation pipelines into MDL | both | Signals standardized; data in MDL |
+| 4 | Process-related signal standardization; offload into the data platform | both | Signals standardized; data on the data platform |
 | 5 | Interface and software integration consulting + acceptance testing | IIAE | Acceptance test passed |
 | 6 | Prepare Manufacturing Software Suite rollout; equipment-integration training | IIAE | Rollout-ready; plant trained |
 | 7 | Update the Equipment Integration report and readiness matrix | both | Scorecard updated |
@@ -79,13 +79,13 @@ configuration patterns and the fallbacks when a path blocks.
   module; escalate into the roadmap.
 - **Cyber Security sign-off missing** for an external connection → hold at the wait
   state. Never connect anyway.
-- **Operations concept missing for the target system** (MSB/MDL) → escalate to strategy
+- **Operations concept missing for the target system** (MSB / the data platform) → escalate to strategy
   as a tool-rollout decision.
 
 ## Wait states
 
 Awaiting integration investment approval · awaiting Cyber Security / OT sign-off ·
-awaiting a ContiTech decision on shared tooling, licensing or signal standards.
+awaiting a decision on shared tooling, licensing or signal standards ⟨owner to confirm⟩.
 
 ## Recurring tasks
 
@@ -101,8 +101,8 @@ awaiting a ContiTech decision on shared tooling, licensing or signal standards.
 
 ## Systems and access
 
-IIoT Edge Platform (deploy / configure) · data pipelines (write) · MDL (write via
-pipelines) · MSB (configure ⟨scope to confirm⟩) · machine connectors and signal standards
+IIoT Edge Platform (deploy / configure) · data pipelines (write) · data platform —
+Databricks → Azure Storage Account, Parquet (write via the offload) · MSB (configure ⟨scope to confirm⟩) · machine connectors and signal standards
 (configure) · Equipment Integration report (read / update) · Scorecard readiness matrix
 (read / update) · Cyber Security / OT interface (consult).
 
@@ -111,13 +111,13 @@ Doc ID 215534, in the OESL Engineering Standards library.
 
 ## Autonomy
 
-**May** — read the equipment inventory, MDL and Scorecard; draft equipment assessments
+**May** — read the equipment inventory, the data platform and the Scorecard; draft equipment assessments
 and integration roadmaps; update the Equipment Integration report and readiness matrix;
 prepare acceptance-test protocols.
 **May not** — connect machines or write to production systems; approve integration
 investment; change signal or data-model standards; approve external connections.
-**Guardrails** — never connect externally without Cyber Security / OT sign-off; maintain
-ContiTech interface compatibility; never claim a readiness dimension "Available" without
+**Guardrails** — never connect externally without Cyber Security / OT sign-off; never claim
+a readiness dimension "Available" without
 evidence.
 
 ## Metrics for this lane

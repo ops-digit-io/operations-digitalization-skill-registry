@@ -2,7 +2,7 @@
 name: od-analytical-support-service
 description: >-
   Run the Analytical Support Service lane — take an ad-hoc analytical or process-insight
-  request (the Process First-Aid Kit), check data availability in the MDL, run process
+  request (the Process First-Aid Kit), check data availability on the data platform, run process
   diagnostics, build the dashboard, report, analytics workflow or app, deliver and
   explain the insight, track utilization, and promote recurring high-value analytics into
   standard use cases. Use for any ad-hoc analytics request, a rapid process diagnosis, a
@@ -42,7 +42,7 @@ solution — and knowing which of the two is being asked for is step one.
 | # | Step | Who | Control point |
 |---|---|---|---|
 | 1 | Analytical / ad-hoc request received (Process First-Aid Kit) | Plant / OPEX + DBVE | Request scoped |
-| 2 | Check data availability in the MDL | both | Data present and fit for use |
+| 2 | Check data availability on the data platform | both | Data present and fit for use |
 | 3 | Process diagnostics and analytical process insight | DBVE | Insight validated |
 | 4 | Build the asset — dashboard / report / analytics / app | both | Asset produced |
 | 5 | Deliver insight and asset; explain it to the requester | Human | Requester understands the result |
@@ -53,7 +53,7 @@ promotion → hand to `od-use-case-support-service`.
 
 ## Error paths
 
-- **Data not available in the MDL** → route to the Information Integration lane and mark
+- **Data not available on the data platform** → route to the Information Integration lane and mark
   it as a **data gap**. Do not approximate the missing data.
 - **One-off insight with no recurring value** → close as ad-hoc; do **not** industrialize.
   Refusing to promote is a valid outcome of this lane.
@@ -69,14 +69,14 @@ requester feedback or validation.
 | Task | Trigger | Template |
 |---|---|---|
 | Ad-hoc analytics / Process First-Aid | Plant or OPEX analytical request | ⟨template — to confirm⟩ |
-| Data-availability check | Request scoped | MDL data-check ⟨template — to confirm⟩ |
+| Data-availability check | Request scoped | Data-platform check ⟨template — to confirm⟩ |
 | Dashboard / report build | Insight validated | Standard dashboard/report layout |
 | Utilization review | Monthly | Scorecard · Use Case Utilization |
 | Promote to standard use case | Recurring high-value analytics | Hand-off to Use Case Support lane |
 
 ## Systems and access
 
-MDL (read) · Power BI / OESL Dashboards (author) · process diagnostics methods (apply) ·
+Data platform — Databricks / Azure Storage Account (read) · Power BI / OESL Dashboards (author) · process diagnostics methods (apply) ·
 ML models, labeling and training (build ⟨scope to confirm⟩) · analytics / report / app
 assets (author) · Scorecard · Use Case Utilization (read / update) · Ad-Hoc Analytics and
 Process First-Aid Kit (apply).
@@ -86,14 +86,14 @@ Agent — and dashboards dominate (173 of the 202 use cases that record an outpu
 
 ## Autonomy
 
-**May** — read the MDL and the Scorecard; run analytical queries; draft dashboards,
+**May** — read the data platform and the Scorecard; run analytical queries; draft dashboards,
 reports and insight summaries; track and report utilization; propose promoting recurring
 analytics to standard use cases.
 **May not** — write to production or source systems; publish an asset externally; commit
 a use case to industrialization without the responsible human; present unvalidated
 insight as fact.
 **Guardrails** — never state a figure without a nameable source; **flag data gaps rather
-than filling them**; respect data governance and access management on the MDL.
+than filling them**; respect data governance and access management on the data platform.
 
 ## Metrics for this lane
 
