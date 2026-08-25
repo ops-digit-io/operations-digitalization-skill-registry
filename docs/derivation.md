@@ -179,6 +179,16 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**Two things in the signal skill come from outside the bundle, and are labelled as such.**
+The public data models — OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84, PackML
+(ISA-TR88.00.02) — were retrieved from the specification bodies' own pages and are cited
+inline; the specifications themselves were not read in full, so the mappings are marked as a
+starting point to confirm rather than a conformance statement. The clustering and importance
+patterns are the opposite: derived entirely from the portfolio's own `ai_cluster`,
+`business_process` and `targets` fields, which is why the reference states plainly that those
+fields are populated on 150 and 59 of 650 use cases and that a low rank therefore means
+unknown demand rather than none.
+
 **The one shipped flow asset was deployed before it was documented, and the test found a
 bug in it.** `assets/protobuf-schema-bootstrap.flow.json` writes the PLCPacketList schema to
 a new instance's file store. The first version started cleanly, logged no error, and wrote

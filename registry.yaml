@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 0.8.0
+  version: 0.9.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -211,7 +211,7 @@ skills:
     origin: derived
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend on standards; configure the offload
-    summary: Analyse a machine's data points against the canonical vocabulary and what a capability requires, then standardize name, meaning, unit and collection method so a second plant can consume the signal without asking.
+    summary: Analyse a machine's data points against the canonical vocabulary, the public data models (OPC UA for Machinery, EUROMAP, PackML) and what a capability requires; cluster the remainder by functional area and rank what to standardize first.
 
   - id: od-node-red-flow-troubleshooting
     tier: technical
@@ -270,5 +270,9 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - 260 distinct signal names for a far smaller set of concepts; eight for machine state alone. AverageMeltTempature is a misspelling with 34 references and is now an interface.
+  - Which machines already expose an OPC UA companion specification (OPC UA for Machinery, EUROMAP 77/83/84) is not recorded anywhere; it would change the integration route for each of them.
+  - Whether the machine purchase requirement spec (PRS, Doc ID 215534) asks for a companion specification - a one-line change with a large downstream effect.
+  - Whether the CT Base data model was derived from a public model or independently; that decides whether adoption is a migration or a reconciliation.
+  - business_process is populated on 150 of 650 use cases and targets on 59, so any demand ranking derived from them sees a quarter of the portfolio.
   - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics (75 flows). No stated rule on which to use where.
   - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.

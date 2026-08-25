@@ -8,7 +8,8 @@ description: >-
   built, and takes the result through the data-model decision. Use when a machine is newly
   connected and its signals need naming, when a use case cannot be built because a signal
   is missing or ambiguous, when two plants' versions of the same signal will not compare,
-  or before publishing any derived data point.
+  or before publishing any derived data point. Covers the public data models — OPC UA for
+  Machinery, EUROMAP, PackML — so a standard is adopted rather than re-invented.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
 metadata:
   id: od-signal-standardization
@@ -63,7 +64,9 @@ argument for doing this before a flow is built rather than after.
 |---|---|
 | [`references/signal-catalogue.md`](references/signal-catalogue.md) | The canonical vocabulary by family, the variance quantified, the naming rules, and what must never be a signal name |
 | [`references/standards.md`](references/standards.md) | The normative KPI definitions — ISO 22400-2, VDI 3423, ISA-95, ISO 22005 — and what each capability's checklist requires *before* you choose signals |
-| [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Runs the checks over a data-point list |
+| [`references/public-data-models.md`](references/public-data-models.md) | **Check before defining anything.** OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84 for Plastic and Rubber, PackML's 17-state model — and what each solves here |
+| [`references/clustering-signals.md`](references/clustering-signals.md) | Search patterns that sort a raw signal list into functional areas, and the importance score that says what to standardize first |
+| [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Runs the checks, and with `--cluster` the functional-area grouping and ranking |
 
 ## Step 1 — inventory what exists
 
@@ -102,7 +105,58 @@ columns. Exit **2** on blockers, **1** on warnings, **0** clean.
 | `duplicate-name` | WARN | The same name twice on one machine |
 | `outside-catalogue` | INFO | Possibly legitimate, worth checking first |
 
-## Step 3 — classify each signal
+## Step 3 — check whether a public model already defines it
+
+**Do not invent what is already standardized.** Adopting a published companion specification
+buys a vendor-neutral name, a defined meaning, and machines that arrive already speaking it.
+
+| Family | Check |
+|---|---|
+| **Plastic, Rubber** | **EUROMAP 83** (general types), then **77** (injection moulding) or **84** (extrusion). Two of the four material families are covered by a dedicated spec family |
+| **Any machine** | **OPC UA for Machinery** (VDMA 40001) — `MachineIdentification` is what the Machine List is trying to be; `MachineryItemState` is the answer to eight names for machine state |
+| **Machine state anywhere** | **PackML** (ISA-TR88.00.02) — 17 states, and the acting/wait split that decides which stops count as downtime |
+
+Detail, mappings onto the estate's own signals, and the open questions:
+[`public-data-models.md`](references/public-data-models.md).
+
+**The cheapest moment to require this is at purchase.** A machine shipping a companion
+specification needs no PLC program change and no tag export — put it in the requirement spec,
+not in the integration plan.
+
+## Step 4 — cluster and rank what is left
+
+Hundreds of data points, a handful needed. Sort them, then decide what is worth the effort.
+
+```bash
+python3 scripts/analyze_signals.py points.json --cluster
+```
+
+Groups every signal into a **functional area** (identification, machine state, cycle and
+timing, counting, quality and limits, alerting, energy, process values), marks setpoints
+separately from actuals, and ranks the areas by **capability coverage × consumer demand** —
+both derived from the use-case portfolio, not invented.
+
+**The shortcut that works without scoring anything.** Four families feed most of the
+portfolio:
+
+| Signal family | Feeds |
+|---|---|
+| `MachineStatus` | OEE · Downtime Reporting · Andon Board · Analytics |
+| `TotalPartCounter` | OEE · Cycle Time · Analytics · Activity Tracking |
+| `CycleStart` / `CycleEnd` | Cycle Time · OEE performance · Process Quality |
+| `CurrentValue` + limits | Process Quality Data · SPC Charts · Machine Alerts |
+
+Standardize those on a machine and most of the portfolio becomes buildable on it. The rest
+is a long tail worth doing per demand.
+
+**Not standardizing is a valid outcome** — record it as a decision, not an omission. And
+treat a low rank as *unknown demand*: `business_process` is populated on 150 of 650 use cases
+and `targets` on 59, so the ranking sees a quarter of the portfolio. Absence is not a zero.
+
+Patterns, the German-language caution and the full scoring model:
+[`clustering-signals.md`](references/clustering-signals.md).
+
+## Step 5 — classify each signal
 
 | Class | Test | Then |
 |---|---|---|
@@ -116,7 +170,7 @@ columns. Exit **2** on blockers, **1** on warnings, **0** clean.
 not. The rule is not "force everything into the catalogue" — it is **qualify, do not coin**:
 `Zone1Temperature` rather than a new root concept.
 
-## Step 4 — check against the capability, not the machine
+## Step 6 — check against the capability, not the machine
 
 The question is never "what does this machine expose". It is **"what does the use case
 need"** — and that comes from the cluster's standard, not from the PLC.
@@ -138,7 +192,7 @@ Read the capability's requirements checklist in
 without an agreed ideal cycle time and a documented micro-stop threshold produces a number
 that cannot be compared, whatever the signals are called.
 
-## Step 5 — the four things that make a signal standardized
+## Step 7 — the four things that make a signal standardized
 
 A name alone is not standardization. **A signal is standardized when a second plant can
 consume it without asking a question**, and that needs all four:
@@ -154,7 +208,7 @@ consume it without asking a question**, and that needs all four:
 > start-to-start, have standardized the name and nothing else. **That failure is invisible
 > from the data** and it is what this skill exists to prevent.
 
-## Step 6 — register derived outputs
+## Step 8 — register derived outputs
 
 A flow that derives a signal publishes it under a **new UUID**, and that UUID has to be
 registered on the edge platform's data-point config first. It is not something a flow

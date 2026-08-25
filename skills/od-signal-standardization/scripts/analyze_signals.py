@@ -3,6 +3,7 @@
 
     python3 analyze_signals.py POINTS.json [--capability oee] [--json]
     python3 analyze_signals.py POINTS.csv  --capability cycle-time
+    python3 analyze_signals.py POINTS.json --cluster        # functional area + importance
 
 Input is the data-point list for one machine or datatron — the shape the IIoT edge
 platform returns from `/api/datatrons/{id}/data_points`, or a CSV with `uuid,label`
@@ -94,6 +95,33 @@ ADDRESS_LIKE = re.compile(r"^(DB\s*\d+|[A-Z]{1,3}\d+([.,]\d+)?|\d+)$", re.I)
 TYPO_HINTS = {"tempature": "Temperature", "temperatur": "Temperature",
               "vocuum": "Vacuum", "vaccum": "Vacuum", "presure": "Pressure",
               "coutner": "Counter", "calulator": "Calculator", "acumulate": "Accumulate"}
+
+# ── functional-area search patterns ─────────────────────────────────────────
+# Order matters: identification before everything (ToolIdChanging), machine state
+# before timing (MachineSetup). See references/clustering-signals.md.
+AREA_PATTERNS: list[tuple[str, str]] = [
+    ("identification", r"tool.?id|part.?numb|recipe|program.?id|serial|batch|order"),
+    ("machine-state",  r"machine.?(mode|state|status)|released|setup|automatic|manual|fault|heartbeat"),
+    ("cycle-timing",   r"cycle|(^|[^a-z])time|duration|loading|process.?time|step.?chain"),
+    ("counting",       r"count|produced|output|pieces|pza|parts|volume|shot|per.?minute|meters|stück"),
+    ("quality-limits", r"toleran|limit|spec|quality|nok|scrap|reject|failure|evaluation|deviation"),
+    ("alerting",       r"alert|alarm|error|fault.?text|notification|warn|message|meldung"),
+    ("energy",         r"energy|power|kwh|current|voltage|consumption|compressor|energie"),
+    ("process-value",  r"pressure|temp|melt|speed|zone|diameter|vacuum|vocuum|screw|head|flow|"
+                       r"level|torque|position|druck|heizung"),
+]
+SETPOINT = re.compile(r"_sv$|setpoint|set.?pt|sollwert|nominal", re.I)
+
+# How many of the 11 capability templates each area feeds — the coverage weight.
+AREA_COVERAGE = {
+    "machine-state": 4, "counting": 4, "cycle-timing": 3, "quality-limits": 3,
+    "process-value": 2, "identification": 2, "alerting": 2, "energy": 1, "unclassified": 0,
+}
+# Business-process demand behind each area, from the use-case portfolio.
+AREA_DEMAND = {
+    "machine-state": 133, "counting": 98, "cycle-timing": 90, "quality-limits": 17,
+    "process-value": 48, "identification": 16, "alerting": 56, "energy": 8, "unclassified": 0,
+}
 
 SEV_ORDER = {"BLOCKER": 0, "WARN": 1, "INFO": 2}
 ICON = {"BLOCKER": "✗", "WARN": "!", "INFO": "·"}
@@ -260,9 +288,62 @@ def analyze(path: str, capability: str | None = None) -> Report:
     return rep
 
 
+def classify(label: str) -> tuple[str, bool]:
+    """Return (functional area, is_setpoint) for a signal name."""
+    if not label:
+        return "unclassified", False
+    if RAW_TAG.match(label) or ADDRESS_LIKE.match(label):
+        return "raw-tag", False
+    setpoint = bool(SETPOINT.search(label))
+    for area, pat in AREA_PATTERNS:
+        if re.search(pat, label, re.I):
+            return area, setpoint
+    return "unclassified", setpoint
+
+
+def importance(area: str, canonical: bool) -> int:
+    """Coarse rank: coverage x4 + demand-band x3 + a bonus for being canonical."""
+    cov = AREA_COVERAGE.get(area, 0) * 4
+    dem = AREA_DEMAND.get(area, 0)
+    band = 3 if dem >= 90 else 2 if dem >= 40 else 1 if dem > 0 else 0
+    return cov + band * 3 + (2 if canonical else 0)
+
+
+def cluster_report(rows: list[dict]) -> None:
+    """Print the functional-area clustering and the standardize-first order."""
+    buckets = defaultdict(list)
+    for r in rows:
+        label = (r.get("label") or r.get("name") or "").strip()
+        area, sp = classify(label)
+        buckets[area].append((label, sp, norm(label) in CANON_LOWER))
+
+    ranked = sorted(
+        buckets.items(),
+        key=lambda kv: -importance(kv[0], any(c for _, _, c in kv[1])),
+    )
+    print("\n--- functional areas (standardize top-down) ---")
+    for area, items in ranked:
+        canon = sum(1 for _, _, c in items if c)
+        sp = sum(1 for _, s, _ in items if s)
+        score = importance(area, canon > 0)
+        flag = "  ← BLOCKER: name these" if area == "raw-tag" else ""
+        print(f"  [{score:3d}] {area:15s} {len(items):3d} signal(s), "
+              f"{canon} canonical, {sp} setpoint{flag}")
+        for label, s, c in sorted(items)[:6]:
+            mark = "*" if c else ("~" if s else " ")
+            print(f"          {mark} {label}")
+        if len(items) > 6:
+            print(f"            … and {len(items)-6} more")
+    print("        * canonical   ~ setpoint")
+    print("\n  Score = capability coverage x4 + consumer-demand band x3 + canonical bonus.")
+    print("  Ranking is a starting point: business_process is populated on 150 of 650 use")
+    print("  cases and targets on 59, so a low score means unknown demand, not no demand.")
+
+
 def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     as_json = "--json" in argv
+    do_cluster = "--cluster" in argv
     cap = None
     if "--capability" in argv:
         i = argv.index("--capability")
@@ -293,6 +374,11 @@ def main(argv):
             if f["fix"]:
                 print(f"      → {f['fix']}")
         print(f"    {c['BLOCKER']} blocker · {c['WARN']} warn · {c['INFO']} info")
+        if do_cluster:
+            try:
+                cluster_report(load(path))
+            except Exception as exc:  # noqa: BLE001
+                print(f"    clustering failed: {exc}", file=sys.stderr)
     if as_json:
         print(json.dumps(out, indent=2, ensure_ascii=False))
     return worst

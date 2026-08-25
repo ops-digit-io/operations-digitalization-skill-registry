@@ -81,7 +81,9 @@ references are the substance rather than an appendix:
   flow JSON and reports the failure modes that actually occur in this estate, plus a
   symptom-to-cause table for what static analysis cannot see
 - **signal standardization** — the canonical vocabulary mined from 260 signal names in use,
-  the normative KPI standards behind each capability, and an analyser
+  the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
+  PackML), the normative KPI standards behind each capability, search patterns that cluster a
+  raw signal list by functional area with an importance ranking, and an analyser
   (`scripts/analyze_signals.py`) that checks a machine's data points for collisions, raw PLC
   tags and capability coverage gaps
 
