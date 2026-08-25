@@ -38,7 +38,7 @@ concept-by-concept trace.
 |---|---|
 | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | A request arrives and it is not clear whether it is OD's, which lane, or whether to refuse |
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | A demand has to become a defined use case, or a workshop needs preparing |
-| [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | An accepted demand has to become a requirement another lane can act on — all four lanes |
+| [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | An accepted demand has to become a requirement another lane can act on, then an epic with a background and at least two user stories — all four lanes |
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |

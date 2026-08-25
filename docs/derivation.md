@@ -180,6 +180,32 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**The epic layer was already there, and finding that changed what the skill had to do.**
+The plan was to design an epic/user-story format. Then `usecase-epics-user-stories.md` turned
+up in the knowledge graph: the SharePoint list encodes a two-axis hierarchy in its own
+`UseCaseParentId` and `UseCaseParent-ProcessId` fields, and the generated register already
+renders 22 process epics, 11 capability epics and 650 leaf user stories.
+
+Counting what is inside them changed the design. Of the 650 leaf stories, 429 carry a target
+text and 466 carry some narrative — but **59** carry an "I want" tag, so 591 render as
+*"I want (not tagged)"*; **3** mention acceptance criteria anywhere; and **0** carry a "so
+that" that differs from the generated clause *"…so that the process gains transparency, faster
+reaction and less manual effort"*, which is appended identically to all 650.
+
+I had also expected the filled fields to be hollow forms — headings with nothing under them.
+They are not: of 429 filled target texts, 0 contain only headings. The estate fills what it
+is asked for in a meeting and leaves blank what needs a conversation with an operator. So the
+skill does not introduce a structure; it attacks a benefit clause that fits anything, and
+`check_epic.py` refuses a "so that" built only from generic benefit words. That check earned
+its place by failing first — the phrase survived an initial version because "the process
+gains" is not itself a benefit word, so the check now strips filler as well.
+
+The background description the user asked for lands against the department's own stated risk:
+the skill map calls this step *"the most dependent on tacit judgement, and the one currently
+held by a departing individual."* A background naming what happens today, the moment of use,
+the decision it changes, why now, and what it is not for, is what remains once that individual
+has gone.
+
 **Tags are multilingual, and the corpus proved it rather than the assumption doing so.**
 Scanning every label, node name and comment for non-ASCII characters found Chinese at Qingdao
 and Changshu (`存储设定值` — store setpoint value; `流程` — process), German at Waltershausen and

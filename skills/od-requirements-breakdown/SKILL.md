@@ -5,8 +5,9 @@ description: >-
   service lines. Elicits the problem behind the stated request, sets it against the
   capability's standard baseline, names the signals it needs and whether they exist, writes
   testable acceptance criteria, assesses the legacy MF IT systems it touches, and produces
-  the handover packet that crosses a lane boundary. Use after intake accepts a demand and
-  before anything is built — when scoping a use case for integration, specifying a machine or
+  both the handover packet that crosses a lane boundary and a standardized epic with its
+  user stories and a background description of what it is used for. Use after intake accepts a
+  demand and before anything is built — when scoping a use case for integration, specifying a machine or
   its signals, baselining a project, or scoping an analytical request.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
 metadata:
@@ -62,8 +63,12 @@ The job is to make that the default.
 | [`references/requirement-template.md`](references/requirement-template.md) | The ten core sections and the four lane variants, with what each is for and how it fails |
 | [`references/elicitation.md`](references/elicitation.md) | The question rounds that get the problem out, and the five judgement calls that make this hard |
 | [`references/legacy-system-assessment.md`](references/legacy-system-assessment.md) | The other half of the output — checking 268 legacy applications and the lean-footprint fit |
-| [`assets/requirement-template.md`](assets/requirement-template.md) | The blank to copy |
+| [`references/epic-and-user-stories.md`](references/epic-and-user-stories.md) | The second output — the background description, which epic axis to use, how to cut stories, and what makes acceptance testable |
+| [`assets/requirement-template.md`](assets/requirement-template.md) | The blank requirement to copy |
+| [`assets/epic-and-stories.md`](assets/epic-and-stories.md) | The blank epic to copy |
+| [`assets/epic-and-stories.example.md`](assets/epic-and-stories.example.md) | A worked epic that passes every check — read this before the blank |
 | [`scripts/check_requirement.py`](scripts/check_requirement.py) | Completeness check before handover |
+| [`scripts/check_epic.py`](scripts/check_epic.py) | Check the epic and its stories before they enter a backlog |
 
 ## The procedure
 
@@ -95,17 +100,57 @@ selection open* — are **the requirement's own work**, not something to escalat
 **8 · Value it honestly.** A figure carries `CALCULATION`, `ESTIMATION`, or *not yet
 assessed* → `od-benefit-calculation`.
 
-**9 · Check it.**
+**9 · Cut it into an epic and its stories** →
+[`epic-and-user-stories.md`](references/epic-and-user-stories.md). One epic, **at least two**
+stories, and a background description saying what it is used for. Cut by moment and role, or
+by which signals exist today — **never by technical layer**.
+
+**10 · Check both.**
 
 ```bash
 python3 scripts/check_requirement.py MyRequirement.md --lane use-case
+python3 scripts/check_epic.py MyEpic.md
 ```
 
-Exit **2** on blockers, **1** on warnings, **0** ready. It catches a problem statement that
-names a technology, prose acceptance criteria, a figure without a reliability label, an
-unverified signal list, a target with no consuming moment, and a missing lane section.
+Exit **2** on blockers, **1** on warnings, **0** ready. Between them they catch a problem
+statement that names a technology, prose acceptance criteria, a figure without a reliability
+label, an unverified signal list, a missing lane section, a placeholder role, a "so that" made
+only of generic benefit words, an epic with one story, and a story with no use-in-a-real-shift
+criterion.
 
-**10 · Hand over.** The lane variant is what the receiving side consumes.
+**11 · Hand over.** The lane variant is what the receiving side consumes; the epic is what
+enters the backlog.
+
+## The second output: one epic, many stories, and a background
+
+The requirement says what must be true. The **epic** says how the work is cut up so somebody
+can start on Monday. Every requirement produces exactly one, and it always carries:
+
+| Part | Rule |
+|---|---|
+| **Background — what this is used for** | Prose. What happens today with the role and the hour named, the moment the output gets used, the decision it changes, why now, and what it is *not* for. This is the part that survives the person who asked leaving |
+| **Epic statement** | As ⟨named role⟩, we want ⟨capability⟩, so that ⟨outcome particular to this plant⟩ |
+| **Both epic axes** | The capability epic *and* the process epic — the source data shows 334 leaves carrying only one and 291 only the other, so a query on either axis misses half the portfolio |
+| **At least two user stories** | Each with its own background, signals carrying an existence verdict, Given/When/Then acceptance including one use-in-a-real-shift criterion, blockers, and dependencies |
+| **Epic acceptance** | What is only true across the whole epic — or "all stories accepted", if that is honestly the case |
+
+### This structure already exists, and it is hollow
+
+The use case list encodes the hierarchy in its own fields — **22 process epics, 11 capability
+epics, 650 leaf stories.** What is in them:
+
+| Of the 650 leaf stories | Count |
+|---|--:|
+| Carry an **"I want"** tag | **59** — the other 591 render as *"I want (not tagged)"* |
+| Mention **acceptance criteria** | **3** |
+| Carry a **"so that"** that differs from the generated one | **0** |
+
+All 650 end with the same sentence: *"…so that the process gains transparency, faster reaction
+and less manual effort."* True of every use case ever written, which is what makes it useless.
+
+**So the job is not to introduce the structure. It is to stop filling it with a sentence that
+fits anything.** If your "so that" would read equally well on another plant's epic, it is the
+generated one with new words — and `check_epic.py` will say so.
 
 ## The four lane variants
 
@@ -157,7 +202,11 @@ use cases are refusals nobody wrote down.
 Sections 1–6 and 10 complete, the lane variant present, every signal carrying an existence
 verdict, acceptance criteria testable with one adoption criterion, blockers classified with
 owners, the legacy assessment done, the value labelled, and `check_requirement.py` reporting
-zero blockers. Then the receiving lane accepts it — or says what is missing.
+zero blockers.
+
+Plus the epic: a background covering all five prompts, both epic axes recorded, at least two
+stories each with its own background and a use-in-a-real-shift criterion, and `check_epic.py`
+reporting zero blockers. Then the receiving lane accepts it — or says what is missing.
 
 ## Do not
 
@@ -168,3 +217,8 @@ zero blockers. Then the receiving lane accepts it — or says what is missing.
 - **Do not skip the library check.** Rebuilding what another plant has is the failure the
   whole standardization effort exists to prevent.
 - **Do not hand over without the lane variant.** It is the only part the receiver acts on.
+- **Do not write "so that the process gains transparency."** That clause is already on all 650
+  stories in the estate and has never once told anybody anything.
+- **Do not cut stories by technical layer.** *Connect the PLC · build the flow · build the
+  dashboard* are tasks: none is usable alone, so none can be accepted.
+- **Do not call one story an epic.** If it will not split, it is a story — say so and move on.

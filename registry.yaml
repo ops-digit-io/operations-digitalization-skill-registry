@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.2.0
+  version: 1.3.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -107,7 +107,7 @@ skills:
     lane: all
     owner_role: DBVE or IIAE, per lane
     authority_level: draft the requirement; accept or refuse per intake; approvals are human
-    summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, and the lane handover packet. Covers all four service lines.
+    summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, the lane handover packet, and a standardized epic carrying a background description and at least two user stories. Covers all four service lines.
 
   - id: od-use-case-definition
     tier: practice
@@ -280,6 +280,8 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - The epic/user-story layer exists in the use case list already and is hollow: of 650 leaf stories, 59 carry an "I want" tag, 3 mention acceptance criteria, and 0 carry a "so that" that differs from the generated clause. Backfilling them is a portfolio exercise nobody has been assigned.
+  - 334 leaf use cases carry only a capability parent and 291 only a process parent, so a rollup on either axis silently misses half the portfolio. Whether the source list can be corrected in place is unconfirmed.
   - Tags arrive in the plant language. The corpus already carries Chinese, German and Spanish labels; Romanian, French, Hungarian, Serbian, Slovak/Czech and Portuguese plants are in scope and not yet represented.
   - The data-point contract has one label field, so a local-language name cannot be carried alongside the canonical one. Whether the edge platform can hold a second display field is unconfirmed.
   - The term table covers nine languages and is a starting point; each plant's entries need a native speaker's confirmation.
