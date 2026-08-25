@@ -147,6 +147,21 @@ Every skill that carries a number says when it was read and tells the reader to 
 **Gaps stay gaps.** `⟨…⟩` is copied through. A registry that quietly resolves an open
 question is worse than one that shows where the department has not decided yet.
 
+**The Node-RED builder was re-measured after review, and the first cut was wrong about the
+majority case.** The ten patterns were all framed single-input. Counting distinct
+`datapoint*` config keys per flow showed **461 of 665 configured flows read two or more** —
+so multi-input is the norm, not an edge case, and the latch-and-evaluate shape it requires
+was absent. The same pass surfaced three more gaps the catalogue hid: windowed aggregation
+(36 flows), a second timestamp envelope on JSON topics (75 flows) alongside `plcTime` as a
+distinct clock (145 flows), and timer-driven emit. `composing-transformations.md` exists
+because a catalogue answers "what has been built" and a builder also needs "what do I do
+when mine is not in it".
+
+**Examples are generalized on purpose.** Every example in `artefacts.md` uses `cfg.<name>`
+config keys and `⟨…⟩` placeholders — no real UUIDs, machine names, endpoints or credentials,
+verified by grep. The corpus has 42 flows with committed secrets; a reference that pasted
+real identifiers would propagate exactly that.
+
 **One skill ships an executable, and it was calibrated on the corpus rather than guessed.**
 `od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over all 825 flows with zero
 parse failures, and every check earns its place by finding a defect that is actually present.

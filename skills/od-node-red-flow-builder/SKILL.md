@@ -64,8 +64,9 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 
 | File | Use it for |
 |---|---|
-| [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the 825 flows actually build - artefact families, the specific artefacts by name, the reusable building blocks, and the naming convention |
+| [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the 825 flows actually build - artefact families, a sanitized generalized example per artefact, the reusable building blocks, and the naming convention |
 | [`references/transformation-patterns.md`](references/transformation-patterns.md) | The ten patterns the estate is built from, with real implementations and what breaks each |
+| [`references/composing-transformations.md`](references/composing-transformations.md) | **When no pattern fits.** The four questions that classify any transformation, the multi-input latch-and-evaluate shape, windowing, timer-driven emit, composition rules, and the two timestamp conventions |
 | [`references/streaming.md`](references/streaming.md) | How the real-time path works - the hops and their guarantees, split/rbe/delay/join, QoS, ordering, flow context, back-pressure |
 | [`references/architecture.md`](references/architecture.md) | An annotated walkthrough of one canonical flow, node by node |
 | [`references/plc-packet.md`](references/plc-packet.md) | The PLCPacket protobuf schema and the packed `sysTime` |
@@ -219,6 +220,31 @@ Ten patterns cover almost every flow in the estate. Full implementations and fai
 | P8 | **Build from nothing** | 65 | Construct a packet from config; pack `sysTime` yourself |
 | P9 | **Clear the oneof** | 34+ | Delete the value fields that do not apply |
 | P10 | **Composite string** | 8 | Split a packed `valueString`; validate every field |
+
+**These ten are single-input shapes, and single input is the minority.** 461 of the 665
+flows that carry data-point config read **two or more** data points — every tolerance check,
+quality event and composite KPI is multi-input. That shape (build a filter array, latch each
+input into flow context, evaluate on the triggering one) is in
+[`composing-transformations.md`](references/composing-transformations.md), along with
+windowing, timer-driven emit and the cold-start guard the latch needs.
+
+### When none of them fits
+
+Do not force the nearest pattern. Classify the transformation with four questions — **how
+many inputs · does it need history · what drives the output · what is the output** — then
+compose it from the primitives. That method, the composition order, and the pre-flight
+checklist are in
+[`composing-transformations.md`](references/composing-transformations.md).
+
+Two prerequisites people discover late, both of which stop a flow dead:
+
+- **The output data point must already exist** on the edge platform's data-point config. A
+  derived UUID is registered, not invented; until it is, everything downstream ignores your
+  packet.
+- **Check which envelope and clock you are on.** Most of the estate is packed `sysTime` on
+  protobuf topics, but 145 flows also carry `plcTime` — the PLC's own clock, and the more
+  truthful source for anything measuring machine behaviour — and 75 flows read a JSON
+  envelope whose `sys_time` is a formatted local-time string, not a packed integer.
 
 ### Standards for any transformation
 
