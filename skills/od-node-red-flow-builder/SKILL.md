@@ -22,7 +22,7 @@ metadata:
   last_verified: 2026-08-25
   corpus: 825 flows across 53 ct-oesl Node-RED instances
   requires: [od-context]
-  composes: [od-machine-integration-guidance, od-signal-standardization, od-acceptance-test, od-analytics-asset-build]
+  composes: [od-machine-integration-guidance, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 exported flow JSON + 827 generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
@@ -59,6 +59,22 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 [`references/instances.md`](references/instances.md).
 
 > **Build on a `test` instance. Deploying to a `prod` instance is human-approved.**
+
+## The references
+
+| File | Use it for |
+|---|---|
+| [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the 825 flows actually build - artefact families, the specific artefacts by name, the reusable building blocks, and the naming convention |
+| [`references/transformation-patterns.md`](references/transformation-patterns.md) | The ten patterns the estate is built from, with real implementations and what breaks each |
+| [`references/streaming.md`](references/streaming.md) | How the real-time path works - the hops and their guarantees, split/rbe/delay/join, QoS, ordering, flow context, back-pressure |
+| [`references/architecture.md`](references/architecture.md) | An annotated walkthrough of one canonical flow, node by node |
+| [`references/plc-packet.md`](references/plc-packet.md) | The PLCPacket protobuf schema and the packed `sysTime` |
+| [`references/topic-conventions.md`](references/topic-conventions.md) | Both MQTT topic grammars and their vocabularies |
+| [`references/standard-functions.js`](references/standard-functions.js) | The standard function bodies, verbatim |
+| [`references/instances.md`](references/instances.md) | The 53 instances, naming, and the documentation pipeline |
+
+**A broken flow rather than a new one?** Use `od-node-red-flow-troubleshooting`, which runs
+a static analyser over the flow JSON.
 
 ## The canonical seven-group layout
 
@@ -186,6 +202,63 @@ BA `OESL` | `MFS`; region `AS` | `NA`; country `CHN` | `USA`; plant `QDA` | `SPR
 sets `payload.isDelta` explicitly and assigns the *output* UUID from flow config before
 encoding — it does not reuse the input packet's identity.
 
+## The transformation itself
+
+Ten patterns cover almost every flow in the estate. Full implementations and failure modes:
+[`references/transformation-patterns.md`](references/transformation-patterns.md).
+
+| # | Pattern | Flows | Shape |
+|---|---|--:|---|
+| P1 | **Delta gate** | ~200 | `switch` on `payload.isDelta` — turns a cyclic sample stream into events |
+| P2 | **Accumulator** | 34+ | `flow.get(k) \|\| 0` → increment → `flow.set` → publish, with a separate reset |
+| P3 | **Two-event time range** | 104 | Capture start, capture end, subtract; guard `NaN` and negative |
+| P4 | **Threshold crossing** | 32 | `rbe` on a boolean edge, then P3 across the edges |
+| P5 | **Value mapping** | 29 | A chain of `eq` switches, raw integer → named state |
+| P6 | **Lookup table** | 83 | CSV loaded once into flow context; `filter` per message |
+| P7 | **UUID → label** | 195 | Enrich from the edge platform's data-point config |
+| P8 | **Build from nothing** | 65 | Construct a packet from config; pack `sysTime` yourself |
+| P9 | **Clear the oneof** | 34+ | Delete the value fields that do not apply |
+| P10 | **Composite string** | 8 | Split a packed `valueString`; validate every field |
+
+### Standards for any transformation
+
+| Rule | Why |
+|---|---|
+| **Config from `flow`, never a literal** | Porting is one change node. A UUID in a function body is a defect |
+| **Unpack `sysTime` in, re-pack out — both, always** | 19 flows ship one without the other; every downstream timestamp is then wrong |
+| **Set the output UUID from config** | A derived packet under the input UUID is invisible to its consumer — 203 flows never set one |
+| **Exactly one `value*` field reaches the encode** | `measured_value` is a protobuf `oneof`; 18 flows violate it |
+| **Set `isDelta` explicitly on the output** | State what the derived signal is; do not inherit |
+| **Guard, then warn, then drop** | A bare `return null` makes a dropped message untraceable. `node.error`/`node.status` appear 6 and 8 times in the whole corpus — that is the gap |
+| **Wire the `else`** | 1,726 `else` branches exist and most go nowhere. An unmapped code is a finding |
+| **Tolerate `undefined` context** | Deploy clears flow context |
+| **Structure to the data model, not the PLC layout** | The most-recorded blocker in the estate |
+
+## The data structure you are working on
+
+Three layers travel together, and confusing them causes most transformation bugs.
+
+**1 · The protobuf packet** — what the wire carries. `plcPackets[]`, each with `uuid`,
+`sysTime` (packed), `sequenceNumber`, `plcTime`, `isDelta`, and exactly one of
+`valueInteger` / `valueString` / `valueDouble` / `valueBool` / `valueBytes`. Full schema:
+[`plc-packet.md`](references/plc-packet.md).
+
+**2 · The Node-RED message envelope** — what the flow manipulates:
+
+| Property | Set by | Note |
+|---|---|---|
+| `msg.payload` | decode, then every node | After the split, one packet |
+| `msg.parts` | `split` | **Must be deleted before the encode** |
+| `msg.protobufType` | `decode` | Bookkeeping; delete before the encode |
+| `msg._msgid` | Node-RED | Delete before the encode |
+| `msg.topic` | `mqtt in` | The source topic; useful for routing |
+| `msg.payload.label` | P7 enrichment | **Not a PLCPacket field** — remove before the encode |
+
+**3 · Flow context** — the state. Per-tab, cleared on deploy. ~14,000 `flow.get` and
+~12,700 `flow.set` across the corpus. Configuration keys (`datatronName`, `datapoint*`)
+and accumulators (`ShiftPartProduced`) live here. `global` is used 496 times and couples
+flows that should not know about each other — prefer `flow`.
+
 ## Error handling
 
 446 flows carry a `catch`. The house pattern is four nodes and is worth copying exactly:
@@ -201,6 +274,42 @@ catch (all nodes)
 
 Because the message carries the flow *name* and the failing *node* name, an error is
 traceable without opening the editor — which is the whole reason node naming matters below.
+
+**What an error actually does to the stream.** The catch receives it and the message is
+**dropped from its chain**. Nothing retries, nothing is dead-lettered, the stream does not
+pause. So an error is a *lost message*, and the 380 flows with no `catch` lose them
+invisibly.
+
+**Two error paths, and both are needed:**
+
+| Path | Catches | Add it |
+|---|---|---|
+| `catch` (scope: all nodes) | Thrown exceptions — a lookup on `undefined`, a bad JSON parse | Always. 446 flows do; use scope *all*, not selected |
+| An explicit guard in the function | Business-invalid values — `NaN` cycle time, negative duration, unmapped code | Wherever the pattern has a "silent drop" branch |
+
+The guard is the one people skip. The house pattern returns `null`, which drops the message
+with no trace:
+
+```javascript
+if (isNaN(msg.payload.cycle_time)) { return null; }        // invisible
+```
+
+Make it diagnosable for one extra line:
+
+```javascript
+if (isNaN(msg.payload.cycle_time)) {
+    node.warn(`cycle_time NaN for ${msg.payload.uuid} — start event missing`);
+    return null;
+}
+```
+
+Across the whole corpus `node.error` appears **6** times and `node.status` **8**. That is
+the single biggest observability gap in the estate: flows drop messages correctly and say
+nothing about it.
+
+**Six flows exist whose entire artefact is `Error Handling`** — a dedicated tab collecting
+and routing errors rather than a per-flow catch. Check whether the instance has one before
+building a seventh.
 
 ## Build so the documentation writes itself
 

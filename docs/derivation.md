@@ -91,6 +91,7 @@ is derived from that material.
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
 | `od-machine-integration-guidance` | `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
+| `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against all 825 flows, and its finding counts are the corpus's actual defect distribution |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
 ## Where this registry deliberately contradicts the bundle
@@ -145,6 +146,14 @@ Every skill that carries a number says when it was read and tells the reader to 
 
 **Gaps stay gaps.** `⟨…⟩` is copied through. A registry that quietly resolves an open
 question is worse than one that shows where the department has not decided yet.
+
+**One skill ships an executable, and it was calibrated on the corpus rather than guessed.**
+`od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over all 825 flows with zero
+parse failures, and every check earns its place by finding a defect that is actually present.
+Calibration mattered: an early version of the flow-context check fired on 575 flows, which is
+70 % and therefore noise. Splitting it into a real read of unset context (99) and a copied
+`Debug flow config` echo (94) made it a finding instead of a nag. The counts in the skill are
+the analyser's own output, so they can be re-derived by re-running it.
 
 **The technical tier is measured, not asserted.** The Node-RED and machine-integration
 skills state frequencies (620 of 825 flows carry a *prepare and convert payload* group;

@@ -15,7 +15,7 @@ concept-by-concept trace.
 > excluded. The Digital Unit will be a new department; this registry describes Operations
 > Digitalization as it works today.
 
-## The 22 skills
+## The 23 skills
 
 ### Foundation — load first
 
@@ -57,6 +57,7 @@ concept-by-concept trace.
 |---|---|---|
 | [`od-machine-integration-guidance`](skills/od-machine-integration-guidance/SKILL.md) | Deciding how to connect a specific machine — route, connector, and the checklist it must clear | OD |
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
+| [`od-node-red-flow-troubleshooting`](skills/od-node-red-flow-troubleshooting/SKILL.md) | Diagnosing a flow that is silent, wrong, or broken — from its exported JSON | OD |
 | [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
 
 These carry `references/` alongside `SKILL.md`, and for the two derived skills the
@@ -72,8 +73,13 @@ references are the substance rather than an appendix:
   `iiot-edge-platform.md` (the three layers, six phases, hardware sequence, and how to choose
   when both routes are open), `fallbacks.md` (the eight ways an integration blocks and what
   to try first)
-- **Node-RED** — the canonical flow walkthrough, the PLCPacket schema, the topic grammar,
-  the standard function bodies and the instance inventory
+- **Node-RED building** (eight files) — the artefact catalogue crawled from all 825 flows,
+  the ten transformation patterns with real implementations, how the real-time streaming
+  works, the canonical flow walkthrough, the PLCPacket schema, the topic grammar, the
+  standard function bodies and the instance inventory
+- **Node-RED troubleshooting** — a static analyser (`scripts/analyze_flow.py`) that reads a
+  flow JSON and reports the failure modes that actually occur in this estate, plus a
+  symptom-to-cause table for what static analysis cannot see
 
 `build-grafana-ops-dashboard` is **vendored** — the author's own skill, body and references
 unchanged, keeping its original name rather than an `od-` prefix. Only a `metadata:` block
