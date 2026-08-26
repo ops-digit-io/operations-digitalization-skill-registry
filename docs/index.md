@@ -7,3 +7,4 @@
 | [Derivation](derivation.md) | Design Record | Every skill traced back to the knowledge graph concept it came from, with the judgement calls, the corrections the corpus forced, and what was deliberately left out. |
 | [OKF conventions](okf-conventions.md) | Map of Content | The Open Knowledge Format contract this registry follows, the three places it deviates from the knowledge-graph bundle and why, and what the guard refuses. |
 | [Skill map](skill-map.md) | Map of Content | The four lane skill maps read as one: which capability each lane names, where they overlap, and which registry skill covers each. |
+| [Skill state map](skill-state-map.md) | Map of Content | Every skill in the registry as one picture - which lane it serves, where it sits in the delivery order, how far it is built, and what is next. |

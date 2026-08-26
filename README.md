@@ -26,6 +26,10 @@ concept-by-concept trace.
 
 ## The 24 skills
 
+**[See the skill state map](docs/skill-state-map.md)** for one picture of where every skill
+sits in the delivery order and how far it is built — 4 carry references and a runnable script,
+3 carry references, 17 are still a `SKILL.md` on its own.
+
 ### Foundation — load first
 
 | Skill | What it settles |
@@ -204,12 +208,14 @@ skills/<skill-id>/SKILL.md       one skill
 skills/<skill-id>/references/    supporting material for the technical skills
 docs/skill-map.md                the four lanes' skills/tools/interfaces, consolidated
 docs/derivation.md               concept-by-concept trace back to the knowledge graph
+docs/skill-state-map.md          generated Mermaid map: every skill, its lane, its build state, what is next
 docs/okf-conventions.md          the OKF contract, its three deviations, and what the guard refuses
 index.md, */index.md             generated OKF directory indexes (OKF §8)
 log.md                           bundle history (OKF §9)
 scripts/validate_registry.py     guard: registry ↔ folders ↔ frontmatter ↔ cross-references
 scripts/verify_okf.py            guard: the OKF contract
 scripts/build_okf_index.py       regenerates the directory indexes
+scripts/build_skill_map.py       regenerates the skill state map
 ```
 
 ## Validating a change
@@ -219,6 +225,7 @@ pip install pyyaml
 python3 scripts/validate_registry.py       # registry.yaml and the skill frontmatter agree
 python3 scripts/verify_okf.py              # the OKF contract
 python3 scripts/build_okf_index.py --check # the generated indexes are current
+python3 scripts/build_skill_map.py --check # the skill state map is current
 ```
 
 It checks that every folder has a registry entry and vice versa, that frontmatter parses,

@@ -5,6 +5,10 @@ not a concept.
 
 ## 2026-08-26
 
+- Added `docs/skill-state-map.md` and `scripts/build_skill_map.py`: a generated Mermaid map of
+  all 24 skills in delivery order, coloured by build state, with inbound `composes` counts and
+  the three recommended next. Build state is read from the filesystem so the map cannot drift.
+
 - Described the OPC UA direct connector properly and added availability to every connector
   table. `references/connectors.md` covers all 26 with what each reaches, over which protocol,
   which PLCs, its container image, and whether it can be used — seven cannot. The B&R and
