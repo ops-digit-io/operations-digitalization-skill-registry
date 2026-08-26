@@ -10,7 +10,7 @@
 | [od-analytics-asset-build/](od-analytics-asset-build/index.md) | 1 concept(s) |
 | [od-benefit-calculation/](od-benefit-calculation/index.md) | 1 concept(s) |
 | [od-context/](od-context/index.md) | 1 concept(s) |
-| [od-data-availability-check/](od-data-availability-check/index.md) | 1 concept(s) |
+| [od-data-availability-check/](od-data-availability-check/index.md) | 6 concept(s) |
 | [od-decision-routing/](od-decision-routing/index.md) | 1 concept(s) |
 | [od-equipment-integration-assessment/](od-equipment-integration-assessment/index.md) | 1 concept(s) |
 | [od-handover-and-adoption/](od-handover-and-adoption/index.md) | 1 concept(s) |

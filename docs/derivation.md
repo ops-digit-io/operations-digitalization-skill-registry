@@ -190,6 +190,45 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**The availability check was the most-depended-upon skill in the registry and the least
+built.** Fifteen files across the library route to it — more than to any other — and every one
+of them leans on a phrase like *"verified, not assumed"*. It was 475 words and a six-row table,
+with no way to actually run the check. So it got a script, and building the script decided the
+skill's real claim.
+
+The six steps read five sources, and **not one of them answers step 5.** Granularity, freshness
+and completeness per signal are recorded nowhere in the bundle, so `check_availability.py`
+reports step 5 as unproven on every single run, deliberately. A tool that guessed there would
+be worse than one that admits what it cannot see — step 5 is the only one of the three that
+fails *quietly*, handing back a number that renders, gets believed, and is wrong.
+
+Step 4 turned out to be answerable in a way the skill had not claimed. The 825-flow Node-RED
+corpus is the only source in the bundle that says anything about an individual signal rather
+than a machine, so a signal name appearing in a deployed flow is real evidence it exists at
+that plant. Using it needed a plant↔instance mapping that nothing in the bundle states, and the
+derivation is recorded per entry rather than presented as fact: three codes are proved by MQTT
+topic segments in the flows (`OESL/AS/CHN/QDA` → Qingdao), six by machine names shared with
+that plant's Machine List rows (Subotica matched on 20 names against a next-best 5), five by
+prefix, and **six by abbreviation with no corroborating evidence at all**. One code, `nomz`,
+maps to nothing — and Northeim is the largest plant with no flow evidence, 87 machines of which
+83 are integrated. Those two facts fit together suspiciously well, which is exactly why they
+are written down as a question instead of merged into the table. A wrong mapping produces a
+confident verdict about the wrong plant, which is the one failure worse than no verdict.
+
+Matching a signal name against the corpus took one correction. Containment in either direction
+let a four-character token confirm anything containing it — a generic `Pressure` token
+"proved" `OvenPressure`. It is now one-way: the flow token may be *more* specific than the
+signal name (`datapointTotalPartCounter` proves `TotalPartCounter`), never less.
+
+Three properties of the sources became checks because reading them wrong is the normal
+mistake. A blank `integration_status` is not a no — 451 of 1,715 rows are blank, so reading
+one as "not integrated" fabricates a gap across a quarter of the estate. A connector existing
+is not a connector you may use — 19 of 26 are Productive and marked USE, 6 are NOT AVAILABLE
+and one is DO NOT USE. And `plc_vendor` holds `S7.Schnitt.` on 8 machines, a German note
+meaning "S7 interface" rather than a manufacturer, plus `MRA`, `ASI`, `PMA` and `EOS` on 15
+more: those machines match no connector, which reads as a connector gap and is a data-entry
+error. The script names it as one.
+
 **Adopting OKF was decided by one hard constraint, not by preference.** The registry was
 Agent Skills format derived *from* an OKF bundle; making it an OKF bundle itself meant putting
 `type` and `title` in the frontmatter. The Agent Skills spec allows exactly six top-level keys

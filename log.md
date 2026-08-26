@@ -3,6 +3,16 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-08-26
+
+- Built out `od-data-availability-check`: four references, the verdict asset, and
+  `check_availability.py`, which walks the six steps against the Machine List, the Connector
+  Overview and the 825-flow Node-RED corpus and names which step a request dies at. Step 5 is
+  reported unproven on every run because no source in the bundle records fitness for use.
+- Recorded five new open gaps found while building it, among them 16 plants with no flow
+  evidence, 191 machines integrated by an unrecorded method, and 23 machine rows whose
+  `plc_vendor` is not a vendor.
+
 ## 2026-08-25
 
 - Adopted the Open Knowledge Format across the registry. Every concept carries OKF

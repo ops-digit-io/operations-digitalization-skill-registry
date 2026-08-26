@@ -4,4 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Data availability check](SKILL.md) | Agent Skill | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. Walks the path from the machine through its connector and integration variant to the data platform, distinguishes "not integrated" from "not standardized" from "not fit for use", and turns a shortfall into a named data gap routed to the Information Integration lane rather than an approximation. Use at the start of any analytical request, before scoping a use case, and whenever an analysis is about to be built on data whose provenance has not been checked. |
+| [Data availability check](SKILL.md) | Agent Skill | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. Walks the path from the machine through its connector and integration variant to the data platform, distinguishes "not integrated" from "not standardized" from "not fit for use", and turns a shortfall into a named data gap routed to the Information Integration lane rather than an approximation. Runs the six steps against the Machine List, the Connector Overview and the deployed flow corpus, and writes a defined verdict naming which step the request dies at. Use at the start of any analytical request, before scoping a use case, and whenever an analysis is about to be built on data whose provenance has not been checked. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 4 concept(s) |

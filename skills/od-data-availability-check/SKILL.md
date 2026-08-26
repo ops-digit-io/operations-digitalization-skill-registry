@@ -5,9 +5,11 @@ description: >-
   is fit for use — before anything is promised. Walks the path from the machine through
   its connector and integration variant to the data platform, distinguishes "not integrated" from
   "not standardized" from "not fit for use", and turns a shortfall into a named data gap
-  routed to the Information Integration lane rather than an approximation. Use at the
-  start of any analytical request, before scoping a use case, and whenever an analysis is
-  about to be built on data whose provenance has not been checked.
+  routed to the Information Integration lane rather than an approximation. Runs the six
+  steps against the Machine List, the Connector Overview and the deployed flow corpus, and
+  writes a defined verdict naming which step the request dies at. Use at the start of any
+  analytical request, before scoping a use case, and whenever an analysis is about to be
+  built on data whose provenance has not been checked.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
 metadata:
   id: od-data-availability-check
@@ -37,6 +39,37 @@ Read `od-context` first. This is step 2 of the Analytical lane and a preconditio
 use-case scope. It exists to stop the most expensive mistake in the function: promising an
 answer the data cannot support.
 
+**The output is not "available" or "not available".** It is *which of the six steps the
+request dies at*, because the shortfalls at steps 2, 4 and 5 look identical from a dashboard
+and are three different problems with three different owners and costs between an afternoon
+and two quarters.
+
+## The references
+
+| File | Use it for |
+|---|---|
+| [`references/sources.md`](references/sources.md) | The five sources, what each genuinely answers, how much is populated, and where each stops |
+| [`references/failure-modes.md`](references/failure-modes.md) | The three indistinguishable shortfalls, plus the two that are not data gaps at all |
+| [`references/freshness.md`](references/freshness.md) | Cadence per source, the slowest-input rule, and history depth |
+| [`references/plant-instance-map.md`](references/plant-instance-map.md) | Which Node-RED instance is which plant, how each was established, and the 16 plants with no evidence |
+| [`assets/data-availability-verdict.md`](assets/data-availability-verdict.md) | The defined output to fill in |
+| [`scripts/check_availability.py`](scripts/check_availability.py) | Walks the six steps against the real sources |
+
+## Run it before you reason about it
+
+```bash
+python3 scripts/check_availability.py --plant Mako --signals TotalPartCounter,MachineState
+python3 scripts/check_availability.py --plant Karben --machine "Lean Cell" --report
+```
+
+Exit **2** if a step blocks, **1** if a step is unproven, **0** if all six are answered. It
+reads the Machine List, the Connector Overview and the flow corpus from the knowledge-graph
+checkout (`--kg`, default `../ops-knowledge-graph`).
+
+The script never guesses. Where a source cannot answer, it says *unproven* rather than
+*absent* — and **step 5 comes back unproven every time**, deliberately, because nothing in
+the bundle records fitness for use.
+
 ## Walk the path, in this order
 
 | # | Question | Where to look | If no |
@@ -49,7 +82,24 @@ answer the data cannot support.
 | 6 | Does an **existing asset** already answer this? | Use-case portfolio; the reference library | Do not rebuild it |
 
 The three failures at steps 2, 4 and 5 look identical from a dashboard and are entirely
-different problems. Name which one you have.
+different problems. Name which one you have →
+[`failure-modes.md`](references/failure-modes.md).
+
+## Three traps the sources set
+
+**A blank is not a no.** 821 machines are `INTEGRATED`, 395 `NOT INTEGRATED`, 48 ongoing —
+and **451 carry no status at all**. Reading a blank as "not integrated" fabricates a gap
+across a quarter of the estate, and the fabricated gap gets routed to a lane that then finds
+nothing to do.
+
+**A connector existing is not a connector you may use.** 19 of the 26 are `Productive` and
+marked `USE`; 6 are `NOT AVAILABLE` and one is `DO NOT USE`. An `Idea` connector is a roadmap
+item, not a route to data.
+
+**A flow proves presence, never absence.** A signal can be published with nothing consuming
+it, so "not in any flow" is a prompt to check the edge platform — not a verdict. And for the
+**16 of 33 plants with no Node-RED instance**, among them Northeim with 87 machines, step 4
+cannot be answered from the bundle at all.
 
 ## Freshness expectations
 
@@ -79,4 +129,8 @@ Analytical lane. Concretely:
   value.
 - Do not treat the knowledge graph as the check — it is a rebuilt read surface. Check the
   Machine List and the data platform.
+- Do not report *unproven* as *absent*. One is a question for the platform; the other is a
+  request to another lane, and sending the wrong one wastes both.
+- Do not skip step 6. Four existing cycle-time use cases at one plant is a normal result, and
+  rebuilding one of them is the failure the whole standardization effort exists to prevent.
 - Do not promise a turnaround before step 5 has been answered.

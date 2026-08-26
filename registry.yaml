@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.4.0
+  version: 1.5.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -157,7 +157,7 @@ skills:
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE
     authority_level: read-only
-    summary: Walk machine → connector → ingress variant → edge → offload → data platform before promising an answer; name the gap.
+    summary: Walks the six availability steps against the Machine List, the Connector Overview and the deployed flow corpus, names which step a request dies at, and writes a defined verdict. Distinguishes not-integrated from not-standardized from not-fit-for-use - three shortfalls that look identical from a dashboard.
 
   - id: od-analytics-asset-build
     tier: practice
@@ -280,6 +280,11 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - Step 5 of the availability check - granularity, freshness and completeness per signal - is recorded in no source in the bundle. It can only be answered against Databricks and the Azure Storage Account directly.
+  - 16 of 33 plants have no Node-RED instance, so the flow corpus cannot speak to signal availability for them; Northeim (87 machines), Tlalnepantla (82), Auburn (60) and Rennes (58) are the largest.
+  - The `nomz` Node-RED instances map to no plant in the bundle. Northeim is the largest plant with no flow evidence; the two facts may fit together and nobody has confirmed it.
+  - plc_vendor holds non-vendor values on 23 machine rows (`S7.Schnitt.` on 8, `MRA` on 7, `ASI` on 4, `PMA` on 3, `EOS` on 1), so those machines match no connector and read as a gap that is a data-entry error.
+  - 191 machines are INTEGRATED with no integration_method recorded, so their ingress variant - and with it what is actually published - cannot be inferred from the row.
   - "Every concept in this bundle is OKF-unverified: derived from the knowledge graph and the source systems, but not read line by line by a person. Adding a `verified` stamp naming a human actor is a reading job nobody has been assigned."
   - The epic/user-story layer exists in the use case list already and is hollow: of 650 leaf stories, 59 carry an "I want" tag, 3 mention acceptance criteria, and 0 carry a "so that" that differs from the generated clause. Backfilling them is a portfolio exercise nobody has been assigned.
   - 334 leaf use cases carry only a capability parent and 291 only a process parent, so a rollup on either axis silently misses half the portfolio. Whether the source list can be corrected in place is unconfirmed.

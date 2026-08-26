@@ -53,7 +53,7 @@ concept-by-concept trace.
 | [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
 | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | An integration or solution is being declared done |
 | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Handing to a plant, or asking whether something is actually in use |
-| [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data |
+| [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data — walks the six steps against the real sources and names which one the request dies at |
 | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) | Designing or reworking the dashboard, report, app or agent a plant opens |
 | [`od-scorecard-reporting`](skills/od-scorecard-reporting/SKILL.md) | Monthly or ODEC reporting; "how is OD tracking?"; preparing or following up a round |
 | [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Any cut of the 650 use cases or the 553 saving rows |
