@@ -69,8 +69,12 @@ NOT_A_PLANT = {"mpee"}          # the department's own test instance
 
 # A PLC vendor or protocol to the connector that speaks it. Names are the Connector
 # Overview's own labels; the match is on `input_protocol` and `vendor` where populated.
+# SFT-SIMATIC S7-Connector is deliberately absent: it is Productive and DO NOT USE, because
+# it does not support cyber-security compliant communication to the PLC.
 VENDOR_HINT = {
-    "siemens": ("DTQ-S7-Connector", "DTQ-TIA-Connector", "SFT-SIMATIC S7-Connector"),
+    "siemens": ("DTQ-S7-Connector", "DTQ-TIA-Connector", "DTQ-S7-NET-Connector"),
+    "sinumerik": ("DTQ-SINUMERIK-Connector",),
+    "simotion": ("DTQ-SIMOTIOND-Connectors",),
     "rockwell": ("DTQ-ALLENBRADLEY-ROCKWELL-Connector",),
     "allen bradley": ("DTQ-ALLENBRADLEY-ROCKWELL-Connector",),
     "beckhoff": ("DTQ-Beckhoff-Connector",),
@@ -78,7 +82,10 @@ VENDOR_HINT = {
     "bachmann": ("DTQ-Bachmann-Connector",),
     "engel": ("DTQ-Engel EMI-Connector",),
     "omron": ("DTQ-OMRON FINS-Connector",),
-    "keyence": ("DTQ-KEYENCECAM-Connector",),
+    "keyence": ("DTQ-KEYENCECAM-Connector", "DTQ-RS232-Connector"),
+    "piovan": ("DTQ-PIOVAN-Connector",),
+    "optris": ("DTQ-IROPTRIS-Connector",),
+    "zwick": ("DTQ-ZWICK-Connector",),
 }
 PROTOCOL_HINT = {
     "modbus": ("DTQ-MODBUS-Connector",),
@@ -87,6 +94,14 @@ PROTOCOL_HINT = {
     "ethercat": ("DTQ-EthercatIO-Connector",),
     "rs232": ("DTQ-RS232-Connector",),
 }
+
+# The OPC UA direct connector reaches any OPC UA server — a machine's own embedded one, or
+# the Central Aggregation Server — so it is the standing fallback wherever a vendor's native
+# connector does not exist. B&R and Bachmann are the live proof: both native connectors are
+# Idea/NOT AVAILABLE, and 73 machines across the two families are integrated anyway, mostly
+# recorded as `Central OPCUA Aggregation Server`.
+OPCUA_DIRECT = "DTQ-OPCUA-Connector"
+OPCUA_FALLBACK_VENDORS = ("b&r", "bachmann", "engel")
 
 
 def norm(s: str) -> str:
@@ -231,14 +246,43 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
     methods = Counter((m.get("integration_method") or "").strip() for m in machines if m.get("integration_method"))
     ctx["vendors"], ctx["protocols"], ctx["methods"] = dict(vendors), dict(protos), dict(methods)
 
-    covered, uncovered = [], []
+    def usable(name: str) -> bool:
+        c = conns.get(name)
+        if not c:
+            return False
+        return (c.get("utilization") or "").strip().upper() == "USE" and \
+               (c.get("status") or "").strip() != "Idea"
+
+    # Protocol hints are a property of the plant's network, not of one vendor, so they are
+    # kept apart: mixing them in let a usable Modbus or OPC connector elsewhere on site mask
+    # the fact that a vendor's own connector is unavailable.
+    proto_hits = sorted({c for proto in protos
+                         for key, names in PROTOCOL_HINT.items() if key in proto.lower()
+                         for c in names if c in conns})
+
+    covered, uncovered, viaopc = [], [], []
     for vendor, n in vendors.items():
-        hits = [c for key, names in VENDOR_HINT.items() if key in vendor.lower()
-                for c in names if c in conns]
-        for proto in protos:
-            hits += [c for key, names in PROTOCOL_HINT.items() if key in proto.lower()
-                     for c in names if c in conns]
-        (covered if hits else uncovered).append((vendor, n, sorted(set(hits))))
+        native = sorted({c for key, names in VENDOR_HINT.items() if key in vendor.lower()
+                         for c in names if c in conns})
+        if not native:
+            uncovered.append((vendor, n, []))
+        elif any(usable(h) for h in native):
+            covered.append((vendor, n, [h for h in native if usable(h)]))
+        elif any(k in vendor.lower() for k in OPCUA_FALLBACK_VENDORS) and usable(OPCUA_DIRECT):
+            viaopc.append((vendor, n, native))
+        else:
+            uncovered.append((vendor, n, native))
+
+    if viaopc:
+        v.step(3, "connector", "WARN",
+               "; ".join(f"{ven} ({n} machine(s)): native {', '.join(h)} is NOT AVAILABLE"
+                         for ven, n, h in viaopc)
+               + f" — reachable via {OPCUA_DIRECT} instead.",
+               fix="Confirm the machine exposes an OPC UA server, or that it is already on the "
+                   "Central Aggregation Server. Do not report this as a connector gap: 73 B&R "
+                   "and Bachmann machines are integrated today without their native connector.",
+               evidence="Connector Overview + Machine List integration_method")
+
     NOT_A_VENDOR = {"s7.schnitt.", "mra", "asi", "pma", "eos"}
     junk = [(ven, n) for ven, n, _ in uncovered if ven.strip().lower() in NOT_A_VENDOR]
     uncovered = [u for u in uncovered if u[0].strip().lower() not in NOT_A_VENDOR]
@@ -246,41 +290,47 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
         v.step(3, "connector", "WARN",
                "plc_vendor holds a non-vendor value on "
                + ", ".join(f"{n} machine(s) ({ven!r})" for ven, n in junk)
-               + " — 'S7.Schnitt.' is an interface note, not a vendor.",
+               + (" — 'S7.Schnitt.' is an interface note, not a vendor."
+                  if any(ven.strip().lower() == "s7.schnitt." for ven, _ in junk)
+                  else " — these are not manufacturers."),
                fix="Fix the Machine List row. Until then these machines cannot be matched "
                    "to a connector at all, which reads as a gap that is not one.",
                evidence="Machine List plc_vendor")
+
     if uncovered:
-        v.step(3, "connector", "BLOCKER",
-               "No connector in the Overview speaks: " + ", ".join(
-                   f"{ven} ({n} machine(s))" for ven, n, _ in uncovered),
-               fix="A connector gap is a build, not a configuration. Log it as a barrier and "
-                   "route it — do not scope a use case behind it.",
-               evidence="Connector Overview, 26 connectors")
-    else:
-        # A connector existing is not a connector you may use. 19 of the 26 are Productive
-        # and marked USE; 6 are NOT AVAILABLE and 1 is DO NOT USE.
-        unusable = []
-        for ven, _, hits in covered:
-            for h in hits:
-                util = (conns[h].get("utilization") or "").strip().upper()
-                stat = (conns[h].get("status") or "").strip()
-                if util in ("NOT AVAILABLE", "DO NOT USE") or stat in ("Idea", "Development"):
-                    unusable.append(f"{h} ({stat or '?'}/{util or '?'})")
-        usable = [(ven, h) for ven, _, hits in covered for h in hits
-                  if (conns[h].get("utilization") or "").strip().upper() == "USE"]
-        if unusable and not usable:
+        unbuilt = [(ven, n, h) for ven, n, h in uncovered if h]
+        unknown = [(ven, n) for ven, n, h in uncovered if not h]
+        if unbuilt:
             v.step(3, "connector", "BLOCKER",
-                   "The only matching connector(s) are not usable: " + ", ".join(sorted(set(unusable))),
-                   fix="An Idea or NOT AVAILABLE connector is a roadmap item, not a route. "
-                       "Treat this as a connector gap.",
+                   "; ".join(f"{ven} ({n} machine(s)): {', '.join(h)} is not available"
+                             for ven, n, h in unbuilt),
+                   fix="The connector is on the roadmap, not in the platform. Log it as a "
+                       "barrier and route it — do not scope a use case behind it.",
                    evidence="Connector Overview status and utilization")
-        else:
-            msg = "; ".join(f"{ven} → {', '.join(h[:2])}" for ven, _, h in covered[:4]) or \
-                  "no PLC vendor recorded"
-            if unusable:
-                msg += f" (excluding {len(set(unusable))} not marked USE)"
-            v.step(3, "connector", "INFO", msg, evidence="Connector Overview")
+        if unknown:
+            v.step(3, "connector", "BLOCKER",
+                   "No connector in the Overview speaks: " + ", ".join(
+                       f"{ven} ({n} machine(s))" for ven, n in unknown),
+                   fix=f"Ask what the controller exposes before declaring a gap — if it serves "
+                       f"OPC UA, {OPCUA_DIRECT} reaches it today. Otherwise this is connector "
+                       "development, with long lead times.",
+                   evidence="Connector Overview, 26 connectors")
+
+    if covered:
+        # A connector existing is not one you may use: 19 of 26 are marked USE, 6 are
+        # NOT AVAILABLE and 1 is DO NOT USE. Only usable ones reach this line.
+        v.step(3, "connector", "INFO",
+               "; ".join(f"{ven} → {', '.join(h[:2])}" for ven, _, h in covered[:4]),
+               evidence="Connector Overview")
+    site = sorted({c for proto in protos
+                   for key, names in PROTOCOL_HINT.items() if key in proto.lower()
+                   for c in names if c in conns and usable(c)})
+    if site:
+        v.step(3, "connector", "INFO",
+               "Protocol-level routes available on site: " + ", ".join(site)
+               + ". These follow the network, not the vendor.",
+               evidence="Machine List network_protocol + Connector Overview")
+
     if not methods:
         v.step(3, "concept", "WARN",
                "No integration_method recorded on any machine in scope.",
@@ -448,5 +498,20 @@ def main(argv: list[str]) -> int:
     return v.exit_code()
 
 
+
+def _run(argv: list[str]) -> int:
+    """Wrap main so piping into `head` or `less` exits quietly instead of tracebacking."""
+    try:
+        return main(argv)
+    except BrokenPipeError:
+        try:
+            sys.stdout.close()
+        except BrokenPipeError:
+            pass
+        return 0
+    except KeyboardInterrupt:
+        return 130
+
+
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(_run(sys.argv))

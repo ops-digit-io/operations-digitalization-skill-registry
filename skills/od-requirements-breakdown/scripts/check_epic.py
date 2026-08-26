@@ -309,5 +309,20 @@ def main(argv):
     return worst
 
 
+
+def _run(argv: list[str]) -> int:
+    """Wrap main so piping into `head` or `less` exits quietly instead of tracebacking."""
+    try:
+        return main(argv)
+    except BrokenPipeError:
+        try:
+            sys.stdout.close()
+        except BrokenPipeError:
+            pass
+        return 0
+    except KeyboardInterrupt:
+        return 130
+
+
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(_run(sys.argv))

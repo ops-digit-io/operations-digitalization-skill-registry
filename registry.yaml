@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.5.0
+  version: 1.6.0
   department: MPEE Operations Digitalization (OD)
   business: OESL
   owner: Thomas Zipf (OD lead)
@@ -209,7 +209,7 @@ skills:
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend a route and a configuration; never connect, never approve an external connection
-    summary: Picks the ingress variant for a machine — edge device, connector without a device, or Softing dataFEED aggregation server bridged by DTQ-OPCUA-Connector — all terminating at the IIoT Edge Platform; walks that variant's configuration pattern from the V5.70 manual and takes the right fallback when it blocks.
+    summary: Routes a machine to one of the three ingress variants, names a connector that is actually available (7 of 26 are not), walks the configuration pattern for that route, and takes the right fallback when a path blocks.
 
   - id: od-signal-standardization
     tier: technical
@@ -280,6 +280,10 @@ open_gaps:
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
   - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - Seven of the 26 connectors cannot be used: DTQ-B&R, DTQ-Bachmann, DTQ-Engel EMI and DTQ-ZWICK are Idea/NOT AVAILABLE; DTQ-SMB and DTQ-SmartKlaus are in development; SFT-SIMATIC S7-Connector is Productive/DO NOT USE. The B&R and Bachmann connectors are noted "Development to be started with Rollout in Dolne Vestenice" and no date is recorded.
+  - DTQ-MODBUS-Connector carries status Idea and utilization USE, which cannot both be true. 80 machines are on Modbus/TCP and the route is unconfirmed.
+  - documentation_available is NO on 24 of the 26 connectors; only DTQ-FTP2MIL-Connector and SFT-OPC-Suite have anything written down.
+  - 38 Engel machines have no available vendor connector. Whether their controllers expose OPC UA has not been confirmed per machine.
   - Step 5 of the availability check - granularity, freshness and completeness per signal - is recorded in no source in the bundle. It can only be answered against Databricks and the Azure Storage Account directly.
   - 16 of 33 plants have no Node-RED instance, so the flow corpus cannot speak to signal availability for them; Northeim (87 machines), Tlalnepantla (82), Auburn (60) and Rennes (58) are the largest.
   - The `nomz` Node-RED instances map to no plant in the bundle. Northeim is the largest plant with no flow evidence; the two facts may fit together and nobody has confirmed it.

@@ -190,6 +190,41 @@ and coverage gaps. Its rule — a signal is standardized when a second plant can
 without asking a question, which needs a name, a meaning, a unit and a collection method —
 exists because the first three are visible in the data and the fourth is not.
 
+**Seven connectors cannot be used, and both skills were routing people to them.** The
+guidance skill listed `DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` in its selection table
+as if they were routes; the Connector Overview records both as `Idea · NOT AVAILABLE` with the
+note *"Development to be started with Rollout in Dolne Vestenice"*. `check_availability.py`
+had the same defect from the other side — its vendor map pointed B&R and Bachmann machines at
+connectors that do not exist, which would have produced a connector-gap barrier.
+
+What makes it a real correction rather than a typo is the second half: **73 machines across
+those two families are integrated today**, 29 of 32 B&R and 44 of 63 Bachmann, and 30 of the
+B&R rows are recorded as `Central OPCUA Aggregation Server`. The estate had already solved it
+over OPC UA. Reporting "no connector" would have contradicted machines that are delivering
+data — the failure mode where a check invents a gap.
+
+That is what `DTQ-OPCUA-Connector` is for, and it is now described properly in
+`references/connectors.md` rather than mentioned in passing. It is the one connector that
+reaches a *server* rather than a machine, so it does two unrelated jobs from the same
+container: **direct** to a machine's own embedded OPC UA server (topology ②) and **bridge** to
+the Central Aggregation Server (topology ③). And it is the standing fallback wherever a native
+connector does not exist. The checker now routes B&R, Bachmann and Engel to it and says why,
+as a WARN with a confirmation step, rather than a BLOCKER.
+
+Two more were wrong in the other direction. `SFT-SIMATIC S7-Connector` was listed as a Siemens
+route and is `Productive · DO NOT USE`, with the reason on file: not cloud-native, and *"still
+does not support CYBER SECURITY compliant communication to the PLC."* The second reason is a
+security position, so it is now absent from the checker's vendor map entirely rather than
+filtered late. And `DTQ-MODBUS-Connector` carries `status: Idea` with `utilization: USE` —
+those cannot both be true, 80 machines are on Modbus/TCP, and the honest output is a question
+for the IIAE rather than a guess in either direction.
+
+The connector catalogue also records what is *not* known: `documentation_available` is `NO` on
+24 of the 26, so only `DTQ-FTP2MIL-Connector` and `SFT-OPC-Suite` have anything written down,
+and nine connectors record no input protocol at all. A missing field is not an absent
+protocol; it is an unfilled field, and the difference decides whether you plan for a discovery
+visit.
+
 **The availability check was the most-depended-upon skill in the registry and the least
 built.** Fifteen files across the library route to it — more than to any other — and every one
 of them leans on a phrase like *"verified, not assumed"*. It was 475 words and a six-row table,

@@ -15,7 +15,7 @@
 | [od-equipment-integration-assessment/](od-equipment-integration-assessment/index.md) | 1 concept(s) |
 | [od-handover-and-adoption/](od-handover-and-adoption/index.md) | 1 concept(s) |
 | [od-information-integration-service/](od-information-integration-service/index.md) | 1 concept(s) |
-| [od-machine-integration-guidance/](od-machine-integration-guidance/index.md) | 7 concept(s) |
+| [od-machine-integration-guidance/](od-machine-integration-guidance/index.md) | 8 concept(s) |
 | [od-node-red-flow-builder/](od-node-red-flow-builder/index.md) | 10 concept(s) |
 | [od-node-red-flow-troubleshooting/](od-node-red-flow-troubleshooting/index.md) | 2 concept(s) |
 | [od-portfolio-and-savings-analysis/](od-portfolio-and-savings-analysis/index.md) | 1 concept(s) |

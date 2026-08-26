@@ -53,6 +53,7 @@ each route. When the two disagree, `rules.json` wins — it is the maintained ar
 | File | Use it for |
 |---|---|
 | [`references/decision-paths.md`](references/decision-paths.md) | Routing: the four gates, PLC family → available routes, connector selection, and where a path dead-ends |
+| [`references/connectors.md`](references/connectors.md) | All 26 connectors with what each reaches, over which protocol, which PLCs — and whether it is available. **Seven cannot be used**, including the B&R and Bachmann connectors; the OPC UA direct connector is the fallback |
 | [`references/softing-datafeed.md`](references/softing-datafeed.md) | The **Central Aggregation Server** pattern from the dataFEED V5.70 manual — the real driver list, licensing, per-driver settings for Siemens, Rockwell, Modbus and OPC-UA sources, and **where the OESL guidance does not match the product** |
 | [`references/softing-tag-syntax.md`](references/softing-tag-syntax.md) | Tag identifier syntax per family — S7 areas and bit masking, Modbus areas with the UnitID and Group prefixes, PLC-5 / SLC file types, arrays and suffixes |
 | [`references/softing-data-targets.md`](references/softing-data-targets.md) | How the data leaves dataFEED — the OPC UA path the edge reads, Store and Forward, the Preprocessing Engine, and the MQTT capability that has no OESL route |
@@ -198,6 +199,34 @@ a machine supplier takes weeks and is sometimes a commercial negotiation. Before
 a machine blocked on it, work the seven non-PLC rungs in
 [`fallbacks.md`](references/fallbacks.md) §1 — a great many "no program" machines turn out
 to be file-drop, vendor-interface or already-on-OPC-UA machines that nobody checked.
+
+## Before naming a connector, check it exists
+
+**Seven of the twenty-six connectors cannot be used** — four are `Idea · NOT AVAILABLE`, two
+are in development, and one is `Productive · DO NOT USE`. Naming one of them costs a site
+visit. Full catalogue with availability: [`connectors.md`](references/connectors.md).
+
+The three that come up most:
+
+- **`DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` do not exist.** Both `Idea`, both noted
+  *"Development to be started with Rollout in Dolne Vestenice"*. And **73 machines across the
+  two families are integrated anyway**, over OPC UA — 30 of the 32 B&R rows are recorded as
+  `Central OPCUA Aggregation Server`. An unavailable native connector is not an unreachable
+  PLC. Ask what the machine exposes before raising a barrier.
+- **`SFT-SIMATIC S7-Connector` is `DO NOT USE`**, because it is not developed cloud-native and
+  *"still does not support CYBER SECURITY compliant communication to the PLC."* The second
+  reason ends the conversation: it is a security position, not a preference. For S7-300/400 on
+  the edge, use `DTQ-S7-Connector`. The restriction is on Softing's **edgeConnector**, not on
+  the dataFEED OPC Suite aggregation server, which is a different product on a different path.
+- **`DTQ-OPCUA-Connector` — Productive · USE — is the standing fallback.** It reaches any OPC
+  UA server and does not care what is behind it: a machine's **own embedded server**
+  (topology ②, direct) or the **Central Aggregation Server** (topology ③, bridge). Same
+  container, two jobs — and on the bridge path the machine is reached by two connectors in
+  series, so the Machine List row must name both.
+
+One field pair disagrees with itself: `DTQ-MODBUS-Connector` is `status: Idea` and
+`utilization: USE`. Confirm with the IIAE before promising a Modbus route — **80 machines are
+on Modbus / TCP** — and record the answer.
 
 ## ⚠ Two things the OESL guidance gets wrong
 

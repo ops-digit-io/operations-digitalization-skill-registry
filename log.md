@@ -5,6 +5,13 @@ not a concept.
 
 ## 2026-08-26
 
+- Described the OPC UA direct connector properly and added availability to every connector
+  table. `references/connectors.md` covers all 26 with what each reaches, over which protocol,
+  which PLCs, its container image, and whether it can be used — seven cannot. The B&R and
+  Bachmann connectors are `Idea · NOT AVAILABLE` while 73 machines across those families are
+  integrated over OPC UA, so `check_availability.py` now routes them to `DTQ-OPCUA-Connector`
+  instead of raising a connector gap, and no longer offers the `DO NOT USE`
+  `SFT-SIMATIC S7-Connector` to Siemens machines.
 - Built out `od-data-availability-check`: four references, the verdict asset, and
   `check_availability.py`, which walks the six steps against the Machine List, the Connector
   Overview and the 825-flow Node-RED corpus and names which step a request dies at. Step 5 is

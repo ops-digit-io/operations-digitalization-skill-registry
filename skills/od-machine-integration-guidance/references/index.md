@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Connectors](connectors.md) | Skill Reference | All 26 connectors with what each reaches, over which protocol, which PLCs, and - decisively - whether it is available at all. |
 | [Decision paths](decision-paths.md) | Skill Reference | How a machine is routed to one of the three ingress variants, what the fallback is at each branch, and what decides it. |
 | [Fallbacks](fallbacks.md) | Skill Reference | The eight places an integration actually gets blocked, what each looks like, and the route around it. |
 | [IIoT edge platform](iiot-edge-platform.md) | Skill Reference | The edge pattern: a DATATRONiQ edge device in the machine cabinet, what it speaks, and where its data lands. |

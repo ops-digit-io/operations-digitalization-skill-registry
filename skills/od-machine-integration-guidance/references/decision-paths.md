@@ -90,7 +90,8 @@ table below.
 | **Siemens NCU** | Sinumerik 840D / 840 UDP | ✅ | ✅ *(next)* | Dedicated connector on the edge side |
 | | Sinuvars | ✅ | ✅ *(next)* | Edge only in the live tree |
 | **Beckhoff** | — | ⚠️ `TODO` | ❌ **no driver** | **Neither route works as written.** dataFEED has no Beckhoff/ADS data source; the edge body is unwritten. Reach it via Modbus TCP, or a TwinCAT OPC UA / OPC DA server. IIAE question |
-| **B&R** | INA2000 | — | ⚠️ `TODO` | Neither route has a written body — IIAE question |
+| **B&R** | INA2000 / Automation PC | — | ✅ **in use** | `DTQ-B&R-Connector` is **Idea · NOT AVAILABLE**, so there is no edge route. 30 of 32 B&R machines are integrated via the aggregation server today; dataFEED has a B&R driver. The written body is still `TODO`, but the route is real |
+| **Bachmann** | MX213 / MX220 | — | ✅ **in use** | `DTQ-Bachmann-Connector` is **Idea · NOT AVAILABLE**. 44 of 63 machines integrated; reached over OPC UA. 24 rows carry the vendor `Bachmann OPC`, which is the same fleet named differently |
 | **Omron** | NJ / CJ | ⚠️ `TODO` | ✅ *(next)* | Edge body is a task stub, no procedure |
 | **Rockwell / Allen Bradley** | CLX · SLC / PLC-5 | ✅ | ✅ | Aggregation procedure is fully written in `rules-next` |
 | **Modbus** | TCP / RTU | ⚠️ `TODO` | ✅ | **Aggregation is the documented route.** Also the practical route for a Beckhoff or Wago PLC that speaks Modbus TCP |
@@ -151,54 +152,75 @@ machine; a **tool** is a system a plant uses; they are never the same row.
 
 ### Edge platform — DATATRONiQ connectors
 
-**`DTQ-OPCUA-Connector` is the one that is not like the others.** Every other connector
-reaches a *machine*; this one reaches an OPC UA **server** — which is how the edge reads the
-Central Aggregation Server, and equally how it reads a machine's own embedded UA server.
+Full catalogue, with availability and container images, in
+[`connectors.md`](connectors.md). **Seven of the twenty-six cannot be used**, so check
+availability before naming one.
 
-| Connector | Reaches | Via |
-|---|---|---|
-| **DTQ-OPCUA-Connector** | **Any OPC UA server — including the Central Aggregation Server** | **OPC-UA** |
-| DTQ-S7-Connector | Siemens S7 | PROFINET IO |
-| DTQ-S7-NET-Connector | Siemens S7, low frequency | ⟨not recorded⟩ |
-| DTQ-TIA-Connector | Siemens TIA | ⟨not recorded⟩ |
-| DTQ-SINUMERIK-Connector | Sinumerik NCU | UDP/IP |
-| DTQ-SINUVARS-Connector | Sinuvars | TCP/IP |
-| DTQ-SIMOTIOND-Connectors | Simotion D | ⟨not recorded⟩ |
-| DTQ-Beckhoff-Connector | Beckhoff | ADS |
-| DTQ-EthercatIO-Connector | EtherCAT I/O | ⟨not recorded⟩ |
-| DTQ-B&R-Connector | B&R | ⟨not recorded⟩ |
-| DTQ-Bachmann-Connector | Bachmann | ⟨not recorded⟩ |
-| DTQ-ALLENBRADLEY-ROCKWELL-Connector | Rockwell | ⟨not recorded⟩ |
-| DTQ-OMRON FINS-Connector | Omron | OMRON FINS |
-| DTQ-MODBUS-Connector | Modbus device | Modbus TCP |
-| DTQ-RS232-Connector | Serial device | RS232 |
+**`DTQ-OPCUA-Connector` — Productive · USE — is the one that is not like the others.** Every
+other connector reaches a *machine* by speaking its PLC's protocol. This one reaches an OPC UA
+**server**, and does not care what is behind it. That is two jobs in one container:
+
+- **Direct** (topology ②) — the machine's **own embedded OPC UA server**.
+- **Bridge** (topology ③) — the Central Aggregation Server, which has already collected many
+  machines.
+
+It is also **the standing fallback wherever a native connector does not exist**, which is how
+most of the B&R and Bachmann estate is integrated today.
+
+| Connector | Reaches | Via | Available? |
+|---|---|---|---|
+| **DTQ-OPCUA-Connector** | **Any OPC UA server — a machine's own, or the Aggregation Server** | **OPC-UA** | ✅ |
+| DTQ-S7-Connector | Siemens S7-300 / S7-400 | PROFINET IO | ✅ |
+| DTQ-TIA-Connector | Siemens S7-1200 / S7-1500 | ⟨not recorded⟩ | ✅ |
+| DTQ-S7-NET-Connector | Siemens S7, low frequency | ⟨not recorded⟩ | ✅ |
+| DTQ-SINUMERIK-Connector | Sinumerik NCU | UDP/IP | ✅ |
+| DTQ-SINUVARS-Connector | Sinuvars | TCP/IP | ✅ |
+| DTQ-SIMOTIOND-Connectors | Simotion D | ⟨not recorded⟩ | ✅ |
+| DTQ-Beckhoff-Connector | Beckhoff | ADS | ✅ |
+| DTQ-ALLENBRADLEY-ROCKWELL-Connector | Rockwell | ⟨not recorded⟩ | ✅ |
+| DTQ-OMRON FINS-Connector | Omron | OMRON FINS | ✅ |
+| DTQ-EthercatIO-Connector | EtherCAT I/O | ⟨not recorded⟩ | ✅ |
+| DTQ-RS232-Connector | Serial — Keyence TM-3000 | RS232 | ✅ |
+| DTQ-MODBUS-Connector | Modbus device | Modbus TCP | ⚠️ `Idea` but marked `USE` — confirm with the IIAE |
+| DTQ-B&R-Connector | B&R | ⟨not recorded⟩ | ❌ **NOT AVAILABLE** — use OPC UA |
+| DTQ-Bachmann-Connector | Bachmann | ⟨not recorded⟩ | ❌ **NOT AVAILABLE** — use OPC UA |
 
 ### Edge platform — non-PLC connectors (the overlooked fallback)
 
 **These need no PLC program.** If the "machine" really exposes a file, an image or a web
 service, one of these is the route and the whole PLC branch is irrelevant.
 
-| Connector | Reaches | Via |
-|---|---|---|
-| DTQ-FTP2MIL-Connector | File drop → MIL | FTP |
-| DTQ-SMB-Connector | Windows file share | SMB |
-| DTQ-KEYENCECAM-Connector | Keyence camera | FTP |
-| DTQ-Multicon CMC131-Connector | Multicon controller | HTTP(S) |
-| DTQ-PIOVAN-Connector | Piovan system | SOAP |
-| DTQ-Engel EMI-Connector | Engel injection moulding | Engel-specific |
-| DTQ-ZWICK-Connector | Zwick testing machine | ⟨not recorded⟩ |
-| DTQ-IROPTRIS-Connector | Optris IR sensor | ⟨not recorded⟩ |
-| DTQ-SmartKlaus-Connector | SmartKlaus | ⟨not recorded⟩ |
+| Connector | Reaches | Via | Available? |
+|---|---|---|---|
+| DTQ-FTP2MIL-Connector | File drop, Cognex cameras | FTP → direct S3 | ✅ |
+| DTQ-KEYENCECAM-Connector | Custom Keyence camera | FTP | ✅ |
+| DTQ-IROPTRIS-Connector | Optris IR camera | ⟨not recorded⟩ | ✅ |
+| DTQ-PIOVAN-Connector | Piovan drying systems | SOAP | ✅ |
+| DTQ-Multicon CMC131-Connector | Multicon controller | HTTP(S) | ✅ |
+| DTQ-Engel EMI-Connector | Engel injection moulding | Engel-specific | ❌ **NOT AVAILABLE** |
+| DTQ-ZWICK-Connector | Zwick testing machine | ⟨not recorded⟩ | ❌ **NOT AVAILABLE** |
+| DTQ-SMB-Connector | Windows file share | SMB → direct S3 | ❌ **NOT AVAILABLE** (in development) |
+| DTQ-SmartKlaus-Connector | SmartKlaus | ⟨not recorded⟩ | ❌ **NOT AVAILABLE** (in development) |
 
-**Where a vendor-specific connector exists, use it** rather than reaching the vendor's PLC
-generically. Engel, Piovan, Keyence, Zwick and Optris all have one.
+**Where a vendor-specific connector exists *and is available*, use it** rather than reaching
+the vendor's PLC generically. Piovan, Keyence, Optris and Multicon qualify. **Engel and Zwick
+do not** — 38 Engel machines have no vendor connector, so check what the controller exposes;
+current Engel controllers serve OPC UA.
 
 ### Aggregation server — Softing connectors
 
-| Connector | Reaches |
-|---|---|
-| SFT-SIMATIC S7-Connector | Siemens S7 family, from the Softing server |
-| SFT-OPC-Suite | The dataFEED OPC Suite itself, aggregating all its data sources |
+| Connector | Reaches | Available? |
+|---|---|---|
+| SFT-OPC-Suite | The dataFEED OPC Suite itself, aggregating all its data sources | ✅ Productive · USE |
+| SFT-SIMATIC S7-Connector | Siemens SIMATIC S7-300/400, from the Softing server | ❌ **DO NOT USE** |
+
+**`SFT-SIMATIC S7-Connector` is forbidden, and the Overview records why:** it is not developed
+cloud-native, and it *"still does not support CYBER SECURITY compliant communication to the
+PLC."* The second reason ends the conversation — that is a security position, not a
+preference, and it is not waived because a project is in a hurry. For S7-300/400 on the edge
+the route is `DTQ-S7-Connector`. The restriction is on Softing's **edgeConnector** container,
+not on the dataFEED OPC Suite aggregation server, which is a different product on a different
+path.
 
 These two are the *server* side of the concentrator. The *edge* side of the same link is
 `DTQ-OPCUA-Connector`. A machine on this path is reached by two connectors in series, and
