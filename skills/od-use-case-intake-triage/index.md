@@ -5,3 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Use-case intake triage](SKILL.md) | Agent Skill | Decide what OD does with an incoming request — accept it into one of the four service lines, refuse it, or route it to the function that actually owns it. Applies OD's intake channels, its prioritization rule and its explicit refusal list, and names the lane, the owner role and the trigger the request satisfies. Use whenever a request, demand, idea or "can you just…" arrives and it is not yet clear whether it is OD work, which lane it belongs to, or whether it should be refused. Also use to check that a request already in flight was admitted on legitimate grounds. |
+
+| Folder | Holds |
+|---|---|
+| [references/](references/index.md) | 1 concept(s) |

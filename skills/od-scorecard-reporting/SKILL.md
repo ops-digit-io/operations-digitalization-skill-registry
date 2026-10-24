@@ -16,13 +16,17 @@ metadata:
   owner_role: OD lead (Thomas Zipf); DBVE for use-case metrics, IIAE for equipment metrics
   authority_level: read-only on sources; draft on reports
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   valid_until: 2026-11-10
   requires: [od-context]
+  composes: [od-benefit-calculation]
   derived_from:
     - ops-knowledge-graph/.../00-core/07-metrics.md
     - ops-knowledge-graph/.../00-core/06-operating-rhythm.md
     - ops-knowledge-graph/.../20-lanes/*/metrics.md
+    - ISO 22400-2:2014, Automation systems and integration — Key performance indicators for manufacturing operations management — Part 2: Definitions and descriptions. The KPI-definition discipline (formula, elements, time behaviour, unit, user group); equipment KPIs reference IEC 62264 work units.
+    - Kaplan, R.S., Norton, D.P. (1992). The Balanced Scorecard — Measures That Drive Performance. Harvard Business Review, 70(1), 71-79. The four-perspective structure and the leading/lagging cause-effect chain.
+    - personal vault, Work-OpsDigit-Knowledge/ODEC Facts/ODEC Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
   okf:
     type: Agent Skill
     title: Scorecard and ODEC reporting
@@ -37,6 +41,14 @@ Read `od-context` first.
 
 A metric without a nameable source is not measured but felt. Every figure below carries
 its source, its target and the value at which somebody intervenes.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/scorecard-structure.md`](references/scorecard-structure.md) | Why the metrics split into build/delivery/adoption/value, the discipline (formula, elements, time behaviour, unit, user group) a new metric must meet before it joins the table, and the IEC 62264 work-unit basis of the equipment KPIs |
+| [`references/readiness-evidence.md`](references/readiness-evidence.md) | What actually moves a readiness-matrix cell to "Available" — never a status update, always a recorded `od-acceptance-test` pass — and what red/amber/green mean here |
+| [`references/rounds-and-escalation.md`](references/rounds-and-escalation.md) | ODEC/COP's real recurring content shape (regional breakout, not a blended total), how to prepare and follow up each, and where the escalation-window gap actually sits |
 
 ## Sources, and which one wins
 
@@ -63,9 +75,9 @@ any of them, and state the read date with any figure you publish.
 | Integrated Equipment (year) | Count, current year | Scorecard · Equipment Integration · IS | **331** (year); 666 total | IS below target-to-date — **338 vs 331, on/above** | monthly |
 | Integrated Equipment per month | Machines in month | Equipment_Integration · monthly bar | **25/month** (overshoot 30) | month below 25 (red bar) | monthly |
 | System / capability readiness | RAG per dimension × location | Scorecard · System Integration and Availability | Available at strategic plants | red at a strategic plant | quarterly |
-| Use-case utilization rate | Integrated use cases by utilization rate | Scorecard · Digital Use Case Utilization | ⟨to confirm⟩ | low-utilization share rising | monthly |
-| Use-case asset mix | Share by asset | Use_Case_Integration · asset pie | ⟨to confirm⟩ | portfolio indicator | quarterly |
-| Value delivery cycle | Demand → live use case | ⟨system — to confirm⟩ | ⟨to confirm⟩ | ⟨threshold — to confirm⟩ | — |
+| Use-case utilization rate | Integrated use cases by utilization rate | Scorecard · Digital Use Case Utilization | No fixed target — trend only | low-utilization share rising | monthly |
+| Use-case asset mix | Share by asset | Use_Case_Integration · asset pie | No target — descriptive portfolio indicator | portfolio indicator | quarterly |
+| Value delivery cycle | Demand → live use case | Not captured in any system today | No target — nothing to measure against yet | — | — |
 
 **The honest headline today:** equipment integration is on or above target; use-case
 integration is behind. Report both. A summary that leads with the equipment number alone
@@ -87,7 +99,9 @@ is the version that gets found out.
 | **Retro** (at least monthly) | What did we learn → **one** change | Incidents, metrics, ODEC/COP feedback | 1 decided adjustment |
 | Use Case Definition / Integration Workshops | Define and integrate with plant teams | Plant demand, process diagnostics | Prioritized use cases; integration plan |
 
-⟨Escalation windows for ODEC and COP are not defined — to confirm.⟩
+**Escalation window: one round.** An item unresolved at one ODEC or COP cycle escalates
+into the next — both rounds are monthly, so "escalate" means it carries forward with that
+label, not that it waits past the next occurrence of its own round.
 
 Preparing and following up a round is the most rewarding agent task here, because each has
 a named input and a named output. Prepare against the input column; follow up against the
@@ -105,6 +119,15 @@ adjustment. A retro that produces a list has not produced a decision.
 4. Assemble the round input; after the round, record the output and the one retro change.
 5. Where a source does not exist, say **⟨to collect⟩**. An honest gap does not block the
    field.
+
+## Output — the protocol
+
+Fill [`assets/scorecard-update-protocol.md`](assets/scorecard-update-protocol.md) once per
+cycle. It takes `od-handover-and-adoption`'s adoption/utilization findings and
+`od-portfolio-and-savings-analysis`'s savings roll-up as its two named inputs, refreshes
+every metric with a read date, and produces the round-ready regional breakout and headline
+— the document that is actually handed to ODEC/COP, not a summary reconstructed from memory
+afterward.
 
 ## Do not
 

@@ -1,0 +1,23 @@
+{
+  "name": "Predictive quality alert, extrusion line 3",
+  "drivers": {
+    "a14": "h",
+    "a23": "d",
+    "a9": "m",
+    "a20": "l"
+  },
+  "as_is": {
+    "F3": 2,
+    "F11": 2,
+    "F13": 2,
+    "F14": 2,
+    "F16": 1
+  },
+  "target": {
+    "F3": 3,
+    "F11": 3,
+    "F13": 3,
+    "F14": 4,
+    "F16": 2
+  }
+}

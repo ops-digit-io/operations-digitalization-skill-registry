@@ -119,7 +119,7 @@ merges them is not comparable between lines.
 2. **Ask the machine builder what it already exposes.** A machine shipping an OPC UA
    companion spec needs no PLC program change and no tag export — it is the cheapest
    integration available. Put this in the requirement spec **at purchase**, not at
-   integration: `od-machine-integration-guidance`'s new-machine branch exists for this.
+   integration: `od-equipment-integration`'s (guidance route) new-machine branch exists for this.
 3. **Map, do not translate.** Where the standard has a name, use the standard's name in the
    data-point label. A local alias defeats the point.
 4. **Record the deviation** where the machine cannot supply a standard element.

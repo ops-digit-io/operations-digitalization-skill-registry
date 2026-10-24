@@ -17,13 +17,15 @@ metadata:
   authority_level: read-only on SharePoint
   status: stable
   delivered: 2026-08
-  sources_read: 2026-08-24
+  sources_read: 2026-10-22
   requires: [od-context]
   composes: [od-portfolio-and-savings-analysis]
   derived_from:
     - ops-knowledge-graph/_knowledge/20-Done/SharePoint list export procedure.md
     - ops-knowledge-graph/_knowledge/90-Sources/sharepoint-export-playbook.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
+    - ShortPoint (vendor documentation, not Microsoft), REST API filtering reference (Modified-field OData filter syntax), retrieved 2026-10-22
+    - Microsoft Learn, Synchronize SharePoint items using the REST service (GetListItemChangesSinceToken), retrieved 2026-10-22
   okf:
     type: Agent Skill
     title: SharePoint list export
@@ -48,11 +50,14 @@ whoever can get a service account provisioned.
 
 **Needs:** an authenticated browser session on the site, and the list name and site path.
 
-## Where the procedure lives
+## The references are the substance
 
-`90-Sources/sharepoint-export-playbook.md` in the `ops-knowledge-graph` bundle, with the
-scripts inline and a **generic template at the end** — change the list name and the site
-path, everything else stays identical. Do not re-derive the scripts; run the playbook.
+| File | Use it for |
+|---|---|
+| [`references/export-procedure.md`](references/export-procedure.md) | The runnable browser-console steps — verify access, export items/versions/attachments, download attachments — change only `LIST` and `SITE` |
+| [`references/reliability-discipline.md`](references/reliability-discipline.md) | For a recurring export, not a one-off capture: the incremental `Modified`-filter pattern, the list-view-threshold trap it can walk into, checkpointing so a failed run resumes instead of silently skipping, and schema-drift detection |
+
+Do not re-derive the scripts; run the procedure as given.
 
 ## The lists this applies to
 
@@ -84,11 +89,18 @@ depends on any of them, it needs a different route, not a harder attempt at this
 ## Procedure
 
 1. Open the list in an authenticated browser session.
-2. Take the generic template from the end of the playbook; set the list name and site path.
-3. Run the items export, then the version-history export, then the attachments export.
+2. Run `references/export-procedure.md`'s steps; set the list name and site path.
+3. First run against a list: full export. Every run after: either full again, or
+   incremental since the last checkpoint — `references/reliability-discipline.md` says
+   which.
 4. Verify counts against the list's own item count before using the output.
-5. Land the export under `90-Sources/sharepoint/<list>/` and note the capture date — every
-   figure derived from it inherits that date.
+5. Run `scripts/check_export_schema.py` against the previous export. A clean result is
+   `OK`; anything else is a finding to carry forward, not a reason to re-run and hope.
+6. Land the export under `90-Sources/sharepoint/<list>/`, and record the run in
+   [`assets/export-run-log.md`](assets/export-run-log.md) — date, counts, mode, the schema
+   check's result. This log plus the export file is what `od-portfolio-and-savings-analysis`
+   reads as "the list"; neither the capture date nor the row counts should need deriving
+   again downstream.
 
 ## Do not
 
@@ -96,3 +108,10 @@ depends on any of them, it needs a different route, not a harder attempt at this
 - Do not hand-edit an export. Files under `90-Sources/` are conformant but never
   hand-edited; correct the SharePoint list and re-export.
 - Do not present a figure from an export without its capture date.
+- Do not run an incremental export without checking the schema first — a column removed
+  since the checkpoint reads as merely absent, not as an error, in every row the incremental
+  filter returns.
+- Do not reach for `GetListItemChangesSinceToken` by default. It is the only route that
+  reports deletions, but it returns XML against a POST body, not JSON against a GET — a real
+  parsing change from the rest of this procedure. Use it only where a deletion itself is the
+  thing worth knowing (the Machine List, where a machine disappearing is information).

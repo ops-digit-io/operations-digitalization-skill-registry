@@ -16,13 +16,16 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
   authority_level: draft and report; the plant decides PRODUCTIVE
   status: stable
-  sources_read: 2026-08-10
+  origin: derived
+  sources_read: 2026-10-22
   requires: [od-context]
-  composes: [od-scorecard-reporting]
+  composes: [od-acceptance-test, od-scorecard-reporting, od-use-case-standardization]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Handover.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
+    - Prosci. The Prosci ADKAR Model. prosci.com/methodology/adkar. Retrieved 2026-10-22. Industry framework, not peer-reviewed — used for the individual-adoption diagnostic, not for the delivery-status facts above it.
+    - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
   okf:
     type: Agent Skill
     title: Handover and adoption
@@ -34,6 +37,13 @@ metadata:
 # Handover and adoption
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/adkar-diagnostic.md`](references/adkar-diagnostic.md) | Why a use case stalls between `IMPLEMENTED` and `PRODUCTIVE` — the ADKAR barrier-point diagnostic, mapped onto this function's own lifecycle, with a worked example |
+| [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | What counts as evidence of adoption, strongest first — confirmed 2026-10-22, closing "how is adoption confirmed and recorded" |
 
 Handover is a **tracked state** in this function, not a courtesy at the end of a build.
 272 use cases record it `DONE` and 38 `ONGOING` — it trails development and implementation
@@ -78,16 +88,23 @@ is why `IMPLEMENTED` (129) and `PRODUCTIVE` (167) are separate statuses and why
 utilization is tracked at all. The recipient-feedback loop for this lane is the
 utilization rate on the Digitalization Scorecard.
 
-⟨How plant adoption is confirmed and recorded is an open gap — to confirm.⟩ Until it is
-closed, record adoption as what it is: the named plant owner's statement, dated.
+**How plant adoption is confirmed and recorded, closed 2026-10-22:**
+`references/evidence-of-adoption.md`'s three-tier evidence ranking (system usage log,
+named owner's dated statement, third-party observation) is confirmed — none of which is
+"handover marked `DONE`."
 
 ## When utilization is low or `NEVER`
 
-1. Ask whether it is consumed inside a ritual. If it belongs to no moment in the day, that
+1. **Run the ADKAR barrier-point diagnostic** (`references/adkar-diagnostic.md`) before
+   assuming the asset is the problem — rate Awareness, Desire, Knowledge, Ability,
+   Reinforcement in order and act on the first one that is insufficient. A `NEVER` row is as
+   often a Desire problem (nobody asked for it) as a Knowledge problem (nobody was trained),
+   and the fix for each is different.
+2. Ask whether it is consumed inside a ritual. If it belongs to no moment in the day, that
    is the finding.
-2. Review with the requester — or **retire it**. Retiring an unused asset is a legitimate
+3. Review with the requester — or **retire it**. Retiring an unused asset is a legitimate
    outcome and better than carrying it.
-3. If the same asset is used at another plant, the gap is adoption, not the asset →
+4. If the same asset is used at another plant, the gap is adoption, not the asset →
    `od-use-case-standardization`.
 
 ## Handing over the function, not a use case
@@ -103,9 +120,20 @@ looked up live in the systems of record. It is deliberately **not** written into
 knowledge base, because a frozen copy of a moving thing is worse than no copy: it is a
 copy people trust.
 
+## Output — the protocol
+
+Fill [`assets/handover-protocol.md`](assets/handover-protocol.md) once per use case. It
+pulls its first section straight from `od-acceptance-test`'s protocol (no re-asking), adds
+the three-question test, the ADKAR barrier point and the evidence-of-adoption tier, and its
+last section is what `od-scorecard-reporting` reads back on every cadence — reopen it, do
+not file it away after one good week.
+
 ## Do not
 
 - Do not record handover `DONE` because delivery happened.
 - Do not report `IMPLEMENTED` counts as adoption.
 - Do not close a handover with an unnamed plant owner.
 - Do not hide a `NEVER` utilization row.
+- Do not apply a Knowledge-element fix (more training) to a Desire-element barrier point
+  (nobody wanted it) — see `references/adkar-diagnostic.md`.
+- Do not record an adoption tier stronger than the evidence actually available.

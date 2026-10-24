@@ -224,7 +224,7 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
         v.step(2, "integrated", "BLOCKER",
                "No machine in scope is INTEGRATED — " + ", ".join(
                    f"{k}: {n}" for k, n in status.most_common()),
-               fix="Route to od-equipment-integration-assessment. This is an integration "
+               fix="Route to od-equipment-integration (assessment route). This is an integration "
                    "request, not a data request, and it belongs to a different lane.",
                evidence="Machine List integration_status")
     elif blank:

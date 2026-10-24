@@ -19,7 +19,7 @@ metadata:
   authority_level: read-only on data sources; draft on assets and summaries; recommend on promotion
   escalation: Information Integration lane for data gaps; OD lead (Thomas Zipf) via COP otherwise
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-23
   requires: [od-context]
   composes: [od-data-availability-check, od-analytics-asset-build, od-portfolio-and-savings-analysis, od-scorecard-reporting]
   derived_from:
@@ -29,7 +29,7 @@ metadata:
     title: Analytical Support Service
     tags: [analytical-support-service, lane]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 
 # Analytical Support Service
@@ -42,6 +42,12 @@ Read `od-context` first.
 
 This lane is deliberately the fast one. Its job is an answer, not an industrialized
 solution — and knowing which of the two is being asked for is step one.
+
+## The reference
+
+| File | Use it for |
+|---|---|
+| [`references/composed-artefacts.md`](references/composed-artefacts.md) | Which composed skill's real, built asset answers each step below, and what is still genuinely open rather than just unlinked |
 
 ## Happy path
 
@@ -75,7 +81,7 @@ requester feedback or validation.
 | Task | Trigger | Template |
 |---|---|---|
 | Ad-hoc analytics / Process First-Aid | Plant or OPEX analytical request | ⟨template — to confirm⟩ |
-| Data-availability check | Request scoped | Data-platform check ⟨template — to confirm⟩ |
+| Data-availability check | Request scoped | `od-data-availability-check`'s `assets/data-availability-verdict.md` |
 | Dashboard / report build | Insight validated | Standard dashboard/report layout |
 | Utilization review | Monthly | Scorecard · Use Case Utilization |
 | Promote to standard use case | Recurring high-value analytics | Hand-off to Use Case Support lane |
@@ -105,7 +111,7 @@ than filling them**; respect data governance and access management on the data p
 
 | Metric | Source | Target | Intervene from |
 |---|---|---|---|
-| Use-case utilization rate | Scorecard · Use Case Utilization | ⟨to confirm⟩ | low-utilization share rising |
+| Use-case utilization rate | Scorecard · Use Case Utilization | No fixed target — trend only (confirmed 2026-10-22, `od-scorecard-reporting`) | low-utilization share rising |
 | Analytics asset output | `OD-Report-Use_Case_Integration` · Use Case Asset | ⟨to confirm⟩ | output below plan |
 | Ad-hoc turnaround (request → insight) | ⟨tracker — to collect⟩ | ⟨to confirm⟩ | turnaround rising |
 | Promotion rate (ad-hoc → standard) | ⟨tracker — to collect⟩ | ⟨to confirm⟩ | value indicator |

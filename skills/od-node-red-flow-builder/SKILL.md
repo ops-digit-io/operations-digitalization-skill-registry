@@ -22,7 +22,7 @@ metadata:
   sources_read: 2026-08-25
   corpus: 825 flows across 53 ct-oesl Node-RED instances
   requires: [od-context]
-  composes: [od-machine-integration-guidance, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
+  composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 exported flow JSON + 827 generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
@@ -57,7 +57,7 @@ Flows publish back onto the MQTT spine; the platform offloads from there through
 **Databricks** to an **Azure Storage Account** in **Parquet**, which is what analytics and
 dashboards read. A flow that derives a signal is therefore writing something that lands in
 the lake — which is why the output UUID and the `isDelta` semantics matter beyond the flow.
-The machine is connected per `od-machine-integration-guidance`; the signal standard is set
+The machine is connected per `od-equipment-integration` (guidance route); the signal standard is set
 per `od-signal-standardization`; the flow is what turns raw `PLCPacket` messages into the
 derived signal a use case consumes — a cycle time, a part count, a quality event, an alert.
 
@@ -71,7 +71,7 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 | File | Use it for |
 |---|---|
 | [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the 825 flows actually build - artefact families, a sanitized generalized example per artefact, the reusable building blocks, and the naming convention |
-| [`references/transformation-patterns.md`](references/transformation-patterns.md) | The ten patterns the estate is built from, with real implementations and what breaks each |
+| [`references/transformation-patterns.md`](references/transformation-patterns.md) | The thirteen patterns the estate is built from, with real implementations and what breaks each |
 | [`references/composing-transformations.md`](references/composing-transformations.md) | **When no pattern fits.** The four questions that classify any transformation, the multi-input latch-and-evaluate shape, windowing, timer-driven emit, composition rules, and the two timestamp conventions |
 | [`references/streaming.md`](references/streaming.md) | How the real-time path works - the hops and their guarantees, split/rbe/delay/join, QoS, ordering, flow context, back-pressure |
 | [`references/architecture.md`](references/architecture.md) | An annotated walkthrough of one canonical flow, node by node |
@@ -223,21 +223,24 @@ encoding — it does not reuse the input packet's identity.
 
 ## The transformation itself
 
-Ten patterns cover almost every flow in the estate. Full implementations and failure modes:
-[`references/transformation-patterns.md`](references/transformation-patterns.md).
+Thirteen patterns cover almost every flow in the estate. Full implementations and failure
+modes: [`references/transformation-patterns.md`](references/transformation-patterns.md).
 
 | # | Pattern | Flows | Shape |
 |---|---|--:|---|
 | P1 | **Delta gate** | ~200 | `switch` on `payload.isDelta` — turns a cyclic sample stream into events |
 | P2 | **Accumulator** | 34+ | `flow.get(k) \|\| 0` → increment → `flow.set` → publish, with a separate reset |
 | P3 | **Two-event time range** | 104 | Capture start, capture end, subtract; guard `NaN` and negative |
-| P4 | **Threshold crossing** | 32 | `rbe` on a boolean edge, then P3 across the edges |
-| P5 | **Value mapping** | 29 | A chain of `eq` switches, raw integer → named state |
+| P4 | **Threshold crossing** | 32 | A function flags `isHigh` on every sample; `rbe` turns it into two clean edges |
+| P5 | **Value mapping** | 29 | A chain of `eq` switches (single flag) or nested `if` (several flags), code → named state |
 | P6 | **Lookup table** | 83 | CSV loaded once into flow context; `filter` per message |
 | P7 | **UUID → label** | 195 | Enrich from the edge platform's data-point config |
 | P8 | **Build from nothing** | 65 | Construct a packet from config; pack `sysTime` yourself |
 | P9 | **Clear the oneof** | 34+ | Delete the value fields that do not apply |
 | P10 | **Composite string** | 8 | Split a packed `valueString`; validate every field |
+| P11 | **OEE chain** | 7 | Availability × performance × quality, each published, then multiplied |
+| P12 | **Windowed extremum** | 2+ | Latch the running max/min while a threshold-bounded window is open |
+| P13 | **Liveness watchdog** | 2+ | Detect a heartbeat toggle; publish "not alive" on a timeout, node-scoped `context` |
 
 **These ten are single-input shapes, and single input is the minority.** 461 of the 665
 flows that carry data-point config read **two or more** data points — every tolerance check,
@@ -398,7 +401,7 @@ fix available in this corpus, and it costs one field.
 - **Never invent a UUID.** Fetch the data-point config from the edge platform.
 - **Never change the signal standard from inside a flow.** A per-plant fix-up buried in a
   `function` node is how cross-plant comparability is lost — that is a
-  `od-signal-standardization` decision, Consultation ⟨counterpart to confirm⟩.
+  `od-signal-standardization` decision, Consultation with Plant ME / Plant IT.
 - **Never leave `debug` nodes enabled at volume in prod.** 1,976 debug nodes exist across
   the corpus; they are a development aid.
 - **A flow is not done until its acceptance test passes** end to end — machine → connector →

@@ -5,3 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Benefit calculation and savings](SKILL.md) | Agent Skill | Build and record the OD benefit case for a use case, and keep the savings ledger honest — write saving rows with their amount, year, category, business rationale and calculation methodology; classify each as calculation or estimation; record what the money is waiting on; and never merge tracked euros with finance-proven ones. Use when a use case is being prioritized and needs a business case, when a saving needs recording or defending, when someone asks what a use case or the portfolio is worth, or when a savings figure is about to leave the department. |
+
+| Folder | Holds |
+|---|---|
+| [references/](references/index.md) | 1 concept(s) |

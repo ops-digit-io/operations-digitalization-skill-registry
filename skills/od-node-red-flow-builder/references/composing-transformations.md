@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Composing transformations
-description: "What to do when the transformation you need is not one of the ten patterns: how to compose one and how to prove it works."
+description: "What to do when the transformation you need is not one of the thirteen patterns: how to compose one and how to prove it works."
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel

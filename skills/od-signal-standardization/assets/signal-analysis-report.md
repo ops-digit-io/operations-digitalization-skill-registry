@@ -115,5 +115,5 @@ consumers listed and a migration, or it stays as-is with the deviation recorded.
 
 ## 10 · Feeds
 
-⟨`od-requirements-breakdown` §5 Tags of Interest · `od-machine-integration-guidance` ·
+⟨`od-requirements-breakdown` §5 Tags of Interest · `od-equipment-integration` (guidance route) ·
 `od-node-red-flow-builder` config · the Machine CV⟩

@@ -47,9 +47,24 @@ The flow is **not running** in that state, and nothing else in the log says so. 
 looks deployed but moves no data on a fresh instance, check the log for this before anything
 else.
 
-⟨Which other contrib modules the estate's instances carry — the `OPCUA-IIoT-*`, `ui-*` and
-`influxdb` nodes in the corpus all come from further modules — is not recorded. Check the
-target instance's palette before using a node type outside core.⟩
+**Other contrib modules in use across the corpus**, by node-type prefix — same check as
+above: `[info] Waiting for missing types to be registered` names exactly which one is
+missing.
+
+| Prefix / type | Likely module | Where it shows up |
+|---|---|---|
+| `OPCUA-IIoT-*` (Read, Write, Browser, Inject, Response, Result-Filter, Listener) | an OPC-UA client nodeset (e.g. `node-red-contrib-iiot-opcua`) | 59+ nodes, mostly Caluire and the IIoT OPC-UA browser/test flows |
+| `ui-*` **and** `ui_*` (gauge, button, text, form, dropdown, table, chart, …) | `node-red-dashboard` | OEE and alerting dashboards. **Both an underscored and a hyphenated family appear side by side** — e.g. `ui-gauge` and `ui_gauge`, `ui-button` and `ui_button` — consistent with two dashboard-module generations both being in use across the estate, not one typo. Confirm which generation a target instance actually has before reusing a UI node type from the other family |
+| `influxdb in` / `influxdb out` | `node-red-contrib-influxdb` | Sun Prairie, Ponta Grossa |
+| `postgres` | a PostgreSQL contrib node | Data-quality scoring (`ct-oesl-wth1`) |
+| `sparkplug-payload` | a Sparkplug B decode/encode node | One MQTT Sparkplug test flow (`ct-oesl-wth2`) |
+| `soap request` | a SOAP contrib node | One webserver-integration flow (`ct-oesl-spr`) |
+| `data-generator`, `uuid`, `counter`, `e-mail` | small single-purpose contrib nodes | Scattered, one or two flows each |
+
+**None of this is guaranteed to be on every instance.** It names what the exported flows use,
+not what is installed everywhere — an instance that has never run an OPC-UA or dashboard
+flow may carry none of these. Check the target instance's palette before reusing a node type
+outside core, the same way you would for `node-red-contrib-protobuf` above.
 
 ## 2 · The config nodes
 

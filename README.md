@@ -50,11 +50,9 @@ sits in the delivery order and how far it is built — 4 carry references and a 
 | Skill | Use it when |
 |---|---|
 | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | A request arrives and it is not clear whether it is OD's, which lane, or whether to refuse |
-| [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | A demand has to become a defined use case, or a workshop needs preparing |
 | [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | An accepted demand has to become a requirement another lane can act on, then an epic with a background and at least two user stories — all four lanes |
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | A business case is needed, a saving is recorded, or a euro figure is leaving the department |
 | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | A second plant wants what a first plant has; CSP, cluster tags, the reference library |
-| [`od-equipment-integration-assessment`](skills/od-equipment-integration-assessment/SKILL.md) | A plant or wave needs an integration roadmap; a machine's route is unclear |
 | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | An integration or solution is being declared done |
 | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Handing to a plant, or asking whether something is actually in use |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data — walks the six steps against the real sources and names which one the request dies at |
@@ -68,7 +66,8 @@ sits in the delivery order and how far it is built — 4 carry references and a 
 
 | Skill | Use it when | Scope |
 |---|---|---|
-| [`od-machine-integration-guidance`](skills/od-machine-integration-guidance/SKILL.md) | Deciding how to connect a specific machine — route, connector, and the checklist it must clear | OD |
+| [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | A demand has to become a defined use case, or a workshop needs preparing | OD |
+| [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | A plant/wave needs an integration roadmap, or a specific machine needs a route, connector and checklist — two entry routes, one protocol | OD |
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
 | [`od-node-red-flow-troubleshooting`](skills/od-node-red-flow-troubleshooting/SKILL.md) | Diagnosing a flow that is silent, wrong, or broken — from its exported JSON | OD |
 | [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | Analysing a machine's data points and standardizing them so another plant can consume them | OD |
@@ -77,13 +76,16 @@ sits in the delivery order and how far it is built — 4 carry references and a 
 These carry `references/` alongside `SKILL.md`, and for the two derived skills the
 references are the substance rather than an appendix:
 
-- **machine integration** (six files, ~1,600 lines) — `decision-paths.md` (the four gates,
-  PLC family → available routes, connector selection, dead ends, and a worked routing end to
-  end), `softing-datafeed.md` (the Central Aggregation Server from the Softing dataFEED
-  **V5.70 manual** with page references: driver list, licensing, per-driver settings, and
-  where the OESL guidance does not match the product), `softing-tag-syntax.md` (tag
-  identifiers per family), `softing-data-targets.md` (how the data leaves — the OPC UA path
-  the edge reads, Store and Forward, the Preprocessing Engine, the unrouted MQTT capability),
+- **equipment integration** (eight files) — `barrier-classes.md` (which vendors/protocols are
+  actually cheap vs. expensive to connect, resolved against the raw integration-rate data, plus
+  brownfield hurdles beyond this estate), `connectors.md` (all 26 connectors, what each reaches,
+  and — decisively — whether it's available), `decision-paths.md` (the four gates, PLC family →
+  available routes, connector selection, dead ends, and a worked routing end to end),
+  `softing-datafeed.md` (the Central Aggregation Server from the Softing dataFEED **V5.70
+  manual** with page references: driver list, licensing, per-driver settings, and where the
+  OESL guidance does not match the product), `softing-tag-syntax.md` (tag identifiers per
+  family), `softing-data-targets.md` (how the data leaves — the OPC UA path the edge reads,
+  Store and Forward, the Preprocessing Engine, the unrouted MQTT capability),
   `iiot-edge-platform.md` (the three layers, six phases, hardware sequence, and how to choose
   when both routes are open), `fallbacks.md` (the eight ways an integration blocks and what
   to try first)
@@ -209,6 +211,7 @@ skills/<skill-id>/references/    supporting material for the technical skills
 docs/skill-map.md                the four lanes' skills/tools/interfaces, consolidated
 docs/derivation.md               concept-by-concept trace back to the knowledge graph
 docs/skill-state-map.md          generated Mermaid map: every skill, its lane, its build state, what is next
+docs/vault-alignment.md          crosswalk against the department's own skill-map plan and gap analysis, and the resulting build order
 docs/okf-conventions.md          the OKF contract, its three deviations, and what the guard refuses
 index.md, */index.md             generated OKF directory indexes (OKF §8)
 log.md                           bundle history (OKF §9)

@@ -89,7 +89,7 @@ is derived from that material.
 | `od-use-case-definition` | `20-lanes/use-case-support-service/{playbook,tasks}`; `10-Department/Use case lifecycle`, `Use case standardization` |
 | `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
 | `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
-| `od-equipment-integration-assessment` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*` |
+| `od-equipment-integration` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*`; `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation) |
 | `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across 650 use cases, the latent heading grammar inside `target_text`/`blockers`, and the 268 legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
 | `od-signal-standardization` | `node-red-auto-docs/docs/**` (260 signal names in use across 3,400 references); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
 | `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
@@ -100,7 +100,6 @@ is derived from that material.
 | `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
 | `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
-| `od-machine-integration-guidance` | `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; `10-Department/Machine integration`; `20-Done/Equipment integration guide` |
 | `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
 | `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against all 825 flows, and its finding counts are the corpus's actual defect distribution |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
@@ -481,12 +480,12 @@ variants, one terminus", because the earlier phrasing was itself carrying the er
 the Equipment integration guide says *IIoT Edge Platform* and *Central Aggregation Server*,
 the department notes say *IIoT edge computing platform* and *central OPC-UA server*, and the
 recommendation bodies add *Softing OPC-UA Aggregation Server* and *Softing DataFeed*. Rather
-than pick one and silently rewrite the others, `od-machine-integration-guidance` carries a
+than pick one and silently rewrite the others, `od-equipment-integration` carries a
 Terminology table mapping canonical name to alias to what the thing actually is, states that
-the concept and the route are the same thing seen from two sides, and the adjacent skills
-(`od-equipment-integration-assessment`, `od-information-integration-service`) now name both
-and point here for per-machine routing. The rule for prose: use the guide's wording when
-handing someone a procedure, because that is the label on their screen.
+the concept and the route are the same thing seen from two sides, and the adjacent skill
+(`od-information-integration-service`) names both and points here for per-machine routing.
+The rule for prose: use the guide's wording when handing someone a procedure, because that is
+the label on their screen.
 
 **Secrets found in the source are named, never reproduced.** The flow corpus contains 23
 literal Teams webhook URLs and 30 literal Bearer tokens. The Node-RED skill states the
@@ -499,7 +498,18 @@ pipeline construction are steps 3 and 4 of one playbook but one write right and 
 decision mode, so they are one skill. Acceptance testing appears in two lanes with one
 protocol, so it is one skill referenced twice.
 
-## Keeping this registry true
+**`od-equipment-integration-assessment` and `od-machine-integration-guidance` merged into one
+skill, 2026-09-17.** The two were already sequential in practice — the guidance skill's own
+body said "for a whole plant or wave, start at `od-equipment-integration-assessment` and come
+back here per machine" — which made them one procedure described as two skills composing each
+other, the same shape `derivation.md` already names for acceptance testing ("one protocol,
+referenced twice"). The merge makes that explicit: `od-equipment-integration` opens with two
+entry routes (assessment — no plant/wave inventory exists yet; guidance — a specific machine's
+route is needed and the assessment already happened) instead of routing a reader through a
+`composes` edge to find out. Both routes now write into a structured, reusable protocol
+document (`assets/`) rather than leaving the output as prose. Every skill that referenced
+either old id by name was repointed to `od-equipment-integration`, with `(assessment route)`
+or `(guidance route)` added in prose wherever the distinction still matters to the reader.
 
 The knowledge graph is the source; this registry is derived. When a lane pack, a core file
 or a `10-Department` concept changes:

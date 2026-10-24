@@ -1,0 +1,751 @@
+{
+ "focus_areas": {
+  "F1": {
+   "name": "Degree of system familiarity",
+   "levels": [
+    {
+     "code": "C1-1",
+     "level": 1,
+     "label": "unknown",
+     "evidence": "Objects are not registered anywhere; existence is implicit in paper or operator knowledge."
+    },
+    {
+     "code": "C1-2",
+     "level": 2,
+     "label": "anonymously known",
+     "evidence": "Objects are counted or tracked by type, lot or batch (e.g. 'profile article X, batch 123'), not per piece."
+    },
+    {
+     "code": "C1-3",
+     "level": 3,
+     "label": "individually known",
+     "evidence": "Each instance carries a unique ID (serial, DMC, RFID, asset tag) that systems can read and reference."
+    },
+    {
+     "code": "C1-4",
+     "level": 4,
+     "label": "managed as an entity",
+     "evidence": "Each instance has a managed digital record (state, history, relationships) - an asset or product twin, e.g. an Asset Administration Shell or an entry in a governed asset registry."
+    }
+   ]
+  },
+  "F2": {
+   "name": "Communication capabilities",
+   "levels": [
+    {
+     "code": "C2-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "Isolated machine; data only via manual reading or local display."
+    },
+    {
+     "code": "C2-2",
+     "level": 2,
+     "label": "passive",
+     "evidence": "Data available only when an external system polls registers or tags (e.g. classic PLC polling, file drops)."
+    },
+    {
+     "code": "C2-3",
+     "level": 3,
+     "label": "active",
+     "evidence": "The asset pushes values or events on change (e.g. OPC UA subscriptions, MQTT publishing)."
+    },
+    {
+     "code": "C2-4",
+     "level": 4,
+     "label": "compliant to the service system",
+     "evidence": "The asset exposes and consumes defined services with contracts (e.g. OPC UA companion-spec methods, Sparkplug-style birth/death and state, standardized command interfaces)."
+    }
+   ]
+  },
+  "F3": {
+   "name": "Degree of intelligence",
+   "levels": [
+    {
+     "code": "C3-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No processing."
+    },
+    {
+     "code": "C3-2",
+     "level": 2,
+     "label": "data handling",
+     "evidence": "Buffers, filters or forwards raw data."
+    },
+    {
+     "code": "C3-3",
+     "level": 3,
+     "label": "information recognition",
+     "evidence": "Recognizes states or deviations itself (e.g. condition rules, edge analytics, quality flags)."
+    },
+    {
+     "code": "C3-4",
+     "level": 4,
+     "label": "decision ability",
+     "evidence": "Takes decisions within a defined scope (e.g. self-adjusting parameters, autonomous rescheduling)."
+    }
+   ]
+  },
+  "F4": {
+   "name": "Localization",
+   "levels": [
+    {
+     "code": "C4-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "Location known only by people or fixed by layout."
+    },
+    {
+     "code": "C4-2",
+     "level": 2,
+     "label": "localizable",
+     "evidence": "Location determined automatically (RFID gates, RTLS, barcode scans at checkpoints, AGV positions)."
+    }
+   ]
+  },
+  "F5": {
+   "name": "Mobility",
+   "levels": [
+    {
+     "code": "C5-1",
+     "level": 1,
+     "label": "stationary",
+     "evidence": "Fixed lines and machines."
+    },
+    {
+     "code": "C5-2",
+     "level": 2,
+     "label": "partly mobile",
+     "evidence": "Equipment or workstations relocated between orders or shifts (mobile carts, modular cells)."
+    },
+    {
+     "code": "C5-3",
+     "level": 3,
+     "label": "mobile",
+     "evidence": "Equipment that moves during operation (AGV/AMR, mobile robots, mobile devices for workers)."
+    }
+   ]
+  },
+  "F6": {
+   "name": "Degree of automation",
+   "levels": [
+    {
+     "code": "C6-1",
+     "level": 1,
+     "label": "manual",
+     "evidence": "Manual operations with tools."
+    },
+    {
+     "code": "C6-2",
+     "level": 2,
+     "label": "partly automated",
+     "evidence": "Mixed manual and automated steps."
+    },
+    {
+     "code": "C6-3",
+     "level": 3,
+     "label": "fully automated",
+     "evidence": "Line runs automatically end to end within its scope."
+    },
+    {
+     "code": "C6-4",
+     "level": 4,
+     "label": "modularly automated",
+     "evidence": "Automation built from standardized modules that can be recombined (plug and produce, MTP-like module concepts)."
+    }
+   ]
+  },
+  "F7": {
+   "name": "Style of information provision",
+   "levels": [
+    {
+     "code": "C7-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "Information comes verbally or not at all."
+    },
+    {
+     "code": "C7-2",
+     "level": 2,
+     "label": "analogous",
+     "evidence": "Paper, shift boards, printed work instructions."
+    },
+    {
+     "code": "C7-3",
+     "level": 3,
+     "label": "digital (stationary)",
+     "evidence": "Fixed terminals, line dashboards, andon screens."
+    },
+    {
+     "code": "C7-4",
+     "level": 4,
+     "label": "digital (mobile)",
+     "evidence": "Tablets, smartphones, wearables with role-based content."
+    },
+    {
+     "code": "C7-5",
+     "level": 5,
+     "label": "augmented / virtual reality",
+     "evidence": "AR/VR for instructions, maintenance or training."
+    }
+   ]
+  },
+  "F8": {
+   "name": "Human-machine interface",
+   "levels": [
+    {
+     "code": "C8-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No interaction possible."
+    },
+    {
+     "code": "C8-2",
+     "level": 2,
+     "label": "technical",
+     "evidence": "Machine panels, SCADA screens, keyboard and mouse."
+    },
+    {
+     "code": "C8-3",
+     "level": 3,
+     "label": "natural",
+     "evidence": "Voice, gesture, conversational assistants, intuitive touch UIs."
+    }
+   ]
+  },
+  "F9": {
+   "name": "Communication interfaces",
+   "levels": [
+    {
+     "code": "C9-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No network connection."
+    },
+    {
+     "code": "C9-2",
+     "level": 2,
+     "label": "cable-based",
+     "evidence": "Wired Ethernet or fieldbus."
+    },
+    {
+     "code": "C9-3",
+     "level": 3,
+     "label": "wireless",
+     "evidence": "Wi-Fi, private 5G, LPWAN or other wireless links."
+    }
+   ]
+  },
+  "F10": {
+   "name": "Communication protocols",
+   "levels": [
+    {
+     "code": "C10-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No data exchange."
+    },
+    {
+     "code": "C10-2",
+     "level": 2,
+     "label": "proprietary",
+     "evidence": "Vendor-specific protocols and drivers (proprietary PLC protocols, custom file formats)."
+    },
+    {
+     "code": "C10-3",
+     "level": 3,
+     "label": "standardized",
+     "evidence": "Open standards (OPC UA, MQTT, Modbus TCP, EUROMAP 77/83 for injection molding, umati)."
+    },
+    {
+     "code": "C10-4",
+     "level": 4,
+     "label": "(4th level - not defined in Table 5)",
+     "evidence": "Plausibly: standardized plus semantic information models (companion specs, Sparkplug B, AAS submodels). Unconfirmed."
+    }
+   ]
+  },
+  "F11": {
+   "name": "Degree of data collection",
+   "levels": [
+    {
+     "code": "C11-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No systematic collection."
+    },
+    {
+     "code": "C11-2",
+     "level": 2,
+     "label": "historical",
+     "evidence": "Data logged and available later (historian exports, batch uploads, daily reports)."
+    },
+    {
+     "code": "C11-3",
+     "level": 3,
+     "label": "real-time",
+     "evidence": "Data available in seconds or less to consumers (streams, subscriptions)."
+    }
+   ]
+  },
+  "F12": {
+   "name": "Point of information storage",
+   "levels": [
+    {
+     "code": "C12-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No storage."
+    },
+    {
+     "code": "C12-2",
+     "level": 2,
+     "label": "outsourced",
+     "evidence": "Stored centrally away from the asset (plant server, data center, cloud)."
+    },
+    {
+     "code": "C12-3",
+     "level": 3,
+     "label": "combined",
+     "evidence": "Local buffer or store at asset or edge plus central storage."
+    },
+    {
+     "code": "C12-4",
+     "level": 4,
+     "label": "embedded",
+     "evidence": "Data stored in the asset or product itself (smart product, device memory, RFID with data)."
+    }
+   ]
+  },
+  "F13": {
+   "name": "Point of information processing",
+   "levels": [
+    {
+     "code": "C13-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No processing."
+    },
+    {
+     "code": "C13-2",
+     "level": 2,
+     "label": "outsourced",
+     "evidence": "All logic runs centrally (MES, server, cloud)."
+    },
+    {
+     "code": "C13-3",
+     "level": 3,
+     "label": "combined",
+     "evidence": "Edge pre-processing plus central analytics."
+    },
+    {
+     "code": "C13-4",
+     "level": 4,
+     "label": "embedded",
+     "evidence": "Processing within the asset (smart sensors, PLC-embedded analytics)."
+    }
+   ]
+  },
+  "F14": {
+   "name": "Data analytics",
+   "levels": [
+    {
+     "code": "C14-1",
+     "level": 1,
+     "label": "none",
+     "evidence": "No analytics."
+    },
+    {
+     "code": "C14-2",
+     "level": 2,
+     "label": "descriptive",
+     "evidence": "Reports and dashboards (OEE, scrap rates)."
+    },
+    {
+     "code": "C14-3",
+     "level": 3,
+     "label": "diagnostic",
+     "evidence": "Root-cause analysis, correlations, drill-downs."
+    },
+    {
+     "code": "C14-4",
+     "level": 4,
+     "label": "predictive",
+     "evidence": "Forecasts and predictions (predictive maintenance, predictive quality)."
+    },
+    {
+     "code": "C14-5",
+     "level": 5,
+     "label": "prescriptive",
+     "evidence": "Recommendations or optimized actions (setpoint optimization, scheduling)."
+    }
+   ]
+  },
+  "F15": {
+   "name": "Structure of the control system",
+   "levels": [
+    {
+     "code": "C15-1",
+     "level": 1,
+     "label": "no control system",
+     "evidence": "No systematic control (manual planning)."
+    },
+    {
+     "code": "C15-2",
+     "level": 2,
+     "label": "centralized",
+     "evidence": "Central MES or planning system controls all units."
+    },
+    {
+     "code": "C15-3",
+     "level": 3,
+     "label": "hybrid",
+     "evidence": "Central planning with local autonomy for defined decisions."
+    },
+    {
+     "code": "C15-4",
+     "level": 4,
+     "label": "decentralized",
+     "evidence": "Autonomous units negotiate and decide (agent-based, fractal)."
+    }
+   ]
+  },
+  "F16": {
+   "name": "Continuity of the information model",
+   "levels": [
+    {
+     "code": "C16-1",
+     "level": 1,
+     "label": "no continuity",
+     "evidence": "Each system has its own data model; mapping happens manually or per interface."
+    },
+    {
+     "code": "C16-2",
+     "level": 2,
+     "label": "partly continuous",
+     "evidence": "Shared models in parts (e.g. common material master, partial naming standards)."
+    },
+    {
+     "code": "C16-3",
+     "level": 3,
+     "label": "continuous",
+     "evidence": "One consistent semantic model across systems and levels - the same asset, order and product mean the same thing everywhere."
+    }
+   ]
+  }
+ },
+ "complexity_drivers": {
+  "a1": {
+   "name": "Changes in the order sequence",
+   "category": "Planning",
+   "areas": [
+    "F15",
+    "F11",
+    "F3"
+   ]
+  },
+  "a2": {
+   "name": "Functionalities and interfaces",
+   "category": "Organization",
+   "areas": [
+    "F16",
+    "F10"
+   ]
+  },
+  "a3": {
+   "name": "Multidimensionality of material flow connections",
+   "category": "Processes",
+   "areas": [
+    "F4",
+    "F1"
+   ]
+  },
+  "a4": {
+   "name": "Hierarchy levels and organization entities",
+   "category": "Organization",
+   "areas": []
+  },
+  "a5": {
+   "name": "Variety of warehouses, employees and machines to manage",
+   "category": "Structure",
+   "areas": [
+    "F4",
+    "F1"
+   ]
+  },
+  "a6": {
+   "name": "Variety of suppliers to manage",
+   "category": "Network",
+   "areas": []
+  },
+  "a7": {
+   "name": "Heterogeneity of customers and customer groups",
+   "category": "Network",
+   "areas": []
+  },
+  "a8": {
+   "name": "Strength of competitors",
+   "category": "Network",
+   "areas": []
+  },
+  "a9": {
+   "name": "Degree of automation",
+   "category": "Processes",
+   "areas": [
+    "F6"
+   ]
+  },
+  "a10": {
+   "name": "Diversity of the sourcing strategy",
+   "category": "Organization",
+   "areas": []
+  },
+  "a11": {
+   "name": "Dynamics of technology lifecycles",
+   "category": "Technology",
+   "areas": [
+    "F10",
+    "F16"
+   ]
+  },
+  "a12": {
+   "name": "Dynamics of product programs",
+   "category": "Product",
+   "areas": [
+    "F1",
+    "F6"
+   ]
+  },
+  "a13": {
+   "name": "Vertical integration",
+   "category": "Structure",
+   "areas": []
+  },
+  "a14": {
+   "name": "Control and monitoring requirements on the shop floor",
+   "category": "Processes",
+   "areas": [
+    "F11",
+    "F13",
+    "F3"
+   ]
+  },
+  "a15": {
+   "name": "Heterogeneity of the product program",
+   "category": "Product",
+   "areas": [
+    "F1",
+    "F7"
+   ]
+  },
+  "a16": {
+   "name": "Heterogeneity of resources",
+   "category": "Product",
+   "areas": [
+    "F10",
+    "F2",
+    "F16"
+   ]
+  },
+  "a17": {
+   "name": "Employee qualification",
+   "category": "Organization",
+   "areas": [
+    "F7",
+    "F8"
+   ]
+  },
+  "a18": {
+   "name": "Demand volatilities",
+   "category": "Planning",
+   "areas": [
+    "F6",
+    "F5",
+    "F14"
+   ]
+  },
+  "a19": {
+   "name": "Consistency of the information flow along the order process",
+   "category": "Structure",
+   "areas": [
+    "F16",
+    "F11",
+    "F2"
+   ]
+  },
+  "a20": {
+   "name": "Product variety",
+   "category": "Product",
+   "areas": [
+    "F1",
+    "F7",
+    "F6"
+   ]
+  },
+  "a21": {
+   "name": "Product complexity",
+   "category": "Product",
+   "areas": [
+    "F1",
+    "F7"
+   ]
+  },
+  "a22": {
+   "name": "Standardization of hardware and software",
+   "category": "Structure",
+   "areas": [
+    "F10",
+    "F16",
+    "F2"
+   ]
+  },
+  "a23": {
+   "name": "Disruptions and outages of production resources",
+   "category": "Technology",
+   "areas": [
+    "F14",
+    "F11",
+    "F13"
+   ]
+  },
+  "a24": {
+   "name": "Uncertainty of delivery dates",
+   "category": "Planning",
+   "areas": [
+    "F14",
+    "F15"
+   ]
+  },
+  "a25": {
+   "name": "Networking of processes and process steps",
+   "category": "Processes",
+   "areas": [
+    "F2",
+    "F16",
+    "F11"
+   ]
+  },
+  "a26": {
+   "name": "Dynamic of market competition",
+   "category": "Network",
+   "areas": []
+  },
+  "a27": {
+   "name": "Centralization of planning and control tasks",
+   "category": "Planning",
+   "areas": [
+    "F15"
+   ]
+  }
+ },
+ "dependencies_best_fit": {
+  "C1-2": [],
+  "C1-3": [],
+  "C1-4": [
+   "C2-2",
+   "C12-2"
+  ],
+  "C2-2": [
+   "C1-2",
+   "C9-2"
+  ],
+  "C2-3": [
+   "C1-3"
+  ],
+  "C2-4": [
+   "C1-4",
+   "C10-4"
+  ],
+  "C3-2": [
+   "C1-4",
+   "C2-2",
+   "C9-2",
+   "C13-2"
+  ],
+  "C3-3": [
+   "C2-3",
+   "C13-3",
+   "C14-2"
+  ],
+  "C3-4": [
+   "C2-4",
+   "C12-4",
+   "C14-5"
+  ],
+  "C4-2": [
+   "C1-3",
+   "C2-2"
+  ],
+  "C5-2": [
+   "C2-2",
+   "C4-2",
+   "C9-3",
+   "C12-3"
+  ],
+  "C6-2": [],
+  "C6-3": [],
+  "C6-4": [
+   "C2-4",
+   "C5-2",
+   "C10-3",
+   "C15-2"
+  ],
+  "C7-2": [],
+  "C7-3": [
+   "C8-2",
+   "C16-2"
+  ],
+  "C7-4": [
+   "C9-3"
+  ],
+  "C7-5": [],
+  "C8-2": [],
+  "C8-3": [],
+  "C9-2": [],
+  "C9-3": [],
+  "C10-2": [],
+  "C10-3": [],
+  "C10-4": [
+   "C16-2"
+  ],
+  "C11-2": [
+   "C2-2",
+   "C15-1"
+  ],
+  "C11-3": [],
+  "C12-2": [
+   "C2-2"
+  ],
+  "C12-3": [
+   "C3-2"
+  ],
+  "C12-4": [
+   "C2-3",
+   "C3-3"
+  ],
+  "C13-2": [],
+  "C13-3": [
+   "C3-2"
+  ],
+  "C13-4": [
+   "C3-4"
+  ],
+  "C14-2": [
+   "C16-2"
+  ],
+  "C14-3": [
+   "C11-3"
+  ],
+  "C14-4": [],
+  "C14-5": [],
+  "C15-2": [
+   "C12-3",
+   "C13-3",
+   "C14-5",
+   "C16-2"
+  ],
+  "C15-3": [],
+  "C16-2": []
+ }
+}

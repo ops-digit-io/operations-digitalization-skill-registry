@@ -4,8 +4,8 @@ description: >-
   Diagnose an OESL Node-RED flow that is broken, silent, or producing wrong values —
   starting from its exported flow JSON. Runs a static analyser over the export to find the
   failure modes that actually occur in this estate (unpacked or unre-packed sysTime,
-  protobuf oneof violations, hardcoded secrets, a severed pipeline, UUIDs buried in
-  function bodies, missing error handling, unset flow context), then works a
+  protobuf oneof violations, hardcoded secrets or thresholds, a severed pipeline, UUIDs
+  buried in function bodies, missing error handling, unset flow context), then works a
   symptom-to-cause table for anything the analyser cannot see. Use when a flow publishes
   nothing, publishes the wrong value or a nonsense timestamp, stops after a redeploy, when
   a dashboard has gone flat, or when reviewing a flow before it goes to a prod instance.
@@ -62,7 +62,7 @@ Every check exists because the failure it catches is present in the estate. Run 
 
 | Check | Severity | Flows |
 |---|---|--:|
-| `hardcoded-secret` | BLOCKER | 42 |
+| `hardcoded-secret` | BLOCKER | 40 |
 | `systime-not-unpacked` | BLOCKER | 39 |
 | `systime-not-repacked` | BLOCKER | 19 |
 | `oneof-violation` | BLOCKER | 18 |
@@ -71,11 +71,16 @@ Every check exists because the failure it catches is present in the estate. Run 
 | `no-catch` | WARN | 380 |
 | `output-uuid-not-set` | WARN | 203 |
 | `no-flow-config` | WARN | 136 |
-| `spine-severed` | WARN | 102 |
+| `hardcoded-threshold` | WARN | 68 |
+| `spine-severed` | WARN | 67 |
 | `unset-context-read` | WARN | 99 |
 | `mostly-unnamed-nodes` | WARN | 47 |
 
-**119 blocker findings across 59 flows.** These are not hypothetical.
+**119 blocker findings across 98 flows.** These are not hypothetical. `hardcoded-threshold`
+is the newest check, added once `od-node-red-flow-builder` named the pattern (P4/P12): a
+limit compared directly in a function body instead of read from flow config — real examples
+range from a pressure threshold to a day-length constant, and all of them make the flow
+untunable without a redeploy.
 
 ## Step 2 — read the findings in this order
 
@@ -87,7 +92,10 @@ Every check exists because the failure it catches is present in the estate. Run 
 3. **`oneof-violation`** — more than one `measured_value` field survives to the encode.
 4. **`spine-severed`** — a decode, split, encode or mqtt out node with no inbound wire. The
    flow moves no data at all; this is usually why "it publishes nothing".
-5. Everything else, in the order printed.
+5. **`hardcoded-threshold`** — not data loss, but the flow cannot be tuned or ported without
+   editing a function. 68 flows in the corpus carry one; see `od-node-red-flow-builder`'s
+   P4/P12 for the pattern it should have been instead.
+6. Everything else, in the order printed.
 
 ## Step 3 — what the analyser cannot see
 
@@ -123,7 +131,7 @@ do not apply. Skip that and the packet encodes and decodes to something unintend
 **3 · Modbus and unit conversion.** Where a flow carries a Modbus-sourced value, there is
 no type system underneath it: a holding register is sixteen bits and nothing says it is
 tenths of a degree. If the conversion is missing the data flows and is wrong. See
-`od-machine-integration-guidance`.
+`od-equipment-integration` (guidance route).
 
 ## Fast triage by symptom
 

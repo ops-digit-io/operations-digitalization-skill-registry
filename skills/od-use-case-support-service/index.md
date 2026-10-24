@@ -5,3 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Smart Factory Use Case Support Service](SKILL.md) | Agent Skill | Run the Smart Factory Use Case Support Service lane end to end — collect plant use-case demand, define the use case with the plant, break down the requirement, build the OD benefit case, prioritize by value, hand to integration, then evaluate impact and adoption. Includes the Process First-Aid Kit. Use when a plant asks for a use case, a definition or integration workshop is requested, a use case needs prioritizing or a business case, or someone asks what happens to a use case between demand and daily use. Owner is the Digital-Business-Value-Engineer (DBVE). |
+
+| Folder | Holds |
+|---|---|
+| [references/](references/index.md) | 1 concept(s) |

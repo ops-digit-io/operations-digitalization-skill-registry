@@ -5,3 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Portfolio and savings analysis](SKILL.md) | Agent Skill | Analyse the OD portfolio and its savings ledger without being wrong about it — cut 650 use cases by plant, region, capability, cluster, status and asset; read the savings ledger for what it does and does not claim; and apply the three ways this data most often misleads (absence read as zero, tracked read as proven, implemented read as in use). Use for any portfolio question, regional or plant comparison, standardization or conversion-rate analysis, savings roll-up, or when a number about the portfolio is going into a deck, a board paper or a business case. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 3 concept(s) |

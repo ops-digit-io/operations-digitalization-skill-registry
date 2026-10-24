@@ -54,6 +54,7 @@ instance — is this.
 | Always the same value | `rbe` on the wrong property, or comparing the whole payload (a changing timestamp defeats it) | The `rbe` node's *property* |
 | Value never updates after the first message | `rbe` where `rbei` was meant, or vice versa | `rbe` = block unless changed; `rbei` = also ignore the initial value |
 | Off by a factor of 10, 100, 1000 | Missing unit conversion — Modbus carries no type | The transformation function |
+| Correct today, but can't be tuned per machine, or stays wrong after the limit changes elsewhere | A threshold or limit is a literal in the function body instead of read from flow config | `hardcoded-threshold` finding; move it into `Set flow config` |
 | Boolean arrives as a number | The wrong `value*` field was read | Check which `oneof` member the source data point actually uses |
 | String truncated or with junk leading characters | S7 vs S5 string interpretation — S7 strings carry a two-byte length prefix | Upstream, at the aggregation server or connector |
 | Value correct on one plant, wrong on another | Tags structured to the PLC layout instead of the data model | `od-signal-standardization` — this is a standard problem, not a flow problem |
@@ -132,5 +133,5 @@ over a bare `return null`.
 
 If the input topic carries no messages for the configured UUID, the flow is correct and the
 problem is upstream: machine, connector, ingress variant, or the data-point configuration
-on the edge platform. Hand it to `od-machine-integration-guidance` — and record the finding
+on the edge platform. Hand it to `od-equipment-integration` (guidance route) — and record the finding
 against the machine, not the flow.

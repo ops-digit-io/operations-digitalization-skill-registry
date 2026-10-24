@@ -19,9 +19,9 @@ metadata:
   authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
   escalation: OD lead (Thomas Zipf) via ODEC
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-23
   requires: [od-context]
-  composes: [od-acceptance-test, od-handover-and-adoption, od-scorecard-reporting, od-decision-routing]
+  composes: [od-requirements-breakdown, od-acceptance-test, od-handover-and-adoption, od-scorecard-reporting, od-decision-routing]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,skills,tasks,metrics,agent-brief}.md
   okf:
@@ -29,12 +29,18 @@ metadata:
     title: Project Support & Application Consultancy
     tags: [lane, project-support-consultancy]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 
 # Project Support & Application Consultancy
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/composed-protocols.md`](references/composed-protocols.md) | Which real protocol in which composed skill answers each happy-path step — this lane routes through them, it does not duplicate them |
 
 **Trigger.** A digital investment project kick-off.
 **Definition of done.** Integration project managed to acceptance test; application
@@ -53,8 +59,9 @@ consulted and accepted. **Customer.** Plant / project teams. **Scope:** regional
 | 6 | Ensure use cases are fully integrated into daily processes | both | Adoption confirmed |
 | 7 | Report progress and impact (Equipment / Applications / Use Cases) | both | ODEC reporting updated |
 
-Step 5 → `od-acceptance-test`. Step 6 → `od-handover-and-adoption`. Step 7 →
-`od-scorecard-reporting`. Investment and gate questions → `od-decision-routing`.
+Step 5 → `od-acceptance-test`. Step 6 → `od-handover-and-adoption` — "adoption confirmed"
+means its three-tier evidence ranking is met, never just that handover is marked `DONE`.
+Step 7 → `od-scorecard-reporting`. Investment and gate questions → `od-decision-routing`.
 
 ## Error paths
 
@@ -74,10 +81,10 @@ licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off.
 | Task | Trigger | Template |
 |---|---|---|
 | Project kick-off with OD team | Digital investment project initiated | ⟨kick-off agenda — to confirm⟩ |
-| Requirements breakdown | Kick-off done | ⟨requirement spec — to confirm⟩ |
+| Requirements breakdown | Kick-off done | `od-requirements-breakdown`'s `assets/requirement-template.md` |
 | Integration project status | Weekly / milestone | Project tracker |
-| Application consultancy session | Solution design needed | ⟨template — to confirm⟩ |
-| Acceptance test | Solution ready | Acceptance test protocol |
+| Application consultancy session | Solution design needed | ⟨template — to confirm; PS-04 application consulting was never built as its own skill⟩ |
+| Acceptance test | Solution ready | `od-acceptance-test`'s `assets/acceptance-test-protocol.md` |
 | Progress & impact reporting | ODEC cycle | ODEC report (Equipment / Applications / Use Cases) |
 
 ## Stage gates

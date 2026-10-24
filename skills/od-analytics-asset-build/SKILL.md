@@ -16,14 +16,17 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   requires: [od-context]
-  composes: [od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
+  composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
+    - Kimball, R. and Ross, M. (2013). The Data Warehouse Toolkit / the Kimball Lifecycle (3rd ed.), Wiley — the requirements-track/data-track/BI-track structure and the deployment-readiness gate, adapted below to this registry's own upstream/downstream skills.
+    - Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from.
+    - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
   okf:
     type: Agent Skill
     title: Analytics asset build
@@ -35,6 +38,19 @@ metadata:
 # Analytics asset build
 
 Read `od-context` first. Run `od-data-availability-check` before building anything.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/lifecycle-and-validation.md`](references/lifecycle-and-validation.md) | The build lifecycle mapped onto this registry's own upstream/downstream skills, and the validation checklist that separates "it renders" from "it is correct" |
+| [`references/asset-type-and-tier.md`](references/asset-type-and-tier.md) | The asset-type decision worked through, and exactly where this skill's job ends and `build-grafana-ops-dashboard`'s begins once "Dashboard" is chosen |
+
+**This skill does not re-derive Grafana build mechanics.** `build-grafana-ops-dashboard` already
+owns the SQL patterns, the manager/analyst/operations tiers, the variable wiring and the
+ECharts templates in depth — this skill is the layer above it: which asset type, for which
+ritual, validated against what, handed off to whom. Once the asset type is "Dashboard," go
+straight to that skill's Step 0.
 
 ## What this function actually produces
 
@@ -70,11 +86,13 @@ building, name the moment:
 
 ## Where it will live
 
-**Grafana** is where most of what the function builds is actually seen. It has no export
-of its own worth relying on, which is why capturing dashboard state was automated
-separately (the dashboard-screenshot automation in `_apps/`). Plan for that: if the state
-of your dashboard needs to appear in a report or a review, it goes through the screenshot
-route, not through a Grafana export.
+**Grafana** is where most of what the function builds is actually seen. Once this skill has
+named the ritual, the decision and chosen "Dashboard," the actual JSON build is
+`build-grafana-ops-dashboard`'s job — its schema interview, archetype choice and tier
+picking take over from here. Grafana has no export of its own worth relying on, which is why
+capturing dashboard state was automated separately (the dashboard-screenshot automation in
+`_apps/`). Plan for that: if the state of your dashboard needs to appear in a report or a
+review, it goes through the screenshot route, not through a Grafana export.
 
 **Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the
 steering layer, not the shop-floor layer. Do not build a line-side asset there.
@@ -91,13 +109,20 @@ portfolio or cross-plant question does not.
 2. Check the reference library first — take a proven entry rather than building
    → `od-use-case-standardization`.
 3. Name the **ritual** and the **decision** the asset supports.
-4. Choose the asset type from the table above; justify it if it is a dashboard by default.
-5. Build to the standard layout. Every figure traces to a nameable source.
-6. **Deliver it and explain it to the requester.** Delivery without explanation is the
+4. Choose the asset type from the table above; justify it if it is a dashboard by default
+   → `references/asset-type-and-tier.md`.
+5. Build to the standard layout. Every figure traces to a nameable source. If the asset is
+   a dashboard, hand the ritual, the tier and the data model to `build-grafana-ops-dashboard`
+   rather than hand-building panels here.
+6. **Validate before calling it built** — `references/lifecycle-and-validation.md`'s
+   checklist. Rendering is not the same claim as correct.
+7. **Deliver it and explain it to the requester.** Delivery without explanation is the
    most common route to a `NEVER` utilization row.
-7. Record on the use case: output asset, business process, **utilization expectation**,
-   named plant owner, data path → `od-handover-and-adoption`.
-8. Review utilization monthly; low utilization means rework or retire.
+8. Record on the use case: output asset, business process, **utilization expectation**,
+   named plant owner, data path → `od-handover-and-adoption`. Fill
+   [`assets/asset-build-protocol.md`](assets/asset-build-protocol.md) as the work happens —
+   it is what `od-acceptance-test` and `od-handover-and-adoption` both read next.
+9. Review utilization monthly; low utilization means rework or retire.
 
 ## When not to build
 

@@ -16,23 +16,32 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   requires: [od-context]
   derived_from:
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
+    - Rogers, P. and Blenko, M. (2006). Who Has the D? How Clear Decision Roles Enhance Organizational Performance. Harvard Business Review, 84(1), 52-61. The RAPID decision-rights framework (Recommend/Agree/Input/Perform/Decide), verified via Bain & Company's own summary, 2026-10-22 — grounds this skill's Tandem/Consultation/Information modes.
+    - personal vault, Work-OpsDigit-Knowledge/Split Slides/D-Operations Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
   okf:
     type: Agent Skill
     title: Decision routing and escalation
     tags: [all, practice]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Decision routing and escalation
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/decision-rights-framework.md`](references/decision-rights-framework.md) | Why Tandem/Consultation/Information are a cited framework (Bain's RAPID), not a house convention — and how to pick a mode for a decision not yet in the table |
+| [`references/escalation-worked-examples.md`](references/escalation-worked-examples.md) | Real ODEC-vs-COP blockers and how the forum was actually chosen, from the department's own call decks — the strategic/technical split within one topic (cybersecurity), a blocker that stayed at COP, and what happens when COP under-delivers |
 
 **The function proposes; other people decide.** Four of the five portfolio gates sit
 outside OD. The work that reliably moves is the work where the gate was identified at
@@ -47,7 +56,7 @@ engineering.**
 | Equipment integration go-ahead | IIAE | Plant ME / Plant IT | Tandem | **yes** | partially | per investment plan; Cyber Security sign-off for external connection | `execute-with-approval` |
 | Digitalization investment planning | OD lead | BA Operations | Consultation | **yes** | no | ⟨budget threshold — to confirm⟩ | `recommend` |
 | Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | ⟨counterpart to confirm⟩ | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
-| Data-model / signal standardization | IIAE | ⟨counterpart to confirm⟩ | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
+| Data-model / signal standardization | IIAE | Plant ME / Plant IT | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
 | Ad-hoc analytics delivery | DBVE | — | — | no | yes | read-only on source systems | `execute-autonomously` |
 
@@ -111,3 +120,9 @@ Escalate on these triggers from the risk register:
    narrow the action until it fits your level.
 4. Record the gate as a **dependency** on the use case or saving row so it stays visible.
 5. Escalate on the trigger, to the right forum, inside the round's window.
+
+## Output — the protocol
+
+Fill [`assets/decision-request.md`](assets/decision-request.md) per decision, not as a
+mental note: which row or gate, what the table says, how it was routed, and the outcome —
+so a decision that stalled has a record of where, not just a memory of it.

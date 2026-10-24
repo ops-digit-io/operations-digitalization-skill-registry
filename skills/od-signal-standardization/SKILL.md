@@ -26,7 +26,7 @@ metadata:
   sources_read: 2026-08-25
   corpus: 260 distinct signal names across 3,400 references in 825 flows
   requires: [od-context]
-  composes: [od-machine-integration-guidance, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
+  composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
@@ -255,7 +255,7 @@ python3 scripts/analyze_signals.py points.json --capability oee
 
 - **The PLC does not expose it** → machine and engineering. May need a PLC program change,
   which needs the program and somebody able to change it —
-  `od-machine-integration-guidance`.
+  `od-equipment-integration` (guidance route).
 - **It exists but is not configured** on the edge platform → integration. Cheap.
 
 Read the capability's requirements checklist in
@@ -305,7 +305,7 @@ assume more certainty than exists, and that assumption is how `AverageMeltTempat
 34 flows.
 
 The report feeds `od-requirements-breakdown` §5 *Tags of Interest*,
-`od-machine-integration-guidance`, the flow config in `od-node-red-flow-builder`, and the
+`od-equipment-integration` (guidance route), the flow config in `od-node-red-flow-builder`, and the
 Machine CV.
 
 ## A word on language

@@ -16,24 +16,31 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft on the business case; recommend on prioritization; never assert proven
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
+    - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 3 (benefit-calculation review) from the department's own record.
   okf:
     type: Agent Skill
     title: Benefit calculation and savings
     tags: [practice, use-case-support-service]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Benefit calculation and savings
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/review-checklist.md`](references/review-checklist.md) | Why the methodology field is usually the one missing, the three fixes tried before the current one, and the smell test that follows from it |
 
 A use case's value is recorded as **individual saving rows**, not as one number on the
 use case. 553 rows are tracked, totalling **€2,384,217**.

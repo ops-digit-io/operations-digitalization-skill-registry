@@ -6,8 +6,8 @@ registry:
   name: operations-digitalization-skill-registry
   version: 1.7.0
   department: MPEE Operations Digitalization (OD)
-  business: OESL
-  owner: Thomas Zipf (OD lead)
+  business: neuwerk
+  owner: Jakob Gabriel
   language: en
   format: Agent Skills (SKILL.md with YAML frontmatter)
   derived_from:
@@ -102,6 +102,13 @@ skills:
     authority_level: recommend
     summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
 
+  - id: od-system-fit-check
+    tier: practice
+    lane: all
+    owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
+    authority_level: recommend — flags the fit risk and proposes a redesign or an escalation; never approves a system change or a rollout exception itself
+    summary: Catch the request that quietly needs a system outside the lean footprint — checks a stated need against each lightweight tool's own boundary and this plant's actual availability, resolves to fits/redesign/escalate.
+
   - id: od-requirements-breakdown
     tier: practice
     lane: all
@@ -110,11 +117,18 @@ skills:
     summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, the lane handover packet, and a standardized epic carrying a background description and at least two user stories. Covers all four service lines.
 
   - id: od-use-case-definition
-    tier: practice
+    tier: technical
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft
-    summary: Scope one plant's instance of one need, on its capability and process group, with the fields that make it evaluable.
+    summary: Scope one plant's instance of one need through four phases to a benefit case ready for od-benefit-calculation — a 100-entry proven library, the abstract patterns behind them, and the Benefits Dependency Network linking the build to the change that makes it land.
+
+  - id: od-use-case-solution-evaluation
+    tier: practice
+    lane: use-case-support-service
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: draft on the evaluation and target levels; recommend on sequencing; never approve an investment
+    summary: Rank a scoped use case against a case library as a fast pre-check, then profile its complexity drivers, find which of 16 IT/OT capability areas its solution depends on, and sequence any as-is/target gap — a visualized ranking and a total evaluation score resolving to ready/raise-capability/over-engineered/escalate.
 
   - id: od-benefit-calculation
     tier: practice
@@ -130,12 +144,12 @@ skills:
     authority_level: recommend
     summary: Capability templates, the reference library, the CSP gate and the twelve cluster tags.
 
-  - id: od-equipment-integration-assessment
-    tier: practice
+  - id: od-equipment-integration
+    tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: draft on assessments and roadmaps; recommend on sequencing; never connect
-    summary: Inventory the estate, pick the integration concept and connector, sequence and size the wave.
+    authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
+    summary: Two entry routes to one protocol — assess a plant/wave and build its integration roadmap, or route and configure a single machine already in scope. Merger of the former assessment and guidance skills, 2026-09-17.
 
 
   - id: od-acceptance-test
@@ -204,13 +218,6 @@ skills:
     summary: Grafana JSON dashboards over SQL for operations data — relational and timeseries archetypes, ECharts panels, audience tiers.
     od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
 
-  - id: od-machine-integration-guidance
-    tier: technical
-    lane: information-integration-service
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: recommend a route and a configuration; never connect, never approve an external connection
-    summary: Routes a machine to one of the three ingress variants, names a connector that is actually available (7 of 26 are not), walks the configuration pattern for that route, and takes the right fallback when a path blocks.
-
   - id: od-signal-standardization
     tier: technical
     lane: information-integration-service
@@ -243,23 +250,17 @@ open_gaps:
   - Grafana is a LOCAL instance per plant for that plant's manufacturing dashboards; Databricks and the Azure Storage Account are the GLOBAL layer. Do not point a plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
   - The local datasource each plant's Grafana reads - engine, and whether it is uniform across sites - is not recorded.
   - Data platform detail not recorded anywhere - access paths, workspace and container naming, catalog layout, and how far back history is kept.
-  - Decision counterparts left as to-confirm where ContiTech used to sit: tool/system rollout, and data-model / signal standardization.
+  - Decision counterpart for tool/system rollout where ContiTech used to sit is still to-confirm (data-model / signal standardization is resolved: Plant ME / Plant IT, 2026-10-22).
   - The business is now neuwerk (former OESL); the registry has not been renamed and the bundle still says OESL.
   - Named owners per lane — role labels (DBVE, IIAE) only today; deputy for the OD lead unconfirmed.
   - Target lead time per lane.
-  - Value delivery cycle — metric definition and source system.
-  - How plant adoption of a use case is confirmed and recorded.
-  - Central ticket queue / mailbox for intake.
-  - Formal prioritization rule.
+  - Value delivery cycle (demand → live use case) — confirmed 2026-10-22 as not captured in any system today; still needs a source system built, not just a definition.
   - Budget figure and investment threshold.
   - MES / MDA-PDA interface detail, write rights and freshness.
-  - Escalation windows for ODEC and COP.
   - A dedicated OD use-case one-pager / business-case template.
   - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
   - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); B&R INA2000 on aggregation and Omron NJ on edge are stubs.
-  - No approved medium or small edge device — large device or low-frequency collection only. Confirm current status.
   - Concept 2 (container-based machine integration, ingress variant 2) has one deployment (Carei) and no written route in rules.json.
-  - Whether the estate's "Low Cost - Direct Connection" (50) and "Low Cost - Helmholz" (19) approaches are all Concept 2, or device-less descriptions of Concept 3.
   - Ten of the 33 plants have no integration concept recorded at all.
   - rules.json tells users to select a "Beckhoff" data source with an "ADS" protocol in Softing dataFEED. V5.70 has neither — Beckhoff has no fully-written route on either platform. Fix in rules.json.
   - rules.json lists "Netlink" as a Siemens protocol option. Discontinued in dataFEED V5.38; legacy configurations should migrate to Siemens S7. Fix in rules.json.
@@ -274,7 +275,6 @@ open_gaps:
   - node.error and node.status appear 6 and 8 times across 825 flows - dropped messages are essentially unobservable.
   - Subflow contents are not in the per-flow exports; five subflows are in use and must be read on the instance.
   - The per-flow exports contain zero config nodes (mqtt-broker, protobuf-file). Verified by deploying a generated flow to Node-RED v5.0.4: it needs node-red-contrib-protobuf plus hand-added config nodes before it starts.
-  - Which contrib palette modules each instance carries is not recorded; the corpus uses OPCUA-IIoT-*, ui-* and influxdb node types from further modules.
   - The estate's `file` nodes use the pre-V3 filename form. Any flow generated with filenameType "msg" must set filename to the message property name, or it writes nothing and logs no error.
   - Timezone convention for shift and day boundaries in Node-RED flows is not recorded.
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.

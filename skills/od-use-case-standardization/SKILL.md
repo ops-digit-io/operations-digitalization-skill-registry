@@ -17,24 +17,32 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); CSP decision outside OD
   authority_level: recommend
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   requires: [od-context]
-  composes: [od-decision-routing, od-portfolio-and-savings-analysis]
+  composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-benefit-calculation]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/20-Done/AI cluster classification.md
     - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
+    - personal vault, Work-OpsDigit-Knowledge/_knowledge/30-Nodes/C01…C12 *.md (12 cluster nodes, their verified-reference blocks where present) and Work-OpsDigit-Knowledge/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md, read 2026-10-22
+    - ISO 22400-2:2014, ISO 17359:2018, ISO 50001:2018, ISO 23247-1:2021 (verified via the vault's reference library, DOI/Crossref/standard-preview checked); ISO 22005, VDI 3423, MESA/ISA-95 Level 3, AIAG SPC Reference Manual, Nakajima/Liker/Imai TPS literature (carried over from the department's own standardization knowledge base, not independently re-verified this round)
   okf:
     type: Agent Skill
     title: Use-case standardization
     tags: [practice, use-case-support-service]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Use-case standardization
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/clusters.md`](references/clusters.md) | All 12 clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
 
 The function's leverage is not building one dashboard well. It is building one dashboard
 well and then having the other thirty-two plants **take** it rather than re-specify it.
@@ -82,10 +90,11 @@ the tags exactly. Do not hand-assign a tag — fix the input fields and re-run.
 
 Each cluster carries a standard **definition**, a standard **KPI set** and a
 **requirements checklist** drawn from published references — ISO 22400-2, VDI 3423,
-ISA-95, ISO 22005 and the TPS literature. The checklist is the **default requirements
-baseline for a use case with no local notes**: a plant then records only its own deltas
-— which machines, which line, which local constraint — instead of re-deriving what a good
-Andon board is.
+ISA-95, ISO 22005 and the TPS literature; the full 12 are in
+[`references/clusters.md`](references/clusters.md). The checklist is the **default
+requirements baseline for a use case with no local notes**: a plant then records only its
+own deltas — which machines, which line, which local constraint — instead of re-deriving
+what a good Andon board is.
 
 **C12 Other and plant-specific is the largest cluster at 168 use cases, and that is a
 data-quality number as much as a topical one.** It is the bucket for everything the
@@ -117,6 +126,15 @@ are not variations of one another — Europe 312 use cases with 81 productive, t
 168 with 70 (the best conversion rate in the estate), Asia 138 with 16. **Asia is a
 different problem from Europe, not a smaller one**, and a standardization plan that
 treats it as a smaller Europe will not work.
+
+## Output — the protocol
+
+The procedure does not end in prose. Fill
+[`assets/standardization-review.md`](assets/standardization-review.md) as the work
+happens — one document per use case: template placement, library check, cluster baseline
+and delta, and the CSP-readiness verdict, written so it hands off directly into
+`od-decision-routing`'s "standard enough to roll out" gate and into
+`od-benefit-calculation`'s business case, instead of needing to be re-asked from scratch.
 
 ## Do not
 

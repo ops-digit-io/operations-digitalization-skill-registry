@@ -16,24 +16,32 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: recommend
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-22
   requires: [od-context]
+  composes: [od-system-fit-check]
   derived_from:
     - ops-knowledge-graph/.../00-core/05-intake.md
     - ops-knowledge-graph/.../00-core/04-service-catalog.md
     - ops-knowledge-graph/.../00-core/01-charter.md
+    - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
   okf:
     type: Agent Skill
     title: Use-case intake triage
     tags: [all, practice]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Use-case intake triage
 
 Read `od-context` first. Without a defined entrance, the loudest channel steers the
 department — this skill is the entrance.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/refusal-playbook.md`](references/refusal-playbook.md) | Real requests that looked legitimate and were refused or re-scoped, the actual tell in each, and one case accepted that should have been refused |
 
 ## Channels a request legitimately arrives through
 
@@ -43,9 +51,10 @@ department — this skill is the entrance.
 - Requests and feedback surfaced through **ODEC** (strategic) and **COP** (technical)
 - **Ad-hoc analytics / Process First-Aid Kit** requests
 
-⟨A central ticket queue or mailbox is not confirmed — to confirm.⟩ A request arriving
-outside these channels is not thereby invalid; record which channel it is being admitted
-through, because that is what makes the queue readable later.
+**There is no central ticket queue or mailbox, confirmed 2026-10-22** — these four channels
+are the whole intake, not a partial list standing in for an unwritten one. A request arriving
+outside them is not thereby invalid; record which channel it is being admitted through,
+because that is what makes the queue readable later.
 
 ## The triage
 
@@ -65,7 +74,9 @@ solution" is an OD request. "Own the outcome" is not.
 **2 — Apply the explicit refusal list.** Refuse:
 - requests with **no plant-roadmap link and no nameable business case**;
 - solutions requiring systems **outside the lean standardized footprint** — notably a
-  non-standard MES rollout short or mid-term;
+  non-standard MES rollout short or mid-term. A request rarely names the system; run
+  `od-system-fit-check` whenever the ask sounds like a normal dashboard or integration
+  request but implies cross-process scheduling, full order genealogy or similar;
 - work owned by a sibling function (automation build, facility/energy, tool centers).
 
 A refusal is returned to the demand owner with the reason and the route, not dropped.
@@ -85,7 +96,9 @@ is admitted to Analytical Support first and promoted afterwards, not run as one 
 
 **4 — Prioritize.** By measurable value against the plant or central engineering roadmap
 — savings, lead-time reduction, cost avoidance — aligned with strategic-plant scope.
-⟨The formal prioritization rule is not written down — to confirm.⟩
+**Confirmed 2026-10-22: this is the whole rule** — there is no further written
+formalization (no scoring model, no weighting) beyond value-against-roadmap aligned with
+strategic-plant scope.
 
 **5 — Check the request against OD's position** before accepting a large one. A proposed
 action should leverage a strength, cover a weakness, capture an opportunity or mitigate a

@@ -18,9 +18,9 @@ metadata:
   authority_level: draft on definitions and reports; recommend on prioritization
   escalation: OD lead (Thomas Zipf) within the ODEC/COP window
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-23
   requires: [od-context]
-  composes: [od-use-case-intake-triage, od-use-case-definition, od-benefit-calculation, od-use-case-standardization, od-handover-and-adoption, od-scorecard-reporting]
+  composes: [od-use-case-intake-triage, od-system-fit-check, od-requirements-breakdown, od-use-case-definition, od-benefit-calculation, od-use-case-standardization, od-handover-and-adoption, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
@@ -29,12 +29,18 @@ metadata:
     title: Smart Factory Use Case Support Service
     tags: [lane, use-case-support-service]
     owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
+    generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 
 # Smart Factory Use Case Support Service
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/lane-templates.md`](references/lane-templates.md) | Which already-built skill's asset answers each step's template — this lane routes to them rather than repeating them |
 
 **Trigger.** Plant use-case demand, or a request for a definition or integration
 workshop.
@@ -48,7 +54,7 @@ integration **with a business case**.
 |---|---|---|---|
 | 1 | Collect plant use-case demand (workshop or request) | DBVE + Plant ME | Demand logged against the plant roadmap |
 | 2 | Plant- and process-specific use-case definition; process diagnostics and analytical insight | both | Use case scoped with a clear objective |
-| 3 | Break down the customer/process requirement; assess (legacy) MF IT systems | DBVE | System assessment complete — see `od-requirements-breakdown` |
+| 3 | Break down the customer/process requirement; assess (legacy) MF IT systems; check system fit | DBVE | System assessment complete — see `od-requirements-breakdown`, `od-system-fit-check` |
 | 4 | Plan the OD benefit calculation and business case; prioritize by value (savings / lead-time / cost avoidance) | both | Business case and priority agreed with Plant ME |
 | 5 | Hand to Information Integration Service for equipment/solution integration | DBVE | Integration request accepted |
 | 6 | System qualification and training; use-case execution support | DBVE | Use case running on the shopfloor |
@@ -69,8 +75,9 @@ take it rather than be re-specified.
 ## Wait states
 
 Awaiting investment approval (OD lead / BA Operations) · awaiting Cyber Security sign-off
-for an external machine connection · awaiting a decision on shared tooling or licensing
-⟨owner to confirm⟩.
+for an external machine connection · awaiting a decision on shared tooling or licensing —
+Plant ME / Plant IT (resolved 2026-10-22, same counterpart as data-model/signal
+standardization — see `od-decision-routing`).
 
 ## Recurring tasks
 
@@ -80,8 +87,8 @@ for an external machine connection · awaiting a decision on shared tooling or l
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 | Benefit / savings calculation | Use case prioritized | OD Benefit Calculation template |
 | Digitalization Scorecard update | Monthly / ODEC | Digitalization Scorecard (Power BI) |
-| Use-case impact evaluation | Use case live | ⟨template — to confirm⟩ |
-| Process First-Aid Kit request | Ad-hoc plant process issue | ⟨template — to confirm⟩ |
+| Use-case impact evaluation | Use case live | `od-handover-and-adoption`'s three-question test + `assets/handover-protocol.md` (resolved — see `references/lane-templates.md`) |
+| Process First-Aid Kit request | Ad-hoc plant process issue | ⟨template — to confirm; no dedicated template found anywhere in the registry⟩ |
 
 ## Systems and access
 
@@ -107,9 +114,9 @@ Cyber Security sign-off before any connection action.
 |---|---|---|---|
 | Integrated use cases (year) | `OD-Report-Use_Case_Integration` · Actual vs. Target | 153 (year) | IS below target-to-date — 101 vs 153 on 2026-08-10 |
 | Integrated use cases per month | same · monthly bar | 12 / month (overshoot 14) | month below 12 |
-| Use-case utilization rate | Scorecard · Use Case Utilization | ⟨to confirm⟩ | low-utilization share rising |
-| Asset mix (Dashboard/Analytics/Report/App/Agent) | Use_Case_Integration · asset pie | ⟨to confirm⟩ | portfolio indicator |
-| Value delivery cycle (demand → live) | ⟨system — to confirm⟩ | ⟨to confirm⟩ | ⟨threshold — to confirm⟩ |
+| Use-case utilization rate | Scorecard · Use Case Utilization | No fixed target — trend only (resolved 2026-10-22, see `od-scorecard-reporting`) | low-utilization share rising |
+| Asset mix (Dashboard/Analytics/Report/App/Agent) | Use_Case_Integration · asset pie | No target — descriptive portfolio indicator | portfolio indicator |
+| Value delivery cycle (demand → live) | Not captured in any system today | No target — nothing to measure against yet | — |
 
 ## Handover / rework rule
 

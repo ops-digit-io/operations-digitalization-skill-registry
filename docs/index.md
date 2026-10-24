@@ -8,3 +8,4 @@
 | [OKF conventions](okf-conventions.md) | Map of Content | The Open Knowledge Format contract this registry follows, the three places it deviates from the knowledge-graph bundle and why, and what the guard refuses. |
 | [Skill map](skill-map.md) | Map of Content | The four lane skill maps read as one: which capability each lane names, where they overlap, and which registry skill covers each. |
 | [Skill state map](skill-state-map.md) | Map of Content | Every skill in the registry as one picture - which lane it serves, where it sits in the delivery order, how far it is built, and what is next. |
+| [Vault alignment](vault-alignment.md) | Design Record | Cross-check of this registry's 24 skills against the department's own 33-skill build plan and gap analysis, with the resulting build order. |

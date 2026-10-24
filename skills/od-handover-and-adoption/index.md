@@ -5,3 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Handover and adoption](SKILL.md) | Agent Skill | Close a use case properly — run the handover to the plant against its definition of done, confirm real adoption rather than delivery, and act on the gap between implemented and productive. Covers the three-question handover test, the utilization expectation, what to do about an asset nobody opens, and handing over the function itself rather than a single use case. Use when a use case is being handed to a plant, when someone asks whether something is actually in use, when utilization is low or `NEVER`, or when a role or portfolio is changing hands. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 2 concept(s) |

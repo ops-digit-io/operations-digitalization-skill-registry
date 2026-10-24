@@ -32,7 +32,7 @@ datatroniq/data/protob/plc/<edge-device>/<driver>/<id>
 
 **Driver segment vocabulary observed:** `dqcdc` · `cifx` · `tia` · `ads` · `abrock`.
 These name the connector family reaching the PLC — see
-`od-machine-integration-guidance` for the connector table.
+`od-equipment-integration` (guidance route) for the connector table.
 
 `ads` is the `DTQ-Beckhoff-Connector`, and it is worth knowing that this is the **only ADS
 path in the estate**: the Central Aggregation Server's Softing dataFEED has no Beckhoff
@@ -86,7 +86,8 @@ Observed vocabulary per position:
 > `MFS` business-area segments all date from before the rebrand. **Do not rename them** — a
 > topic is an interface and every subscriber breaks, and the doc generator matches instance
 > repositories on `^ct-oesl-.*-nodered-(prod|test).*`. Changing either is a data-model and
-> tooling decision, not a tidy-up. ⟨Whether a new root is planned — to confirm.⟩
+> tooling decision, not a tidy-up. **No migration is planned.** `CT` stays as a permanent
+> legacy label — treat it the same as any other interface name that outlived the rebrand.
 
 Plant codes here match the Node-RED instance codes: `QDA` → `ct-oesl-qda-*`,
 `SPR` → `ct-oesl-spr-*`, `CSHZ` → `ct-oesl-cshz-*`.

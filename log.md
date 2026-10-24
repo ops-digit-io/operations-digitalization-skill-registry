@@ -3,6 +3,209 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-10-22
+
+- **Mined the full 825-flow corpus again**, this time for function/change/switch node bodies
+  rather than structure, to extend `od-node-red-flow-builder` beyond the original ten
+  transformation patterns. Added three new patterns — **P11 OEE chain** (availability ×
+  performance × quality), **P12 windowed extremum capture** (peak value while a threshold
+  holds), **P13 liveness watchdog** (heartbeat toggle + timeout) — and fleshed out P4
+  (threshold crossing) and P5 (value mapping) with real verbatim code, including two real
+  violations of "read config from flow, never a literal" (a hardcoded `1.5` bar / `2000` rpm
+  threshold). Completed `references/standard-functions.js`, which had only 5 of the 7
+  functions `SKILL.md`'s own table promised — added `set datapointConfigFilter`, `calculate
+  timerange between cycle_start and cycle_end event`, `create json payload`, and `set device
+  endpoint`. Mined every node's `type` field across the corpus to resolve
+  `deployable-flow.md`'s open question about which contrib palette modules the estate's
+  instances actually carry (OPC-UA, two different dashboard-node generations, InfluxDB,
+  PostgreSQL, Sparkplug, SOAP) — closed as mined fact, no interview needed.
+- **Closed six of the tacit-knowledge placeholders** left open in `od-node-red-flow-builder`
+  and `od-equipment-integration` by direct elicitation with human:jakob.gabriel: the
+  consultation counterpart for signal/data-model standard changes (Plant ME / Plant IT,
+  applies in both skills), the legacy `CT` topic root (no migration planned, permanent),
+  edge-device approval status and variant ② brownfield/greenfield scope (both confirmed
+  current), and the "Low Cost" `integration_approach` classification (both rows are Concept
+  ②; a Helmholz gateway is hardware but does not count as an "edge device" in the
+  department's sense). Left open on request: the shift/timezone convention, the Node-RED
+  site-code → plant mapping (13 of 18 codes are inferable from the plant list already in
+  `od-equipment-integration`, offered and declined pending a confirmed source), the two OESL
+  guideline PDFs, and whether any plant still runs NetLink.
+- **Closed five of eight open placeholders in `od-information-integration-service`** (the
+  Information Integration lane's entry-point skill, previously a bare stub): the shared
+  tooling/licensing/signal-standards wait-state owner (Plant ME / Plant IT), two of its three
+  task templates now point at `od-equipment-integration`'s already-built
+  `assets/assessment-protocol.md` and `assets/guidance-protocol.md` instead of inventing new
+  ones, and the acceptance/rework-rate metric is recorded as not captured in any system today
+  rather than left as an open blank. Left open: lane lead time, the investment-planning
+  template, and the MSB configuration scope.
+- Updated `registry.yaml`'s `open_gaps`: removed three items resolved above (contrib palette
+  modules, edge-device approval, the Low-Cost/Concept-② question), split the decision-
+  counterparts item to show signal/data-model standardization resolved while tool/system
+  rollout stays open. Regenerated `docs/skill-state-map.md` (stale since the 2026-09-17
+  equipment-integration merge).
+- **Fed the new P4/P12 pattern back into `od-node-red-flow-troubleshooting`**: added a
+  `hardcoded-threshold` check to `analyze_flow.py` (a limit compared or assigned as a bare
+  literal in a function body instead of `flow.get(...)`) and cross-referenced it from both
+  sides — the builder's P4/P12 now name the check, the troubleshooting `SKILL.md` and
+  `references/symptoms.md` now name the pattern. Run fresh over all 825 flows: 68 carry it,
+  more than `spine-severed` (67). That same full-corpus run also caught two pre-existing,
+  unrelated staleness bugs in `SKILL.md`'s findings table — `hardcoded-secret` was recorded
+  as 42 flows (actually 40; 42 was the finding count, two flows carry two each) and
+  `spine-severed` as 102 (actually 67) — both corrected along with the blocker-flow total
+  (98, not 59). Not an effect of anything changed this session; the table had simply drifted
+  from the script.
+
+- **Added a new skill, `od-use-case-solution-evaluation`** (24th in the registry), generalized
+  from two external academic papers (Schott et al. 2017, 2020 — a 16-focus-area IT/OT
+  capability maturity model, 27 complexity drivers and a realization-dependency table) rather
+  than from this registry's own sources; the papers' own three-plant case study and its
+  company attribution are deliberately not carried into the skill, only the method. Composes
+  into `od-benefit-calculation`, `od-decision-routing`, `od-data-availability-check`,
+  `od-equipment-integration` and `od-signal-standardization`; `od-use-case-definition`'s
+  Phase 4 now calls it before the business case. Built deep on arrival: 5 references, 1
+  script (`evaluate_fit.py` — pre-evaluation case ranking against a 70-case literature
+  library, driver-to-area mapping, gap sequencing against the dependency table, a 0-100 total
+  evaluation score, ASCII visualization). Raw source material (both papers, the 16
+  focus-area files, `model.json`) filed in the personal vault at
+  `Work-OpsDigit-Knowledge/External Research/IT-IoT-Maturity-Model/`; the research session's
+  own chat transcript, which carries unrelated personal/career context, stays in
+  `Privat-Projekte/REHAU-IoT-Research/` instead.
+
+- **Deepened all seven remaining Group-A stubs in one pass** (`od-acceptance-test`,
+  `od-use-case-standardization`, `od-handover-and-adoption`, `od-scorecard-reporting`,
+  `od-portfolio-and-savings-analysis`, `od-analytics-asset-build`, `od-sharepoint-list-export`),
+  run as seven parallel forked agents, each grounded in a real, citable method rather than
+  invented: FAT/SAT + ISO/IEC/IEEE 29119 (acceptance-test), ADKAR (handover/adoption), ISO
+  22400-2 + Balanced Scorecard (scorecard), PMI's portfolio-management standard (portfolio
+  analysis), the Kimball Lifecycle + Few's dashboard-design principles (analytics-asset
+  build, scoped explicitly against the sibling `build-grafana-ops-dashboard`), and real
+  Microsoft Graph/SharePoint REST export patterns (list export, which also picked up a
+  schema-drift-checking script). `od-use-case-standardization` instead found its 12 cluster
+  definitions/KPIs/checklists already written in the personal vault
+  (`Work-OpsDigit-Knowledge/_knowledge/30-Nodes/C01`-`C12` and
+  `90-Sources/org-analysis/usecase-standardization-knowledgebase.md`) and used that as
+  internal evidence rather than researching from scratch — 5 of 12 clusters' citations
+  there are carried over, not independently re-verified this round, and the skill says so.
+  Every new `assets/*.md` protocol was written to be the next skill's own input (e.g.
+  `od-acceptance-test`'s protocol populates `od-handover-and-adoption`'s definition-of-done
+  fields directly), and the one naming gap a fork flagged across the parallel run
+  (`od-portfolio-and-savings-analysis`'s protocol not naming
+  `od-sharepoint-list-export`'s `assets/export-run-log.md` by file) was fixed centrally
+  afterward, along with one YAML-breaking unescaped backtick in
+  `od-analytics-asset-build`'s frontmatter. Registry-state after: `od-sharepoint-list-export`
+  is now deep (3 refs, 1 script); the other six are documented (refs only, no script forced
+  where nothing was genuinely mechanizable). Honest gaps carried forward, not invented:
+  `od-scorecard-reporting`'s four pre-existing tacit placeholders (utilization-rate target,
+  asset-mix target, value-delivery-cycle system/target, escalation window) and
+  `od-handover-and-adoption`'s adoption-evidence tier ranking, proposed but not yet confirmed.
+  `docs/vault-alignment.md`'s Phase 3 and crosswalk entries updated to match.
+
+- **Resolved Phase-1 tacit item #4 (ODEC vs. COP in practice) from the department's own
+  record, not an interview.** The user pointed at the real source: ODEC and CoP call decks
+  already exist as individually split slides in
+  `Work-OpsDigit-Knowledge/Split Slides/`. Extracted all ~30 ODEC/CoP decks (2023-2026,
+  ~550 slides) via raw OOXML parsing (no `python-pptx` available; stdlib `zipfile` + regex
+  on `ppt/slides/slideN.xml` instead) and mined three real worked examples into
+  `od-decision-routing/references/escalation-worked-examples.md`: the Groot2B cybersecurity
+  item split cleanly into a strategic ODEC half and a technical COP half (both forums'
+  slide templates name "Cyber Security" explicitly, one strategic one technical); a
+  platform-access blocker (San Prairie, MSB Aggregation Server) that stayed at COP across
+  months and never reached ODEC; and the eCR Calculator, raised at ODEC as a cross-plant
+  pattern while individual eCR execution stays per-plant at COP. Also recovered the
+  forums' own definition slides verbatim (Key Question / Key Objective, identical wording
+  in every monthly deck) and noted a real data-quality artifact: one archived deck
+  (`2023-#1-COP-not-in-use`) mixes in slides from an unrelated "MEIC" (Manufacturing
+  Engineering) call and uses the forum's original name "ODIC" before the ODEC rename —
+  neither used as ODEC/COP evidence. Updated `PHASE1-ELICITATION.md` topic 4 and
+  `docs/vault-alignment.md`'s tacit-item table to `resolved 2026-10-22`.
+
+- **Resolved Phase-1 tacit items #1 and #3 the same way as #4** (mining the real record
+  instead of interview), after the user pointed at a second source:
+  `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--*.pptx` (78 workshop decks). The
+  single richest source for both was one deck — Thomas Zipf's "Agility in System &
+  Process" retrospective from the January 2025 MPEE strategy workshop — which documents,
+  in the department's own words, several "turns out" lessons: a cosmetic dashboard-change
+  request pattern with no value add, a difficult-machines-first approach that burned
+  reputation and killed a local project, entry barriers deliberately decoupled from
+  Cyber Security and System Deployment approvals the department does not control, and
+  three successive failed fixes for plants avoiding savings self-evaluation (passive
+  library → workshop slot → the current proactive calculator). Wrote
+  `od-use-case-intake-triage/references/refusal-playbook.md` and
+  `od-benefit-calculation/references/review-checklist.md` from this record, each stating
+  honestly which narrower sub-question (the exact plant pushback phrasing; the specific
+  reason a particular row fails SPRINT) the mined record does not answer and remains open.
+  Updated `PHASE1-ELICITATION.md` topics 1 and 3 and `docs/vault-alignment.md`'s
+  tacit-item table accordingly — five of the plan's original six tacit items are now
+  resolved (fully or partially), only P-02 (non-bet system-fit judgement) has no skill at
+  all yet.
+
+- **Built `od-system-fit-check` (25th skill)** — the last of the department's original six
+  Wave-1 tacit-knowledge items and the last of four Wave-1 skills the plan called
+  load-bearing with no equivalent in the registry (P-02). Resolved from real department
+  material rather than invented: `00-core/02-strategy.md`'s non-bets/bets/kill-criteria
+  (verbatim), `OD_Skill_Map.md`'s own P-02 scope line, and — the key find — a January 2025
+  tool-catalogue deck in `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--...` giving
+  explicit "is / is not" boundary cards for every lightweight Smart Factory tool (QFPR,
+  MDA/PDA — recorded in the department's own table as "(Lightweight MES)" — Manufacturing
+  Image Library, Recipe Management/Camline, the Energy Management System/WiriTec), plus
+  real per-plant Smart Factory Tool Availability snapshots (San Luis Potosí, Subotica,
+  Timisoara) showing the same tool "not necessary" at one plant and "needed for multiple
+  use cases" at another in the same quarter. Surfaced one live discrepancy the source
+  material itself contains, deliberately not resolved either way: the written non-bets say
+  EMS rollout is stopped, while the 2025 tool catalogue shows WiriTec mostly rolled out and
+  in active use — flagged in the skill for the user to confirm, not silently picked.
+  Wired into `od-use-case-intake-triage` and `od-requirements-breakdown` (both now compose
+  into it, with a body pointer at the exact step each one calls it from). Left open
+  honestly: a named *real* request that looked normal and secretly needed MES/MIL/EMS —
+  the skill's worked example is illustrative, not a real case. Updated
+  `PHASE1-ELICITATION.md` topic 5 and `docs/vault-alignment.md` throughout — all six of
+  the plan's original tacit-knowledge items now have a skill; three Wave-1 "load-bearing,
+  no equivalent" skills remain genuinely unbuilt (`od-ii-cybersec-gate`,
+  `od-ps-rollout-training`, `od-o-context-freshness`).
+
+- **Finished all four remaining lane entry-points** (`od-use-case-support-service`,
+  `od-information-integration-service`, `od-project-support-consultancy`,
+  `od-analytical-support-service`), run as four parallel forks, plus `od-context`
+  directly. These are deliberately thin "front door" pages by design, not previously
+  deepened; today's pass was mostly cross-linking rather than new research: every
+  `⟨to confirm⟩` that duplicated something resolved earlier this session (utilization-rate
+  and asset-mix targets, the value-delivery-cycle gap, the Plant ME/Plant IT decision
+  counterpart, the one-round escalation window, the adoption-evidence ranking) was
+  propagated rather than re-derived, and each lane's remaining "⟨template — to confirm⟩"
+  cells were checked against the sibling skills that were stubs when these pages were
+  written and are now built — most resolved to a named real file
+  (`od-requirements-breakdown`'s requirement template, `od-acceptance-test`'s protocol,
+  `od-handover-and-adoption`'s evidence-of-adoption ranking, `od-decision-routing`'s
+  decision-request template) instead of staying open questions. `od-context` itself: MIL
+  and EMS abbreviations resolved from today's `od-system-fit-check` research (EMS is
+  Energy, not Equipment, Management System), OESL confirmed from the decks' own title
+  slides. Two real cross-lane findings surfaced and left open rather than duplicated:
+  the Process First-Aid Kit has no template anywhere in the registry (two lanes
+  independently hit the same gap), and `od-project-support-consultancy`'s tool/licensing
+  decision owner is the same still-open counterpart as `od-decision-routing`'s
+  "Tool/system rollout" row, not a separate gap.
+
+## 2026-09-17
+
+- Resolved the connectability-judgement tacit-knowledge item (II-01 in `vault-alignment.md`)
+  by direct elicitation, and wrote it into a new `barrier-classes.md` reference: a
+  practitioner difficulty ranking that corrects the raw integration-rate read (Modbus and
+  Bachmann rank harder than their integration rate suggests; Siemens splits by protocol, not
+  vendor), the resolved Modbus/aggregation-route contradiction, pre-assessment tells not in
+  the Machine List, and named-blocker root causes (cyber-security patching usually covers one
+  of five different underlying causes, not one). Includes a brownfield-hurdles section sourced
+  from general industry research, marked as such rather than estate data.
+- Applied a style pass across the 7 `od-machine-integration-guidance` (now
+  `od-equipment-integration`) reference files: cut bold overuse, narrator asides ("this is the
+  part most often missed") and dramatic section framing, without changing any fact, number,
+  quote or table.
+- Merged `od-equipment-integration-assessment` and `od-machine-integration-guidance` into one
+  skill, `od-equipment-integration`, with two entry routes (assessment: no plant/wave
+  inventory exists yet; guidance: a specific machine needs a route and the assessment already
+  happened) instead of the former composes-edge handoff. Both routes now write into a
+  structured, reusable protocol document. Repointed every cross-reference across the registry
+  — see `derivation.md` for the reasoning.
+
 ## 2026-08-26
 
 - Added `docs/skill-state-map.md` and `scripts/build_skill_map.py`: a generated Mermaid map of

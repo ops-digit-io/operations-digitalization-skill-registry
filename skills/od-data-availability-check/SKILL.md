@@ -20,7 +20,7 @@ metadata:
   status: stable
   sources_read: 2026-08-10
   requires: [od-context]
-  composes: [od-equipment-integration-assessment, od-signal-standardization]
+  composes: [od-equipment-integration, od-signal-standardization]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
@@ -75,7 +75,7 @@ the bundle records fitness for use.
 | # | Question | Where to look | If no |
 |---|---|---|---|
 | 1 | Does a **machine** produce the signal at this plant? | Machine List — 1,715 rows with vendor, PLC, protocol, criticality | Not a data gap; a measurement gap. Say so. |
-| 2 | Is the machine **integrated**? | Machine List status — 821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 `ONGOING` | → `od-equipment-integration-assessment` |
+| 2 | Is the machine **integrated**? | Machine List status — 821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 `ONGOING` | → `od-equipment-integration` (assessment route) |
 | 3 | Is there a **connector and concept** for it? | Connector Overview — 26 connectors; three integration concepts | Barrier: log it in the landscape module |
 | 4 | Is the signal **standardized** and offloaded to the data platform? | The edge offload | → `od-signal-standardization` |
 | 5 | Is the data **fit for use** — right granularity, freshness, completeness? | Databricks / the Azure Storage Account | Data gap, with the reason named |

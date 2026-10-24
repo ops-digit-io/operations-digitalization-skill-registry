@@ -19,12 +19,13 @@ metadata:
   authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
   escalation: OD lead (Thomas Zipf) via COP
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-23
   requires: [od-context]
-  composes: [od-equipment-integration-assessment, od-signal-standardization, od-acceptance-test, od-scorecard-reporting]
+  composes: [od-requirements-breakdown, od-equipment-integration, od-signal-standardization, od-acceptance-test, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
+    - this registry, cross-checked 2026-10-23 against the current state of every skill this lane composes into (each was a stub on 2026-08-25; all five are now documented or deep) — see references/lane-handoffs.md
   okf:
     type: Agent Skill
     title: Information Integration Service
@@ -36,6 +37,12 @@ metadata:
 # Information Integration Service
 
 Read `od-context` first.
+
+## The reference is the substance
+
+| File | Use it for |
+|---|---|
+| [`references/lane-handoffs.md`](references/lane-handoffs.md) | Each happy-path step matched to the real, current asset the composed skill now produces — confirmed 2026-10-23, not just named |
 
 **Trigger.** An equipment-integration or data-model-harmonization need per the roadmap.
 **Definition of done.** Machine or equipment integrated, signals standardized, data
@@ -56,7 +63,7 @@ nobody is reading off the line.
 | 6 | Prepare Manufacturing Software Suite rollout; equipment-integration training | IIAE | Rollout-ready; plant trained |
 | 7 | Update the Equipment Integration report and readiness matrix | both | Scorecard updated |
 
-Step 1 → `od-equipment-integration-assessment`. Step 4 → `od-signal-standardization`.
+Step 1 → `od-equipment-integration` (assessment route). Step 4 → `od-signal-standardization`.
 Step 5 → `od-acceptance-test`. Step 7 → `od-scorecard-reporting`.
 
 ## The estate this lane works on
@@ -76,8 +83,8 @@ terminus in all of them: via an **edge device** running the connector (Concept 3
 via a **connector with no device** at the machine (Concept 2, 1 plant, no written route), or
 via the **Softing dataFEED aggregation server** bridged back over OPC UA with
 `DTQ-OPCUA-Connector` (Concept 1, 11 plants). The aggregation shape needs both pieces. For a
-specific machine, `od-machine-integration-guidance` carries the routing, the per-driver
-configuration patterns and the fallbacks when a path blocks.
+specific machine, `od-equipment-integration` (guidance route) carries the routing, the
+per-driver configuration patterns and the fallbacks when a path blocks.
 
 ## Error paths
 
@@ -91,15 +98,15 @@ configuration patterns and the fallbacks when a path blocks.
 ## Wait states
 
 Awaiting integration investment approval · awaiting Cyber Security / OT sign-off ·
-awaiting a decision on shared tooling, licensing or signal standards ⟨owner to confirm⟩.
+awaiting a decision on shared tooling, licensing or signal standards — Plant ME / Plant IT.
 
 ## Recurring tasks
 
 | Task | Trigger | Template |
 |---|---|---|
-| Equipment assessment & roadmap | New plant / integration wave | ⟨template — to confirm⟩ |
+| Equipment assessment & roadmap | New plant / integration wave | `od-equipment-integration`'s `assets/assessment-protocol.md` (Route A) |
 | Integration investment planning | Roadmap agreed | ⟨investment plan template — to confirm⟩ |
-| Machine integration execution | Investment approved | ⟨integration checklist — to confirm⟩ |
+| Machine integration execution | Investment approved | `od-equipment-integration`'s `assets/guidance-protocol.md` (Route B) |
 | Signal standardization | Machine connected | Signal standard spec |
 | Acceptance test | Integration complete | Acceptance test protocol |
 | Equipment Integration report update | Monthly / ODEC | `OD-Report-Equipment_Integration` |
@@ -133,7 +140,7 @@ evidence.
 | Integrated equipment (year) | `OD-Report-Equipment_Integration` | 331 (year); 666 total | IS below target-to-date — 338 vs 331 on 2026-08-10, on/above |
 | Integrated equipment per month | same · monthly bar | 25 / month (overshoot 30) | month below 25 |
 | System / capability readiness | Scorecard · System Integration and Availability | Available at strategic plants | red at a strategic plant |
-| Acceptance / rework rate | ⟨system — to collect⟩ | ⟨to confirm⟩ | rework rate rising |
+| Acceptance / rework rate | Not captured in any system today | No target set — nothing to measure against yet | rework rate rising |
 
 ## Handover / rework rule
 

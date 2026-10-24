@@ -86,6 +86,6 @@ Global staffing: open positions planned in Asia and the Americas; Europe partly 
 
 These are the entries a registry cannot fix. A skill makes a procedure repeatable; it does
 not add an IIAE. Where a skill sits on top of a named bottleneck — `od-signal-standardization`
-on the data-platform / MSB operations-concept gap, `od-equipment-integration-assessment` on IIAE
+on the data-platform / MSB operations-concept gap, `od-equipment-integration` on IIAE
 capacity — it says so in the body, so the reader knows the constraint is real and not a
 process failure.

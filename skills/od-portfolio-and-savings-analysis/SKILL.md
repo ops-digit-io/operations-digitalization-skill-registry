@@ -16,14 +16,16 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: read-only
   status: stable
-  sources_read: 2026-08-24
+  sources_read: 2026-10-22
   requires: [od-context]
-  composes: [od-sharepoint-list-export, od-benefit-calculation, od-use-case-standardization]
+  composes: [od-sharepoint-list-export, od-benefit-calculation, od-use-case-standardization, od-scorecard-reporting, od-decision-routing]
   derived_from:
     - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
+    - Project Management Institute (2017). The Standard for Portfolio Management, 4th edition. PMI. Categorization, evaluation and prioritization/balancing as distinct steps — the rollup and regional-handling method's backbone.
+    - weighted-scoring and value-vs-effort prioritization models (standard project-portfolio practice; see references/prioritization.md for the specific criteria adaptation, ours).
   okf:
     type: Agent Skill
     title: Portfolio and savings analysis
@@ -35,6 +37,18 @@ metadata:
 # Portfolio and savings analysis
 
 Read `od-context` first.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/rollup-method.md`](references/rollup-method.md) | Which boundaries a sum may never cross (tracked/proven, reliability class) — the general rule behind "never merge tracked and proven" |
+| [`references/prioritization.md`](references/prioritization.md) | A weighted-scoring/value-effort method for ranking use cases in a review, and the unscoreable bucket for `UNKNOWN` priority/potential |
+| [`references/regional-handling.md`](references/regional-handling.md) | Why Europe/Americas/Asia are never blended into one conversion figure, and what to report instead |
+
+Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) — one
+document per review round, built from `od-sharepoint-list-export`'s capture and
+`od-benefit-calculation`'s ledger, feeding `od-scorecard-reporting`'s round prep.
 
 ## The shape of the portfolio
 
@@ -123,8 +137,13 @@ Rationale, blockers and comments were written during active work and later tidie
 2. Cut by plant / region / capability / cluster / status / asset — never by one dimension
    alone when a claim about scale is being made.
 3. For every empty field, decide and **state** whether it is unknown or genuinely nil.
-4. Label every euro figure tracked or proven.
-5. Name the denominator on every rate.
+4. Label every euro figure tracked or proven, per `references/rollup-method.md`.
+5. Name the denominator on every rate, and never blend the three regions into one —
+   `references/regional-handling.md`.
+6. Rank only within a category — `references/prioritization.md` — and keep the unscoreable
+   bucket visible rather than folding it into the bottom of a ranked list.
+7. Fill [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) as the
+   review happens; it is the record a reader who was not in the room can act on.
 
 ## Do not
 

@@ -5,3 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Use-case standardization](SKILL.md) | Agent Skill | Make one plant's solution into every plant's — check a use case against the eleven cross-plant capability templates and the 100-entry reference library before anything is specified, apply the twelve-cluster classification, take a use case through the CSP (Common Solution Portfolio) gate, and measure standardization by adoption rather than by how many templates exist. Use when a use case is declared standard, when a second plant wants something a first plant already has, when a library entry is proposed for rollout, when a cluster tag needs assigning or checking, or when someone asks why the catalogue has not scaled. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 1 concept(s) |

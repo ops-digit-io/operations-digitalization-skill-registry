@@ -18,7 +18,7 @@ metadata:
   owner_role: OD lead (Thomas Zipf)
   authority_level: read-only
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-10-23
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/01-charter.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
@@ -104,10 +104,12 @@ profile.**
 | Process First-Aid Kit | Rapid diagnostic offering inside Use Case Support | Ad-Hoc Analytics (Analytical lane) |
 
 Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment
-Engineering ⟨expansion to confirm⟩ · OESL = Original Equipment Solutions ⟨to confirm⟩ ·
-OPEX/CBS = Operational Excellence / Continental Business System · MIL ⟨expansion to
-confirm⟩ · EMS ⟨Energy/Equipment Management System — to confirm⟩ · ME = Manufacturing
-Engineering.
+Engineering ⟨expansion to confirm⟩ · OESL = Original Equipment Solutions (confirmed —
+the title slide of every ODEC/CoP call deck names it) · OPEX/CBS = Operational Excellence /
+Continental Business System · MIL = Manufacturing Image Library (confirmed 2026-10-22, see
+`od-system-fit-check/references/tool-boundaries.md`) · EMS = Energy Management System,
+**not** "Equipment Management System" (confirmed 2026-10-22, same source — WiriTec) ·
+ME = Manufacturing Engineering.
 
 ## Where the truth lives
 
@@ -203,8 +205,13 @@ wait for the OD lead.
 ## Open gaps carried from the source
 
 Named owners per lane (role labels only today) · lane target lead times · budget figure ·
-value-delivery-cycle metric and its source system · adoption-confirmation mechanism ·
 MES / MDA-PDA interface detail, write rights and freshness.
+
+**Resolved 2026-10-22/23, no longer open:** the value-delivery-cycle metric is confirmed
+not captured in any system today (`od-scorecard-reporting`) rather than merely unconfirmed;
+the adoption-confirmation mechanism is the three-tier evidence ranking in
+`od-handover-and-adoption/references/evidence-of-adoption.md` (system usage log > named
+owner's dated statement > third-party observation).
 
 ## Provenance
 

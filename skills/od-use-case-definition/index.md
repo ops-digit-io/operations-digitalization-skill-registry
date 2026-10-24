@@ -5,3 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Use-case definition](SKILL.md) | Agent Skill | Define a plant use case so it can be built, standardized, handed over and measured — scope it against the plant's process, break down the requirement, assess the (legacy) MF IT systems it touches, place it on its capability template and process group, and record the fields that make it findable and evaluable later. Also covers preparing and running Use Case Definition and Use Case Integration workshops. Use when a plant demand has been accepted and needs turning into a defined use case, when an existing use-case record is too thin to act on, or when a definition or integration workshop is being prepared. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 2 concept(s) |
+| [references/](references/index.md) | 5 concept(s) |

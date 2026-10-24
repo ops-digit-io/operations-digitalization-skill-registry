@@ -21,7 +21,7 @@ metadata:
   status: stable
   sources_read: 2026-08-25
   requires: [od-context]
-  composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-machine-integration-guidance, od-acceptance-test, od-handover-and-adoption]
+  composes: [od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
     - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
@@ -98,7 +98,10 @@ An `out` signal must be registered on the edge platform before anything publishe
 by a named plant role. That is the department's own handover rule.
 
 **6 · Assess the legacy systems and the footprint** →
-[`legacy-system-assessment.md`](references/legacy-system-assessment.md).
+[`legacy-system-assessment.md`](references/legacy-system-assessment.md). If the spec implies
+more than the lightweight tools cover (cross-process scheduling, full order genealogy, a
+heavier read on image/recipe/energy data than their own boundary) → `od-system-fit-check`,
+before the spec is written any further around the heavier assumption.
 
 **7 · Classify the blockers.** Two of the six classes — *method undefined* and *parameter
 selection open* — are **the requirement's own work**, not something to escalate.

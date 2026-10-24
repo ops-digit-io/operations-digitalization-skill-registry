@@ -128,7 +128,7 @@ Classes seen in the corpus, and each has a different owner:
 
 | Class | Example from the estate | Route to |
 |---|---|---|
-| Machine connectivity | "currently no machine connectivity" | `od-machine-integration-guidance` |
+| Machine connectivity | "currently no machine connectivity" | `od-equipment-integration` (guidance route) |
 | Hardware not installed | "camera system currently not integrated"; "printers will be installed during 2022" | Investment / plant |
 | External system access | "open access to ⟨vendor⟩ system (API)" | IT demand management |
 | Method undefined | "check current calculation method" | This requirement — resolve it here |

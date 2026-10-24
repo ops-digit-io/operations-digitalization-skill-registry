@@ -372,9 +372,45 @@ def check_context(rep, nodes):
                     "harder to spot at deploy.")
 
 
+def check_hardcoded_thresholds(rep, nodes):
+    """A process-value limit belongs in flow config, same as a UUID — P4/P12 in
+    od-node-red-flow-builder. Two real shapes in the estate: a bare number compared
+    directly against a payload value (`if (currentValue > 1.5)`), and a `threshold`/
+    `limit`-named variable assigned a bare number instead of `flow.get(...)`. Equality
+    (`==`, `===`) against a small integer is the P5 value-mapping shape instead, and is
+    not flagged here — only relational comparison is a "limit"."""
+    for n in nodes:
+        if n.get("type") != "function":
+            continue
+        body = n.get("func") or ""
+        hits: set[str] = set()
+
+        for m in re.finditer(r"\b\w*(?:[Tt]hreshold|[Ll]imit)\w*\s*=\s*(-?\d+(?:\.\d+)?)\b", body):
+            hits.add(m.group(1))
+
+        value_vars = set(re.findall(r"\b(\w+)\s*=\s*msg\.payload\.value(?:Double|Integer)\b", body))
+        for m in re.finditer(r"([\w.]+)\s*(?:>=|<=|>|<)\s*(-?\d+(?:\.\d+)?)", body):
+            lhs, num = m.group(1), m.group(2)
+            if num in ("0", "0.0"):
+                continue
+            if lhs.split(".")[-1] in value_vars or "payload.value" in lhs:
+                hits.add(num)
+
+        if hits:
+            rep.add("WARN", "hardcoded-threshold",
+                    "A process-value limit is a literal in the function body "
+                    f"({', '.join(sorted(hits))}), not read from flow config.",
+                    where=label_of(n),
+                    fix="Read it with flow.get('thresholdX') instead. Real flows in the "
+                        "estate hardcode 1.5 (bar), 2000 (rpm) and 10 (mm) this way — "
+                        "porting the flow to a different limit then means editing a "
+                        "function, not a change node.")
+
+
 CHECKS = [
     ("documentation", lambda rep, tab, nodes, raw: check_documentation(rep, tab, nodes)),
     ("config", lambda rep, tab, nodes, raw: check_config_discipline(rep, nodes)),
+    ("thresholds", lambda rep, tab, nodes, raw: check_hardcoded_thresholds(rep, nodes)),
     ("systime", lambda rep, tab, nodes, raw: check_systime_pair(rep, nodes)),
     ("encode", lambda rep, tab, nodes, raw: check_encode_shape(rep, nodes)),
     ("errors", lambda rep, tab, nodes, raw: check_error_handling(rep, nodes)),

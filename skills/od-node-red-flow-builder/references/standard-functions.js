@@ -85,6 +85,22 @@ return {
 
 
 // ─────────────────────────────────────────────────────────────────────────────
+// "set device endpoint"  — 41 flows
+//
+// Resolves the datatron's device id. Always runs before "set data_points endpoint"
+// below — the two are one request chain, not two independent ones.
+// ─────────────────────────────────────────────────────────────────────────────
+var baseUrl    = msg.url
+var datatronId = msg.payload.id
+var postfixUrl = "/devices"
+
+msg.url     = baseUrl + "/" + datatronId + postfixUrl
+msg.headers = flow.get("headers")
+
+return msg;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
 // "set data_points endpoint"  — 41 flows
 //
 // Builds the IIoT edge platform query that resolves data points for a datatron, so
@@ -97,5 +113,58 @@ var postfixUrl = "/data_points"
 
 msg.url     = baseUrl + "/" + datatronId + postfixUrl
 msg.headers = flow.get("headers")
+
+return msg;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// "set datapointConfigFilter"  — 205 flows
+//
+// Defines which UUIDs "filter uuids" (above) keeps. One array, built from flow
+// config, one entry per data point this flow consumes — never a literal UUID.
+// ─────────────────────────────────────────────────────────────────────────────
+const uuids = [flow.get('datapointCycleStart'), flow.get('datapointCycleEnd')]
+
+flow.set("datapointConfigFilter", uuids);
+
+return msg;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// "calculate timerange between cycle_start and cycle_end event"  — 148 flows
+//
+// The P3 two-event time range (see transformation-patterns.md), under the name it
+// actually carries in the corpus. Both guards are load-bearing — see there for why.
+// ─────────────────────────────────────────────────────────────────────────────
+var cycle_start_time = msg.payload.sysTimeStart;
+var cycle_end_time   = msg.payload.sysTimeEnd;
+
+msg.payload.cycle_time = ((cycle_end_time - cycle_start_time) / 1000)
+
+if (isNaN(msg.payload.cycle_time)) { return null; }
+if (msg.payload.cycle_time < 0)    { return null; }
+
+return msg;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// "create json payload"  — 157 flows
+//
+// The publish step that follows the calculation above: wraps a derived value into
+// a PLCPacket-shaped object under its OWN output uuid, ready for "prepare for protob
+// encoding". `sysTime` here is carried over from the triggering event, not re-stamped
+// — that is a deliberate choice, unlike P8's "build from nothing", which has no event
+// to carry a timestamp from and so packs `sysTime` itself.
+// ─────────────────────────────────────────────────────────────────────────────
+var uuid        = flow.get('datapointCycleTime')
+var sysTime     = msg.payload.sysTimeEnd
+var valueDouble = msg.payload.cycle_time
+
+msg.payload = {
+    uuid: uuid,
+    sysTime: sysTime,
+    valueDouble: valueDouble,
+    isDelta: true
+}
 
 return msg;

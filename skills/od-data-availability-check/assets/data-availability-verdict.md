@@ -28,7 +28,7 @@ and are three different problems with three different owners — say which one t
 | # | Step | Verdict | What was found | Route |
 |---|---|---|---|---|
 | 1 | Machine produces it | ⟨ok / blocker⟩ | ⟨n machines in scope⟩ | ⟨measurement gap → capital request⟩ |
-| 2 | Machine integrated | ⟨⟩ | ⟨n of m INTEGRATED; k blank⟩ | ⟨od-equipment-integration-assessment⟩ |
+| 2 | Machine integrated | ⟨⟩ | ⟨n of m INTEGRATED; k blank⟩ | ⟨od-equipment-integration, assessment route⟩ |
 | 3 | Connector and concept | ⟨⟩ | ⟨vendor → connector, status USE?⟩ | ⟨connector gap → barrier⟩ |
 | 4 | Signal flowing and standardized | ⟨⟩ | ⟨found / not found / unproven⟩ | ⟨od-signal-standardization⟩ |
 | 5 | Fit for use | ⟨⟩ | ⟨granularity, freshness, completeness — from the platform⟩ | ⟨data gap, with the reason⟩ |
