@@ -68,7 +68,7 @@ Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
 | File | Use it for |
 |---|---|
 | [`references/ishikawa-gap-diagnosis.md`](references/ishikawa-gap-diagnosis.md) | The four branches, the causes recorded per branch, the good-practice and bad-practice signature, how to compare plants fairly, and the scaling test for zero-saving use cases |
-| [`references/tiering-criteria.md`](references/tiering-criteria.md) | First mover vs fast follower: criteria, what each tier gets, how to apply them, the open conflict with "first come, first served" |
+| [`references/tiering-criteria.md`](references/tiering-criteria.md) | First mover vs fast follower: criteria, what each tier gets, how to apply them, wave allocation (request order, then staffed first movers) |
 | [`references/roadmap-templates.md`](references/roadmap-templates.md) | Plant roadmap rows, status colours, call for action, regional roadmap fields, the call agenda that consumes them |
 | [`references/evidence-synthesis.md`](references/evidence-synthesis.md) | Turning interviews and workshops into a diagnosis: grounding tags, coverage, splitting variable, open questions |
 | [`assets/plant-gap-diagnosis-record.md`](assets/plant-gap-diagnosis-record.md) | The record: comparison set, Ishikawa, signature, tier, evidence, open questions |
@@ -98,8 +98,8 @@ machine that will not connect (`od-barrier-triage`).
    unknown, standards ignored, savings not calculated? The signature decides which branch to start with.
 5. **Run the scaling test** for any use case deployed in several plants with zero saving somewhere: three
    lists - where it saved, where it was deployed without savings, where it still has potential. A
-   deployment without savings means *further investigation necessary*, not yet *no potential*
-   (`<to confirm>`: the decks disagree on the wording; carry the safer reading).
+   deployment without savings means *to be evaluated until investigated*, not *no potential*. Only a human
+   (the OD lead with the plant owner) may decide "no potential"; an agent never writes it.
 6. **Tier the plant** with `references/tiering-criteria.md`. Tier decides central capacity, not eligibility.
 7. **Write the roadmap rows** from the gaps: one row per workstream, owner role, target date, status colour,
    call-for-action text (`references/roadmap-templates.md`). Fix people and method gaps before adding
@@ -175,8 +175,6 @@ rows that need a decision.
 
 - `<Tier criteria thresholds>`: the criteria are qualitative; no threshold is stated for "high estimated value".
 - `<Sector-level vs department-level first-mover lists>`: treat the department definition as authoritative.
-- `<Wave allocation>`: request order vs first-mover priority; the chain should state which wins (`references/tiering-criteria.md`).
-- `<Retire vs re-evaluate>` rule for a scaled-out use case with zero saving.
 - `<Whether a tier is reviewed at fixed intervals>` and by whom.
 - `<Form and location of the roadmap>` (list, deck or scorecard section).
 

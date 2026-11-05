@@ -41,13 +41,13 @@ the early stages.
 
 | Stage | Purpose | Typical shape | Resource rule |
 |---|---|---|---|
-| **PoC** | Reduce a risk with a minimal test | Days to weeks | Minimal waste |
-| **Prototype** | Validate feasibility | About a sprint; may have gaps for scale and operations | Minimal waste |
+| **PoC** | Validate feasibility: reduce a risk with a minimal test | Days to weeks | Minimal waste |
+| **Prototype** | Validate the benefit with real users | About a sprint; may have gaps for scale and operations | Minimal waste |
 | **Pilot** | Validate operational scalability | Real users, the support concept in use | Sufficient resources |
 | **Rollout** | Scale out | Effects planned empirically | Sufficient resources |
 
 The click-dummy of this skill sits before the PoC (a usability question). The ladder in `references/status-labels.md` is the
-labelling of items; this ladder is the working sequence. `<to confirm: whether PoC and prototype are one rung in the department's own vocabulary; the strategy material separates them, the AI decks do not>`.
+labelling of items; this ladder is the working sequence. PoC and prototype are two separate stages.
 For each item keep the standing question per stage: reference plant, maturity, where applied, next call to action.
 
 **Strategy rules for any prototype:** new software follows the reference architecture; new use cases use existing templates;

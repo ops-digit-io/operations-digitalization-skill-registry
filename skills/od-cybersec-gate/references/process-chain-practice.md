@@ -1,14 +1,14 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: How the Cyber Security gate is run in the chain (1b3, 3a5, 3b6) - security-relevance questions, the request sequence, documentation completeness, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council notification, handoffs and agent notes.
+description: How the Cyber Security gate is run in the chain (1b3, 3a5, 3b6) as a parallel track that blocks only go-live - security-relevance questions, the request sequence, documentation completeness, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council notification, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
 tags: [information-integration-service, practice, process-chain, draft]
 generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
-# Process-chain practice - the gate as a precondition, plus the data-protection gate
+# Process-chain practice - the gate as a parallel go-live gate, plus the data-protection gate
 
 Derived from the Operations Digitalization slide decks (platform, tool, community-call and capital-request decks), abstracted into
 process guidance. No figures. It adds practice only; it does not state what Cyber Security requires (the standard is not
@@ -17,8 +17,8 @@ collected, see `gate-rules.md`). `PROPOSAL` = synthesis not stated in a deck; `<
 ## Where it sits in the chain
 
 1b3 order and connect, 3a5 deploy to the platform and Cyber Security, 3b6 acceptance and Cyber Security. Read it also as a
-**precondition of the integration wave** (see `od-equipment-integration`, practice file): the weekly capital-request micro-process
-of each wave assumes the sign-off scope is known.
+**parallel track of the integration wave** (see `od-equipment-integration`, practice file): the sign-off is decoupled, runs alongside
+planning and build, and blocks only go-live. Start the package early so the scope is known when the wave is ready to go live.
 
 ## 1 Method in practice
 
@@ -66,8 +66,8 @@ involved, list of what leaves the machine or plant network and where it lands, b
 
 | Situation | Rule |
 |---|---|
-| Open controller patch or open approval | Hold the connection; treat as wave precondition, not a late gate |
-| What does the gate block? | State it on the record: connection and productive deployment. Use-case definition and prototype work on existing data may continue (`<to confirm>`: decks both decouple and couple the two) |
+| Open controller patch or open approval | Hold go-live (the live connection); run the sign-off as a parallel track started early, not a late surprise |
+| What does the gate block? | State it on the record: only go-live (the live connection and productive operation). Planning, build, use-case definition and prototype work on existing data continue in parallel |
 | Pilot or proof of concept | Keep it small enough to stay off the heavy OT path (next section) |
 | New hardware | Documentation and hardened image prepared first |
 | Productive rollout of a tool | Operations concept must exist (business owner, IT owner, service concept, roles, change and risk process) |

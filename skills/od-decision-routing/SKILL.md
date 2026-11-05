@@ -41,7 +41,7 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/decision-rights-framework.md`](references/decision-rights-framework.md) | Why Tandem/Consultation/Information are a cited framework (Bain's RAPID), not a house convention — and how to pick a mode for a decision not yet in the table |
-| [`references/escalation-worked-examples.md`](references/escalation-worked-examples.md) | Illustrative ODEC-vs-COP patterns and how the forum is chosen — the strategic/technical split within one topic (cybersecurity), a blocker that stays at COP, and what happens when COP under-delivers |
+| [`references/escalation-worked-examples.md`](references/escalation-worked-examples.md) | Illustrative patterns, from the historical ODEC and COP records, on the strategic/technical split within one topic (cybersecurity), a blocker that stays at COP, and what happens when COP under-delivers |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Small change versus project, what may enter routing, decisions as decision / proposal / risk of not doing, the operations-concept gate, board patterns, and what an agent may draft |
 
 **The function proposes; other people decide.** Most portfolio gates sit
@@ -72,7 +72,7 @@ decide; the level and the threshold together are what make "is this allowed?" an
 
 | Gate | Route | Threshold / state |
 |---|---|---|
-| **Spend** | eCR (engineering change request) | Approval ladder per the current approval policy (look up: Controlling / eCR process owner) — a ladder, not alternatives |
+| **Spend** | eCR (electronic capital request) | Approval ladder per the current approval policy (look up: Controlling / eCR process owner) — a ladder, not alternatives |
 | **Demand on IT platforms** | IT demand management + demand evaluation board | anything touching a platform OD does not own |
 | **Standard enough to roll out** | CSP decision, per reference-library entry | decision recorded per library entry (`Yes` / `No` / not yet decided) |
 | **Into daily use** | The plant | OD can deliver and hand over; only the plant makes it `PRODUCTIVE` |
@@ -98,9 +98,11 @@ human · present unvalidated insight as fact.
 
 ## Escalation
 
-**→ OD lead**, via **ODEC** for strategy, priority, rollout and blocked
-projects; via **COP** for technical matters — connection barriers, failed acceptance,
-missing operations concepts.
+**→ OD lead** for strategy, priority, rollout and blocked projects, in the
+deciding role or forum named in the current approval policy (look up); via **COP**
+for technical matters — connection barriers, failed acceptance, missing operations
+concepts. ODEC is a historical forum and a source of information (past decisions, decks,
+facts), not a current route; no recurring governance meeting is prescribed.
 
 Escalate on these triggers from the risk register:
 
@@ -120,7 +122,7 @@ Escalate on these triggers from the risk register:
 3. If the required level is above yours, produce the recommendation and route it — do not
    narrow the action until it fits your level.
 4. Record the gate as a **dependency** on the use case or saving row so it stays visible. Write the decision as decision, proposal, risk of not doing.
-5. Escalate on the trigger, to the right forum, inside the round's window.
+5. Escalate on the trigger, to the deciding role or forum named in the current approval policy (look up), inside the agreed window.
 
 ## Output — the protocol
 

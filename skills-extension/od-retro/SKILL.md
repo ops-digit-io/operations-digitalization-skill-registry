@@ -3,9 +3,9 @@ name: od-retro
 description: >-
   Run the department's monthly retrospective so that it ends in exactly one decided
   adjustment - gather the three inputs the operating rhythm names (incidents, metrics,
-  ODEC and COP feedback), list what was learned with its evidence, pick the one change, record
+  COP feedback and the historical ODEC record), list what was learned with its evidence, pick the one change, record
   who decides it and how it will be checked next month, and review last month's change first.
-  Use when the monthly retro is due, after an ODEC or COP round, after an incident or a
+  Use when the monthly retro is due, after a COP round, after an incident or a
   missed threshold, or when someone asks what the improvement loop is and why a retro that
   produces a list has not produced a decision.
 license: MIT
@@ -44,11 +44,11 @@ metadata:
 Read `od-context` first.
 
 Plan item O-06 of the department's skill map (wave 3). The operating rhythm marks the retro with a star and calls it
-mandatory: **"What did we learn -> 1 change"**, input *incidents, metrics, ODEC/COP feedback*, output *1 decided
+mandatory: **"What did we learn -> 1 change"**, input *incidents, metrics, ODEC/COP feedback* (ODEC no longer meets; read its records as history), output *1 decided
 adjustment*, cadence *at least monthly*. The reason is stated there too: without a minimal retro cadence the department
 has no improvement loop, and "learning is a leadership duty (PDCA/Kaizen)".
 
-`od-scorecard-reporting` already prepares and follows up the ODEC and COP rounds and states that the retro output is
+`od-scorecard-reporting` already prepares and follows up the COP rounds and reads the historical ODEC records and states that the retro output is
 exactly one decided adjustment. This skill does **not** repeat the round preparation. It starts from the finished
 round and its numbers and turns them into one change.
 
@@ -71,14 +71,14 @@ adjustment. Everything else goes to the parking list and is revisited, not decid
 1. **Close last month first.** Open last month's record and answer its check question with evidence: did the adjustment
    happen, did it do what it was meant to? Outcomes: kept, changed, dropped. Without this step the loop is Plan-Do with
    no Check or Act.
-2. **Gather the three inputs** ([`retro-inputs.md`](references/retro-inputs.md)): incidents, metrics, ODEC and COP
-   feedback. Use `od-scorecard-reporting` for the metrics, with the read date; use `od-risk-watch` for the risk readings
+2. **Gather the three inputs** ([`retro-inputs.md`](references/retro-inputs.md)): incidents, metrics, COP feedback and the historical ODEC
+   record (past decisions, decks, facts). Use `od-scorecard-reporting` for the metrics, with the read date; use `od-risk-watch` for the risk readings
    if it has been run this month.
 3. **Write the learning list.** Each item: what happened, evidence, source with date, and which input it came from. An
    item with no evidence is not a learning; mark it `⟨evidence missing⟩` or leave it out.
 4. **Test each item for being changeable by OD.** Three questions: can OD change this by itself (no gate outside OD)? Is
    it reversible? Will next month's inputs show whether it worked? An item that fails the first question is not an
-   adjustment but an escalation: send it to `od-decision-routing` (ODEC for strategy and priority, COP for technical).
+   adjustment but an escalation: send it to `od-decision-routing` (strategy and priority: the OD lead or the deciding role named in the current approval policy, look up; technical: COP).
 5. **Choose exactly one.** Preference order, which is a working rule of this skill, not of the Department OS:
    a. an item behind a crossed intervention threshold or an escalation trigger (`07-metrics.md`, `09-risks.md`);
    b. an item that recurred across more than one input or more than one month;
@@ -92,7 +92,7 @@ adjustment. Everything else goes to the parking list and is revisited, not decid
    decision-rights table (priority, rollout, standards, investment), the usual route applies via `od-decision-routing`.
 8. **Park the rest.** Carry unchosen items to the parking list with the month they first appeared; two months parked
    is a signal for rule (b) next time.
-9. **Hand the one adjustment on:** into the next ODEC or COP input if others must act; into `od-context-freshness`
+9. **Hand the one adjustment on:** into the next COP input, or to the deciding role named in the current approval policy (look up), if others must act; into `od-context-freshness`
    (planned) if the adjustment is a change to a context file.
 
 ## Decision table: which item becomes the adjustment
@@ -108,7 +108,7 @@ adjustment. Everything else goes to the parking list and is revisited, not decid
 
 ## Output
 
-[`assets/retro-record.md`](assets/retro-record.md), kept with the month's ODEC and COP outputs. The operating rhythm
+[`assets/retro-record.md`](assets/retro-record.md), kept with the month's COP outputs and any ODEC records used. The operating rhythm
 file deliberately **excludes agenda templates and participants as names**; the record therefore has no agenda and lists
 roles only.
 
@@ -131,4 +131,4 @@ roles only.
 - Do not name individuals in the record: roles only.
 - Do not count an intention as a result: the check at the next retro needs an observable.
 - Do not pick an adjustment that needs a gate outside OD and call it done; route it.
-- Do not use the retro to re-open decisions already routed through ODEC or COP, only to learn from them.
+- Do not use the retro to re-open decisions already routed through COP or the deciding role, only to learn from them.

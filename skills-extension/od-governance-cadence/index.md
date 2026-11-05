@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Governance cadence](SKILL.md) | Agent Skill | Run the governance rhythm around the process chain - the CoP, ODIC and ODEC rounds (role, cadence, preparation, follow-up), the "call for action" and traffic-light status pattern, the regional and plant roadmap fields, demand and change routing (small change versus project versus governance board), the use-case sprint runbook, toolbox training-programme management and the community cadence between rounds. Use when a round has to be prepared or followed up, a call for action has to be written, a roadmap is drafted, a request must be sorted into ticket or project, a sprint is planned or reviewed, or a training offer is to be run. Holds method only, no dates, counts or plant statuses. |
+| [Governance cadence](SKILL.md) | Agent Skill | Run the governance routines around the process chain - the CoP and any round the department holds (role, preparation, follow-up), the forums as sources of information (ODEC as a historical forum), the "call for action" and traffic-light status pattern, the regional and plant roadmap fields, demand and change routing (small change versus project versus governance board), the use-case sprint runbook, toolbox training-programme management and the community cadence between rounds. Use when a round or status report has to be prepared or followed up, a past decision or deck has to be found, a call for action has to be written, a roadmap is drafted, a request must be sorted into ticket or project, a sprint is planned or reviewed, or a training offer is to be run. Holds method only, no dates, counts or plant statuses. |
 
 | Folder | Holds |
 |---|---|

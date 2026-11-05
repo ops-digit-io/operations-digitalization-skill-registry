@@ -33,7 +33,7 @@ Authority: read-only on sources; this is a draft for the OD lead role.
 
 ## Triggers hit
 
-| Risk | Months in a row | Countermeasure in the register | Forum (ODEC / COP) | Routed with |
+| Risk | Months in a row | Countermeasure in the register | Forum (deciding role per the current approval policy, look up / COP) | Routed with |
 |---|---|---|---|---|
 | ⟨⟩ | ⟨⟩ | ⟨⟩ | ⟨⟩ | ⟨`od-decision-routing` reference⟩ |
 

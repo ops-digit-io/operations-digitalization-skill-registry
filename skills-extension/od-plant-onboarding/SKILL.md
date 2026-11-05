@@ -4,7 +4,7 @@ description: >-
   Lay out the onboarding path of one plant through the OD skill set, in order - place the plant
   by its starting profile (no machines recorded, machines but none integrated, partly or fully
   integrated), then walk the stages from recording the plant and assessing its equipment, through
-  intake and the three new-state lanes, to handover, training and joining the monthly rhythm,
+  intake and the three new-state lanes, to handover, training and joining the department's reporting routines,
   naming the skill, the artefact and the role for each stage. Use when a plant enters OD scope,
   when a plant has records but no roadmap, when a local key user asks where to start, or when a
   plant's onboarding has stalled and the missing stage must be found.
@@ -60,7 +60,7 @@ what comes next, which skill, what artefact, who decides.*
   has records but no roadmap, or a plant whose onboarding stalled.
 - Done (proposal, not a source rule): each stage in the table below has its artefact filed, or an explicit `⟨reason it does
   not apply⟩`; the plant appears in the Equipment Integration report and the readiness matrix; the plant has a plant-side
-  owner for each lane it uses; the plant is in the monthly rhythm.
+  owner for each lane it uses; the plant is in the department's reporting routines.
 
 ## The references
 
@@ -87,10 +87,10 @@ what comes next, which skill, what artefact, who decides.*
 | 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `od-equipment-integration` (assessment route); `od-data-availability-check` for what the platform already receives; `od-barrier-triage` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `od-equipment-integration`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
 | 3. Take in demands | Each plant demand is classified: known use case, new use case, new system or connector | `od-use-case-intake-triage`, `od-system-fit-check`, `od-template-resolution` (start from the approved master) | Intake decision with written reason; fit check | Intake, then Lane 1, 2 or 3 | DBVE with Plant ME (prioritization: recommend) |
 | 4. First wins from the catalog | Machines already connected: pick a catalogued use case and apply its template | `catalog-usecase`, `od-cross-plant-compatibility` (is the standard consumable here?), `od-analytics-asset-build`, `build-grafana-ops-dashboard`, `catalog-guardrails` | Asset live on the plant's local Grafana; compatibility check | Lane 1 (1a) | The plant decides what it runs |
-| 5. Connect what is not connected | Requirements, cost and approval, cyber gate, build the connection, standardize signals, accept | `od-requirements-breakdown`, `od-investment-input` and `od-decision-routing` (spend via eCR), `od-cybersec-gate` (planned), `od-equipment-integration` (guidance route), `od-node-red-flow-builder`, `od-signal-standardization`, `od-acceptance-test` | Requirement spec; decision request; guidance protocol per machine; signal analysis report; acceptance protocol | Lane 1 (1b), Lane 3b | IIAE: equipment go-ahead is execute-with-approval; investment by the OD lead with BA Operations (recommend); Cyber Security sign-off for external connection |
+| 5. Connect what is not connected | Requirements, cost and approval, Cyber Security sign-off in parallel (blocks only go-live), build the connection, standardize signals, accept | `od-requirements-breakdown`, `od-investment-input` and `od-decision-routing` (spend via eCR), `od-cybersec-gate` (planned), `od-equipment-integration` (guidance route), `od-node-red-flow-builder`, `od-signal-standardization`, `od-acceptance-test` | Requirement spec; decision request; guidance protocol per machine; signal analysis report; acceptance protocol | Lane 1 (1b), Lane 3b | IIAE: equipment go-ahead is execute-with-approval; investment by the OD lead with BA Operations (recommend); Cyber Security sign-off for external connection |
 | 6. Develop a new use case where no catalog entry fits | Define, check data, prove, business case, capital request, implement | `od-use-case-definition`, `od-use-case-solution-evaluation`, `od-prototype-poc`, `od-benefit-calculation`, `od-capital-request` (planned), `od-use-case-standardization` for graduation | Definition one-pager; evaluation; prototype record; benefit calculation | Lane 2 | DBVE with Plant ME; spend and rollout route via `od-decision-routing` |
 | 7. Hand over and train | Solution accepted, then adopted by the plant | `od-handover-and-adoption`, `od-rollout-training` (planned) | Handover protocol; adoption evidence | Lane 2 and 3 end steps | The plant owns "into daily use" |
-| 8. Join the rhythm | Plant numbers in the Scorecard; plant issues in ODEC and COP; plant risks and learnings | `od-scorecard-reporting`, `od-portfolio-and-savings-analysis`, `od-risk-watch`, `od-retro`, `od-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
+| 8. Join the routines | Plant numbers in the Scorecard; plant issues in the COP or with the OD lead (ODEC is historical); plant risks and learnings | `od-scorecard-reporting`, `od-portfolio-and-savings-analysis`, `od-risk-watch`, `od-retro`, `od-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
 
 A 3a path (new system, via IT demand) is not part of a normal plant onboarding; it is taken only when stage 3 or 5 finds
 a need no connector can meet: `it-demand-package`, `deploy-appstore`.
@@ -121,7 +121,8 @@ a need no connector can meet: `it-demand-package`, `deploy-appstore`.
 - Do not treat first-mover versus fast-follower as eligibility; it decides central capacity (`references/process-chain-practice.md`).
 - Do not start with a use case before the plant is recorded: stage 1 is the precondition for every comparison.
 - Do not assume the plant looks like the first plant: run `od-cross-plant-compatibility` before taking a standard.
-- Do not connect a machine to an external system without Cyber Security / OT sign-off.
+- Do not connect a machine to an external system without Cyber Security / OT sign-off. The sign-off runs in
+  parallel with planning and build and blocks only go-live: start the package early.
 - Do not name individuals in the tracker; roles only.
 - Do not reorder the stages to hit a date; if a stage cannot start, record the wait state (investment approval, Cyber
-  Security sign-off, a decision on shared tooling, per the playbook) rather than skipping.
+  Security sign-off before go-live, a decision on shared tooling, per the playbook) rather than skipping.

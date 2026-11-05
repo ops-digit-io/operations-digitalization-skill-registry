@@ -48,11 +48,11 @@ defined, evaluated candidates and hands a ranked list with an unscored bucket.
 
 ## 2 · Decision rules
 
-- **Ordering rule, stated explicitly.** Workshop decks order by generalization potential first, then saving
-  potential; strategy decks emphasise savings and accelerated savings. `<to confirm>` with the OD lead; until
-  then write the order used into the record header and do not mix orders inside one list.
-- **Wave allocation.** "First come, first served" within a quarter and budget class versus first-mover-first.
-  `<to confirm>`; write the plant tier next to the queue position (tiers: `od-use-case-intake-triage`).
+- **Ordering rule, stated explicitly.** Savings first (value, ROI); generalization potential and effort are
+  secondary criteria; dependency order (foundations before what depends on them) is the tie-breaker. Write the
+  order used into the record header and do not mix orders inside one list.
+- **Wave allocation.** Eligibility follows request order; central capacity goes first to first-mover plants that
+  are staffed. Write the plant tier next to the queue position (tiers: `od-use-case-intake-triage`).
 - **Three-way bucket as sort key:** just do, go forward, lead change. Just do is cheap and needs no new
   development; go forward names its enabler; lead change is exploratory.
 - **Maturity sanity check for AI items.** Do not rank AI use cases above basic data-model and reporting work in
@@ -63,8 +63,8 @@ defined, evaluated candidates and hands a ranked list with an unscored bucket.
   party already collects the data). A low-saving item is cleaned from the list, but may stay as a scaling item
   if it is cheap to scale (`PROPOSAL`).
 - **Scaling test per top use case:** three lists: where it saved, where it was deployed without savings, where it
-  still has potential. A scaled-out use case with deployments but no savings is "further investigation
-  necessary", not "no potential"; the algorithm may flag it but must not decide it.
+  still has potential. A scaled-out use case with deployments but no savings is "to be evaluated"
+  until investigated, not "no potential"; the algorithm may flag it but must not decide it.
 - **Value tiers are never summed.** Keep a small **banked floor** that is sourced today, a **potential** envelope
   that is top-down, and **de-banked** items that rest on a crucial unknown (sensitivity only). Tag every figure:
   `[input]` stated by a source, `[assumption]` our estimate, `[market]` standard value, `[unknown]` crucial

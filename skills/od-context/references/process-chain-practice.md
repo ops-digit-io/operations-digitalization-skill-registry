@@ -43,7 +43,7 @@ Across two or more departments the same layer allows a process register, orphan 
   - *Fast follower:* central support only when capacity allows; locally driven; limited, resource-adjusted funding; roadmap from local assessment.
   The department-level definition is authoritative; a sector-level list for a broader suite is background. The tier of a given plant is a live fact; never copy it into a skill.
 - **Maturity sanity check for AI requests.** The value-creation ladder runs from uncontrolled data, through reporting and data-driven processes, to a data-centric architecture and a data economy; AI starts at the third level. Do not rank AI use cases above basic data-model and reporting work in plants that have not reached reporting.
-- **Ordering of priorities.** Workshop material ranks by generalization first and savings second; strategy material stresses savings. Say which was used `<to confirm>`.
+- **Ordering of priorities.** Savings first (value, ROI); generalisation potential and effort are secondary criteria; dependency order (foundations before what depends on them) breaks ties.
 
 ## 3. Handoff contract
 
@@ -62,8 +62,8 @@ Across two or more departments the same layer allows a process register, orphan 
 
 - **New systems, slides and trackers added instead of cleaning up** ("if a system is insufficient people introduce another insufficient system"). Retire before adding.
 - **Single-person knowledge.** A single technical key user left within weeks of an announcement; no successor was named. Every section needs a named successor.
-- **Vocabulary drift.** Several recommendation words for the same tool status; several words for one expansion. One term, one meaning - and look time-bound facts (tool status, plant tier, forum cadence) up live.
-- **Reference decks contradict each other** (forum cadence, tool direction, who evaluates use-case value: plants or OD). Prefer the later dated source, say so, and mark `<to confirm>`.
+- **Vocabulary drift.** Several recommendation words for the same tool status; several words for one expansion. One term, one meaning - and look time-bound facts (tool status, plant tier, forum status) up live.
+- **Reference decks contradict each other** (tool direction and similar; the plant evaluates use-case value after go-live, OD provides the calculator and method and reviews the result). Prefer the later dated source, say so, and mark `<to confirm>`.
 - **Averaging over two populations.** Sort by the variable that drives the economics (for example whether a plant owns its source code) before stating a fleet baseline.
 - **A department context that is only prose** cannot be consumed by an agent; use fields.
 

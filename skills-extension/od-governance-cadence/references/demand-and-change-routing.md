@@ -44,9 +44,8 @@ Mark unanswered ones `<...>`; the product owner decides.
 
 ## Waves and plants
 
-- Wave allocation: first come first served within a quarter and budget class (by systems needed), versus
-  first-mover priority for central support. Safer reading: **eligibility by request order, central capacity by
-  first-mover status** `<to confirm>`.
+- Wave allocation: **eligibility follows request order; central capacity goes first to first-mover plants that
+  are staffed** (within a quarter and budget class, by systems needed).
 - First mover: high estimated value, regions, segments and technologies covered, capacity and knowledge in the
   plant, integration synergy, a dedicated staffed key user. Fast follower: support when capacity allows, locally driven.
 - Wave decision includes a staffing check (plant resource and skill), not only the budget.

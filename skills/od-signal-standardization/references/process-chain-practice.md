@@ -90,13 +90,12 @@ description. Time-series data is not needed to generate a proposal, but is neede
   fastest), or non-standard unique (factory conditions, legacy system, not scalable beyond the site).
 - **Fit of the base model.** Greenfield, discrete, time-series-centric machines fit; brownfield with many controllers and
   continuous processes need other models. Say which applies `<to confirm: roadmap material calls the base model standard for all connected machines>`.
-- **Scale known machine types.** At most one unknown machine type per new deployment; document the process per controller type and
-  write an integration standard `<to confirm: other material says connect the difficult machines first; the decks report the
-  difficult-first approach burned reputation, so the scale-known reading is used>`.
+- **Scale known machine types.** Scale known machine types first; at most one unknown machine type per new deployment; document the
+  process per controller type and write an integration standard.
 - **Never bury a per-plant fix-up** in a function or a query (see Do not in the skill); a mapping layer is the place for it.
-- **Master-data leader.** One architecture names the ERP as leading system, another shows recipe and meter-structure master
-  data in local specialist systems; the rule "single source of truth, others receive via API" is stated, the reconciliation
-  of existing local masters is not `<to confirm>`.
+- **Master-data leader.** The ERP is the master for material, order and product master data; local systems (MES and similar) are
+  derived from it and report back; the rule is "single source of truth, others receive via API". Time-series and transactional data keep
+  their standard hub per data class.
 
 ## Pitfalls and lessons
 

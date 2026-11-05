@@ -74,7 +74,7 @@ quotation rounds, sourcing complete, build, deploy.
 | Check | Pass condition |
 |---|---|
 | Offer version = eCR version = contract version | One version, one date, stated in the package |
-| Order of events | The eCR was not launched before a pending contract separation or carry-over was settled |
+| Order of events | The offer was obtained first (a second quotation where the policy asks), then the eCR was raised; the eCR was not launched before a pending contract separation or carry-over was settled; before ordering, offer = eCR = contract (checked) |
 | Frame contract | Used, or the deviation is explained |
 | Purchasing | A named role drives the purchasing process |
 | Cost conflicts | Per-seat versus per-site or PoC figures that differ by a large factor are flagged and reconciled before totals are printed |

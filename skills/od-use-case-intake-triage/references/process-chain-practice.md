@@ -72,9 +72,8 @@ Run the checks in this order; each one can end the triage.
   is available, never whether a request is legitimate. First mover: high estimated value-add, regions,
   segments and technologies covered, capacity and knowledge in the plant, integration synergies, and a
   dedicated staffed key user. Fast follower: central support only when capacity allows, locally driven, limited
-  funding. `<to confirm>`: wave allocation was "first come, first served" in one planning round and
-  first-mover-first in the strategy; until the OD lead states which wins, write the plant tier next to the
-  queue position and do not reorder silently.
+  funding. Eligibility follows request order; central capacity goes first to first-mover plants that are
+  staffed. Write the plant tier next to the queue position.
 - **Ideas-driven is a warning.** A request driven by an idea rather than an expected effect or saving, or a
   change request launched without pre-alignment with OD, is the named cause of friction and one-offs. Ask for
   the effect.

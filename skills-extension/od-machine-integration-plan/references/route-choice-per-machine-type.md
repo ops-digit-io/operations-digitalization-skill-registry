@@ -28,7 +28,7 @@ applications are not tailored to device interfaces; third-party models map into 
 |---|---|---|---|
 | Transactional | events, cycle time, counters, set values, limits, alarms | changes hard to propagate | Service bus with OPC-UA |
 | Time series | curves, process values | easy to propagate | MQTT stream |
-| Master data | single source of truth | leading system (ERP) | Other systems via API; reconcile per-system masters such as recipes `<to confirm>` |
+| Master data | single source of truth | leading system (ERP) | ERP is master for material, order and product master data; local systems (MES etc.) are derived and report back; other systems via API |
 
 For every machine type decide in the tag list: transactional signals, streaming signals, what connected
 systems need, what analytics wants.

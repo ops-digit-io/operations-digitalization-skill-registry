@@ -46,7 +46,7 @@ Roles only. Status values: not started · in progress · waiting (state the wait
 | Gate | Needed? | Decision request reference | Outcome |
 |---|---|---|---|
 | Spend (eCR) | ⟨⟩ | ⟨⟩ | ⟨⟩ |
-| Cyber Security sign-off for external connection | ⟨⟩ | ⟨⟩ | ⟨⟩ |
+| Cyber Security sign-off for external connection (go-live gate, runs in parallel) | ⟨⟩ | ⟨⟩ | ⟨⟩ |
 | Demand on IT platforms | ⟨⟩ | ⟨⟩ | ⟨⟩ |
 | Standard enough to roll out (CSP) | ⟨⟩ | ⟨⟩ | ⟨⟩ |
 

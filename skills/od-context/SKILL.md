@@ -94,13 +94,13 @@ profile.**
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |
 | Digitalization Scorecard | The authoritative Power BI report of OD targets vs. actuals and readiness | The Use Case / Equipment Integration reports, which feed it |
 | Readiness (RAG) | System integration & availability per dimension × location — red not available, yellow in rollout, green available | — |
-| ODEC | Operations Digitalization Exchange Call — **strategy** cadence (monthly here; some decks show the strategy call as quarterly ⟨to confirm⟩) | COP |
-| COP | Community of Practice Call — monthly **technical** cadence | ODEC |
+| ODEC | Operations Digitalization Exchange Call — **historical** strategy forum (monthly only until 2025-12, no longer held, no fixed replacement forum); a source of information (past decisions, decks, facts) | COP |
+| COP | Community of Practice Call — **technical** round | ODEC (historical) |
 | DBVE | Digital-Business-Value-Engineer — owns use-case value | IIAE |
 | IIAE | IIoT Interface & Automation Engineer — owns integration | DBVE |
 | Route 25 | OESL Smart Factory strategy program / bootstrapping-tools assessment | — |
 | CSP | Common Solution Portfolio decision — the gate that says a library entry is standard enough to roll out | — |
-| eCR | The spend route; the decks use it as the capital request for a project or integration wave ⟨expansion of the letters — to confirm; earlier text read "engineering change request"⟩ | — |
+| eCR | Electronic capital request — the spend route for a project or integration wave | — |
 | SPRINT | The portfolio review that turns a tracked saving into a proven one | — |
 | Process First-Aid Kit | Rapid diagnostic offering inside Use Case Support | Ad-Hoc Analytics (Analytical lane) |
 
@@ -208,8 +208,8 @@ The function proposes; other people decide. Most gates sit outside OD.
 
 ## Escalation
 
-Blocked work → OD lead, via **ODEC** for strategy, priority and rollout
-matters, via **COP** for technical ones. In the OD lead's absence ⟨deputy — to confirm⟩
+Blocked work → OD lead; strategy, priority and rollout matters go to the deciding role or forum
+named in the current approval policy (look up), technical ones can use the **COP**. ODEC is historical and no longer a route. In the OD lead's absence ⟨deputy — to confirm⟩
 decides prioritization and rollout within the agreed roadmap; investment commitments
 wait for the OD lead.
 

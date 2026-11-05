@@ -5,5 +5,5 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Decision rights framework](decision-rights-framework.md) | Skill Reference | Why Tandem, Consultation and Information are not ad hoc labels — each is one role pairing from a named decision-rights framework, cited so the vocabulary can be checked and extended. |
-| [Escalation worked examples](escalation-worked-examples.md) | Skill Reference | Illustrative patterns where the forum (ODEC vs COP) was not obvious, how it is decided, and what happens when something lands at the wrong forum - guidance only, no plant names or figures. |
+| [Escalation worked examples](escalation-worked-examples.md) | Skill Reference | Illustrative patterns, from the historical ODEC and COP records, where the forum was not obvious, how it was decided, and what happens when something lands at the wrong forum - guidance only, no plant names or figures. |
 | [Process chain practice](process-chain-practice.md) | Skill Reference | How decision routing (steps 1b2, 25, 32) is run in the AI-driven chain - small change versus project, what may enter routing, decisions with risk of not doing, forum and board patterns, the operations-concept gate, and what an agent may draft. Pattern only, no figures. |

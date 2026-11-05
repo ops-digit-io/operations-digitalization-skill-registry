@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Monthly retrospective](SKILL.md) | Agent Skill | Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, ODEC and COP feedback), list what was learned with its evidence, pick the one change, record who decides it and how it will be checked next month, and review last month's change first. Use when the monthly retro is due, after an ODEC or COP round, after an incident or a missed threshold, or when someone asks what the improvement loop is and why a retro that produces a list has not produced a decision. |
+| [Monthly retrospective](SKILL.md) | Agent Skill | Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, COP feedback and the historical ODEC record), list what was learned with its evidence, pick the one change, record who decides it and how it will be checked next month, and review last month's change first. Use when the monthly retro is due, after a COP round, after an incident or a missed threshold, or when someone asks what the improvement loop is and why a retro that produces a list has not produced a decision. |
 
 | Folder | Holds |
 |---|---|

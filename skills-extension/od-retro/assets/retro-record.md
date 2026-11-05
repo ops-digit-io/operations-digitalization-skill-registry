@@ -18,7 +18,7 @@ Procedure: [`../SKILL.md`](../SKILL.md). Roles only; no names; no agenda.
 | Month | ⟨YYYY-MM⟩ |
 | Prepared by (role) | ⟨role⟩ |
 | Roles present | ⟨roles⟩ |
-| Inputs read, with read dates | metrics ⟨date⟩ · ODEC ⟨date⟩ · COP ⟨date⟩ · incidents ⟨source, date⟩ · risk reading ⟨date or "not run"⟩ |
+| Inputs read, with read dates | metrics ⟨date⟩ · COP ⟨date⟩ · ODEC records, historical ⟨date or "not used"⟩ · incidents ⟨source, date⟩ · risk reading ⟨date or "not run"⟩ |
 
 ## 1. Check of last month's adjustment
 
@@ -30,7 +30,7 @@ Procedure: [`../SKILL.md`](../SKILL.md). Roles only; no names; no agenda.
 
 | # | What happened | Evidence (source, date) | Input | OD can change it? | First seen |
 |---|---|---|---|---|---|
-| 1 | ⟨⟩ | ⟨⟩ | ⟨metric / incident / ODEC-COP⟩ | ⟨yes / no⟩ | ⟨YYYY-MM⟩ |
+| 1 | ⟨⟩ | ⟨⟩ | ⟨metric / incident / COP / ODEC record⟩ | ⟨yes / no⟩ | ⟨YYYY-MM⟩ |
 
 ## 3. The one adjustment
 
@@ -43,7 +43,7 @@ Procedure: [`../SKILL.md`](../SKILL.md). Roles only; no names; no agenda.
 | Reversible? | ⟨yes / no⟩ |
 | Decided by (role) and date | ⟨decider role, to confirm⟩ · ⟨date⟩ |
 | Gate outside OD touched? | ⟨no / yes: routed with `od-decision-routing`, reference⟩ |
-| Passed to | ⟨next ODEC / COP input · `od-context-freshness`⟩ |
+| Passed to | ⟨next COP input or the deciding role per the current approval policy (look up) · `od-context-freshness`⟩ |
 
 If there is no evidence-backed candidate, write: "No adjustment this month: no evidence-backed candidate", and list the inputs read.
 
@@ -55,6 +55,6 @@ If there is no evidence-backed candidate, write: "No adjustment this month: no e
 
 ## 5. Escalations (items OD cannot change by itself)
 
-| Item | Forum (ODEC for strategy and priority, COP for technical) | Sent via |
+| Item | Forum (strategy and priority: deciding role per the current approval policy, look up; technical: COP) | Sent via |
 |---|---|---|
 | ⟨⟩ | ⟨⟩ | ⟨⟩ |

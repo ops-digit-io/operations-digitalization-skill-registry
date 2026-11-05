@@ -54,7 +54,7 @@ Ask in order; the first "no" is where the row stands and what the next step is.
   live in the overview before quoting.
 - **Weak basis everywhere.** The case groups carry a savings-basis grade (Weak, Very weak, None, ...). Read
   the grade per group in the live overview; do not compare groups by recorded euros.
-- **Savings not linked to a registered project.** An ODEC slide stated that most plants had no registered
+- **Savings not linked to a registered project.** A historical ODEC slide stated that most plants had no registered
   "CSP Project" in relation to digitalization for the year. The deck uses "CSP" for a savings-tracking
   project; `od-context` defines CSP as the Common Solution Portfolio gate. ⟨Whether these are the same CSP
   — to confirm with the OD lead⟩ before the term is used in a record.

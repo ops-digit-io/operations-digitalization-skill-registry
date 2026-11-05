@@ -53,13 +53,13 @@ benefit; how much could be invested.
   unique addresses, limits per segment; wireless links between logger and plant network proved unreliable.
 - **Wave decision checks** (add to the wave pack): the plant has the resources and skill to execute (a plant column
   "good / average / insufficient" was used); the layout is stable (repeatedly relocated machines delay integration); the
-  controller patch and Cyber Security status is a precondition on the plan, not a later gate; at most one unknown machine
+  controller patch and Cyber Security sign-off run as a parallel track that blocks only go-live, so start the package early
+  and do not hold the plan or the build for it; at most one unknown machine
   type per new deployment, known machine types scale first; connect whole processes or areas at once and reuse existing
   infrastructure.
 - **Budget class by the systems needed** (small / medium / large by whether bus, edge platform, aggregation server and
-  connectivity are required). Allocation was first come first served within a quarter and class; the strategy of serving
-  first-mover plants first points the other way. Which one wins: `<to confirm>` with the OD lead. Until then, record the
-  rule used.
+  connectivity are required). Eligibility follows request order; central capacity goes first to
+  first-mover plants that are staffed. Record the rule used.
 - **Low-cost connection pattern:** reuse existing devices; address translation on a switch or edge device so PLC and HMI
   programs stay unchanged; fits low data frequency. Trial one low-cost device on one machine before ordering more.
 - **Never net value against cost; fund the baseline first.** If no baseline exists, the first line is the measurement layer

@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Plant status input
-description: One-page input a plant fills for the equipment-integration line of an ODEC status slot - the plant's numbers with sources and dates, the open blockers, the eCR state and the asks - built from the fields the ODEC KPI slides actually track.
+description: One-page input a plant fills for the equipment-integration line of a status request - the plant's numbers with sources and dates, the open blockers, the capital request (eCR) state and the asks - built from the fields the historical ODEC KPI slides tracked.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -11,14 +11,14 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Plant status input
 
-The ODEC (Operations Digitalization Exchange Call) slides track, per region, **equipment
+The historical ODEC (Operations Digitalization Exchange Call) slides tracked, per region, **equipment
 integration "today (plan)"** and **use case development "today (plan)"**,
-the **eCR status** of the connectivity roadmap, and a regional **equipment integration
+the **capital request (eCR) status** of the connectivity roadmap, and a regional **equipment integration
 roadmap status** with "done in site", "done remote" and "pending" per plant. These are the fields a plant is asked for. This form collects them in one place
-before the call. Source of the slide fields: `ODEC Facts` staging notes (AI-extracted, not
+before a status request (on request or on the department's own schedule). Source of the slide fields: `ODEC Facts` staging notes (AI-extracted, not
 verified; open the slide before relying on it).
 
-Fill from the live Machine List and Tool Overview, not from memory. The monthly figures
+Fill from the live Machine List and Tool Overview, not from memory. The periodic figures
 belong to the Equipment Integration report (`OD-Report-Equipment_Integration`, owned by the
 lane); this form feeds it, it does not replace it.
 
@@ -31,7 +31,7 @@ lane); this form feeds it, it does not replace it.
 | Machines `INTEGRATION ONGOING` | | Machine List |
 | Machines with no status recorded (not "not integrated") | | Machine List |
 | Use cases in development: today / plan | | use case list |
-| eCR state for the current wave: not started / in preparation / uploaded / approved / in implementation | | eCR system |
+| Capital request (eCR) state for the current wave: not started / in preparation / uploaded / approved / in implementation | | eCR system |
 | Wave or project reference | | Machine List `project_reference` |
 | Integration mode for the last machines: in site / remote | | slide wording "done in site" / "done remote" |
 | Open blockers (kind, count; see the blocker table in `od-equipment-integration`) | | |

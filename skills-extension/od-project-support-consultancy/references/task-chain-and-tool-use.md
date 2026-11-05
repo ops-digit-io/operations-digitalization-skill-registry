@@ -21,9 +21,9 @@ dates, or any effect-size or headcount figures from the initiatives analysis. Ow
 | Project kick-off with the OD team | A digital investment project is initiated | Project order, sponsor, scope | Kick-off agenda `<template to confirm>` | Roles, plan skeleton | Requirements breakdown |
 | Requirements breakdown | Kick-off done | Targets, plant processes | Requirement specification `<template to confirm>` | Atomic, testable requirements | Application consultancy, acceptance criteria |
 | Application consultancy session | Solution design needed | Requirements, system landscape | Manufacturing software suite (configure, scope `<to confirm>`), apps / app store (deploy) | Design decisions | Integration, rollout preparation |
-| Integration project status | Weekly or at milestone | Tracker | Project tracker | Status colour, risks | ODEC reporting |
+| Integration project status | Weekly or at milestone | Tracker | Project tracker | Status colour, risks | Progress reporting |
 | Acceptance test | The solution is ready | Requirements, protocol | Acceptance-test protocols (author) | Pass or rework | Handover |
-| Progress and impact reporting | ODEC cycle | Equipment, applications, use-case figures | ODEC report (read / update) | Report with read date | Rounds |
+| Progress and impact reporting | On request or on the department's own schedule | Equipment, applications, use-case figures | Department report, formerly the ODEC report (read / update) | Report with read date | Rounds |
 
 **Chain rule.** Requirements before design; acceptance criteria written from the requirements, not after the build. Status colours
 are owned by the project manager; the steering committee owns the order and the approvals.
@@ -36,7 +36,7 @@ are owned by the project manager; the steering committee owns the order and the 
 | Manufacturing software suite | configure, scope `<to confirm>` | Application consultancy and rollout preparation; configuration is advisory until scope is confirmed |
 | Apps / app store | deploy | Deploying approved manufacturing apps |
 | Acceptance-test protocols | author | Verification is the lane's gate |
-| ODEC reporting | read / update | Reporting of progress and impact |
+| Department reporting (formerly ODEC) | read / update | Reporting of progress and impact |
 | Investment planning templates | author | Digital investment projects |
 
 ## 3. The business-case shape used for organisation-level initiatives
@@ -73,7 +73,7 @@ How to read each: `od-scorecard-reporting/references/metric-reading-guide.md`.
 ## AI agent operating notes
 
 - **May do:** pre-fill project tickets, draft the kick-off agenda and requirement breakdown, check each requirement is atomic and
-  testable, compile the status table, draft the ODEC input.
+  testable, compile the status table, draft the progress and impact report.
 - **Evidence to cite:** tracker row, requirement id, protocol result, read date.
 - **Human gate:** the steering committee approves the order and plan; the project manager owns status colour; investment is
   approved by the OD lead.

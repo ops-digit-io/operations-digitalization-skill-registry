@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: How rollout training (steps 1a3, 26, 3a6) is run in the AI-driven chain - the training offer process, plant-level versus common sessions, training-need capture, tools-before-pilots, and what an agent may draft. Pattern only, no figures.
+description: How rollout training (steps 1a3, 26, 3a6) is run in the AI-driven chain - the training offer process, plant hands-on training with central material as support, training-need capture, tools-before-pilots, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -26,8 +26,8 @@ dashboards, the edge platform, dashboard creation and integration in the BI tool
 transformation. A short survey (level of understanding, expectations for knowledge transfer, wished topics) is analysed in the
 next community call.
 
-**Sessions per tool, stepwise from entry to advanced.** Start with plant-level sessions; later add common sessions across
-plants per tool at a fixed interval. Content is iterated into self-learning videos; micro-learning (short units),
+**Sessions per tool, stepwise from entry to advanced.** Start with hands-on sessions in the plant, in small groups, on the plant's real data; central
+material per tool supports them (a recorded central intro may serve as preparation). Content is iterated into self-learning videos; micro-learning (short units),
 real-world use-case trainings and structured learning paths by level and function are the stated direction.
 
 **Train the people who will build before they build.** For pilots of new kinds (analytics, AI), train the team on the tools
@@ -42,9 +42,9 @@ trainings (ticketing, advanced dashboard, data transformation), appear as extra 
 
 - **Enabling capacity before rollout.** If the plant has no one who can run the solution, do not schedule the rollout;
   schedule enabling first ("sold a rocket to someone who can't fly it").
-- **Plant-specific competence needs plant-specific hands-on.** Decks disagree on the format: one plans plant-level sessions,
-  a later one plans fewer sessions with more participants. Safer reading: common sessions for concepts and tool basics,
-  plant-level hands-on on the real screen or machine for anything that must be confirmed as a competence. `<to confirm>`
+- **Plant-specific competence needs plant-specific hands-on.** Training is hands-on in the plant, in small groups, on the
+  plant's real data, on the real screen or machine. Central material is support only; a recorded central intro may serve
+  as preparation, not as the training.
 - **Use a regional or central role to point to training**, with one responsible person per location for digitalisation use
   cases and a know-how item in the regional roadmap.
 - **Admin and user training are separate** for any monitoring or data system; the database or data store goes into the backup

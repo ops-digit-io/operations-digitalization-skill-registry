@@ -74,7 +74,7 @@ and plan it along the work; get a quote before the cost risk is accepted.
 
 ### Commercial consistency check (add before the package is called ready)
 
-Offer, capital request and contract must be the same version; a named role drives purchasing; a frame contract is used where one
+Obtain the offer first (a second quotation where the policy asks), then raise the capital request; before ordering, offer = capital request = contract must agree (check). They must be the same version; a named role drives purchasing; a frame contract is used where one
 exists. Lessons: an eCR launched before a contract separation was stopped; offer versions then disagreed with the eCR and with the
 contracted version; a first purchase order could not be approved because of a contract carry-over; nobody owned purchasing.
 Connectivity-related requests repeatedly arrived incomplete and deviated from the standard rollout templates and frame contracts; use

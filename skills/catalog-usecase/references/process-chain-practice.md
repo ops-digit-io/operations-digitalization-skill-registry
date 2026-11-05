@@ -57,8 +57,8 @@ no new development; *go forward* - continue or integrate an earlier proof of con
 First-mover criteria in the decks: high estimated value-add, coverage of regions, segments and technologies, capacity and knowledge in the plant, integration synergies, and a dedicated, staffed key user.
 The tier is a property of the plant, looked up live (`od-context-freshness`); never copy a plant list into a skill.
 
-**Zero-saving scaled entries.** Where an entry is deployed widely and reports no saving, do not write "no potential" - write "further investigation necessary" and list three things: where it saved, where it was deployed without saving, where it still has potential.
-Retire-versus-re-evaluate rule: `<to confirm with the DBVE lead>`; the decks contradict each other on this.
+**Zero-saving scaled entries.** Where an entry is deployed widely and reports no saving, do not write "no potential" - write "to be evaluated" and list three things: where it saved, where it was deployed without saving, where it still has potential.
+Until investigated the entry stays "to be evaluated". Only a human (the OD lead with the plant owner) may decide "no potential" or retirement; an agent never writes it.
 
 ## 3. Handoff contract
 

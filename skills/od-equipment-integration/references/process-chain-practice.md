@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: How equipment integration is run as a chain step (1b3, 3b4, 3b5) - the wave and its weekly capital-request micro-process with Cyber Security as precondition, the per-plant planning workflow, data classes with default hub and leading system, energy-monitoring and MES lessons, handoffs and agent notes.
+description: How equipment integration is run as a chain step (1b3, 3b4, 3b5) - the wave and its weekly capital-request micro-process with Cyber Security as a parallel go-live gate, the per-plant planning workflow, data classes with default hub and leading system, energy-monitoring and MES lessons, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -32,19 +32,18 @@ milestone one of each wave. Per plant the same three steps repeat, shifted by on
 3. upload with the local team, then close-loop communication until approval.
 
 Status per plant is a traffic light with a call-for-action cell: red = phase delayed, yellow = close-loop update required,
-green = on track. Before the request is uploaded the plant status reads "input collected", "delayed" or "at risk".
+green = on track. Use one traffic-light scale per round; "input collected", "delayed" or "at risk" may appear only as reason text in the comment.
 
-**Cyber Security is a precondition of the wave, not a later gate.** Patches on controllers and open approvals blocked the second
-wave and the savings behind it. Put the controller patch status and the sign-off scope (wave-level where one exists, see
-`od-cybersec-gate`) on the wave plan before the request goes up. The gate blocks the *connection*; use-case design may continue
-(`<to confirm>`: one deck set decouples use-case implementation from approvals, another treats the approval as blocking the
-wave; the safer reading is that nothing is connected or scheduled without sign-off, while definition work goes on).
+**Cyber Security runs decoupled and in parallel; it gates go-live only.** Patches on controllers and open approvals delayed the second
+wave and the savings behind it, so start the sign-off package early. Put the controller patch status and the sign-off scope (wave-level
+where one exists, see `od-cybersec-gate`) on the wave plan and keep the track running alongside planning and build. The gate blocks
+only the live connection and live operation; planning, build and the wave's preparation go on, and nothing goes live without sign-off.
 
 ### Wave decision rules
 
-- **Budget class** follows the systems needed (small, medium, large). Allocation inside a quarter was first come, first served;
-  the strategy ranks first-mover plants (staffed key user, capacity, coverage) for central support. Which rule wins is
-  `<to confirm>`; state it on the plan. Do not treat first-mover status as eligibility, only as capacity.
+- **Budget class** follows the systems needed (small, medium, large). Eligibility follows request order;
+  central capacity goes first to first-mover plants that are staffed (key user, capacity, coverage). State the rule used on the plan.
+  First-mover status is not eligibility, only capacity.
 - **Staffing check in the wave decision.** A connectivity budget is approved but the plant lacks resources or skill: include
   the plant's resource rating before the wave is committed.
 - **Connect whole processes or areas at once** and reuse existing infrastructure as far as possible.
@@ -96,9 +95,8 @@ programs and tag lists in the central list. Do not structure tags to the PLC lay
 
 Route per machine: native OPC-UA machine, aggregation server, or edge device; standardized and non-standardized transactional and
 time-series data each have their own interface choice. Consumers get **one interface**; vendor-specific naming is normalised in a
-mapping layer. `<to confirm>`: one deck names the ERP as master-data leader while recipe and meter-structure masters sit in
-local specialist systems; how an existing local master is reconciled is unstated. Until answered, mark the leading system per
-object and record the reconciliation as an open item.
+mapping layer. The ERP is the master for material, order and product master data; local systems (MES and similar, including recipe and
+meter-structure masters held locally) are derived from it and report back. Mark the leading system per object on the plan.
 
 ### Edge or not, camera, legacy
 
@@ -126,7 +124,7 @@ request, a short block to prepare the handover to use-case support.
 |---|---|
 | Machine not connected, use case waiting | Integration wave first; use cases only after |
 | Old device signals incompatible with the bus or logger | Compatibility check before the cost line, not after |
-| Controller patch or sign-off open | Wave precondition; hold the connection |
+| Controller patch or sign-off open | Parallel track; hold go-live (the live connection) until signed off |
 | Barrier with no route | `od-barrier-triage`; log, never omit silently |
 | Lab or quality dashboard not tied to a machine | Not in the integration sequence; local quality team owns |
 
@@ -173,7 +171,7 @@ reconfiguring edge devices; one checklist file per location with a traffic light
 ## 5 Questions to ask and definition of done
 
 - Which machines does an accepted use case need, and who is the named plant owner? Is the layout stable?
-- Is the controller patched, is the sign-off in scope of a wave-level approval, is the IT precondition list ready?
+- Is the controller patched, is the sign-off package started and in scope of a wave-level approval, is the IT precondition list ready?
 - Which data classes does each machine deliver and which system leads each master object?
 - Does the plant have the people and skill to run its part of the wave?
 

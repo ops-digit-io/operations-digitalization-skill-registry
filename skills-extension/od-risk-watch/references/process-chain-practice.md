@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: Additional early indicators the chain produces for risk watch - operations concept, ticket age, stale lists, savings-forecast gaps, preconditions that block waves, the blocker brief - plus the cadence formats and what an agent may draft. Pattern only, no figures.
+description: Additional early indicators the chain produces for risk watch - operations concept, ticket age, stale lists, savings-forecast gaps, preconditions and go-live gates, the blocker brief - plus the cadence formats and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -24,10 +24,10 @@ a *supporting reading* under an existing risk, not as a new risk (new risks go t
 | Tool or system without a named operations owner, service level and support level | Missing operations concept | Tool-status table: scale of deployment, barrier, recommended action; "operations concept missing" was the most repeated barrier |
 | Age of IT tickets, unclear counterpart, unknown security process for application approval, missing lifecycle management | Limited internal IT knowledge / Cyber Security exposure | Ticket age as a risk indicator; source system `<unknown>` |
 | Machine list or tag list not updated at a plant | Cyber Security / OT exposure | Speed of response to a vulnerability notice is bounded by machine-list completeness |
-| Controller patch or approval status on installed controllers | Cyber Security / OT exposure | Blocked a second integration wave and the savings behind it; treat as a precondition |
+| Controller patch or approval status on installed controllers | Cyber Security / OT exposure | Held up a second integration wave and the savings behind it; Cyber Security sign-off runs in parallel and blocks only go-live, so start the package early |
 | Use cases implemented with no savings forecast or no registered project | Value not materialising | Count and list per plant at sprint close (`od-impact-evaluation`) |
 | Utilisation `never` on delivered use cases | Value not materialising | From the use-case list, with read date |
-| Only one technical key user, or an open key-user role | Key-person / staffing gaps | Dedicated, staffed key user is a first-mover criterion |
+| Only one technical key user, or an open key-user role | Key-person / staffing gaps | Dedicated, staffed key user is a first-mover criterion (central capacity goes first to staffed first-mover plants) |
 | Separation or migration plan not available where central data is needed | External tooling dependence | A precondition field on the initiative |
 | Low participation in community calls | Value not materialising | Leading indicator at plant level |
 | Silent threads with no reply for weeks, unowned access or artefacts | any | Signal of missing ownership, not a technical puzzle |
@@ -62,7 +62,7 @@ list of who can support local IT. Options analysed with their consequences, incl
 | Receives (from) | Hands on (to) |
 |---|---|
 | Metrics with read dates (`od-scorecard-reporting`), forecast-gap list (`od-impact-evaluation`), barrier log (`od-barrier-triage`) | Dated risk reading with status per risk |
-| Operations-concept gaps (`od-decision-routing`, `od-handover-and-adoption`) | Triggered items to ODEC or COP with the register's owner role |
+| Operations-concept gaps (`od-decision-routing`, `od-handover-and-adoption`) | Triggered items to the deciding role (current approval policy, look up) or COP with the register's owner role |
 | Triggered two months running | Candidate for the retro's one adjustment (`od-retro`) |
 
 ## 4. Pitfalls and lessons

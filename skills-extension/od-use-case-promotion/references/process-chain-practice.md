@@ -33,10 +33,10 @@ Deck-derived practice for step 26 (graduate) and the analytical lane's step 6. `
 
 - **Promote / keep as ad-hoc / retire** remains the result set. Refusing to promote is valid.
 - **Promote only with an action behind it.** An asset whose users do not act on it, and where no standard working procedure exists, is a keep or a retire, however many plants asked for it.
-- **Zero-saving scaled assets.** A scaled-out asset with deployments but no saving is "further investigation necessary" until investigated; do not write "probably no potential" (one deck revision did, unproven). When to retire instead of re-evaluate: `<rule to confirm>`.
+- **Zero-saving scaled assets.** A scaled-out asset with deployments but no saving is "to be evaluated" until investigated; do not write "probably no potential" (one deck revision did, unproven). Only a human (the OD lead with the plant owner) may decide "no potential" or retirement; an agent never writes it.
 - **Unique stays unique.** A site-specific asset (factory condition, legacy system, one-off) is not promoted; run an impact analysis only if the value is very high.
 - **Go forward / lead change.** A candidate that depends on a shared enabler that does not exist yet waits for it and is recorded as such; an exploratory candidate is a human call.
-- **Value ordering.** Rank competing promotion candidates by generalization first and saving second unless the OD lead states otherwise `<to confirm>` (`od-use-case-prioritization`).
+- **Value ordering.** Rank competing promotion candidates by savings first (value, ROI); generalization potential and effort are secondary criteria; dependency order is the tie-breaker (`od-use-case-prioritization`).
 - **Kill with a reason.** Record why a candidate was stopped (no data foundation, insufficient saving, another party collects the data) so it is not raised again.
 - **A knowledge or troubleshooting assistant** does not fit the before / after and savings definition of a use case; no step classifies it. Do not force it through promotion; mark `<classification to confirm>`.
 

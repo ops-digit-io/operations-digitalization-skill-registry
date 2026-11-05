@@ -1,7 +1,7 @@
 ---
 name: od-use-case-prioritization
 description: >-
-  Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. Uses OD's own criteria (saving potential, generalization potential, roadmap link, effort and dependencies) and keeps unscored use cases in a separate bucket. Use when more than one use case is waiting for the same capacity, after a definition workshop has collected demand, before a planning round or ODEC input, or when a plant asks which of its use cases OD should do first.
+  Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. Uses OD's own criteria (saving potential, generalization potential, roadmap link, effort and dependencies) and keeps unscored use cases in a separate bucket. Use when more than one use case is waiting for the same capacity, after a definition workshop has collected demand, before a planning round or roadmap input, or when a plant asks which of its use cases OD should do first.
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -50,7 +50,7 @@ Read `od-context` first. This skill turns "several use cases want the same capac
 Trigger (plan UC-05): several candidate use cases compete. Typical moments: after a Definition
 Workshop has collected demand (`od-workshop-facilitation`), at playbook step 4 ("prioritize by
 value — savings / lead-time / cost avoidance"; control point "business case and priority agreed
-with Plant ME"), before ODEC or roadmap input, or when a plant asks "what first?".
+with Plant ME"), before roadmap input, or when a plant asks "what first?".
 
 Definition of done: a ranked list per plant (or per region and category, see step 2) where every
 position carries its criteria, its evidence strength and its open dependencies; unscored use
@@ -94,8 +94,8 @@ inputs that skill's method scores, and the plant-facing record around it.
 5. **Score on the criteria** of [`references/ranking-criteria.md`](references/ranking-criteria.md).
    Use the weights OD agrees with the Plant ME for this round and write them into the record;
    ⟨default weights — none found in the sources; the OD lead and Plant ME set them⟩. State the
-   ordering rule in the record header (workshop decks: generalization potential first, then saving
-   potential; strategy decks stress savings; `<to confirm>` with the OD lead), number the planning
+   ordering rule in the record header (savings first - value, ROI; generalization potential and effort are
+   secondary criteria; dependency order is the tie-breaker), number the planning
    state with its trigger, and add the dependency column.
 6. **Check fit before you fix the order** for the top candidates: `od-use-case-solution-evaluation`
    (does the envisioned solution need capability nobody has?). If a machine connection is
@@ -114,7 +114,7 @@ inputs that skill's method scores, and the plant-facing record around it.
 ## Output
 
 [`assets/prioritization-record.md`](assets/prioritization-record.md), one per plant round. It feeds
-the planning inputs the ODEC calls collect and the portfolio reviews in
+the planning inputs the department collects (ODEC decks are a historical source only) and the portfolio reviews in
 `od-portfolio-and-savings-analysis`.
 
 ## What is still open
@@ -135,6 +135,6 @@ the planning inputs the ODEC calls collect and the portfolio reviews in
 - Do not commit investment, equipment integration or an external connection; those are other
   decisions with other authority levels (`08-decision-rights.md`).
 - Do not read a recorded-demand count or a rollout count as proven saving; both are demand or reach.
-- Do not decide "no potential" for a scaled use case that has no tracked saving: it is "further
-  investigation necessary".
+- Do not decide "no potential" for a scaled use case that has no tracked saving: it is "to be
+  evaluated" until a human has investigated.
 - Do not treat white space in a case group as demand. It means "has no member here", nothing more.

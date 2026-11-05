@@ -5,7 +5,7 @@ description: >-
   which escalation triggers are hit - for every risk, find the monitorable value, read it from
   its source with a date, compare it with the trigger, and classify the risk as triggered, on
   watch, clear or unreadable (no source), then draft the risk reading for the OD lead. Use when
-  the monthly risk review is due, before an ODEC or COP round, after a blocked rollout or a
+  the monthly risk review is due, before a COP round, after a blocked rollout or a
   Cyber Security finding, or when someone asks whether any risk has crossed its escalation trigger.
 license: MIT
 allowed-tools: Read Grep Glob
@@ -84,7 +84,7 @@ reference); reporting them as clear would be the exact failure the honesty rules
 3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩
    months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
 4. **Classify** per the statuses above. Write the evidence in one sentence.
-5. **List triggers hit** and route each: the risk owner is given in the register; the forum is ODEC for strategy, priority
+5. **List triggers hit** and route each: the risk owner is given in the register; the forum is the OD lead or the deciding role named in the current approval policy (look up) for strategy, priority
    and rollout matters, COP for technical ones (`06-operating-rhythm.md`); use `od-decision-routing` for any decision
    outside OD. Cyber Security items go through the gate in `od-cybersec-gate` (planned).
 6. **Name the countermeasure in the register** next to each triggered or on-watch risk. The register already lists it;
@@ -98,19 +98,19 @@ reference); reporting them as clear would be the exact failure the honesty rules
 
 | Risk (register wording) | Trigger | Where it goes |
 |---|---|---|
-| Missing operations concept for core systems | Rollout blocked at a strategic plant | ODEC (rollout and priority); tool rollout decision is the OD lead's (`08-decision-rights.md`) |
-| Key-person / staffing gaps | Open role > `⟨n⟩` months | ODEC; the staffing plan is global ("Global staffing plan") |
+| Missing operations concept for core systems | Rollout blocked at a strategic plant | OD lead / deciding role per the current approval policy (rollout and priority); tool rollout decision is the OD lead's (`08-decision-rights.md`) |
+| Key-person / staffing gaps | Open role > `⟨n⟩` months | OD lead / deciding role per the current approval policy; the staffing plan is global ("Global staffing plan") |
 | Limited internal IT knowledge | Single point of failure identified | COP (knowledge sharing via COP is the stated countermeasure) |
-| External tooling dependence | Decision delayed past plan | ODEC; the owner is `⟨to confirm⟩` in the register |
+| External tooling dependence | Decision delayed past plan | OD lead / deciding role per the current approval policy; the owner is `⟨to confirm⟩` in the register |
 | Cyber Security / OT exposure | Security gap on connected asset | COP for the technical aspect; Cyber Security sign-off gate; never act on an external machine connection without sign-off |
-| Value not materializing | Impact < target for the quarter | ODEC; DBVE owns; gauge value delivery before scale-out (a metric not captured today) |
+| Value not materializing | Impact < target for the quarter | OD lead / deciding role per the current approval policy; DBVE owns; gauge value delivery before scale-out (a metric not captured today) |
 
 ## What is still open
 
 - **Parameters:** `open role > ⟨n⟩ months` has no n unless the OD lead has set one; "impact < target" needs a defined target for use-case impact.
 - **Sources with no system named:** support tickets, open-role list, "dependence on few individuals".
 - **Owner of the external-tooling risk** is `⟨to confirm⟩` in the register.
-- **Escalation window** of ODEC and COP is `⟨to confirm⟩`.
+- **Escalation window** of COP and the deciding role is `⟨to confirm⟩`.
 - **Who may declare a trigger "triggered"**: the register names risk owners, not a declarer. The skill drafts; the OD lead role confirms.
 
 ## Do not

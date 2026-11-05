@@ -28,7 +28,7 @@ Deck-derived practice for step 3b4 (proposed) and for the standardization check 
 | Controller families and program versions | entry-level controllers with no interface; the smallest high-end controller at its capacity limits, making tag export slow; new machines still delivered without an integration standard |
 | Machine state model | brownfield state-machine standardization: analyse control types and data models, define the target state machine, standard flows for cycle time, availability and error messages |
 | Production structure | planning per cell (lean U-cell) versus per machine; an app built for per-machine planning does not fit a cell plant |
-| Data class | transactional (hub: service bus), time series (hub: MQTT), master data (single source of truth, leading system pushes by API). Local masters (recipes, meter structures) may disagree with the stated leader; reconciliation is `<to confirm>` |
+| Data class | transactional (hub: service bus), time series (hub: MQTT), master data (single source of truth, leading system pushes by API). The ERP is the master for material, order and product master data; local systems (MES, recipes, meter structures) are derived and report back |
 | Ingress path | edge device versus plain OPC UA client; cameras through one edge device per line |
 | Tag language and naming | no naming convention across plants, cryptic labels, scaling and units as tribal knowledge |
 | Runtime licences | OPC UA server licences bound to one machine: have the key before migrating a virtual server; confirm new DNS, certificates and access |
@@ -39,7 +39,7 @@ Deck-derived practice for step 3b4 (proposed) and for the standardization check 
 
 ## 3. Decision rules
 
-- **Add one unknown machine type per new deployment at most.** Scaling known machine types worked; connecting the difficult ones first failed. Document the process per controller type and create an integration standard. The opposite advice appears in older material `<to confirm>`.
+- **Add one unknown machine type per new deployment at most.** Scaling known machine types worked; connecting the difficult ones first failed. Document the process per controller type and create an integration standard.
 - **Consumers get one interface.** Applications are not tailored to device interfaces; third-party models are mapped into the standard model, which provides the first level of context. Predictable node identifiers where only equipment number and workplace change.
 - **Mapping beats branching** (restated from `SKILL.md`): normalize vendor naming in a mapping layer; never add a plant branch inside the standard.
 - **Same views for all machines of one core process** is the aim; if a plant needs a different view, the finding is against the standard or against the model scope.

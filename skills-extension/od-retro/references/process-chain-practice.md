@@ -59,7 +59,7 @@ Then apply the retro's own test (can OD change it alone, reversible, observable 
 | Receives (from) | Hands on (to) |
 |---|---|
 | Metrics and round outputs (`od-scorecard-reporting`) | The one adjustment with owner role, date and observable |
-| Risk reading with triggered items (`od-risk-watch`) | Escalations to `od-decision-routing` (ODEC / COP) |
+| Risk reading with triggered items (`od-risk-watch`) | Escalations to `od-decision-routing` (deciding role / COP) |
 | Evaluation findings: promise versus outcome (`od-impact-evaluation`) | Adjustments to context files -> `od-context-freshness` |
 | Closure and sprint lessons | Parking list with first-seen month |
 
@@ -85,4 +85,4 @@ Then apply the retro's own test (can OD change it alone, reversible, observable 
 - **Required inputs:** last month's record, metrics with read dates, risk reading, issue log, closure and sprint reports.
 - **Human gate:** the decider takes the adjustment; an agent never invents a candidate when none is evidence-backed.
 - **Evidence to cite:** source and date per learning.
-- **Hands over:** the record with one adjustment to the next ODEC / COP input.
+- **Hands over:** the record with one adjustment to the next COP input or the deciding role.

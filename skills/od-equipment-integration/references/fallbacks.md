@@ -101,7 +101,7 @@ installed* branch:
 1. Check the **Plant Capabilities & System Availability & Rollout** list.
 2. If the plant is not on it, contact MPEE Operations Digitalization.
 3. Come to that conversation with: the urgent need and the use case, a Machine List,
-   a Use Case List, and calculated benefits and savings.
+   a Use Case List, and estimated benefits and savings (labelled input / assumption / market / unknown).
 
 That last item is the one people arrive without, and it is the one that decides the
 outcome. A rollout request without a business case is refused at intake — see

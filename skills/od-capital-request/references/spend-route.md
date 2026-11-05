@@ -18,7 +18,7 @@ OD lead, Finance) and quote them with their source and date.
 
 | Statement | Source |
 |---|---|
-| Investment goes through the **eCR** (engineering change request) route, with two approval thresholds "that are not alternatives but a ladder": a CTO limit and a Board limit | Bundle `10-Department/Decision rights.md`; repeated in `od-decision-routing` |
+| Investment goes through the **eCR** (electronic capital request) route, with two approval thresholds "that are not alternatives but a ladder": a CTO limit and a Board limit | Bundle `10-Department/Decision rights.md`; repeated in `od-decision-routing` |
 | Digitalization investment planning: role OD lead, together with BA Operations, mode Consultation (hear, then decide alone), approval **yes**, reversible **no**, budget threshold marked to confirm, authority level `recommend` | `00-core/08-decision-rights.md` |
 | Deputisation: investment commitments wait for the OD lead; no urgency substitutes | `00-core/08-decision-rights.md`, `od-decision-routing` |
 | "Skills may prepare the input (II-07), never the approval" | `OD_Skill_Map.md`, rules section |

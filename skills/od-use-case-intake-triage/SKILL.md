@@ -49,7 +49,7 @@ department — this skill is the entrance.
 - Plant use-case demand collected in **Use Case Definition / Integration Workshops**
 - **Digital investment projects** initiated per the plant roadmap and kicked off with the
   MPEE OD team
-- Requests and feedback surfaced through **ODEC** (strategic) and **COP** (technical)
+- Requests and feedback surfaced through **COP** (technical); ODEC (strategic) is a historical source of past requests and decks, not a current channel
 - **Ad-hoc analytics / Process First-Aid Kit** requests
 
 **There is no central ticket queue or mailbox, confirmed 2026-10-22** — these four channels

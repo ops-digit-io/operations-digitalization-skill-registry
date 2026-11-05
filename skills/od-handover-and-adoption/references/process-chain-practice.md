@@ -46,7 +46,7 @@ Block the go-live, or record it as a named risk with an owner, if any of these i
 - The rollout team is unstable, or responsibilities in the use phase are unassigned (no shop-floor IT role, no key user for the
   business application).
 - No operations concept: no named operations owner, no service level, no support level, no incident and change route. A tool
-  without one is a **service gap**; hold the rollout (`od-decision-routing`).
+  without one is a **service gap**; no rollout without an operations concept and a named run owner: stop until both exist (`od-decision-routing`).
 - Interface faults with neighbouring systems are known and unresolved; the vendor has no round-the-clock service for a
   production-critical system and no emergency strategy exists.
 - Runtime licences are bound to a machine and the key will not travel with a migrated server.

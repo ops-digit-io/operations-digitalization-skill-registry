@@ -22,15 +22,15 @@ Training need is raised by request or in the regular project calls.
 
 1. Keep a **needs list**: training, description, requester, status. Typical gaps: query language for
    dashboards, edge platform, dashboard creation, ETL tools, scripting for time-series ETL.
-2. Per tool a stepwise path from entry to advanced; plant-level sessions first, later common sessions per tool at a fixed interval.
+2. Per tool a stepwise path from entry to advanced; plant-level hands-on sessions in small groups; central material per tool supports them.
 3. Review registrations monthly; invite; collect feedback; iterate content into short self-learning units.
 4. Periodic short survey: level of understanding, expectations for transfer, wished topics; analyse in the next CoP.
 5. Report offer, attendance and feedback as inputs to the next round and to `od-retro`.
 
 ## Rules and tension
 
-- Plans diverged: plant-level hands-on sessions versus fewer sessions with more participants. Safer reading:
-  common sessions for concepts and tools, plant hands-on for competence `<to confirm>`.
+- Training is hands-on in the plant, in small groups, on the plant's real data; central material is support only
+  (a recorded central intro may serve as preparation, not as the training).
 - Prefer real use-case training over generic tool demos; learning paths by level and function.
 - Tool training does not replace an operations concept.
 

@@ -83,9 +83,9 @@ Use one of these words in every table instead of a blank or an invented number.
 | Metric | Definition | Reading note |
 |---|---|---|
 | Integration projects to acceptance | Projects that passed acceptance, against the active ones | Not captured in a tracker. The acceptance evidence is the protocol (`od-acceptance-test`), so the count can be built from protocols `<to confirm>` |
-| Equipment integration progress | Reported progress against plan in the ODEC report | Compare with the equipment report of the integration lane; the two should agree |
+| Equipment integration progress | Reported progress against plan in the department report (formerly the ODEC report) | Compare with the equipment report of the integration lane; the two should agree |
 | Applications progress | Reported progress against plan | Same |
-| Use-case impact | Realised impact of delivered use cases in the ODEC report | Impact is only as good as the saving basis behind it (`od-benefit-calculation`) |
+| Use-case impact | Realised impact of delivered use cases in the department report (formerly the ODEC report) | Impact is only as good as the saving basis behind it (`od-benefit-calculation`) |
 | On-time delivery | Projects delivered on schedule | Not captured. Define "schedule" as the milestone agreed at kick-off, not the last re-plan |
 
 ### Information Integration Service
@@ -105,7 +105,7 @@ Never show one half alone.
 | Integrated use cases and utilization | Delivery without adoption is cost |
 | Integrated equipment and readiness | Machines connected are not capabilities available |
 | Analytics asset output and promotion rate | Output without a path to standard produces one-offs |
-| Project progress (ODEC) and acceptance passed | Reported progress is a claim; acceptance is evidence |
+| Project progress (department report) and acceptance passed | Reported progress is a claim; acceptance is evidence |
 | Utilization and tracked savings | Use without a saving basis cannot be claimed as value |
 
 ## 6. Reading a number against a manual baseline

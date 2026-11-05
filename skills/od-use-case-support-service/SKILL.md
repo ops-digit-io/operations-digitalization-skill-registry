@@ -16,7 +16,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   capacity: per the current DBVE roster
   authority_level: draft on definitions and reports; recommend on prioritization
-  escalation: OD lead within the ODEC/COP window
+  escalation: OD lead (decision route per the current approval policy; look up)
   status: stable
   sources_read: 2026-10-23
   requires: [od-context]
@@ -91,7 +91,7 @@ standardization — see `od-decision-routing`).
 | Use Case Definition Workshop | Plant onboarding / new demand wave | Standard Agenda — Use Case Workshop (SharePoint) |
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 | Benefit / savings calculation | Use case prioritized | OD Benefit Calculation template |
-| Digitalization Scorecard update | Monthly / ODEC | Digitalization Scorecard (Power BI) |
+| Digitalization Scorecard update | On request or on the department's own schedule | Digitalization Scorecard (Power BI) |
 | Use-case impact evaluation | Use case live | `od-handover-and-adoption`'s three-question test + `assets/handover-protocol.md` (resolved — see `references/lane-templates.md`) |
 | Process First-Aid Kit request | Ad-hoc plant process issue | ⟨template — to confirm; no dedicated template found anywhere in the registry⟩ |
 

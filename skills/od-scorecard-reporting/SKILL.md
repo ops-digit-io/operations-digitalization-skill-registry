@@ -3,11 +3,11 @@ name: od-scorecard-reporting
 description: >-
   Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case
   and Equipment Integration Power BI reports — against their targets and intervention
-  thresholds, and prepare and follow up the ODEC and COP rounds. Covers which report is
+  thresholds, and prepare and follow up reporting rounds (the COP and any round held on request; ODEC is a historical source). Covers which report is
   authoritative for which figure, how to read targets and actuals live with their read date,
   when a number crosses into "intervene", and the recipient-feedback loop per lane. Holds
   method and sources only, no current targets or actuals (look those up live). Use
-  when monthly or ODEC reporting is due, when someone asks how OD is tracking, when a
+  when reporting is requested or due on the department's own schedule, when someone asks how OD is tracking, when a
   metric needs a source, or when a round needs preparing or following up.
 license: MIT
 metadata:
@@ -30,13 +30,13 @@ metadata:
     - personal vault, Work-OpsDigit-Knowledge/ODEC Facts/ODEC Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
   okf:
     type: Agent Skill
-    title: Scorecard and ODEC reporting
+    title: Scorecard and round reporting
     tags: [all, practice]
     owner: human:jakob.gabriel
     generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
-# Scorecard and ODEC reporting
+# Scorecard and round reporting
 
 Read `od-context` first.
 
@@ -51,7 +51,7 @@ its source, its target and the value at which somebody intervenes.
 | [`references/readiness-evidence.md`](references/readiness-evidence.md) | What actually moves a readiness-matrix cell to "Available" — never a status update, always a recorded `od-acceptance-test` pass — and what red/amber/green mean here |
 | [`references/metric-reading-guide.md`](references/metric-reading-guide.md) | How to read a lane metric row and the rule behind each "intervene from"; labels for a missing target; lane metric definitions incl. not-yet-captured ones with proposed start and stop events; companion pairs |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How a round is prepared and followed up in practice: forums and agenda blocks, call for action, status colours, KPI-basis discipline, utilization next to delivery count, handoff contract, agent notes |
-| [`references/rounds-and-escalation.md`](references/rounds-and-escalation.md) | ODEC/COP's real recurring content shape (regional breakout, not a blended total), how to prepare and follow up each, and where the escalation-window gap actually sits |
+| [`references/rounds-and-escalation.md`](references/rounds-and-escalation.md) | The real recurring content shape of past ODEC rounds and of the COP (regional breakout, not a blended total), how to prepare and follow up a round, and where the escalation-window gap actually sits |
 
 ## Sources, and which one wins
 
@@ -98,16 +98,19 @@ use cases is a delivery figure, not a value figure: show utilization next to it,
 
 ## The rounds
 
-| Rhythm | What | Input | Output |
+Reporting happens on request or on the department's own schedule; no fixed ODEC month cycle is claimed. ODEC met monthly only until 2025-12 and no longer does (no fixed replacement forum); its past reports are a source of information. The metric cadence column below is the data granularity of a source, not a meeting rhythm.
+
+| Round | What | Input | Output |
 |---|---|---|---|
-| **ODEC** (monthly; cadence `<to confirm>`, some decks show the strategy call as quarterly) | *Why* we prioritize: strategy and Smart Factory tools | Project/process issues and feedback; scaling potentials; new use-case sprints and machines connected | Central strategy updates; roadmaps, rollouts, workshops; priorities and deadlines |
-| **COP** (monthly) | *How* we do it: technical implementation of machine integration, data models, use cases | Technical issues and feedback; connector updates; new use-case ideas | Data-model/connector updates; rollout guidance; technical Cyber Security aspects |
-| **Retro** (at least monthly) | What did we learn → **one** change | Incidents, metrics, ODEC/COP feedback | 1 decided adjustment |
+| **ODEC** (historical forum, no longer held; source of past roadmaps and reports) | *Why* we prioritize: strategy and Smart Factory tools | Project/process issues and feedback; scaling potentials; new use-case sprints and machines connected | Central strategy updates; roadmaps, rollouts, workshops; priorities and deadlines |
+| **COP** (technical round; look up the current schedule) | *How* we do it: technical implementation of machine integration, data models, use cases | Technical issues and feedback; connector updates; new use-case ideas | Data-model/connector updates; rollout guidance; technical Cyber Security aspects |
+| **Retro** (on the department's own schedule) | What did we learn → **one** change | Incidents, metrics, COP feedback | 1 decided adjustment |
 | Use Case Definition / Integration Workshops | Define and integrate with plant teams | Plant demand, process diagnostics | Prioritized use cases; integration plan |
 
-**Escalation window: one round.** An item unresolved at one ODEC or COP cycle escalates
-into the next — both rounds are monthly, so "escalate" means it carries forward with that
-label, not that it waits past the next occurrence of its own round.
+**Escalation window: one round.** An item unresolved at one round escalates into the next:
+"escalate" means it carries forward with that label, not that it waits past the next
+occurrence of its own round. Where no round is scheduled, the item goes to the OD lead
+directly.
 
 Preparing and following up a round is the most rewarding agent task here, because each has
 a named input and a named output. Prepare against the input column; follow up against the
@@ -132,7 +135,7 @@ Fill [`assets/scorecard-update-protocol.md`](assets/scorecard-update-protocol.md
 cycle. It takes `od-handover-and-adoption`'s adoption/utilization findings and
 `od-portfolio-and-savings-analysis`'s savings roll-up as its two named inputs, refreshes
 every metric with a read date, and produces the round-ready regional breakout and headline
-— the document that is actually handed to ODEC/COP, not a summary reconstructed from memory
+— the document that is actually handed to the round (or requester), not a summary reconstructed from memory
 afterward.
 
 ## Do not

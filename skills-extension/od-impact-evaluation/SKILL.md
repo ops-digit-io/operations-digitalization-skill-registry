@@ -39,8 +39,9 @@ metadata:
 # Impact evaluation
 
 Read `od-context` first. Playbook step 7: "Evaluate use-case impact; ensure adoption into daily
-process" — control point "Impact evaluated; recipient confirms adoption". This skill **drafts the
-evaluation**. It never declares adoption: only the plant can (`od-handover-and-adoption`: "adoption
+process" — control point "Impact evaluated; recipient confirms adoption". After go-live the plant
+evaluates its use cases; OD provides the calculator and the method and reviews the result. This skill **drafts the
+evaluation** on that basis. It never declares adoption: only the plant can (`od-handover-and-adoption`: "adoption
 is the plant's decision"), and only SPRINT can make a saving proven (`od-benefit-calculation`).
 
 Trigger in the plan (UC-06): "use case live for ⟨n⟩ weeks". ⟨n⟩ is not set in any source read. Until

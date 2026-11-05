@@ -37,7 +37,7 @@ the data foundation is missing.
 - **Time-box** the pilot and the understanding-building; success targets are stated up front
   (`<time-box>`, `<accuracy threshold>`: not in the sources).
 - Train the users before the pilot, record lessons for the rollout.
-- Pilot, PoC and rollout stay three different claims (`od-prototype-poc`); a pilot result is never
+- PoC (feasibility), prototype (benefit with real users), pilot and rollout stay four different claims (`od-prototype-poc`); a pilot result is never
   reported as proven value.
 - The Lead-change label is a human call; an agent may propose it and cite the facts used.
 

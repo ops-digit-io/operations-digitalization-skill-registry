@@ -20,7 +20,7 @@ hands off was not written down until now.
 | 3 — Machine/equipment integration | `od-equipment-integration` (guidance route) | `assets/guidance-protocol.md` — one document per machine, the four gates answered in order |
 | 4 — Signal standardization | `od-signal-standardization` | The signal catalogue entry and clustering result for the newly connected data points |
 | 5 — Acceptance testing | `od-acceptance-test` | `assets/acceptance-test-protocol.md` — pass/fail per artefact type, signed off, the input `od-handover-and-adoption` reads next |
-| 7 — Report and readiness update | `od-scorecard-reporting` | The lane's own metrics row, read from `OD-Report-Equipment_Integration` and the Scorecard readiness matrix, with the escalation window (one ODEC/COP round) already defined there |
+| 7 — Report and readiness update | `od-scorecard-reporting` | The lane's own metrics row, read from `OD-Report-Equipment_Integration` and the Scorecard readiness matrix, with the escalation window (one COP round) already defined there |
 
 **One correction to the happy path's own step numbering:** step 1 names "requirement via
 `od-requirements-breakdown`" in prose but that skill was missing from this lane's own

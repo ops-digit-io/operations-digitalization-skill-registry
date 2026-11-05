@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Plant and regional roadmap template
 
-Fields in [`../references/roadmap-templates.md`](../references/roadmap-templates.md). Status: red delayed · yellow close-loop update required · green on track with evidence · grey not started (`PROPOSAL`). Roles only.
+Fields in [`../references/roadmap-templates.md`](../references/roadmap-templates.md). Status (traffic light, one scale per round): red delayed · yellow close-loop update required · green on track with evidence; "not started" goes in the comment. Roles only.
 
 ## Plant roadmap
 

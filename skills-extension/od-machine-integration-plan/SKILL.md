@@ -118,9 +118,6 @@ the machine list, the route or the kick-off date.
 
 ## Still open
 
-- `<Allocation rule>`: sources conflict between first come, first served within a quarter and budget class,
-  and prioritising a small set of staffed first-mover plants. Safer reading is written in the reference
-  `<to confirm>`. Supplier: OD lead.
 - `<Budget classes>`: class names follow the systems needed; their limits are `<look up in the current approval policy>`.
 - `<Capacity per phase>`: meetings per phase are known only qualitatively.
 - `<Barrier log location and form>`; `<who convenes the rapid decision board>`.
@@ -129,7 +126,7 @@ the machine list, the route or the kick-off date.
 ## Do not
 
 - Do not front-load the hardest machines, or mix several unknown machine types into one deployment.
-- Do not connect, patch or approve an external connection; do not start a wave without a staffed team and a Cyber Security path.
+- Do not connect, patch or approve an external connection; do not start a wave without a staffed team and a started Cyber Security path (it runs in parallel and blocks only go-live).
 - Do not leave a machine out of the wave without a logged barrier and an owner.
 - Do not quote counts, plant statuses or budgets from this skill: read them live from the machine list and the status report.
 - Do not call a plan final while the machine list is unreviewed.

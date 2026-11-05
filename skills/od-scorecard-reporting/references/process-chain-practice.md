@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: Method, decision rules, handoff contract, pitfalls and agent notes for running the information call, the community-of-practice call and the scorecard cycle, abstracted from the Operations Digitalization slide decks - agenda blocks, call for action, status colours, plant status and readiness tables, KPI-basis discipline, utilization next to count. Guidance only, no figures.
+description: Method, decision rules, handoff contract, pitfalls and agent notes for running the community-of-practice call, other reporting rounds and the scorecard cycle, abstracted from the Operations Digitalization slide decks - agenda blocks, call for action, status colours, plant status and readiness tables, KPI-basis discipline, utilization next to count. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -14,7 +14,7 @@ Deck-derived practice for the spine. `PROPOSAL` = registry synthesis; `<to confi
 
 ## 1. Method in practice
 
-**Two (or three) forums, three different jobs.**
+**Forums and their jobs.** The strategy / information call (ODEC) is historical: it met monthly only until 2025-12 and no longer does, with no fixed replacement forum; its decks are a source of information. The table shows the jobs the formats had.
 
 | Forum | Key question | Content | Output |
 |---|---|---|---|
@@ -22,7 +22,7 @@ Deck-derived practice for the spine. `PROPOSAL` = registry synthesis; `<to confi
 | Community-of-practice call | how are we doing operations digitalization | technical issues, data-model updates, rule-engine flows, dashboards, training schedule, connector updates, security technical view | guidance on issues, triggers for action |
 | Benefits call with the plant operations lead | what did it save | timing, savings, feedback | savings status |
 
-Every format lists *input* (plant side and central side), *content* and *trigger for action*. **Cadence: `<to confirm>`.** `SKILL.md` and `od-context` state both as monthly; some deck material describes the strategy / information call as quarterly with the technical call monthly, and a later deck reuses an old agenda unchanged. Check the current agenda before copying one.
+Every format lists *input* (plant side and central side), *content* and *trigger for action*. **No fixed cadence is claimed**: reporting is on request or on the department's own schedule. A later deck may reuse an old agenda unchanged: check the current agenda before copying one.
 
 **Standard agenda of the technical call:** roadmap and rollout status -> security call for action -> use-case forecast with one worked best-practice example -> trainings -> feedback on the last call's open process question. A fixed question pack drives it: technical issues, data-model updates, rule-engine flows, dashboards, training schedule, new connectors, ideas for new use cases.
 
@@ -34,13 +34,13 @@ Every format lists *input* (plant side and central side), *content* and *trigger
 
 ## 2. Decision rules
 
-- **Status colours.** Plant or rollout status: red = phase delayed; yellow = close-loop update required; green = on track; add a call-for-action cell per row. Project status: red = out of plan, result endangered, steering decision required; yellow = minor deviation handled by the team with an action; green = per plan; grey = not applicable or no data. The project manager owns the colour, the steering committee decides on changes.
+- **Status colours.** Traffic light red / yellow / green, one scale per round. Plant or rollout status: red = phase delayed; yellow = close-loop update required; green = on track; add a call-for-action cell per row. "Input collected", "delayed" or "at risk" may appear only as reason text in the comment. Project status: red = out of plan, result endangered, steering decision required; yellow = minor deviation handled by the team with an action; green = per plan; grey = not applicable or no data. The project manager owns the colour, the steering committee decides on changes.
 - **Report per region against plan** with a short relative judgement (proactive and good / slow and complex); regional gaps are structural as often as they are effort. Do not blend into one number.
 - **Utilization is its own result next to delivery count.** "System and use-case utilization must be accelerated" recurs as a conclusion; a delivery count on target can sit beside a missed savings target because savings are unreported, not because nothing was gained.
 - **Savings are counted only with a baseline, an owner and a registered plant savings project.** A use case without a registered project is invisible to the ledger; an implemented use case with no forecast is flagged "implemented, no forecast / no project registered".
 - **Record the KPI basis with its date.** A use-case count against a threshold assumes the system landscape of its year; platform centralization shifts the count. Say which basis a figure used.
 - **Escalation.** An unresolved item carries forward one round with the label "escalated"; a hard deadline set by management is quoted verbatim in the call for action.
-- **Wave allocation: request order versus first-mover priority** is stated differently in different decks. Safer reading: plant tier (staffed key user, estimated value) decides central capacity, request order decides sequence within a tier `<to confirm>`.
+- **Wave allocation:** eligibility follows request order; central capacity goes first to first-mover plants that are staffed (staffed key user, estimated value).
 
 ## 3. Handoff contract
 
@@ -66,7 +66,7 @@ Every format lists *input* (plant side and central side), *content* and *trigger
 - **A sprint review that starts without a savings baseline never reports the saving.**
 - **Template residue.** Initiative one-pagers still carried a leftover plan / forecast / actual table with identical placeholder numbers; do not treat them as initiative data.
 - **Realized versus estimated wording.** A headline labelled "realized" that is in fact a top-down estimate: label it potential.
-- **Monthly metric families worth a source each (method only):** use cases integrated, savings, systems rolled out and months of delay, equipment integration count, share of standard deployments, systems and processes with major risk, schedule deviation, software footprint reduction. Planning tables use plan / forecast / actual per month with an overshoot line above target.
+- **Metric families worth a source each (method only):** use cases integrated, savings, systems rolled out and months of delay, equipment integration count, share of standard deployments, systems and processes with major risk, schedule deviation, software footprint reduction. Planning tables use plan / forecast / actual per month with an overshoot line above target.
 - **Scorecard filters** are region, location, manufacturing process; a security indication was added later. A plant management one-pager shows progress, regional engineering roadmap, plant scorecard, investment initiation, resource allocation and integration with the operational-excellence routine.
 
 ## 5. Questions to ask and definition of done
