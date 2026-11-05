@@ -69,6 +69,7 @@ the neighbouring skills already teach, and every proposal that is not a recorded
 | [`references/plant-landscape.md`](references/plant-landscape.md) | How a plant is organised for this purpose: roles, how to find the tools a plant actually has, what kinds of training and workshops the call decks record, and where to read the live data. No figures |
 | [`references/curriculum-modules.md`](references/curriculum-modules.md) | The module catalogue (M0 to M7): audience, what the trainee must be able to do, the skill that already holds the content, and the hands-on form |
 | [`references/competence-and-sustainment.md`](references/competence-and-sustainment.md) | How competence is evidenced, the single-point-of-failure rule, hand-down from key user to key user, and what keeps it alive after the trainer leaves |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The training offer process, plant-level versus common sessions, training-need capture, tools before pilots, and what an agent may draft |
 
 ## What this skill does not repeat
 
@@ -127,6 +128,7 @@ without the builder. Where a module needs that content it links there; it does n
 
 ## Do not
 
+- Do not schedule a rollout where no one can run the solution afterwards; enabling comes first (`references/process-chain-practice.md`).
 - Do not mark a competence confirmed, a session as adoption, or a person as qualified: the plant confirms.
 - Do not teach on a demo environment and call it rollout training.
 - Do not name individuals in the package; use roles.

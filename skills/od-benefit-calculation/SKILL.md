@@ -41,6 +41,7 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/review-checklist.md`](references/review-checklist.md) | Why the methodology field is usually the one missing, the three fixes tried before the current one, and the smell test that follows from it |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Segment before averaging, banked floor / potential / de-banked value, grounding tags, baseline first, the handoff to ranking and the capital request, and what an agent may draft |
 
 A use case's value is recorded as **individual saving rows**, not as one number on the
 use case. Count the rows and sum the amounts live on the savings ledger (look up: the OD
@@ -134,6 +135,8 @@ its methodology; any gate is recorded as a dependency with an owner.
 
 ## Do not
 
+- Do not net value against cost, and do not release a figure without its grounding tag (input, assumption, market, unknown); see `references/process-chain-practice.md`.
+- Do not average over two populations: split the estate by the variable that drives the economics first, and credit a lever only on the slice it can reach.
 - Do not report a total that mixes tracked and proven euros.
 - Do not fill a reliability field to make the ledger look complete; an empty field is
   honest, and a blank is better than a label nobody can defend.

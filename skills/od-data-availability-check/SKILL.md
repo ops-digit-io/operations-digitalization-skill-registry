@@ -59,6 +59,7 @@ and two quarters.
 | [`references/machine-list-completeness.md`](references/machine-list-completeness.md) | How to measure, live, how complete the Machine List is per plant, and which kinds of plant cannot answer step 2 from the list |
 | [`references/data-needs-by-capability.md`](references/data-needs-by-capability.md) | Per capability template: what it covers, the department standard, how to count the recorded use cases that list no machine, and what the capability and process epic shells do and do not say |
 | [`references/non-machine-data-sources.md`](references/non-machine-data-sources.md) | Data that is not a PLC signal - how to read the legacy application records, camera, file, lab and energy sources, and which connectors exist for them |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: objects, events and time first, the missing-signal table up front, decision rules, handoff contract, pitfalls, AI agent operating notes |
 | [`assets/data-availability-verdict.md`](assets/data-availability-verdict.md) | The defined output to fill in |
 | [`assets/data-gap-request.md`](assets/data-gap-request.md) | The named request a data gap becomes when it is routed to the Information Integration lane |
 | [`scripts/check_availability.py`](scripts/check_availability.py) | Walks the six steps against the real sources |
@@ -79,6 +80,8 @@ The script never guesses. Where a source cannot answer, it says *unproven* rathe
 the bundle records fitness for use.
 
 ## Walk the path, in this order
+
+First translate the request into the **objects** it is about, the **events** that happen to them and the **time** axis; a sensor value is not an event, and a missing relation to the product or order is a data gap, not something to approximate ([`process-chain-practice.md`](references/process-chain-practice.md)). Report anything needed but not collecting **up front** as a missing-signal table (`signal id | label | why needed`).
 
 | # | Question | Where to look | If no |
 |---|---|---|---|

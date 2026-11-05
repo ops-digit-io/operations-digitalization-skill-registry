@@ -43,6 +43,7 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/clusters.md`](references/clusters.md) | All clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Archetypes (cross-process, per-process, unique), category to method to data-job mapping, prototype to configurable container app, scaling lessons (utilization, not rollout count), handoff contract, agent notes |
 
 The function's leverage is not building one dashboard well. It is building one dashboard
 well and then having the other plants **take** it rather than re-specify it.
@@ -118,7 +119,8 @@ idiosyncratic.
 ## How standardization is measured
 
 Not by how many templates exist — all of them do — but by **how often the second plant
-takes the first plant's solution**. Capability instances are the denominator; delivered
+takes the first plant's solution**, and then by whether it is **used** there: a deployment count is not a value
+measure, and a scaled use case needs utilization (and a saving where one is reported) before it counts as scaled. Capability instances are the denominator; delivered
 instances are the numerator. Compute both from the live use case list and quote the read date.
 
 The portfolio analysis is blunt about the finding: *the catalogue is built to standardize

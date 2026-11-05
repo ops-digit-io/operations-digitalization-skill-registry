@@ -67,6 +67,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 |---|---|
 | [`references/gate-rules.md`](references/gate-rules.md) | Every rule that governs the gate, one line each with its source: guardrail, decision right, risk row, wait state, what is not collected |
 | [`references/package-contents.md`](references/package-contents.md) | What the package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The gate as a wave precondition: security-relevance questions, request sequence, documentation completeness checklist, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council items, handoffs and agent notes |
 | [`references/precedents.md`](references/precedents.md) | Patterns from the department's own record: the Groot2B programme, an app that waited on approval, a plant network-separation case, how application cyber status is recorded, how security shows up in blocker records |
 
 ## The rule
@@ -88,6 +89,8 @@ connects, never approves an external connection, and never records "signed off" 
    (`od-equipment-integration` `references/fallbacks.md` section 4; `09-risks.md`). Check whether a
    wave-level sign-off exists for this plant and whether this machine or app falls inside its scope.
    ⟨Where wave-level sign-offs are recorded⟩ is not known.
+   For a pilot, keep the scope small enough to stay off the heavy OT path and list what is
+   deferred (`references/process-chain-practice.md`).
 4. **Fill the package** from existing outputs, not from memory: the data path and the integration concept from
    `od-equipment-integration` (assessment or guidance protocol), the app package from `deploy-appstore`, the
    acceptance protocol from `od-acceptance-test`. Use `references/package-contents.md` as the checklist. Leave
@@ -96,6 +99,8 @@ connects, never approves an external connection, and never records "signed off" 
 5. **Route it.** Open a decision request ([`od-decision-routing`](../od-decision-routing/assets/decision-request.md))
    on the row "Equipment integration go-ahead" (Tandem IIAE with Plant ME / Plant IT, approval yes,
    `execute-with-approval`). Record the sign-off as a **dependency** on the use case or the machine record.
+   Where the case involves personal data, worker-performance measurement or a new platform
+   record the data-protection and works-council items next to the package (same file).
 6. **Submit - by a human.** This skill hands the package to the IIAE or Plant IT.
    ⟨Submission channel, form and the Cyber Security contact role⟩ are not in the sources.
 7. **Hold at the wait state.** Record the submission date, the owner of the follow-up and the next check.

@@ -79,6 +79,7 @@ proposed form until the OD lead confirms it.
 | [`references/cost-lines.md`](references/cost-lines.md) | The cost lines an integration or system pack can carry, where each line's figure must come from, where the reference figures live, and how to size a wave from the live machine records |
 | [`references/approval-route.md`](references/approval-route.md) | Who decides what, how to find the current spend ladder, the open threshold and the overlap in the ladder as written, and the dependencies to record |
 | [`assets/investment-input-pack.md`](assets/investment-input-pack.md) | The pack itself |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Planning workflow and cost build-up, cost calculator before the project, staged scope, wave-decision checks, and what an agent may draft |
 
 ## Procedure
 
@@ -131,6 +132,8 @@ traceability.
 
 ## Do not
 
+- Do not plan a wave without checking that the plant can execute, the layout is stable and controller patch status is on the plan.
+- Do not price a return before a baseline exists; the first line is the measurement layer.
 - Do not approve, commit, order, allocate resources or promise a budget; the pack recommends.
 - Do not invent or interpolate a threshold, a unit price or a payback; use `⟨…⟩` and name who supplies it.
 - Do not add tracked and proven euros, or present a benefit as proven (`od-benefit-calculation`).

@@ -5,4 +5,5 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Failure cases and routing](failure-cases-and-routing.md) | Skill Reference | The failure patterns the vault has recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. No figures. Open it to justify a guardrail or to decide what a failed check means. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the go-live self-check, abstracted from the Operations Digitalization slide decks - reconciling a screen with the paper process, naming the utilization ritual and action owner, operations concept, switching off the old process. Process-level guardrail candidates, no figures. |
 | [Technical guardrails](technical-guardrails.md) | Skill Reference | Candidate guardrails G8 to G18 for a self-served dashboard, each with its recorded source rule, the failure pattern it prevents (no counts) and a proposed block-or-warn setting. Open it when the seven seeded guardrails are not enough for the screen a plant has built. |

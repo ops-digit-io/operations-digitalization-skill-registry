@@ -49,6 +49,7 @@ its source, its target and the value at which somebody intervenes.
 |---|---|
 | [`references/scorecard-structure.md`](references/scorecard-structure.md) | Why the metrics split into build/delivery/adoption/value, the discipline (formula, elements, time behaviour, unit, user group) a new metric must meet before it joins the table, and the IEC 62264 work-unit basis of the equipment KPIs |
 | [`references/readiness-evidence.md`](references/readiness-evidence.md) | What actually moves a readiness-matrix cell to "Available" — never a status update, always a recorded `od-acceptance-test` pass — and what red/amber/green mean here |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How a round is prepared and followed up in practice: forums and agenda blocks, call for action, status colours, KPI-basis discipline, utilization next to delivery count, handoff contract, agent notes |
 | [`references/rounds-and-escalation.md`](references/rounds-and-escalation.md) | ODEC/COP's real recurring content shape (regional breakout, not a blended total), how to prepare and follow up each, and where the escalation-window gap actually sits |
 
 ## Sources, and which one wins
@@ -83,7 +84,9 @@ with any figure you publish.
 
 **The honest headline rule:** report the leading and the lagging metrics side by side,
 including whichever is behind. A summary that leads with only the favourable number
-(typically the one that is on target) is the version that gets found out.
+(typically the one that is on target) is the version that gets found out. A count of delivered
+use cases is a delivery figure, not a value figure: show utilization next to it, and state the basis
+(system landscape, filter, date) a count was made on.
 
 ## Recipient feedback — the loop acceptance does not cover
 
@@ -96,7 +99,7 @@ including whichever is behind. A summary that leads with only the favourable num
 
 | Rhythm | What | Input | Output |
 |---|---|---|---|
-| **ODEC** (monthly) | *Why* we prioritize: strategy and Smart Factory tools | Project/process issues and feedback; scaling potentials; new use-case sprints and machines connected | Central strategy updates; roadmaps, rollouts, workshops; priorities and deadlines |
+| **ODEC** (monthly; cadence `<to confirm>`, some decks show the strategy call as quarterly) | *Why* we prioritize: strategy and Smart Factory tools | Project/process issues and feedback; scaling potentials; new use-case sprints and machines connected | Central strategy updates; roadmaps, rollouts, workshops; priorities and deadlines |
 | **COP** (monthly) | *How* we do it: technical implementation of machine integration, data models, use cases | Technical issues and feedback; connector updates; new use-case ideas | Data-model/connector updates; rollout guidance; technical Cyber Security aspects |
 | **Retro** (at least monthly) | What did we learn → **one** change | Incidents, metrics, ODEC/COP feedback | 1 decided adjustment |
 | Use Case Definition / Integration Workshops | Define and integrate with plant teams | Plant demand, process diagnostics | Prioritized use cases; integration plan |

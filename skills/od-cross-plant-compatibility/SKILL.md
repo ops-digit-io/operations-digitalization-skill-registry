@@ -62,6 +62,9 @@ asks the question neither asks: *does the thing still work at the plants that ar
   shows that most plants have Siemens controllers but several also run Rockwell, Mitsubishi, Beckhoff and others, and that
   there are three different integration paths to the platform (IIoT Edge, central OPC UA aggregation server, "evaluation
   ongoing"). A name or mapping that holds for the first plant's path may not hold for another.
+- The foundation data model does not fit every machine: it was found suitable for greenfield, discrete,
+  time-series-centric machines, while brownfield and continuous processes need other models
+  (`references/process-chain-practice.md`). A standard for "all connected machines" must be tested per machine class.
 - Naming already drifts without a check: many distinct signal names for a much smaller set of concepts, several names for
   machine state alone (`od-signal-standardization`). Plant languages are a further source of variance.
 
@@ -71,6 +74,7 @@ asks the question neither asks: *does the thing still work at the plants that ar
 |---|---|
 | [`references/plant-differences.md`](references/plant-differences.md) | The dimensions on which plants differ and how to read each live: region, vendors, field networks, ingress variants, tool rollouts, data-gap plants, capability-instance spread, known blockers. No figures |
 | [`references/compatibility-tests.md`](references/compatibility-tests.md) | The tests to run per difference dimension, what a pass and a fail look like, and which composed skill supplies the evidence |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Where the base data model does and does not fit, process-specific models, data classes, plant differences that break a standard, one unknown machine type at a time, handoff contract, agent notes |
 | [`assets/compatibility-check.md`](assets/compatibility-check.md) | The output: the plant grid with verdicts, the findings and the recommendation |
 
 ## Procedure

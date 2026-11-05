@@ -5,4 +5,5 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Pattern evidence](pattern-evidence.md) | Skill Reference | How to read the portfolio aggregates that frame a promotion decision (declared standard, library and CSP status, case groups, handover and utilization), how to count them live, and what they do not show - guidance only, no figures. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for promotion, abstracted from the Operations Digitalization slide decks - graduation conditions, the use-case exchange with the operational-excellence function, the promotion template fields, recurrence evidence, and retire versus re-evaluate. Guidance only, no figures. |
 | [Promotion criteria](promotion-criteria.md) | Skill Reference | The six tests an ad-hoc asset must be put through before it is proposed as a standard use case, the evidence that answers each, the promote / keep / retire rule and the catalog conditions. |

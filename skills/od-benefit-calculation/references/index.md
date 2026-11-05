@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How the business-case step (24, 33) is run in the AI-driven chain - segment before averaging, grounding tags on every figure, banked floor versus potential versus de-banked value, baseline first, what to hand to the capital request, and what an agent may draft. Pattern only, no figures. |
 | [Review checklist](review-checklist.md) | Skill Reference | Why a saving row's methodology is usually missing, the smell test that follows from it, and the department's own three failed fixes before the current one — Phase-1 tacit-knowledge item #3, resolved from the department's own retrospective record. |

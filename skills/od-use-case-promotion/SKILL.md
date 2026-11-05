@@ -78,6 +78,7 @@ industrialization without the responsible human").
 |---|---|
 | [`references/promotion-criteria.md`](references/promotion-criteria.md) | The six tests (recurrence, value, reproducibility, placement, handover, catalog conditions), what evidence answers each, and the promote / keep / retire rule |
 | [`references/pattern-evidence.md`](references/pattern-evidence.md) | How to read the portfolio aggregates that frame a promotion (declared standard, library and CSP status, case groups, handover and utilization) with live-count recipes, and what the numbers do not show - no figures |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Graduation conditions, the exchange with the operational-excellence function, promotion template fields, retire versus re-evaluate, handoff contract, agent notes |
 | [`assets/promotion-package.md`](assets/promotion-package.md) | The package |
 
 ## Procedure
@@ -104,7 +105,9 @@ industrialization without the responsible human").
    (`od-handover-and-adoption`); the plant has used it in a real shift.
 7. **State which catalog conditions are met** (`catalog-usecase`): CSP `Yes` recorded; capability template;
    standardized signals; plant owner and handover record. Conditions 2 and 3 there are proposals awaiting
-   the OD lead. Say plainly: *prepared for the CSP gate*, never *catalogued*, unless all four hold.
+   the OD lead. Say plainly: *prepared for the CSP gate*, never *catalogued*, unless all four hold. A validated
+   prototype alone is not enough: it must also be packaged as a configurable application
+   (`references/process-chain-practice.md`).
 8. **Decide and recommend.** Promote, keep as ad-hoc (with a review date), or retire (low utilization is
    reviewed with the requester or retired). A promote recommendation needs a named responsible human
    (DBVE) who accepts it.

@@ -5,4 +5,5 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Business case structure](business-case-structure.md) | Skill Reference | What a business case holds in the department's own records (the work vault Business Cases folder) - fields, ranges, scores, cost split, validation plans, prerequisites and typical gaps - as a pattern for the capital request package. Guidance only, no figures. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How the capital request (steps 25 and 33) is run in the AI-driven chain - management-summary shape, decisions with risk of not doing, pilot and scope-limiting patterns, mandatory sensitivity, the offer-eCR-contract consistency check, and what an agent may draft. Pattern only, no figures. |
 | [Spend route](spend-route.md) | Skill Reference | How to find the spend gate and approver for an OD investment, the ambiguity in the recorded thresholds to resolve with the OD lead, where the eCR sits in Lane 2 and Lane 3, and what a saving waiting on it looks like in the ledger. Guidance only, no amounts. |

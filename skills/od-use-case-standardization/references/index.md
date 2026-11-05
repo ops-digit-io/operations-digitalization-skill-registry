@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Clusters](clusters.md) | Skill Reference | The cluster tags' (C01-C12) standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for standardization, abstracted from the Operations Digitalization slide decks - archetypes, category to method to data-job mapping, graduation from validated prototype to configurable container app, the library tree, and why a scaled use case needs utilization rather than a rollout count. Guidance only, no figures. |

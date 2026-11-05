@@ -94,13 +94,13 @@ profile.**
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |
 | Digitalization Scorecard | The authoritative Power BI report of OD targets vs. actuals and readiness | The Use Case / Equipment Integration reports, which feed it |
 | Readiness (RAG) | System integration & availability per dimension × location — red not available, yellow in rollout, green available | — |
-| ODEC | Operations Digitalization Exchange Call — monthly **strategy** cadence | COP |
+| ODEC | Operations Digitalization Exchange Call — **strategy** cadence (monthly here; some decks show the strategy call as quarterly ⟨to confirm⟩) | COP |
 | COP | Community of Practice Call — monthly **technical** cadence | ODEC |
 | DBVE | Digital-Business-Value-Engineer — owns use-case value | IIAE |
 | IIAE | IIoT Interface & Automation Engineer — owns integration | DBVE |
 | Route 25 | OESL Smart Factory strategy program / bootstrapping-tools assessment | — |
 | CSP | Common Solution Portfolio decision — the gate that says a library entry is standard enough to roll out | — |
-| eCR | Engineering change request — the spend route | — |
+| eCR | The spend route; the decks use it as the capital request for a project or integration wave ⟨expansion of the letters — to confirm; earlier text read "engineering change request"⟩ | — |
 | SPRINT | The portfolio review that turns a tracked saving into a proven one | — |
 | Process First-Aid Kit | Rapid diagnostic offering inside Use Case Support | Ad-Hoc Analytics (Analytical lane) |
 
@@ -196,6 +196,12 @@ The function proposes; other people decide. Most gates sit outside OD.
    comments were often written during active work and later tidied back to `-`.
 6. **The graph is a read surface.** Corrections go to the SharePoint list.
 7. **Never act on an external machine connection** without Cyber Security / OT sign-off.
+
+## Reference
+
+| File | Use it for |
+|---|---|
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Why the context layer is the precondition for agent work, the currency rules per field, the three demand shapes, plant tiering (first mover, fast follower), the AI maturity sanity check, handoff contract, agent notes |
 
 ## Escalation
 

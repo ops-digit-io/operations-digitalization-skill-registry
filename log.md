@@ -3,6 +3,17 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-05 (later)
+
+- **No company figures in skills.** Removed counts, spend, savings, per-plant status, dated snapshots and real example values from
+  all skills; snapshot references became how-to-read / how-to-count-live guides. Added `scripts/check_no_figures.py` (heuristic, read-only).
+- **Registry 1.10.0, 56 skills.** Abstracted process knowledge from the Operations Digitalization slide decks (workshops, governance,
+  integration and tools, analytics, AI activities, business case and rollout) and merged it: every enriched skill gained
+  `references/process-chain-practice.md` (method, decision rules, handoff contract, pitfalls, questions, AI-agent operating notes) and
+  eight draft skills were added: `od-project-order`, `od-utilization-review`, `od-migration-cutover`, `od-machine-integration-plan`,
+  `od-event-object-modelling`, `od-plant-diagnosis`, `od-ai-generation-playbook`, `od-governance-cadence`. Contradictions between decks are
+  written as the safer reading with `<to confirm>` and listed under `open_gaps`.
+
 ## 2026-11-05
 
 - Added the **new-state flow** as the process the skills are gauged against: `docs/new-state/` (Mermaid flowchart, process

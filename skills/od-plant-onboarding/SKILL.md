@@ -68,6 +68,7 @@ what comes next, which skill, what artefact, who decides.*
 |---|---|
 | [`references/plant-landscape.md`](references/plant-landscape.md) | How to read the plant records (region, machines, integrated share, use cases, main controller and integration method) and how to obtain them live; the four starting profiles and where each begins |
 | [`assets/onboarding-path.md`](assets/onboarding-path.md) | The tracker: one row per stage with skill, artefact, role, evidence and status |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | First-mover versus fast-follower tiering, the plant visit, readiness signals, wave and migration mechanics, and what an agent may draft |
 
 ## Step 0: place the plant
 
@@ -116,6 +117,8 @@ a need no connector can meet: `it-demand-package`, `deploy-appstore`.
 
 ## Do not
 
+- Do not start with the hardest machine types; scale known types and take at most one unknown type per new deployment.
+- Do not treat first-mover versus fast-follower as eligibility; it decides central capacity (`references/process-chain-practice.md`).
 - Do not start with a use case before the plant is recorded: stage 1 is the precondition for every comparison.
 - Do not assume the plant looks like the first plant: run `od-cross-plant-compatibility` before taking a standard.
 - Do not connect a machine to an external system without Cyber Security / OT sign-off.

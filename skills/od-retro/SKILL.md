@@ -63,6 +63,7 @@ adjustment. Everything else goes to the parking list and is revisited, not decid
 |---|---|
 | [`references/retro-inputs.md`](references/retro-inputs.md) | Where each of the three inputs is read from, what a usable item looks like, which signals the sources already supply and the limits of each |
 | [`assets/retro-record.md`](assets/retro-record.md) | The one-page record: last month's check, the evidence list, the one adjustment, the parking list |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Where good learning items come from, a cause classification, clean-up and kill/hold hygiene, and what an agent may draft |
 
 ## Procedure
 
@@ -124,6 +125,7 @@ roles only.
 
 ## Do not
 
+- Do not propose a new tracker, slide or system as the adjustment when removing or merging one would address the item.
 - Do not end with a list of actions. One adjustment; the rest is parked.
 - Do not name individuals in the record: roles only.
 - Do not count an intention as a result: the check at the next retro needs an observable.

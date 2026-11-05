@@ -63,6 +63,7 @@ cases sit in a separate bucket; the Plant ME has seen the list; the record is fi
 |---|---|
 | [`references/ranking-criteria.md`](references/ranking-criteria.md) | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
 | [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the vault can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice for step 24: planning states, explicit ordering rule, foundation-first and dependency column, value tiers and grounding tags, kill/defer outcomes, handoff columns, agent notes |
 | [`assets/prioritization-record.md`](assets/prioritization-record.md) | The output: candidate table, scoring sheet, unscored bucket, recommendation, sign-off |
 
 Weighted-score mechanics are not repeated here; they live in
@@ -91,7 +92,10 @@ inputs that skill's method scores, and the plant-facing record around it.
    savings is a gap in evidence, not a verdict on value.
 5. **Score on the criteria** of [`references/ranking-criteria.md`](references/ranking-criteria.md).
    Use the weights OD agrees with the Plant ME for this round and write them into the record;
-   ⟨default weights — none found in the sources; the OD lead and Plant ME set them⟩.
+   ⟨default weights — none found in the sources; the OD lead and Plant ME set them⟩. State the
+   ordering rule in the record header (workshop decks: generalization potential first, then saving
+   potential; strategy decks stress savings; `<to confirm>` with the OD lead), number the planning
+   state with its trigger, and add the dependency column.
 6. **Check fit before you fix the order** for the top candidates: `od-use-case-solution-evaluation`
    (does the envisioned solution need capability nobody has?). If a machine connection is
    involved, flag the Cyber Security wait state (`od-cybersec-gate`) so the plan does not promise
@@ -129,4 +133,7 @@ the planning inputs the ODEC calls collect and the portfolio reviews in
 - Do not invent weights, scores or savings; mark them ⟨to be collected⟩ and name who collects.
 - Do not commit investment, equipment integration or an external connection; those are other
   decisions with other authority levels (`08-decision-rights.md`).
+- Do not read a recorded-demand count or a rollout count as proven saving; both are demand or reach.
+- Do not decide "no potential" for a scaled use case that has no tracked saving: it is "further
+  investigation necessary".
 - Do not treat white space in a case group as demand. It means "has no member here", nothing more.

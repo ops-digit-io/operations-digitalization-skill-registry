@@ -47,6 +47,7 @@ programme, never a plant-wide ambition.
 | [`references/patterns.md`](references/patterns.md) | The abstract rules this procedure runs on — match effort to category, a decision isn't a scope, the legacy-system check is tacit knowledge — each stated as a rule, illustrated once |
 | [`references/vocabulary.md`](references/vocabulary.md) | The controlled vocabulary actually in use: business process, output asset, legacy systems and tools — for Phases 1, 3 and 4 |
 | [`references/worked-examples.md`](references/worked-examples.md) | Three illustrative use cases (invented, placeholder values) carried through the four phases — a complete record, one correctly stopped before Control, and a minimal-but-correct standard case |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How step 21 runs in the AI-driven chain: canvas and data-source split, diagnosis patterns, can/cannot statement, utilization moment, handoff row to step 22, agent notes |
 | [`references/library-catalog.md`](references/library-catalog.md) | How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the method vocabulary — a guide to the live list, not a copy of it |
 
 ## The coordinate every use case carries
@@ -111,6 +112,9 @@ document's four sections.
 
 - **Confirm the need is one need.** If it decomposes into two decisions taken by two
   people at two moments, it is two use cases.
+- **Start from a SMART statement.** If intake did not already pass it (purpose, objective, real
+  problem, timeframe, named stakeholder; a target without a baseline fails), run the test and the
+  object / event / time reduction first (`od-use-case-intake-triage`).
 - **Log the demand** against the plant roadmap — workshop output or a direct request.
 - **Name the moment in the day it belongs to**, from the controlled vocabulary in
   `references/vocabulary.md` (Daily Gemba, Troubleshooting, Activity Tracking, Utilization
@@ -151,6 +155,8 @@ document's four sections.
   question to ask the plant, not a lookup — see `references/patterns.md`.
 - **Name the machine(s), if any**, and confirm rather than assume whether the use case
   genuinely has none.
+- **Split the data points by source** (from machine / from checklist or manual / from system), per
+  process step; this split is what the data check consumes.
 - **Check the data exists** → `od-data-availability-check`. A use case whose data is not
   readable is an integration request first; record that dependency now.
 - **Check the library before specifying** → [`references/library-catalog.md`](references/library-catalog.md),

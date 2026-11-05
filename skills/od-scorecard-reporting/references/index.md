@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for running the information call, the community-of-practice call and the scorecard cycle, abstracted from the Operations Digitalization slide decks - agenda blocks, call for action, status colours, plant status and readiness tables, KPI-basis discipline, utilization next to count. Guidance only, no figures. |
 | [Readiness evidence](readiness-evidence.md) | Skill Reference | What the readiness RAG matrix actually requires before a dimension turns green, and why "Available" is a claim that needs a record behind it, not a status anyone can set. |
 | [Rounds and escalation](rounds-and-escalation.md) | Skill Reference | How to prepare and follow up ODEC and COP specifically - the real recurring shape of each round's content, and where the escalation gaps actually sit. |
 | [Scorecard structure](scorecard-structure.md) | Skill Reference | Why the scorecard's metrics are grouped the way they are, and the discipline a new metric must meet before it is added. |

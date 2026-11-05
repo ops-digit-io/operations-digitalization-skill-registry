@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Composed protocols](composed-protocols.md) | Skill Reference | Which real protocol in which composed skill answers each step of this lane's happy path, so a project is tracked against an actual document rather than a placeholder. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the project-support lane, abstracted from the Operations Digitalization slide decks - project order and plan structure, kick-off workshop, status colours, milestone and closure reports, equipment-integration workshop preparation, wave rules, application consultancy gates, handover lessons. Guidance only, no figures; approved masters come from the register. |

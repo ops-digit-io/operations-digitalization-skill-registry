@@ -51,6 +51,7 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 | [`references/dashboard-worked-examples.md`](references/dashboard-worked-examples.md) | 14 illustrative dashboard patterns, each with the lesson it teaches, and how to pick real ones |
 | [`references/dashboard-json-sample.md`](references/dashboard-json-sample.md) | How to sample dashboard JSON, and the nine query patterns found |
 | [`references/capability-templates-and-placement.md`](references/capability-templates-and-placement.md) | The 11 templates, the 13 placement rules and their precedence, how case groups work, how to place a new asset |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: the dashboard-without-action-owner smell, the generative-AI dashboard process, reconciling with paper records, sprint practice, handoff contract, AI agent operating notes |
 | [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, authoring rules with how to check each on the current export, placement, delivery |
 
 **This skill does not re-derive Grafana build mechanics.** `build-grafana-ops-dashboard` already
@@ -126,14 +127,17 @@ configuration.
 1. Confirm data availability and fitness → `od-data-availability-check`.
 2. Check the reference library first — take a proven entry rather than building
    → `od-use-case-standardization`.
-3. Name the **ritual** and the **decision** the asset supports.
+3. Name the **ritual**, the **decision** and the **action owner** the asset supports. No named action and owner: it is a
+   "dashboard without an action owner" - do not build it (visibility alone has not produced savings;
+   [`process-chain-practice.md`](references/process-chain-practice.md)).
 4. Choose the asset type from the table above; justify it if it is a dashboard by default
    → `references/asset-type-and-tier.md`.
 5. Build to the standard layout. Every figure traces to a nameable source. If the asset is
    a dashboard, hand the ritual, the tier and the data model to `build-grafana-ops-dashboard`
    rather than hand-building panels here.
 6. **Validate before calling it built** — `references/lifecycle-and-validation.md`'s
-   checklist. Rendering is not the same claim as correct.
+   checklist. Rendering is not the same claim as correct. **Reconcile with the paper record** for the same period (production
+   and engineering deep dives, differences explained) and name who stops the paper process.
 7. **Deliver it and explain it to the requester.** Delivery without explanation is the
    most common route to a `NEVER` utilization row.
 8. Record on the use case: output asset, business process, **utilization expectation**,
@@ -148,6 +152,7 @@ configuration.
   ad-hoc, **do not industrialize**.
 - An asset for this capability already exists at another plant → adopt it.
 - The data gap is real → route it, do not build on a proxy.
+- No action owner, no recurring moment of use, no before condition → it is a dashboard without an action owner.
 
 ## Do not
 

@@ -72,6 +72,7 @@ decision) and name the entries with a `Yes`; how to do this and what to watch fo
 |---|---|
 | [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | How to count the library and the CSP decisions live, how to find the entries with a recorded CSP `Yes`, which of the four "catalogued" conditions the vault shows for them |
 | [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: how to read delivered versus wanted coverage and find peer plants live, data each template needs, boundary table, typical screen components |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the pick and the graduation are run in practice: archetypes (cross-process, per-process, unique), prototype to configurable container app, triage buckets, entry content, handoff contract, agent notes |
 | [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | The match record to fill per request, with an illustrative worked example |
 
 ## What counts as "catalogued"
@@ -110,7 +111,10 @@ A library entry without a recorded CSP `Yes` is not catalogued. Route it to Lane
 ## Graduation into the catalog (end of Lane 2)
 
 Use `od-use-case-standardization` for the template, cluster and CSP step and `od-handover-and-adoption`
-for the plant handover. Propose the entry only when the four conditions above hold.
+for the plant handover. Propose the entry only when the four conditions above hold. A validated prototype alone is a
+candidate, not an entry: graduation means the prototype has become a configurable, packaged application, and a
+*unique* (site-specific) use case does not graduate (`references/process-chain-practice.md`). Record the plant's
+utilization moment in the entry - a catalogued use case that is deployed but not used is not a success.
 
 ## Open - what only the OD lead can supply
 
