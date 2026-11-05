@@ -54,9 +54,6 @@ The mapping of skills to steps is data: `docs/new-state/process.yaml`. A skill t
 
 ## Publishing
 
-`scripts/build_site.py` produces a static site. CI (`.github/workflows/validate.yml`) builds it on every push and keeps it as a downloadable artifact. Publishing it on GitHub Pages is a separate, manual workflow (`.github/workflows/pages.yml`) that is **not** switched on, for two reasons:
+`scripts/build_site.py` produces a static site. CI (`.github/workflows/validate.yml`) builds it on every push and keeps it as a downloadable artifact. The site is published on GitHub Pages at <https://ops-digit-io.github.io/operations-digitalization-skill-registry/> by the manual workflow `.github/workflows/pages.yml` (Actions, "pages", run workflow on `main`). Pages must stay on **Settings, Pages, Source: GitHub Actions**; the legacy branch build serves the Markdown through Jekyll instead and hides the process map.
 
-- A GitHub Pages site is reachable from the internet even when the repository is private, unless the organisation is on GitHub Enterprise Cloud with private Pages. The skills carry the licence line "Internal - not for external distribution" and hold department data.
-- At the time of writing this repository is private and the organisation's plan does not offer branch protection for private repositories, which suggests that Pages for private repositories is not available either. Check **Settings, Pages** before relying on it.
-
-Routes that keep the content internal: GitHub Enterprise Cloud private Pages; an internal static web host serving the `site/` folder; or distributing the `site/` artifact. A public site would have to be a reduced version without the department data.
+The repository and the site are public. Skills are guidance and process and carry no current company figures (`scripts/check_no_figures.py` lists lines that still look like figures); the licence line "Internal - not for external distribution" in the skill frontmatter predates this and should be reviewed by the owner.
