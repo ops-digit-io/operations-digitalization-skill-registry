@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Pattern evidence](pattern-evidence.md) | Skill Reference | Portfolio aggregates that frame a promotion decision - declared standard, library and CSP counts, the 36 case groups, handover and utilization - with what each number does and does not show. |
+| [Pattern evidence](pattern-evidence.md) | Skill Reference | How to read the portfolio aggregates that frame a promotion decision (declared standard, library and CSP status, case groups, handover and utilization), how to count them live, and what they do not show - guidance only, no figures. |
 | [Promotion criteria](promotion-criteria.md) | Skill Reference | The six tests an ad-hoc asset must be put through before it is proposed as a standard use case, the evidence that answers each, the promote / keep / retire rule and the catalog conditions. |

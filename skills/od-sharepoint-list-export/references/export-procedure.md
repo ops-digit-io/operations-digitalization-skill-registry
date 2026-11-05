@@ -19,7 +19,7 @@ else is identical across every list this applies to.
 
 ```javascript
 fetch(
-  "/teams/team_10055741/_api/web/lists/getbytitle('SmartFactory UseCase Savings')?$select=Title",
+  "<SITE>/_api/web/lists/getbytitle('<LIST>')?$select=Title",
   { headers: { "Accept": "application/json;odata=nometadata" } }
 )
 .then(r => r.json())
@@ -27,15 +27,15 @@ fetch(
 .catch(console.error);
 ```
 
-Expect `{"Title":"SmartFactory UseCase Savings"}`. If that comes back, REST access works
+Expect `{"Title":"<LIST>"}`. If that comes back, REST access works
 with nothing more than the session already open in the browser.
 
 ## 2 · Export items + versions + attachments in one pass
 
 ```javascript
 (async () => {
-  const LIST = "SmartFactory UseCase Savings";
-  const SITE = "/teams/team_10055741";
+  const LIST = "<list title>";
+  const SITE = "<site path, e.g. /teams/<site-name>>";
 
   async function getAll(url) {
     let result = [], next = url;
@@ -76,8 +76,7 @@ with nothing more than the session already open in the browser.
 ```
 
 `@odata.nextLink` drives every `getAll` call — this is what makes the 5000-row page size
-safe on a list with far more than 5000 items (the proven scenario has 1,143; several of the
-other seven lists are smaller, none are known to exceed the threshold yet). The export file
+safe on a list with more than 5000 items; check the list's current size against the view threshold before relying on it. The export file
 carries its own `ExportDate` and `ItemCount` — never rename or re-date the file by hand;
 those two fields are the record, not the filename.
 

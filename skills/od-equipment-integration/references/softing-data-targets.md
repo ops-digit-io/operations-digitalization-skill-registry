@@ -196,7 +196,7 @@ nowhere else.
 
 **Deriving a value here is a data-model decision, not a local convenience.** The same
 finding sits at the top of the estate's blocker list: *Data model standardization (CT Base)*,
-23 machines. If a derived value is worth having at one plant it is worth defining once for
+a very common blocker. If a derived value is worth having at one plant it is worth defining once for
 all of them → `od-signal-standardization`, Consultation with Plant ME / Plant IT. If it is
 genuinely local — a machine-specific scaling nobody else has the machine for — say so in
 the tag name and in the Machine CV.

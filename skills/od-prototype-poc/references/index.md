@@ -4,6 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Gemba App pilot](gemba-app-pilot.md) | Skill Reference | What the vault and the department archive hold on the Gemba App, the AI requirements-to-mockup pilot - the process, the click-dummy prompt system, the initiative request and what none of it shows. |
-| [Status labels](status-labels.md) | Skill Reference | Which OD AI items the department decks label pilot, PoC, PoC proven or rollout, where the two decks disagree, and the rule for quoting a label. |
-| [Validation patterns](validation-patterns.md) | Skill Reference | How the 29 AI business cases in the work vault define a validation plan and a pass criterion, grouped into patterns a key user can copy when writing the criterion for a prototype or PoC. |
+| [Gemba App pilot](gemba-app-pilot.md) | Skill Reference | The Gemba App requirements-to-mockup pilot as a method to copy - the process, the click-dummy prompt system, what an initiative request for a prototype should contain, and what the sources do not show. No dates, budgets or status of the live initiative. |
+| [Status labels](status-labels.md) | Skill Reference | How the department's AI decks label items (pilot, PoC, PoC proven, rollout), the ways labels mislead, and the rule for quoting one - no list of which item carries which label today. |
+| [Validation patterns](validation-patterns.md) | Skill Reference | How the AI business cases in the work vault define a validation plan and a pass criterion, grouped into wording patterns a key user can copy when writing the criterion for a prototype or PoC - patterns only, with placeholder thresholds. |

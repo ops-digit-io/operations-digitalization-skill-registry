@@ -38,8 +38,8 @@ this plant and this process — if it would read the same on another plant's epi
 
 | | |
 |---|---|
-| Capability epic | ⟨one of the 11 capability templates⟩ |
-| Process epic | ⟨one of the 22 process templates⟩ — *record both axes* |
+| Capability epic | ⟨one of the capability templates⟩ |
+| Process epic | ⟨one of the process templates⟩ — *record both axes* |
 | Cluster | ⟨C01…C12⟩ |
 | Plant / machines | ⟨plant⟩ · ⟨machine ⟨EQ id⟩, …⟩ |
 | Lane | ⟨use-case / integration / project / analytical⟩ |

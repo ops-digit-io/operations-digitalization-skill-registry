@@ -15,7 +15,7 @@ configuration layer Node-RED needs before a flow will start.
 
 **Why this file exists.** The corpus these references are derived from is the *per-flow*
 export produced by `node-red-auto-docs`, which contains the tab and its nodes and **nothing
-else**. Across all 825 exports there are **zero config nodes**: no `mqtt-broker`, no
+else**. Across the exports there are **no config nodes at all**: no `mqtt-broker`, no
 `protobuf-file`. A flow built from the patterns alone therefore imports with dangling
 references, connects to no broker, and decodes nothing.
 
@@ -47,17 +47,17 @@ The flow is **not running** in that state, and nothing else in the log says so. 
 looks deployed but moves no data on a fresh instance, check the log for this before anything
 else.
 
-**Other contrib modules in use across the corpus**, by node-type prefix — same check as
+**Other contrib modules in use across the estate**, by node-type prefix — same check as
 above: `[info] Waiting for missing types to be registered` names exactly which one is
 missing.
 
 | Prefix / type | Likely module | Where it shows up |
 |---|---|---|
-| `OPCUA-IIoT-*` (Read, Write, Browser, Inject, Response, Result-Filter, Listener) | an OPC-UA client nodeset (e.g. `node-red-contrib-iiot-opcua`) | 59+ nodes, mostly Caluire and the IIoT OPC-UA browser/test flows |
+| `OPCUA-IIoT-*` (Read, Write, Browser, Inject, Response, Result-Filter, Listener) | an OPC-UA client nodeset (e.g. `node-red-contrib-iiot-opcua`) | mostly OPC UA test and browser flows at a few sites |
 | `ui-*` **and** `ui_*` (gauge, button, text, form, dropdown, table, chart, …) | `node-red-dashboard` | OEE and alerting dashboards. **Both an underscored and a hyphenated family appear side by side** — e.g. `ui-gauge` and `ui_gauge`, `ui-button` and `ui_button` — consistent with two dashboard-module generations both being in use across the estate, not one typo. Confirm which generation a target instance actually has before reusing a UI node type from the other family |
-| `influxdb in` / `influxdb out` | `node-red-contrib-influxdb` | Sun Prairie, Ponta Grossa |
-| `postgres` | a PostgreSQL contrib node | Data-quality scoring (`ct-oesl-wth1`) |
-| `sparkplug-payload` | a Sparkplug B decode/encode node | One MQTT Sparkplug test flow (`ct-oesl-wth2`) |
+| `influxdb in` / `influxdb out` | `node-red-contrib-influxdb` | a few sites |
+| `postgres` | a PostgreSQL contrib node | Data-quality scoring flows |
+| `sparkplug-payload` | a Sparkplug B decode/encode node | A Sparkplug test flow |
 | `soap request` | a SOAP contrib node | One webserver-integration flow (`ct-oesl-spr`) |
 | `data-generator`, `uuid`, `counter`, `e-mail` | small single-purpose contrib nodes | Scattered, one or two flows each |
 
@@ -98,7 +98,7 @@ Every `mqtt in` / `mqtt out` node references it by `"broker": "<that id>"`.
 **Credentials are not in the flow file.** Username and password live in
 `flows_cred.json`, encrypted. Exporting a flow does not carry them, and importing one does
 not create them — they are entered on the target instance. That is a feature: it is why a
-flow JSON is safe to commit, and why the 42 flows carrying literal webhook URLs and tokens
+flow JSON is safe to commit, and why flows carrying literal webhook URLs and tokens
 are a defect rather than a convention.
 
 ### `protobuf-file`
@@ -117,7 +117,7 @@ are a defect rather than a convention.
 `"protoType": "PLCPacketList"`.
 
 **`/data/plcschema.proto` has to exist on the instance.** The estate writes it from a flow —
-35 flows carry a `Generate Text for Protobuffer Schema` function and an
+flows carry a `Generate Text for Protobuffer Schema` function and an
 `Inject protobuffer config once` tab that writes the schema to the Node-RED file store. On a
 new instance, that flow runs first.
 
@@ -163,8 +163,8 @@ Per-flow exports show this, but it is easy to omit when generating a flow from s
   "disabled": false, "info": "⟨the flow description — see the documentation section⟩" }
 ```
 
-`info` is the field that becomes the generated page's description, and the one **1 % of the
-corpus fills in**.
+`info` is the field that becomes the generated page's description, and the one **almost no
+flow fills in**.
 
 ### Groups are double-linked
 

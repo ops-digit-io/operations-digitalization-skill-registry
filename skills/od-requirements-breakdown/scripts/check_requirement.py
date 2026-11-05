@@ -9,7 +9,7 @@ reports what is missing, what is a placeholder, and what would fail intake.
 
 The checks encode the portfolio's own failure pattern: what gets asked for in a meeting
 is populated, and what needs a conversation with the operator is not. `savings_eur` is
-filled on 100% of 650 use cases; `targets` on 9%; `methods` and `utilization` on none.
+always filled; `targets` rarely; `methods` and `utilization` hardly ever.
 
 Exit code: 2 if any BLOCKER, 1 if any WARN, 0 otherwise.
 """

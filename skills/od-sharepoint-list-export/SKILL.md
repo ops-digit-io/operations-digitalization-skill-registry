@@ -62,11 +62,11 @@ Do not re-derive the scripts; run the procedure as given.
 
 ## The lists this applies to
 
-SmartFactory UseCase Savings (650 use cases) · UseCase SavingCalculation (553 rows) ·
-UseCase Library (100 entries) · Machine List (1,715 machines) · Connector Overview (26) ·
-Tool Overview · Legacy Application List (268) · Business Cases (AI at Operations).
+SmartFactory UseCase Savings · UseCase SavingCalculation · UseCase Library · Machine List ·
+Connector Overview · Tool Overview · Legacy Application List · Business Cases (AI at Operations).
 
-Proven against the SmartFactory UseCase Savings list: **1,143 items and 251 attachments**.
+Proven against the SmartFactory UseCase Savings list, which has both item history and attachments.
+Sizes change; read the list's own item count when you export, do not quote a remembered figure.
 
 ## Why version history is the point
 
@@ -75,7 +75,7 @@ written during active work and later tidied back to `-`. **Exporting versions ra
 only the current snapshot is what recovered it.** An export of current items alone will
 silently lose most of the reasoning behind the portfolio.
 
-Always export versions. The eight full exports under `90-Sources/sharepoint/` are what
+Always export versions. The full exports under `90-Sources/sharepoint/` are what
 every analysis in the bundle is built from, including the knowledge graph itself and the
 portfolio analysis.
 

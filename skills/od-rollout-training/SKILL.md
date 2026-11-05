@@ -32,7 +32,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - Skills od-handover-and-adoption (three-question test, ADKAR actions, evidence tiers), od-acceptance-test (witness rule), od-equipment-integration (guidance protocol gates), od-decision-routing, od-context, deploy-appstore, read 2026-11-05
     - Registry docs/new-state-flow.md and docs/new-state diagrams, the Lane 3a step "Rollout and adopt" and the Lane 1 and Lane 2 go-live steps, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Department KPIs and Roadmap Status (training figures 2023), Plant - San Luis Potosi, Delicias, Montemorelos, Ponta Grossa, Somersworth (Americas training roadmap 2025, workshop agenda), Changchun, Changshu, Qingdao (training achievements), Monterrey (QFPR training), Other (WiriTec key users, Secure Critical Automation Software); Graph/Tools (16 tool notes, rollout and use counts) and Concept 3 (roles of the operations concept); Graph/Plants (Carei as the profile pattern); Case Groups (40 groups, delivered counts), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Department KPIs and Roadmap Status, plant notes (training and workshop history), Other (key users, Secure Critical Automation Software); Graph/Tools and Concept 3 (roles of the operations concept); Graph/Plants (plant-profile pattern); Case Groups, read 2026-11-05
   okf:
     type: Agent Skill
     title: Rollout training
@@ -66,7 +66,7 @@ the neighbouring skills already teach, and every proposal that is not a recorded
 
 | File | Use it for |
 |---|---|
-| [`references/plant-landscape.md`](references/plant-landscape.md) | How a plant is organised for this purpose: roles, the tools a plant actually has, the training and workshop history in the call decks, with counts and dates |
+| [`references/plant-landscape.md`](references/plant-landscape.md) | How a plant is organised for this purpose: roles, how to find the tools a plant actually has, what kinds of training and workshops the call decks record, and where to read the live data. No figures |
 | [`references/curriculum-modules.md`](references/curriculum-modules.md) | The module catalogue (M0 to M7): audience, what the trainee must be able to do, the skill that already holds the content, and the hands-on form |
 | [`references/competence-and-sustainment.md`](references/competence-and-sustainment.md) | How competence is evidenced, the single-point-of-failure rule, hand-down from key user to key user, and what keeps it alive after the trainer leaves |
 
@@ -90,10 +90,10 @@ without the builder. Where a module needs that content it links there; it does n
    (`od-decision-routing`); a competence for a gate is "stops and routes", not "does it".
 4. **Choose modules and the hands-on form.** Every module ends in something the trainee does on the real screen,
    the real machine or in a real shift. Durations, formats and trainers are `⟨…⟩` until the OD lead supplies the
-   standard training formats (the 2023 call deck says content exists for 8 formats; their titles are not in the
+   standard training formats (the call decks report that content exists for a set of formats; their titles are not in the
    sources).
-5. **Check the trainer capacity honestly.** The Information Integration lane has 3 IIAE roles with open positions
-   in Asia and Americas (`capabilities.md`). A plan that needs the IIAE in every session is not decentralized.
+5. **Check the trainer capacity honestly.** The Information Integration lane has a small number of IIAE roles, some positions open
+   (`capabilities.md`; check the current staffing). A plan that needs the IIAE in every session is not decentralized.
    Use the hand-down rule in `references/competence-and-sustainment.md` (a proposal).
 6. **Draft the package and the checklist.** Fill both assets. Mark every duration, date and trainer `⟨…⟩` unless a
    source gives it.
@@ -118,10 +118,10 @@ without the builder. Where a module needs that content it links there; it does n
 
 ## Open - what only the OD lead, DBVE and IIAE can supply
 
-- ⟨Titles, content and length of the 8 standard training formats⟩ reported in the 2023 call deck, and the 3 planned in 2024.
+- ⟨Titles, content and length of the standard training formats⟩ reported in the call decks, and the ones planned.
 - ⟨Who may train whom⟩: is a trained plant key user allowed to train other plants' staff? Not in the sources.
 - ⟨Competence standard⟩: who, if anyone, certifies a person; no certification is recorded.
-- ⟨Where training attendance is recorded⟩: the 2024 plan was to "improve recorded training sessions"; no system is named.
+- ⟨Where training attendance is recorded⟩: a call-deck plan was to "improve recorded training sessions"; no system is named.
 - ⟨Named plant owners and key users per plant⟩: role labels only in the sources; the registry lists named owners as an open gap.
 - ⟨The training offer for non-OD tools⟩ (MES, MDA/PDA): not in the sources.
 

@@ -8,7 +8,7 @@ description: >-
   mapping, not consumable or unknown. Use when a signal standard or data-model change is about
   to be recommended, when a use case from one plant is proposed for another, when a flow or
   dashboard hard-codes something plant-specific, or when someone asks whether a standard will
-  hold at the other 32 plants.
+  hold at the other plants.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
 allowed-tools: Read Grep Glob
 metadata:
@@ -29,9 +29,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Plants (33 plant notes, plant-profile blocks), read and aggregated 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Capability Epics (the 11 template notes and their numbered plant instances), aggregated 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Registers/Blocker Register (export of 2026-08-21) and Case Groups CG-01, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Capability Epics (the template notes and their numbered plant instances), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Registers/Blocker Register and Case Groups, read 2026-11-05
     - Skills od-signal-standardization, od-use-case-standardization and od-data-availability-check (plant-instance-map), read 2026-11-05
   okf:
     type: Agent Skill
@@ -56,22 +56,20 @@ asks the question neither asks: *does the thing still work at the plants that ar
 
 ## Why a check is needed
 
-- A capability is not a one-off. Each of the eleven cross-plant capability templates has an instance at 32 or
-  33 of the 33 plants (Andon Board, Process Values and Recipe Values 33; the other eight 32; counted from the
-  Capability Epics notes, 2026-11-05). The standard has to serve all of them.
+- A capability is not a one-off. Each of the eleven cross-plant capability templates has an instance at
+  (nearly) every plant (read the Capability Epics notes). The standard has to serve all of them.
 - The plants are not uniform underneath. The grid in [`references/plant-differences.md`](references/plant-differences.md)
-  shows 24 of the 33 plants with Siemens controllers but also Rockwell at 6, Mitsubishi and Beckhoff at 4 plants each, and three
-  different integration paths to the platform (IIoT Edge at 21 plants, central OPC UA aggregation server at 14,
-  "evaluation ongoing" at 6). A name or mapping that holds for the first plant's path may not hold for another.
-- Naming already drifts without a check: 260 distinct signal names across 3,400 references for a much smaller set of
-  concepts, 8 names for machine state alone (`od-signal-standardization`). Plant languages are a further source of
-  variance (nine languages in scope there).
+  shows that most plants have Siemens controllers but several also run Rockwell, Mitsubishi, Beckhoff and others, and that
+  there are three different integration paths to the platform (IIoT Edge, central OPC UA aggregation server, "evaluation
+  ongoing"). A name or mapping that holds for the first plant's path may not hold for another.
+- Naming already drifts without a check: many distinct signal names for a much smaller set of concepts, several names for
+  machine state alone (`od-signal-standardization`). Plant languages are a further source of variance.
 
 ## The references
 
 | File | Use it for |
 |---|---|
-| [`references/plant-differences.md`](references/plant-differences.md) | What differs between plants, by dimension, with counts, source and date: region, vendors, field networks, ingress variants, tool rollouts, data-gap plants, capability-instance spread, known blockers |
+| [`references/plant-differences.md`](references/plant-differences.md) | The dimensions on which plants differ and how to read each live: region, vendors, field networks, ingress variants, tool rollouts, data-gap plants, capability-instance spread, known blockers. No figures |
 | [`references/compatibility-tests.md`](references/compatibility-tests.md) | The tests to run per difference dimension, what a pass and a fail look like, and which composed skill supplies the evidence |
 | [`assets/compatibility-check.md`](assets/compatibility-check.md) | The output: the plant grid with verdicts, the findings and the recommendation |
 
@@ -85,7 +83,7 @@ asks the question neither asks: *does the thing still work at the plants that ar
 3. **Build the plant grid** using [`plant-differences.md`](references/plant-differences.md): for each plant in scope fill
    controller vendor, field network, ingress variant, tool versions available, plant language of tags, and the state
    of its instance. Refresh any figure from the live lists (Machine List, Tool Overview) if you rely on it for a
-   verdict; the counts in the reference are a snapshot.
+   verdict; the reference holds no figures.
 4. **Run the tests** in [`compatibility-tests.md`](references/compatibility-tests.md) for each dimension in which at
    least one plant differs from the first plant. Use `od-data-availability-check` to learn what the platform really
    receives per plant instance.
@@ -120,8 +118,8 @@ asks the question neither asks: *does the thing still work at the plants that ar
 
 - **The decision counterpart** for data-model / signal standardization is `⟨to confirm⟩` (decision-rights table).
 - **Per-plant tag language** is recorded nowhere as a field; infer from the signal list with `od-signal-standardization`.
-- **Plants with no machine records** (5 with zero machines in the plant notes) cannot be graded; their verdict is *unknown*.
-- **Tool rollout counts** in the plant notes list only tools that are recorded per plant; a missing line is not proof of
+- **Plants with no machine records** (zero machines in the plant notes) cannot be graded; their verdict is *unknown*.
+- **Tool rollout records** in the plant notes list only tools that are recorded per plant; a missing line is not proof of
   "not available". Confirm with the IIAE role.
 - **Whether a mapping is accepted by consumers** (dashboards, reports on the data platform) is not recorded anywhere;
   the test needs a named consumer per capability. `⟨consumer inventory per capability, to collect from DBVE and IIAE⟩`.

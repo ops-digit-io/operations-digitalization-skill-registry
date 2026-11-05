@@ -29,7 +29,7 @@ metadata:
     - Skill od-decision-routing, which routes IT demand through demand management and does not package it
     - Skill od-requirements-breakdown, the requirement and the epic with its stories
     - Department deck AI_Initiatives_IT_Contact_Points.pptx (one slide, the asks to IT per initiative, roles only), text extracted and read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Legacy Applications (268 notes, aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Legacy Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
     - Knowledge bundle, 00-core decision rights (08-decision-rights.md) and the 10-Department notes Operating model and Roles and organization, read 2026-11-05
   okf:
     type: Agent Skill
@@ -66,8 +66,8 @@ that follows as weeks (IT commitment and approval).
 
 | File | Use it for |
 |---|---|
-| [`references/it-touchpoints.md`](references/it-touchpoints.md) | Which demands belong here, the asks OD has put to IT per initiative (licences and budget, platform integration, capacity), the IT roles of the platform operations concept, the initiatives that lean on IT, where demands typically wait |
-| [`references/external-build-and-foreign-app-inputs.md`](references/external-build-and-foreign-app-inputs.md) | The foreign-app description in the legacy list's own columns, the four assessment questions, what an external developer can be handed from OD's side, patterns in the 268 legacy applications |
+| [`references/it-touchpoints.md`](references/it-touchpoints.md) | Which demands belong here, the kinds of ask OD puts to IT (licences and budget, platform integration, capacity), the IT roles of the platform operations concept, how to find the initiatives that lean on IT, where demands typically wait |
+| [`references/external-build-and-foreign-app-inputs.md`](references/external-build-and-foreign-app-inputs.md) | The foreign-app description in the legacy list's own columns, the four assessment questions, what an external developer can be handed from OD's side, typical foreign-app patterns and how to count them on the live legacy list |
 | [`assets/it-demand-package.md`](assets/it-demand-package.md) | The package to fill: parts 0 to 12, with the pre-wired skills and the checks before hand-over |
 
 What stays open after mining the vault: IT's own demand form, the board's criteria and rhythm, the contact and the lead time are in none of the sources read.

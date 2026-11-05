@@ -53,7 +53,7 @@ Two building blocks map directly onto problems in this estate:
 servers, with standardized manufacturer and serial-number information.
 
 > This is what the **Machine List** is trying to be. It already records vendor, PLC model,
-> part number and plant per machine — 1,715 rows. Where a machine exposes
+> part number and plant per machine. Where a machine exposes
 > `MachineIdentification`, that inventory can be **read rather than maintained by hand**,
 > which is the difference between a list that drifts and one that does not.
 
@@ -96,8 +96,8 @@ Unsuspending, Stopping, Stopped, Aborting, Aborted, Clearing — grouped into *a
 
 **Why this is the highest-value model to adopt here.** The estate's machine-state family is
 its worst: `MachineMode`, `MachineModeNormalized`, `MachineStatus`, `MachineState`,
-`MachineStatusMapped`, `MachineOperationMode`, `MachineSetup`, `MachineModeSetup` — 430
-references across eight names, plus per-machine integer codes mapped ad hoc in 29 separate
+`MachineStatusMapped`, `MachineOperationMode`, `MachineSetup`, `MachineModeSetup` — many
+references across eight names, plus per-machine integer codes mapped ad hoc in separate
 normalization flows.
 
 PackML replaces "what does 15 mean on this machine" with a **fixed vocabulary every plant
@@ -134,7 +134,7 @@ merges them is not comparable between lines.
   no written convention of its own. ⟨Confirm.⟩
 - **Collection method.** Transition versus sample, and at what interval, stays a local
   decision and stays undocumented unless you write it down.
-- **The existing 260 names.** A standard applies to what you build next. Migrating a live
+- **The existing names.** A standard applies to what you build next. Migrating a live
   signal is a breaking change with a migration plan — see the skill's *Do not*.
 
 ## Open questions worth answering once

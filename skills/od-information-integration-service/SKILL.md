@@ -15,9 +15,9 @@ metadata:
   tier: lane
   lane: information-integration-service
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  capacity: 3 IIAE roles
+  capacity: "per the current lane staffing plan (look up: OD lead)"
   authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
-  escalation: OD lead (Thomas Zipf) via COP
+  escalation: OD lead via COP
   status: stable
   sources_read: 2026-11-05
   requires: [od-context]
@@ -26,7 +26,7 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - this registry, cross-checked 2026-10-23 against the current state of every skill this lane composes into (each was a stub on 2026-08-25; all five are now documented or deep) — see references/lane-handoffs.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (16 notes incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Slide Index (master note, slide-decks.jsonl, slide-manifest.jsonl; deck Operation Concept IIoT and Edge Computing) and ODEC Facts staging notes, AI-extracted and unverified, read 2026-11-05
     - Department notes Systems of record, Machine integration, and 20-Done MSB rollout projects (ops-knowledge-graph _knowledge), read 2026-11-05
   okf:
@@ -45,10 +45,10 @@ Read `od-context` first.
 
 | File | Use it for |
 |---|---|
-| [`references/lane-handoffs.md`](references/lane-handoffs.md) | Each happy-path step matched to the real, current asset the composed skill now produces — confirmed 2026-10-23, not just named |
-| [`references/tool-fact-sheets.md`](references/tool-fact-sheets.md) | The sixteen shop-floor tools: rollout record, architecture, recorded cost and hardware, status and open blockers (record plus archive-based, AI-drafted) |
+| [`references/lane-handoffs.md`](references/lane-handoffs.md) | Each happy-path step matched to the real asset the composed skill produces, not just named |
+| [`references/tool-fact-sheets.md`](references/tool-fact-sheets.md) | How to read the tool records for each shop-floor tool: what to look up (rollout, architecture, cost and hardware, status, open blockers), where, and the prerequisites per tool |
 | [`references/roles-and-support-model.md`](references/roles-and-support-model.md) | The roles around the IIoT edge platform (local key user, business-area key user, governance board, central key user, divisional engineering, divisional and local IT, platform provider) and the incident, change and security-incident flows |
-| [`references/finding-decks.md`](references/finding-decks.md) | How to search the Slide Index (5,690 slides in 484 decks) and a topic-to-deck map for the lane |
+| [`references/finding-decks.md`](references/finding-decks.md) | How to search the Slide Index and a topic-to-deck map for the lane |
 | [`assets/plant-status-input.md`](assets/plant-status-input.md) | One-page plant input for an ODEC status slot on equipment integration |
 
 **Trigger.** An equipment-integration or data-model-harmonization need per the roadmap.
@@ -75,39 +75,40 @@ Step 5 → `od-acceptance-test`. Step 7 → `od-scorecard-reporting`.
 
 ## The estate this lane works on
 
-1,715 machines and PLCs, each recorded against a plant with vendor, PLC model, part
-number, network protocol and criticality: **821 `INTEGRATED`**, **395 `NOT INTEGRATED`**,
-**48 `INTEGRATION ONGOING`**. `NOT INTEGRATED` is not a backlog of failures — a large
-part of it is machines nobody has needed data from yet. The field records the state, not
-a judgement.
+Every machine and PLC is recorded in the Machine List against a plant, with vendor, PLC
+model, part number, network protocol and criticality, and an integration status:
+`INTEGRATED`, `NOT INTEGRATED`, `INTEGRATION ONGOING`, or blank. `NOT INTEGRATED` is not a
+backlog of failures — part of it is machines nobody has needed data from yet. A **blank status
+is not "not integrated"**: it means nobody recorded it. The field records the state, not a
+judgement. Count each status live on the current Machine List export before quoting a figure,
+and name the export date.
 
-26 connectors, one per protocol or vendor family — 24 DATATRONiQ, 2 Softing Industrial.
-Three integration concepts sit above them: a central OPC-UA server, container-based machine
-integration, and an IIoT edge computing platform.
+Connectors exist one per protocol or vendor family (supplier families: DATATRONiQ and Softing
+Industrial; list them from `Graph/Connectors`). Three integration concepts sit above them: a
+central OPC-UA server, container-based machine integration, and an IIoT edge computing platform.
 
 Those three are the three ways a PLC reaches the **IIoT Edge Platform**, which is the
-terminus in all of them: via an **edge device** running the connector (Concept 3, 20 plants),
-via a **connector with no device** at the machine (Concept 2, 1 plant, no written route), or
-via the **Softing dataFEED aggregation server** bridged back over OPC UA with
-`DTQ-OPCUA-Connector` (Concept 1, 11 plants). The aggregation shape needs both pieces. For a
-specific machine, `od-equipment-integration` (guidance route) carries the routing, the
-per-driver configuration patterns and the fallbacks when a path blocks.
+terminus in all of them: via an **edge device** running the connector (Concept 3), via a
+**connector with no device** at the machine (Concept 2, no written route), or via the
+**Softing dataFEED aggregation server** bridged back over OPC UA with `DTQ-OPCUA-Connector`
+(Concept 1). The aggregation shape needs both pieces. For a specific machine,
+`od-equipment-integration` (guidance route) carries the routing, the per-driver configuration
+patterns and the fallbacks when a path blocks.
 
-## Where the current records differ from the figures on this page
+## Reading the records: traps
 
-Counted 2026-11-05 from the work vault (Machine List export 2026-08-21, Tool Overview export
-2026-08-24); full tables in `od-equipment-integration`'s
+How many plants run which concept, and how many machines sit in each status, live in the Tool
+Overview and the Machine List; the per-plant reading guide is `od-equipment-integration`'s
 [`plant-integration-status.md`](../od-equipment-integration/references/plant-integration-status.md).
+Patterns to expect:
 
-- The Tool Overview lists **Concept 3 at 14 plants** and Concept 1 at 11; by machine route the
-  Machine List shows edge-routed machines at **21 plants** and aggregation-routed machines at
-  **14**, with **11** plants carrying both. The "20 / 1 / 11" above could not be re-derived;
-  use the current counts and name the source.
-- **451 machines have no status.** Five plants have no machine row at all; three plants
-  (Montemorelos, San Luis Potosi, Ostrava) have no status on any row.
-- The scorecard figure (338 integrated against 331) and the 150 machines dated 2026 in the
-  Machine List are different measures. ⟨Reconciliation. Who could supply it: the owner of
-  `OD-Report-Equipment_Integration`.⟩
+- The **Tool Overview (plants with a concept)** and the **Machine List (plants with machines
+  routed through it)** are two measures and rarely agree. Quote the one you used and its source.
+- Some plants have no machine rows at all, and some have no status on any row: a gap in the
+  record, not a finding about the plant.
+- The scorecard's integrated-equipment figure and a count of machines with an integration date
+  in the current year are different measures. ⟨Reconciliation. Who could supply it: the owner
+  of `OD-Report-Equipment_Integration`.⟩
 
 ## Error paths
 
@@ -160,8 +161,8 @@ evidence.
 
 | Metric | Source | Target | Intervene from |
 |---|---|---|---|
-| Integrated equipment (year) | `OD-Report-Equipment_Integration` | 331 (year); 666 total | IS below target-to-date — 338 vs 331 on 2026-08-10, on/above |
-| Integrated equipment per month | same · monthly bar | 25 / month (overshoot 30) | month below 25 |
+| Integrated equipment (year) | `OD-Report-Equipment_Integration` | the year target in the report (look up: report owner) | actual below target-to-date |
+| Integrated equipment per month | same · monthly bar | the monthly target in the report (look up: report owner) | month below the monthly target |
 | System / capability readiness | Scorecard · System Integration and Availability | Available at strategic plants | red at a strategic plant |
 | Acceptance / rework rate | Not captured in any system today | No target set — nothing to measure against yet | rework rate rising |
 

@@ -12,10 +12,9 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Plant status input
 
 The ODEC (Operations Digitalization Exchange Call) slides track, per region, **equipment
-integration "today (plan)"** and **use case development "today (plan)"** (Q2 2025 KPI slide),
+integration "today (plan)"** and **use case development "today (plan)"**,
 the **eCR status** of the connectivity roadmap, and a regional **equipment integration
-roadmap status** with "done in site", "done remote" and "pending" per plant (slide of
-2025-11-19). These are the fields a plant is asked for. This form collects them in one place
+roadmap status** with "done in site", "done remote" and "pending" per plant. These are the fields a plant is asked for. This form collects them in one place
 before the call. Source of the slide fields: `ODEC Facts` staging notes (AI-extracted, not
 verified; open the slide before relying on it).
 

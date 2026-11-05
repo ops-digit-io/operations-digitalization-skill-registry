@@ -5,4 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Classes and routes](classes-and-routes.md) | Skill Reference | The seven root-cause classes of a machine that will not connect, the question that tells them apart, and for each the exit (roadmap, strategy, substitution), owner, forum and wait state. |
-| [Estate patterns](estate-patterns.md) | Skill Reference | What the 1,715 machine records show about where integration is stuck - status by vendor and protocol, concentration by plant, the recorded blocker texts grouped by class, and the data gaps that stop a triage. |
+| [Estate patterns](estate-patterns.md) | Skill Reference | How to read the Machine List for barrier patterns - where NOT INTEGRATED clusters by vendor, protocol and plant, how to group recorded blocker texts by class, and the data gaps that make triage impossible. Guidance and live-count recipes; no figures. |

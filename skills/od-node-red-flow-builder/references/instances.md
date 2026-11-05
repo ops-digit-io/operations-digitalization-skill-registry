@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Instances
-description: 53 instances and 825 flows as auto-documented, with what each instance is for and how much of it is configured.
+description: Guidance, no figures - how Node-RED instances are named and discovered, what a site code is, what the instance shape tells you, and how to count flows per instance live.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -10,7 +10,9 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The Node-RED estate
 
-53 instances, 825 flows, as auto-documented by `node-red-auto-docs`. Read 2026-08-25.
+Instances and flows are auto-documented by `node-red-auto-docs`. This page holds **no counts**: how many
+instances exist and how many flows each carries changes with every export. Count live (see below) and
+quote the figure with its source and date.
 
 ## Naming
 
@@ -26,38 +28,17 @@ to the documentation — which is a reason to follow it, not a naming preference
 The trailing `2` / `-2` variants (`…-prod2`, `…-test-2`) are second instances at the same
 site, not versions.
 
-## Flows per instance
+## Flows per instance: how to count
 
-| Instance | Flows | | Instance | Flows |
-|---|--:|---|---|--:|
-| ct-oesl-som-nodered-test | 97 | | ct-oesl-cshz-nodered-prod2 | 12 |
-| ct-oesl-mak-nodered-prod | 57 | | ct-oesl-tsaz-nodered-test | 11 |
-| ct-oesl-som-nodered-prod | 54 | | ct-oesl-car-nodered-prod | 10 |
-| ct-oesl-tsaz-nodered-prod | 47 | | ct-oesl-qda-nodered-test | 7 |
-| ct-oesl-wth4-nodered-prod | 42 | | ct-oesl-mpee-nodered-test-jg | 6 |
-| ct-oesl-del-nodered-prod2 | 41 | | ct-oesl-cal-nodered-prod | 6 |
-| ct-oesl-pogz-nodered-prod | 39 | | ct-oesl-spr-nodered-test | 5 |
-| ct-oesl-wth4-nodered-test | 38 | | ct-oesl-wth3-nodered-prod | 4 |
-| ct-oesl-sub-nodered-test | 35 | | ct-oesl-krb-nodered-test | 4 |
-| ct-oesl-wth2-nodered-prod | 32 | | ct-oesl-wth1-nodered-test | 3 |
-| ct-oesl-wth2-nodered-test | 31 | | ct-oesl-som-nodered-test2 | 3 |
-| ct-oesl-sub-nodered-prod | 31 | | ct-oesl-del-nodered-test2 | 3 |
-| ct-oesl-vac-nodered-prod | 29 | | ct-oesl-cal-nodered-test | 3 |
-| ct-oesl-krb-nodered-prod | 29 | | ct-oesl-wth2-nodered-prod2 | 2 |
-| ct-oesl-mak-nodered-test | 23 | | ct-oesl-vac-nodered-test | 2 |
-| ct-oesl-spr-nodered-prod | 18 | | ct-oesl-dol-nodered-prod / prod2 / test | 2 each |
-| ct-oesl-qda-nodered-prod | 18 | | ct-oesl-car-nodered-test | 2 |
-| ct-oesl-mty-nodered-test2 | 18 | | ct-oesl-wth4-nodered-test-2 | 1 |
-| ct-oesl-qda-nodered-prod-2 | 17 | | ct-oesl-qda-nodered-test-2 | 1 |
-| ct-oesl-wth1-nodered-prod | 14 | | ct-oesl-nomz-nodered-prod / test | 1 each |
-| ct-oesl-som-nodered-prod2 | 13 | | ct-oesl-mty-nodered-prod / prod2 / test | 1 each |
-| | | | ct-oesl-del-nodered-prod / test | 1 each |
-| | | | ct-oesl-cshz-nodered-prod / test | 1 each |
-| | | | ct-oesl-ccn-nodered-prod / test | 1 each |
+List the folders under `ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/` (one per instance)
+and count the flow JSON files in each. The result is a per-instance and per-site-code table to build on
+the day; it is not kept in this skill because it would drift. A generated dashboard page may report
+totals that differ from the file count; see [`corpus-census.md`](corpus-census.md) for
+how to treat sources that do not reconcile.
 
 ## Plant codes
 
-Three are confirmed by the `CT/…` topics inside the flows themselves:
+Some codes are confirmed by the `CT/…` topics inside the flows themselves:
 
 | Code | Plant | Confirmed by |
 |---|---|---|
@@ -65,31 +46,29 @@ Three are confirmed by the `CT/…` topics inside the flows themselves:
 | `spr` | Sun Prairie | `CT/OESL/NA/USA/SPR/…` |
 | `cshz` | Changshu | `CT/MFS/AS/CHN/CSHZ/…` |
 
-The remaining codes — `cal`, `car`, `ccn`, `del`, `dol`, `krb`, `mak`, `mty`, `nomz`,
-`pogz`, `som`, `sub`, `tsaz`, `vac`, `wth1`–`wth4` — are OESL site codes and are **not**
-resolved to plant names here, because nothing in the bundle states the mapping. ⟨Site-code
-table — to confirm with the IIAE.⟩ Do not infer one from a name that merely looks similar;
-the Machine List's plant names are the authority and joining on a guess would produce a
-wrong per-plant figure.
+The remaining codes are OESL site codes and are **not** resolved to plant names here, because nothing in
+the bundle states the mapping. ⟨Site-code table — to confirm with the IIAE.⟩ Do not infer one from a name
+that merely looks similar; the Machine List's plant names are the authority and joining on a guess would
+produce a wrong per-plant figure.
 
-`mpee` is not a plant: `ct-oesl-mpee-nodered-test-jg` is a department test instance.
+`mpee` is not a plant: its instance is a department test instance.
 
-`wth1`–`wth4` are four instances at one site, which is why the site appears four times.
+Several numbered codes (for example `wth1` to `wth4`) can be separate instances at one site, which is why
+the site appears more than once.
 
 ## What the shape says
 
-**Test carries as much as prod, sometimes more.** `som` runs 97 flows on test against 54 on
-prod; `wth4` 38 against 42; `sub` 35 against 31. Test instances here are working
-environments, not scratch — which is why "build on test" is a workable rule rather than a
-formality, and also why a test instance can hold a literal secret that matters.
+**Test often carries as much as prod, sometimes more.** Test instances here are working environments,
+not scratch — which is why "build on test" is a workable rule rather than a formality, and also why a test
+instance can hold a literal secret that matters. Compare prod and test per site before assuming one is the
+superset of the other.
 
-**Flow count is not maturity.** A site with one flow may have a single well-built
-integration; a site with 97 may have accumulated variants. Read the flows, not the count.
+**Flow count is not maturity.** A site with few flows may have a single well-built integration; a site
+with many may have accumulated variants. Read the flows, not the count.
 
-**72 of the 825 flows are marked disabled** (35 on prod instances, 37 on test), counted on 2026-11-05 from the
-`disabled` value of each flow's first element in the exported JSON; an earlier version of this file said 0 and
-suspected the export dropped the field, which it does not. See [`corpus-census-2026-11.md`](corpus-census-2026-11.md)
-for the split, including the protobuf-config bootstrap tab that is meant to be disabled after its first run.
+**Some flows are marked disabled.** Count them live from the `disabled` value of each flow's first
+element in the exported JSON. See [`corpus-census.md`](corpus-census.md) for how to read
+the split, including the protobuf-config bootstrap tab that is meant to be disabled after its first run.
 
 ## The documentation pipeline
 

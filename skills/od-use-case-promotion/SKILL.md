@@ -77,7 +77,7 @@ industrialization without the responsible human").
 | File | Use it for |
 |---|---|
 | [`references/promotion-criteria.md`](references/promotion-criteria.md) | The six tests (recurrence, value, reproducibility, placement, handover, catalog conditions), what evidence answers each, and the promote / keep / retire rule |
-| [`references/pattern-evidence.md`](references/pattern-evidence.md) | Portfolio aggregates that frame a promotion: how much is declared standard, library and CSP counts, the 36 case groups, handover and utilization, and what the numbers do not show |
+| [`references/pattern-evidence.md`](references/pattern-evidence.md) | How to read the portfolio aggregates that frame a promotion (declared standard, library and CSP status, case groups, handover and utilization) with live-count recipes, and what the numbers do not show - no figures |
 | [`assets/promotion-package.md`](assets/promotion-package.md) | The package |
 
 ## Procedure
@@ -97,7 +97,7 @@ industrialization without the responsible human").
    plant-specific parts are separable as deltas.
 5. **Place it.** Search the reference library first (`od-use-case-standardization`): if an entry covers the
    need, the answer is **reuse that entry**, not a new one. Otherwise place it on its capability template
-   (one of eleven), process group (one of 29) and let the classifier assign the cluster tag; do not
+   (one of the capability templates), process group and let the classifier assign the cluster tag; do not
    hand-assign one. Pull the cluster's baseline definition, KPIs and requirement checklist and record only
    the deltas.
 6. **Check the handover record.** Plant owner named; the three-question test passed
@@ -126,8 +126,8 @@ industrialization without the responsible human").
 - `⟨Who may propose and who may add a catalog entry⟩`, and `⟨where the catalog lives⟩` (open in
   `catalog-usecase`).
 - `⟨Promotion rate target and tracker⟩`: the lane metric has no source and no target.
-- `⟨Whether a recorded CSP Yes is the right threshold for self-service⟩`, given 5 Yes in 51 decided
-  (`catalog-usecase`).
+- `⟨Whether a recorded CSP Yes is the right threshold for self-service⟩`, given how few
+  library entries have a recorded Yes (`catalog-usecase`; count live).
 - `⟨Who takes the CSP decision step⟩` for a new candidate and how often the gate sits (owner outside OD).
 
 ## Do not

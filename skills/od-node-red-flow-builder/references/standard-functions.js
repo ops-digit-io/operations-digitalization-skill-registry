@@ -1,14 +1,14 @@
 /* Standard Node-RED function nodes — OESL shop-floor flows.
  *
- * Verbatim from the flow corpus (825 flows, 53 ct-oesl instances). Copy these rather
+ * Verbatim from the flow corpus (ct-oesl instances). Copy these rather
  * than rewriting: the sysTime pair in particular is easy to get subtly wrong, and a
  * wrong one corrupts every downstream timestamp silently.
  *
- * Counts are the number of flows in the corpus carrying a node of that exact name.
+ * To see how widely a node is used, count the flows carrying a node of that exact name.
  */
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "Convert sysTime (UTC timestamp)"  — 625 flows
+// "Convert sysTime (UTC timestamp)"
 //
 // Inbound. PLCPacket.sys_time is a packed uint64: the upper four bytes are seconds
 // since epoch, the lower four are nanoseconds. Unpack to epoch milliseconds (UTC).
@@ -27,7 +27,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "Convert sysTime back (UTC timestamp)"  — 617 flows
+// "Convert sysTime back (UTC timestamp)"
 //
 // Outbound. Re-pack before the protobuf encode. Note this stamps *now*, not the
 // inbound time: a derived signal is timestamped when it is derived. If you need to
@@ -46,7 +46,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "filter uuids"  — 599 flows
+// "filter uuids"
 //
 // The gate. Keeps only the packets this flow cares about. The UUID list comes from
 // flow config, never from a literal here. Add each additional data point to the array.
@@ -66,7 +66,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "Debug flow config"  — 675 flows
+// "Debug flow config"
 //
 // Echoes what the config group actually set, so a mistyped UUID shows up at deploy
 // time on the debug pane instead of as an empty dashboard a week later.
@@ -85,7 +85,7 @@ return {
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "set device endpoint"  — 41 flows
+// "set device endpoint"
 //
 // Resolves the datatron's device id. Always runs before "set data_points endpoint"
 // below — the two are one request chain, not two independent ones.
@@ -101,7 +101,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "set data_points endpoint"  — 41 flows
+// "set data_points endpoint"
 //
 // Builds the IIoT edge platform query that resolves data points for a datatron, so
 // UUIDs are fetched rather than typed. Preceded by a request that resolves the
@@ -118,7 +118,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "set datapointConfigFilter"  — 205 flows
+// "set datapointConfigFilter"
 //
 // Defines which UUIDs "filter uuids" (above) keeps. One array, built from flow
 // config, one entry per data point this flow consumes — never a literal UUID.
@@ -131,7 +131,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "calculate timerange between cycle_start and cycle_end event"  — 148 flows
+// "calculate timerange between cycle_start and cycle_end event"
 //
 // The P3 two-event time range (see transformation-patterns.md), under the name it
 // actually carries in the corpus. Both guards are load-bearing — see there for why.
@@ -148,7 +148,7 @@ return msg;
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// "create json payload"  — 157 flows
+// "create json payload"
 //
 // The publish step that follows the calculation above: wraps a derived value into
 // a PLCPacket-shaped object under its OWN output uuid, ready for "prepare for protob

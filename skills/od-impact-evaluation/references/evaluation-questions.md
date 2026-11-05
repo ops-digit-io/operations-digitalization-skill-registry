@@ -11,9 +11,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Evaluation questions
 
 Sources: OD's "Use Case Utilization" slide template (Standard Agenda folder, one table per
-location), the Use Case Canvas page 2 "Success Criteria" block, and the 2025 Use Case Integration
-Workshop decks for Carei (2025-06-15) and Dolne Vestenice (2025-11-17), all in the vault's Slide
-Index and Split Slides, read 2026-11-05.
+location), the Use Case Canvas page 2 "Success Criteria" block, and the recent Use Case Integration
+Workshop decks, all in the vault's Slide Index and Split Slides. Re-open them before quoting wording.
 
 ## 1 · OD's utilization description, field by field
 
@@ -30,7 +29,7 @@ row per use case with the plant owner.
 | Impact / potential | Low, Medium or High | High |
 | Plant management relevant | Yes or No, and why | Yes (customer escalation) |
 
-The 2025 integration workshops add the question set OD asked in the room: purpose lines read
+The integration workshop decks add the question set OD asked in the room: purpose lines read
 "Use Case Utilization (Process: who?, how often?, which actions?, etc.)" and "Use Case Feedback
 OPEX / Engineering / Production". Ask exactly those three, plus "what do you need that is not
 there".
@@ -52,7 +51,7 @@ quoting it). Compare the answer given at definition with the answer today:
 
 ## 3 · Questions behind the utilization view
 
-The Dolne Vestenice 2025 status slides frame each view by the question it answers. Reuse the
+The integration workshop status slides frame each view by the question it answers. Reuse the
 pattern: for every view or alert the use case offers, write the question it answers and ask whether
 anyone asks it.
 

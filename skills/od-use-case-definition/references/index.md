@@ -5,7 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Benefit theory](benefit-theory.md) | Skill Reference | The Benefits Dependency Network, adapted to the four phases - why a dashboard is not a benefit, what closes the Implemented-to-Productive gap, and how to classify a benefit before it reaches od-benefit-calculation. |
-| [Library catalog](library-catalog.md) | Skill Reference | All 100 library use cases (proven reference solutions), grouped by capability with their real descriptions and, where recorded, the lean method behind them, so "check the library before specifying" is a menu instead of a pointer. |
+| [Library catalog](library-catalog.md) | Skill Reference | How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the lean-method vocabulary - a how-to-get-it guide to the live list, with no entries, counts or plant names copied. |
 | [Patterns](patterns.md) | Skill Reference | The abstract rules this procedure runs on, each illustrated once against a real use case. |
 | [Vocabulary](vocabulary.md) | Skill Reference | The controlled vocabulary in use for business process, output asset, and legacy/target systems - for Phases 1, 3 and 4. |
-| [Worked examples](worked-examples.md) | Skill Reference | Three real use cases carried through the four phases - a complete record, one correctly stopped before Control, and a minimal-but-correct standard case. |
+| [Worked examples](worked-examples.md) | Skill Reference | Three illustrative use cases (invented, with placeholder values) carried through the four phases - a complete record, one correctly stopped before Control, and a minimal-but-correct standard case. |

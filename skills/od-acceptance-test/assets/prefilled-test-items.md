@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Prefilled test items
-description: Test items to copy into sections 1 to 3 of the acceptance test protocol, prefilled per route (edge, aggregation, file or image endpoint) and per use case cluster, with the typical failure points from the records beside each item.
+description: Test items to copy into sections 1 to 3 of the acceptance test protocol, prefilled per route (edge, aggregation, file or image endpoint) and per use case cluster, with the typical failure patterns beside each item (no counts).
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -44,9 +44,9 @@ suggested checks unless marked *rule*.
 | Sinumerik or Sinuvars: signal count and rate within the connector's limits; PLC function block and G-code present | ⟨count, ms⟩ | | |
 | Camera on the same device: images arrive as well as signals | ⟨images per part⟩ | | |
 
-Typical failures in the records: missing data-model alignment (23 rows), unpatched firmware
-(13), TIA version (12), edge device allocation or camera hardware (20), wrong or missing PLC
-program (6).
+Typical failures in the records: missing data-model alignment, unpatched firmware, TIA version
+mismatch, edge device allocation or camera hardware unresolved, wrong or missing PLC program.
+To see how common each is, count the blocker text on the live Machine List.
 
 ## C. Aggregation route, add
 

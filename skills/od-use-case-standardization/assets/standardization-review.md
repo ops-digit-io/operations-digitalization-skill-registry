@@ -25,11 +25,11 @@ was taken from elsewhere, and what is genuinely new.
 
 | | |
 |---|---|
-| **Capability** | ⟨one of the 11 cross-plant templates⟩ |
-| **Process group** | ⟨one of 29, inside Rubber/Plastic/Metal/Assembly⟩ |
+| **Capability** | ⟨one of the cross-plant capability templates⟩ |
+| **Process group** | ⟨one of the process groups, inside Rubber/Plastic/Metal/Assembly⟩ |
 
 Never create a new capability or process group to accommodate one plant — if neither fits,
-that is a finding to raise, not a reason to invent a twelfth template.
+that is a finding to raise, not a reason to invent a new template.
 
 ## 2 · Library check
 

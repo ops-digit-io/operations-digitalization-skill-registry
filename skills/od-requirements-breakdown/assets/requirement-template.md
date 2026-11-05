@@ -16,7 +16,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 |---|---|
 | Plant | ⟨plant⟩ |
 | Machine(s) | ⟨name⟩ ⟨(EQ id)⟩ |
-| Capability | ⟨one of the 11 templates⟩ |
+| Capability | ⟨one of the capability templates⟩ |
 | Process group | ⟨one of the 29⟩ |
 | Lane | ⟨use-case / integration / project / analytical⟩ |
 | Author / date | ⟨name⟩ · ⟨date⟩ |
@@ -119,7 +119,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 | | |
 |---|---|
 | Stage / gate | ⟨Captured → Evaluated → Assessed → Planned → Handed over → Effective⟩ |
-| Investment | ⟨figure⟩ · eCR route ⟨CTO ≤150k / Board >75k⟩ |
+| Investment | ⟨figure⟩ · eCR route ⟨per the current approval policy (look up: Controlling / eCR process owner)⟩ |
 | Milestones with acceptance points | ⟨⟩ |
 | Resources | ⟨named, per side⟩ |
 | Dependencies | ⟨other projects, external decisions, licences⟩ |

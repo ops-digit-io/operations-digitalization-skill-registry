@@ -58,7 +58,7 @@ who owns five of the six risks (the sixth, value not materializing, is owned by 
 
 | File | Use it for |
 |---|---|
-| [`references/risk-indicators.md`](references/risk-indicators.md) | The six risks, one by one: where the indicator is read, the snapshot reading with source and date, the trigger test, the gaps that make an indicator unreadable today |
+| [`references/risk-indicators.md`](references/risk-indicators.md) | The six risks, one by one: where the indicator is read, how to read the indicator live (source, field, filter), the trigger test, the kinds of gap that make an indicator unreadable |
 | [`assets/risk-reading.md`](assets/risk-reading.md) | The monthly reading to fill |
 
 ## Statuses
@@ -70,16 +70,16 @@ who owns five of the six risks (the sixth, value not materializing, is owned by 
 | **Clear** | The indicator is read from a source and the trigger is not met |
 | **Unreadable** | No source for the indicator, or the trigger parameter is `⟨n⟩` (undefined). This is a finding, not a pass |
 
-"Unreadable" is not "clear". Today several indicators are unreadable (see the reference); reporting them as clear would
-be the exact failure the honesty rules forbid.
+"Unreadable" is not "clear". Some indicators typically have no named source or an undefined parameter (see the
+reference); reporting them as clear would be the exact failure the honesty rules forbid.
 
 ## Procedure
 
 1. **Open the register** (`09-risks.md`) and note its `last-verified` date. If the register itself is older than the
    month, say so in the reading's header; the register is the thing being watched.
 2. **For each risk, read the indicator** at the source named in
-   [`risk-indicators.md`](references/risk-indicators.md). Refetch live figures (Power BI, lists); use vault aggregates only
-   as a labelled snapshot with their date.
+   [`risk-indicators.md`](references/risk-indicators.md). Refetch live figures (Power BI, lists); treat any vault aggregate only
+   as a labelled, dated snapshot and never as the reading.
 3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩
    months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
 4. **Classify** per the statuses above. Write the evidence in one sentence.
@@ -106,7 +106,7 @@ be the exact failure the honesty rules forbid.
 
 ## What is still open
 
-- **Parameters:** `open role > ⟨n⟩ months` has no n; "impact < target" has no target value for use-case impact.
+- **Parameters:** `open role > ⟨n⟩ months` has no n unless the OD lead has set one; "impact < target" needs a defined target for use-case impact.
 - **Sources with no system named:** support tickets, open-role list, "dependence on few individuals".
 - **Owner of the external-tooling risk** is `⟨to confirm⟩` in the register.
 - **Escalation window** of ODEC and COP is `⟨to confirm⟩`.

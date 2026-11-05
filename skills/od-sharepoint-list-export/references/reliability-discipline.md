@@ -20,7 +20,7 @@ SharePoint's REST service supports OData filtering on the items endpoint, includ
 `Modified` field [R1]:
 
 ```javascript
-const since = "2026-10-01T00:00:00Z";   // the last successful run's checkpoint
+const since = "<ISO timestamp>";   // the last successful run's checkpoint
 const url = `${SITE}/_api/web/lists/getbytitle('${LIST}')/items` +
             `?$filter=Modified gt datetime'${since}'&$top=5000`;
 ```
@@ -41,9 +41,8 @@ one-line swap. Use the simple `Modified` filter for routine incremental runs; re
 
 **The list-view threshold is the trap waiting in this pattern.** A SharePoint list with more
 than 5,000 items throttles any query that filters or sorts on a column without an index,
-`Modified` included on a list that large [R3]. None of the eight lists this skill targets is
-known to be near that size today (the proven scenario is 1,143 items), but the Machine List
-at 1,715 is the one to watch if it keeps growing — index the `Modified` column on any list
+`Modified` included on a list that large [R3]. Compare each target list's current item count
+with that threshold before a recurring run; the fastest-growing list (the Machine List) is the one to watch — index the `Modified` column on any list
 approaching 5,000 before relying on the incremental filter.
 
 ## Checkpointing — resume without re-reading

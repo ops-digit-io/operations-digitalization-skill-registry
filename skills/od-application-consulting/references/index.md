@@ -5,5 +5,5 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Build path options](build-path-options.md) | Skill Reference | The four ways an application question can be answered in Lane 3a - reuse, self-develop, external development, integrate a foreign app - with the selecting question, executing skill, gates and what is not yet defined. |
-| [Footprint and data path](footprint-and-data-path.md) | Skill Reference | The reference architecture and systems of record an app design must fit, the rollout and use counts of the 16 tools, how the lean footprint is bounded, and the discrepancies to confirm before citing a tool status. |
-| [Legacy application landscape](legacy-application-landscape.md) | Skill Reference | What the 268 recorded plant-local applications show - categories, functional mapping, support, licences, network placement - and how to use it when the question is replace, integrate or keep. |
+| [Footprint and data path](footprint-and-data-path.md) | Skill Reference | Guidance, no figures. The reference architecture and systems of record an app design must fit, how to read the rollout and use of the tools, how the lean footprint is bounded, and the discrepancies to confirm before citing a tool status. |
+| [Legacy application landscape](legacy-application-landscape.md) | Skill Reference | Guidance, no figures. How to read the recorded plant-local applications (categories, functional mapping, support, licences, network placement) and use it when the question is replace, integrate or keep. |

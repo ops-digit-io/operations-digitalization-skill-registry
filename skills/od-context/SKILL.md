@@ -15,7 +15,7 @@ metadata:
   id: od-context
   tier: foundation
   lane: all
-  owner_role: OD lead (Thomas Zipf)
+  owner_role: OD lead
   authority_level: read-only
   status: stable
   sources_read: 2026-10-23
@@ -47,9 +47,10 @@ Operations digitalization turns a problem somebody has on a shop floor into a di
 asset that plant uses every day — a dashboard, an app, an alert, a report — and then
 rolls the same asset out to the other plants that have the same problem.
 
-It runs across **33 plants in three regions** (20 Europe, 9 Americas, 4 Asia). Every
+It runs across the manufacturing plants of all regions (the live plant list is in the
+plant master data; count it there when a number is needed). Every
 piece of work is recorded against one plant, one of four material families (Rubber,
-Plastic, Metal, Assembly), and one of eleven cross-plant digital capabilities. That
+Plastic, Metal, Assembly), and one cross-plant digital capability. That
 three-way coordinate is what makes a use case at one plant findable from another.
 
 **Mandate.** Enable manufacturing on its "Road to Smart Factory": generate measurable
@@ -81,8 +82,8 @@ profile.**
 | Use Case | A defined shopfloor digitalization solution delivering measurable operational value | Asset (its delivered form) |
 | Asset | The delivered form of a use case — Dashboard, Analytics, Report, App or Agent | A connected data point |
 | Equipment / Machine Integration | Connecting a machine or workplace to the digital platform for data read/write | Use-case delivery, which comes after |
-| Capability | One of eleven cross-plant templates a use case hangs off | Cluster tag (a classification, not a template) |
-| Cluster tag | One of twelve C01–C12 tags assigned by a deterministic classifier | Capability |
+| Capability | One of the cross-plant templates a use case hangs off | Cluster tag (a classification, not a template) |
+| Cluster tag | One of the C01–C12 tags assigned by a deterministic classifier | Capability |
 | IIoT Edge | Plant Kubernetes runtime for data acquisition and app deployment | The data platform it offloads to |
 | Data platform | Where shopfloor data lands for analysis — the IIoT Edge Platform offloads through **Databricks** to an **Azure Storage Account**, main file format **Parquet** | MSB, the bus |
 | Databricks | The data platform the edge offloads through | The storage account it writes to |
@@ -118,13 +119,13 @@ there, not in a downstream copy.
 
 | List | Holds |
 |---|---|
-| SmartFactory UseCase Savings | 650 plant use cases and the whole taxonomy |
-| UseCase SavingCalculation | 553 saving rows |
-| UseCase Library | 100 standardized reference solutions |
-| Machine List | 1,715 machines and their integration state |
-| Connector Overview | 26 machine connectors |
+| SmartFactory UseCase Savings | The plant use cases and the whole taxonomy |
+| UseCase SavingCalculation | The saving rows (value, reliability, status) |
+| UseCase Library | The standardized reference solutions |
+| Machine List | The machines and their integration state |
+| Connector Overview | The machine connectors |
 | Tool Overview | Tool rollouts, one row per tool per plant |
-| Legacy Application List | 268 applications being replaced or retired |
+| Legacy Application List | The applications being replaced or retired |
 | Business Cases (AI at Operations) | The strategic business-case set |
 
 **Read surfaces.** The Digitalization Scorecard and the two OD Power BI reports
@@ -156,23 +157,23 @@ that plant's manufacturing dashboards from that plant's data. A line-side dashbo
 on the local instance; a cross-plant question belongs on the global platform. Do not point a
 plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
 
-**Shop-floor tools.** Sixteen are rolled out at plants: the MSB family (1.0, 2.0, 4.0)
-as the rollout backbone, MDA/PDA (1.0, 2.0, 3.0), MES 1.0, MIL 1.0, QFPR, Energy
-Management (1.0, 2.0), RuleEngine 2.0, the Data Science Factory, and the three
+**Shop-floor tools.** The tools rolled out at plants include the MSB family
+as the rollout backbone, MDA/PDA, MES, MIL, QFPR, Energy
+Management, RuleEngine, the Data Science Factory, and the three
 machine-integration concepts. A **tool** is a system a plant uses; a **connector**
 reaches a machine. They are never the same row.
 
 ## Who decides
 
-The function proposes; other people decide. Four of the five gates sit outside OD.
+The function proposes; other people decide. Most gates sit outside OD.
 
 | Gate | Route | Threshold |
 |---|---|---|
-| Spend | eCR | CTO up to €150k; Board above €75k |
+| Spend | eCR | Per the current approval policy (look up: Controlling / the eCR process owner) |
 | Demand on IT platforms | IT demand management + demand evaluation board | anything OD does not own |
-| Standard enough to roll out | CSP decision per library entry | 5 `Yes` / 46 `No` of 51 decided |
+| Standard enough to roll out | CSP decision per library entry | Decision recorded per entry in the library |
 | Into daily use | The plant | plant owns `PRODUCTIVE` |
-| Value is proven | SPRINT portfolio review | 19 of 553 saving rows |
+| Value is proven | SPRINT portfolio review | Saving row marked proven after review |
 
 `authority_level` ∈ { `read-only`, `draft`, `recommend`, `execute-with-approval`,
 `execute-autonomously` }. Modes at seams: **Tandem** (both must agree) · **Consultation**
@@ -180,13 +181,14 @@ The function proposes; other people decide. Four of the five gates sit outside O
 
 ## The honesty rules — non-negotiable, inherited by every OD skill
 
-1. **Tracked is not proven, and the two are never added together.** €2.38 M tracked and
-   €653 k proven are both true about the same portfolio; quoting the first without the
-   second is the easiest way to lose the audience that matters.
+1. **Tracked is not proven, and the two are never added together.** Tracked and proven
+   savings are both true about the same portfolio; quoting the first without the
+   second is the easiest way to lose the audience that matters. Read both live from
+   the saving rows before quoting either.
 2. **Built is not handed over, and handed over is not in use.** `IMPLEMENTED` and
    `PRODUCTIVE` are separate statuses because they fail separately.
-3. **Absence is not a zero.** 362 of 650 use cases carry `UNKNOWN` priority and 474 of
-   553 saving rows carry no reliability. Reading those as "low" is the most frequent way
+3. **Absence is not a zero.** Many use cases carry `UNKNOWN` priority and many
+   saving rows carry no reliability (count them live). Reading those as "low" is the most frequent way
    to be wrong about this portfolio.
 4. **Never state a figure without a nameable source**, and never invent one. Mark
    unknowns as `⟨… — to confirm⟩` rather than filling them.
@@ -197,7 +199,7 @@ The function proposes; other people decide. Four of the five gates sit outside O
 
 ## Escalation
 
-Blocked work → OD lead (Thomas Zipf), via **ODEC** for strategy, priority and rollout
+Blocked work → OD lead, via **ODEC** for strategy, priority and rollout
 matters, via **COP** for technical ones. In the OD lead's absence ⟨deputy — to confirm⟩
 decides prioritization and rollout within the agreed roadmap; investment commitments
 wait for the OD lead.
@@ -217,5 +219,5 @@ owner's dated statement > third-party observation).
 
 Derived from the `ops-knowledge-graph` bundle: `OperationsDigitalization-Department/`
 (charter, service catalog, decision rights, glossary, resources) and `10-Department/`
-(operating model, systems of record, roles and organization). Portfolio figures read
-2026-08-10 and **will drift** — refetch before acting on any of them.
+(operating model, systems of record, roles and organization). This skill carries no portfolio figures; every number is
+read live from the lists named above.

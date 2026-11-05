@@ -51,7 +51,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 | Check | Result |
 |---|---|
-| Three dated figures from skills compared with their source | ⟨figure · skill · source · matches / differs⟩ |
+| Figure finder run over the skills; hits triaged | ⟨file · hit · rewritten / technical constant / method⟩ |
 | Bundle README gap list against `open_gaps` | ⟨closed · still open · changed, per item, with the source⟩ |
 | Vault notes relied on: stamps noted | ⟨note · stamp · reviewed or machine extract⟩ |
 

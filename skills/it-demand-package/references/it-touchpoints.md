@@ -19,27 +19,28 @@ Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and 
 | Requests that need something from IT go through **IT demand management** with a demand evaluation board; this is the route for anything touching a platform the function does not own | `Decision rights`, section Demand |
 | The function does not own the ERP or the core systems; a change there goes through the demand and investment routes | `Operating model`, "What it does not do" |
 | IT means "platforms, data access and the demand route"; the function does not run platforms | `Roles and organization` |
-| Spend is a separate gate (eCR; the record says CTO approves up to EUR 150k and the Board above EUR 75k, a ladder not alternatives) and can run in parallel; the package should name it, not replace it | `Decision rights`, section Spend; `od-decision-routing` |
+| Spend is a separate gate (eCR; approver per the current approval policy, look up: `od-decision-routing` and the OD lead) and can run in parallel; the package should name it, not replace it | `Decision rights`, section Spend; `od-decision-routing` |
 | Tool or system rollout (MES, MSB, IIoT Edge, the data platform) is an OD lead decision with ⟨counterpart to confirm⟩ | `08-decision-rights.md` |
 
 A demand that stays inside platforms OD owns or operates with its own tools does not need this package.
 
-## The asks OD has put to IT (the deck "AI Initiatives - IT contact points and asks")
+## The asks OD has put to IT
 
-One slide, five rows, no date and no names. Reproduced by role and kind of ask:
+The department deck "AI Initiatives - IT contact points and asks" is a single pitch slide listing, per initiative, what
+OD asks of IT. Re-open it before quoting, because the asks change. Do not copy its licence counts or targets. By kind:
 
-| Initiative | Ask to IT | Kind of ask |
-|---|---|---|
-| Department OS | depend on IT licences - currently 2, target 10 (marked with a question mark in the deck itself); define a per-head budget | licences and budget |
-| GenAI Manufacturing Dashboards | deeper integration with the data platform | platform integration |
-| Shopfloor AI | more DevOps capacity for concept implementation | capacity |
-| Cybersecurity backlog | consolidation of legacy tools; more DevOps capacity | tool consolidation, capacity |
-| Gemba App | faster and more predictable execution by Business Applications | delivery predictability |
+| Kind of ask | What it looks like |
+|---|---|
+| Licences and budget | an initiative depends on IT licences and needs a per-head budget defined |
+| Platform integration | an initiative needs deeper integration with the data platform |
+| Capacity | more DevOps capacity for concept implementation or backlog closure |
+| Tool consolidation | consolidation of legacy tools |
+| Delivery predictability | faster and more predictable execution by the Business Applications function |
 
 What the slide shows, and what a package can use from it:
 
-- IT asks come in three kinds: **licences or budget**, **platform integration**, **capacity**. A package should say which kind each of its items is, so the board can place it.
-- The deck names a *function* ("Business Applications") for one ask, and the data platform for another; it names **no contact person or mailbox**. ⟨The IT contact for each kind of ask⟩ - OD lead.
+- IT asks come in a few kinds: **licences or budget**, **platform integration**, **capacity**. A package should say which kind each of its items is, so the board can place it.
+- The deck names a *function* (for example Business Applications) for one ask, and the data platform for another; it names **no contact person or mailbox**. ⟨The IT contact for each kind of ask⟩ - OD lead.
 - The slide is a pitch slide, not a form. It does not say what IT requires of a demand.
 
 ## IT roles in the platform operations concept
@@ -50,26 +51,28 @@ The archive deck on the IIoT and edge platform operations concept (recorded in t
 - a **local or BU application**: no IT application management support, only local IT infrastructure;
 - and says interfaces between the two need **governance-board approval**.
 
-Use: for route 3a.4 the first question to the requester is whether the foreign app is a divisional standard or a local application, because that decides who supports it and whether an interface needs the governance board. The concept deck itself was not re-opened in this session; open it before relying on it (the Concept 3 note cites its slides 2-3 and 5-15).
+Use: for route 3a.4 the first question to the requester is whether the foreign app is a divisional standard or a local application, because that decides who supports it and whether an interface needs the governance board. Open the concept deck before relying on this summary (the Concept 3 note cites the relevant slides).
 
 ## Initiatives that lean on IT
 
-From `Graph/Keynote Initiatives` (descriptions and prerequisites only; the notes' value figures are the authors' own inputs and are not repeated):
+From `Graph/Keynote Initiatives` (read live; the notes' value figures are the authors' own inputs and are not repeated). The
+initiatives (X1 to X4: a manufacturing app store, AI-coding assimilation, an AI requirements engineering pipeline, closure
+of the cybersecurity backlog) each state IT-side prerequisites. The kinds of dependency to look for:
 
-| Initiative | IT-side dependency stated |
+| Initiative | Kind of IT-side dependency stated |
 |---|---|
-| X1 Manufacturing App Store (CMO) | prerequisites: the IIoT edge runtime already deployed; X3 and X4 funded in parallel; one process family pilot. Key risk: all plants accepting central orchestration of plant-level tools. Mitigation named: start from the cyber-security obligation rather than the value argument |
-| X2 AI-coding assimilation | assimilate plant-local apps into the catalog with a cyber-security check (X4) per app; hardened development environment with container guardrails |
-| X3 AI requirements engineering pipeline | requirements database in place; one pilot onboarding flow; the output must be usable downstream without heavy rework |
-| X4 Cybersec backlog closure | regional cyber-security capacity; plant change-process documentation; 30 highest-risk apps identified |
+| X1 Manufacturing App Store | an edge runtime already deployed; sibling initiatives funded in parallel; one process family pilot; the key risk is plants accepting central orchestration of plant-level tools. Mitigation named: start from the cyber-security obligation rather than the value argument |
+| X2 AI-coding assimilation | assimilate plant-local apps into the catalog with a cyber-security check per app; hardened development environment with container guardrails |
+| X3 AI requirements engineering pipeline | requirements database in place; a pilot onboarding flow; output usable downstream without heavy rework |
+| X4 Cybersec backlog closure | regional cyber-security capacity; plant change-process documentation; the highest-risk apps identified first |
 
 If a demand is a camera, quality, SCADA or custom MES application in the legacy list, it probably sits inside the X1/X2/X4 chain; say so in the package so the board does not treat it as a one-off.
 
-## Where a demand typically waits (recorded cases)
+## Where a demand typically waits (recurring patterns)
 
-- Platform access: 0 of 10 machines integrated at one plant while the access to the aggregation server was open; worked as a technical follow-up with Central IT, never an ODEC item (`od-decision-routing`, escalation worked examples). Lesson: name Central IT or Plant IT as the unblocking role in the package.
-- Unknown licence: 128 of 268 legacy applications (see [../../catalog-systems/references/legacy-application-position.md](../../catalog-systems/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time.
-- MES: rollout on hold, ERP-dependent; a demand that depends on it is blocked, not planned (`od-requirements-breakdown`).
+- Platform access: machines stay unintegrated while access to the aggregation server is open; this works as a technical follow-up with Central IT, never an ODEC item (`od-decision-routing`, escalation worked examples). Lesson: name Central IT or Plant IT as the unblocking role in the package.
+- Unknown licence: many legacy applications have an unknown licence status (see [../../catalog-systems/references/legacy-application-position.md](../../catalog-systems/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
+- MES: a rollout that is on hold or ERP-dependent blocks a demand that depends on it; the demand is blocked, not planned (`od-requirements-breakdown`).
 
 ## Open
 

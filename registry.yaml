@@ -23,14 +23,14 @@ registry:
           - _knowledge/OperationsDigitalization-Department/20-lanes/*/agent-brief.md
       - name: Node-RED flow corpus
         paths:
-          - _knowledge/node-red-auto-docs/docs/**          # 825 flow JSON + 827 generated pages
+          - _knowledge/node-red-auto-docs/docs/**          # exported flow JSON + generated pages
           - _knowledge/node-red-auto-docs/generate_docs.py
       - name: Machine estate and integration guidance
         paths:
           - _knowledge/_apps/machine-integration-guidance-app/rules.json
           - _knowledge/_apps/machine-integration-guidance-app/rules-next.json
           - _knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf  # Softing dataFEED OPC Suite V5.70 manual (LFS)
-          - _knowledge/90-Sources/generated/kg_nodes.csv    # 1,715 Machine + 26 Connector nodes
+          - _knowledge/90-Sources/generated/kg_nodes.csv    # Machine and Connector nodes
       - name: Operations Digitalization department map
         paths:
           - _knowledge/OperationsDigitalization-Department/00-core/*.md
@@ -121,14 +121,14 @@ skills:
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft
-    summary: Scope one plant's instance of one need through four phases to a benefit case ready for od-benefit-calculation — a 100-entry proven library, the abstract patterns behind them, and the Benefits Dependency Network linking the build to the change that makes it land.
+    summary: Scope one plant's instance of one need through four phases to a benefit case ready for od-benefit-calculation — a proven library, the abstract patterns behind them, and the Benefits Dependency Network linking the build to the change that makes it land.
 
   - id: od-use-case-solution-evaluation
     tier: practice
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft on the evaluation and target levels; recommend on sequencing; never approve an investment
-    summary: Rank a scoped use case against a case library as a fast pre-check, then profile its complexity drivers, find which of 16 IT/OT capability areas its solution depends on, and sequence any as-is/target gap — a visualized ranking and a total evaluation score resolving to ready/raise-capability/over-engineered/escalate.
+    summary: Rank a scoped use case against a case library as a fast pre-check, then profile its complexity drivers, find which IT/OT capability areas its solution depends on, and sequence any as-is/target gap — a visualized ranking and a total evaluation score resolving to ready/raise-capability/over-engineered/escalate.
 
   - id: od-benefit-calculation
     tier: practice
@@ -192,7 +192,7 @@ skills:
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: read-only
-    summary: Cut the 650-use-case portfolio and the 553-row ledger without the three standard misreadings.
+    summary: Cut the use-case portfolio and the savings ledger without the three standard misreadings.
 
   - id: od-decision-routing
     tier: practice
@@ -473,8 +473,8 @@ skills:
 
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
-  - comment, methods, actions, utilization and csp_decision are populated on 0 of 650 use cases; the requirement template asks for what those fields were meant to hold.
-  - 128 of 268 legacy applications carry an unknown licence position, and 114 carry no support concept.
+  - comment, methods, actions, utilization and csp_decision are not populated on the use cases; the requirement template asks for what those fields were meant to hold.
+  - A large share of legacy applications carries an unknown licence position or no support concept.
   # Corrections applied here that are NOT yet fixed in the knowledge bundle — see docs/derivation.md
   - MDL and ContiTech are fixed in the bundle as well (ops-knowledge-graph, same branch). The raw 90-Sources decks still say the old thing and are never hand-edited.
   - Grafana is a LOCAL instance per plant for that plant's manufacturing dashboards; Databricks and the Azure Storage Account are the GLOBAL layer. Do not point a plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
@@ -491,46 +491,46 @@ open_gaps:
   - Node-RED site-code table — only qda, spr and cshz are resolvable to plant names from the bundle.
   - Three integration routes are marked TODO in rules.json (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); B&R INA2000 on aggregation and Omron NJ on edge are stubs.
   - Concept 2 (container-based machine integration, ingress variant 2) has one deployment (Carei) and no written route in rules.json.
-  - Ten of the 33 plants have no integration concept recorded at all.
+  - Some plants have no integration concept recorded at all.
   - rules.json tells users to select a "Beckhoff" data source with an "ADS" protocol in Softing dataFEED. V5.70 has neither — Beckhoff has no fully-written route on either platform. Fix in rules.json.
   - rules.json lists "Netlink" as a Siemens protocol option. Discontinued in dataFEED V5.38; legacy configurations should migrate to Siemens S7. Fix in rules.json.
   - Whether any OESL plant still runs a NetLink-based dataFEED configuration.
   - The two OESL "Machine Integration — Softing DataFeed" guideline documents are referenced by rules-next.json but not attached to the bundle.
-  - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on all 1,715 machine rows.
-  - 42 flows carry literal secrets (Teams webhook URLs, Bearer tokens) committed in Node-RED flow JSON. Rotate; they are in git history.
-  - 59 flows have a sysTime defect (39 never unpack, 19 never re-pack, 1 unpaired) - every downstream timestamp in those is wrong and nothing errors.
-  - 18 flows send more than one protobuf oneof member to the encode.
-  - 203 flows never set an output UUID, so a derived packet publishes under the input data point's identity.
-  - 102 flows have a severed pipeline (decode/split/encode/mqtt-out with no inbound wire).
-  - node.error and node.status appear 6 and 8 times across 825 flows - dropped messages are essentially unobservable.
+  - production_criticality, cyber_security_status, machine_blockers and input_protocol are empty on the machine rows.
+  - Some flows carry literal secrets (Teams webhook URLs, Bearer tokens) committed in Node-RED flow JSON. Rotate; they are in git history.
+  - Some flows have a sysTime defect (never unpacked, never re-packed, or unpaired) - every downstream timestamp in those is wrong and nothing errors.
+  - Some flows send more than one protobuf oneof member to the encode.
+  - Many flows never set an output UUID, so a derived packet publishes under the input data point's identity.
+  - Some flows have a severed pipeline (decode/split/encode/mqtt-out with no inbound wire).
+  - node.error and node.status are almost unused across the flows - dropped messages are essentially unobservable.
   - Subflow contents are not in the per-flow exports; five subflows are in use and must be read on the instance.
   - The per-flow exports contain zero config nodes (mqtt-broker, protobuf-file). Verified by deploying a generated flow to Node-RED v5.0.4: it needs node-red-contrib-protobuf plus hand-added config nodes before it starts.
   - The estate's `file` nodes use the pre-V3 filename form. Any flow generated with filenameType "msg" must set filename to the message property name, or it writes nothing and logs no error.
   - Timezone convention for shift and day boundaries in Node-RED flows is not recorded.
   - No written unit/scale convention for signals. CycleTime is seconds by convention while MetersPerMinute carries its unit in the name - the two contradict.
   - The data-point contract carries only uuid and label: no unit, scale, data type or collection method. Everything standardization needs sits outside it.
-  - documentation_available and documentation_link exist as fields on all 1,715 machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
-  - Seven of the 26 connectors cannot be used: DTQ-B&R, DTQ-Bachmann, DTQ-Engel EMI and DTQ-ZWICK are Idea/NOT AVAILABLE; DTQ-SMB and DTQ-SmartKlaus are in development; SFT-SIMATIC S7-Connector is Productive/DO NOT USE. The B&R and Bachmann connectors are noted "Development to be started with Rollout in Dolne Vestenice" and no date is recorded.
-  - DTQ-MODBUS-Connector carries status Idea and utilization USE, which cannot both be true. 80 machines are on Modbus/TCP and the route is unconfirmed.
-  - documentation_available is NO on 24 of the 26 connectors; only DTQ-FTP2MIL-Connector and SFT-OPC-Suite have anything written down.
-  - 38 Engel machines have no available vendor connector. Whether their controllers expose OPC UA has not been confirmed per machine.
+  - documentation_available and documentation_link exist as fields on the machine rows and are populated on none of them - the machine context this skill needs is recorded nowhere.
+  - Several vendor connectors are recorded as idea, in development or do-not-use, so they cannot be relied on; for some of them no start date is recorded.
+  - DTQ-MODBUS-Connector carries status Idea and utilization USE, which cannot both be true. Modbus/TCP machines exist and the route is unconfirmed.
+  - documentation_available is NO on nearly all connectors; only DTQ-FTP2MIL-Connector and SFT-OPC-Suite have anything written down.
+  - Some vendor machines have no available vendor connector. Whether their controllers expose OPC UA has not been confirmed per machine.
   - Step 5 of the availability check - granularity, freshness and completeness per signal - is recorded in no source in the bundle. It can only be answered against Databricks and the Azure Storage Account directly.
-  - 16 of 33 plants have no Node-RED instance, so the flow corpus cannot speak to signal availability for them; Northeim (87 machines), Tlalnepantla (82), Auburn (60) and Rennes (58) are the largest.
+  - Some plants have no Node-RED instance, so the flow corpus cannot speak to signal availability for them.
   - The `nomz` Node-RED instances map to no plant in the bundle. Northeim is the largest plant with no flow evidence; the two facts may fit together and nobody has confirmed it.
-  - plc_vendor holds non-vendor values on 23 machine rows (`S7.Schnitt.` on 8, `MRA` on 7, `ASI` on 4, `PMA` on 3, `EOS` on 1), so those machines match no connector and read as a gap that is a data-entry error.
-  - 191 machines are INTEGRATED with no integration_method recorded, so their ingress variant - and with it what is actually published - cannot be inferred from the row.
+  - plc_vendor holds non-vendor values on some machine rows, so those machines match no connector and read as a gap that is a data-entry error.
+  - Machines can be INTEGRATED with no integration_method recorded, so their ingress variant - and with it what is actually published - cannot be inferred from the row.
   - "Every concept in this bundle is OKF-unverified: derived from the knowledge graph and the source systems, but not read line by line by a person. Adding a `verified` stamp naming a human actor is a reading job nobody has been assigned."
-  - The epic/user-story layer exists in the use case list already and is hollow: of 650 leaf stories, 59 carry an "I want" tag, 3 mention acceptance criteria, and 0 carry a "so that" that differs from the generated clause. Backfilling them is a portfolio exercise nobody has been assigned.
-  - 334 leaf use cases carry only a capability parent and 291 only a process parent, so a rollup on either axis silently misses half the portfolio. Whether the source list can be corrected in place is unconfirmed.
+  - The epic/user-story layer exists in the use case list already and is hollow: few leaf stories carry an "I want" tag or acceptance criteria, and none carries a "so that" that differs from the generated clause. Backfilling them is a portfolio exercise nobody has been assigned.
+  - Many leaf use cases carry only a capability parent or only a process parent, so a rollup on either axis silently misses part of the portfolio. Whether the source list can be corrected in place is unconfirmed.
   - Tags arrive in the plant language. The corpus already carries Chinese, German and Spanish labels; Romanian, French, Hungarian, Serbian, Slovak/Czech and Portuguese plants are in scope and not yet represented.
   - The data-point contract has one label field, so a local-language name cannot be carried alongside the canonical one. Whether the edge platform can hold a second display field is unconfirmed.
   - The term table covers nine languages and is a starting point; each plant's entries need a native speaker's confirmation.
-  - 260 distinct signal names for a far smaller set of concepts; eight for machine state alone. AverageMeltTempature is a misspelling with 34 references and is now an interface.
+  - Many distinct signal names exist for a far smaller set of concepts (several for machine state alone). Misspelled names are referenced widely and are now an interface.
   - Which machines already expose an OPC UA companion specification (OPC UA for Machinery, EUROMAP 77/83/84) is not recorded anywhere; it would change the integration route for each of them.
   - Whether the machine purchase requirement spec (PRS, Doc ID 215534) asks for a companion specification - a one-line change with a large downstream effect.
   - Whether the CT Base data model was derived from a public model or independently; that decides whether adoption is a migration or a reconciliation.
-  - business_process is populated on 150 of 650 use cases and targets on 59, so any demand ranking derived from them sees a quarter of the portfolio.
-  - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics (75 flows). No stated rule on which to use where.
+  - business_process and targets are populated on only part of the use cases, so any demand ranking derived from them sees a fraction of the portfolio.
+  - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics. No stated rule on which to use where.
   - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.
   - "catalog-usecase (draft): where the self-service catalog lives, who maintains it and whether a recorded CSP Yes is the right entry threshold are not decided; the entries with a CSP Yes are not named in the sources read."
   - "catalog-systems (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
@@ -540,13 +540,13 @@ open_gaps:
   - "New-state flow (docs/new-state-flow.md): 13 registry skills are not on the three diagrams. Two are in none of the four files (od-information-integration-service, od-project-support-consultancy) and need a decision to be re-homed or retired; od-analytical-support-service orchestrates the Analytics lane that the flow dissolves; eleven are named only in the skill-map table and not drawn on the diagrams."
   - "od-application-consulting (draft), open: What the Manufacturing Software Suite comprises (undefined in glossary); Application consultancy session template and lane lead time; Counterpart for tool rollout decisions"
   - "od-barrier-triage (draft), open: Whether roadmap means plant roadmap or lane integration roadmap; Form and location of the barrier log (landscape module has only a facility table); Lead times for connector development and OT/IT cyber-security approvals"
-  - "od-capital-request (draft), open: eCR form, fields, system, who files; Approval lead time; Route between EUR 75k and 150k and below 75k (ladder overlaps)"
+  - "od-capital-request (draft), open: eCR form, fields, system, who files; Approval lead time; Spend-route boundaries in the recorded approval ladder overlap and need to be clarified"
   - "od-context-freshness (draft), open: Who re-verifies bundle files when the OD lead is away; Right staleness threshold for skills (90 days is a default); No verified field exists on any skill"
   - "od-cross-plant-compatibility (draft), open: Decision counterpart for signal standardization; Tag language per plant not recorded; Consumer inventory per capability"
   - "od-cybersec-gate (draft), open: Sign-off standard document (15-resources.md gap); Definition of external connection; Lead time and validity of a sign-off"
   - "od-first-aid-kit (draft), open: Official first-aid template; Lead time and capacity; Who pays for devices and templates"
   - "od-impact-evaluation (draft), open: n weeks live before evaluation (plan UC-06); Official impact evaluation template; SPRINT acceptance criteria"
-  - "od-investment-input (draft), open: Budget threshold of the digitalization investment planning decision; Which spend route applies between EUR 75k and EUR 150k (ladder as recorded overlaps); Counterpart of OD lead for tool rollout decisions"
+  - "od-investment-input (draft), open: Budget threshold of the digitalization investment planning decision; Which spend route applies at the boundary between approval tiers (ladder as recorded overlaps); Counterpart of OD lead for tool rollout decisions"
   - "od-plant-onboarding (draft), open: Definition of enters scope; full strategic-plant list; Plant-side owner per lane; Lead times per lane"
   - "od-prototype-poc (draft), open: Standard prototype time box, budget, sign-off rule; Outcome of the Gemba App pilot (no result recorded); Definition and evidence of PoC proven (decks disagree)"
   - "od-retro (draft), open: Who decides the monthly adjustment; Where the record is kept; No named incident register"

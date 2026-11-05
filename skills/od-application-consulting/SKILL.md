@@ -33,8 +33,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
     - Skills od-system-fit-check (its tool boundaries and non-bets) and od-project-support-consultancy (composed protocols, recurring tasks), read 2026-11-05
     - New-state flow (docs/new-state-flow.md and the VSM skill map), Lane 3 shared front-end and branch 3a with options 3a.1 to 3a.4, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools notes (16 tools with rollout and use counts, Concept 3 operations concept, MES 1.0), Graph/Keynote Initiatives note Manufacturing App Store (CMO) and its business case, read 2026-11-05
-    - Work vault bundle file kg_nodes.csv, the 268 Legacy Application records read as an aggregate, 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools notes (rollout and use records, Concept 3 operations concept, MES 1.0), Graph/Keynote Initiatives note Manufacturing App Store (CMO) and its business case, read 2026-11-05
+    - Work vault bundle file kg_nodes.csv, the Legacy Application records read as an aggregate, 2026-11-05
   okf:
     type: Agent Skill
     title: Application consulting
@@ -77,12 +77,12 @@ to `deploy-appstore` and `it-demand-package` (draft skills).
 
 | File | Use it for |
 |---|---|
-| [`references/footprint-and-data-path.md`](references/footprint-and-data-path.md) | The reference architecture and systems of record, deployment status of the 16 tools with use counts, how the footprint is bounded, and the discrepancies to confirm before citing a status |
+| [`references/footprint-and-data-path.md`](references/footprint-and-data-path.md) | The reference architecture and systems of record, how to read the tools' rollout and use records, how the footprint is bounded, and the discrepancies to confirm before citing a status |
 | [`references/build-path-options.md`](references/build-path-options.md) | The four build paths, the question that selects each, the skill that executes it, the gates, and the support-tier split |
-| [`references/legacy-application-landscape.md`](references/legacy-application-landscape.md) | What the 268 recorded plant-local applications show: categories, support, licences, network placement, and what that means for "replace, integrate or keep" |
+| [`references/legacy-application-landscape.md`](references/legacy-application-landscape.md) | How to read the recorded plant-local applications: categories, support, licences, network placement, and what that means for "replace, integrate or keep" |
 | [`assets/design-recommendation.md`](assets/design-recommendation.md) | The recommendation form |
 
-The per-tool "is / is not" lines and the three plant snapshots are in `od-system-fit-check`; they are used
+The per-tool "is / is not" lines and the per-plant availability guidance are in `od-system-fit-check`; they are used
 here, not copied.
 
 ## Procedure
@@ -94,7 +94,7 @@ here, not copied.
 2. **Check the footprint.** Walk the need through the tool boundaries and this plant's actual tool
    availability (`od-system-fit-check`, steps 2 and 3): fits, redesign onto a lighter tool, or escalate.
    Strategy non-bets apply: no standardized MES rollout short or mid-term (check lightweight substitutes,
-   for example QFPR), EMS rollout stopped as written (live discrepancy: confirm), OD builds no automation
+   for example QFPR), EMS rollout paused as written (possible discrepancy: confirm), OD builds no automation
    solutions, no broad tool proliferation.
 3. **Check for an existing app.** Search the library of reference solutions (`od-use-case-standardization`)
    and the plant's legacy applications
@@ -133,7 +133,7 @@ here, not copied.
   skills, not the deciders.
 - `⟨Owner of external tooling and licensing decisions⟩` (open in the risk register and the lane wait
   states).
-- `⟨Current status of EMS, MES (one plant in the tool overview, two in the systems-of-record note)⟩`:
+- `⟨Current status of EMS and MES (the tool overview and the systems-of-record note can differ)⟩`:
   see the discrepancy list in `footprint-and-data-path`.
 
 ## Do not

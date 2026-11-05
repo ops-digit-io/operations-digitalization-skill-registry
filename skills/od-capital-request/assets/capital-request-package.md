@@ -29,8 +29,8 @@ approval are human.** Leave section 10 blank.
 | **Amount** | ⟨EUR, one-time⟩ plus ⟨EUR per year, recurring⟩ |
 | **What it buys / phase funded** | ⟨one line⟩ |
 | **Decide by** | ⟨date and the reason⟩ |
-| **Spend ladder as the source words it** | CTO up to EUR 150k; Board above EUR 75k |
-| **Approver for this amount** | ⟨name the body; ⟨to confirm with the OD lead⟩ if above EUR 75k⟩ |
+| **Spend ladder** | ⟨per the current approval policy (look up: OD lead / Finance); quote it as the source words it, with its date⟩ |
+| **Approver for this amount** | ⟨name the body; ⟨to confirm with the OD lead⟩ if the recorded thresholds overlap at this amount⟩ |
 | **OD decision row** | ⟨Digitalization investment planning: OD lead with BA Operations, consultation, `recommend`⟩ |
 | **Other gates touched** | ⟨IT demand · Cyber Security · CSP · plant adoption · none⟩ |
 

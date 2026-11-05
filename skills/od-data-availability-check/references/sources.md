@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Sources
-description: The five sources this check reads, what each can genuinely answer, how much of it is populated, and where each one stops.
+description: The five sources this check reads, what each can genuinely answer, which fields and patterns to expect, and where each one stops. Guidance only; counts and fill rates are read live.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -13,54 +13,58 @@ generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 
 Five sources answer the six steps between them, and **not one of them answers step 5.** Knowing
 where each stops is the whole skill: a check that reports "no data" when the source simply
-does not record the answer has invented a gap.
+does not record the answer has invented a gap. This file holds no counts; measure them live
+on the current export and name its date.
 
-## Machine List — 1,715 rows
+## Machine List
 
-Steps 1 to 3. Every row carries `plant`, `region` and `label`; everything else is partial:
+Steps 1 to 3. Every row carries `plant`, `region` and `label`; everything else is partial.
+Measure the fill rate per field and per plant ([`machine-list-completeness.md`](machine-list-completeness.md)).
 
-| Field | Populated | What it decides |
-|---|--:|---|
-| `plc_vendor` | 92% | Which connector could speak to it |
-| `plc_model` | 73% | Whether the vendor match is specific enough to act on |
-| `integration_status` | **73%** | Step 2 — and the 27% blank is the trap below |
-| `integration_priority` | 72% | When it will be integrated, if it is not |
-| `integration_method` | 68% | Which of the three ingress variants, which changes what is available |
-| `network_protocol` | 67% | The connector match again, from the other side |
-| `integration_date` | 47% | Whether history exists as far back as an analysis needs |
-| `integration_blockers` | **7%** | Why it is not integrated — almost never recorded |
-| `documentation_available` / `documentation_link` | **0%** | Nothing. The fields exist on all 1,715 rows and are populated on none |
+| Field | What it decides | Expect |
+|---|---|---|
+| `plc_vendor` | Which connector could speak to it | usually filled |
+| `plc_model` | Whether the vendor match is specific enough to act on | often filled |
+| `integration_status` | Step 2 - and the blanks are the trap below | has blanks |
+| `integration_priority` | When it will be integrated, if it is not | partial |
+| `integration_method` | Which of the three ingress variants, which changes what is available | partial |
+| `network_protocol` | The connector match again, from the other side | partial |
+| `integration_date` | Whether history exists as far back as an analysis needs | partial |
+| `integration_blockers` | Why it is not integrated | almost never recorded |
+| `documentation_available` / `documentation_link` | Nothing, if empty on every row | check whether anyone fills them |
 
-**The blank-status trap.** 821 rows are `INTEGRATED`, 395 `NOT INTEGRATED`, 48
-`INTEGRATION ONGOING` — and **451 carry nothing at all**. A blank is not a no. Reading it as
-one turns a quarter of the estate into a fabricated gap, and the fabricated gap gets routed
-to a lane that then finds nothing to do.
+**The blank-status trap.** Rows are `INTEGRATED`, `NOT INTEGRATED`, `INTEGRATION ONGOING` - and a
+sizeable block carries nothing at all. A blank is not a no. Reading it as one turns part of the
+estate into a fabricated gap, and the fabricated gap gets routed to a lane that then finds
+nothing to do. Count the blanks live and report them as "not recorded".
 
-**191 machines are `INTEGRATED` with no `integration_method`.** They were integrated by a
-route nobody recorded, so the ingress variant — and with it what is actually published —
-cannot be inferred from the row.
+**`INTEGRATED` with no `integration_method`.** Such machines were integrated by a route nobody
+recorded, so the ingress variant - and with it what is actually published - cannot be inferred
+from the row. Filter for it live.
 
-## Connector Overview — 26 connectors
+## Connector Overview
 
-Step 3, and it needs reading twice. A connector existing is not a connector you may use:
+Step 3, and it needs reading twice. A connector existing is not a connector you may use. Read
+the `status` and `utilization` of each:
 
-| | Count |
-|---|--:|
-| `Productive` and marked `USE` | **19** |
-| `Idea` | 5 |
-| `Development` | 2 |
-| `NOT AVAILABLE` | 6 |
-| `DO NOT USE` | 1 |
+| State | Meaning |
+|---|---|
+| `Productive` and marked `USE` | May be used |
+| `Idea` | A roadmap item, not a route to data |
+| `Development` | Not yet usable |
+| `NOT AVAILABLE` | Not usable |
+| `DO NOT USE` | Explicitly excluded |
 
-An `Idea` connector on a roadmap is not a route to data. Match on `input_protocol` and the
-vendor, then check `status` and `utilization` before reporting the step as passed.
+Match on `input_protocol` and the vendor, then check `status` and `utilization` before
+reporting the step as passed.
 
-**A vendor field that is not a vendor.** `plc_vendor` holds `S7.Schnitt.` on 8 machines — a
-German note meaning "S7 interface", not a manufacturer — plus `MRA` (7), `ASI` (4), `PMA` (3)
-and `EOS` (1). Those machines match no connector, which reads as a connector gap and is a
-data-entry gap. Fix the row; do not raise a barrier.
+**A vendor field that is not a vendor.** `plc_vendor` sometimes holds a note or an interface
+name (for example `S7.Schnitt.`, a German note meaning "S7 interface") or an abbreviation of a
+bus or product, not a manufacturer. Such machines match no connector, which reads as a
+connector gap and is a data-entry gap. List the values that match no known manufacturer; fix
+the row; do not raise a barrier.
 
-## Node-RED flow corpus — 825 flows across 53 instances
+## Node-RED flow corpus
 
 Step 4, and it is the only source in the bundle that says anything about an individual
 **signal** rather than a machine. A signal name appearing in a deployed flow is strong
@@ -71,11 +75,11 @@ with nothing consuming it, so "not in any flow" is a prompt to check the platfor
 verdict. The script says `unproven`, not `absent`, and the difference matters: one is a
 question for the platform, the other is a request to another lane.
 
-**17 of 33 plants have flow evidence.** For the other 16 — including Northeim (87 machines),
-Tlalnepantla (82), Auburn (60) and Rennes (58) — step 4 cannot be answered from the bundle at
-all. See [`plant-instance-map.md`](plant-instance-map.md).
+**Coverage is partial by plant.** Some plants have no Node-RED instance in the corpus; for
+those, step 4 cannot be answered from the bundle at all. Derive the list live as described in
+[`plant-instance-map.md`](plant-instance-map.md).
 
-## Use case portfolio and reference library — 650 + 100
+## Use case portfolio and reference library
 
 Step 6. Matching is on the name and the target text, so a use case that solves the same
 problem under a different name is missed. The check is worth running anyway: **adoption is

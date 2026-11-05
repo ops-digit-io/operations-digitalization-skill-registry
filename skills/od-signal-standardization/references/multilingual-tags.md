@@ -10,17 +10,17 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Multilingual tags — translating what the plant actually wrote
 
-The estate runs **33 plants in three regions**, and a PLC programmer names tags in the
+The estate runs plants in three regions, and a PLC programmer names tags in the
 language they think in. So the tag list you are handed is not in English, and treating it as
 though it were is how a signal gets misread rather than merely misnamed.
 
-**This is not hypothetical.** Found in the flow corpus:
+**This is not hypothetical.** Examples found in the flow corpus:
 
-| Language | Found | Plant |
-|---|---|---|
-| **Chinese** | `存储设定值` *(store setpoint value)* · `流程 1`, `流程 3` *(process 1, 3)* | Qingdao, Changshu |
-| **German** | `Rüstzeit` *(setup time)* · `Rüstmonitor` · `Rüstvorgang läuft` *(setup running)* · `Extrusionslinie` · `Heizungsart` *(heating type)* · `Kessel` *(vessel)* | Waltershausen, Karben |
-| **Spanish** | `Pza` *(pieza — piece)* · `Contador` / `Cointador` *(counter, misspelled)* · `Suciion descarga` *(suction discharge, misspelled)* | Delicias, Monterrey |
+| Language | Found |
+|---|---|
+| **Chinese** | `存储设定值` *(store setpoint value)* · `流程 1`, `流程 3` *(process 1, 3)* |
+| **German** | `Rüstzeit` *(setup time)* · `Rüstmonitor` · `Rüstvorgang läuft` *(setup running)* · `Extrusionslinie` · `Heizungsart` *(heating type)* · `Kessel` *(vessel)* |
+| **Spanish** | `Pza` *(pieza — piece)* · `Contador` / `Cointador` *(counter, misspelled)* · `Suciion descarga` *(suction discharge, misspelled)* |
 
 Plus the plants whose language has not reached the corpus yet but will: **Romanian** (Carei,
 Timisoara), **French** (Caluire, Rennes, Tanger), **Hungarian** (Mako), **Serbian**
@@ -142,7 +142,7 @@ at that machine needs.
 
 **5 · Decide whether to rename.** Renaming a live signal is a **breaking change**. If it is
 already consumed, either migrate its consumers or record the deviation and standardize the
-next one. `AverageMeltTempature` is the cautionary case: 34 references and now an interface.
+next one. A misspelled name that many flows already read is the cautionary case: it is now an interface.
 
 ---
 

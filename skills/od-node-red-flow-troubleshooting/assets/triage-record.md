@@ -26,7 +26,7 @@ Leave `⟨...⟩` where you did not check; an unchecked line is information.
 
 | # | Check | Result | If it fails, owner |
 |---|---|---|---|
-| 1 | Is the **tab enabled** on this instance? (72 of 825 tabs in the 2026-11-05 export are disabled) | ⟨yes/no⟩ | IIAE: enable on test, ask before prod |
+| 1 | Is the **tab enabled** on this instance? (some tabs are disabled by design or abandoned; check the state on the instance) | ⟨yes/no⟩ | IIAE: enable on test, ask before prod |
 | 2 | Is the machine integrated and publishing? (Machine List status, connector status) | ⟨⟩ | Plant ME / IIAE |
 | 3 | Does the **input topic** carry messages? (wildcard subscribe) | ⟨⟩ | If no: not a flow problem - `od-equipment-integration` |
 | 4 | Does the **input UUID** appear on that topic? | ⟨⟩ | Wrong UUID in the config, or data point not configured on the edge platform |

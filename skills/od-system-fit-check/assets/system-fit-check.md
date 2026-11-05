@@ -77,8 +77,8 @@ Plant: Example plant, MDA/PDA deployed, QFPR deployed, no MES.
    WiriTec         no  - energy data, unrelated
    -> none cover it. This is MES-shaped: "cross-process scheduling... work-order
       management" is exactly tool-boundaries.md's MES tell.
-3. Availability: MES not available at this or any checked plant; recorded "not
-   recommended as of now" estate-wide.
+3. Availability: MES not available at this plant per its own Tool Overview row (look
+   up the plant's current row and date it); no standardized MES rollout per strategy.
 4. Verdict: ESCALATE AS EXCEPTION. Redesign option considered and rejected - no
    combination of QFPR + MDA/PDA produces automatic re-sequencing without building
    scheduling logic the department does not own building. Routed to od-decision-routing.

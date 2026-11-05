@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Refusal playbook
-description: Real requests that looked legitimate and were refused or re-scoped, what the actual tell was, and one case accepted that should have been refused — Phase-1 tacit-knowledge item #1, resolved from the department's own retrospective record.
+description: Request patterns that look legitimate but should be refused or re-scoped, what the tell is, and one pattern accepted that should have been refused - guidance distilled from the department's retrospectives, no plant names or figures.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 `SKILL.md`'s refusal list states the categories — no roadmap link, outside the lean
 footprint, owned by a sibling function. This file is the tacit layer underneath: what a
 request that fits none of those categories but is still worth refusing actually looks
-like, taken from the department's own retrospective record rather than from memory.
+like, distilled from the department's own retrospective record.
 
 ## 1 · Looked legitimate: a change request against something OD already owns
 
@@ -40,10 +40,9 @@ plant, but not yet rolled out there.
 a fictional ask, and a plant pointing at a real capability looks like a reasonable
 request.
 
-**The actual tell:** the plant's own tool-availability status says otherwise. A real
-example, Carei 2024: the Quality Feedback App and the Manufacturing Image Library were
-each recorded with a test/demo system already **deployed in Carei**, and in the same
-summary: *"No Use Cases yet. Not yet planned for Carei."* The tool existing is not the
+**The actual tell:** the plant's own tool-availability status says otherwise. A typical pattern (illustrative): a tool is recorded with a test/demo system already
+**deployed at the plant**, while the same summary says *"no use cases yet, not yet planned
+for this plant"*. The tool existing is not the
 same as the use case being in scope for that plant yet — check the tool-availability
 table before accepting the use case, not just whether the tool exists anywhere.
 
@@ -65,7 +64,7 @@ OD's own deliverable date.
 
 ## Accepted something regretted: the "difficult machines first" approach
 
-**What happened:** to build a success story, OD took on ten representative *and
+**What happened:** to build a success story, OD took on a set of representative *and
 difficult* machines itself and left the easy ones for the plant to connect — the
 reasoning being that starting with the hard cases would prove the approach.
 
@@ -89,9 +88,6 @@ it exist, they remain open; add them here directly rather than inventing a plaus
 
 ## Sources
 
-Internal evidence, read 2026-10-22: `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--
-2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx` (Thomas Zipf,
-"Agility in System & Process," MPEE strategy workshop, January 2025 — chapters 4-5, the
-dashboard-request, machine-connectivity and entry-barrier lessons) and
-`10-Workshops--2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx`
-(the tool-availability table). Full citations in `SKILL.md`'s `metadata.derived_from`.
+Distilled from the department's retrospective and workshop material (strategy workshop on
+use-case boundaries and agility lessons; use-case definition workshop summaries with
+tool-availability tables). Full citations in `SKILL.md`'s `metadata.derived_from`.

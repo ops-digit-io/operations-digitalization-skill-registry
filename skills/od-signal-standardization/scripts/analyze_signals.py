@@ -11,8 +11,8 @@ platform returns from `/api/datatrons/{id}/data_points`, or a CSV with `uuid,lab
 columns. Any JSON array of objects carrying `uuid` and `label` works.
 
 What it checks, and why each one is here: every rule below was derived from the
-260 distinct signal names in use across the flow estate, where the same concept is
-named up to eight different ways. That variance is what stops one plant's solution
+the signal names in use across the flow estate, where the same concept is
+named in many different ways. That variance is what stops one plant's solution
 being taken by the next.
 
 Exit code: 2 if any BLOCKER, 1 if any WARN, 0 otherwise.
@@ -114,19 +114,20 @@ AREA_PATTERNS: list[tuple[str, str]] = [
 ]
 SETPOINT = re.compile(r"_sv$|setpoint|set.?pt|sollwert|nominal", re.I)
 
-# How many of the 11 capability templates each area feeds — the coverage weight.
+# How many capability templates each area feeds — the coverage weight (method weight, not a count to quote).
 AREA_COVERAGE = {
     "machine-state": 4, "counting": 4, "cycle-timing": 3, "quality-limits": 3,
     "process-value": 2, "identification": 2, "alerting": 2, "energy": 1, "unclassified": 0,
 }
-# Business-process demand behind each area, from the use-case portfolio.
+# Consumer-demand band per area (0 none, 1 low, 2 medium, 3 high). Re-derive it from the
+# use-case portfolio (business_process counts) when the demand changes.
 AREA_DEMAND = {
-    "machine-state": 133, "counting": 98, "cycle-timing": 90, "quality-limits": 17,
-    "process-value": 48, "identification": 16, "alerting": 56, "energy": 8, "unclassified": 0,
+    "machine-state": 3, "counting": 3, "cycle-timing": 3, "quality-limits": 1,
+    "process-value": 2, "identification": 1, "alerting": 2, "energy": 1, "unclassified": 0,
 }
 
 # ── multilingual tags ───────────────────────────────────────────────────────
-# The estate spans 33 plants in three regions, and tags arrive in the plant's
+# The estate spans plants in three regions, and tags arrive in the plant's
 # language. All of these terms were found in the flow corpus or are the standard
 # shop-floor term in a plant language. canonical=None means "signals a family,
 # not a specific name" — the analyst still has to choose.
@@ -443,8 +444,8 @@ def analyze(path: str, capability: str | None = None) -> Report:
     for bad, good in variants:
         rep.add("WARN", "non-canonical-name",
                 f"'{bad}' is a known variant of '{good}'.",
-                fix=f"Rename to '{good}'. The estate carries 260 distinct signal names for "
-                    "a far smaller set of concepts — eight for machine state alone — and that "
+                fix=f"Rename to '{good}'. The estate carries many distinct signal names for "
+                    "a far smaller set of concepts — machine state alone has many — and that "
                     "variance is why a second plant cannot take the first plant's solution.")
 
     raw = [l for l in unknown if RAW_TAG.match(l) or ADDRESS_LIKE.match(l)]
@@ -475,7 +476,7 @@ def analyze(path: str, capability: str | None = None) -> Report:
                 + ", ".join(sorted(plain_unknown)[:8])
                 + ("…" if len(plain_unknown) > 8 else ""),
                 fix="Genuinely machine-specific signals are fine. But check first — the "
-                    "catalogue has 260 observed names for a much smaller set of concepts.")
+                    "catalogue has many observed names for a much smaller set of concepts.")
 
     # ── language ────────────────────────────────────────────────────────────
     langs = Counter()
@@ -555,8 +556,7 @@ def classify(label: str) -> tuple[str, bool]:
 def importance(area: str, canonical: bool) -> int:
     """Coarse rank: coverage x4 + demand-band x3 + a bonus for being canonical."""
     cov = AREA_COVERAGE.get(area, 0) * 4
-    dem = AREA_DEMAND.get(area, 0)
-    band = 3 if dem >= 90 else 2 if dem >= 40 else 1 if dem > 0 else 0
+    band = AREA_DEMAND.get(area, 0)
     return cov + band * 3 + (2 if canonical else 0)
 
 
@@ -587,8 +587,8 @@ def cluster_report(rows: list[dict]) -> None:
             print(f"            … and {len(items)-6} more")
     print("        * canonical   ~ setpoint")
     print("\n  Score = capability coverage x4 + consumer-demand band x3 + canonical bonus.")
-    print("  Ranking is a starting point: business_process is populated on 150 of 650 use")
-    print("  cases and targets on 59, so a low score means unknown demand, not no demand.")
+    print("  Ranking is a starting point: business_process and targets are populated on only")
+    print("  part of the use cases, so a low score means unknown demand, not no demand.")
 
 
 ACTION = {"canonical": "use", "variant": "rename", "raw": "name it — BLOCKER",

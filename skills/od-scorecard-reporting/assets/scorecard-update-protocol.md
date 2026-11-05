@@ -59,10 +59,8 @@ record, never a status update.
 
 | Region | Equipment Integration: today (plan) | Use Case Development: today (plan) |
 |---|---|---|
-| EMEA East | | |
-| EMEA West | | |
-| Americas | | |
-| APAC | | |
+| ⟨region, as named on the Scorecard⟩ | | |
+| ⟨region⟩ | | |
 
 ## 5 · The honest headline
 

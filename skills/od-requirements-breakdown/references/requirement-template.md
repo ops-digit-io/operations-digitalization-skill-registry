@@ -14,18 +14,18 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 portfolio already use, made explicit and completed. Those section headings appear inside the
 existing `target_text` and `blockers` fields:
 
-| Heading already in use | Use cases carrying it |
-|---|--:|
-| `Use Case Target Overview` | 99 |
-| `Major Issue` | 34 |
-| `Tags of Interest` | 29 |
-| `Acceptance criteria` | 13 |
-| `Traces to` | 13 |
-| `Key Problem` | 10 |
-| `Major` / `Minor Blocking Points` | 162 records |
+| Heading already in use | How common it is |
+|---|---|
+| `Use Case Target Overview` | The most widely used of these headings |
+| `Major Issue` / `Key Problem` | Used by a minority |
+| `Tags of Interest` | Used by a minority |
+| `Acceptance criteria` | Rare |
+| `Traces to` | Rare |
+| `Major` / `Minor Blocking Points` | Used in many records |
 
-So the estate already knows what a requirement looks like. **It writes one about one use case
-in eight.** The job is to make that the default, not to introduce a new form.
+So the estate already knows what a requirement looks like. **It writes one about only a small
+fraction of its use cases.** The job is to make that the default, not to introduce a new form.
+(Count the headings in the live `target_text` and `blockers` fields to measure it.)
 
 ---
 
@@ -39,8 +39,8 @@ Ten sections. A requirement missing any of §1–§6 is not ready to hand over.
 Requirement:   ⟨asset⟩ - ⟨artefact⟩          ← the flow/use-case naming convention
 Plant:         ⟨plant⟩
 Machine(s):    ⟨name⟩ ⟨(EQ id)⟩              ← joins to the Machine List
-Capability:    ⟨one of the 11 templates⟩
-Process group: ⟨one of the 29⟩
+Capability:    ⟨one of the capability templates⟩
+Process group: ⟨one of the process groups⟩
 Lane:          ⟨which of the four owns delivery⟩
 Author / date: ⟨name⟩ ⟨date⟩
 ```
@@ -68,7 +68,7 @@ and when**.
 > the weekly review."
 
 The existing corpus writes the first half well and omits the second. **The moment in the day
-is what decides whether the asset gets opened** — 8 delivered use cases record utilization
+is what decides whether the asset gets opened** — some delivered use cases record utilization
 `NEVER`.
 
 ### §4 · Standard baseline
@@ -87,7 +87,7 @@ the signal skill's `standards.md`.
 
 ### §5 · Tags of Interest — the signal requirement
 
-The section 29 use cases already write, and the one that most often decides whether the
+A section some use cases already write, and the one that most often decides whether the
 thing can be built at all.
 
 | Signal (canonical name) | Direction | Source | Exists? | Unit | Collection |
@@ -102,7 +102,7 @@ thing can be built at all.
 
 ### §6 · Acceptance criteria
 
-Testable statements. 13 use cases already write these; they are the ones that can be
+Testable statements. Few use cases write these; they are the ones that can be
 accepted without argument.
 
 ```text
@@ -112,8 +112,8 @@ AC-3  ⟨named plant role⟩ has used it in a real shift, not a demonstration.
 ```
 
 **AC-3 or its equivalent is mandatory.** It is the department's own handover rule, and
-without it "delivered" and "in use" get conflated — the gap between `IMPLEMENTED` (129) and
-`PRODUCTIVE` (167) is what that conflation costs.
+without it "delivered" and "in use" get conflated — the gap between `IMPLEMENTED` and
+`PRODUCTIVE` is what that conflation costs.
 
 ### §7 · Blocking points
 
@@ -129,7 +129,7 @@ Classes seen in the corpus, and each has a different owner:
 | Class | Example from the estate | Route to |
 |---|---|---|
 | Machine connectivity | "currently no machine connectivity" | `od-equipment-integration` (guidance route) |
-| Hardware not installed | "camera system currently not integrated"; "printers will be installed during 2022" | Investment / plant |
+| Hardware not installed | "camera system currently not integrated"; "printers will be installed during <year>" | Investment / plant |
 | External system access | "open access to ⟨vendor⟩ system (API)" | IT demand management |
 | Method undefined | "check current calculation method" | This requirement — resolve it here |
 | Parameter selection open | "investigation and selection of process parameter to be connected" | This requirement — resolve it here |
@@ -167,7 +167,7 @@ is an honest value; an invented number is not.
 Traces to:  ⟨plant roadmap item⟩ · ⟨capability⟩ · ⟨library entry if taken⟩ · ⟨business process⟩
 ```
 
-The section 13 use cases already write. Without a roadmap link the request fails intake.
+The section a few use cases already write. Without a roadmap link the request fails intake.
 
 ---
 
@@ -219,7 +219,7 @@ program and no tag export — the single largest cost difference available.
 
 ```text
 Stage / gate:      Captured → Evaluated → Assessed → Planned → Handed over → Effective
-Investment:        ⟨planned figure⟩ ⟨eCR route: CTO ≤150k · Board >75k⟩
+Investment:        ⟨planned figure⟩ ⟨eCR route: per the current approval policy (look up: Controlling / eCR process owner)⟩
 Milestones with acceptance points
 Resources:         ⟨named, per side⟩
 Dependencies:      ⟨other projects, external decisions, licences⟩

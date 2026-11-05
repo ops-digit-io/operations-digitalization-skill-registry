@@ -53,10 +53,10 @@ dashboard they do not want is wasted effort aimed at the wrong element.
 **Rate all five, 1-5, in order, and stop at the first one that is not yet sufficient — that
 is the barrier point, and it is the only one worth acting on right now.**
 
-## Worked example
+## Worked example (illustrative)
 
-A cycle-time dashboard for a braider cell: handed over, data path confirmed, plant owner
-named — and utilization reads `NEVER` after six weeks.
+A cycle-time dashboard for a production cell: handed over, data path confirmed, plant owner
+named — and utilization reads `NEVER` after the agreed review period.
 
 - **Awareness: 4.** The shift lead can say what decision it feeds (changeover timing).
 - **Desire: 2.** It was specified by the plant's continuous-improvement team, not requested

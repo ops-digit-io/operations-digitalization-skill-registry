@@ -29,9 +29,9 @@ metadata:
     - ops-knowledge-graph/.../00-core/03-objectives.md
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - Skill od-equipment-integration, references/decision-paths.md, the routes by controller and protocol
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines, the 1,715 machine notes aggregated by controller vendor, model, protocol, integration status and method, counted 2026-11-05
-    - Work vault, Graph/Tools (16 tool notes), Graph/Connectors (26 connector notes) and Graph/Legacy Applications (268 notes, aggregated), read 2026-11-05
-    - Work vault, _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case, the systems-of-record note, last verified 2026-08-10
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
+    - Work vault, Graph/Tools, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
+    - Work vault, _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case, the systems-of-record note
   okf:
     type: Agent Skill
     title: Standardized-systems catalog
@@ -62,18 +62,18 @@ then "Apply template and go live". If no standard system fits, the demand falls 
 | `od-equipment-integration`, `decision-paths.md` | Integration routes per controller, protocol and platform, with their status |
 | Knowledge bundle, objectives | The aim to keep a **lean, standardized system footprint** (measured as the number of systems in operation; the target is still to be confirmed) |
 | Knowledge bundle, decision rights | Equipment-integration go-ahead sits with the integration owner and the plant, per investment plan, with **Cyber Security sign-off for an external connection** |
-| `registry.yaml`, open gaps | Three routes are marked TODO (Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); ten of the 33 plants have no integration concept recorded |
+| `registry.yaml`, open gaps | Some routes are marked TODO (for example Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); some plants have no integration concept recorded (read the open gaps live) |
 
 ## The references
 
 | File | Use it for |
 |---|---|
-| [`references/validated-routes.md`](references/validated-routes.md) | The real candidate table: which routes are written down **and** proven in the Machine List, with machine and plant counts, in four classes (A written and proven, B proven but unwritten, C fallback or single plant, D none) |
-| [`references/tools-and-footprint.md`](references/tools-and-footprint.md) | The three integration concepts with their plants, the 16 shop-floor tools, deployment status, what lean footprint means for a kit |
-| [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: licence, support, criticality and cyber-security position of the 268 legacy applications |
-| [`assets/standard-system-entry.md`](assets/standard-system-entry.md) | The blank entry, five pre-filled route candidates, and the system match record |
+| [`references/validated-routes.md`](references/validated-routes.md) | How to classify a route: written down **and** proven in the Machine List, in four classes (A written and proven, B proven but unwritten, C fallback or single plant, D none), and how to count the evidence live |
+| [`references/tools-and-footprint.md`](references/tools-and-footprint.md) | The three integration concepts, the shop-floor tools, how to read rollout and deployment status live, what lean footprint means for a kit |
+| [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: how to read licence, support, criticality and cyber-security position of the legacy application list |
+| [`assets/standard-system-entry.md`](assets/standard-system-entry.md) | The blank entry, the route-candidate template, and the system match record |
 
-**Result of mining the vault (2026-11-05):** four routes meet the proposed test of "written in full and proven in at least two plants" (Siemens S7/TIA on the edge and on the aggregation server, Rockwell on the edge and on the aggregation server). None of them has a kit, price or lead time on record, so they are **route candidates**, not yet standard systems. Beckhoff and Omron on the edge, B&R and Bachmann on the aggregation server and Modbus are in use at one to two plants but their procedures are unwritten.
+**Pattern from mining the vault:** a route meets the proposed test when it is "written in full and proven in at least two plants" (typically Siemens S7/TIA and Rockwell, on the edge and on the aggregation server; re-derive live). None of them has a kit, price or lead time on record, so they are **route candidates**, not yet standard systems. Routes that are in use at only one or two plants with an unwritten procedure (typically some Beckhoff, Omron, B&R, Bachmann and Modbus routes) are not candidates.
 
 ## What a standardized-system entry must hold (proposal)
 
@@ -85,7 +85,7 @@ then "Apply template and go live". If no standard system fits, the demand falls 
 | Indicative cost | ⟨to be supplied⟩ - feeds the cost template |
 | Lead time (procurement, Cyber Security) | ⟨to be supplied⟩ |
 | Cyber Security status | ⟨to be supplied⟩ |
-| Validated at | plants where machines are recorded `INTEGRATED` through the route - counted in `references/validated-routes.md` (Machine List, export 2026-08-24); ⟨plants where the *kit* runs⟩ to be supplied |
+| Validated at | plants where machines are recorded `INTEGRATED` through the route - count live per `references/validated-routes.md` (Machine List, state the export date); ⟨plants where the *kit* runs⟩ to be supplied |
 | Known blockers | `od-equipment-integration`, `barrier-classes.md` |
 
 A **standardized system** is, until the OD lead says otherwise, a route that is written down in full **and** a purchasable kit.

@@ -20,9 +20,9 @@ plant-specific delta (which lines, which machines). A `non-standard, unique to o
 use case has no template behind it, so Analyse and Assess have to carry the whole
 specification, or nobody downstream can build it.
 
-`402/403 Lines` (Qingdao, OEE Calculation — a template instantiated at nearly every plant)
-needed one line: *"OEE Dashboard - for 402&403 Lines."* It still shipped and runs daily.
-`Alarms Notifications` (Delicias, custom Node-RED alarming logic — no template) needed the
+An OEE-calculation instance (illustrative: a template instantiated at nearly every plant)
+needs one line: *"OEE Dashboard - for <line A> and <line B>."* It still ships and runs daily.
+A custom alarm notification (illustrative: custom Node-RED alarming logic, no template) needs the
 full chain: a diagnosed problem, named machines, exact thresholds. Same depth of
 "definition," opposite amount of writing, both correct — because the template did or didn't
 already carry the objective.
@@ -47,8 +47,8 @@ yet."
 
 ## A blocked use case is a finding, not a failure
 
-`Analytics at Brazing` (Karben) was correctly diagnosed — brazing as a likely root cause of
-leaking parts — and then correctly stopped at Assess, because the machine it needed was
+An analytics use case (illustrative: a process step as the likely root cause of leaking parts) was correctly
+diagnosed and then correctly stopped at Assess, because the machine it needed was
 never even scheduled for integration. That's not a data-availability gap
 `od-data-availability-check` can close, and it isn't a requirement-breakdown problem — it's
 a prior decision (no integration plan for that equipment) that has to be revisited above
@@ -59,7 +59,7 @@ itself.
 ## A capability being instantiated is not evidence a use case exists
 
 A plant carrying a capability epic (the record that says "this plant has an OEE
-Calculation instance") is not evidence anything was built — most capability-epic records
+Calculation instance") is not evidence anything was built — many capability-epic records
 group no use case at all; the capability was declared, not delivered. Checking that the
 plant "has the capability" answers a different question than checking whether a working
 reference exists to take instead of specifying from scratch. Check

@@ -40,12 +40,12 @@ change is a change with nothing to make it happen, which is a benefit that will 
 **A dashboard is not a benefit. The decision someone makes differently because the
 dashboard exists is the benefit — name that decision, not the dashboard.**
 
-`Alarms Notifications` (Delicias — full record in `references/worked-examples.md` §1) has
-this chain, even though nothing in the original record labels it as one:
+The illustrative `Alarm Notification` use case (full record in `references/worked-examples.md` §1) has
+this chain, even though nothing in a typical original record labels it as one:
 
 | Link | What it actually was |
 |---|---|
-| Investment objective | Stop energy loss and silent quality loss in vulcanization |
+| Investment objective | Stop energy loss and silent quality loss in a thermal process |
 | Business benefit | Fewer wasted heating cycles, fewer unrecoverable loads |
 | Business / process change | Shop-floor personnel receive a Teams alert and decide, inside the stated window, whether to intervene — a decision nobody was making before, because nobody knew |
 | Enabling change | Node-RED gateway reading PLC signals directly, no IT-network dependency |
@@ -67,7 +67,7 @@ kind" and intangible is not "not a benefit":
 
 This feeds directly into `od-benefit-calculation`'s existing `savings / lead-time
 reduction / cost avoidance` categories — classify here, calculate there. It also explains
-why `potential` is `UNKNOWN` on 405 use cases without that being a recording failure: an
+why `potential` is `UNKNOWN` on many use cases without that being a recording failure: an
 intangible, non-cashable benefit is real and still resists a number. `od-benefit-calculation`
 already states the rule this classification exists to support: *"do not read a missing
 figure as zero value."* Classify the benefit as intangible/non-cashable explicitly, rather

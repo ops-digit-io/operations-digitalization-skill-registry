@@ -17,7 +17,7 @@ answer "as of when" for any figure they quote).
 
 | Run date | List | Items | Attachments | Mode | Schema check | Notes |
 |---|---|--:|--:|---|---|---|
-| ⟨2026-10-22⟩ | ⟨SmartFactory UseCase Savings⟩ | ⟨1143⟩ | ⟨251⟩ | ⟨full / incremental since YYYY-MM-DD⟩ | ⟨OK / columns added: … / columns removed: …⟩ | ⟨anything that needed a second attempt⟩ |
+| ⟨YYYY-MM-DD⟩ | ⟨list name⟩ | ⟨item count⟩ | ⟨attachment count⟩ | ⟨full / incremental since YYYY-MM-DD⟩ | ⟨OK / columns added: … / columns removed: …⟩ | ⟨anything that needed a second attempt⟩ |
 
 **Mode** is `full` for the first run against a list and every run after a schema-removal
 finding (an incremental run cannot be trusted to have seen everything once a column it

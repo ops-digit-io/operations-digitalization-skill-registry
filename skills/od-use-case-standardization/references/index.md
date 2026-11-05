@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Clusters](clusters.md) | Skill Reference | The 12 cluster tags' standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally. |
+| [Clusters](clusters.md) | Skill Reference | The cluster tags' (C01-C12) standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally. |

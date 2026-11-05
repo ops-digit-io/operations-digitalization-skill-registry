@@ -17,7 +17,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   capacity: unknown
   authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
-  escalation: OD lead (Thomas Zipf) via ODEC
+  escalation: OD lead via ODEC
   status: stable
   sources_read: 2026-10-23
   requires: [od-context]

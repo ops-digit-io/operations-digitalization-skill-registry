@@ -27,7 +27,7 @@ metadata:
     - personal vault, Work-OpsDigit-Knowledge/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (P-02's own scope statement and deployment-reality framing), read 2026-10-23.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-12-1.1-OnePager-System_Overview*.pptx (the per-tool is/is-not boundary cards, integration-recommended-if criteria, real cost estimates), read 2026-10-22.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2023_06_29_Summary_SanLuisPotosi_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_04_04_Summary_Subotica_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_07_04_Summary_Timisoara_SmartFactory_UseCase_Definition_Workshop*.pptx (three real per-plant Smart Factory Tools Availability snapshots), read 2026-10-22. Resolves PHASE1-ELICITATION.md topic 5 (non-bet system-fit judgement) and builds the skill the department's own Wave-1 plan named but never built (P-02, `od-p-system-fit-check`).
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (16 notes, rollout history and tables, use of the tool, archive-evidence blocks), Graph/Plants rollout blocks and Graph/Legacy Applications (268 notes), counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (rollout history and tables, use of the tool, archive-evidence blocks), Graph/Plants rollout blocks and Graph/Legacy Applications, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Slide Index (deck OD Initiative - CS Legacy Application As_Is_Analysis) and ODEC Facts staging notes (Department KPIs and Roadmap Status), AI-extracted and unverified, read 2026-11-05
   okf:
     type: Agent Skill
@@ -53,9 +53,9 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 |---|---|
 | [`references/non-bets.md`](references/non-bets.md) | The department's own choice architecture — what is deliberately not pursued, the trade-offs behind it, and the kill criteria attached to what *is* pursued |
 | [`references/tool-boundaries.md`](references/tool-boundaries.md) | What each lightweight tool (QFPR, MDA/PDA, MIL, Camline, WiriTec) is and is not for, in the department's own words — the actual tell, per tool |
-| [`references/deployment-reality.md`](references/deployment-reality.md) | Three real per-plant snapshots showing the same tool catalogue in three different states — check this plant, not the estate average |
-| [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | Matrix of the sixteen tool rows against 27 plants (available, ongoing, stopped, planned, with year), use cases naming each tool, and where the matrix disagrees with the workshop snapshots. Record counts, export 2026-08-24 |
-| [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | The 268 legacy applications in aggregate - category, criticality, network, support, cyber-security - and how to spot the plant that already runs a parallel MES, SCADA or dashboard system |
+| [`references/deployment-reality.md`](references/deployment-reality.md) | Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table — check this plant, not the estate average |
+| [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | How to read the live Tool Overview for a plant (status codes, what an empty cell means), how to count use cases naming a tool, and how to handle disagreement with workshop tables. Guidance only, no figures |
+| [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | How to read the Legacy Application List (fields, blank-cell traps) and how to spot the plant that already runs a parallel MES, SCADA or dashboard system. Guidance only, no figures |
 
 ## The check — three steps
 
@@ -80,8 +80,8 @@ skill resolves to — not a vibe, a specific boundary line the need crosses.
 
 ### 3 · Check this plant's actual availability, not the estate average
 
-The same tool is "not necessary" at one plant and "needed for multiple use cases" at
-another in the same quarter — see `references/deployment-reality.md`. A tool being the
+The same tool can be "not necessary" at one plant and "needed for multiple use cases" at
+another at the same time — see `references/deployment-reality.md`. A tool being the
 right answer in principle and a tool being deployed *here* are two different facts; check
 both before concluding anything.
 
@@ -102,9 +102,9 @@ before escalating twice for one request.
 
 ## A live discrepancy this skill surfaces rather than hides
 
-`references/non-bets.md` states EMS rollout is stopped. `references/tool-boundaries.md`'s
-own source, dated January 2025, records WiriTec (the EMS) as already rolled out to most
-locations and names it as an active 2025 initiative. **Confirm current status before citing
+`references/non-bets.md` records the strategy position on EMS rollout. `references/tool-boundaries.md`'s
+own tool catalogue can describe WiriTec (the EMS) as rolled out and in active use. When the written
+position and the catalogue disagree, **confirm current status before citing
 either version** — this is exactly the kind of policy-vs-practice drift the check exists to
 catch, including in its own source material. Do not silently pick one.
 

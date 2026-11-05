@@ -91,7 +91,7 @@ justification · Escalate → `od-decision-routing`⟩
 ## Worked example (ready to copy the shape, not the numbers)
 
 ```text
-=== Predictive quality alert, extrusion line 3 ===
+=== Illustrative: predictive quality alert, <line> ===
 
 -- Step 0+2: candidate focus areas (from drivers rated high/dominant) --
   F11  Degree of data collection           <- a14, a23

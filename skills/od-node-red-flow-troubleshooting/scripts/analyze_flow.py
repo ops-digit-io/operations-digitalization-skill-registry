@@ -7,8 +7,8 @@ Takes the per-flow JSON as exported by node-red-auto-docs (`[tab, ...nodes]`) or
 raw Node-RED export (a bare node array), and reports what is wrong with it before
 anyone opens the editor.
 
-Every check below was derived from the corpus of 825 flows across 53 ct-oesl
-instances — these are the failure modes that actually occur, not a generic lint.
+Every check below was derived from a corpus of exported ct-oesl flows;
+read the instances — these are the failure modes that actually occur, not a generic lint.
 Findings are ranked: BLOCKER breaks data, WARN degrades it, INFO is hygiene.
 
 Exit code: 2 if any BLOCKER, 1 if any WARN, 0 otherwise.
@@ -82,7 +82,7 @@ def label_of(node: dict) -> str:
 def check_documentation(rep, tab, nodes):
     if not (tab.get("info") or "").strip():
         rep.add("WARN", "no-flow-description",
-                "The flow carries no description. Only 1% of the corpus does, and the "
+                "The flow carries no description. Very few flows do, and the "
                 "generated documentation page has nothing to say the flow is for.",
                 where="tab", fix="Write one paragraph in the tab's Description: what this "
                                  "produces, for which machine, consumed by which use case.")
@@ -91,8 +91,8 @@ def check_documentation(rep, tab, nodes):
     if functional and len(unnamed) / len(functional) > 0.55:
         rep.add("WARN", "mostly-unnamed-nodes",
                 f"{len(unnamed)} of {len(functional)} nodes are unnamed "
-                f"({len(unnamed)/len(functional):.0%}). Across the corpus 63% of nodes "
-                "carry a name, so this flow is well below the house standard.",
+                f"({len(unnamed)/len(functional):.0%}). The house standard is that every "
+                "node carries a name.",
                 fix="Name every node. `{{error.source.name}}` in the standard error "
                     "template resolves to this field, so an unnamed node produces an "
                     "error message identifying nothing.")
@@ -101,7 +101,7 @@ def check_documentation(rep, tab, nodes):
     unnamed_groups = [n for n in nodes if n.get("type") == "group" and not (n.get("name") or "").strip()]
     if unnamed_groups:
         rep.add("INFO", "unnamed-group",
-                f"{len(unnamed_groups)} group(s) unnamed. 92% of corpus groups are named.")
+                f"{len(unnamed_groups)} group(s) unnamed. The house standard is that every group is named.")
     if groups:
         off = groups - CANONICAL_GROUPS
         known = groups & CANONICAL_GROUPS
@@ -109,7 +109,7 @@ def check_documentation(rep, tab, nodes):
             rep.add("INFO", "non-canonical-group",
                     "Groups outside the canonical seven: " + ", ".join(sorted(off)),
                     fix="Use-case-specific groups are fine; the canonical names are what "
-                        "make 825 generated pages comparable, so keep those spelled exactly.")
+                        "make the generated pages comparable, so keep those spelled exactly.")
 
 
 def check_config_discipline(rep, nodes):
@@ -221,7 +221,7 @@ def check_error_handling(rep, nodes):
     catches = [n for n in nodes if n.get("type") == "catch"]
     if not catches:
         rep.add("WARN", "no-catch",
-                "No catch node. 446 of 825 flows in the corpus have one.",
+                "No catch node. A flow without one reports no runtime errors.",
                 fix="Add the four-node pattern: catch → change 'get env variables of "
                     "flow' → template 'create error message' → debug.")
         return
@@ -264,8 +264,8 @@ def check_streaming(rep, nodes):
     for s in splits:
         if str(s.get("arraySplt")) not in ("1", "None", "") and s.get("arraySpltType") == "len":
             rep.add("INFO", "unusual-split-size",
-                    f"split arraySplt={s.get('arraySplt')}; the corpus splits one packet "
-                    "at a time (640 of 648).", where=label_of(s))
+                    f"split arraySplt={s.get('arraySplt')}; the house pattern splits one packet "
+                    "at a time.", where=label_of(s))
     if joins and not splits:
         rep.add("INFO", "join-without-split",
                 "A join without a split — confirm the message parts are set upstream.")
@@ -374,7 +374,7 @@ def check_context(rep, nodes):
 
 def check_hardcoded_thresholds(rep, nodes):
     """A process-value limit belongs in flow config, same as a UUID — P4/P12 in
-    od-node-red-flow-builder. Two real shapes in the estate: a bare number compared
+    od-node-red-flow-builder. Two typical shapes: a bare number compared
     directly against a payload value (`if (currentValue > 1.5)`), and a `threshold`/
     `limit`-named variable assigned a bare number instead of `flow.get(...)`. Equality
     (`==`, `===`) against a small integer is the P5 value-mapping shape instead, and is
@@ -401,9 +401,8 @@ def check_hardcoded_thresholds(rep, nodes):
                     "A process-value limit is a literal in the function body "
                     f"({', '.join(sorted(hits))}), not read from flow config.",
                     where=label_of(n),
-                    fix="Read it with flow.get('thresholdX') instead. Real flows in the "
-                        "estate hardcode 1.5 (bar), 2000 (rpm) and 10 (mm) this way — "
-                        "porting the flow to a different limit then means editing a "
+                    fix="Read it with flow.get('thresholdX') instead. With a literal, "
+                        "porting the flow to a different limit means editing a "
                         "function, not a change node.")
 
 

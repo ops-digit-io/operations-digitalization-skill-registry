@@ -57,7 +57,7 @@ Authority: draft. Nothing here commits cost, installation or a connection.
 | Scenario | ⟨A: edge platform and compliant network available · B: not available, device at the machine and manual transfer · unknown, who checks⟩ |
 | PLC type, if scenario B | ⟨⟩ |
 | Cyber Security status for any connection | ⟨not needed · needed, not requested · requested ⟨date⟩ · approved⟩ |
-| Cost indication, if asked | ⟨"range from a tool deck of 2024-07-14, not a quote; OD lead decides"⟩ |
+| Cost indication, if asked | ⟨"any indication in a tool deck is not a quote; OD lead decides"⟩ |
 
 ## 5 · Route
 

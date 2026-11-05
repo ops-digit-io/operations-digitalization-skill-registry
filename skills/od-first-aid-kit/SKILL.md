@@ -49,11 +49,11 @@ template** and the routing rule. It is a draft for the DBVE to adopt or replace.
 
 ## What the offering is, in OD's words
 
-From the IIoT Edge platform deck (2024-07-14, repeated 2025): purpose is **process or product
+From the IIoT Edge platform tool deck: purpose is **process or product
 ramp-up support** and **process or product trouble shooting**. What OD does: prepare process data
 acquisition that fulfils the analytics requirements, **make problems S.M.A.R.T.**, generate
-insights. Details, the two data scenarios, a priced example and two ad-hoc analyses that show the
-shape of the work: [`references/first-aid-offering.md`](references/first-aid-offering.md).
+insights. Details, the two data scenarios, how to talk about cost, and the shape of two typical ad-hoc
+analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md).
 
 ## When it applies, and when it does not
 
@@ -87,10 +87,11 @@ shape of the work: [`references/first-aid-offering.md`](references/first-aid-off
    installation). Scenario B means a device on the machine and manual transfer of data; any
    connection to a machine needs `od-cybersec-gate` first and is not committed by this skill.
 5. **Decide the route** with the table below, and write the reason on the form.
-6. **State the cost question honestly.** The deck gives an indication of "3k EUR additional invest
-   up to 20k EUR depending on preconditions" (2024-07-14). That is a range from a tool deck, not
-   a quote. Do not offer it to a plant as a price. Cost goes to the OD lead
-   (`od-decision-routing`; investment is not a draft decision).
+6. **State the cost question honestly.** First aid can carry an additional investment (device,
+   reconfiguration, analytical template) that depends on the preconditions. Any indication in a
+   tool deck is not a quote and is not for this skill to offer. Look up the current indication
+   with the OD lead; cost goes to the OD lead (`od-decision-routing`; investment is not a draft
+   decision).
 7. **Hand over with the form.** The form travels with the request so the next skill does not
    re-ask. Close the loop with the requester (what was routed where and why).
 
@@ -121,7 +122,7 @@ requester has been told; no cost or connection has been promised.
 - ⟨Official first-aid template⟩ — not in any source. Supplier: DBVE.
 - ⟨Lead time and capacity for first-aid requests⟩ — all lane lead times are "to confirm". Supplier:
   OD lead.
-- ⟨Who pays⟩ — the priced example in the deck does not say which budget carried it. Supplier: OD lead.
+- ⟨Who pays⟩ — which budget carries devices and templates is not stated. Supplier: OD lead.
 - ⟨Turnaround and promotion-rate trackers⟩ — named as missing in `od-analytical-support-service`.
 - ⟨Closing rule⟩ — when a first-aid case counts as done (insight delivered, or insight understood).
   The lane's definition of done for analytical support is "process diagnostics / analytical insight
@@ -130,7 +131,7 @@ requester has been told; no cost or connection has been promised.
 ## Do not
 
 - Do not turn a one-off issue into a use case just because it is interesting.
-- Do not quote the price range as an offer.
+- Do not quote any price indication as an offer.
 - Do not connect, install or reconfigure anything; propose it, route it, and respect the Cyber
   Security gate.
 - Do not invent missing data or fill gaps by interpolation (Analytical Support error path).

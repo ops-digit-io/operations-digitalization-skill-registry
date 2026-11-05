@@ -50,4 +50,4 @@ All rows are read from the department documents on 2026-11-05. Nothing here is a
 | Validity or expiry of a sign-off | Cyber Security | not recorded |
 | Submission channel and contact role | OD lead | not recorded |
 | Contents of the Connext Wiki rules | Cyber Security / IT | cited by name only |
-| Machine-level cyber status | IIAE | `cyber_security_status` is empty on all 1,715 machine rows (registry `open_gaps`) |
+| Machine-level cyber status | IIAE | `cyber_security_status` is a registry `open_gaps` item; check on the live Machine List whether it is filled before relying on it |

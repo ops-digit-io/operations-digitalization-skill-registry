@@ -30,8 +30,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
     - ops-knowledge-graph/_knowledge/20-Done/Machine connectivity rollout.md
     - Registry docs/new-state-flow.md and docs/new-state/OD_NewState_Flow.mermaid (the three lanes and their steps), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Plants (33 plant notes, plant-profile blocks), aggregated 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools and Graph/Connectors note names (16 tools, 26 connectors), listed 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools and Graph/Connectors note names, read 2026-11-05
     - Skill od-data-availability-check, references/plant-instance-map.md, read 2026-11-05
   okf:
     type: Agent Skill
@@ -66,15 +66,15 @@ what comes next, which skill, what artefact, who decides.*
 
 | File | Use it for |
 |---|---|
-| [`references/plant-landscape.md`](references/plant-landscape.md) | All 33 plants with region, machines, integrated share, use cases and main controller and integration method; the four starting profiles and where each begins |
+| [`references/plant-landscape.md`](references/plant-landscape.md) | How to read the plant records (region, machines, integrated share, use cases, main controller and integration method) and how to obtain them live; the four starting profiles and where each begins |
 | [`assets/onboarding-path.md`](assets/onboarding-path.md) | The tracker: one row per stage with skill, artefact, role, evidence and status |
 
 ## Step 0: place the plant
 
-1. Find the plant in [`plant-landscape.md`](references/plant-landscape.md). Note region, machines recorded, integrated
-   share. Refresh from the Machine List; the table is a 2026-11-05 snapshot.
-2. Assign the starting profile: **A** no machines recorded (5 plants) · **B** machines recorded, none integrated (6) ·
-   **C** partly integrated (18) · **D** fully integrated (4).
+1. Find the plant in the live plant record, read as described in [`plant-landscape.md`](references/plant-landscape.md). Note
+   region, machines recorded, integrated share. Always read the current Machine List; this skill holds no figures.
+2. Assign the starting profile: **A** no machines recorded · **B** machines recorded, none integrated ·
+   **C** partly integrated · **D** fully integrated.
 3. The profile sets the entry stage (last column of the profile table). Do not skip earlier stages for a profile-C plant
    without checking their artefacts exist: a partly integrated plant may still have no roadmap.
 
@@ -98,9 +98,9 @@ a need no connector can meet: `it-demand-package`, `deploy-appstore`.
 
 | Profile | Start | Special attention |
 |---|---|---|
-| A | Stage 1 | Cannot be graded or compared; do not infer. The plant instance map in `od-data-availability-check` lists 16 plants for which flow evidence is missing: check the edge platform directly |
-| B | Stage 2 | The route to the platform may not be chosen: in two profile-B plants most machines are recorded as "evaluation ongoing". Choosing the ingress variant is part of stage 2, not stage 5 |
-| C | Stage 3 (and 2 for the remainder) | A low share (Subotica 14%, HannoverStoecken 11% at this snapshot) with a large estate means stage 2 and 5 dominate; a high share means stages 4 and 6 |
+| A | Stage 1 | Cannot be graded or compared; do not infer. The plant instance map in `od-data-availability-check` shows which plants lack flow evidence: check the edge platform directly |
+| B | Stage 2 | The route to the platform may not be chosen: in some profile-B plants most machines are recorded as "evaluation ongoing". Choosing the ingress variant is part of stage 2, not stage 5 |
+| C | Stage 3 (and 2 for the remainder) | A low share with a large estate means stage 2 and 5 dominate; a high share means stages 4 and 6 |
 | D | Stage 3, 4, 6 | No integration roadmap for recorded machines; catalog reuse and Lane 2 candidates |
 
 ## What is still open

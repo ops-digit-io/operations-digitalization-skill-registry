@@ -41,8 +41,8 @@ Elicited 2026-09-17, supersedes a raw read of the integration-rate figures:
 
 Where this disagrees with the raw integration-rate read, and why the rate alone misleads:
 
-- Modbus ranks harder here than B&R and Bachmann despite showing the highest integration
-  rate of any protocol. That rate reflects the historical aggregation-server route, not the
+- Modbus ranks harder here than B&R and Bachmann despite showing a very high integration
+  rate. That rate reflects the historical aggregation-server route, not the
   difficulty of a fresh connection.
 - Beckhoff and Bachmann both rank harder than their integration rate alone would suggest.
   Beckhoff's placement matches its known gap — no ADS driver on the Central Aggregation

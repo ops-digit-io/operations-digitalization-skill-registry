@@ -26,9 +26,9 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (field completeness counted per plant), Graph/Legacy Applications (268), Graph/Capability Epics (355) and Process Epics (96), Case Groups (36 groups, member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (field completeness per plant), Graph/Legacy Applications, Graph/Capability Epics and Process Epics, Case Groups (member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors and Graph/Tools notes for the non-PLC connectors, MIL, QFPR and Energy Management, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists), read 2026-11-05
   okf:
     type: Agent Skill
     title: Data availability check
@@ -52,13 +52,13 @@ and two quarters.
 
 | File | Use it for |
 |---|---|
-| [`references/sources.md`](references/sources.md) | The five sources, what each genuinely answers, how much is populated, and where each stops |
+| [`references/sources.md`](references/sources.md) | The five sources, what each genuinely answers, which fields and patterns to expect, and where each stops |
 | [`references/failure-modes.md`](references/failure-modes.md) | The three indistinguishable shortfalls, plus the two that are not data gaps at all |
 | [`references/freshness.md`](references/freshness.md) | Cadence per source, the slowest-input rule, and history depth |
-| [`references/plant-instance-map.md`](references/plant-instance-map.md) | Which Node-RED instance is which plant, how each was established, and the 16 plants with no evidence |
-| [`references/machine-list-completeness.md`](references/machine-list-completeness.md) | How many Machine List rows carry each field, per plant, and which plants cannot answer step 2 from the list (record counts, export 2026-08-21) |
-| [`references/data-needs-by-capability.md`](references/data-needs-by-capability.md) | Per capability template: what it covers, the department standard, how many recorded use cases list no machine, and what the capability and process epic shells do and do not say |
-| [`references/non-machine-data-sources.md`](references/non-machine-data-sources.md) | Data that is not a PLC signal - legacy applications by category and reachability, camera, file, lab and energy sources, and which connectors exist for them |
+| [`references/plant-instance-map.md`](references/plant-instance-map.md) | Which Node-RED instance is which plant, how each was established, and how to find the plants with no evidence |
+| [`references/machine-list-completeness.md`](references/machine-list-completeness.md) | How to measure, live, how complete the Machine List is per plant, and which kinds of plant cannot answer step 2 from the list |
+| [`references/data-needs-by-capability.md`](references/data-needs-by-capability.md) | Per capability template: what it covers, the department standard, how to count the recorded use cases that list no machine, and what the capability and process epic shells do and do not say |
+| [`references/non-machine-data-sources.md`](references/non-machine-data-sources.md) | Data that is not a PLC signal - how to read the legacy application records, camera, file, lab and energy sources, and which connectors exist for them |
 | [`assets/data-availability-verdict.md`](assets/data-availability-verdict.md) | The defined output to fill in |
 | [`assets/data-gap-request.md`](assets/data-gap-request.md) | The named request a data gap becomes when it is routed to the Information Integration lane |
 | [`scripts/check_availability.py`](scripts/check_availability.py) | Walks the six steps against the real sources |
@@ -82,9 +82,9 @@ the bundle records fitness for use.
 
 | # | Question | Where to look | If no |
 |---|---|---|---|
-| 1 | Does a **machine** produce the signal at this plant? | Machine List — 1,715 rows with vendor, PLC, protocol, criticality | Not a data gap; a measurement gap. Say so. |
-| 2 | Is the machine **integrated**? | Machine List status — 821 `INTEGRATED`, 395 `NOT INTEGRATED`, 48 `ONGOING` | → `od-equipment-integration` (assessment route) |
-| 3 | Is there a **connector and concept** for it? | Connector Overview — 26 connectors; three integration concepts | Barrier: log it in the landscape module |
+| 1 | Does a **machine** produce the signal at this plant? | Machine List — rows with vendor, PLC, protocol, criticality | Not a data gap; a measurement gap. Say so. |
+| 2 | Is the machine **integrated**? | Machine List status — `INTEGRATED`, `NOT INTEGRATED`, `ONGOING`, or blank | → `od-equipment-integration` (assessment route) |
+| 3 | Is there a **connector and concept** for it? | Connector Overview — one connector per protocol or vendor family; three integration concepts | Barrier: log it in the landscape module |
 | 4 | Is the signal **standardized** and offloaded to the data platform? | The edge offload | → `od-signal-standardization` |
 | 5 | Is the data **fit for use** — right granularity, freshness, completeness? | Databricks / the Azure Storage Account | Data gap, with the reason named |
 | 6 | Does an **existing asset** already answer this? | Use-case portfolio; the reference library | Do not rebuild it |
@@ -95,29 +95,30 @@ different problems. Name which one you have →
 
 ## Three traps the sources set
 
-**A blank is not a no.** 821 machines are `INTEGRATED`, 395 `NOT INTEGRATED`, 48 ongoing —
-and **451 carry no status at all**. Reading a blank as "not integrated" fabricates a gap
-across a quarter of the estate, and the fabricated gap gets routed to a lane that then finds
-nothing to do.
+**A blank is not a no.** Machines are `INTEGRATED`, `NOT INTEGRATED` or ongoing — and a
+sizeable block carries **no status at all** (count it live). Reading a blank as "not
+integrated" fabricates a gap across part of the estate, and the fabricated gap gets routed to
+a lane that then finds nothing to do.
 
-**A connector existing is not a connector you may use.** 19 of the 26 are `Productive` and
-marked `USE`; 6 are `NOT AVAILABLE` and one is `DO NOT USE`. An `Idea` connector is a roadmap
-item, not a route to data.
+**A connector existing is not a connector you may use.** Only connectors that are `Productive`
+and marked `USE` count; `NOT AVAILABLE` and `DO NOT USE` do not. An `Idea` connector is a
+roadmap item, not a route to data.
 
 **A flow proves presence, never absence.** A signal can be published with nothing consuming
-it, so "not in any flow" is a prompt to check the edge platform — not a verdict. And for the
-**16 of 33 plants with no Node-RED instance**, among them Northeim with 87 machines, step 4
-cannot be answered from the bundle at all.
+it, so "not in any flow" is a prompt to check the edge platform — not a verdict. And for
+plants with no Node-RED instance in the corpus (derive the list as in
+[`plant-instance-map.md`](references/plant-instance-map.md)), step 4 cannot be answered from
+the bundle at all.
 
-## Two more traps, from the 2026-11-05 enrichment
+## Two more traps
 
-**Some plants cannot answer step 2 at all.** On the 2026-08-21 export, Montemorelos, San Luis
-Potosi and Ostrava have no status on any row, and Tlalnepantla, Vac and Timisoara on most.
-Say "not recorded" for those, and see
+**Some plants cannot answer step 2 at all.** Some plants have no status on any row, and others
+on most rows (find them by counting status per plant on the current export). Say "not
+recorded" for those, and see
 [`machine-list-completeness.md`](references/machine-list-completeness.md).
 
-**Not every request is a machine request.** 94 of 268 legacy applications are standalone and
-many hold the data a use case wants (laboratory, camera, PLC programs). Use
+**Not every request is a machine request.** Many legacy applications are standalone and many
+hold the data a use case wants (laboratory, camera, PLC programs). Use
 [`non-machine-data-sources.md`](references/non-machine-data-sources.md) when the data is not a
 PLC signal, and [`data-needs-by-capability.md`](references/data-needs-by-capability.md) to see
 which agreement (reason catalogue, ideal cycle time, recipient) the capability needs before
@@ -153,6 +154,6 @@ Analytical lane. Concretely:
   Machine List and the data platform.
 - Do not report *unproven* as *absent*. One is a question for the platform; the other is a
   request to another lane, and sending the wrong one wastes both.
-- Do not skip step 6. Four existing cycle-time use cases at one plant is a normal result, and
+- Do not skip step 6. Several existing cycle-time use cases at one plant is a normal result, and
   rebuilding one of them is the failure the whole standardization effort exists to prevent.
 - Do not promise a turnaround before step 5 has been answered.

@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # External build and foreign app inputs
 
-Sources, read 2026-11-05: vault `Graph/Legacy Applications` (268 notes, columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `od-requirements-breakdown` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, vault `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
+Sources, read 2026-11-05: vault `Graph/Legacy Applications` (notes with the columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `od-requirements-breakdown` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, vault `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
 The IT demand form is not in any source. This note therefore gives OD's side: what OD can describe about the demand, in the vocabulary the legacy list already uses, so that IT's own fields can be added later without rework.
 
 ## Describe the foreign app (3a.4) in the list's own columns
@@ -21,12 +21,12 @@ The legacy application list is the only place the vault records third-party and 
 |---|---|---|
 | Application name, software version, software supplier | free text | identity; supplier support (a supplier status `IN SERVICE` / `SERVICE STOPPED` is recorded for some) |
 | Application category, functional mapping | PLC programming / configuration, laboratory, equipment configuration, camera system configuration, custom SCADA, printer, quality software, internal Mendix apps, custom MES, material flow / logistics, SCADA, custom dashboarding, energy monitoring, MES | decides which existing family it joins |
-| Production criticality | Critical / Moderate / Minimal / NA | 109 of 268 are Critical; weighs the change risk |
-| Licence required | no license required / Local License Available / OESL license required / unknown | 128 of 268 unknown; a licence dependency has a lead time |
-| Support concept and availability | Internal Support / External Support Contract / Maintenance & Run Concept; availability Yes / Possible | 114 of 268 not recorded |
-| Cyber-security status | Not started / In Progress / Approved / NA - Standalone | 172 of 268 "Not started" |
+| Production criticality | Critical / Moderate / Minimal / NA | weighs the change risk; count the Critical ones live |
+| Licence required | no license required / Local License Available / OESL license required / unknown | a licence dependency has a lead time; unknown is common, count it live |
+| Support concept and availability | Internal Support / External Support Contract / Maintenance & Run Concept; availability Yes / Possible | often not recorded; report blanks separately |
+| Cyber-security status | Not started / In Progress / Approved / NA - Standalone | "Not started" is common; count it live, and do not read blank as "Not started" |
 | Network status | Standalone / IT / OT/IT / OT | decides which sign-off route applies |
-| Interfaced machines | free text ("73 Machines", "all 73 Machines (Engel)") | what the app reads or writes on the floor |
+| Interfaced machines | free text (for example "<n> machines" or "all <n> machines of <vendor>") | what the app reads or writes on the floor |
 | Status | in use, etc. | |
 
 Aggregates and what they imply are in [catalog-systems legacy-application-position](../../catalog-systems/references/legacy-application-position.md). Add to the list of questions:
@@ -63,16 +63,19 @@ From OD's own skills, not from a vendor rule:
 
 The security terms, environment access, spec format accepted by IT and any contract clauses are **not recorded**: ⟨what an external developer must receive⟩ - OD lead, IT demand management, Cyber Security.
 
-## Cases the legacy list suggests (aggregate, not note by note)
+## Cases the legacy list suggests (patterns, not counts)
 
-| Pattern in the list | Count | Implication for a package |
-|---|---:|---|
-| Camera system configuration | 25 (14 Critical) | likely X1/X2/X4 chain; the first X1 validation family is camera inspection apps |
-| Custom SCADA | 15; licence unknown on 12 | custom code with unknown licence: say so, ask supplier status |
-| Custom MES | 8 | MES rollout is on hold; a package that depends on MES is blocked |
-| Internal Mendix apps | 9 | assimilation candidate under X2; source is held by the department |
-| Quality software | 10 | OESL licence required on 4 |
-| Laboratory software | 52; licence unknown on 30 | usually standalone; low IT interface |
+Group the live legacy list by application category and read these patterns; count each group and its Critical and
+unknown-licence members on the day you assemble the package.
+
+| Pattern in the list | Implication for a package |
+|---|---|
+| Camera system configuration | likely X1/X2/X4 chain; the first X1 validation family is camera inspection apps |
+| Custom SCADA | custom code, often with unknown licence: say so, ask supplier status |
+| Custom MES | MES rollout is on hold; a package that depends on MES is blocked |
+| Internal Mendix apps | assimilation candidate under X2; source is held by the department |
+| Quality software | check which entries require an OESL licence |
+| Laboratory software | usually standalone; low IT interface; licence status often unknown |
 
 ## Open
 

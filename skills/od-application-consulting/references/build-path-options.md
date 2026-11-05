@@ -27,9 +27,9 @@ Precondition for all four: the need has passed the footprint check (`od-system-f
 Recorded design intent for app onboarding (work vault, Manufacturing App Store initiative, Graph/Keynote
 Initiatives and its business case, read 2026-11-05): three onboarding scenarios - internal development;
 external development with the source owned; external development with no source access - through a
-source repository, continuous integration, a container registry and a GitOps tool; infrastructure "stated
-as enabled in 15+ locations" in a 2026 initiative deck. These come from an AI-at-operations business case
-(X1, tier "Big Bet", confidence "Med", the case's own key risk: plants accepting central orchestration),
+source repository, continuous integration, a container registry and a GitOps tool; infrastructure whose
+rollout extent is stated in an initiative deck (look up: Graph/Keynote Initiatives; do not quote it from here). These come from an AI-at-operations business case
+(tier and confidence are in the case itself; its own key risk: plants accepting central orchestration),
 a proposal and not an approved programme. Use it to understand where 3a is heading, not to promise it.
 
 ## How to choose, in order

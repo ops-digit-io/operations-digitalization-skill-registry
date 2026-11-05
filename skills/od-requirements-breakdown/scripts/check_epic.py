@@ -9,9 +9,9 @@ what is still a placeholder, and what has been filled with a sentence that would
 epic in the portfolio.
 
 The checks encode this portfolio's measured failure pattern, not a generic agile rulebook.
-Of the 650 leaf user stories in the estate: 59 carry an "I want" tag, 3 mention acceptance
-criteria, and 0 carry a "so that" that differs from the generated one. The structure was
-never the problem.
+In the estate's leaf user stories, very few carry an "I want" tag, almost none mention
+acceptance criteria, and none carry a "so that" that differs from the generated one. The
+structure was never the problem.
 
 Exit code: 2 if any BLOCKER, 1 if any WARN, 0 otherwise.
 """
@@ -43,7 +43,7 @@ FILLER = re.compile(
     r"have|has|more|less|better|faster|so|that|this|their|there|can|will|would|"
     r"process|processes|machine|machines|data|plant|team|line|lines)\b", re.I)
 
-# Placeholder roles carried by all 650 generated stories.
+# Placeholder roles carried by every generated story.
 VAGUE_ROLE = re.compile(
     r"^\s*(the\s+)?(shop[- ]?floor|process team|shop[- ]?floor\s*/\s*process team|"
     r"operations|the team|user|users|management|everyone|we)\s*$", re.I)
@@ -123,11 +123,11 @@ def check_statement(body: str, label: str, findings: list, prefix: str) -> None:
         add(findings, "BLOCKER", f"{prefix}-role", f"{label}: the role is still a placeholder.")
     elif VAGUE_ROLE.match(re.sub(r"[*_]", "", role)):
         add(findings, "BLOCKER", f"{prefix}-role",
-            f"{label}: role is '{role}' — the placeholder carried by all 650 generated stories.",
+            f"{label}: role is '{role}' — the placeholder carried by every generated story.",
             fix="Name the plant role: shift leader, process engineer, maintenance planner.")
     if PLACEHOLDER.search(want) or len(want) < 8:
         add(findings, "BLOCKER", f"{prefix}-want",
-            f"{label}: the capability is not stated. 591 of 650 stories read '(not tagged)'.")
+            f"{label}: the capability is not stated. most generated stories read '(not tagged)'.")
     if PLACEHOLDER.search(why):
         add(findings, "BLOCKER", f"{prefix}-reason", f"{label}: the reason is still a placeholder.")
     else:
@@ -223,7 +223,7 @@ def analyze(path: str) -> list[dict]:
         acc_body = fields.get("acceptance criteria", "")
         if not acc_body.strip():
             add(findings, "BLOCKER", "story-no-acceptance",
-                f"{short}: no acceptance criteria. 3 of 650 use cases in the estate have any.")
+                f"{short}: no acceptance criteria. Almost no use case in the estate has any.")
         else:
             if not GIVEN_WHEN_THEN.search(acc_body):
                 add(findings, "WARN", "story-acceptance-prose",
@@ -252,8 +252,8 @@ def analyze(path: str) -> list[dict]:
                     add(findings, "BLOCKER", "signal-unverified",
                         f"{short}: signal '{cells[0]}' has no existence verdict.",
                         fix="Verify via od-data-availability-check. Assumed signals are the "
-                            "most common late failure — 131 of 650 use cases carry a "
-                            "machine-connectivity blocker.")
+                            "most common late failure — machine connectivity is a "
+                            "recurring blocker class in the estate.")
                     break
 
         if "depends on" not in fields and "sequencing" not in fields:

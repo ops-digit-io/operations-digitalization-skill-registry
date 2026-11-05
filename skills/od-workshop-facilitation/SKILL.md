@@ -25,7 +25,7 @@ metadata:
     - Work vault (Work-OpsDigit-Knowledge), Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (AMT_MI_UC-Standard_Agenda slides 2 to 5, 55 to 96; Workshop_Summary; OESL Standard Agenda with Interactive Session; Use Case Canvas and Use Case Utilization templates; Creation Process intro), read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Slide Index of 10-Workshops (Carei 2024 agenda, canvas and summary; Carei 2025 and Dolne Vestenice 2025 integration workshops; Korbach 2025 equipment integration workshop agenda and summary; Mako and Vac 2023 seven-day agenda), read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Slide Index of 01-Smart_Factory_Use_Case_Support_Service_Workflow, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Case Groups overview (white space and delivered-without-saving counts), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Case Groups overview (white space and delivered-without-saving case groups), read 2026-11-05
     - Skill od-use-case-definition, SKILL.md and assets (questionnaire and protocol that run inside a definition workshop)
     - Skill od-use-case-intake-triage, refusal playbook (tool-availability check before accepting a use case)
   okf:
@@ -51,7 +51,7 @@ other decisions).
 
 | File | Use it for |
 |---|---|
-| [`references/workshop-formats.md`](references/workshop-formats.md) | The formats OD has actually run (definition, integration, equipment integration, machine integration, savings), their purpose lines, days, audience and typical outputs, with the workshops on record |
+| [`references/workshop-formats.md`](references/workshop-formats.md) | The formats OD has actually run (definition, integration, equipment integration, machine integration, savings), their purpose lines, days, audience and typical outputs, and where to find the workshops on record |
 | [`assets/workshop-agenda-and-preread.md`](assets/workshop-agenda-and-preread.md) | Agenda skeletons per format and the pre-read checklist to send |
 | [`assets/workshop-capture-template.md`](assets/workshop-capture-template.md) | The sheet filled during the workshop: demand list, canvas, savings pre-evaluation, tool and machine assessment, decisions |
 | [`assets/workshop-follow-up-list.md`](assets/workshop-follow-up-list.md) | The follow-up list and summary skeleton to close the workshop |
@@ -66,7 +66,7 @@ other decisions).
    an ad-hoc process issue and no use case, it is not a workshop; use `od-first-aid-kit`.
 2. **State purpose and timeframe** in the style of OD's own agenda slide: a short purpose list
    (what is defined, what status is followed up, what is prioritized, what project it starts) and a
-   preferred window agreed with the plant. See the Carei 2024 example in the formats reference.
+   preferred window agreed with the plant. See the plant-agenda example in the formats reference.
 3. **Fix the audience.** The standard agenda marks each item Required or Recommended for these
    roles: Project Manager MSB, Machine Integration Lead, Quality, Production, CBS, IT (⟨what "CBS"
    stands for — the deck does not spell it out⟩). Open slide 2 of the Standard Agenda deck for the
@@ -87,12 +87,12 @@ other decisions).
 
 ### B · During
 
-7. **Day structure for a definition workshop** (OD Standard Agenda, March 2024 version, 106 slides):
+7. **Day structure for a definition workshop** (OD Standard Agenda; check the deck for the current version):
    Day 1 introduction (OD and its service lines, tools, use case creation process, use case
    library, analytics use case library); Day 2 use case definition (plant tour with focus on
    priority machines; collection of use case demand); Day 3 detail evaluation (pre-evaluation of
    found use cases for savings; assessment of Smart Factory tools needed; assessment of machine
-   integration demands). Trim days the plant already knows; the 2023 variant with an interactive
+   integration demands). Trim days the plant already knows; the earlier variant with an interactive
    session uses the six creation steps (machine integration, data availability, data
    standardization, data integration, dashboard creation, use case utilization).
 8. **Capture live, in one sheet** ([`assets/workshop-capture-template.md`](assets/workshop-capture-template.md)).
@@ -100,8 +100,8 @@ other decisions).
    duplicate of something already logged. Check the library before drafting from a blank page.
 9. **Savings: pre-evaluate, do not promise.** Use OD's pre-evaluation template with its examples
    (productivity, quality, maintenance) and mark each figure with its basis. Workshops have not
-   always produced the number: the Carei 2024 summary carried "Savings Estimation for Use Cases:
-   open task" for about 33 collected use cases. Past attempts to fit savings calculation into the
+   always produced the number: past summaries carried "Savings Estimation for Use Cases:
+   open task" for the use cases collected. Past attempts to fit savings calculation into the
    workshop agenda stalled it (`od-benefit-calculation`, review checklist), so book calculation as a
    follow-up with OD's calculator and fix the date in the room.
 10. **Rank lightly.** Classification and priority in the standard agenda: highest generalization
@@ -139,8 +139,8 @@ roadmap or returned with a reason; the follow-up list has owner roles, dates or 
 - ⟨Lead times⟩ for scheduling, pre-read and summary — not set anywhere read. Supplier: OD lead.
 - ⟨Attendance matrix⟩ per agenda item — in the deck's slide 2 table; the text extraction loses empty
   cells, so it is not reproduced here.
-- ⟨Recorded outcomes⟩ of most past workshops as counts of use cases that went live — not traced.
-  Supplier: DBVE from the use case list.
+- ⟨Recorded outcomes⟩ of past workshops (which use cases went live afterwards) — not traced.
+  Supplier: DBVE, by filtering the live use case list on workshop source.
 
 ## Do not
 

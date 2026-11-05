@@ -16,7 +16,7 @@ reads through the `DTQ-OPCUA-Connector`. No edge device in the machine cabinet, 
 supply, no mounting — the cost sits in the server, its licences and its operation instead.
 
 > **This is a concentrator, not a destination.** It is variant ③ of three ingress shapes
-> — the department's *Concept 1 — Central OPC-UA Server*, recorded at 11 plants. Machines
+> — the department's *Concept 1 — Central OPC-UA Server*, recorded at a number of plants. Machines
 > behind the Softing server are integrated into the IIoT Edge Platform via OPC UA and reach
 > the data platform through it like every other machine. ③ therefore needs both pieces — the
 > guide's own Siemens S7 recommendation says you cannot connect the PLCs *"when you have
@@ -28,7 +28,7 @@ supply, no mounting — the cost sits in the server, its licences and its operat
 greenfield.)
 
 **Sources.** Product behaviour is from the **Softing dataFEED OPC Suite V5.70 operating
-manual** (German, 1,540 pp., dated 2026-02-16), in the knowledge bundle at
+manual** (German, dated 2026-02-16), in the knowledge bundle at
 `_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf`. Page references
 below are to that manual. OESL process is from the Equipment integration guide
 (`rules.json` / `rules-next.json`). Where the two disagree, **§ Where the OESL guidance
@@ -50,7 +50,7 @@ The OESL recommendation *Central Aggregation Server — Beckhoff Integration* sa
 > Communication Protocol, focusing on **ADS port, target and source IDs**…"*
 
 **dataFEED OPC Suite V5.70 has no Beckhoff data source and no ADS driver.** The complete
-data-source list is below; Beckhoff is not on it. In the entire 1,540-page manual the word
+data-source list is below; Beckhoff is not on it. In the entire manual the word
 "Beckhoff" appears **once** — as an example of a vendor whose controllers speak *Modbus*
 (p. 222).
 
@@ -217,11 +217,11 @@ you type (p. 688). A tag whose type is not what you expected is a syntax problem
 type problem.
 
 **Structure tags to the data model, not to the PLC's layout.** The OESL guidance says "in a
-structured way (e.g. CT Base)" — confirmed still the current name. This is the moment
+structured way (e.g. CT Base)" (re-confirm the current name with the IIAE). This is the moment
 cross-plant comparability is decided:
 a tag named for its data-block address is a tag nobody at another plant can match.
 *Data model standardization (CT Base)* is already the most-recorded integration blocker in
-the estate — 23 machines — which is what deferring this step looks like.
+the estate — which is what deferring this step looks like.
 
 **Split mandatory from optional tags in the Machine CV.** Every OESL route asks for it. A
 mandatory tag missing at acceptance is a rework; an optional one missing is a note.

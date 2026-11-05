@@ -14,9 +14,9 @@ metadata:
   tier: lane
   lane: use-case-support-service
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  capacity: 2 DBVE roles
+  capacity: per the current DBVE roster
   authority_level: draft on definitions and reports; recommend on prioritization
-  escalation: OD lead (Thomas Zipf) within the ODEC/COP window
+  escalation: OD lead within the ODEC/COP window
   status: stable
   sources_read: 2026-10-23
   requires: [od-context]
@@ -112,8 +112,8 @@ Cyber Security sign-off before any connection action.
 
 | Metric | Source | Target | Intervene from |
 |---|---|---|---|
-| Integrated use cases (year) | `OD-Report-Use_Case_Integration` · Actual vs. Target | 153 (year) | IS below target-to-date — 101 vs 153 on 2026-08-10 |
-| Integrated use cases per month | same · monthly bar | 12 / month (overshoot 14) | month below 12 |
+| Integrated use cases (year) | `OD-Report-Use_Case_Integration` · Actual vs. Target | Annual target as set in the Scorecard (look up there) | Actual below target-to-date |
+| Integrated use cases per month | same · monthly bar | Monthly run-rate implied by the annual target | Month below the run-rate |
 | Use-case utilization rate | Scorecard · Use Case Utilization | No fixed target — trend only (resolved 2026-10-22, see `od-scorecard-reporting`) | low-utilization share rising |
 | Asset mix (Dashboard/Analytics/Report/App/Agent) | Use_Case_Integration · asset pie | No target — descriptive portfolio indicator | portfolio indicator |
 | Value delivery cycle (demand → live) | Not captured in any system today | No target — nothing to measure against yet | — |

@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Risk indicators](risk-indicators.md) | Skill Reference | The six registered risks with the source of each early indicator, the snapshot reading available from the vault with its date, the trigger test and the gaps that make an indicator unreadable today. |
+| [Risk indicators](risk-indicators.md) | Skill Reference | The six registered risks with the source of each early indicator, how to read each indicator live, the trigger test and the kinds of gap that make an indicator unreadable. |

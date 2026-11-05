@@ -17,7 +17,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   capacity: unknown
   authority_level: read-only on data sources; draft on assets and summaries; recommend on promotion
-  escalation: Information Integration lane for data gaps; OD lead (Thomas Zipf) via COP otherwise
+  escalation: Information Integration lane for data gaps; OD lead via COP otherwise
   status: stable
   sources_read: 2026-10-23
   requires: [od-context]
@@ -94,7 +94,7 @@ assets (author) · Scorecard · Use Case Utilization (read / update) · Ad-Hoc A
 Process First-Aid Kit (apply).
 
 Asset mix actually delivered across the portfolio: Dashboard, Analytics, Report, App,
-Agent — and dashboards dominate (173 of the 202 use cases that record an output asset).
+Agent. Dashboards are typically the most common type; count the mix live in `OD-Report-Use_Case_Integration` · Use Case Asset before quoting it.
 
 ## Autonomy
 

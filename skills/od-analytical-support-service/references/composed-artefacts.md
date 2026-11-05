@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 # Composed artefacts
 
 This lane page is a router, not a builder — each step's real output lives in the skill it
-hands off to. As of 2026-10-23, three of those are built deep enough to name directly.
+hands off to. The ones below are built deep enough to name directly.
 
 | Step | Composed skill | The real artefact |
 |---|---|---|

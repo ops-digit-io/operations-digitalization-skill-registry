@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Approval route](approval-route.md) | Skill Reference | Who decides an investment input, the recorded spend ladder and its overlap, the open budget threshold, and the gates and dependencies to record. |
-| [Cost lines](cost-lines.md) | Skill Reference | The cost lines an investment input pack can carry, which have a recorded figure in the sources (with scope and date) and which are open, plus the size of the machine estate a wave draws on. |
+| [Approval route](approval-route.md) | Skill Reference | Who decides an investment input, how to find the current spend ladder and its ambiguity, the open budget threshold, and the gates and dependencies to record. Guidance only, no amounts. |
+| [Cost lines](cost-lines.md) | Skill Reference | The cost lines an investment input pack can carry, where each line's figure must come from, and how to size a wave from the live machine records. Guidance only - no prices or estate figures. |

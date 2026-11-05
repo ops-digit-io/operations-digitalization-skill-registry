@@ -89,7 +89,7 @@ nanos. Unpack in, re-pack out, always both.
 | Different broker or topic prefix | `<edge-device>` segment differs per instance |
 | Flow disabled on prod | Common after a copy |
 | Prod instance not in the DATATRONiQ cluster | The device reports nothing and looks healthy in the cabinet |
-| Test instance carries more flows than prod | Normal here — `som` runs 97 on test against 54 on prod. Do not assume prod is the superset |
+| Test instance carries more flows than prod | Normal here — a test instance often carries more flows than its prod counterpart. Do not assume prod is the superset |
 
 ## The downstream asset is empty
 
@@ -102,7 +102,7 @@ nanos. Unpack in, re-pack out, always both.
 | Asset | The dashboard's own query and time range |
 
 **A derived packet published under the input UUID is invisible to its consumer** and looks
-like a duplicate of the source. 203 flows in the corpus never set an output UUID.
+like a duplicate of the source. Many flows never set an output UUID.
 
 ## Errors you can see, and the ones you cannot
 
@@ -116,11 +116,10 @@ The template resolves `{{flow_name}}`, `{{error.source.name}}` and `{{error.mess
 an error identifies itself without opening the editor — **provided the failing node has a
 name.** An unnamed node yields an error message that names nothing.
 
-380 flows have no `catch` at all. In those, a runtime exception is silent: the message is
+Many flows have no `catch` at all. In those, a runtime exception is silent: the message is
 dropped and nothing is reported.
 
-**`node.error` and `node.status` are barely used** across the corpus — 6 and 8 occurrences
-respectively. So a function that fails a validation check typically `return null`s and the
+**`node.error` and `node.status` are barely used** across the estate. So a function that fails a validation check typically `return null`s and the
 message vanishes without trace. When adding a guard, prefer:
 
 ```javascript

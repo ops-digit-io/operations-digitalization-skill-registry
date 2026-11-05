@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Signal catalogue
-description: "What the estate actually names its signals: 260 distinct names over 3,400 references, with the canonical name for each concept."
+description: "What the estate names its signals, how the same concept gets many names, and the canonical name for each concept. No counts; re-measure the variance on the live flow corpus."
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -10,34 +10,36 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The signal catalogue
 
-What the estate actually names its signals, mined from the flow corpus: **260 distinct
-signal names across 3,400 references** in 825 flows.
-
-**260 names for a far smaller set of concepts is the finding**, not a curiosity. It is the
-measurable form of "the catalogue is built to standardize and has not scaled".
+What the estate actually names its signals, mined from the flow corpus. **Many names for a far
+smaller set of concepts is the finding**, not a curiosity. It is the measurable form of "the
+catalogue is built to standardize and has not scaled". Measure it live: list the distinct signal
+names in the flow corpus (flow-config keys and `CT` leaves), group them by concept, and count
+references per name. Re-count before quoting.
 
 ---
 
-## The variance, quantified
+## The variance, by concept
 
-The same concept, named up to eight ways:
+The same concept is named in several ways. The groups to look for:
 
-| Concept | Names in use | References |
-|---|---|--:|
-| **Machine state** | `MachineMode` · `MachineModeNormalized` · `MachineStatus` · `MachineState` · `MachineStatusMapped` · `MachineOperationMode` · `MachineSetup` · `MachineModeSetup` | 430 |
-| **Part number** | `Partnumber` · `InternalPartnumber` · `SupplierPartnumber` · `PartnumberGauge` · `NokPartnumber` · `OkPartnumber` · `ValuePartnumber` | 100 |
-| **Tool id** | `ToolId` · `ToolIdContinuous` · `ToolIdChanging` · `ValueToolId` | 193 |
-| **Temperature** | `Temperature` · `MeltTemperature` · **`AverageMeltTempature`** *(typo, 34 refs)* | 73 |
-| **Counter** | `TotalPartCounter` · `PartCounterTrigger` · `SetupPartCounter` · `TotalCycleCounter` · `MinutesCounter` | 427 |
+| Concept | Names seen |
+|---|---|
+| **Machine state** | `MachineMode` · `MachineModeNormalized` · `MachineStatus` · `MachineState` · `MachineStatusMapped` · `MachineOperationMode` · `MachineSetup` · `MachineModeSetup` |
+| **Part number** | `Partnumber` · `InternalPartnumber` · `SupplierPartnumber` · `PartnumberGauge` · `NokPartnumber` · `OkPartnumber` · `ValuePartnumber` |
+| **Tool id** | `ToolId` · `ToolIdContinuous` · `ToolIdChanging` · `ValueToolId` |
+| **Temperature** | `Temperature` · `MeltTemperature` · plus misspelled variants (see below) |
+| **Counter** | `TotalPartCounter` · `PartCounterTrigger` · `SetupPartCounter` · `TotalCycleCounter` · `MinutesCounter` |
 
-Some of the variants are legitimate distinctions — `MachineMode` is the raw integer,
+Some of the variants are legitimate distinctions - `MachineMode` is the raw integer,
 `MachineModeNormalized` the mapped string; `ToolIdContinuous` and `ToolIdChanging` are two
 different behaviours. **Most are not.** `MachineState` versus `MachineStatus` is one concept
 spelled two ways, and a consumer matching on the name silently misses half its machines.
 
-**`AverageMeltTempature` is a misspelling with 34 references.** It is now an interface: 34
-places would break if it were corrected. That is the cost of not catching a name at
-creation, and the reason this skill exists.
+**A misspelling that has been consumed is an interface.** The corpus holds a misspelled
+temperature name (`Tempature` instead of `Temperature` inside a longer name) that is read by
+many flows, so correcting it would break each of them. That is the cost of not catching a name
+at creation, and the reason this skill exists. Find such cases with the analyser's
+`likely-typo` check and count the references to the misspelling before proposing a fix.
 
 ---
 
@@ -45,7 +47,7 @@ creation, and the reason this skill exists.
 
 Use these names. Anything else needs a reason.
 
-### Counting & throughput — 26 names in use, 1,029 references
+### Counting & throughput
 
 | Canonical | Is | Type |
 |---|---|---|
@@ -58,7 +60,7 @@ Use these names. Anything else needs a reason.
 Also observed and legitimate where the process has them: `EjectedVolume`,
 `AccuVolumeActual`, `PurgeVolume`, `MetersPerMinute`, `ShotweightEstimated`.
 
-### Cycle & timing — 23 names, 369 references
+### Cycle & timing
 
 | Canonical | Is |
 |---|---|
@@ -69,10 +71,10 @@ Also observed and legitimate where the process has them: `EjectedVolume`,
 | `LoadingTime` | Derived duration for a load phase |
 | `ProcessTime` | Duration of the process step itself |
 
-`CycleStepChain` (79 refs) is the machine's internal step sequence — genuinely
+`CycleStepChain` is the machine's internal step sequence — genuinely
 machine-specific, and correctly not normalized.
 
-### Machine state — 27 names, 430 references
+### Machine state
 
 | Canonical | Is |
 |---|---|
@@ -82,11 +84,11 @@ machine-specific, and correctly not normalized.
 | `MachineIsReleased` | Boolean release/enable |
 | `MachineSetup` | In setup |
 
-**Publish the name, not the code.** A consumer that has to know 15 means Setup is coupled to
+**Publish the name, not the code.** A consumer that has to know that a particular code means Setup is coupled to
 one PLC program. This is what `MachineModeNormalized` exists for, and why a normalization
 flow is one of the estate's standard artefacts.
 
-### Process values — 41 names, 339 references
+### Process values
 
 `Pressure` · `Temperature` · `MeltTemperature` · `StandardSpeed` · `HeatingProgram`
 
@@ -98,7 +100,7 @@ the zone or axis rather than inventing a new concept.
 The `_sv` suffix seen on `CT/…` topics marks a **setpoint** as opposed to the measured
 value. Keep that distinction; losing it makes a dashboard compare a target with itself.
 
-### Quality & limits — 13 names, 238 references
+### Quality & limits
 
 | Canonical | Is |
 |---|---|
@@ -113,14 +115,14 @@ This family is **the most consistently named in the whole estate**, and it is no
 it is the one built as a multi-input rule from the start. Consistency follows from having a
 model, not from discipline.
 
-### Identification — 14 names, 311 references
+### Identification
 
 `ToolId` · `Partnumber` · `RecipeId`
 
 Qualify a derived variant rather than coining a new root: `Partnumber` with an `Ok`/`Nok`
 qualifier is one concept with a state, not two concepts.
 
-### Alerting — 4 names, 20 references
+### Alerting
 
 `ErrorActive` · `AlertMessage`
 
@@ -131,16 +133,15 @@ named signal per alert. That is the right shape — see the alerting artefact.
 
 ## What must never be a signal name
 
-**Raw PLC addressing.** The corpus contains `_part0_io`, `_part1_io` … `_part4_io`,
-`_automatic`, `_stra`, `_feature0`. These are PLC tag names that reached the data-point
-config unchanged.
+**Raw PLC addressing.** PLC symbol names such as `_part0_io` or `_automatic` (illustrative) that
+reach the data-point config unchanged. Look for them with the analyser's `raw-plc-tag` check.
 
 A name like `DB15.DBW20` or `_part0_io` is:
 
 - **unmatched at any other plant**, because the address is a property of one PLC program;
 - **silently wrong after a PLC change**, because the address moves and the name does not;
-- **the single most-recorded integration blocker in the estate** — *data model
-  standardization*, 23 machines.
+- **a recurring integration blocker** — *data model standardization* is among the most
+  recorded blocker classes (tally it live on the Machine List blocker text).
 
 The analyser flags these as blockers.
 

@@ -37,7 +37,7 @@ Before declaring it blocked, work down this list. Each rung avoids the PLC entir
 | 3 | **Does the machine write a file?** FTP or SMB drop, CSV/log export | `DTQ-FTP2MIL-Connector`, `DTQ-SMB-Connector` — no program |
 | 4 | **Does it expose HTTP / SOAP / a web service?** | `DTQ-Multicon CMC131-Connector` (HTTP(S)), `DTQ-PIOVAN-Connector` (SOAP) |
 | 5 | **Is there a serial interface?** | `DTQ-RS232-Connector` |
-| 6 | **Is the needed signal available on a *neighbouring* PLC?** | The estate records exactly this for robot signals — 5 machines. The line PLC may already read what the machine will not give up |
+| 6 | **Is the needed signal available on a *neighbouring* PLC?** | The estate records this pattern for robot signals. The line PLC may already read what the machine will not give up |
 | 7 | **Can a sensor be added instead of reading the machine?** | A remote sensor or camera is a supported endpoint class and needs no program at all |
 
 **Then, and only then:** request the program from the machine supplier and record the
@@ -121,11 +121,11 @@ that shortens it.
 - External connections need **Cyber Security / OT sign-off** before scheduling, not after.
 - Endpoints must be connected per the **OT cyber-security rules** in the Connext Wiki.
 - The estate records this as a real blocker in two shapes: *firmware patching required for
-  cyber security* (13 machines) and *vulnerability, patch before integration* (5).
+  cyber security* and *vulnerability, patch before integration*.
 
 **Try:** bundle the sign-off with the wave rather than requesting it per machine — that is
 the department's own strategy bet (Cyber Security bundled with the MSB rollout at strategic
-plants). A wave-level approval is one conversation; twenty machine-level ones are twenty.
+plants). A wave-level approval is one conversation; many machine-level ones are as many conversations.
 
 **Never:** connect anyway and record it afterwards.
 
@@ -185,7 +185,7 @@ V5.70. Both sit in the happy path of a route somebody will try this month.
 
 *Central Aggregation Server — Beckhoff Integration* says to select Beckhoff under Data
 Sources and choose the ADS protocol. **dataFEED V5.70 has neither.** The word
-"Beckhoff" appears once in the 1,540-page manual — as an example of a vendor whose
+"Beckhoff" appears only once in the manual — as an example of a vendor whose
 controllers speak Modbus.
 
 | Reach a Beckhoff PLC via | Requires |
@@ -238,7 +238,7 @@ The integration "worked" and there is no data. In order of likelihood:
 | Siemens connection refuses | **Rack / slot** and the **RFC1006 header** |
 | Beckhoff connection refuses despite correct IP | **AMS route** missing on the PLC side |
 | Modbus values present but nonsense | **No conversion** — raw counts were never scaled to engineering units. Modbus has no type system and will not complain |
-| Values arrive but no use case can compare them across plants | **Tags were structured to the PLC layout, not to a data model.** `Data model standardization (CT Base)` is the estate's most-recorded blocker at 23 machines |
+| Values arrive but no use case can compare them across plants | **Tags were structured to the PLC layout, not to a data model.** `Data model standardization (CT Base)` is among the estate's most-recorded blockers |
 | A PLC-5 / SLC tag reads a real but wrong value | **Input and output files are octal-addressed**; every other file type is decimal |
 | A string comes back truncated or with two junk characters | **S7 strings carry a two-byte length prefix, S5 strings do not** — same syntax, different encoding. Check the global string-interpretation setting |
 | Aggregation server degrading as machines are added | **Cyclic read intervals** below the guidance values; **read optimization** off; **tag browsing** left on after commissioning |

@@ -1,8 +1,8 @@
 ---
 name: od-portfolio-and-savings-analysis
 description: >-
-  Analyse the OD portfolio and its savings ledger without being wrong about it — cut 650
-  use cases by plant, region, capability, cluster, status and asset; read the savings
+  Analyse the OD portfolio and its savings ledger without being wrong about it — cut the
+  plant use cases by plant, region, capability, cluster, status and asset; read the savings
   ledger for what it does and does not claim; and apply the three ways this data most
   often misleads (absence read as zero, tracked read as proven, implemented read as in
   use). Use for any portfolio question, regional or plant comparison, standardization or
@@ -50,67 +50,58 @@ Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol
 document per review round, built from `od-sharepoint-list-export`'s capture and
 `od-benefit-calculation`'s ledger, feeding `od-scorecard-reporting`'s round prep.
 
-## The shape of the portfolio
+## The shape of the portfolio: how to read it, not what it is
 
-650 plant use cases.
+This skill carries no counts. Every figure comes from a live read of the use case list
+(`od-sharepoint-list-export`) with its capture date. The cuts to take, and what each field means:
 
-| Delivery status | Count | Means |
-|---|--:|---|
-| `IDEA` | 229 | Recorded, not yet committed to a plan |
-| `PLANNED` | 122 | Committed, not yet built |
-| `IMPLEMENTED` | 129 | Built and handed to the plant |
-| `PRODUCTIVE` | 167 | In daily use |
-| `STOPPED` | 2 | Deliberately discontinued |
+| Delivery status | Means |
+|---|---|
+| `IDEA` | Recorded, not yet committed to a plan |
+| `PLANNED` | Committed, not yet built |
+| `IMPLEMENTED` | Built and handed to the plant |
+| `PRODUCTIVE` | In daily use |
+| `STOPPED` | Deliberately discontinued |
 
-Roughly **45 % of what has been asked for has been built**, and the rest is a queue with a
-known shape rather than a wish list.
+The share of what has been asked for that has been built is `IMPLEMENTED` plus `PRODUCTIVE`
+over all use cases; the rest is a queue with a known shape rather than a wish list. Always
+state the denominator.
 
-| Workflow state | DONE | ONGOING |
-|---|--:|--:|
-| Development | 307 | 30 |
-| Implementation | 303 | 27 |
-| Handover | 272 | 38 |
+- **Workflow state** (Development, Implementation, Handover, each `DONE` or `ONGOING`):
+  read it as a funnel, and cross-check it against the delivery status before quoting either;
+  the two are maintained separately and can disagree.
+- **Category**: standard use case cross process, standard per process, non-standard unique
+  to one plant, AI use case (generative, ML or deep learning). Rank within a category.
+- **Rollout phase** (`PHASE 1` onwards) is recorded only on some use cases. Phases are
+  **named rollout batches, not sequential queues**; a blank phase is not "phase 0".
+- **Output asset** (dashboard, report, app, analytics workflow, agent) and **utilization**
+  (Daily, Weekly, Monthly, On-Demand, `NEVER`) are recorded only where someone filled them.
+  Count the recorded ones as the denominator, never the whole portfolio.
 
-| Category | Count |
-|---|--:|
-| Standard use case, cross process | 253 |
-| Standard use case, per process | 222 |
-| Non-standard, unique to one plant | 88 |
-| AI use case (generative, ML or deep learning) | 20 |
+## Regional shape: the finding that matters most
 
-Rollout phase `PHASE 1`–`PHASE 5` is recorded on 319 use cases; Phase 1 is largest (197),
-Phase 5 second (73). Phases are **named rollout batches, not sequential queues**.
-
-Output assets, of the 202 that record one: 173 dashboards, 12 reports, 11 apps,
-5 analytics workflows, 1 agent. Utilization, where recorded: 125 daily, 8 `NEVER`.
-
-## Regional shape — the finding that matters most
-
-| Region | Use cases | Productive | Conversion |
-|---|--:|--:|---|
-| Europe | 312 | 81 | 26 % |
-| Americas | 168 | 70 | **42 % — best in the estate** |
-| Asia | 138 | 16 | 12 % |
-
-**Asia is a different problem from Europe, not a smaller one.** Any plan that treats the
-three regions as scaled copies of each other will fail in Asia. The Americas' conversion
-rate is the one worth interrogating for what it does differently.
+Cut use cases, productive use cases and conversion (productive over all) per region, live.
+Expect the regions to differ sharply, and never blend them (`references/regional-handling.md`).
+**A low-converting region is a different problem from a high-converting one, not a smaller
+one.** Any plan that treats the regions as scaled copies of each other will fail in the
+weakest one. The best-converting region's rate is the one worth interrogating for what it
+does differently.
 
 ## The savings ledger
 
-553 rows, **€2,384,217 tracked**, **€653,820 proven** across 19 rows. Reliability:
-43 `CALCULATION`, 36 `ESTIMATION`, **474 not recorded**. Automated 477, manual 76. Only
-**62 of 650 use cases carry a saving figure of any kind.**
-
-The tracker was actively maintained for a period and then largely abandoned. Treat the
-total as a **floor on what has been captured**. See `od-benefit-calculation` for how a
+Read the ledger live: row count, tracked euros, proven euros and proven rows, the split by
+reliability (`CALCULATION`, `ESTIMATION`, not recorded), automated versus manual rows, and
+the number of use cases that carry a saving figure of any kind. Quote each with its capture
+date. Pattern to expect: the tracker was actively maintained for a period and then largely
+abandoned, so the reliability field is mostly empty and few use cases carry a figure. Treat
+the total as a **floor on what has been captured**. See `od-benefit-calculation` for how a
 row is built and what may be added to what.
 
 ## The three ways this data misleads
 
-1. **Absence read as a zero.** 362 use cases carry `UNKNOWN` priority, 405 `UNKNOWN`
-   potential, 474 saving rows no reliability. "The top priorities" phrased so that the
-   remainder is low is reading absence as an answer.
+1. **Absence read as a zero.** Many use cases carry `UNKNOWN` priority or `UNKNOWN`
+   potential, and many saving rows carry no reliability. "The top priorities" phrased so
+   that the remainder is low is reading absence as an answer.
 2. **Tracked read as proven.** Never add the two.
 3. **`IMPLEMENTED` read as in use.** It is not; that is what `PRODUCTIVE` and the
    utilization field are for.
@@ -122,13 +113,13 @@ Rationale, blockers and comments were written during active work and later tidie
 
 ## Standing findings to check an analysis against
 
-- **The catalogue is built to standardize and has not scaled.** Every capability is
-  instantiated at 32 or 33 of 33 plants, so templates are not the constraint — adoption of
-  the proven instance is.
-- **The savings ledger is mostly empty scaffolding.**
+- **The catalogue is built to standardize and has not scaled.** Capabilities are
+  instantiated at (nearly) every plant, so templates are not the constraint — adoption of
+  the proven instance is. Verify on the live capability instance list.
+- **The savings ledger is mostly empty scaffolding.** Verify by counting blank reliability.
 - **The regions are not variations of one another.**
-- **C12 "Other and plant-specific" at 168 use cases is a data-quality signal**, not only a
-  topical one.
+- **C12 "Other and plant-specific" is a data-quality signal**, not only a topical one;
+  track its size over time rather than quoting it once.
 
 ## Procedure
 

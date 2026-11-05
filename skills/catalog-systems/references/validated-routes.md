@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Validated routes
-description: The integration routes that are both written down and proven in the field, by controller family, with machine counts and plant counts from the Machine List - the evidence base for a standard-system entry. Open it before you say "there is a standard system for this machine".
+description: Guidance, no figures - how to classify an integration route as written-and-proven, proven-but-unwritten, fallback or none, from the guide and the Machine List, and how to count the evidence live. Open it before you say "there is a standard system for this machine".
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,64 +10,95 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Validated routes
 
-A route is a **standard-system candidate** when it is (a) written down in full in the equipment-integration guide and (b) proven by machines recorded as `INTEGRATED` through it. The third part of a standard system, a purchasable kit with price and lead time, is **not recorded anywhere** the skill could read, so no row below is a finished standard system. Rows are ranked by evidence.
+This file holds **no counts**. It teaches how to decide whether a route is a standard-system candidate and how to gather the
+evidence live. Re-count on the live list before quoting a figure, and name the list and date.
 
-Sources, all read 2026-11-05:
-- Machine List aggregate: the 1,715 notes in vault `Graph/Machines` (fields `plc_vendor`, `plc_model`, `network_protocol`, `integration_status`, `integration_method`), counted by script. 28 plants appear. The list is a SharePoint export of 2026-08-24; 451 machines carry no integration status and 542 carry no method.
-- Route status: skill `od-equipment-integration`, `references/decision-paths.md` (rules.json live tree and rules-next.json).
-- Connector status: vault `Graph/Connectors` (26 notes) and `references/connectors.md` of the same skill.
-- Method names in the list: `IIoT Edge Computing Platform` = Concept 3 (edge route, topologies 1 and 2 of the guide); `Central OPCUA Aggregation Server` = Concept 1 (topology 3); `EVALUATION ONGOING` = 117 machines not yet decided.
+A route is a **standard-system candidate** when it is (a) written down in full in the equipment-integration guide and
+(b) proven by machines recorded as `INTEGRATED` through it, in at least two plants. The third part of a standard system, a
+purchasable kit with price and lead time, is **not recorded anywhere** the skill could read, so no route is a finished
+standard system. Rank routes by evidence.
 
-## Class A - written route, proven in at least two plants (standard-system candidates)
+## Where to read the evidence
 
-| Controller family | Route | Machines `INTEGRATED` through it | Plants | Connector (status) | Notes |
-|---|---|---:|---:|---|---|
-| Siemens S7 / TIA (S7-300, S7-1200, S7-1500) | edge device + `DTQ-S7` / `DTQ-TIA` / `DTQ-S7-NET` | 223 (S7-1500: 76, S7-300: 62, S7-1200: 50; 32 without a model) | 17 | Productive, USE | Only the large edge device is approved; no approved small device (decision-paths). Low-frequency S7-NET is the answer where a device is not wanted |
-| Siemens S7 / TIA | Central Aggregation Server (Softing dataFEED) + bridge `DTQ-OPCUA-Connector` | 178 (S7-1200: 56, S7-300: 49, S7-1500: 14, 29 without a model; also S7-200: 15, Sinumerik: 11, LOGO: 4) | 8 | SFT-OPC-Suite Productive; `DTQ-OPCUA` Productive | Needs the edge platform behind the server. `SFT-SIMATIC S7-Connector` is DO NOT USE (no cyber-security-compliant PLC communication) |
-| Rockwell / Allen Bradley | edge device + `DTQ-ALLENBRADLEY-ROCKWELL` | 36 (plus 57 with no method recorded, one plant) | 3 | Productive, USE | |
-| Rockwell / Allen Bradley | Central Aggregation Server | 20 | 2 | as above | Procedure fully written in rules-next |
+- **Machine List** (SharePoint list, mirrored in vault `Graph/Machines`; fields `plc_vendor`, `plc_model`,
+  `network_protocol`, `integration_status`, `integration_method`). Export it with `od-sharepoint-list-export`, group by
+  controller vendor and model, method and status, and count machines and distinct plants per group.
+- **Route status**: skill `od-equipment-integration`, `references/decision-paths.md` (the live tree and the "next" tree).
+- **Connector status**: vault `Graph/Connectors` and `references/connectors.md` of the same skill (status such as
+  Productive, Idea, Development; utilization such as USE, NOT AVAILABLE, DO NOT USE).
+- **Method names in the list**: `IIoT Edge Computing Platform` = Concept 3 (edge route, topologies 1 and 2 of the guide);
+  `Central OPCUA Aggregation Server` = Concept 1 (topology 3); `EVALUATION ONGOING` = not yet decided.
 
-Observations: in the Machine List 17 plants have machines integrated through the edge, 11 through the aggregation server and 8 through both (the guide also states eight plants with both), so the choice is per machine, not per plant (`od-equipment-integration`). Of the Machine List's 821 integrated machines, 343 are recorded through the edge, 286 through the aggregation server, 1 under evaluation and 191 with **no method recorded** (4 plants).
+## Data-quality traps when counting
 
-## Class B - proven in the field, but the guide's procedure is unwritten (`TODO` or stub)
+- A blank integration status is not "not integrated"; a blank method is not "no method used". Report blanks as their own
+  group, never fold them into another.
+- A blank or misspelled vendor ("Bachmann OPC" for "Bachmann") splits one family into several groups; normalise before
+  counting.
+- A route can be ahead of the guide: machines may be recorded as integrated through a route the guide still marks as a task
+  stub. That is an update for the integration owner, not a reason to call the route written.
+- The per-machine choice of route differs within one plant: some plants have machines on both the edge and the aggregation
+  server. Evidence is per machine, not per plant.
+- Sum of plants per route does not match the tool notes' rollout records (integration happened before the rollout was
+  recorded, or the records were not updated). Treat as a question for the IIAE, not an error to fix silently.
 
-| Controller family | Route | Machines `INTEGRATED` | Plants | Connector (status) | Why it is not yet a standard system |
-|---|---|---:|---:|---|---|
-| Beckhoff | edge + `DTQ-Beckhoff` (ADS) | 17 | 2 | Productive, USE; documentation not available | The edge procedure body is `TODO`; Softing has **no Beckhoff driver**; 22 further Beckhoff machines (of 42) are `NOT INTEGRATED` - 15 of them recorded on the edge route, 7 with no method |
-| Omron NJ / CJ | edge + `DTQ-OMRON FINS` | 12 | 2 | Productive, USE | Edge body is a task stub; aggregation only "next" |
-| Modbus TCP | aggregation server (documented route) | 20 on aggregation, 58 with no method recorded (one plant) | 2 (aggregation) | `DTQ-MODBUS` status `Idea` but utilization `USE` - confirm with the IIAE | Edge body `TODO` |
-| Keyence camera / sensor | edge + `DTQ-KEYENCECAM` (FTP) | 12 | 1 | Productive, USE | Non-PLC connector, one plant |
+## The four classes
 
-The scaffold treated "Beckhoff on the edge platform" as a route with no record behind it. The Machine List shows **17 machines already integrated that way at two plants**. What is missing is the written procedure and its documentation, not a first deployment. The rule stays: a `TODO` route is not a standard system until the IIAE writes the procedure.
+### Class A - written route, proven in at least two plants (standard-system candidates)
 
-## Class C - proven only through a fallback or with a single plant
+Recognise: the guide has the full procedure, the connector is productive, several plants have machines integrated through it.
+Typical members: Siemens S7 / TIA on the edge (`DTQ-S7` / `DTQ-TIA` / `DTQ-S7-NET`) and on the central aggregation server
+(Softing dataFEED plus bridge `DTQ-OPCUA-Connector`); Rockwell / Allen Bradley on the edge (`DTQ-ALLENBRADLEY-ROCKWELL`) and
+on the aggregation server. Rules that hold for the technology and the policy:
 
-| Controller family | Route | Machines `INTEGRATED` | Plants | Connector (status) | Why it is not a candidate |
-|---|---|---:|---:|---|---|
-| B&R (Automation PC) | aggregation server (dataFEED has a B&R driver) | 29 (30 of 32 machines per decision-paths) | 1 (Dolne Vestenice; the list also holds B&R machines at Waltershausen) | `DTQ-B&R` status `Idea`, not available | Written body is `TODO`; one plant |
-| Bachmann (MX213 / MX220) | aggregation server over OPC UA | 16 on aggregation + 28 with no method (includes 24 rows with the vendor spelled "Bachmann OPC") | 2 | `DTQ-Bachmann` status `Idea`, not available | Same; 10 Bachmann machines `NOT INTEGRATED` |
-| Mitsubishi (Melsec-Q) | aggregation only | 3 | 2 | none | Task list only; 7 more under evaluation |
-| Siemens S7-200 | aggregation | 15 | 2 | `DTQ-S7` covers S7-300/400 | The model is not in the guide's tree |
-| Sinumerik NCU | edge + `DTQ-SINUMERIK` (UDP/IP), written in the live tree | 12 (edge 1, aggregation 11) | 2 across both | Productive, USE | Edge evidence is one machine; the aggregation column is marked "next" in the guide, yet 11 machines are recorded on it - the field is ahead of the guide's live tree |
-| Engel injection moulding | no vendor connector (decision-paths notes that current Engel controllers serve OPC UA); 31 machines carry no method | 32 (31 with no method) | 2 | `DTQ-Engel EMI` status `Idea`, not available | 38 Engel machines in the list; 6 `NOT INTEGRATED` on aggregation |
-| Schneider | no method recorded | 32 | 1 | none | Single plant, route not recorded |
+- Only the large edge device is approved; there is no approved small device (decision-paths). Low-frequency `S7-NET` is
+  the answer where a device is not wanted.
+- The aggregation-server route needs the edge platform behind the server. `SFT-SIMATIC S7-Connector` is DO NOT USE (no
+  cyber-security-compliant PLC communication).
 
-## Class D - no route, or blocked
+### Class B - proven in the field, but the guide's procedure is unwritten (`TODO` or stub)
 
-- **Delta Electronic** (14 machines, all `NOT INTEGRATED`, 2 plants), **Philips** (9, 1 plant), **Mitsubishi** beyond the 3 above (7 under evaluation): no route in the guide. Anything not in the tree is "Integration of Other PLCs": connector development, long lead times (decision-paths) - this is Lane 3b, not 1b.
-- **Camera systems** cannot go through the aggregation server; edge only (rules-next).
+Recognise: machines are recorded as integrated through the route, but the guide's body for it is `TODO` or a task stub, or
+the connector documentation is not available. Typical members: Beckhoff on the edge (`DTQ-Beckhoff`, ADS; Softing has **no
+Beckhoff driver**), Omron NJ / CJ on the edge (`DTQ-OMRON FINS`), Modbus TCP on the aggregation server, Keyence camera /
+sensor on the edge (`DTQ-KEYENCECAM`, FTP; a non-PLC connector).
+
+What is missing is the written procedure and its documentation, not a first deployment. A route marked `TODO` is not a
+standard system until the IIAE writes the procedure. Say plainly: "this has been done, but the procedure is not written".
+
+### Class C - proven only through a fallback or at a single plant
+
+Recognise: one plant only, or only via a fallback, or the connector status is `Idea` / not available. Typical members: B&R
+(aggregation server; dataFEED has a B&R driver), Bachmann over OPC UA, Mitsubishi Melsec-Q (aggregation only), Siemens
+S7-200 (not in the guide's tree), Sinumerik NCU (`DTQ-SINUMERIK`, UDP/IP), Engel injection moulding (no vendor connector;
+current Engel controllers serve OPC UA), Schneider (no method recorded). Also expect the field to be ahead of the guide here.
+Not a candidate.
+
+### Class D - no route, or blocked
+
+- Controllers with no route in the guide (for example Delta Electronic, Philips, Mitsubishi beyond the aggregation route):
+  anything not in the tree is "Integration of Other PLCs": connector development, long lead times (decision-paths). This is
+  Lane 3b, not 1b.
+- Camera systems cannot go through the aggregation server; edge only (rules-next).
 - A machine **without the PLC program** cannot be connected; see `od-equipment-integration`, `references/fallbacks.md`.
-- **Vendor not recorded** on 133 machines (91 of them integrated, 23 not): do not place a machine in a class until its controller is known.
+- **Vendor not recorded** on a machine: do not place it in a class until its controller is known.
 
-## How to read a machine against this table
+## How to read a machine against this classification
 
 1. Controller vendor and model from the Machine List (a blank is unknown, not a "No").
-2. Find the row. Class A: continue on branch 1b with that route; cost, lead time and kit are still ⟨to be supplied⟩ (see [standard-system-entry.md](../assets/standard-system-entry.md)).
-3. Class B or C: say plainly "this has been done at N plants but the procedure is not written"; hand to the IIAE and `od-barrier-triage` / Lane 3b. Do not offer it as a standard system.
+2. Find the family. Class A: continue on branch 1b with that route; cost, lead time and kit are still ⟨to be supplied⟩ (see
+   [standard-system-entry.md](../assets/standard-system-entry.md)).
+3. Class B or C: say plainly "this has been done at other plants but the procedure is not written"; hand to the IIAE and
+   `od-barrier-triage` / Lane 3b. Do not offer it as a standard system.
 4. Class D or no row: no standard system; hand to `od-system-fit-check` and Lane 3b.
+
+Re-derive the class of each family on the live list and live guide before relying on the typical members above: routes move
+between classes when procedures are written or more plants prove them.
 
 ## Open
 
 - ⟨The list of purchasable kits per route, prices and lead times⟩ - OD lead, IIAE, procurement; not in the vault notes read.
-- ⟨Why 191 integrated machines (4 plants) carry no method⟩ and ⟨whether the 117 `EVALUATION ONGOING` machines will land on edge or aggregation⟩ - IIAE.
-- ⟨Whether the guide's "TODO" for Beckhoff and Omron on the edge is still current⟩ given that 29 machines are integrated that way - IIAE.
+- ⟨Why some integrated machines carry no method⟩ and ⟨whether machines under `EVALUATION ONGOING` will land on edge or
+  aggregation⟩ - IIAE.
+- ⟨Whether the guide's `TODO` for Beckhoff and Omron on the edge is still current⟩ given that machines are recorded as
+  integrated that way - IIAE.

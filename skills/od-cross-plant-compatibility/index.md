@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Cross-plant compatibility check](SKILL.md) | Agent Skill | Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of the instance), test the standard against each difference, and write a verdict per plant that is consumable, consumable with a mapping, not consumable or unknown. Use when a signal standard or data-model change is about to be recommended, when a use case from one plant is proposed for another, when a flow or dashboard hard-codes something plant-specific, or when someone asks whether a standard will hold at the other 32 plants. |
+| [Cross-plant compatibility check](SKILL.md) | Agent Skill | Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of the instance), test the standard against each difference, and write a verdict per plant that is consumable, consumable with a mapping, not consumable or unknown. Use when a signal standard or data-model change is about to be recommended, when a use case from one plant is proposed for another, when a flow or dashboard hard-codes something plant-specific, or when someone asks whether a standard will hold at the other plants. |
 
 | Folder | Holds |
 |---|---|
