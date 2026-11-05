@@ -2,7 +2,7 @@
 name: od-impact-evaluation
 description: >-
   Evaluate the impact of a use case that is live in a plant and prepare the adoption confirmation record - what the use case is used for, how often, what changed in the process, what saving can be shown and at what firmness (calculated, estimated, linked to a SPRINT project, proven), and what the plant owner still has to confirm. Drafts the evaluation; the plant confirms adoption. Use when a use case has been live for a while and the lane's last step is due, when the Scorecard shows low or NEVER utilization, when a saving needs a methodology before it goes to SPRINT, or when a delivered use case has no saving recorded.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-impact-evaluation

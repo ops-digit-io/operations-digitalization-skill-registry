@@ -2,7 +2,7 @@
 name: od-workshop-facilitation
 description: >-
   Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evaluation, tool and machine needs in one template, and turn the output into a follow-up list with owners. Drafts all materials; the DBVE facilitates and the Plant ME owns the plant side. Use when a definition or integration workshop is requested or scheduled, when a plant is onboarded or a new demand wave starts, when a use case is ready for integration, or when workshop output exists but no follow-up list.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-workshop-facilitation

@@ -8,7 +8,7 @@ description: >-
   naming the skill, the artefact and the role for each stage. Use when a plant enters OD scope,
   when a plant has records but no roadmap, when a local key user asks where to start, or when a
   plant's onboarding has stalled and the missing stage must be found.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-plant-onboarding

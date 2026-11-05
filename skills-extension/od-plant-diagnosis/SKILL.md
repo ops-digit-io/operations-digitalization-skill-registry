@@ -9,7 +9,7 @@ description: >-
   but save differently, when a plant enters OD scope and must be tiered, when a plant or regional
   roadmap must be drafted or refreshed, when a call needs per-plant status and call-for-action text, or
   when interview notes must be turned into a diagnosis.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-plant-diagnosis

@@ -7,7 +7,7 @@ description: >-
   watch, clear or unreadable (no source), then draft the risk reading for the OD lead. Use when
   the monthly risk review is due, before an ODEC or COP round, after a blocked rollout or a
   Cyber Security finding, or when someone asks whether any risk has crossed its escalation trigger.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-risk-watch

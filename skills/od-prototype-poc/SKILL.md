@@ -8,7 +8,7 @@ description: >-
   apart so a prototype is never reported as proven value. Use when a defined, data-checked Lane 2 use
   case needs its value or usability confirmed before it is costed, when a plant asks for a mock-up, when
   a requirement is to be turned into a clickable mock-up, or when someone calls a pilot proven.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-prototype-poc

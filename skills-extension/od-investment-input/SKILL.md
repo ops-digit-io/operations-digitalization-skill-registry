@@ -9,7 +9,7 @@ description: >-
   It prepares the input; it never approves or commits spend. Use when a roadmap is agreed and the plant
   asks "what does this cost and who approves it", when an assessment lists machines that need hardware,
   or before a capital request is written.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-investment-input

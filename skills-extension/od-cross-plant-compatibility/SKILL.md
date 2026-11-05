@@ -9,7 +9,7 @@ description: >-
   to be recommended, when a use case from one plant is proposed for another, when a flow or
   dashboard hard-codes something plant-specific, or when someone asks whether a standard will
   hold at the other plants.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-cross-plant-compatibility

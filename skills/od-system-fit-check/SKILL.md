@@ -10,7 +10,7 @@ description: >-
   exception. Use during intake (`od-use-case-intake-triage`) or requirements breakdown
   (`od-requirements-breakdown`), whichever catches the request first — never after a use
   case has already been scoped around the heavier system.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-system-fit-check
   tier: practice

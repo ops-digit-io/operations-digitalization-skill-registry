@@ -8,7 +8,7 @@ description: >-
   asks "which carrier is in the oven", "which serials with quality status", "which order and how many defects",
   when a traceability demand has no stated technical requirement, when the object relation is the suspected
   blocker, or before a use case is handed to requirements, build or standardization.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-event-object-modelling

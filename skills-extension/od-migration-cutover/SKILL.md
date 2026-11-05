@@ -8,7 +8,7 @@ description: >-
   plan and decommissioning. Use when a plant-local application or middleware is to be replaced or retired,
   a server or virtual machine moves, a platform changes across plants, or someone asks "what happens to the
   old system, and how do we get back if the cutover fails".
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-migration-cutover

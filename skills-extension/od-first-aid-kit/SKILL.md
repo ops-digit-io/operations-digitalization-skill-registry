@@ -2,7 +2,7 @@
 name: od-first-aid-kit
 description: >-
   Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data scenarios applies, who benefits - and route it either to Analytical Support (a one-off insight) or to use case intake (a recurring need), or back as a data gap. Drafts the request; does not install devices or commit cost. Use when a plant raises a process issue and there is no use case yet, when someone asks for the Process First-Aid Kit, or when a one-off analytical request must be scoped before analysis starts.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-first-aid-kit

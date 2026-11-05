@@ -9,7 +9,7 @@ description: >-
   symptom-to-cause table for anything the analyser cannot see. Use when a flow publishes
   nothing, publishes the wrong value or a nonsense timestamp, stops after a redeploy, when
   a dashboard has gone flat, or when reviewing a flow before it goes to a prod instance.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_flow.py:*)
 metadata:
   id: od-node-red-flow-troubleshooting

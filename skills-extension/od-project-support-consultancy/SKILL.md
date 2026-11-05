@@ -9,7 +9,7 @@ description: >-
   or stalls, when a project needs a kick-off agenda, requirement spec or status report,
   when application-consultancy advice is needed, or when ODEC progress and impact
   reporting is due. Owner is the IIoT Interface & Automation Engineer (IIAE).
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-project-support-consultancy
   tier: lane

@@ -7,7 +7,7 @@ description: >-
   for the funded phase, and record the dependency and the outcome. Drafts only: submission and approval are human.
   Use when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector
   needs funding before demand is handed to IT, or when a saving is waiting on ECR CREATION or ECR APPROVAL.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-capital-request

@@ -8,7 +8,7 @@ description: >-
   Read-only on the registry; includes a small stdlib script. Use at the start of each
   quarter, before relying on a decision table or a figure, when a valid-until date is near,
   or when someone asks whether the context behind a skill is still true.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-context-freshness

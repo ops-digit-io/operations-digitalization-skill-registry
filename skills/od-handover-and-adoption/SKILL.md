@@ -8,7 +8,7 @@ description: >-
   itself rather than a single use case. Use when a use case is being handed to a plant,
   when someone asks whether something is actually in use, when utilization is low or
   `NEVER`, or when a role or portfolio is changing hands.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-handover-and-adoption
   tier: practice

@@ -9,7 +9,7 @@ description: >-
   scale. Use when a machine, system or app must be judged before a route is chosen, when "can this be
   connected / is this app fit to integrate" is unclear, or when a use case or tool request needs an as-is
   profile of the thing it depends on.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-maturity-assessment

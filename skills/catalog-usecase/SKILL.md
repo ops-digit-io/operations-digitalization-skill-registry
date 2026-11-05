@@ -9,7 +9,7 @@ description: >-
   already has, when a plant wants to self-serve a dashboard or report, or when a proven use
   case is proposed for the catalog. Draft scaffold: the self-service catalog does not exist
   yet as a data set.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: catalog-usecase

@@ -8,7 +8,7 @@ description: >-
   Use when the monthly retro is due, after an ODEC or COP round, after an incident or a
   missed threshold, or when someone asks what the improvement loop is and why a retro that
   produces a list has not produced a decision.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-retro

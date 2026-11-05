@@ -8,7 +8,7 @@ description: >-
   utilization expectation, and knowing when not to build. Use whenever a delivery asset is
   being designed or built, when an existing one is being reworked, or when choosing
   between a dashboard, a report and an app.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-analytics-asset-build
   tier: practice

@@ -8,7 +8,7 @@ description: >-
   case definition and the standardization gate. Refusing to promote is a valid result. Use when the same
   analytical request or asset comes back from more than one plant or more than once, when utilization
   of an ad-hoc asset is high, or when a Lane 2 result is proposed for the catalog.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-use-case-promotion

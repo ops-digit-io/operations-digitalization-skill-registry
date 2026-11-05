@@ -8,7 +8,7 @@ description: >-
   about to produce a use-case one-pager, business case, requirement specification, signal
   report, acceptance protocol, handover record, scorecard update or outreach deck, when two
   copies of a "template" circulate, or when a skill asks which template to fill.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-template-resolution

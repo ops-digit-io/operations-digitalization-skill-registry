@@ -9,7 +9,7 @@ description: >-
   question about whether the data exists to answer something, or a decision on whether a
   one-off analysis should be industrialized. Owner is the Digital-Business-Value-Engineer
   (DBVE).
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-analytical-support-service
   tier: lane

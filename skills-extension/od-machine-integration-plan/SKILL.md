@@ -2,7 +2,7 @@
 name: od-machine-integration-plan
 description: >-
   Plan a machine-integration wave from the machine list to flow design - scale known machine types with at most one unknown type per deployment, sequence the wave with the weekly capital-request micro-process, prepare the integration workshop, pick the connector and route per machine type, test readiness, and keep a barrier log that states the cost of not deciding. Drafts the plan and checklists; plant, OD lead and forums decide. Use when a plant or region starts or re-plans a wave, when a machine list must become an integration plan and a capital request, when an integration workshop is being prepared, or when a wave stalls on an undecided barrier.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-machine-integration-plan

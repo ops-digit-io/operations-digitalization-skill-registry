@@ -9,7 +9,7 @@ description: >-
   user stories and a background description of what it is used for. Use after intake accepts a
   demand and before anything is built — when scoping a use case for integration, specifying a machine or
   its signals, baselining a project, or scoping an analytical request.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/check_epic.py:*) Bash(python3 scripts/check_requirement.py:*)
 metadata:
   id: od-requirements-breakdown

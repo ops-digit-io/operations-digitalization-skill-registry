@@ -11,10 +11,12 @@
 | [deploy-appstore/](deploy-appstore/index.md) | 6 concept(s) |
 | [it-demand-package/](it-demand-package/index.md) | 5 concept(s) |
 | [od-acceptance-test/](od-acceptance-test/index.md) | 9 concept(s) |
+| [od-ai-generation-playbook/](od-ai-generation-playbook/index.md) | 7 concept(s) |
 | [od-analytics-asset-build/](od-analytics-asset-build/index.md) | 13 concept(s) |
 | [od-benefit-calculation/](od-benefit-calculation/index.md) | 3 concept(s) |
 | [od-capital-request/](od-capital-request/index.md) | 5 concept(s) |
 | [od-context/](od-context/index.md) | 5 concept(s) |
+| [od-cybersec-gate/](od-cybersec-gate/index.md) | 6 concept(s) |
 | [od-data-availability-check/](od-data-availability-check/index.md) | 11 concept(s) |
 | [od-decision-routing/](od-decision-routing/index.md) | 5 concept(s) |
 | [od-equipment-integration/](od-equipment-integration/index.md) | 17 concept(s) |

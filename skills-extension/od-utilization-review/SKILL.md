@@ -9,7 +9,7 @@ description: >-
   Use when a use case has been live for a while, when a use case was implemented in a sprint without a forecast, when the
   scorecard shows low or NEVER utilization, when a scaled-out use case carries no saving, or when someone asks whether a
   delivered use case is really in use.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-utilization-review

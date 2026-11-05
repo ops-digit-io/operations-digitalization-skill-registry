@@ -8,7 +8,7 @@ description: >-
   od-equipment-integration. Use when a machine cannot be connected or an assessment finds no route, when
   a blocker text such as "firmware patching required" or "PLC program missing" is recorded, or when
   someone asks whether a stuck machine is a roadmap, strategy or substitution matter.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-barrier-triage

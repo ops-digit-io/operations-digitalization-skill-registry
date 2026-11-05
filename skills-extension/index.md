@@ -4,13 +4,11 @@
 
 | Folder | Holds |
 |---|---|
-| [od-ai-generation-playbook/](od-ai-generation-playbook/index.md) | 7 concept(s) |
 | [od-analytical-support-service/](od-analytical-support-service/index.md) | 4 concept(s) |
 | [od-application-consulting/](od-application-consulting/index.md) | 7 concept(s) |
 | [od-barrier-triage/](od-barrier-triage/index.md) | 5 concept(s) |
 | [od-context-freshness/](od-context-freshness/index.md) | 6 concept(s) |
 | [od-cross-plant-compatibility/](od-cross-plant-compatibility/index.md) | 5 concept(s) |
-| [od-cybersec-gate/](od-cybersec-gate/index.md) | 6 concept(s) |
 | [od-event-object-modelling/](od-event-object-modelling/index.md) | 6 concept(s) |
 | [od-first-aid-kit/](od-first-aid-kit/index.md) | 4 concept(s) |
 | [od-governance-cadence/](od-governance-cadence/index.md) | 8 concept(s) |

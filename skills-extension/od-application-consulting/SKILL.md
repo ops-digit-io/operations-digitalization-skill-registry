@@ -8,7 +8,7 @@ description: >-
   or project asks "which app or tool should we use for this", asks to extend or configure a
   Manufacturing Software Suite tool, proposes a new app or a third-party application, or an existing
   plant-local application is to be replaced, integrated or kept.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-application-consulting

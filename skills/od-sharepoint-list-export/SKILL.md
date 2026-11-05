@@ -8,7 +8,7 @@ description: >-
   refresh of the knowledge graph or portfolio reporting, when the narrative behind a
   record (rationale, blockers, comments) has to be recovered from version history, or when
   someone asks how the exports underneath the analyses were produced.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/check_export_schema.py:*)
 metadata:
   id: od-sharepoint-list-export

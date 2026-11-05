@@ -9,7 +9,7 @@ description: >-
   method and sources only, no current targets or actuals (look those up live). Use
   when monthly or ODEC reporting is due, when someone asks how OD is tracking, when a
   metric needs a source, or when a round needs preparing or following up.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-scorecard-reporting
   tier: practice

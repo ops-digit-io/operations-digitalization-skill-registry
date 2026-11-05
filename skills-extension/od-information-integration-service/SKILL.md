@@ -9,7 +9,7 @@ description: >-
   the readiness matrix current. Use when a machine needs connecting, signals need
   standardizing, a data model needs harmonizing, or someone asks why a use case has no
   data. Owner is the IIoT Interface & Automation Engineer (IIAE).
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-information-integration-service
   tier: lane

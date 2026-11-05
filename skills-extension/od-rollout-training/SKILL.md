@@ -8,7 +8,7 @@ description: >-
   never does. Use when a use case, machine connection or app passed acceptance and is going
   to a plant, when a plant starts a new integration wave, when a key user is to be
   enabled, or when a plant asks how to run this without OD.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-rollout-training

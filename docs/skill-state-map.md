@@ -124,14 +124,14 @@ flowchart TD
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | — | 🟨 documented | 5 | 0 | 5 |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | — | 🟨 documented | 5 | 0 | 5 |
 | [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-ai-generation-playbook`](../skills-extension/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-ai-generation-playbook`](../skills/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-analytical-support-service`](../skills-extension/od-analytical-support-service/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
 | [`od-application-consulting`](../skills-extension/od-application-consulting/SKILL.md) | — | 🟨 documented | 6 | 0 | 2 |
 | [`od-barrier-triage`](../skills-extension/od-barrier-triage/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
 | [`od-context`](../skills/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 11 |
+| [`od-cybersec-gate`](../skills/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 11 |
 | [`od-event-object-modelling`](../skills-extension/od-event-object-modelling/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
 | [`od-first-aid-kit`](../skills-extension/od-first-aid-kit/SKILL.md) | — | 🟨 documented | 3 | 0 | 1 |
 | [`od-governance-cadence`](../skills-extension/od-governance-cadence/SKILL.md) | — | 🟨 documented | 6 | 0 | 0 |

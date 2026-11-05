@@ -377,7 +377,7 @@ skills:
     summary: "Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of t DRAFT."
 
   - id: od-cybersec-gate
-    library: extension
+    library: core
     tier: practice
     lane: information-integration-service
     scope: od
@@ -520,7 +520,7 @@ skills:
     summary: "Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua DRAFT."
 
   - id: od-ai-generation-playbook
-    library: extension
+    library: core
     tier: practice
     lane: all
     scope: od

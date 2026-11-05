@@ -8,7 +8,7 @@ description: >-
   rounds. Use when a round has to be prepared or followed up, a call for action has to be written, a
   roadmap is drafted, a request must be sorted into ticket or project, a sprint is planned or reviewed,
   or a training offer is to be run. Holds method only, no dates, counts or plant statuses.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-governance-cadence

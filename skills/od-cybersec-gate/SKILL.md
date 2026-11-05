@@ -8,7 +8,7 @@ description: >-
   recommends only; the Cyber Security sign-off itself is human-only and has no expedited
   path. Use before scheduling a machine connection, before an app goes to the platform,
   when a plant asks what Cyber Security needs, or when a connection waits on sign-off.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-cybersec-gate
@@ -96,7 +96,7 @@ connects, never approves an external connection, and never records "signed off" 
    acceptance protocol from `od-acceptance-test`. Use `references/package-contents.md` as the checklist. Leave
    credentials, addresses, certificates and tokens **out of the package**: list that they exist and who holds
    them, never their values.
-5. **Route it.** Open a decision request ([`od-decision-routing`](../../skills/od-decision-routing/assets/decision-request.md))
+5. **Route it.** Open a decision request ([`od-decision-routing`](../od-decision-routing/assets/decision-request.md))
    on the row "Equipment integration go-ahead" (Tandem IIAE with Plant ME / Plant IT, approval yes,
    `execute-with-approval`). Record the sign-off as a **dependency** on the use case or the machine record.
    Where the case involves personal data, worker-performance measurement or a new platform

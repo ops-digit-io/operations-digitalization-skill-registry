@@ -2,7 +2,7 @@
 name: od-project-order
 description: >-
   Draft the project order (PREQ) for a use case or system project and run it through kick-off, milestone reports and closure - write the main target as a 30-second message, never leave the budget blank, split requesting side (steering committee, sponsor) from contracting side (project team, project manager), classify opportunities and risks, lay out the procurement milestone chain for a bought solution, run the kick-off workshop, and close with a closure report and handover check. Includes the intake variant for a customer-mandated program. Drafts only: sponsor approval, budget and sign-off are human. Use when a use case or system has passed its business case and needs a project order, when an initiative has an empty sponsor, budget or out-of-scope field, when a kick-off is due, or when a milestone or closure report is needed.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-project-order
