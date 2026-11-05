@@ -10,6 +10,7 @@ description: >-
   demand and before anything is built — when scoping a use case for integration, specifying a machine or
   its signals, baselining a project, or scoping an analytical request.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/check_epic.py:*) Bash(python3 scripts/check_requirement.py:*)
 metadata:
   id: od-requirements-breakdown
   tier: practice

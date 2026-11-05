@@ -5,10 +5,14 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Barrier classes](barrier-classes.md) | Skill Reference | Which vendors/protocols are actually cheap vs. expensive to connect, the resolved Modbus/aggregation-route question, pre-assessment tells not in the Machine List, and blocker root causes behind the recorded free text. |
+| [Blockers and waves](blockers-and-waves.md) | Skill Reference | What the 110 recorded integration blocker texts say, grouped by kind and plant, how integration waves and the eCR step are recorded, and the department roadmap numbers that sit next to the Machine List - each marked as record count or as unverified staging. |
+| [Connector fact sheets](connector-fact-sheets.md) | Skill Reference | One fact sheet per connector in the Connector Overview - what the record says it does, signal limits and sampling rates, linked machine counts, recorded enhancement or build estimates - and how to read the machine counts correctly. |
 | [Connectors](connectors.md) | Skill Reference | All 26 connectors with what each reaches, over which protocol, which PLCs, and - decisively - whether it is available at all. |
 | [Decision paths](decision-paths.md) | Skill Reference | How a machine is routed to one of the three ingress variants, what the fallback is at each branch, and what decides it. |
 | [Fallbacks](fallbacks.md) | Skill Reference | The eight places an integration actually gets blocked, what each looks like, and the route around it. |
 | [IIoT edge platform](iiot-edge-platform.md) | Skill Reference | The edge pattern: a DATATRONiQ edge device in the machine cabinet, what it speaks, and where its data lands. |
+| [Plant integration status](plant-integration-status.md) | Skill Reference | Plant-by-plant table of machine counts, integration status, route recorded, controller vendors, concepts rolled out, free-text blockers and legacy applications, with flags where the record cannot be read at face value. |
 | [Softing data targets](softing-data-targets.md) | Skill Reference | How data leaves a dataFEED configuration - the data source and data target model, and which targets are in use. |
 | [Softing dataFEED](softing-datafeed.md) | Skill Reference | The aggregation pattern: a Softing dataFEED OPC Suite server holding the driver connections and exposing them as one OPC UA server. |
 | [Softing tag syntax](softing-tag-syntax.md) | Skill Reference | The identifier written when a tag is defined by hand, per driver family, and what a symbol import produces instead. |
+| [Vendor protocol routes](vendor-protocol-routes.md) | Skill Reference | Per controller vendor, PLC model and network protocol - how many machines, what the Machine List records as status and route, which connector the Connector Overview names, and what the records do and do not say about how each family is reached. |

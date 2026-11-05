@@ -12,6 +12,7 @@ description: >
   or asks for "manager view" vs "analyst view" splits. Complements
   /build-dashboard (which produces self-contained HTML); use this skill instead
   when the deliverable is a Grafana .json file.
+allowed-tools: Read Grep Glob Write Edit
 metadata:
   argument_hint: "<domain> <schema or signal list>"
   id: build-grafana-ops-dashboard

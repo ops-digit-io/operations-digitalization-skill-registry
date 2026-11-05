@@ -8,4 +8,5 @@
 
 | Folder | Holds |
 |---|---|
-| [references/](references/index.md) | 1 concept(s) |
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 4 concept(s) |

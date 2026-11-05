@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Symptoms extended](symptoms-extended.md) | Skill Reference | Where the analyser findings concentrate by site and prod or test, the disabled-tab check, extra symptom rows drawn from the 2026-11-05 re-count, and three worked analyser findings on real corpus flows. |
 | [Symptoms](symptoms.md) | Skill Reference | What the static analyser cannot see: work down from the symptom to the cause and the file to open. |

@@ -4,8 +4,11 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Capability template signal sets](capability-template-signal-sets.md) | Skill Reference | For each of the 11 use case templates, what the dashboards in the export actually read - signals, template variables, data sources - plus the template's boundary, recorded blocker themes and reference solutions, to be set against the requirement sets in the signal catalogue. |
 | [Clustering signals](clustering-signals.md) | Skill Reference | Four axes for sorting a machine's hundreds of data points, the search patterns per cluster, and the importance score that ranks them. |
+| [Field signal vocabulary](field-signal-vocabulary.md) | Skill Reference | The signal names actually in use on the flow side (255 flow-config keys, 47 CT leaf names) and on the dashboard side (display labels in four languages), with counts, collisions and the rules that follow. |
 | [Machine context](machine-context.md) | Skill Reference | The ten sources that say what a machine does rather than what it emits, ranked by how much confidence each earns. |
+| [Machine vendor and connector landscape](machine-vendor-and-connector-landscape.md) | Skill Reference | Counts of the 1,715 machine records by controller vendor, integration method and status, and what each connector family reaches, so a key user can see what a new machine's signals will look like and which path they arrive by. |
 | [Multilingual tags](multilingual-tags.md) | Skill Reference | Tags in nine plant languages: the normalization before any comparison, the term table, and why the local name is an alias not a replacement. |
 | [Public data models](public-data-models.md) | Skill Reference | OPC UA for Machinery, EUROMAP and PackML - what each already standardizes, so a signal set is not invented twice. |
 | [Signal catalogue](signal-catalogue.md) | Skill Reference | What the estate actually names its signals: 260 distinct names over 3,400 references, with the canonical name for each concept. |

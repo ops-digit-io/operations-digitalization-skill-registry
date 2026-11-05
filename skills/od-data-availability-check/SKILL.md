@@ -11,6 +11,7 @@ description: >-
   analytical request, before scoping a use case, and whenever an analysis is about to be
   built on data whose provenance has not been checked.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/check_availability.py:*)
 metadata:
   id: od-data-availability-check
   tier: practice
@@ -18,13 +19,16 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
   authority_level: read-only
   status: stable
-  sources_read: 2026-08-10
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (field completeness counted per plant), Graph/Legacy Applications (268), Graph/Capability Epics (355) and Process Epics (96), Case Groups (36 groups, member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors and Graph/Tools notes for the non-PLC connectors, MIL, QFPR and Energy Management, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
   okf:
     type: Agent Skill
     title: Data availability check
@@ -52,7 +56,11 @@ and two quarters.
 | [`references/failure-modes.md`](references/failure-modes.md) | The three indistinguishable shortfalls, plus the two that are not data gaps at all |
 | [`references/freshness.md`](references/freshness.md) | Cadence per source, the slowest-input rule, and history depth |
 | [`references/plant-instance-map.md`](references/plant-instance-map.md) | Which Node-RED instance is which plant, how each was established, and the 16 plants with no evidence |
+| [`references/machine-list-completeness.md`](references/machine-list-completeness.md) | How many Machine List rows carry each field, per plant, and which plants cannot answer step 2 from the list (record counts, export 2026-08-21) |
+| [`references/data-needs-by-capability.md`](references/data-needs-by-capability.md) | Per capability template: what it covers, the department standard, how many recorded use cases list no machine, and what the capability and process epic shells do and do not say |
+| [`references/non-machine-data-sources.md`](references/non-machine-data-sources.md) | Data that is not a PLC signal - legacy applications by category and reachability, camera, file, lab and energy sources, and which connectors exist for them |
 | [`assets/data-availability-verdict.md`](assets/data-availability-verdict.md) | The defined output to fill in |
+| [`assets/data-gap-request.md`](assets/data-gap-request.md) | The named request a data gap becomes when it is routed to the Information Integration lane |
 | [`scripts/check_availability.py`](scripts/check_availability.py) | Walks the six steps against the real sources |
 
 ## Run it before you reason about it
@@ -100,6 +108,20 @@ item, not a route to data.
 it, so "not in any flow" is a prompt to check the edge platform — not a verdict. And for the
 **16 of 33 plants with no Node-RED instance**, among them Northeim with 87 machines, step 4
 cannot be answered from the bundle at all.
+
+## Two more traps, from the 2026-11-05 enrichment
+
+**Some plants cannot answer step 2 at all.** On the 2026-08-21 export, Montemorelos, San Luis
+Potosi and Ostrava have no status on any row, and Tlalnepantla, Vac and Timisoara on most.
+Say "not recorded" for those, and see
+[`machine-list-completeness.md`](references/machine-list-completeness.md).
+
+**Not every request is a machine request.** 94 of 268 legacy applications are standalone and
+many hold the data a use case wants (laboratory, camera, PLC programs). Use
+[`non-machine-data-sources.md`](references/non-machine-data-sources.md) when the data is not a
+PLC signal, and [`data-needs-by-capability.md`](references/data-needs-by-capability.md) to see
+which agreement (reason catalogue, ideal cycle time, recipient) the capability needs before
+the data means anything.
 
 ## Freshness expectations
 

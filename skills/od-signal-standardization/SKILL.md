@@ -14,6 +14,7 @@ description: >-
   Machinery, EUROMAP, PackML — so a standard is adopted rather than re-invented, and produces
   a defined signal analysis report as its output.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
   id: od-signal-standardization
   tier: technical
@@ -23,7 +24,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: recommend on standards; configure the offload
   status: stable
-  sources_read: 2026-08-25
+  sources_read: 2026-11-05
   corpus: 260 distinct signal names across 3,400 references in 825 flows
   requires: [od-context]
   composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
@@ -33,6 +34,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills}.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
+    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes (1,010 notes), Graph/Use Case Views (11 template views and template-standards), Graph/Machines (1,715 front matters) and Graph/Connectors (26 notes), read 2026-11-05
+    - Node-RED auto-docs flow JSON re-counted 2026-11-05 for flow-config keys and CT topic leaves (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs)
   okf:
     type: Agent Skill
     title: Signal analysis and standardization
@@ -79,6 +82,10 @@ argument for doing this before a flow is built rather than after.
 | [`references/public-data-models.md`](references/public-data-models.md) | **Check before defining anything.** OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84 for Plastic and Rubber, PackML's 17-state model — and what each solves here |
 | [`references/clustering-signals.md`](references/clustering-signals.md) | Search patterns that sort a raw signal list into functional areas, and the importance score that says what to standardize first |
 | [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Runs the checks, and with `--cluster` the functional-area grouping and ranking |
+| [`references/field-signal-vocabulary.md`](references/field-signal-vocabulary.md) | **What is in use on the consuming sides (2026-11-05).** The 255 flow-config signal keys with counts and collisions, the 47 `CT` leaf names, display labels in four languages on the dashboards, and the rules that follow |
+| [`references/capability-template-signal-sets.md`](references/capability-template-signal-sets.md) | **Per capability template**, what the existing dashboards read (signals, variables, data sources), the template boundary, recorded blocker themes and reference solutions - to set against the requirement sets above |
+| [`references/machine-vendor-and-connector-landscape.md`](references/machine-vendor-and-connector-landscape.md) | Counts of the 1,715 machines by controller vendor, integration route and status, and what each connector family reaches |
+| [`assets/signal-binding-sheet.md`](assets/signal-binding-sheet.md) | **Form.** One row per signal - unit, scale, value type, delta meaning, setpoint or actual, consumers - the record the dashboard exports show is missing |
 
 ## Two inputs, one output
 
@@ -120,7 +127,7 @@ would be worse than one that asks.
 
 The data-point list comes from the IIoT edge platform:
 
-```
+```text
 GET {url}/api/datatrons                    → the edge devices
 GET {url}/api/datatrons/{id}/devices       → the machines behind one
 GET {url}/api/datatrons/{id}/data_points   → the points, each { uuid, label }
@@ -291,7 +298,7 @@ string. See `od-node-red-flow-builder`.
 
 ## Step 9 — write the report
 
-The output is the report, not a list. Generate the derivable half, then fill the context
+The output is the report, not a list. Generate the derivable half, then complete the context
 sections from Step 2b:
 
 ```bash

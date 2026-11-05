@@ -10,6 +10,7 @@ description: >-
   nothing, publishes the wrong value or a nonsense timestamp, stops after a redeploy, when
   a dashboard has gone flat, or when reviewing a flow before it goes to a prod instance.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_flow.py:*)
 metadata:
   id: od-node-red-flow-troubleshooting
   tier: technical
@@ -19,12 +20,14 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: read and diagnose; fixes on a test instance; prod deploys are human-approved
   status: stable
-  sources_read: 2026-08-25
+  sources_read: 2026-11-05
   corpus: validated against 825 flows across 53 ct-oesl instances
   requires: [od-context]
   composes: [od-node-red-flow-builder, od-data-availability-check, od-acceptance-test]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 flow JSON exports)
+    - Analyser re-run unchanged over all 825 flow files on 2026-11-05 and the same files re-counted for disabled tabs, drivers and context keys
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors, DTQ-Beckhoff-Connector profile block, read 2026-11-05
   okf:
     type: Agent Skill
     title: Node-RED flow troubleshooting
@@ -132,6 +135,13 @@ do not apply. Skip that and the packet encodes and decodes to something unintend
 no type system underneath it: a holding register is sixteen bits and nothing says it is
 tenths of a degree. If the conversion is missing the data flows and is wrong. See
 `od-equipment-integration` (guidance route).
+
+## More material (2026-11-05)
+
+| File | Use it for |
+|---|---|
+| [`references/symptoms-extended.md`](references/symptoms-extended.md) | **Check the tab is enabled first** (72 of 825 tabs are disabled). Where the analyser findings concentrate by site, eleven more symptom rows, three worked findings on real flows |
+| [`assets/triage-record.md`](assets/triage-record.md) | The record to fill in while diagnosing: cheapest checks first, analyser result, what the analyser cannot see, decision |
 
 ## Fast triage by symptom
 

@@ -35,7 +35,7 @@ Ten sections. A requirement missing any of §1–§6 is not ready to hand over.
 
 ### §1 · Identity
 
-```
+```text
 Requirement:   ⟨asset⟩ - ⟨artefact⟩          ← the flow/use-case naming convention
 Plant:         ⟨plant⟩
 Machine(s):    ⟨name⟩ ⟨(EQ id)⟩              ← joins to the Machine List
@@ -73,7 +73,7 @@ is what decides whether the asset gets opened** — 8 delivered use cases record
 
 ### §4 · Standard baseline
 
-```
+```text
 Cluster:               ⟨C01…C12⟩
 Standard KPIs:         ⟨from the cluster's KPI set⟩
 Requirements checklist: ⟨adopted / adopted with deltas / not applicable — say which⟩
@@ -105,7 +105,7 @@ thing can be built at all.
 Testable statements. 13 use cases already write these; they are the ones that can be
 accepted without argument.
 
-```
+```text
 AC-1  Given ⟨state⟩, when ⟨trigger⟩, then ⟨observable result⟩.
 AC-2  The value matches ⟨reference⟩ within ⟨tolerance⟩ over ⟨period⟩.
 AC-3  ⟨named plant role⟩ has used it in a real shift, not a demonstration.
@@ -119,7 +119,7 @@ without it "delivered" and "in use" get conflated — the gap between `IMPLEMENT
 
 Split as the estate already splits them:
 
-```
+```text
 Major blocking points:  ⟨stops delivery — owner, class, expected resolution⟩
 Minor blocking points:  ⟨slows delivery — owner⟩
 ```
@@ -140,7 +140,7 @@ selection open" are not blockers to escalate — they are the work.
 
 ### §8 · System fit
 
-```
+```text
 Systems required:   ⟨list⟩
 Inside the lean footprint?  ⟨yes / no — and if no, refuse or escalate⟩
 Legacy applications touched: ⟨from the Legacy Application list⟩
@@ -151,7 +151,7 @@ system outside the standard footprint is refused at intake, not discovered at bu
 
 ### §9 · Value
 
-```
+```text
 Benefit type:  savings / lead-time / cost avoidance
 Figure:        ⟨amount⟩ ⟨year⟩   Reliability: CALCULATION | ESTIMATION | not yet assessed
 Methodology:   ⟨the formula, if CALCULATION⟩
@@ -163,7 +163,7 @@ is an honest value; an invented number is not.
 
 ### §10 · Traces to
 
-```
+```text
 Traces to:  ⟨plant roadmap item⟩ · ⟨capability⟩ · ⟨library entry if taken⟩ · ⟨business process⟩
 ```
 
@@ -180,7 +180,7 @@ The core is shared. Each lane adds the section its own definition of done needs.
 **Adds §11 · Handover packet to Information Integration.** This is the artefact that crosses
 the lane boundary, and the reason this whole skill exists:
 
-```
+```text
 Machines + EQ ids, with current integration status
 Signals required, canonical names, in/out, with existence verdict per signal
 Data path expected:  machine → ingress variant → edge → offload → asset
@@ -198,7 +198,7 @@ and an acceptance criterion is a conversation, not a work item.
 **Adds §11 · Equipment requirement**, aligned to the **PRS — Requirement Specification for
 Machines & Equipment** (Doc ID 215534) where the machine is being purchased or modified:
 
-```
+```text
 PLC vendor / model / part number        ⟨joins the Machine List⟩
 Network protocol and interfaces
 Ingress variant:  ① edge device · ② connector · ③ aggregation server
@@ -217,7 +217,7 @@ program and no tag export — the single largest cost difference available.
 
 **Adds §11 · Project scope baseline** (PS-01's output):
 
-```
+```text
 Stage / gate:      Captured → Evaluated → Assessed → Planned → Handed over → Effective
 Investment:        ⟨planned figure⟩ ⟨eCR route: CTO ≤150k · Board >75k⟩
 Milestones with acceptance points
@@ -234,7 +234,7 @@ and a solution nobody was trained on is the `IMPLEMENTED`-but-not-`PRODUCTIVE` g
 
 **Adds §11 · Request scope** (AS-01's output), and it is deliberately the lightest:
 
-```
+```text
 Question:            ⟨the actual question, in one sentence⟩
 Decision it supports: ⟨what changes depending on the answer⟩
 Data availability verdict:  available / gap ⟨named⟩ / partial ⟨what can be answered⟩

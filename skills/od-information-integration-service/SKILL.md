@@ -19,13 +19,16 @@ metadata:
   authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
   escalation: OD lead (Thomas Zipf) via COP
   status: stable
-  sources_read: 2026-10-23
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-requirements-breakdown, od-equipment-integration, od-signal-standardization, od-acceptance-test, od-scorecard-reporting]
   derived_from:
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - this registry, cross-checked 2026-10-23 against the current state of every skill this lane composes into (each was a stub on 2026-08-25; all five are now documented or deep) — see references/lane-handoffs.md
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (16 notes incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Slide Index (master note, slide-decks.jsonl, slide-manifest.jsonl; deck Operation Concept IIoT and Edge Computing) and ODEC Facts staging notes, AI-extracted and unverified, read 2026-11-05
+    - Department notes Systems of record, Machine integration, and 20-Done MSB rollout projects (ops-knowledge-graph _knowledge), read 2026-11-05
   okf:
     type: Agent Skill
     title: Information Integration Service
@@ -43,6 +46,10 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/lane-handoffs.md`](references/lane-handoffs.md) | Each happy-path step matched to the real, current asset the composed skill now produces — confirmed 2026-10-23, not just named |
+| [`references/tool-fact-sheets.md`](references/tool-fact-sheets.md) | The sixteen shop-floor tools: rollout record, architecture, recorded cost and hardware, status and open blockers (record plus archive-based, AI-drafted) |
+| [`references/roles-and-support-model.md`](references/roles-and-support-model.md) | The roles around the IIoT edge platform (local key user, business-area key user, governance board, central key user, divisional engineering, divisional and local IT, platform provider) and the incident, change and security-incident flows |
+| [`references/finding-decks.md`](references/finding-decks.md) | How to search the Slide Index (5,690 slides in 484 decks) and a topic-to-deck map for the lane |
+| [`assets/plant-status-input.md`](assets/plant-status-input.md) | One-page plant input for an ODEC status slot on equipment integration |
 
 **Trigger.** An equipment-integration or data-model-harmonization need per the roadmap.
 **Definition of done.** Machine or equipment integrated, signals standardized, data
@@ -85,6 +92,22 @@ via the **Softing dataFEED aggregation server** bridged back over OPC UA with
 `DTQ-OPCUA-Connector` (Concept 1, 11 plants). The aggregation shape needs both pieces. For a
 specific machine, `od-equipment-integration` (guidance route) carries the routing, the
 per-driver configuration patterns and the fallbacks when a path blocks.
+
+## Where the current records differ from the figures on this page
+
+Counted 2026-11-05 from the work vault (Machine List export 2026-08-21, Tool Overview export
+2026-08-24); full tables in `od-equipment-integration`'s
+[`plant-integration-status.md`](../od-equipment-integration/references/plant-integration-status.md).
+
+- The Tool Overview lists **Concept 3 at 14 plants** and Concept 1 at 11; by machine route the
+  Machine List shows edge-routed machines at **21 plants** and aggregation-routed machines at
+  **14**, with **11** plants carrying both. The "20 / 1 / 11" above could not be re-derived;
+  use the current counts and name the source.
+- **451 machines have no status.** Five plants have no machine row at all; three plants
+  (Montemorelos, San Luis Potosi, Ostrava) have no status on any row.
+- The scorecard figure (338 integrated against 331) and the 150 machines dated 2026 in the
+  Machine List are different measures. ⟨Reconciliation. Who could supply it: the owner of
+  `OD-Report-Equipment_Integration`.⟩
 
 ## Error paths
 

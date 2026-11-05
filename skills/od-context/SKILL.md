@@ -134,7 +134,7 @@ graph, which is rebuilt from the lists and does **not** travel corrections back.
 
 **The data path.** Where shopfloor data goes after it is read:
 
-```
+```text
 PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT──► Node-RED
                                                   │
                                               offload

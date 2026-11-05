@@ -16,7 +16,7 @@ metadata:
   authority_level: draft the protocol; report the result; sign-off is human-only
   status: stable
   origin: derived
-  sources_read: 2026-10-22
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-handover-and-adoption]
   derived_from:
@@ -24,7 +24,11 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,tasks,agent-brief}.md
     - IEC 62381, Automation systems in the process industry — factory acceptance test (FAT), site acceptance test (SAT), and site integration test (SIT). Standard not opened directly; structure verified via automationforum.co's summary, 2026-10-22.
     - "Standard ISO/IEC/IEEE 29119-1:2022, Software and systems engineering — Software testing — Part 1, Concepts and definitions (test case, pass/fail criteria). Verified via Wikipedia's summary of the standard, 2026-10-22."
-    - BrowserStack, User Acceptance Testing (UAT): Templates and Examples. browserstack.com/guide/user-acceptance-testing-template. Retrieved 2026-10-22.
+    - "BrowserStack, User Acceptance Testing (UAT): Templates and Examples. browserstack.com/guide/user-acceptance-testing-template. Retrieved 2026-10-22."
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines, Graph/Connectors and Graph/Tools (MIL 1.0, QFPR, RuleEngine 2.0, Energy Management 2.0 archive-evidence blocks), counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), _knowledge/30-Nodes cluster notes C01 to C12 and Case Groups (overview and CG-02), read 2026-11-05
+    - Department notes Use case lifecycle, Handover and Operating model (ops-knowledge-graph _knowledge 10-Department), read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
   okf:
     type: Agent Skill
     title: Acceptance test
@@ -49,6 +53,9 @@ through the same gate, but not the same test: see `references/test-structure.md`
 |---|---|
 | [`references/test-structure.md`](references/test-structure.md) | The test-case structure per artefact type — FAT/SAT/SIT for hardware and connectivity, UAT for dashboards and evaluated use cases — and what every type shares |
 | [`references/signoff-and-rework.md`](references/signoff-and-rework.md) | Who signs off on each artefact type, what a failure actually means, and which rework loop it routes into |
+| [`references/acceptance-by-route.md`](references/acceptance-by-route.md) | What to test per route (edge, aggregation, file or image endpoint, energy tool), each item graded as rule, record or suggested check, and the failure points the Machine List and tool notes record (record counts, exports 2026-08-21/24) |
+| [`references/cluster-acceptance-criteria.md`](references/cluster-acceptance-criteria.md) | The department's standard per use case cluster (C01 to C12) restated as UAT items, with portfolio counts and the baseline item every acceptance should add |
+| [`references/worked-cases.md`](references/worked-cases.md) | Seven recorded cases read from the acceptance side: what the record shows, what the protocol would have needed to evidence |
 
 ## Write the protocol before the build, not after
 
@@ -78,7 +85,8 @@ source system rather than a separate tool waiting to be built.
 
 ## Procedure
 
-Fill [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) as the work
+Copy the items for the route or cluster from [`assets/prefilled-test-items.md`](assets/prefilled-test-items.md)
+into §1 to §3 first. Fill [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) as the work
 happens — one document per artefact, its six sections matching the steps below:
 
 1. Draft the protocol from the requirement breakdown and the signal standard — §1-2,

@@ -23,7 +23,7 @@ use cases can consume.
 
 ## Group 1 — `config flow` (+ `set inputs for config flow`)
 
-```
+```text
 inject "Trigger once"
   → change "Set flow config"          ← the ONLY place machine identity appears
   → function "Debug flow config"
@@ -48,7 +48,7 @@ variables must be set, what each means, and where to get it (query the edge plat
 
 ## Group 2 — `mqtt connection and message decoding`
 
-```
+```text
 mqtt in  (topic: datatroniq/data/protob/plc/…, qos 1)
   → decode "DecodeProto"           protoType: PLCPacketList
   → function "filter uuids"        keeps only the configured input UUID
@@ -67,7 +67,7 @@ This is what keeps the generated flow diagram readable.
 
 ## Group 3 — `set message filters`
 
-```
+```text
 link in → switch "is delta true >> 1" → (output 1) → …
                                         (output 2) → nothing
 ```
@@ -87,7 +87,7 @@ flows carry it, and 41 of those fetch the config live from the edge platform
 
 ## Group 5 — `prepare and convert payload`
 
-```
+```text
 link in
   → change "format msg.payload"
         set    payload.isDelta = true                    (bool)
@@ -111,7 +111,7 @@ Three things happen here that are each a common bug when missing:
 
 ## Group 6 — `message encoding and connection`
 
-```
+```text
 encode "EncodeProto"   protoType: PLCPacketList, same protofile as the decode
   → mqtt out  (topic: datatroniq/data/protob/plc/ski4-bm01/ads/811-7, same broker)
 ```
@@ -121,7 +121,7 @@ a Beckhoff ADS connector.
 
 ## Error handling — ungrouped, by convention
 
-```
+```text
 catch (all nodes)
   → change "get env variables of flow"
         msg.flow_id   = $env('NR_FLOW_ID')      (jsonata)
@@ -138,7 +138,7 @@ identifies nothing.
 
 ## The shape in one line
 
-```
+```text
 config → [mqtt in → decode → filter → split → convert] → filter → transform
        → [format → rewrap → convert back → encode → mqtt out]
                                                             ⟂ catch → env → template → debug

@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Acceptance test protocol](acceptance-test-protocol.md) | Skill Asset | The defined output of this gate - written before the build, filled as the test runs, and the final section is exactly what od-handover-and-adoption needs as input. |
+| [Prefilled test items](prefilled-test-items.md) | Skill Asset | Test items to copy into sections 1 to 3 of the acceptance test protocol, prefilled per route (edge, aggregation, file or image endpoint) and per use case cluster, with the typical failure points from the records beside each item. |

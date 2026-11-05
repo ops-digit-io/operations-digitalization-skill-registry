@@ -4,5 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Acceptance by route](acceptance-by-route.md) | Skill Reference | What to look at in a site acceptance of a machine integration, per route and connector, and the failure points that the Machine List, the Connector Overview and the tool notes actually record - each check marked as suggested (derived from a named record) or as an existing rule. |
+| [Cluster acceptance criteria](cluster-acceptance-criteria.md) | Skill Reference | For each use case cluster, the department's own standard turned into user acceptance items - what the plant owner should be able to see and do before the use case counts as accepted - with the portfolio counts and the verified external definitions the cluster notes rest on. |
 | [Signoff and rework](signoff-and-rework.md) | Skill Reference | Who signs off on each artefact type, what a failure actually means, and the rework loop it triggers rather than a quiet retry. |
 | [Test structure](test-structure.md) | Skill Reference | The test-case structure per artefact type that reaches this gate — a connected machine, a Node-RED flow, a dashboard, an evaluated use case — grounded in FAT/SAT/SIT and UAT practice. |
+| [Worked cases](worked-cases.md) | Skill Reference | Seven recorded cases from the plants and tool notes, each read as an acceptance question - what the record shows, what an acceptance would have had to evidence, and what stays open - for protocol authors who want a concrete picture of a pass, a conditional pass or a fail. |

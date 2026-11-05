@@ -21,7 +21,7 @@ family that already exists at another plant.
 
 **74 % of flows (608 of 825)** follow:
 
-```
+```text
 [(status)] <asset> [(EQ id)] - <artefact>
 ```
 
@@ -100,7 +100,7 @@ copy-pasteable as a literal, deliberately.
 
 ### Part / piece counter — trigger and total
 
-```
+```text
 config:  cfg.datapointPartTrigger   ⟨input  uuid⟩
          cfg.datapointPartTotal     ⟨output uuid⟩
 
@@ -118,7 +118,7 @@ Shift variant: identical, plus a reset. `inject` on the shift boundary →
 
 ### Cycle time — between two trigger events
 
-```
+```text
 config:  cfg.datapointCycleStart ⟨uuid⟩  cfg.datapointCycleEnd ⟨uuid⟩
          cfg.datapointCycleTime  ⟨output uuid⟩
 
@@ -143,7 +143,7 @@ return msg;
 
 ### Threshold crossing — estimation on a process value
 
-```
+```text
 config:  cfg.datapointProcessValue ⟨uuid⟩   cfg.threshold ⟨number⟩
          cfg.datapointDuration     ⟨output uuid⟩
 
@@ -160,7 +160,7 @@ the upper, leave below the lower. Raising the rate limit does not fix edge chatt
 
 ### Machine state / mode normalization
 
-```
+```text
 config:  cfg.datapointModeRaw ⟨uuid⟩   cfg.datapointModeName ⟨output uuid⟩
 
 filter → split → convert → switch payload.isDelta is true
@@ -176,7 +176,7 @@ Setup is a consumer coupled to one PLC program.
 
 ### Alerting — code to message, CSV-backed
 
-```
+```text
 startup:  inject (once) → file in ⟨path⟩ → split → join (array, ⟨n⟩, \n)
           → csv (sep ';', columns: error_code,error_message)
           → change: set flow.alertTable = payload
@@ -208,7 +208,7 @@ written to `payload.valueString`. Same two guards — table loaded, and a miss b
 
 ### Tolerance / quality event — multi-input
 
-```
+```text
 config:  cfg.datapointCurrentValue  cfg.datapointUpperLimit
          cfg.datapointLowerLimit    cfg.datapointMachineMode
          cfg.datapointVerdict ⟨output⟩
@@ -225,7 +225,7 @@ The evaluation, the cold-start guard and the trigger-selection trap are in
 
 ### Rate / output per period — windowed
 
-```
+```text
 config:  cfg.datapointCumulative ⟨uuid⟩   cfg.datapointRate ⟨output uuid⟩
          cfg.windowSeconds ⟨number⟩
 
@@ -238,7 +238,7 @@ Buffer shape and the **counter wrap-around** trap: see `composing-transformation
 
 ### Composite KPI — availability × performance × quality
 
-```
+```text
 config:  one uuid per component input, plus cfg.datapointKpi ⟨output⟩
          plus static references: cfg.standardSpeed, cfg.plannedTime ⟨numbers⟩
 
@@ -263,7 +263,7 @@ publish.** Guard first, warn, then drop.
 
 ### Composite string split
 
-```
+```text
 config:  cfg.datapointComposite ⟨uuid⟩ + one output uuid per extracted field
 
 filter → split → convert → function: split, validate field count and types, emit N packets
@@ -282,7 +282,7 @@ and every derived value is then wrong with no error anywhere.
 
 ### Timer-driven emit
 
-```
+```text
 inject (repeat ⟨interval⟩ / crontab ⟨schedule⟩)
   → function "create object": build a packet from config and pack sysTime yourself
   → encode → mqtt out
