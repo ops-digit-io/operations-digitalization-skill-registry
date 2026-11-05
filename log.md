@@ -3,6 +3,24 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-05
+
+- Added the **new-state flow** as the process the skills are gauged against: `docs/new-state/` (Mermaid flowchart, process
+  flow, BPMN, VSM skill map, copied unchanged), `docs/new-state-flow.md` and `docs/new-state-conformance.md`, which checks every
+  skill the flow names against its own text. The conformance check found three things to act on: `od-use-case-intake-triage`
+  still classifies into the four service lines; no skill speaks of self-service; the Cyber Security gate the flow attributes to
+  `od-acceptance-test` is written in `od-equipment-integration` and `od-decision-routing`.
+- Added five **draft** skills the flow lists as net-new: `catalog-usecase`, `catalog-systems`, `catalog-guardrails`,
+  `deploy-appstore`, `it-demand-package` (registry 1.8.0, 30 skills). Each is sourced and marks every unrecorded fact as
+  an open gap; `registry.yaml` carries them with `origin: new-state` and `status: draft`.
+- **Registry 1.9.0, 48 skills.** Built the 18 skills that were missing: 16 from the department's own skill plan (`od-cybersec-gate`, `od-rollout-training`, `od-context-freshness`, prioritization, impact evaluation, workshop facilitation, first-aid kit, investment input, barrier triage, application consulting, promotion, template resolution, cross-plant compatibility, retro, risk watch, plant onboarding) and the flow's two thin spots (`od-prototype-poc`, `od-capital-request`), all as drafts with their open questions in `open_gaps`. Enriched 18 existing or draft skills with references and templates mined from the work vault (integration, data and flow skills, and the five new-state drafts). A recount showed 72 of 825 Node-RED flows disabled, not 0; `od-node-red-flow-builder/references/instances.md` is corrected.
+- Added the process flow as data and as a site: `docs/new-state/process.yaml`, `docs/new-state-skill-map.md`, `scripts/build_site.py` (interactive process map, one page per skill, specification page, spec-strict downloads per lane), `docs/agent-skills-spec.md` and `scripts/agent_skills_spec.py`. CI builds the site on every push; the Pages workflow is manual and not switched on.
+- Listed the registry skills the new-state files do not place, in `docs/new-state-flow.md`: two in none of the four files and eleven only in the skill-map table. The four files themselves are unchanged.
+- `scripts/build_process_overview.py` skips skills with `origin: new-state`: the page draws the four service lanes of the old model.
+- Declared `allowed-tools` on the eight skills that ship scripts or author files; tagged 69 code fences without a language
+  as `text` in 23 files outside the vendored skill; "fill" became "complete" in one sentence of `od-signal-standardization`;
+  a final newline in `od-use-case-solution-evaluation/scripts/model_data.json`.
+
 ## 2026-10-24
 
 - Added `docs/process-overview.html`, an interactive BPMN-style view of the four service lanes from

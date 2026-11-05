@@ -4,7 +4,11 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Agent skills spec](agent-skills-spec.md) | Design Record | The open Agent Skills specification this registry follows: the rules, how each skill is checked, the one known deviation and how the download packages resolve it, and how a user gets the skills of a process step. |
 | [Derivation](derivation.md) | Design Record | Every skill traced back to the knowledge graph concept it came from, with the judgement calls, the corrections the corpus forced, and what was deliberately left out. |
+| [New-state conformance](new-state-conformance.md) | Design Record | Every skill the new-state flow names, checked against its own text: where the skill does what the flow says, where it does less, and where the flow says something the skill does not. |
+| [New-state flow](new-state-flow.md) | Design Record | The target process flow the registry's skills are gauged against - three branched service lanes, the skill that serves each step, and the five net-new skills it still lacks. |
+| [New-state skill map](new-state-skill-map.md) | Map of Content | Every skill of the registry mapped onto the new-state process flow: which step it serves, whether the New-State files name it there or this registry proposes it, and in which of the four files it appears. |
 | [OKF conventions](okf-conventions.md) | Map of Content | The Open Knowledge Format contract this registry follows, the three places it deviates from the knowledge-graph bundle and why, and what the guard refuses. |
 | [Skill map](skill-map.md) | Map of Content | The four lane skill maps read as one: which capability each lane names, where they overlap, and which registry skill covers each. |
 | [Skill state map](skill-state-map.md) | Map of Content | Every skill in the registry as one picture - which lane it serves, where it sits in the delivery order, how far it is built, and what is next. |
