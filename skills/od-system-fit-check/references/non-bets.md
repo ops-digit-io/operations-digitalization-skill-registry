@@ -25,10 +25,10 @@ the department's own strategy document's own framing, not this skill's.
 
 - **No standardized MES rollout across the estate, short/mid-term** — ERP/S4HANA-dependent,
   and the pilot bet's own kill criterion is explicit: *"Kill if MES value-add not
-  demonstrated"* against the two current MES plants used to gauge it.
-- **EMS rollout stopped until operational criteria are resolved** — as written. See
-  `references/tool-boundaries.md` for the live discrepancy: the January 2025 tool catalogue
-  shows WiriTec mostly rolled out and actively used for energy use cases. Confirm current
+  demonstrated"* against the existing MES plants used to gauge it.
+- **EMS rollout paused until operational criteria are resolved** — as written in the strategy. See
+  `references/tool-boundaries.md` for the possible discrepancy with the tool catalogue, which can
+  show WiriTec as rolled out and used for energy use cases. Confirm current
   status before citing either version as settled.
 - **OD does not build automation solutions** (that is Manufacturing Engineering's scope) **or
   own energy/facility topics** (Facility Management & Green Production's scope) — a request

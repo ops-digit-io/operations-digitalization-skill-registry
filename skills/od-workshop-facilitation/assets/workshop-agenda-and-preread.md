@@ -34,7 +34,7 @@ Workshop agenda") were not available; replace this with them when you have them.
 | 1 | Smart Factory tools, only those relevant to the plant | ⟨⟩ | ⟨DBVE / IIAE⟩ | tool awareness |
 | 1 | Use case creation process (canvas, benefits, standardization) | ⟨⟩ | ⟨DBVE⟩ | |
 | 1 | Use case library and analytics library walk-through | ⟨⟩ | ⟨DBVE⟩ | candidates to reuse |
-| 2 | Plant tour of priority machines (max about two hours in the 2023 agenda) | ⟨⟩ | ⟨DBVE with Production, Quality, Machine Integration Lead⟩ | tour notes |
+| 2 | Plant tour of priority machines (time-box it; past agendas kept it short) | ⟨⟩ | ⟨DBVE with Production, Quality, Machine Integration Lead⟩ | tour notes |
 | 2 | Collection of use case demand | ⟨⟩ | ⟨DBVE⟩ | demand list, canvases |
 | 3 | Pre-evaluation of found use cases (savings) | ⟨⟩ | ⟨DBVE⟩ | pre-evaluation rows |
 | 3 | Assessment of tools needed | ⟨⟩ | ⟨DBVE⟩ | tool status and recommendation |

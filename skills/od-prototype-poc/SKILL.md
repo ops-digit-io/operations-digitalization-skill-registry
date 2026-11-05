@@ -46,7 +46,7 @@ Read `od-context` first.
 **Status: draft.** The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot. It credits
 `od-analytics-asset-build` with "click-dummy only", but that skill has no prototype, click-dummy or
 proof-of-concept content (`docs/new-state-conformance.md`). This skill is grounded in what the vault actually
-holds: one AI pilot (the Gemba App), PoC labels in two AI decks, 29 business cases that each carry a
+holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a
 validation plan, and the dashboard specs. It is **not** a validated OD method: nothing in the sources says
 OD has run this step to a stated standard.
 
@@ -69,9 +69,9 @@ on the same items; quote the label with its deck and date.
 
 | File | Use it for |
 |---|---|
-| [`references/status-labels.md`](references/status-labels.md) | Which AI items the decks call pilot, PoC, PoC proven or rollout; the label disagreement; what counts as a rollout |
-| [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | What the vault holds on the Gemba App requirements-to-mockup pilot, what it shows and what it does not |
-| [`references/validation-patterns.md`](references/validation-patterns.md) | How 29 business cases define a validation plan and pass criterion; the patterns to copy |
+| [`references/status-labels.md`](references/status-labels.md) | The label ladder the decks use, how labels mislead (disagreement between decks, "rollout" is not proven value), and the rule for quoting one |
+| [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | The Gemba App requirements-to-mockup pilot as a method: process, click-dummy prompt system, what to copy, what the sources do not show |
+| [`references/validation-patterns.md`](references/validation-patterns.md) | How the AI business cases define a validation plan and pass criterion; wording patterns to copy (placeholder thresholds) |
 | [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) | The brief to write before anyone builds a mock-up |
 | [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) | The record this skill produces; `od-benefit-calculation` and `od-capital-request` read it next |
 

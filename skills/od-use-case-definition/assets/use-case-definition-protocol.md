@@ -13,10 +13,10 @@ generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 
 | | |
 |---|---|
-| **Plant** | ⟨one of 33⟩ |
+| **Plant** | ⟨plant⟩ |
 | **Use case** | ⟨name — one need, one plant⟩ |
-| **Material family / process group** | ⟨Rubber / Plastic / Metal / Assembly⟩ · ⟨one of 29⟩ |
-| **Capability** | ⟨one of the 11 templates, or "non-standard"⟩ |
+| **Material family / process group** | ⟨Rubber / Plastic / Metal / Assembly⟩ · ⟨process group⟩ |
+| **Capability** | ⟨capability template, or "non-standard"⟩ |
 | **DBVE / date** | ⟨name⟩ · ⟨date⟩ |
 | **Overall verdict** | ⟨all four control points met · in progress, at phase ⟨n⟩ · blocked⟩ |
 

@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Evidence baselines](evidence-baselines.md) | Skill Reference | What the vault already says about a candidate use case before anyone is asked - its case group, rollout map, savings basis, white space and demand signals - and how far each may be trusted when ranking. |
+| [Evidence baselines](evidence-baselines.md) | Skill Reference | How to read the vault's case groups, rollout maps and savings basis for a candidate use case, and the other demand signals - a reading guide with live-count recipes, no figures. |
 | [Ranking criteria](ranking-criteria.md) | Skill Reference | Every criterion OD has itself used to rank or classify use cases, each with its source and its limit, so a ranking can be built from the department's own language and not from invented scores. |

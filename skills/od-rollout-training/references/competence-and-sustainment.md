@@ -12,9 +12,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 ## 1. Competence is a thing a person does, not a session they attended
 
-The call decks record training as counts of formats, sessions and participants (end of 2023: 8 formats, 40
-sessions, 80 participants). Attendance says nothing about competence, and the same deck planned to "improve
-recorded training sessions" for 2024, so even attendance was weakly recorded. This skill therefore writes each
+The call decks record training as counts of formats, sessions and participants. Attendance says nothing about competence, and a deck planned to "improve
+recorded training sessions", so even attendance was weakly recorded. This skill therefore writes each
 competence as an observable statement and asks for evidence.
 
 **Evidence ranking.** The rollout uses the evidence tiers that `od-handover-and-adoption` already defines, strongest
@@ -76,7 +75,7 @@ If the OD lead rules that stage 3 is not allowed, the package remains valid for 
 | Utilization rate on the Digitalization Scorecard | Carries the Reinforcement element after the trainer is gone | `od-handover-and-adoption`, `od-scorecard-reporting` |
 | Re-confirm trigger | A competence is re-confirmed when the person changes role, when the solution changes version, or when the data path changes | proposal; ⟨interval⟩ is open |
 | COP as the sharing forum | Technical issues and connector or data-model updates are brought to the monthly COP; the risk register names COP as the knowledge-sharing channel | `06-operating-rhythm.md`, `09-risks.md` |
-| Recorded sessions | A session record (date, module, trainer role, attendee roles, evidence) so attendance is no longer the only trace | the 2023 deck's own plan; ⟨system where it is kept⟩ is open |
+| Recorded sessions | A session record (date, module, trainer role, attendee roles, evidence) so attendance is no longer the only trace | a call-deck plan; ⟨system where it is kept⟩ is open |
 
 ## 6. When competence is not confirmed
 

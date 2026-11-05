@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Capability templates and placement
-description: The 11 use case templates a dashboard or report is filed under, the 13 placement rules and their precedence, member counts per template, the 36 case groups, and how to place a new asset so it is counted once.
+description: The 11 use case templates a dashboard or report is filed under, the 13 placement rules and their precedence, how case groups work, and how to place a new asset so it is counted once. Method only - no member counts, savings or per-group tables; re-count on the live views.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,32 +10,33 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Capability templates and placement
 
-An asset that is not placed in a template is not counted in the portfolio. This file is the
-rule set (`Graph/Use Case Views/template-standards.json`, authored 2026-09-26, "AI-drafted; not
-reviewed by a human"; the Standardization note lists the cases for review) plus the size of each
-template, so the key user can file a new dashboard in the same way the 650 existing use cases and
-1,010 dashboards were filed. The rules **describe what recorded placements mostly do**; they are
-not yet a decision of the department. Placement itself is `od-use-case-standardization`'s job; this
-file is what `od-analytics-asset-build` needs when it builds the asset.
+An asset that is not placed in a template is not counted in the portfolio. This file is the rule
+set (`Graph/Use Case Views/template-standards.json`, "AI-drafted; not reviewed by a human"; the
+Standardization note lists the cases for review), so the key user can file a new dashboard the same
+way existing use cases and dashboards were filed. The rules **describe what recorded placements
+mostly do**; they are not yet a decision of the department. Placement itself is
+`od-use-case-standardization`'s job; this file is what `od-analytics-asset-build` needs when it
+builds the asset.
 
-## 1. The 11 templates and what is in each (count: 650 plant use cases, 2026-11-05)
+**Sizes are not held here.** The number of use cases, library entries and dashboard families per
+template, and the number of case groups, are in the `Use Case View` notes and `Case Groups -
+Overview` in the work vault. Re-count there and quote a figure only with its date.
 
-| Template | Use cases | Library entries | Dashboard families | One line: belongs here | Not here (go to) |
-|---|--:|--:|--:|---|---|
-| Process Values | 180 | 19 | 30 | live machine and process parameters, process overviews per machine, line or oven, utility readings | SPC (Process Quality Data), set values (Recipe Values), cross-machine analysis (Analytics) |
-| Andon Board | 134 | 15 | 18 | a visual board of current status of a line, cell, area or plant; Andon/Gemba levels 1-3, production overview, card view, output against target | alerts as messages (Machine Alerts), stop log (Downtime Reporting), the OEE figure (OEE Calculation) |
-| Other Use Cases | 73 | 4 | 2 | catch-all: IT tools, AI helpers on documents, planning, device and camera status | anything that fits a named template |
-| Process Quality Data | 55 | 10 | 20 | automatic in-process quality: inline measurement, SPC and capability, vision, test results, scrap, jidoka, per-part traceability | data typed by hand (Manual Quality Data) |
-| Manual Quality Data | 46 | 1 | 1 | digitising what people record by hand: checklists, inspection sheets, lab results, calendars | automatic collection |
-| Machine Alerts | 36 | 8 | 12 | alarms and notifications sent to people or shown as an alert list; tolerance alerts; maintenance-due | status-only boards, stop logs |
-| Analytics | 29 | 13 | 7 | reports and analyses across machines, lines or plants; KPI and Power BI reports; forecasts; models | live displays of one machine, AI helpers on documents |
-| OEE Calculation | 29 | 8 | 15 | OEE or its components per machine, line or plant, availability tracking | stop events (Downtime Reporting), cycle-time analysis, boards without an OEE figure |
-| Cycle Time | 28 | 12 | 25 | cycle time, takt, loading time, step or throughput time against a standard | downtime, the OEE performance figure as a whole |
-| Downtime Reporting | 27 | 10 | 8 | stop events with duration and reason, operator-entered or detected, micro-stops | notifications about a stop, the availability figure |
-| Recipe Values | 13 | 0 | 4 | recipes, specifications, parameter sets, change tracking, transfer of set values | actual process values |
+## 1. The 11 templates
 
-(Use cases + library entries + dashboard families per template from the 11 `Use Case View` notes,
-generated 2026-09-27; a dashboard family with several templates counts under each.)
+| Template | One line: belongs here | Not here (go to) |
+|---|---|---|
+| Process Values | live machine and process parameters, process overviews per machine, line or oven, utility readings | SPC (Process Quality Data), set values (Recipe Values), cross-machine analysis (Analytics) |
+| Andon Board | a visual board of current status of a line, cell, area or plant; Andon/Gemba levels 1-3, production overview, card view, output against target | alerts as messages (Machine Alerts), stop log (Downtime Reporting), the OEE figure (OEE Calculation) |
+| Other Use Cases | catch-all: IT tools, AI helpers on documents, planning, device and camera status | anything that fits a named template |
+| Process Quality Data | automatic in-process quality: inline measurement, SPC and capability, vision, test results, scrap, jidoka, per-part traceability | data typed by hand (Manual Quality Data) |
+| Manual Quality Data | digitising what people record by hand: checklists, inspection sheets, lab results, calendars | automatic collection |
+| Machine Alerts | alarms and notifications sent to people or shown as an alert list; tolerance alerts; maintenance-due | status-only boards, stop logs |
+| Analytics | reports and analyses across machines, lines or plants; KPI and Power BI reports; forecasts; models | live displays of one machine, AI helpers on documents |
+| OEE Calculation | OEE or its components per machine, line or plant, availability tracking | stop events (Downtime Reporting), cycle-time analysis, boards without an OEE figure |
+| Cycle Time | cycle time, takt, loading time, step or throughput time against a standard | downtime, the OEE performance figure as a whole |
+| Downtime Reporting | stop events with duration and reason, operator-entered or detected, micro-stops | notifications about a stop, the availability figure |
+| Recipe Values | recipes, specifications, parameter sets, change tracking, transfer of set values | actual process values |
 
 ## 2. The 13 placement rules
 
@@ -63,75 +64,52 @@ generated 2026-09-27; a dashboard family with several templates counts under eac
 4. Check the "not here" column of the winner. If your asset is on that list, you mis-filed it.
 5. Look for an existing asset of the same solution (R13); take its template.
 6. Write the template as a tag (SPEC-03 S-03: status, template, plant) and in the use case.
-7. A dashboard that fits none of the ten named templates is Other Use Cases (R11). If you are
-   placing more than one asset per quarter there, the portfolio is missing a template - raise it.
+7. A dashboard that fits none of the ten named templates is Other Use Cases (R11). If you keep
+   placing assets there, the portfolio is missing a template - raise it.
 
-**Worked placements from the dashboard notes** (inferences, to be checked by the use case owner):
+**Worked placements (illustrative; inferences to be checked by the use case owner):**
 
-| Dashboard | Placed as | By the rules | Review |
+| Dashboard (illustrative description) | Recorded as | By the rules | Review |
 |---|---|---|---|
-| Downtime Report_BMW_FAAR (Mako) | Andon Board | R9: stop events with duration and reason are Downtime Reporting | candidate for review |
-| TPV 1 - Focus Parameters (Waltershausen) | Analytics | R4: parameters and status of one kind of equipment are Process Values | candidate for review |
-| Availability per Machine (Qingdao) | Downtime Reporting | R9: availability figures are OEE Calculation | candidate for review |
-| Downtime BM_Board (Somersworth) | Recipe Values | R9, and R12 puts Recipe Values first only if R8 applies | candidate for review |
-| Autoclave Shopfloor and Process Values (Carei) | Process Values | R4 | consistent |
-| Plant Andon Board (Production Overview) | Andon Board | R2 | consistent |
+| A downtime report with detected stops and operator reasons | Andon Board | R9: stop events with duration and reason are Downtime Reporting | candidate for review |
+| An extrusion-line focus-parameter board | Analytics | R4: parameters and status of one kind of equipment are Process Values | candidate for review |
+| An availability-per-machine board | Downtime Reporting | R9: availability figures are OEE Calculation | candidate for review |
+| A blow-moulding downtime board | Recipe Values | R9, and R12 puts Recipe Values first only if R8 applies | candidate for review |
+| An autoclave shopfloor and process-value board | Process Values | R4 | consistent |
+| A plant production-overview Andon board | Andon Board | R2 | consistent |
 
-Placement of the 1,010 dashboard notes: Process Values 201, Analytics 149, Andon Board 146, OEE
-Calculation 66, Process Quality Data 46, Machine Alerts 30, Cycle Time 22, Downtime Reporting 21,
-Other 18, Recipe Values 13, Manual Quality Data 12, **unplaced 286 (28%)**. The template of a note
-comes from the linked use case or, if none, a keyword hint on the title (inferred).
+Expect a share of dashboard notes to be **unplaced**; the template of a note comes from the linked use
+case or, if none, a keyword hint on the title (inferred). Measure the share on the current notes.
 
-## 4. The 36 case groups (template x process family)
+## 4. Case groups (template x process family)
 
-A case group is one template in one process family (Rubber, Assembly, Plastic, Metal,
-cross-process, other families): the unit for which a business case can be derived. 36 groups cover
-all 650 use cases. The groups for the three templates most asked about:
-
-| Group | Cases | Delivered | Plants delivered / planned / idea / white space |
-|---|--:|--:|---|
-| CG-01 Process Values - Rubber | 62 | 39 | 7 / 1 / 2 / 1 |
-| CG-02 Process Values - Assembly | 45 | 17 | 8 / 3 / 2 / 7 |
-| CG-04 Process Values - Plastic | 34 | 23 | 6 / 1 / 1 / 6 |
-| CG-09 Process Values - Metal | 26 | 5 | 4 / 2 / 3 / 3 |
-| CG-19 Process Values - cross-process | 13 | 6 | 4 / 1 / 2 / 18 |
-| CG-16 Process Quality Data - Assembly | 15 | 7 | 6 / 0 / 3 / 11 |
-| CG-18 Process Quality Data - Rubber | 14 | 4 | 2 / 2 / 2 / 5 |
-| CG-27 Process Quality Data - cross-process | 10 | 0 | 0 / 0 / 1 / 24 |
-| CG-34 Process Quality Data - Metal | 9 | 1 | 1 / 1 / 3 / 7 |
-| CG-36 Process Quality Data - other families | 7 | 4 | 3 / 2 / 0 / 20 |
-| CG-11 Cycle Time - other families | 18 | 10 | 7 / 1 / 1 / 16 |
-| CG-23 Cycle Time - Metal | 10 | 5 | 2 / 2 / 1 / 7 |
-
-Other groups: Andon Board CG-03 (Assembly, 44 cases, 27 delivered), CG-05 (Rubber 32/17), CG-08
-(Plastic 26/11), CG-10 (Metal 23/9), CG-30 (cross 9/5); Downtime CG-12 (17/12) and CG-24 (Metal
-10/4); Machine Alerts CG-13 (17/9), CG-25 (Plastic 10/6), CG-31 (Rubber 9/5); OEE CG-15 (15/8),
-CG-17 (Assembly 14/7); Manual Quality Data CG-14 (Rubber 16/1), CG-21 (Assembly 12/1), CG-32 (Metal
-9/2), CG-33 (9/6); Recipe CG-20 (13/6); Analytics CG-22 (11/3), CG-28 (9/5), CG-29 (9/3); Other
-CG-06, CG-07, CG-26, CG-35.
+A case group is one template in one process family (Rubber, Assembly, Plastic, Metal, cross-process,
+other families): the unit for which a business case can be derived. Every use case belongs to
+exactly one group. Look up the groups and their members in `Case Groups/Case Groups - Overview.md`
+(per group: cases, delivered, plants delivered / planned / idea / white space).
 
 **Reading for a builder.**
-- "White space" is the number of plants with the process family but no member: the 18 for
-  Process Values cross-process and the 24 for Process Quality Data cross-process are where an
-  existing asset would be adopted, not rebuilt (`SKILL.md`, "When not to build").
-- Process family was **inferred for 251 use cases** that had none recorded; inferred members are
-  marked in the group notes (Case Groups, Process Family Inference).
-- **Recorded savings are thin**: 62 of 650 use cases carry a saving, EUR 2,384,217 in total
-  (unaudited; the list does not say whether yearly); 269 delivered cases have none. Costs are
-  taken as zero by owner statement of 2026-11-04. Do not quote a group's value without its
-  "basis" column (Moderate / Weak / Very weak / None) - see `od-benefit-calculation`.
+- "White space" is the number of plants with the process family but no member. Where white space is
+  large (typically in cross-process groups), an existing asset would be adopted, not rebuilt
+  (`SKILL.md`, "When not to build").
+- Process family may have been **inferred** for use cases that had none recorded; inferred members
+  are marked in the group notes (Case Groups, Process Family Inference).
+- **Recorded savings are thin and unaudited**: only a minority of use cases carry a saving, the list
+  does not say whether yearly, and costs were taken as zero by owner statement. Do not quote a
+  group's value without its "basis" column (Moderate / Weak / Very weak / None) - see
+  `od-benefit-calculation`; look the amounts up there, not here.
 - Delivered use cases without a recorded saving are the cheapest evidence to collect.
 
 ## 5. Documentation standard (what "described" means)
 
-A delivered use case is **fully described** when its plant has both a reference solution (a
-library entry or archive-derived note) and a dashboard family in the same template, and archive
-evidence is curated onto at least one note. **Partly** when only one exists; **bare** when the use
-case note is the only description. When you deliver a dashboard, you close this gap by writing the
-family note and the reference-solution link (`od-handover-and-adoption`).
+A delivered use case is **fully described** when its plant has both a reference solution (a library
+entry or archive-derived note) and a dashboard family in the same template, and archive evidence is
+curated onto at least one note. **Partly** when only one exists; **bare** when the use case note is
+the only description. When you deliver a dashboard, you close this gap by writing the family note and
+the reference-solution link (`od-handover-and-adoption`).
 
 ## Sources
 
-`Work-OpsDigit-Knowledge/Graph/Use Case Views/` (`template-standards.json`, the 11 views,
-`Use Case Views - Standardization` not read in full), `Case Groups/Case Groups - Overview.md`,
-`Dashboard Exports/Dashboard Notes/` (placement counts), read 2026-11-05.
+`Work-OpsDigit-Knowledge/Graph/Use Case Views/` (`template-standards.json`, the 11 views),
+`Case Groups/Case Groups - Overview.md`, `Dashboard Exports/Dashboard Notes/`. Read 2026-11-05; used
+for rules only.

@@ -69,8 +69,8 @@ version of the part that can be.
 
 | File | Use it for |
 |---|---|
-| [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidate guardrails G8 to G18 for the screen itself (signal binding, time handling, data sources, panels, identity, states, free text, no write-back), each with its source rule and the measured failure count in the Grafana estate, and a proposed block-or-warn setting |
-| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | The failures the vault has recorded, each mapped to the guardrail that would have caught it; proposed G19; who to call when a guardrail fails; the utilization expectation after go-live |
+| [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidate guardrails G8 to G18 for the screen itself (signal binding, time handling, data sources, panels, identity, states, free text, no write-back), each with its source rule and the failure pattern it prevents, and a proposed block-or-warn setting |
+| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | The failure patterns the vault has recorded, each mapped to the guardrail that would have caught it; proposed G19; who to call when a guardrail fails; the utilization expectation after go-live |
 | [`assets/go-live-check-record.md`](assets/go-live-check-record.md) | The record to fill: G1 to G19, a content check against the template, the post-go-live fields, the result line |
 
 Status of the extra guardrails: they come from AI-drafted draft specifications (SPEC-02 to SPEC-04) and from recorded failure cases. They are **candidates** that the OD lead has not confirmed. The plant answers G1 to G7 always; G8 to G19 are answered when the plant has built or copied the screen itself.

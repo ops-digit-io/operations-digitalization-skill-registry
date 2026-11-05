@@ -14,8 +14,8 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 |---|---|
 | **Plant** | ⟨plant⟩ |
 | **Machine** | ⟨name⟩ ⟨(EQ id)⟩ · ⟨vendor⟩ ⟨PLC model⟩ |
-| **Process group** | ⟨one of the 29⟩ · family ⟨Rubber / Plastic / Metal / Assembly⟩ |
-| **Capability in scope** | ⟨one of the 11 templates, or "inventory only"⟩ |
+| **Process group** | ⟨one of the process groups⟩ · family ⟨Rubber / Plastic / Metal / Assembly⟩ |
+| **Capability in scope** | ⟨one of the capability templates, or "inventory only"⟩ |
 | **Analyst / date** | ⟨name⟩ · ⟨date⟩ |
 | **Overall verdict** | ⟨ready / gaps block delivery / inventory incomplete⟩ |
 

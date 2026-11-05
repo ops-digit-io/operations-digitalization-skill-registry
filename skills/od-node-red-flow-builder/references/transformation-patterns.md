@@ -20,7 +20,7 @@ decode side and the encode side — see [`architecture.md`](architecture.md).
 
 ## P1 · Delta gate — "did this change?"
 
-**The most common thing in the estate.** 193 counter flows and every event-shaped flow
+**The most common thing in the estate.** Counter flows and every event-shaped flow
 start here.
 
 ```text
@@ -38,7 +38,7 @@ it — `rbe` on the value field is the fallback when it does not.
 
 ## P2 · Accumulator — counters with a reset
 
-34 `Shift Part Counter` flows plus every total counter.
+`Shift Part Counter` flows plus every total counter.
 
 ```javascript
 var trigger      = msg.payload.isDelta
@@ -62,13 +62,13 @@ change "format msg.payload":
 **The `|| 0` is not optional.** Flow context is cleared on deploy; without it the counter
 becomes `NaN` on the first increment after every redeploy.
 
-**Reset** is a separate trigger — an inject on a schedule, or a shift-boundary signal. 42
-flows carry `static shift reset of counter`. A counter with no reset path is a counter that
+**Reset** is a separate trigger — an inject on a schedule, or a shift-boundary signal. Many
+flows carry a `static shift reset of counter` node. A counter with no reset path is a counter that
 only ever grows.
 
 ## P3 · Two-event time range — cycle time
 
-104 cycle-time flows. Capture a start event, capture an end event, subtract.
+The cycle-time family. Capture a start event, capture an end event, subtract.
 
 ```javascript
 var cycle_start_time = msg.payload.sysTimeStart;
@@ -92,24 +92,24 @@ a meaningless number that is not obviously wrong.
 
 ## P4 · Threshold crossing — estimation on a process value
 
-32 flows (`Loading Time Estimation on Pressure`, `Cycle Time Estimation on Pressure`).
+Used by the `... Estimation on Pressure` flows.
 Where no explicit start/end trigger exists, derive one from a process value crossing a
 limit.
 
 ```text
-rbe (payload.isHigh) → switch "is higher than 1.5 bar" → capture timestamp into flow context
+rbe (payload.isHigh) → switch "is higher than <limit>" → capture timestamp into flow context
                                                        → on the falling edge, run P3
 ```
 
-45 flows carry the comment `is higher the 1.5 mbar`. The `isHigh` boolean itself is computed
+The `isHigh` boolean itself is computed
 upstream, in a function that runs on every sample:
 
 ```javascript
-// "catch if higher then 1.5 bar"
+// "catch if higher than <limit>"
 var currentValue     = msg.payload.valueDouble;
 var currentTimestamp = msg.payload.sysTime;
 
-if (currentValue > 1.5) {
+if (currentValue > <limit>) {   // illustrative: read it from flow config instead
     if (flow.get("isHigh") === true) {
         flow.set("actual_timestamp", currentTimestamp);   // still high — keep the latest time
     }
@@ -126,11 +126,10 @@ return msg;
 `rbe` downstream on `payload.isHigh` is what turns this into the two clean edges the switch
 needs — the function alone only produces a flag on every sample, not an edge.
 
-**The `1.5` is the estate's own counter-example to "read config from flow, never a
-literal."** 68 flows in the corpus hardcode a limit in the function body instead of reading
-it from flow config — not just this one (1.5 bar, 2000 rpm in the sibling max-speed version),
-but process-time constants and other limits too. Porting any of them to a different limit
-means editing a function, not a change node. Copy the shape; read the limit with
+**The literal limit in this snippet is the estate's own counter-example to "read config from
+flow, never a literal."** Flows in the estate hardcode a limit in the function body instead of
+reading it from flow config - pressure limits, speed limits, process-time constants. Porting any
+of them to a different limit means editing a function, not a change node. Copy the shape; read the limit with
 `flow.get('thresholdX')` instead. `od-node-red-flow-troubleshooting`'s `hardcoded-threshold`
 check reports exactly this.
 
@@ -140,20 +139,20 @@ hysteresis rather than raising the rate limit.
 
 ## P5 · Value mapping — raw integer to named state
 
-29 `Machine Mode Normalization` / `Machine Status` flows.
+The `Machine Mode Normalization` / `Machine Status` family.
 
 ```text
 switch "isDelta is true"
-  → switch "valueInteger is 1"   → change → set valueString "Running"
-  → switch "valueInteger is 15"  → change → set valueString "Setup"
+  → switch "valueInteger is <code>"   → change → set valueString "<StateName>"
+  → switch "valueInteger is <code>"   → change → set valueString "<StateName>"
   → else                         → …
 ```
 
-A chain of `eq` switches, one per state. `eq` is the second-most-common switch operator in
-the estate (1,016 uses) and this is why.
+A chain of `eq` switches, one per state. `eq` is among the commonest switch operators in
+the estate and this is why.
 
-**Where it goes wrong:** an unmapped code falls through the `else` and is dropped. 1,726
-`else` branches exist and most go nowhere. **Wire the `else` to a debug or a warn** — an
+**Where it goes wrong:** an unmapped code falls through the `else` and is dropped. Most
+`else` branches go nowhere. **Wire the `else` to a debug or a warn** — an
 unmapped machine mode is exactly the thing you want to know about.
 
 For more than about six states, use P6 instead.
@@ -186,12 +185,12 @@ claim it. Give this one the `else` the real copies skip, for the same reason as 
 
 ## P6 · Lookup table — CSV-backed mapping
 
-83 flows (`parse csv input for alert messages`, `Tool ID Mapping`).
+Used by the `parse csv input for alert messages` and `Tool ID Mapping` flows.
 
 **Load once, at startup:**
 
 ```text
-inject (once) → file in → split → join (custom, array, count 1001, joiner \n)
+inject (once) → file in → split → join (custom, array, count <n>, joiner \n)
               → csv (sep ';', no header, columns: error_number,error_message)
               → change: set flow.alertmessageConfig = payload
 ```
@@ -217,12 +216,12 @@ match and the function falls off the end returning nothing.
 **Add the miss branch.** `node.warn(\`no mapping for ${match}\`)` costs one line and turns an
 invisible drop into a finding.
 
-The `count: 1001` join is a fixed batch size, not a file length — a table longer than 1000
-rows is silently truncated. 72 flows use exactly this number.
+The `count` on the join is a fixed batch size, not a file length — a table longer than the count
+is silently truncated. Set it larger than the longest table you expect.
 
 ## P7 · UUID → label enrichment
 
-195 flows carry `lookup uuid to label, including postprocessing`; 41 fetch the table live.
+Used in the `lookup uuid to label, including postprocessing` group; some flows fetch the table live.
 
 ```javascript
 const lookup = flow.get("datapointConfig")
@@ -250,14 +249,14 @@ before the encode.
 
 ## P8 · Building a packet from nothing
 
-65 `create object` flows. Where the output is not derived from an input packet — a target
+The `create object` flows. Where the output is not derived from an input packet — a target
 value, a computed plan figure, a heartbeat.
 
 ```javascript
 var payload = {
     uuid: flow.get('UUI_targetHr'),
     valueInteger: flow.get('TargerHour') * (flow.get('multiplicador') || 1),
-    plcTime: 30,
+    plcTime: <plc time>,
     sysTime: 0
 };
 
@@ -272,7 +271,7 @@ Note it packs `sysTime` itself, because there is no inbound packet to re-pack fr
 
 ## P9 · Clearing the oneof
 
-34 `set null to multiple keys` functions, plus the change-node form in every standard
+`set null to multiple keys` functions, plus the change-node form in every standard
 `prepare for protob encoding`.
 
 ```javascript
@@ -295,12 +294,12 @@ delete _msgid
 move   payload → payload.plcPackets[0]
 ```
 
-18 flows in the estate send more than one value field. That is the `oneof-violation` the
+Flows in the estate send more than one value field. That is the `oneof-violation` the
 troubleshooting analyser reports.
 
 ## P10 · Composite string parsing
 
-8 `String Split` flows. A PLC packs several fields into one `valueString`; split it into
+The `String Split` flows. A PLC packs several fields into one `valueString`; split it into
 named values.
 
 ```text
@@ -314,7 +313,7 @@ is then wrong without a single error. Check the field count and the expected typ
 
 ## P11 · OEE chain — availability × performance × quality
 
-7 `oee_Calculator_*` flows. Three independent branches, each publishing its own signal,
+The `oee_Calculator_*` flows. Three independent branches, each publishing its own signal,
 feed one final multiply.
 
 ```javascript
@@ -360,7 +359,7 @@ const uuid       = flow.get('datapointMaxSpeed')
 const isNewCycle = flow.get('isNewCycle');
 const lastSpeed  = flow.get('lastSpeed');
 const maxSpeed   = flow.get('maxSpeed');
-const threshold  = flow.get('thresholdMaxSpeed')   // the real copy hardcodes 2000 — don't
+const threshold  = flow.get('thresholdMaxSpeed')   // the real copy hardcodes a literal — don't
 
 flow.set('lastSpeed', msg.payload.valueInteger);
 
@@ -387,7 +386,7 @@ return null;   // window still closed, or still open — nothing to publish yet
 the previous one (`lastSpeed`) in the same comparison — that is one function, not a node
 graph, which is why this pattern is self-contained rather than composed from P4's pieces.
 Same hardcoded-threshold caution as P4 — `hardcoded-threshold` in the troubleshooting
-analyser catches the real copy's literal `2000` too.
+analyser catches the real copy's literal too.
 
 ## P13 · Liveness watchdog — did the heartbeat stop?
 
@@ -411,14 +410,14 @@ function sendBoolean(val) {
 }
 
 if (!timer) {
-    timer = setInterval(function () { sendBoolean(false); timer = null; context.set('timer', timer); }, 300000);
+    timer = setInterval(function () { sendBoolean(false); timer = null; context.set('timer', timer); }, <timeout ms>);
     context.set('timer', timer);
 }
 if (lastMsg && msg.payload.valueBool !== lastMsg.payload.valueBool
             && msg.payload.isDelta === true && lastMsg.payload.isDelta === true) {
     sendBoolean(true);
     clearInterval(timer);
-    timer = setInterval(function () { sendBoolean(false); timer = null; context.set('timer', timer); }, 300000);
+    timer = setInterval(function () { sendBoolean(false); timer = null; context.set('timer', timer); }, <timeout ms>);
     context.set('timer', timer);
 }
 context.set('lastMsg', msg);
@@ -429,7 +428,7 @@ state is meant to be shared across the tab. This one deliberately uses `context`
 timer belongs to this one node — a second heartbeat flow sharing a tab must not be able to
 clear a timer it does not own.
 
-**The timeout (300 s here) is a judgement call tied to the signal's real publish interval,
+**The timeout is a judgement call tied to the signal's real publish interval,
 not a constant to copy verbatim.**
 
 ---
@@ -441,8 +440,8 @@ These hold whichever pattern you are in.
 | Rule | Why |
 |---|---|
 | **Read config from `flow`, never a literal** | Porting to another machine is one change node. A UUID in a function body is a defect |
-| **Unpack `sysTime` in, re-pack out — always both** | The pair is what keeps every downstream timestamp true. 19 flows ship one without the other |
-| **Set the output UUID from config** | A derived packet under the input UUID is invisible to its consumer. 203 flows never set one |
+| **Unpack `sysTime` in, re-pack out — always both** | The pair is what keeps every downstream timestamp true. Flows exist that ship one without the other |
+| **Set the output UUID from config** | A derived packet under the input UUID is invisible to its consumer. Many flows never set one |
 | **Exactly one `value*` field survives to the encode** | `measured_value` is a `oneof` |
 | **Set `isDelta` explicitly on the output** | State what the derived signal is; do not inherit it |
 | **Guard, then warn, then drop** | `return null` alone makes a dropped message untraceable |
@@ -450,4 +449,4 @@ These hold whichever pattern you are in.
 | **Tolerate `undefined` context** | Deploy clears it — `flow.get(k) \|\| 0` |
 | **Name every node** | `{{error.source.name}}` is the only identity an error message carries |
 | **Structure to the data model, not the PLC layout** | The most-recorded blocker in the estate is data-model standardization |
-| **State the unit, and convert it in one place** | A register or counter carries no unit of its own. One real flow divides a Modbus `valueInteger` by 1000 to turn milliseconds into seconds — correct, but nothing except the signal's name says the conversion is needed, so the next flow can skip it unnoticed |
+| **State the unit, and convert it in one place** | A register or counter carries no unit of its own. A flow may divide a Modbus `valueInteger` by a scale factor to turn milliseconds into seconds — correct, but nothing except the signal's name says the conversion is needed, so the next flow can skip it unnoticed |

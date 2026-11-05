@@ -16,8 +16,7 @@ computing platform is more specific: it names the roles a plant meets when somet
 be installed, changed or fixed. A local key user needs it to know **who to call and what is
 theirs**.
 
-**Source and grade.** One deck: *Operation Concept IIoT and Edge Computing* (25 slides; slides
-dated 2026-01-30 on the process slides), described in the vault's `Slide Index` and in the
+**Source and grade.** One deck: *Operation Concept IIoT and Edge Computing* (the process slides carry the deck's date), described in the vault's `Slide Index` and in the
 archive-evidence block of the tool note `Concept 3 - IIoT Edge Computing Platform`
 ("AI-drafted ... not reviewed by a human"). The Slide Index keeps a snippet of about 400
 characters per slide; **several role slides are cut off** (marked "..."). What is listed below
@@ -58,7 +57,7 @@ mapped to each other in any note read.** ⟨The mapping, for example: is the reg
 the deck's local key user? Who could supply it: OD lead.⟩ Until then, use the deck's title when
 you talk to IT and the registry's role when you talk to the lane.
 
-## Processes (slides 16 to 21, dated 2026-01-30)
+## Processes (slides 16 to 21)
 
 The snippets show only the actors, not the steps. What can be read:
 

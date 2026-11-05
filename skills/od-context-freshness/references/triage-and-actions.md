@@ -39,36 +39,29 @@ not guessed. A skill whose sources are listed that way is only partly covered by
 | Old registry mark | The registry owner | Request a new Scorecard or graph export; re-quote the figures | Do not edit the mark |
 | Cannot assess | The registry owner | Fix the front matter | - |
 
-## 3. First run, 2026-11-05 (dated worked example)
+## 3. Reading a run
 
-Run read-only on 2026-11-05 against the registry working tree, the Department OS bundle and `registry.yaml`.
-The numbers are that day's output, not a standing state.
+Lead the report with what expires next, then what is overdue, then which skills rest on those files. The numbers
+are always that day's output, never a standing state - do not carry them into a skill or a later report.
 
-**Bundle (38 files with front matter, 14 flags in 13 files).**
+**Bundle.** Files carrying `valid-until` are the highest-leverage reviews: when one of them holds a decision table
+that other skills copy (decision rights, for example), list the dependent skills next to it. `REVIEW OVERDUE` on
+weekly-cadence metrics pages is the usual pattern, because they drift fastest. Files verified in one pass all fall
+due together, so a quarter's worth of flags tends to arrive on the same day.
 
-- `valid-until 2026-11-10`, five days away: strategy, metrics, decision-rights, swot and the systems-of-record
-  module. The decision-rights file carries the decision table that `od-decision-routing` and `od-cybersec-gate`
-  copy; it is the highest-leverage review on the list. A re-run dated 2026-11-12 reported all five as `EXPIRED`.
-- `REVIEW OVERDUE`: the four lane metrics pages and the department metrics page (weekly cadence, last verified
-  2026-08-10, 80 days late), plus objectives, service catalog, risks and portfolio (monthly, 56 days late).
-- 37 of 38 files carry `last-verified: 2026-08-10`. That is the date of one verification pass, so everything
-  falls due together.
+**Skills.** A young registry shows few stale skills at the 90-day threshold; the weak point is then not the skills'
+own dates but the sources they name. Read the cross table first, and count the `derived_from` paths that could not
+be resolved (brace or ellipsis paths) as "not assessed".
 
-**Skills.** No skill was stale at the 90-day threshold; the oldest `sources_read` was 2026-08-10 (87 days). The
-weak point is not the skills' own dates but the sources they name: the cross check listed 12 skill-and-source pairs
-where the named bundle file was overdue (risks, portfolio, service catalog and metrics pages), and 17 `derived_from`
-paths could not be resolved.
+**Registry marks.** Compare each `*_as_of` mark with the run date and name the figures that rely on it. Compare the
+`open_gaps` count with the previous report.
 
-**Registry marks.** `data_as_of` 2026-08-10 (87 days), `graph_as_of` 2026-08-24 (73), `flows_as_of` 2026-08-25
-(72). 65 `open_gaps` entries.
-
-**What this says.** The registry is young enough that skills are not stale; the **context layer behind them reaches
-its first expiry on 2026-11-10**. The quarterly hygiene has most value now, and a report should lead with the five
-expiring files.
+**What it says.** If the context layer behind the skills reaches an expiry soon, the quarterly hygiene has most
+value that quarter, and the report should lead with the expiring files.
 
 ## 4. Reading the bundle gap list against `open_gaps`
 
-The bundle README lists nine open gaps (named owners; targets and thresholds; value delivery cycle; named lane
+The bundle README lists its open gaps by theme (named owners; targets and thresholds; value delivery cycle; named lane
 owners; adoption and recipient feedback; systems detail; data platform detail; decision counterparts; naming).
 Each quarter, mark every item **closed**, **still open** or **changed**, with the source that shows it. Do not close
 an item because a skill papered over it: a skill that writes `⟨…⟩` for the same gap is evidence the gap is still

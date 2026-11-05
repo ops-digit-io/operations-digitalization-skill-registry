@@ -49,23 +49,14 @@ In Node-RED the fields arrive camel-cased: `plcPackets`, `sysTime`, `plcTime`,
 `valueInteger`, `valueString`, `valueDouble`, `valueBool`, `valueBytes`, `isDelta`,
 `sequenceNumber`.
 
-## Field usage across the corpus
+## Which fields flows actually touch
 
-Occurrences in function-node source across all 825 flows — a fair proxy for what flows
-actually touch:
-
-| Field | Uses |
-|---|--:|
-| `sysTime` | 5,974 |
-| `uuid` | 2,586 |
-| `plcPackets` | 1,891 |
-| `valueDouble` | 730 |
-| `valueString` | 513 |
-| `isDelta` | 461 |
-| `valueInteger` | 228 |
-| `label` *(not in the schema — added by lookup)* | 219 |
-| `valueBool` | 115 |
-| `quality` *(not in the schema)* | 7 |
+To see what flows actually touch, count occurrences of each field name in function-node source across
+the flow exports (no counts are kept here). Pattern to expect: `sysTime`, `uuid` and `plcPackets` are
+touched by almost every flow; the value fields are touched according to the signal types in use
+(`valueDouble` and `valueString` more than `valueBool`); `isDelta` is touched by event-shaped flows. Two
+names appear in function code that are **not in the schema**: `label` (added by the uuid-to-label lookup)
+and `quality`. Both must be removed before the encode.
 
 ## `sys_time` — packed, not an epoch
 
@@ -83,8 +74,8 @@ Unpack inbound, re-pack outbound. Both directions are in
 - Treating it as epoch **milliseconds** → timestamps in the 23rd century.
 - Treating it as epoch **seconds** → timestamps far past any plausible date.
 - Unpacking inbound and forgetting to re-pack outbound → the encode succeeds and every
-  consumer downstream sees a broken time. **Nothing errors.** This is the most common
-  silent corruption in the corpus's failure modes, and it is why the two functions are a
+  consumer downstream sees a broken time. **Nothing errors.** This is a common
+  silent corruption among the failure modes, and it is why the two functions are a
   pair, not two independent conveniences.
 
 ## `oneof measured_value` — exactly one value field is present
@@ -101,9 +92,9 @@ fields. Two consequences the house pattern handles explicitly:
 ## `uuid` is the identity; `label` is not in the message
 
 The packet identifies its data point by UUID only. Human labels come from the IIoT edge
-platform's data-point config (`GET {url}/{datatronId}/data_points`), which is why 195 flows
-carry a *lookup uuid to label, including postprocessing* group and 219 function-node
-references to `label` exist for a field the schema does not define.
+platform's data-point config (`GET {url}/{datatronId}/data_points`), which is why many flows
+carry a *lookup uuid to label, including postprocessing* group and function nodes
+reference `label`, a field the schema does not define.
 
 Consequence for the timeseries data model: this is UUID-keyed long-format telemetry, and
 the label is a **dimension joined in**, not a column of the fact. That is the archetype
@@ -111,8 +102,7 @@ the Grafana skill calls *timeseries* — see `build-grafana-ops-dashboard`.
 
 ## `is_delta`
 
-Whether the packet reports a change rather than a cyclic sample. 461 function-node
-references. Two uses in the corpus:
+Whether the packet reports a change rather than a cyclic sample. Two uses in the corpus:
 
 - **Filtering inbound** — `is delta true >> 1` switch nodes gate on it so a flow reacts to
   transitions rather than to every sample.

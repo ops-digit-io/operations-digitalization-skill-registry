@@ -26,7 +26,7 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
     - Kimball, R. and Ross, M. (2013). The Data Warehouse Toolkit / the Kimball Lifecycle (3rd ed.), Wiley — the requirements-track/data-track/BI-track structure and the deployment-readiness gate, adapted below to this registry's own upstream/downstream skills.
     - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
-    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the 1,010 Dashboard Notes, the 4 change reports (counts only), a 20-dashboard sample of the JSON exports, Graph/Use Case Views (11 template views, template-standards, Dashboard Use Cases - Overview), the 74 dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
   okf:
     type: Agent Skill
@@ -46,12 +46,12 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 |---|---|
 | [`references/lifecycle-and-validation.md`](references/lifecycle-and-validation.md) | The build lifecycle mapped onto this registry's own upstream/downstream skills, and the validation checklist that separates "it renders" from "it is correct" |
 | [`references/asset-type-and-tier.md`](references/asset-type-and-tier.md) | The asset-type decision worked through, and exactly where this skill's job ends and `build-grafana-ops-dashboard`'s begins once "Dashboard" is chosen |
-| [`references/dashboard-estate-baseline.md`](references/dashboard-estate-baseline.md) | **What the 19 plant Grafana instances contain (exports of 2026-10/11).** Size, versions, data sources per plant, how dashboards read data, lifecycle and churn - and the answer to the data-source question left open in the vendored skill's OD note |
-| [`references/dashboard-families-catalogue.md`](references/dashboard-families-catalogue.md) | **Look here before building.** The 74 families, the 17 cross-plant titles with their class (central / template / same name different content), and 14 family cards with the signals each needs and the traps seen |
-| [`references/dashboard-worked-examples.md`](references/dashboard-worked-examples.md) | 14 best-documented dashboards by title, plant and template, each with the lesson it teaches |
-| [`references/dashboard-json-sample-2026-11.md`](references/dashboard-json-sample-2026-11.md) | A **sample** of 20 dashboard JSON files: real structure, and the nine query patterns found |
-| [`references/capability-templates-and-placement.md`](references/capability-templates-and-placement.md) | The 11 templates, the 13 placement rules and their precedence, member counts, the 36 case groups, how to place a new asset |
-| [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, 19 authoring rules with the estate's violation counts, placement, delivery |
+| [`references/dashboard-estate-baseline.md`](references/dashboard-estate-baseline.md) | **How to read and measure the plant Grafana estate** (no figures). What to look up per plant, which data-source and query patterns to expect, lifecycle and churn - and the answer to the data-source question left open in the vendored skill's OD note |
+| [`references/dashboard-families-catalogue.md`](references/dashboard-families-catalogue.md) | **Look here before building.** The family groups, the sharing classes (central / template / same name different content / plant-specific), and 14 family cards with the signals each needs and the traps seen |
+| [`references/dashboard-worked-examples.md`](references/dashboard-worked-examples.md) | 14 illustrative dashboard patterns, each with the lesson it teaches, and how to pick real ones |
+| [`references/dashboard-json-sample.md`](references/dashboard-json-sample.md) | How to sample dashboard JSON, and the nine query patterns found |
+| [`references/capability-templates-and-placement.md`](references/capability-templates-and-placement.md) | The 11 templates, the 13 placement rules and their precedence, how case groups work, how to place a new asset |
+| [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, authoring rules with how to check each on the current export, placement, delivery |
 
 **This skill does not re-derive Grafana build mechanics.** `build-grafana-ops-dashboard` already
 owns the SQL patterns, the manager/analyst/operations tiers, the variable wiring and the
@@ -61,9 +61,10 @@ straight to that skill's Step 0.
 
 ## What this function actually produces
 
-Of the 202 use cases that record an output asset: **173 dashboards**, 12 reports,
-11 apps, 5 analytics workflows, 1 agent. The dashboard is the default output, and the
-default is worth questioning rather than inherited.
+Across the use cases that record an output asset, the **dashboard** is by far the most common
+output; reports, apps, analytics workflows and agents are rare (re-count on the use-case list
+before quoting a split). The dashboard is the default output, and the default is worth
+questioning rather than inherited.
 
 | Asset | Fits when |
 |---|---|
@@ -79,8 +80,8 @@ default is worth questioning rather than inherited.
 building, name the moment:
 
 - **Daily Gemba** — the shop-floor walk, the single largest consumer of what OD builds.
-  It needs current numbers at the line, not a report assembled afterwards. 125 of the 202
-  use cases recording a utilization rate are used daily.
+  It needs current numbers at the line, not a report assembled afterwards. Most use cases
+  that record a utilization rate are used daily (re-count on the list).
 - **Shift checks** — recorded in plants' own standard procedures: *"our shift supervisors
   check the OEE four times per shift and talk to the operators if we are not meeting the
   goal"*, *"our shift supervisors check the line speeds twice per shift"*. The asset
@@ -112,13 +113,12 @@ portfolio or cross-plant question does not.
 
 ## What the plants already have
 
-Before designing, read the baseline and the catalogue: **74 % of the 1,010 exported dashboards
-exist in one plant only, and 17 titles that occur in three or more plants are shared in name
-but, for Andon, Alert and Operations, not in content.** The local Grafana reads a PostgreSQL-type
-`telemetry` source at 17 of 19 locations and InfluxDB at Changshu and Sun Prairie; signals are
-bound by literal UUID in 498 dashboards. Those are counts from the exports of 2026-10/11
-(`references/dashboard-estate-baseline.md`); the specs they come from are drafts, unreviewed.
-Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
+Before designing, read the baseline and the catalogue. **Most dashboards exist in one plant only,
+and titles that recur across plants are shared in name but, for Andon, Alert and Operations, not in
+content.** The local Grafana mostly reads a PostgreSQL-type `telemetry` source, a few plants read
+InfluxDB, and signals are mostly bound by literal UUID. Those are patterns, not counts; measure
+them on the current export (`references/dashboard-estate-baseline.md`); the specs they come from
+are drafts, unreviewed. Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
 configuration.
 
 ## Procedure

@@ -13,7 +13,7 @@ metadata:
   id: od-use-case-intake-triage
   tier: practice
   lane: all
-  owner_role: OD lead (Thomas Zipf)
+  owner_role: OD lead
   authority_level: recommend
   status: stable
   sources_read: 2026-10-22
@@ -41,7 +41,7 @@ department — this skill is the entrance.
 
 | File | Use it for |
 |---|---|
-| [`references/refusal-playbook.md`](references/refusal-playbook.md) | Real requests that looked legitimate and were refused or re-scoped, the actual tell in each, and one case accepted that should have been refused |
+| [`references/refusal-playbook.md`](references/refusal-playbook.md) | Request patterns that look legitimate but should be refused or re-scoped, the tell in each, and one pattern accepted that should have been refused |
 
 ## Channels a request legitimately arrives through
 
@@ -102,10 +102,11 @@ strategic-plant scope.
 
 **5 — Check the request against OD's position** before accepting a large one. A proposed
 action should leverage a strength, cover a weakness, capture an opportunity or mitigate a
-threat. One that does none of these is worth questioning: notably, integration is behind
-the yearly target (W4) and the value delivery cycle is not yet proven (W5), so work that
-lifts integration to target or demonstrates the cycle earns priority over work that does
-neither.
+threat. One that does none of these is worth questioning: check the department's current weaknesses and
+threats in the strategy record (look up: OD lead / latest ODEC strategy deck). Typical
+ones are integration running behind its yearly target and a value delivery cycle that is
+not yet proven; work that lifts integration to target or demonstrates the cycle earns
+priority over work that does neither.
 
 ## Output of a triage
 
@@ -122,5 +123,5 @@ owner was named. The work that stalls is almost never stuck on engineering.
 - Do not accept a request because it is urgent to the person asking; urgency must be
   derivable from the roadmap link and the value basis.
 - Do not silently widen a lane's scope to make a request fit.
-- Do not record a priority you have inferred. 362 of 650 use cases carry `UNKNOWN`
+- Do not record a priority you have inferred. Many use cases carry `UNKNOWN`
   priority and `UNKNOWN` is a truthful value.

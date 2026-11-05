@@ -62,7 +62,7 @@ sits in the delivery order and how far it is built — 7 carry references and a 
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Before promising any answer that depends on shop-floor data — walks the six steps against the real sources and names which one the request dies at |
 | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) | Designing or reworking the dashboard, report, app or agent a plant opens |
 | [`od-scorecard-reporting`](skills/od-scorecard-reporting/SKILL.md) | Monthly or ODEC reporting; "how is OD tracking?"; preparing or following up a round |
-| [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Any cut of the 650 use cases or the 553 saving rows |
+| [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Any cut of the use-case portfolio or the savings ledger |
 | [`od-decision-routing`](skills/od-decision-routing/SKILL.md) | "Am I allowed to do this, and if not, who decides?" |
 | [`od-sharepoint-list-export`](skills/od-sharepoint-list-export/SKILL.md) | OD source data has to leave SharePoint, with its version history intact |
 
@@ -93,7 +93,7 @@ references are the substance rather than an appendix:
   `iiot-edge-platform.md` (the three layers, six phases, hardware sequence, and how to choose
   when both routes are open), `fallbacks.md` (the eight ways an integration blocks and what
   to try first)
-- **Node-RED building** (eight files) — the artefact catalogue crawled from all 825 flows,
+- **Node-RED building** (eight files) — the artefact catalogue crawled from the exported flow corpus,
   the ten transformation patterns with real implementations, how the real-time streaming
   works, the canonical flow walkthrough, the PLCPacket schema, the topic grammar, the
   standard function bodies and the instance inventory
@@ -103,7 +103,7 @@ references are the substance rather than an appendix:
 - **signal standardization** — reads the machine context (PLC program, sequence chart, layout,
   handbook, HMI) alongside the tag list, translates tags from nine plant languages, and writes
   a defined signal analysis report; the
-  canonical vocabulary mined from 260 signal names in use,
+  canonical vocabulary mined from the signal names in use,
   the public data models to adopt instead of inventing (OPC UA for Machinery, EUROMAP 77/83/84,
   PackML), the normative KPI standards behind each capability, search patterns that cluster a
   raw signal list by functional area with an importance ranking, and an analyser
@@ -201,23 +201,23 @@ cross-plant question belongs on the global platform.
 The registry inherits the department's own rules rather than inventing house style. The
 four that change answers most often:
 
-1. **Tracked is not proven.** €2,384,217 tracked and €653,820 finance-proven are both true
+1. **Tracked is not proven.** Tracked and finance-proven savings are both true
    about the same portfolio. They are never added together.
 2. **Built is not handed over, and handed over is not in use.** `IMPLEMENTED` and
    `PRODUCTIVE` fail separately, which is why handover has its own tracked state.
-3. **Absence is not a zero.** 362 of 650 use cases carry `UNKNOWN` priority; 474 of 553
+3. **Absence is not a zero.** Many use cases carry `UNKNOWN` priority and many
    saving rows carry no reliability. Reading those as "low" is the most frequent way to be
    wrong about this portfolio.
 4. **No figure without a nameable source and a read date**, and no invented figure at all —
    open questions stay `⟨… — to confirm⟩`.
 
-## Figures, and when they were read
+## No company figures in skills
 
-Scorecard and Power BI values: **2026-08-10**. Portfolio and savings-ledger figures from
-the knowledge bundle: **2026-08-24**. Node-RED flow corpus and machine estate:
-**2026-08-25**. All drift — every skill that quotes a number says so and tells you to
-refetch. `registry.yaml` carries the three dates as `data_as_of`, `graph_as_of` and
-`flows_as_of`.
+Skills carry guidance and process, not data. They do not state current counts, spend,
+savings, per-plant status or dated snapshots of the company; they say which live source holds
+the figure and how to read it. `scripts/check_no_figures.py` lists lines that look like
+such figures (heuristic, read-only). `registry.yaml` keeps the three provenance dates
+`data_as_of`, `graph_as_of` and `flows_as_of` for the sources the skills were derived from.
 
 ## Verification status
 

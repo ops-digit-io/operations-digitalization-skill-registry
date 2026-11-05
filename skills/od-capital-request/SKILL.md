@@ -29,7 +29,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/90-Sources/du-overview/OneDrive_1_21.8.2026/260818_DU_Setup_Timeplan.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases, all 29 notes mined as a pattern for what a business case holds, read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Registers Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
     - Skills od-decision-routing and od-benefit-calculation, read 2026-11-05
   okf:
@@ -50,7 +50,7 @@ nothing packages it (`docs/new-state-conformance.md`). This skill packages the o
 
 **What the sources do not hold:** the eCR form itself. No source gives its fields, its system, who files it, how
 long approval takes or what comes back. Everything below that is about the form's content is therefore built from
-what an approver needs and from 29 business cases in the vault (`references/business-case-structure.md`), and is
+what an approver needs and from the business cases in the vault (`references/business-case-structure.md`), and is
 marked as a proposal. The investment planning template that the project-support lane lists as an asset is
 ⟨to confirm or create⟩ in the resources registry (`00-core/15-resources.md`).
 
@@ -58,8 +58,8 @@ marked as a proposal. The investment planning template that the project-support 
 
 | File | Use it for |
 |---|---|
-| [`references/spend-route.md`](references/spend-route.md) | The spend gate as the sources state it, its unresolved overlap, how it sits in Lane 2 and Lane 3, what a booked saving waits on |
-| [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from 29 vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing |
+| [`references/spend-route.md`](references/spend-route.md) | How to find the spend gate and approver for an amount, the ambiguity to resolve with the OD lead, how it sits in Lane 2 and Lane 3, what a booked saving waits on |
+| [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
 | [`assets/capital-request-package.md`](assets/capital-request-package.md) | The package this skill produces and the human submits |
 
 ## Where it sits
@@ -80,8 +80,9 @@ marked as a proposal. The investment planning template that the project-support 
    the work is within the plant roadmap and spends nothing new, no capital request: record that and stop.
 2. **Collect the inputs.** The use case record, the benefit rows (`od-benefit-calculation`), the validation
    record (`od-prototype-poc`), the solution-evaluation verdict, the Plant ME agreement on priority.
-3. **Route first** (`od-decision-routing`): read the amount against the spend ladder and name the approver and
-   the decision row. The sources give a ladder with an overlap; do not pick a side silently
+3. **Route first** (`od-decision-routing`): read the amount against the current approval policy (look up: the OD lead and
+   `od-decision-routing`) and name the approver and the decision row. If the recorded
+   ladder is ambiguous for the amount, do not pick a side silently
    ([`references/spend-route.md`](references/spend-route.md)). Also name the other gates the spend touches: IT
    demand (`it-demand-package`), Cyber Security (`od-cybersec-gate`, `od-equipment-integration`).
 4. **State the ask** in one line: amount, what it buys, what phase it funds, by when it must be decided.
@@ -114,7 +115,7 @@ has been submitted or approved by the agent.
 
 - ⟨eCR form, fields, system and who may file⟩: not in any source. OD lead with BA Operations / Finance.
 - ⟨Approval lead time⟩: the skill-map queue is a placeholder. OD data.
-- ⟨Route and approver between €75k and €150k, and below €75k⟩ ([`references/spend-route.md`](references/spend-route.md)). OD lead.
+- ⟨Route and approver where the recorded thresholds overlap, and for small spend below them⟩ ([`references/spend-route.md`](references/spend-route.md)). OD lead.
 - ⟨Cost rates (people, hardware, compute) the department should use⟩: the vault cases use their own FTE rates; none is
   an OD standard. Finance.
 - ⟨The investment planning template⟩ and ⟨the use-case business-case template⟩ (`00-core/15-resources.md`). DBVE / OD lead.

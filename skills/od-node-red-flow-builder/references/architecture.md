@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Architecture
-description: A 41-node production flow walked end to end, so the shape of a real flow is concrete before you build one.
+description: An illustrative canonical flow walked end to end, with placeholder values, so the shape of a real flow is concrete before you build one.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -10,8 +10,8 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # A canonical flow, node by node
 
-Walkthrough of `BMW_Lean_Cell_-_Cycle_Time` on `ct-oesl-krb-nodered-prod` — 41 nodes,
-representative of the house pattern. Read alongside
+Walkthrough of an illustrative flow, `<asset> - Part Counter Trigger` on `ct-oesl-<site>-nodered-<prod|test>`,
+representative of the house pattern. Values are placeholders, not real identifiers. Read alongside
 [`standard-functions.js`](standard-functions.js) and [`plc-packet.md`](plc-packet.md).
 
 ## What it does
@@ -34,9 +34,9 @@ inject "Trigger once"
 
 | Variable | Value | Is |
 |---|---|---|
-| `datatronName` | `ski4-bm01` | the edge device |
-| `datapointTotalPartCounter` | `85f29811-…` | **input** UUID |
-| `datapointPartProducedTrigger` | `59fa510e-…` | **output** UUID |
+| `datatronName` | `<edge-device>` | the edge device |
+| `datapointTotalPartCounter` | `<input-uuid>` | **input** UUID |
+| `datapointPartProducedTrigger` | `<output-uuid>` | **output** UUID |
 
 Two UUIDs, in and out, is the shape of every derive-a-signal flow. Nothing downstream
 contains either literal.
@@ -44,7 +44,7 @@ contains either literal.
 The group's `comment` node carries the flow's configuration contract in prose — which
 variables must be set, what each means, and where to get it (query the edge platform by
 `datatronName` / `plcName`). That comment is the best documentation habit in the corpus:
-32 % of comment nodes carry a body, and this is what the good ones look like.
+only a minority of comment nodes carry a body, and this is what the good ones look like.
 
 ## Group 2 — `mqtt connection and message decoding`
 
@@ -62,7 +62,7 @@ Order matters and is counter-intuitive: **filter before split.** `filter uuids` 
 packet. Splitting first would work and cost more.
 
 `link out` ends the group. Groups are wired to each other through link nodes rather than
-long cross-canvas wires — 1,668 `link in` and 1,631 `link out` nodes across the corpus.
+long cross-canvas wires — `link in` / `link out` pairs are used throughout the corpus.
 This is what keeps the generated flow diagram readable.
 
 ## Group 3 — `set message filters`
@@ -81,8 +81,8 @@ can see beats an implicit one.
 Here it is minimal: a `change` node setting `payload.valueBool = true`, then `link out`.
 The counter's *value* is irrelevant; the fact that it moved is the signal.
 
-In flows where the label matters, this group holds the data-point-config lookup — 195
-flows carry it, and 41 of those fetch the config live from the edge platform
+In flows where the label matters, this group holds the data-point-config lookup — many
+flows carry it, and some of those fetch the config live from the edge platform
 (`GET {url}/{datatronId}/data_points`) rather than embedding it.
 
 ## Group 5 — `prepare and convert payload`
@@ -113,7 +113,7 @@ Three things happen here that are each a common bug when missing:
 
 ```text
 encode "EncodeProto"   protoType: PLCPacketList, same protofile as the decode
-  → mqtt out  (topic: datatroniq/data/protob/plc/ski4-bm01/ads/811-7, same broker)
+  → mqtt out  (topic: datatroniq/data/protob/plc/<edge-device>/ads/<id>, same broker)
 ```
 
 Same broker as the input, same family, different data block. `ads` is the driver segment —
@@ -132,7 +132,7 @@ catch (all nodes)
   → debug
 ```
 
-446 flows carry this. It is why node naming is not cosmetic: `{{error.source.name}}` is
+Most well-built flows carry this. It is why node naming is not cosmetic: `{{error.source.name}}` is
 the failing node's `name` field, so an unnamed node produces an error message that
 identifies nothing.
 

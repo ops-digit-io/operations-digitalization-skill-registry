@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Refusal playbook](refusal-playbook.md) | Skill Reference | Real requests that looked legitimate and were refused or re-scoped, what the actual tell was, and one case accepted that should have been refused — Phase-1 tacit-knowledge item #1, resolved from the department's own retrospective record. |
+| [Refusal playbook](refusal-playbook.md) | Skill Reference | Request patterns that look legitimate but should be refused or re-scoped, what the tell is, and one pattern accepted that should have been refused - guidance distilled from the department's retrospectives, no plant names or figures. |

@@ -21,14 +21,14 @@ metadata:
   authority_level: author flows on a test instance; deploying to a prod instance is human-approved
   status: stable
   sources_read: 2026-11-05
-  corpus: 825 flows across 53 ct-oesl Node-RED instances
+  corpus: the exported ct-oesl Node-RED flows (count live, do not quote a remembered figure)
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
   derived_from:
-    - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 exported flow JSON + 827 generated docs)
+    - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (exported flow JSON and generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
-    - Node-RED auto-docs flow JSON re-counted 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs, 825 flow files) for the census of disabled flows, drivers, MQTT settings, timers and flow-config keys
+    - Node-RED auto-docs flow JSON re-read 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs) for disabled flows, drivers, MQTT settings, timers and flow-config keys
     - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
   okf:
     type: Agent Skill
@@ -40,8 +40,8 @@ metadata:
 
 # Node-RED flow builder
 
-Read `od-context` first. This skill is the house pattern extracted from **825 flows across
-53 `ct-oesl-*-nodered-*` instances** — not a Node-RED tutorial. Where the corpus is
+Read `od-context` first. This skill is the house pattern extracted from the flows across the
+`ct-oesl-*-nodered-*` instances — not a Node-RED tutorial. Where the corpus is
 consistent, that consistency is the standard; where it is not, this file says so.
 
 ## Where a flow sits
@@ -73,8 +73,8 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 
 | File | Use it for |
 |---|---|
-| [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the 825 flows actually build - artefact families, a sanitized generalized example per artefact, the reusable building blocks, and the naming convention |
-| [`references/transformation-patterns.md`](references/transformation-patterns.md) | The thirteen patterns the estate is built from, with real implementations and what breaks each |
+| [`references/artefacts.md`](references/artefacts.md) | **Look here first.** What the flows actually build - artefact families, a sanitized generalized example per artefact, the reusable building blocks, and the naming convention |
+| [`references/transformation-patterns.md`](references/transformation-patterns.md) | The thirteen patterns the estate is built from, with implementations and what breaks each |
 | [`references/composing-transformations.md`](references/composing-transformations.md) | **When no pattern fits.** The four questions that classify any transformation, the multi-input latch-and-evaluate shape, windowing, timer-driven emit, composition rules, and the two timestamp conventions |
 | [`references/streaming.md`](references/streaming.md) | How the real-time path works - the hops and their guarantees, split/rbe/delay/join, QoS, ordering, flow context, back-pressure |
 | [`references/architecture.md`](references/architecture.md) | An annotated walkthrough of one canonical flow, node by node |
@@ -83,16 +83,16 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 | [`references/standard-functions.js`](references/standard-functions.js) | The standard function bodies, verbatim |
 | [`references/deployable-flow.md`](references/deployable-flow.md) | **Read before generating a flow file.** The palette module, the config nodes the corpus exports do not contain, the structural envelope, and how to verify a flow actually starts |
 | [`assets/protobuf-schema-bootstrap.flow.json`](assets/protobuf-schema-bootstrap.flow.json) | **Importable flow.** Writes the PLCPacketList schema to the instance's file store — run once on any new instance before any decode/encode flow |
-| [`references/instances.md`](references/instances.md) | The 53 instances, naming, and the documentation pipeline |
-| [`references/corpus-census-2026-11.md`](references/corpus-census-2026-11.md) | **Re-count of 2026-11-05.** Corrects the disabled-flow count (72 of 825, not 0), driver mix per site, MQTT QoS and retain settings, cron and delay patterns, the flow-config key vocabulary, global-context use, HTTP and UI use |
+| [`references/instances.md`](references/instances.md) | Instance naming, site codes, how to count flows live, and the documentation pipeline |
+| [`references/corpus-census.md`](references/corpus-census.md) | **How to census the corpus live** (no figures): disabled flows, driver segments, MQTT QoS and retain settings, cron and delay patterns, the flow-config key vocabulary, global-context use, HTTP and UI use, and how to read each |
 | [`assets/flow-config-contract.md`](assets/flow-config-contract.md) | **Form.** The config contract a key user fills in before building - identity, input and output UUIDs, limits, shift and timezone, topics - using the key names the flows already use |
 
 **A broken flow rather than a new one?** Use `od-node-red-flow-troubleshooting`, which runs
 a static analyser over the flow JSON.
 
 > **The corpus these references come from is incomplete in one specific way.** The per-flow
-> exports contain a tab and its nodes and **nothing else** — across all 825 there are **zero
-> config nodes**. So the patterns here describe a correct transformation but not a
+> exports contain a tab and its nodes and **nothing else** — there are **no
+> config nodes** in them. So the patterns here describe a correct transformation but not a
 > *deployable file*: `decode`/`encode` need the `node-red-contrib-protobuf` palette module,
 > and both the MQTT and protobuf nodes reference config nodes that must be added by hand.
 > [`deployable-flow.md`](references/deployable-flow.md) covers that layer, verified against
@@ -102,45 +102,44 @@ a static analyser over the flow JSON.
 
 ## The canonical seven-group layout
 
-620 of 825 flows carry a group called *prepare and convert payload*; 606 carry *mqtt
+Most flows carry a group called *prepare and convert payload* and one called *mqtt
 connection and message decoding*. This is not a coincidence — it is the template.
 
 ```text
-┌ config flow ──────────────────────────────────────────── (656 flows)
+┌ config flow ────────────────────────────────────────────
 │   inject "Trigger once"  →  change "Set flow config"  →  function "Debug flow config"  →  debug
-│   └ set inputs for config flow ───────────────────────── (458 flows)
+│   └ set inputs for config flow ─────────────────────────
 │
-├ functional flow ──────────────────────────────────────── (552 flows)
-│   ├ mqtt connection and message decoding ─────────────── (606 flows)
+├ functional flow ────────────────────────────────────────
+│   ├ mqtt connection and message decoding ───────────────
 │   │     mqtt in → decode(PLCPacketList) → function "filter uuids"
 │   │            → split "flatten PLCPacket Array" → function "Convert sysTime" → link out
 │   │
-│   ├ set message filters ─────────────────────────────── (309 flows)
+│   ├ set message filters ───────────────────────────────
 │   │     link in → switch(es)  →  link out
 │   │
 │   ├ <use-case-specific group> ───────────────────────── e.g. "calculate cycle time based
-│   │     the actual logic: lookup, join, calculate         on triggers" (152 flows),
-│   │                                                       "lookup uuid to label" (195 flows)
+│   │     the actual logic: lookup, join, calculate         on triggers",
+│   │                                                       "lookup uuid to label"
 │   │
-│   ├ prepare and convert payload ─────────────────────── (620 flows)
+│   ├ prepare and convert payload ───────────────────────
 │   │     link in → change "format msg.payload"
 │   │            → change "prepare for protob encoding"
 │   │            → function "Convert sysTime back"
 │   │
-│   └ message encoding and connection ─────────────────── (580 flows)
+│   └ message encoding and connection ───────────────────
 │         encode(PLCPacketList) → mqtt out
 │
 └ error handling (ungrouped, by convention)
       catch → change "get env variables of flow" → template "create error message" → debug
 ```
 
-The five most common wiring pairs in the corpus are `change → function` (1,625),
-`switch → change` (1,147), `function → debug` (1,030), `change → change` (966) and
-`inject → change` (906). The MQTT spine is `mqtt in → decode` (607) → `decode → function`
-(601) → `function → split` (600) → `split → function` (558) → `function → encode` (558) →
-`encode → mqtt out` (555). If your flow does not look like that, have a reason.
+The commonest wiring pairs in the corpus are `change → function`, `switch → change`,
+`function → debug`, `change → change` and `inject → change`. The MQTT spine is
+`mqtt in → decode → function → split → function → function → encode → mqtt out`. If your flow
+does not look like that, have a reason.
 
-Full annotated walkthrough of a real flow:
+Full annotated walkthrough of an illustrative flow:
 [`references/architecture.md`](references/architecture.md).
 
 ## The message: PLCPacket over protobuf
@@ -170,7 +169,7 @@ Two things bite everybody:
    way out — that is exactly what the two standard functions do. Reading it as
    milliseconds gives a date in the year 2262.
 2. **`uuid` identifies the data point; the human label lives elsewhere** — in the IIoT
-   edge platform's data-point config, fetched per datatron. That is why 195 flows carry a
+   edge platform's data-point config, fetched per datatron. That is why many flows carry a
    *lookup uuid to label* group. Never hardcode a label as if it were the identity.
 
 ## The standard function nodes
@@ -178,15 +177,15 @@ Two things bite everybody:
 Copy these; do not rewrite them. Verbatim source:
 [`references/standard-functions.js`](references/standard-functions.js).
 
-| Node name | Flows | Does |
-|---|--:|---|
-| `Debug flow config` | 675 | Echoes the flow variables set by *Set flow config* so a misconfiguration is visible at deploy, not at 3 a.m. |
-| `Convert sysTime (UTC timestamp)` | 625 | Unpacks `sysTime` → epoch milliseconds |
-| `Convert sysTime back (UTC timestamp)` | 617 | Re-packs epoch milliseconds → `sysTime` before encoding |
-| `filter uuids` | 599 | Keeps only the `plcPackets` whose `uuid` is in the flow config |
-| `set datapointConfigFilter` | 205 | Builds the filter for the data-point config query |
-| `calculate timerange between cycle_start and cycle_end event` | 148 | The cycle-time primitive |
-| `create json payload` | 157 | Assembles the outbound payload |
+| Node name | Does |
+|---|---|
+| `Debug flow config` | Echoes the flow variables set by *Set flow config* so a misconfiguration is visible at deploy, not at 3 a.m. |
+| `Convert sysTime (UTC timestamp)` | Unpacks `sysTime` → epoch milliseconds |
+| `Convert sysTime back (UTC timestamp)` | Re-packs epoch milliseconds → `sysTime` before encoding |
+| `filter uuids` | Keeps only the `plcPackets` whose `uuid` is in the flow config |
+| `set datapointConfigFilter` | Builds the filter for the data-point config query |
+| `calculate timerange between cycle_start and cycle_end event` | The cycle-time primitive |
+| `create json payload` | Assembles the outbound payload |
 
 ## Configuration: flow variables, never literals in logic
 
@@ -205,21 +204,21 @@ A UUID appearing inside a `function` node body is a defect.
 
 Data-point config is fetched from the IIoT edge platform rather than typed in:
 `GET {url}/{datatronId}/data_points` with the Bearer header from `flow.get("headers")` —
-41 flows do exactly this, under a *get variable config from iiot edge platform* group.
+the flows that fetch it do so under a *get variable config from iiot edge platform* group.
 
 ## Topics
 
 Two families. Full grammar and segment vocabulary:
 [`references/topic-conventions.md`](references/topic-conventions.md).
 
-**`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`** — 1,221 uses, protobuf
+**`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`** — the dominant family, protobuf
 `PLCPacketList`. The `<driver>` segment names the connector family: `dqcdc`, `cifx`, `tia`,
 `ads`, `abrock`. A flow usually **subscribes and publishes on the same broker**, reading
 raw packets and writing derived ones back with a new `uuid`.
 
-**`CT/<BA>/<region>/<country>/<plant>/<area>/<sub-area>/<machine>/<signal>`** — 144 uses,
-the ISA-95-shaped hierarchical topic, e.g.
-`CT/OESL/AS/CHN/QDA/AC/Braider_Area/AC324_Braider/production_output`. Observed vocabulary:
+**`CT/<BA>/<region>/<country>/<plant>/<area>/<sub-area>/<machine>/<signal>`** — the
+ISA-95-shaped hierarchical topic, e.g.
+`CT/OESL/AS/CHN/<plant>/<area>/<sub-area>/<machine>/<signal>` (illustrative). Vocabulary:
 BA `OESL` | `MFS`; region `AS` | `NA`; country `CHN` | `USA`; plant `QDA` | `SPR` | `CSHZ`.
 
 **Publishing a derived signal keeps `is_delta` semantics honest.** The standard pattern
@@ -231,23 +230,23 @@ encoding — it does not reuse the input packet's identity.
 Thirteen patterns cover almost every flow in the estate. Full implementations and failure
 modes: [`references/transformation-patterns.md`](references/transformation-patterns.md).
 
-| # | Pattern | Flows | Shape |
-|---|---|--:|---|
-| P1 | **Delta gate** | ~200 | `switch` on `payload.isDelta` — turns a cyclic sample stream into events |
-| P2 | **Accumulator** | 34+ | `flow.get(k) \|\| 0` → increment → `flow.set` → publish, with a separate reset |
-| P3 | **Two-event time range** | 104 | Capture start, capture end, subtract; guard `NaN` and negative |
-| P4 | **Threshold crossing** | 32 | A function flags `isHigh` on every sample; `rbe` turns it into two clean edges |
-| P5 | **Value mapping** | 29 | A chain of `eq` switches (single flag) or nested `if` (several flags), code → named state |
-| P6 | **Lookup table** | 83 | CSV loaded once into flow context; `filter` per message |
-| P7 | **UUID → label** | 195 | Enrich from the edge platform's data-point config |
-| P8 | **Build from nothing** | 65 | Construct a packet from config; pack `sysTime` yourself |
-| P9 | **Clear the oneof** | 34+ | Delete the value fields that do not apply |
-| P10 | **Composite string** | 8 | Split a packed `valueString`; validate every field |
-| P11 | **OEE chain** | 7 | Availability × performance × quality, each published, then multiplied |
-| P12 | **Windowed extremum** | 2+ | Latch the running max/min while a threshold-bounded window is open |
-| P13 | **Liveness watchdog** | 2+ | Detect a heartbeat toggle; publish "not alive" on a timeout, node-scoped `context` |
+| # | Pattern | Shape |
+|---|---|---|
+| P1 | **Delta gate** | `switch` on `payload.isDelta` — turns a cyclic sample stream into events |
+| P2 | **Accumulator** | `flow.get(k) \|\| 0` → increment → `flow.set` → publish, with a separate reset |
+| P3 | **Two-event time range** | Capture start, capture end, subtract; guard `NaN` and negative |
+| P4 | **Threshold crossing** | A function flags `isHigh` on every sample; `rbe` turns it into two clean edges |
+| P5 | **Value mapping** | A chain of `eq` switches (single flag) or nested `if` (several flags), code → named state |
+| P6 | **Lookup table** | CSV loaded once into flow context; `filter` per message |
+| P7 | **UUID → label** | Enrich from the edge platform's data-point config |
+| P8 | **Build from nothing** | Construct a packet from config; pack `sysTime` yourself |
+| P9 | **Clear the oneof** | Delete the value fields that do not apply |
+| P10 | **Composite string** | Split a packed `valueString`; validate every field |
+| P11 | **OEE chain** | Availability × performance × quality, each published, then multiplied |
+| P12 | **Windowed extremum** | Latch the running max/min while a threshold-bounded window is open |
+| P13 | **Liveness watchdog** | Detect a heartbeat toggle; publish "not alive" on a timeout, node-scoped `context` |
 
-**These ten are single-input shapes, and single input is the minority.** 461 of the 665
+**P1 to P11 are mostly single-input shapes, and single input is the minority.** Most
 flows that carry data-point config read **two or more** data points — every tolerance check,
 quality event and composite KPI is multi-input. That shape (build a filter array, latch each
 input into flow context, evaluate on the triggering one) is in
@@ -268,8 +267,8 @@ Two prerequisites people discover late, both of which stop a flow dead:
   derived UUID is registered, not invented; until it is, everything downstream ignores your
   packet.
 - **Check which envelope and clock you are on.** Most of the estate is packed `sysTime` on
-  protobuf topics, but 145 flows also carry `plcTime` — the PLC's own clock, and the more
-  truthful source for anything measuring machine behaviour — and 75 flows read a JSON
+  protobuf topics, but some flows also carry `plcTime` — the PLC's own clock, and the more
+  truthful source for anything measuring machine behaviour — and a few read a JSON
   envelope whose `sys_time` is a formatted local-time string, not a packed integer.
 
 ### Standards for any transformation
@@ -277,12 +276,12 @@ Two prerequisites people discover late, both of which stop a flow dead:
 | Rule | Why |
 |---|---|
 | **Config from `flow`, never a literal** | Porting is one change node. A UUID in a function body is a defect |
-| **Unpack `sysTime` in, re-pack out — both, always** | 19 flows ship one without the other; every downstream timestamp is then wrong |
-| **Set the output UUID from config** | A derived packet under the input UUID is invisible to its consumer — 203 flows never set one |
-| **Exactly one `value*` field reaches the encode** | `measured_value` is a protobuf `oneof`; 18 flows violate it |
+| **Unpack `sysTime` in, re-pack out — both, always** | Flows exist that ship one without the other; every downstream timestamp is then wrong |
+| **Set the output UUID from config** | A derived packet under the input UUID is invisible to its consumer — many flows never set one |
+| **Exactly one `value*` field reaches the encode** | `measured_value` is a protobuf `oneof`; flows exist that violate it |
 | **Set `isDelta` explicitly on the output** | State what the derived signal is; do not inherit |
-| **Guard, then warn, then drop** | A bare `return null` makes a dropped message untraceable. `node.error`/`node.status` appear 6 and 8 times in the whole corpus — that is the gap |
-| **Wire the `else`** | 1,726 `else` branches exist and most go nowhere. An unmapped code is a finding |
+| **Guard, then warn, then drop** | A bare `return null` makes a dropped message untraceable. `node.error`/`node.status` are barely used anywhere in the corpus — that is the gap |
+| **Wire the `else`** | Most `else` branches go nowhere. An unmapped code is a finding |
 | **Tolerate `undefined` context** | Deploy clears flow context |
 | **Structure to the data model, not the PLC layout** | The most-recorded blocker in the estate |
 
@@ -306,14 +305,13 @@ Three layers travel together, and confusing them causes most transformation bugs
 | `msg.topic` | `mqtt in` | The source topic; useful for routing |
 | `msg.payload.label` | P7 enrichment | **Not a PLCPacket field** — remove before the encode |
 
-**3 · Flow context** — the state. Per-tab, cleared on deploy. ~14,000 `flow.get` and
-~12,700 `flow.set` across the corpus. Configuration keys (`datatronName`, `datapoint*`)
-and accumulators (`ShiftPartProduced`) live here. `global` is used 496 times and couples
+**3 · Flow context** — the state. Per-tab, cleared on deploy. Configuration keys (`datatronName`, `datapoint*`)
+and accumulators (`ShiftPartProduced`) live here. `global` is used rarely and couples
 flows that should not know about each other — prefer `flow`.
 
 ## Error handling
 
-446 flows carry a `catch`. The house pattern is four nodes and is worth copying exactly:
+Most well-built flows carry a `catch`. The house pattern is four nodes and is worth copying exactly:
 
 ```text
 catch (all nodes)
@@ -329,14 +327,14 @@ traceable without opening the editor — which is the whole reason node naming m
 
 **What an error actually does to the stream.** The catch receives it and the message is
 **dropped from its chain**. Nothing retries, nothing is dead-lettered, the stream does not
-pause. So an error is a *lost message*, and the 380 flows with no `catch` lose them
+pause. So an error is a *lost message*, and the flows with no `catch` lose them
 invisibly.
 
 **Two error paths, and both are needed:**
 
 | Path | Catches | Add it |
 |---|---|---|
-| `catch` (scope: all nodes) | Thrown exceptions — a lookup on `undefined`, a bad JSON parse | Always. 446 flows do; use scope *all*, not selected |
+| `catch` (scope: all nodes) | Thrown exceptions — a lookup on `undefined`, a bad JSON parse | Always; use scope *all*, not selected |
 | An explicit guard in the function | Business-invalid values — `NaN` cycle time, negative duration, unmapped code | Wherever the pattern has a "silent drop" branch |
 
 The guard is the one people skip. The house pattern returns `null`, which drops the message
@@ -355,13 +353,13 @@ if (isNaN(msg.payload.cycle_time)) {
 }
 ```
 
-Across the whole corpus `node.error` appears **6** times and `node.status` **8**. That is
+Across the whole corpus `node.error` and `node.status` are barely used. That is
 the single biggest observability gap in the estate: flows drop messages correctly and say
 nothing about it.
 
-**Six flows exist whose entire artefact is `Error Handling`** — a dedicated tab collecting
+**Some flows exist whose entire artefact is `Error Handling`** — a dedicated tab collecting
 and routing errors rather than a per-flow catch. Check whether the instance has one before
-building a seventh.
+building another.
 
 ## Build so the documentation writes itself
 
@@ -370,16 +368,16 @@ from **four fields and nothing else**: the tab `label`, the tab `info`, each nod
 and `info`, and each group's `name`. There is no other input. What you name is what gets
 documented.
 
-The corpus's honest state:
+The corpus's honest state, as a pattern (measure it live; see `references/artefacts.md`):
 
 | | |
 |---|---|
-| Groups named | **92 %** (4,884 of 5,313) |
-| Nodes named | **63 %** (14,989 of 23,703) |
-| Comment nodes with a body | **32 %** (1,853 of 5,749) |
-| **Flows carrying a tab description** | **1 %** (12 of 825) |
+| Groups named | mostly |
+| Nodes named | the majority |
+| Comment nodes with a body | a minority |
+| **Flows carrying a tab description** | **almost none** |
 
-Groups are disciplined. Flow-level descriptions are essentially absent — 813 flows document
+Groups are disciplined. Flow-level descriptions are essentially absent — most flows document
 their internals and never say what the flow is *for*. That is the single highest-leverage
 fix available in this corpus, and it costs one field.
 
@@ -390,16 +388,16 @@ fix available in this corpus, and it costs one field.
    opening.
 2. **Name every node.** An unnamed node renders as its bare type in the docs table and in
    the error message.
-3. **Use the standard group names.** They are what makes 825 pages comparable.
+3. **Use the standard group names.** They are what makes the generated pages comparable.
 4. **Put the configuration contract in the `config flow` comment node.** The best flows in
    the corpus document, in that comment, exactly which flow variables must be set and where
    to get each one. Copy that habit.
 
 ## Guardrails
 
-- **Never hardcode a secret.** The corpus contains **23 literal Teams webhook URLs and 30
+- **Never hardcode a secret.** The corpus has contained **literal Teams webhook URLs and
   literal Bearer tokens** in committed flow JSON. Those repositories are the documentation
-  source and are cloned by the doc generator. Use `$env(...)` / `env.get(...)` — 872 lookups
+  source and are cloned by the doc generator. Use `$env(...)` / `env.get(...)` — many flows
   already do — or Node-RED credentials, never a literal. Do not copy an existing flow's
   literal forward; when you touch a flow that has one, replace it.
 - **Never deploy to a `prod` instance without approval.** Build and prove on `test`.
@@ -407,14 +405,14 @@ fix available in this corpus, and it costs one field.
 - **Never change the signal standard from inside a flow.** A per-plant fix-up buried in a
   `function` node is how cross-plant comparability is lost — that is a
   `od-signal-standardization` decision, Consultation with Plant ME / Plant IT.
-- **Never leave `debug` nodes enabled at volume in prod.** 1,976 debug nodes exist across
-  the corpus; they are a development aid.
+- **Never leave `debug` nodes enabled at volume in prod.** Debug nodes
+  are a development aid.
 - **A flow is not done until its acceptance test passes** end to end — machine → connector →
   edge → flow → data platform → the asset the plant opens. See `od-acceptance-test`.
 
 ## Reviewing someone else's flow
 
-1. Does the tab carry a description? (1 % do — ask for one.)
+1. Does the tab carry a description? (Few do — ask for one.)
 2. Is every UUID in `Set flow config` rather than in a function body?
 3. Are the two `sysTime` conversions present and paired? An outbound packet without the
    re-pack is the most common silent corruption.

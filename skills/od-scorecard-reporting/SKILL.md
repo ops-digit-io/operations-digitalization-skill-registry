@@ -4,8 +4,9 @@ description: >-
   Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case
   and Equipment Integration Power BI reports — against their targets and intervention
   thresholds, and prepare and follow up the ODEC and COP rounds. Covers which report is
-  authoritative for which figure, the current targets and actuals with their read date,
-  when a number crosses into "intervene", and the recipient-feedback loop per lane. Use
+  authoritative for which figure, how to read targets and actuals live with their read date,
+  when a number crosses into "intervene", and the recipient-feedback loop per lane. Holds
+  method and sources only, no current targets or actuals (look those up live). Use
   when monthly or ODEC reporting is due, when someone asks how OD is tracking, when a
   metric needs a source, or when a round needs preparing or following up.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
@@ -13,7 +14,7 @@ metadata:
   id: od-scorecard-reporting
   tier: practice
   lane: all
-  owner_role: OD lead (Thomas Zipf); DBVE for use-case metrics, IIAE for equipment metrics
+  owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
   authority_level: read-only on sources; draft on reports
   status: stable
   sources_read: 2026-10-22
@@ -24,7 +25,7 @@ metadata:
     - ops-knowledge-graph/.../00-core/07-metrics.md
     - ops-knowledge-graph/.../00-core/06-operating-rhythm.md
     - ops-knowledge-graph/.../20-lanes/*/metrics.md
-    - ISO 22400-2:2014, Automation systems and integration — Key performance indicators for manufacturing operations management — Part 2: Definitions and descriptions. The KPI-definition discipline (formula, elements, time behaviour, unit, user group); equipment KPIs reference IEC 62264 work units.
+    - "ISO 22400-2:2014, Automation systems and integration — Key performance indicators for manufacturing operations management — Part 2: Definitions and descriptions. The KPI-definition discipline (formula, elements, time behaviour, unit, user group); equipment KPIs reference IEC 62264 work units."
     - Kaplan, R.S., Norton, D.P. (1992). The Balanced Scorecard — Measures That Drive Performance. Harvard Business Review, 70(1), 71-79. The four-perspective structure and the leading/lagging cause-effect chain.
     - personal vault, Work-OpsDigit-Knowledge/ODEC Facts/ODEC Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
   okf:
@@ -59,29 +60,30 @@ its source, its target and the value at which somebody intervenes.
 | `OD-Report-Equipment_Integration` | Equipment counts by month, region and process |
 
 Where they disagree, **the Scorecard "Actual Year" figures are authoritative.** A known
-example: the Use-Case gauge showed 88 of ~140 under the 2026 filter while the Scorecard
-showed IS 101 of 153 for the year. Report the Scorecard figure and say which filter the
-other came from.
+trap of this kind: a report gauge filtered to the current year can show a different count
+than the Scorecard's year figure because the two apply different filters or scopes. Report
+the Scorecard figure and say which filter the other came from.
 
 ## The metrics
 
-Values read **2026-08-10**. They **will drift** — refetch from Power BI before acting on
-any of them, and state the read date with any figure you publish.
+This table holds **no values**. Targets, actuals and read dates live in the Scorecard and
+the two reports; refetch from Power BI before acting, and state the read date and source
+with any figure you publish.
 
-| Metric | Formula | Source | Target | Intervene from | Cadence |
+| Metric | Formula | Source | Target (look up) | Intervene from | Cadence |
 |---|---|---|---|---|---|
-| Integrated Use Cases (year) | Count, current year | Scorecard · Digital Use Cases · IS | **153** (year); 279 total | IS below target-to-date — **101 vs 153** | monthly |
-| Integrated Use Cases per month | Count in month | Use_Case_Integration · monthly bar | **12/month** (overshoot 14) | month below 12 (red bar) | monthly |
-| Integrated Equipment (year) | Count, current year | Scorecard · Equipment Integration · IS | **331** (year); 666 total | IS below target-to-date — **338 vs 331, on/above** | monthly |
-| Integrated Equipment per month | Machines in month | Equipment_Integration · monthly bar | **25/month** (overshoot 30) | month below 25 (red bar) | monthly |
+| Integrated Use Cases (year) | Count, current year | Scorecard · Digital Use Cases · IS | Annual target on the Scorecard | IS below target-to-date | monthly |
+| Integrated Use Cases per month | Count in month | Use_Case_Integration · monthly bar | Monthly target on the report | month below the monthly target (red bar) | monthly |
+| Integrated Equipment (year) | Count, current year | Scorecard · Equipment Integration · IS | Annual target on the Scorecard | IS below target-to-date | monthly |
+| Integrated Equipment per month | Machines in month | Equipment_Integration · monthly bar | Monthly target on the report | month below the monthly target (red bar) | monthly |
 | System / capability readiness | RAG per dimension × location | Scorecard · System Integration and Availability | Available at strategic plants | red at a strategic plant | quarterly |
-| Use-case utilization rate | Integrated use cases by utilization rate | Scorecard · Digital Use Case Utilization | No fixed target — trend only | low-utilization share rising | monthly |
-| Use-case asset mix | Share by asset | Use_Case_Integration · asset pie | No target — descriptive portfolio indicator | portfolio indicator | quarterly |
-| Value delivery cycle | Demand → live use case | Not captured in any system today | No target — nothing to measure against yet | — | — |
+| Use-case utilization rate | Integrated use cases by utilization rate | Scorecard · Digital Use Case Utilization | No fixed target - trend only | low-utilization share rising | monthly |
+| Use-case asset mix | Share by asset | Use_Case_Integration · asset pie | No target - descriptive portfolio indicator | portfolio indicator | quarterly |
+| Value delivery cycle | Demand → live use case | Not captured in any system today | No target - nothing to measure against yet | — | — |
 
-**The honest headline today:** equipment integration is on or above target; use-case
-integration is behind. Report both. A summary that leads with the equipment number alone
-is the version that gets found out.
+**The honest headline rule:** report the leading and the lagging metrics side by side,
+including whichever is behind. A summary that leads with only the favourable number
+(typically the one that is on target) is the version that gets found out.
 
 ## Recipient feedback — the loop acceptance does not cover
 

@@ -4,13 +4,13 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Architecture](architecture.md) | Skill Reference | A 41-node production flow walked end to end, so the shape of a real flow is concrete before you build one. |
-| [Artefacts](artefacts.md) | Skill Reference | What the 825 flows across 53 instances actually build, crawled from their labels, with a generalized key-free example per artefact. |
+| [Architecture](architecture.md) | Skill Reference | An illustrative canonical flow walked end to end, with placeholder values, so the shape of a real flow is concrete before you build one. |
+| [Artefacts](artefacts.md) | Skill Reference | Guidance, no figures - the artefact families Node-RED flows actually build, the naming convention, a generalized key-free example per artefact, and the reusable building blocks; count usage live. |
 | [Composing transformations](composing-transformations.md) | Skill Reference | What to do when the transformation you need is not one of the thirteen patterns: how to compose one and how to prove it works. |
-| [Corpus census 2026-11](corpus-census-2026-11.md) | Skill Reference | Re-count of the Node-RED flow corpus on 2026-11-05 - disabled flows, driver mix per site, MQTT settings, triggers and timers, flow-config vocabulary, global context keys, HTTP and UI use - with a correction to the earlier disabled-flow statement. |
+| [Corpus census](corpus-census.md) | Skill Reference | Guidance, no figures - how to census the Node-RED flow corpus live (disabled flows, driver segments, MQTT settings, triggers and timers, flow-config vocabulary, global context, HTTP and UI use) and how to read what the census shows. |
 | [Deployable flow](deployable-flow.md) | Skill Reference | The half that is not the transformation: tabs, groups, wires, config nodes, and the traps that make a flow import but not run. |
-| [Instances](instances.md) | Skill Reference | 53 instances and 825 flows as auto-documented, with what each instance is for and how much of it is configured. |
+| [Instances](instances.md) | Skill Reference | Guidance, no figures - how Node-RED instances are named and discovered, what a site code is, what the instance shape tells you, and how to count flows per instance live. |
 | [PLC packet](plc-packet.md) | Skill Reference | The protobuf message every datatroniq MQTT topic carries: its fields, the packed timestamp, the oneof, and the decoding traps. |
 | [Streaming](streaming.md) | Skill Reference | The mechanics under every flow: how a PLC value reaches a derived signal, and what is synchronous, buffered or lost along the way. |
-| [Topic conventions](topic-conventions.md) | Skill Reference | The two topic grammars the 825 flows publish and subscribe to, plus the small tail that follows neither. |
+| [Topic conventions](topic-conventions.md) | Skill Reference | The two topic grammars the flows publish and subscribe to, plus the small tail that follows neither; vocabulary and conventions, no usage counts. |
 | [Transformation patterns](transformation-patterns.md) | Skill Reference | Thirteen patterns covering almost every flow in the estate, each with its trigger, its state, its output and how it fails. |

@@ -67,7 +67,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 |---|---|
 | [`references/gate-rules.md`](references/gate-rules.md) | Every rule that governs the gate, one line each with its source: guardrail, decision right, risk row, wait state, what is not collected |
 | [`references/package-contents.md`](references/package-contents.md) | What the package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item |
-| [`references/precedents.md`](references/precedents.md) | What the department's own record shows: Groot2B, the QFPR approval, a plant network-separation case, the legacy-application cyber status, blocker counts |
+| [`references/precedents.md`](references/precedents.md) | Patterns from the department's own record: the Groot2B programme, an app that waited on approval, a plant network-separation case, how application cyber status is recorded, how security shows up in blocker records |
 
 ## The rule
 
@@ -120,7 +120,7 @@ connects, never approves an external connection, and never records "signed off" 
 |---|---|---|
 | External connection planned, no sign-off | Hold. No expedited path | `od-equipment-integration` SKILL.md |
 | Sign-off requested at wave level | Check the covered scope, then proceed machine by machine inside it | fallbacks.md section 4 |
-| Firmware patch required for security | Barrier class; patch before integration | barrier-classes.md; estate records 13 and 5 machines |
+| Firmware patch required for security | Barrier class; patch before integration | barrier-classes.md |
 | Controller cannot do security-compliant communication | A security position, not a preference; the conversation ends | decision-paths.md (S7-300/400) |
 | App needs the platform | Same gate, via `deploy-appstore` step 4 | deploy-appstore |
 | Sign-off held beyond one COP cycle | Escalate to ODEC for capacity or priority | escalation-worked-examples.md |
@@ -130,8 +130,9 @@ connects, never approves an external connection, and never records "signed off" 
 - ⟨The Machine-connection / Cyber Security sign-off standard⟩ (`15-resources.md` owner: OD lead + Cyber Security).
 - ⟨What counts as an external connection⟩, ⟨what Cyber Security requires for an app⟩, ⟨lead time⟩, ⟨validity of a sign-off⟩.
 - ⟨Who at the plant submits⟩ and ⟨to which Cyber Security role⟩ - roles only, never names.
-- The `cyber_security_status` field is empty on all 1,715 machine rows (`registry.yaml` open gaps), so no
-  machine record can currently show whether a sign-off exists.
+- The machine-level `cyber_security_status` field has been an open gap in `registry.yaml`; before relying on
+  it, check on the live Machine List whether it is filled. Where it is empty, no machine record can show
+  whether a sign-off exists.
 
 ## Do not
 
@@ -139,5 +140,5 @@ connects, never approves an external connection, and never records "signed off" 
 - Do not mark a sign-off granted, or write it as "implied", "verbal" or "covered" without the named answer.
 - Do not paste credentials, addresses, certificates or tokens into the package.
 - Do not send package contents to an external AI tool: the department's own AI session carried the line
-  "Do not Share/Upload company data without Cyber Security approval" (ODEC Facts - Other, 2024-08-25).
+  "Do not Share/Upload company data without Cyber Security approval" (ODEC Facts - Other).
 - Do not restate what Cyber Security requires; the standard is not collected. Point to it once it is.

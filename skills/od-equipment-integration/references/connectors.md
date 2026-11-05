@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Connectors
-description: All 26 connectors with what each reaches, over which protocol, which PLCs, and - decisively - whether it is available at all.
+description: The connector catalogue with what each reaches, over which protocol, which PLCs, and - decisively - whether it is available at all.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -11,17 +11,17 @@ generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 
 # Connectors
 
-Seven of the twenty-six cannot be used. A connector appearing in the Overview is not a
+Some connectors cannot be used. A connector appearing in the Overview is not a
 route to data, and routing an engineer to one that does not exist costs a site visit. Every
 table here carries availability, because that is the column that decides.
 
-| | Count | Meaning |
-|---|--:|---|
-| `Productive` · `USE` | **18** | A real route today |
-| `Idea` · `USE` | 1 | `DTQ-MODBUS-Connector` — the two fields disagree; see below |
-| `Idea` · `NOT AVAILABLE` | 4 | Not started. A roadmap item, not a route |
-| `Development` · `NOT AVAILABLE` | 2 | Being built. Not a route yet |
-| `Productive` · `DO NOT USE` | 1 | Exists, works, and is forbidden — with a reason |
+| State | Meaning |
+|---|---|
+| `Productive` · `USE` | A real route today (count the live Overview before quoting how many) |
+| `Idea` · `USE` | `DTQ-MODBUS-Connector` — the two fields disagree; see below |
+| `Idea` · `NOT AVAILABLE` | Not started. A roadmap item, not a route |
+| `Development` · `NOT AVAILABLE` | Being built. Not a route yet |
+| `Productive` · `DO NOT USE` | Exists, works, and is forbidden — with a reason |
 
 ## The OPC UA direct connector
 
@@ -46,23 +46,23 @@ how most of the B&R and Bachmann estate is integrated today.
 
 ## Where the native connector does not exist
 
-| PLC | Native connector | Its state | Machines | How they are actually integrated |
-|---|---|---|--:|---|
-| **B&R Industrial Automation** | `DTQ-B&R-Connector` | **Idea · NOT AVAILABLE** — *"Development to be started with Rollout in Dolne Vestenice"* | 32 (31 at Dolne Vestenice) | **29 INTEGRATED**, 30 of them via `Central OPCUA Aggregation Server` |
-| **Bachmann Electronic** | `DTQ-Bachmann-Connector` | **Idea · NOT AVAILABLE** — same note | 63 (Northeim 24, Dolne Vestenice 20, Changshu 19) | **44 INTEGRATED**; 16 recorded as aggregation server, 47 with no method recorded |
-| **Engel** | `DTQ-Engel EMI-Connector` | Idea · NOT AVAILABLE | 38 | Check per machine; Engel exposes OPC UA on current controllers |
-| **Zwick** | `DTQ-ZWICK-Connector` | Idea · NOT AVAILABLE | — | No route today |
-| **Windows file share** | `DTQ-SMB-Connector` | Development · NOT AVAILABLE | — | `DTQ-FTP2MIL-Connector` where the drop can be FTP |
-| **SmartKlaus** | `DTQ-SmartKlaus-Connector` | Development · NOT AVAILABLE | — | No route today |
+| PLC | Native connector | Its state | How they are actually integrated |
+|---|---|---|---|
+| **B&R Industrial Automation** | `DTQ-B&R-Connector` | **Idea · NOT AVAILABLE** — *"Development to be started with Rollout in Dolne Vestenice"* | Mostly integrated, via `Central OPCUA Aggregation Server` |
+| **Bachmann Electronic** | `DTQ-Bachmann-Connector` | **Idea · NOT AVAILABLE** — same note | Many integrated; part recorded as aggregation server, many with no method recorded |
+| **Engel** | `DTQ-Engel EMI-Connector` | Idea · NOT AVAILABLE | Check per machine; Engel exposes OPC UA on current controllers |
+| **Zwick** | `DTQ-ZWICK-Connector` | Idea · NOT AVAILABLE | No route today |
+| **Windows file share** | `DTQ-SMB-Connector` | Development · NOT AVAILABLE | `DTQ-FTP2MIL-Connector` where the drop can be FTP |
+| **SmartKlaus** | `DTQ-SmartKlaus-Connector` | Development · NOT AVAILABLE | No route today |
 
 Both the B&R and Bachmann native connectors are unbuilt, and both PLC families are largely
 integrated anyway — over OPC UA, through the aggregation server.
-Reading "no connector" off the Overview and reporting a barrier would contradict 73 machines
+Reading "no connector" off the Overview and reporting a barrier would contradict machines
 that are already delivering data. Ask what the PLC *exposes* before concluding there is no
 route.
 
-24 machine rows carry the vendor `Bachmann OPC` rather than `Bachmann Electronic GmbH`, all
-at Northeim, all with no protocol or method recorded. That is the same fleet described twice,
+Machine rows can carry the vendor `Bachmann OPC` rather than `Bachmann Electronic GmbH`, with
+no protocol or method recorded. That is the same fleet described twice,
 and it is why a vendor-string match alone is not a reliable way to find a machine's route.
 
 ## `SFT-SIMATIC S7-Connector` — do not use
@@ -86,7 +86,7 @@ Productive · USE), which is a different product on a different path.
 `status: Idea` and `utilization: USE`. Those cannot both be true, and the Overview offers no
 tiebreaker; its only description is *"Default connector from the Edge Platform"*, which reads
 like it ships with the platform rather than being developed for OESL. **Confirm with the IIAE
-before promising a Modbus route**, and record the answer — 80 machines are on Modbus / TCP.
+before promising a Modbus route**, and record the answer — Modbus / TCP machines are common.
 
 ## The full catalogue
 
@@ -145,9 +145,9 @@ These are the *server* side. The *edge* side of the same link is always
 
 1. **Check `utilization` before `status`, and check both.** They disagree once, and where they
    do the answer is a question for the IIAE, not a guess.
-2. **A missing `input_protocol` is not an absent protocol** — 9 connectors record none. It
+2. **A missing `input_protocol` is not an absent protocol** — several connectors record none. It
    means nobody filled the field.
-3. **`documentation_available` is `NO` on 24 of 26.** Only `DTQ-FTP2MIL-Connector` and
+3. **`documentation_available` is `NO` on nearly all.** Only `DTQ-FTP2MIL-Connector` and
    `SFT-OPC-Suite` have anything written down. Plan for the driver's behaviour to be
    discovered on site.
 4. **An unavailable native connector does not mean an unreachable PLC.** Ask what the machine

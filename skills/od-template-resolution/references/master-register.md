@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Master register
-description: The lookup of every template, standard and tool the resource register lists, with owner, state and gap markers, plus the templates produced inside registry skills and one vault file the register does not list; open it to resolve a template.
+description: Guidance for reading the department resource register to resolve a template - which kinds of rows exist, who owns them, how to read the state markers, plus the templates produced inside registry skills; no state or date snapshot, look the live state up in the register.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -11,46 +11,48 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Master register
 
-Source: `ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md`
-(register last verified 2026-08-10, review cadence quarterly). Locations are named by the library they live in;
-the full links are in the source file and are not repeated here, so that this page cannot drift from it.
-Mark as the register marks: `to collect` = the master exists but is not yet registered; `to confirm` /
-`to confirm or create` = ownership, link or the template itself is not settled.
+How to read the department resource register, not a copy of it. The register lives at
+`ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md`; it is reviewed quarterly.
+This page deliberately holds **no state, no version dates and no counts**: a copy would drift from the register the
+moment a row changes. Always read the register's current row for state, location and verification date.
+Full links are in the source file and are not repeated here.
 
-## A. Rows of the resource register
+## How to read a register row
+
+Columns to read: resource, type, serves (lane / use case), owner, version or verified date, location.
+
+| Marker in the location or version cell | Meaning | What you do |
+|---|---|---|
+| A link and a date | Usable master | Use it; note the date |
+| `to collect` | The master exists somewhere but is not yet registered | Stop; ask the owner role |
+| `to confirm` / `to confirm or create` | Ownership, link or the template itself is not settled | Do not improvise; route to creation |
+| Name present, link missing | The source is known but not reachable from the register | Ask the owner role for the link; do not guess a workspace |
+
+## A. Kinds of rows in the register
 
 ### A1. Templates and boilerplate
 
-| Resource | Type | Serves | Owner | Version / verified | State |
-|---|---|---|---|---|---|
-| OD Outreach Strategy deck | pptx | Reference master for how OD presents what it delivers and expects; reuse its structure for outreach and strategy updates. All lanes (comms) | OD lead role | 2025-03-04 | **Usable.** Link present (OD Teams site, General library) |
-| Use-case one-pager / business-case template | pptx / xlsx | Standard format to define, prioritize and impact-evaluate a use case at intake. Use Case Support Service | DBVE | to confirm | **No master.** Location reads "dedicated OD template - to confirm or create" |
+Reference decks (for example the OD Outreach Strategy deck, owner: OD lead role) and the standard format to define,
+prioritise and impact-evaluate a use case at intake (use-case one-pager / business-case template, owner: DBVE).
+Check live whether the one-pager template is a real master or still a gap row.
 
 ### A2. Standards and reference documents
 
-| Resource | Type | Serves | Owner | Version / verified | State |
-|---|---|---|---|---|---|
-| Requirement Specification for Machines & Equipment (PRS), Doc ID 215534 | docx | Standard requirement-spec template for integrating machines and equipment. Information Integration Service | Engineering Standards (a separate team site) | 2025-04-22 | **Usable.** Link present (Engineering Standards library) |
-| ProView Support Process | pptx | Incident-management process for ProView; reference for support and handover. Project Support & Consultancy | OD lead role | 2026-01-13 | **Usable** (reference, not a fill-in template) |
-| OESL IT Digital Platforms - PI Planning targets and priorities | pdf | Alignment of OD roadmap with IT Digital Platforms. All lanes | OESL IT, Digital Platforms | 2025-12-02 | **Usable** (reference). Dated Q1 planning cycle |
-| Machine-connection / Cyber Security sign-off standard | docx / pdf | Gate for compliant OT machine connection. Information Integration Service | OD lead role with Cyber Security | to confirm | **Not collected.** Location reads "standard doc - to collect (with Cyber Security)" |
+Requirement specification for machines and equipment (owner: Engineering Standards, a separate team site),
+ProView support process (owner: OD lead role; a reference, not a fill-in template), IT Digital Platforms planning
+documents (owner: OESL IT Digital Platforms; reference, dated by planning cycle), and the machine-connection / cyber
+security sign-off standard (owner: OD lead role with Cyber Security). Some of these are references to read, not
+templates to fill; the row's *Serves* cell says which.
 
 ### A3. Data sources and tools (the "canonical source to cite")
 
-| Resource | Type | Serves | Owner | Verified | State |
-|---|---|---|---|---|---|
-| Digitalization Scorecard ("MPEE-OD-Plant_Scorecard") | Power BI | Authoritative targets vs actuals and readiness matrix | OD lead role | 2026-08-10 | Name present, **workspace link to confirm** |
-| Use Case Integration report ("OD-Report-Use_Case_Integration") | Power BI | Use-case counts, asset mix, by region and process | DBVE | 2026-08-10 | Name present, **link to confirm** |
-| Equipment Integration report ("OD-Report-Equipment_Integration") | Power BI | Equipment counts by region and process | IIAE | 2026-08-10 | Name present, **link to confirm** |
-| Data platform (Databricks to Azure Storage Account, Parquet) | platform | Global layer, cross-plant analysis | IIAE | to confirm | **Access / portal link to collect** |
-| IIoT Edge / MSB | platform | Data acquisition runtime and integration backbone | IIAE | to confirm | **Portal link to collect** |
-| OD Teams site, General library | SharePoint | Home of OD context, decks and shared documents | OD lead role | 2026-08-10 | Usable (link present) |
-
-Count of the register's 12 rows: 5 usable with a link and date, 1 with no master (the one-pager), 1 not collected
-(Cyber Security standard), 3 with a missing report link, 2 with a missing platform link. Counted by hand from the file
-read 2026-11-05; recount when the register changes.
+Power BI reports (scorecard, use-case integration, equipment integration; owners: OD lead role, DBVE, IIAE), the data
+platform, the IIoT Edge / MSB platform (owner: IIAE) and the OD Teams site General library (owner: OD lead role).
+Typical gap: report name known, workspace link missing. To know how many rows are in each state, count them in the
+register on the day; do not quote a remembered figure.
 
 ## B. Templates produced inside registry skills
+
 
 These are the fill-in protocols the skills ship. They are **skill-level protocols**, not entries in the resource register,
 so none of them is an "approved master" in the register's sense. Use them as the working format named by the skill, and
@@ -73,26 +75,29 @@ cite the skill, not the register.
 | Scorecard update protocol | `od-scorecard-reporting`: `assets/scorecard-update-protocol.md` | monthly / ODEC / COP |
 | Portfolio review protocol | `od-portfolio-and-savings-analysis`: `assets/portfolio-review-protocol.md` | portfolio review |
 | Export run log | `od-sharepoint-list-export`: `assets/export-run-log.md` | list export |
-| Investment input pack; prototype briefs | `od-investment-input`, `od-prototype-poc` (assets present on disk 2026-11-05; written by others in this build, contents not read here) | Lane 1b / Lane 2 |
+| Investment input pack; prototype briefs | `od-investment-input`, `od-prototype-poc` (see each skill's assets folder) | Lane 1b / Lane 2 |
 
 The information-integration lane's task list (`20-lanes/information-integration-service/tasks.md`) names four templates
 as gaps in the department itself: *Equipment Assessment & Roadmap*, *Investment plan*, *Integration checklist* (each
 `template - to confirm`). The skills above (`assessment-protocol`, `investment-input-pack`, `guidance-protocol`) are the
 current working substitutes; whether they are adopted as the masters is `to confirm` with the IIAE role.
 
-## C. Found in the vault, not in the register
+## C. Files found outside the register
 
-| File | Where | State |
-|---|---|---|
-| `Digitalization-IT-OT-Master-Templates.pptx` | Work vault, folder `Master-Slide-Templates` (the only file there besides a thumbnail cache) | Name only; **not opened**, not in the register. Whether it is the approved master for IT / OT demand slides, and who owns it: `to confirm` with the OD lead role |
+The work vault can hold master-slide files that the register does not list. A file found there is **not** an approved
+master until the register (or the OD lead role) says so. Record its existence, do not use it as the master, and ask the
+OD lead role which deliverable it serves and who owns it. Search the vault's master-slide folder at the time of use; do
+not rely on a remembered file list.
 
-## D. Gaps summarised, with who can close them
+## D. Typical gaps and who can close them
 
-| Gap | Who can supply it |
+| Kind of gap | Who can supply it |
 |---|---|
-| Use-case one-pager / business-case master | DBVE (register owner of the row) |
+| Use-case one-pager / business-case master | DBVE |
 | Cyber Security sign-off standard | OD lead role with Cyber Security |
-| Report links (Scorecard, Use Case Integration, Equipment Integration) | OD lead role, DBVE, IIAE |
+| Report links (scorecard, use-case integration, equipment integration) | OD lead role, DBVE, IIAE |
 | Platform links (data platform, IIoT Edge / MSB) | IIAE |
 | Whether skill-level protocols are adopted as masters | OD lead role, per lane owner |
-| Status of the vault master-slide file | OD lead role |
+| Status of a vault master-slide file | OD lead role |
+
+Whether a given gap is open today is read from the register, not from this page.

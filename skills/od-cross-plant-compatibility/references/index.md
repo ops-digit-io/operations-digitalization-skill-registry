@@ -5,4 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Compatibility tests](compatibility-tests.md) | Skill Reference | The tests to run per dimension in which plants differ, what a pass and a fail look like, and which existing skill supplies the evidence. |
-| [Plant differences](plant-differences.md) | Skill Reference | What differs between the 33 plants that a cross-plant standard must survive - region, controllers, field networks, ingress variants, tool rollouts, data-gap plants, capability-instance spread and recorded blockers - as counts with source and date. |
+| [Plant differences](plant-differences.md) | Skill Reference | Guidance, no figures - the dimensions along which plants differ that a cross-plant standard must survive (region and integration state, controllers, field networks, ingress variants, tool rollouts, capability-instance spread, recorded blockers, data-gap plants), where to read each live and how to interpret it. |

@@ -36,7 +36,7 @@ delivery, not use — exactly the distinction `SKILL.md`'s central rule exists t
 
 Record whichever tier was actually available, plus its source — never upgrade a tier-2
 statement to look like tier-1 evidence, and never leave the field blank because tier-1 was
-unavailable. "Tier 2, Maria Lindqvist, 2026-10-14, used for the 06:00 Gemba walk" is a
+unavailable. "Tier 2, <owner name>, <date>, used for the <shift> Gemba walk" (illustrative) is a
 complete, honest record. A blank adoption field is not more honest than that; it is just
 less useful.
 

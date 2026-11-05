@@ -22,7 +22,7 @@ is given in the sources** and none is invented here.
 | 1 | **Recurrence** | Did the same need come back, from the same or another plant? | Request log with dates, plants, requesters, what differed; the asset's reuse | Playbook step 6; trigger "recurring value in an ad-hoc asset". Threshold `⟨to confirm⟩` |
 | 2 | **Value** | Is the asset used, and does it move a decision or a loss? | Utilization record (daily / weekly / ... / `NEVER`) from the Scorecard; saving rows with reliability and proven flag; the named ritual it serves | Metrics: utilization rate; `od-benefit-calculation`; `od-handover-and-adoption` question 1 |
 | 3 | **Reproducibility** | Can a second plant take it without the builder? | Data path written to machine and signal; data-fitness verdict; standardized signals; validation checklist passed; plant-specific parts separable | `od-data-availability-check`, `od-signal-standardization`, `od-analytics-asset-build` (validate before calling it built) |
-| 4 | **Placement** | Is there already a library entry, and where would a new one sit? | Library search result; capability template (11), process group (29), cluster tag assigned by the classifier; deltas against the cluster baseline | `od-use-case-standardization`, procedure steps 1 to 4 |
+| 4 | **Placement** | Is there already a library entry, and where would a new one sit? | Library search result; capability template, process group, cluster tag assigned by the classifier; deltas against the cluster baseline | `od-use-case-standardization`, procedure steps 1 to 4 |
 | 5 | **Handover** | Does the plant own it and use it in real shifts? | Named plant owner; the three-question test answered without the builder; handover state | `od-handover-and-adoption` |
 | 6 | **Catalog conditions** | Which of the four conditions for "catalogued" hold? | See below | `catalog-usecase` |
 
@@ -31,7 +31,7 @@ is given in the sources** and none is invented here.
 | Condition | Status in the sources |
 |---|---|
 | 1. A CSP decision `Yes` is recorded | A rule from the decision rights: "whether a solution is standard enough to roll out" is the CSP decision, per library entry |
-| 2. It maps to one of the eleven capability templates | A **proposal** of `catalog-usecase`, awaiting the OD lead |
+| 2. It maps to one of the capability templates | A **proposal** of `catalog-usecase`, awaiting the OD lead |
 | 3. Its signals are standardized | A **proposal** of `catalog-usecase`, awaiting the OD lead |
 | 4. It has a plant owner and a handover record that passed the three-question test | From the sources |
 
@@ -53,19 +53,19 @@ Escalation for low utilization or unclear value: OD lead via COP (analytical lan
 
 ## What a promotion package must not smuggle in
 
-- A **savings figure** without a nameable source. In the portfolio, 62 of 650 use cases carry a saving and
-  269 delivered cases carry none (Case Groups overview): an asset with no saving is the normal case, and
+- A **savings figure** without a nameable source. In the portfolio most use cases carry no recorded saving, and many
+  delivered cases carry none (Case Groups overview; count live): an asset with no saving is the normal case, and
   "to be collected" is the honest entry.
 - A **declared standard**. Declaring a use case standard commits it to `od-use-case-standardization`
   ("the hinge the whole function turns on"); do not use the word for an ad-hoc asset.
 - A **library duplicate**. A library entry marked CSP `No` with the note that "the other common solution is
-  a much better solution" exists in the data (library entry "Hourly Output - OK and NOK parts", Mako,
-  CSP `No`). Promoting a weaker duplicate adds to the catalogue that "has not scaled".
+  a much better solution" exists in the data (a library entry recorded with CSP `No`
+  and a note that a better common solution exists). Promoting a weaker duplicate adds to the catalogue that "has not scaled".
 
 ## Which asset types get promoted
 
-Output assets recorded across the portfolio: dashboards 173, reports 12, apps 11, analytics workflows 5,
-agent 1 (202 with an asset recorded). Nearly all candidates will be dashboards; `od-analytics-asset-build`
+Output assets recorded across the portfolio are dashboards, reports, apps, analytics workflows and agents (count the mix
+live). Most candidates will be dashboards; `od-analytics-asset-build`
 and `build-grafana-ops-dashboard` hold the standard layouts the promoted version should follow.
 An "app disguised as a dashboard" (the user types something back) is a different asset type and a
 different promotion: check the type first (`od-analytics-asset-build`, asset type and tier).

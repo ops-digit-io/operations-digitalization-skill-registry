@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Plant landscape](plant-landscape.md) | Skill Reference | The 33 plants with region, recorded machines, integration share, use cases and main controller and integration method, plus the four starting profiles that decide where onboarding begins; open it to place a plant. |
+| [Plant landscape](plant-landscape.md) | Skill Reference | Guidance, no figures - how to read the plant records (region, recorded machines, integration share, use cases, main controller and integration method), how to obtain them live, and the four starting profiles that decide where onboarding begins; open it to place a plant. |

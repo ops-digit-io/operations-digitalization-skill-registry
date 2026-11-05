@@ -21,7 +21,7 @@ delivery costs the whole analysis.
 | Databricks / Azure Storage offload | per offload | Yesterday and before. Not "what is happening now" |
 | MSB exchange | event-driven | Arrives when something happens, so silence is ambiguous |
 | Digitalization Scorecard | monthly | A trend across months. Never a question about this week |
-| Machine List | edited by hand | As current as the last person to touch it — `integration_date` is populated on 47% of rows |
+| Machine List | edited by hand | As current as the last person to touch it — `integration_date` is only partly populated (measure it live) |
 
 ## The rule
 
@@ -45,5 +45,5 @@ check the integration date of every machine in scope, not just one.
 
 A signal renamed midway is the same problem in disguise: the history exists but sits under two
 names, and a query for the current one silently returns a short series. That is
-`od-signal-standardization`'s corpus of 260 names for a much smaller set of concepts, arriving
+`od-signal-standardization`'s many names for a much smaller set of concepts, arriving
 as an analytical defect.

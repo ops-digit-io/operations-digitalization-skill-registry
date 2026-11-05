@@ -1,14 +1,14 @@
 ---
 type: Skill Reference
 title: Clusters
-description: The 12 cluster tags' standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally.
+description: The cluster tags' (C01-C12) standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
 tags: [use-case-support-service, standardization]
 generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
-# The 12 clusters — definition, KPIs, requirements checklist
+# The clusters — definition, KPIs, requirements checklist
 
 A plant use case with no local notes is built to the checklist below, not from a blank
 page; only the plant-specific deltas (which machines, which line, which local constraint)
@@ -249,8 +249,8 @@ independently re-verified this round.
 
 **Definition.** Generative AI (drafting, summarization, code/PLC generation), agentic
 workflows (multi-step autonomous task execution) and machine-learning/deep-learning use
-cases — the newest cluster, with none of its use cases productive yet as of the last
-portfolio read.
+cases — the newest cluster; check on the live list how many of its use cases are
+productive before claiming maturity.
 **KPIs.** None standard yet at this maturity — governance gates (below) substitute for a
 KPI set until a use case reaches pilot.
 **Checklist.**
@@ -270,20 +270,21 @@ and SPC-for-model-monitoring practice — carried over, not independently re-ver
 round. The human-gated-decision rule is this registry's own governance principle (see
 `od-context`), not a cited external source.
 
-## C11 · Digital twin and simulation — reserved, no use case today
+## C11 · Digital twin and simulation — reserved cluster
 
 **Definition.** A computational model of a physical asset, line or process that stays
 continuously synchronized with real data from its physical counterpart — distinguishing a
 true digital twin from a static simulation model.
-**KPIs.** Not yet applicable — reserved for when this cluster gets its first entry.
+**KPIs.** Not applicable while the cluster has no entry — reserved for its first use case.
 **Checklist, for when it does.**
 - Decide up front whether a **digital shadow** (one-way: physical → digital only) or a
   true **digital twin** (bidirectional, can send control commands back) is required —
   this materially changes the licensing and security scope.
 - Reuse the same telemetry backbone as C01/C06 rather than standing up a separate data
   pipe.
-- This cluster is empty because no leaf use case has matched digital-twin or simulation
-  keywords yet, not because of a data gap — treat its emptiness as a genuine white space.
+- If the cluster is empty on the live list, check whether that is because no use case has
+  matched digital-twin or simulation keywords, or because of a data gap, before treating
+  the emptiness as a genuine white space.
 **Sources.** ISO 23247-1:2021, digital twin framework for manufacturing (verified:
 overview, terms and definitions, framework requirements). Tao, Zhang, Liu, Nee (2019),
 *Digital twin in industry: state-of-the-art*, IEEE Transactions on Industrial Informatics
@@ -292,7 +293,7 @@ overview, terms and definitions, framework requirements). Tao, Zhang, Liu, Nee (
 ## C12 · Other and plant-specific — not a standard pattern by design
 
 **Definition.** The bucket for use cases genuinely specific to one plant or process, and
-for items too sparse in text to classify confidently. The largest cluster in the
+for items too sparse in text to classify confidently. Typically the largest cluster in the
 portfolio, which makes its size a data-quality measure more than a topical one — it
 shrinks as plant notes get written and the classifier is re-run.
 **KPIs.** None — a plant-specific item does not get a standard KPI set by definition.

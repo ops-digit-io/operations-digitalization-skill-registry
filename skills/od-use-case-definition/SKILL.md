@@ -46,23 +46,23 @@ programme, never a plant-wide ambition.
 | [`references/benefit-theory.md`](references/benefit-theory.md) | The Benefits Dependency Network mapped to the four phases — why a technical enabler is not a benefit, the business/process change that closes the Implemented-to-Productive gap, the tangible/intangible × cashable/non-cashable benefit classification, and the options-considered discipline |
 | [`references/patterns.md`](references/patterns.md) | The abstract rules this procedure runs on — match effort to category, a decision isn't a scope, the legacy-system check is tacit knowledge — each stated as a rule, illustrated once |
 | [`references/vocabulary.md`](references/vocabulary.md) | The controlled vocabulary actually in use: business process, output asset, legacy systems and tools — for Phases 1, 3 and 4 |
-| [`references/worked-examples.md`](references/worked-examples.md) | Three real use cases carried through the four phases — a complete record, one correctly stopped before Control, and a minimal-but-correct standard case |
-| [`references/library-catalog.md`](references/library-catalog.md) | All 100 library use cases (proven reference solutions), grouped by capability — the actual content behind "check the library before specifying" |
+| [`references/worked-examples.md`](references/worked-examples.md) | Three illustrative use cases (invented, placeholder values) carried through the four phases — a complete record, one correctly stopped before Control, and a minimal-but-correct standard case |
+| [`references/library-catalog.md`](references/library-catalog.md) | How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the method vocabulary — a guide to the live list, not a copy of it |
 
 ## The coordinate every use case carries
 
-1. **Plant** — one of 33 (20 Europe, 9 Americas, 4 Asia).
+1. **Plant** — one of the manufacturing plants (plant master data).
 2. **Material family / process group** — Rubber, Plastic, Metal or Assembly, and one of
-   29 process groups inside them.
-3. **Capability** — one of eleven cross-plant templates: Andon Board, OEE Calculation,
+   the process groups inside them.
+3. **Capability** — one of the cross-plant templates, for example: Andon Board, OEE Calculation,
    Downtime Reporting, Process Quality Data, Machine Alerts, Cycle Time, Recipe Values,
    Process Values, Manual Quality Data, Analytics, Other Use Cases.
 
 Without all three, the use case is not findable from another plant, which is the whole
-reason the taxonomy exists. Every capability is already instantiated at 32 or 33 of the
-33 plants — the template is never the thing that is missing. **Instantiated is not
-delivered**, though: most capability-epic records at a plant group no use case at all (see
-`references/patterns.md`). Confirm a usable precedent exists — in
+reason the taxonomy exists. A capability is typically already instantiated at nearly every plant — the template is
+rarely the thing that is missing. **Instantiated is not
+delivered**, though: many capability-epic records at a plant group no use case at all (see
+`references/patterns.md`; count them live). Confirm a usable precedent exists — in
 `references/library-catalog.md`, not from the coordinate alone — before assuming the
 template already answers this need.
 
@@ -146,7 +146,7 @@ document's four sections.
 
 - **Break down the customer / process requirement.**
 - **Assess the (legacy) MF IT systems** it touches — named systems and tools in
-  `references/vocabulary.md`. 268 legacy applications are tracked as being replaced or
+  `references/vocabulary.md`. The Legacy Application List tracks applications being replaced or
   retired; check whether the need is already served by one being retired. This is a
   question to ask the plant, not a lookup — see `references/patterns.md`.
 - **Name the machine(s), if any**, and confirm rather than assume whether the use case
@@ -154,7 +154,7 @@ document's four sections.
 - **Check the data exists** → `od-data-availability-check`. A use case whose data is not
   readable is an integration request first; record that dependency now.
 - **Check the library before specifying** → [`references/library-catalog.md`](references/library-catalog.md),
-  all 100 proven entries by capability. Take the closest one rather than drafting from a
+  the proven entries by capability. Take the closest one rather than drafting from a
   blank page; if it composes into a standard declaration, `od-use-case-standardization` is
   the library of record.
 
@@ -203,8 +203,7 @@ what's still open.
 | Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda — Use Case Workshop (SharePoint); run [`assets/use-case-definition-questionnaire.md`](assets/use-case-definition-questionnaire.md) inside it |
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 
-Locations on record for past workshops: Northeim, Dolne Vestenice, Carei, Timisoara,
-Andrezieux, Subotica, Karben. ⟨A dedicated OD use-case one-pager / business-case template
+Past workshop locations are listed in the workshop folder of the vault. ⟨A dedicated OD use-case one-pager / business-case template
 beyond the SharePoint agenda is not confirmed to exist in the source systems — checked, not
 found; the questionnaire and protocol here are what fills that gap.⟩
 
@@ -220,8 +219,8 @@ confirms it happened.
 
 ## Do not
 
-- Do not record `UNKNOWN` priority or potential as though it were low. 362 use cases
-  carry `UNKNOWN` priority and 405 `UNKNOWN` potential; absence is not an answer.
+- Do not record `UNKNOWN` priority or potential as though it were low. Many use cases
+  carry `UNKNOWN` priority or potential; absence is not an answer.
 - Do not declare a use case `standard` to make it look scalable. The CSP gate will not
   agree, and the declaration is what the rollout economics rest on.
 - Do not write a definition that only its author can read. The handover test applies from

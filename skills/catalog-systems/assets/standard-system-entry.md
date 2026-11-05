@@ -18,7 +18,7 @@ Machine class:   controller vendor ____  model family ____  field protocol ____
 Route:           edge (topology 1) / container (2) / aggregation server (3) / OPC UA server already present
 Connector(s):    ____ (Connector Overview status: Productive / Idea / Development; utilization USE / NOT AVAILABLE / DO NOT USE)
 Guide status:    written in full / TODO / stub / absent         Source: decision-paths.md, rules.json / rules-next.json
-Evidence:        machines INTEGRATED through this route ____ at ____ plants (Machine List, date ____)
+Evidence:        machines INTEGRATED through this route ____ at ____ plants (count live on the Machine List, date ____)
 Kit contents:    hardware ____  software ____  licences ____                 [vault: not recorded]
 Indicative cost: ____                                                       [vault: not recorded]
 Lead time:       procurement ____  Cyber Security / OT sign-off ____       [vault: not recorded]
@@ -31,16 +31,16 @@ Class:           A written + proven / B proven, unwritten / C fallback or single
 
 Admission rule proposed here (to confirm with the OD lead): class A **and** kit contents, cost and lead time filled in from a source. Until then the entry is a **route candidate** and carries the words "kit not yet defined".
 
-## B - Pre-filled route candidates (facts from the vault only; four routes)
+## B - Route-candidate template (illustrative rows; fill the evidence column from a live Machine List count)
 
-| Entry | Route | Guide | Evidence (Machine List, 2026-08-24 export) | Kit, cost, lead time |
+| Entry | Route | Guide | Evidence (Machine List, export date ⟨date⟩) | Kit, cost, lead time |
 |---|---|---|---|---|
-| Siemens S7 / TIA on the edge | topology 1, `DTQ-S7` / `DTQ-TIA` / `DTQ-S7-NET` | written | 223 machines, 17 plants | large edge device is the only approved hardware; ⟨cost⟩ ⟨lead time⟩ |
-| Siemens S7 / TIA on the aggregation server | topology 3, Softing dataFEED, bridge `DTQ-OPCUA` | written | 178 machines, 8 plants | no device at the machine, needs the edge platform behind the server and a driver licence per PLC family unless the extended suite is in place; ⟨cost⟩ ⟨lead time⟩ |
-| Rockwell / Allen Bradley on the edge | topology 1, `DTQ-ALLENBRADLEY-ROCKWELL` | written | 36 machines, 3 plants | ⟨kit⟩ ⟨cost⟩ ⟨lead time⟩ |
-| Rockwell / Allen Bradley on the aggregation server | topology 3 | written in rules-next | 20 machines, 2 plants | ⟨kit⟩ ⟨cost⟩ ⟨lead time⟩ |
+| Siemens S7 / TIA on the edge | topology 1, `DTQ-S7` / `DTQ-TIA` / `DTQ-S7-NET` | ⟨written / TODO / stub⟩ | ⟨machines⟩ at ⟨plants⟩ | large edge device is the only approved hardware; ⟨cost⟩ ⟨lead time⟩ |
+| Siemens S7 / TIA on the aggregation server | topology 3, Softing dataFEED, bridge `DTQ-OPCUA` | ⟨status⟩ | ⟨machines⟩ at ⟨plants⟩ | no device at the machine, needs the edge platform behind the server and a driver licence per PLC family unless the extended suite is in place; ⟨cost⟩ ⟨lead time⟩ |
+| Rockwell / Allen Bradley on the edge | topology 1, `DTQ-ALLENBRADLEY-ROCKWELL` | ⟨status⟩ | ⟨machines⟩ at ⟨plants⟩ | ⟨kit⟩ ⟨cost⟩ ⟨lead time⟩ |
+| Rockwell / Allen Bradley on the aggregation server | topology 3 | ⟨status⟩ | ⟨machines⟩ at ⟨plants⟩ | ⟨kit⟩ ⟨cost⟩ ⟨lead time⟩ |
 
-Everything else in [validated-routes.md](../references/validated-routes.md) is class B, C or D and gets **no entry** until the procedure is written (B) or a second route is proven (C).
+Any route that is not class A in [validated-routes.md](../references/validated-routes.md) is class B, C or D and gets **no entry** until the procedure is written (B) or a second route is proven (C).
 
 ## C - System match record (one per request, branch 1b)
 

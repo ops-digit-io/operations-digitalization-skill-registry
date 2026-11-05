@@ -75,9 +75,9 @@ shapes. It is:
 
 > **Which of ①, ② or ③ reaches this PLC?**
 
-① and ③ are both used at scale for Siemens and Rockwell, and **eight plants have both**, so
-this is a per-machine decision — not a vendor policy and not a plant policy. ② has one
-deployment and no written route; treat it as an IIAE conversation rather than a column in the
+① and ③ are both used at scale for Siemens and Rockwell, and **several plants have both**, so
+this is a per-machine decision — not a vendor policy and not a plant policy. ② has very few
+deployments and no written route; treat it as an IIAE conversation rather than a column in the
 table below.
 
 | PLC family | Sub-choice | ① edge device | ③ via aggregation server | Notes on choosing |
@@ -89,8 +89,8 @@ table below.
 | **Siemens NCU** | Sinumerik 840D / 840 UDP | ✅ | ✅ *(next)* | Dedicated connector on the edge side |
 | | Sinuvars | ✅ | ✅ *(next)* | Edge only in the live tree |
 | **Beckhoff** | — | ⚠️ `TODO` | ❌ **no driver** | **Neither route works as written.** dataFEED has no Beckhoff/ADS data source; the edge body is unwritten. Reach it via Modbus TCP, or a TwinCAT OPC UA / OPC DA server. IIAE question |
-| **B&R** | INA2000 / Automation PC | — | ✅ **in use** | `DTQ-B&R-Connector` is **Idea · NOT AVAILABLE**, so there is no edge route. 30 of 32 B&R machines are integrated via the aggregation server today; dataFEED has a B&R driver. The written body is still `TODO`, but the route is real |
-| **Bachmann** | MX213 / MX220 | — | ✅ **in use** | `DTQ-Bachmann-Connector` is **Idea · NOT AVAILABLE**. 44 of 63 machines integrated; reached over OPC UA. 24 rows carry the vendor `Bachmann OPC`, which is the same fleet named differently |
+| **B&R** | INA2000 / Automation PC | — | ✅ **in use** | `DTQ-B&R-Connector` is **Idea · NOT AVAILABLE**, so there is no edge route. B&R machines are mostly integrated via the aggregation server; dataFEED has a B&R driver. The written body is still `TODO`, but the route is real |
+| **Bachmann** | MX213 / MX220 | — | ✅ **in use** | `DTQ-Bachmann-Connector` is **Idea · NOT AVAILABLE**. Many machines integrated; reached over OPC UA. Rows may carry the vendor `Bachmann OPC`, which is the same fleet named differently |
 | **Omron** | NJ / CJ | ⚠️ `TODO` | ✅ *(next)* | Edge body is a task stub, no procedure |
 | **Rockwell / Allen Bradley** | CLX · SLC / PLC-5 | ✅ | ✅ | Aggregation procedure is fully written in `rules-next` |
 | **Modbus** | TCP / RTU | ⚠️ `TODO` | ✅ | **Aggregation is the documented route.** Also the practical route for a Beckhoff or Wago PLC that speaks Modbus TCP |
@@ -108,11 +108,11 @@ reached only through it. The department numbers the three shapes itself, in the 
 
 ```text
  ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► data platform
-                                        Platform          Concept 3, 20 plants
+                                        Platform          Concept 3
  ②  PLC ──────(connector)─────────────►  IIoT
-                                        Platform          Concept 2, 1 plant (Carei)
+                                        Platform          Concept 2
  ③  PLC ──► OPC-UA aggregation server ─►  IIoT
-            (Softing dataFEED)  OPC UA   Platform          Concept 1, 11 plants
+            (Softing dataFEED)  OPC UA   Platform          Concept 1
             └ DTQ-OPCUA-Connector ┘
 ```
 
@@ -120,9 +120,9 @@ reached only through it. The department numbers the three shapes itself, in the 
 without one. ③ puts a protocol concentrator in front, and the link back to the edge is the
 `DTQ-OPCUA-Connector`.
 
-② is barely deployed — one plant, and no written route in the guide. If a machine looks
+② is rarely deployed and has no written route in the guide. If a machine looks
 like a ② candidate, that is an IIAE conversation. The estate's *"Low Cost — Direct
-Connection"* (50 machines) and *"Low Cost — Helmholz"* (19) approaches are what ② looks like
+Connection"* and *"Low Cost — Helmholz"* approaches are what ② looks like
 in the field; the "low cost" is the absence of edge-device hardware.
 
 The guide's recommendation for the second case is `IIoT Edge Platform → OPC-UA Server`,
@@ -203,7 +203,7 @@ service, one of these is the route and the whole PLC branch is irrelevant.
 
 Where a vendor-specific connector exists *and is available*, use it rather than reaching
 the vendor's PLC generically. Piovan, Keyence, Optris and Multicon qualify. Engel and Zwick
-do not — 38 Engel machines have no vendor connector, so check what the controller exposes;
+do not — Engel machines have no vendor connector, so check what the controller exposes;
 current Engel controllers serve OPC UA.
 
 ### Aggregation server — Softing connectors
@@ -238,7 +238,7 @@ family also needs its own licence (`dataFEED OPC Server Siemens / CNC / Rockwell
 Mitsubishi / Modbus / B&R`) unless Suite Extended is in place — check that before promising
 a route.
 
-Input protocol is unrecorded on 11 of the 26 connector rows. That is the export's state,
+Input protocol is unrecorded on a number of connector rows. That is the export's state,
 not a claim that the connector is protocol-free — confirm before quoting one.
 
 ---
@@ -334,7 +334,7 @@ machine as blocked, work [`fallbacks.md`](fallbacks.md) §1:
 4. HTTP/SOAP? No.
 5. Serial? No.
 6. Is cycle time available on a neighbouring PLC? The line PLC may already count parts —
-   the estate records exactly this pattern for robot signals on 5 machines. Check this
+   the estate records this pattern for robot signals. Check this
    before anything else, since it costs a conversation rather than a procurement.
 7. Add a sensor instead? A part-present sensor into a remote-sensor endpoint would give
    cycle time without touching the machine at all — but again needs the edge.

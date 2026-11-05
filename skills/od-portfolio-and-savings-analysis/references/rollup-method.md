@@ -28,7 +28,7 @@ the order they must be applied:
    proven total are two different categories by definition (OD's own assertion vs.
    finance-confirmed through SPRINT); summing them produces a figure that is neither.
 2. **Reliability class** — `CALCULATION` (a stated formula), `ESTIMATION` (no formula),
-   and **not recorded** (474 of 553 rows). A regional or plant total that silently includes
+   and **not recorded** (a blank is common; count it live). A regional or plant total that silently includes
    `not recorded` rows as if they were zero undercounts without saying so; one that
    silently includes them at face value overstates a figure nobody can check. State the
    split, every time a total crosses this boundary.
@@ -38,16 +38,16 @@ the order they must be applied:
 
 ## Worked example
 
-Twelve rows for one plant: 3 `CALCULATION` tracked (€45,000), 2 `ESTIMATION` tracked
-(€12,000), 1 proven via SPRINT (€8,000, already counted inside the tracked total — proven
-is a subset, not an addition), 6 not recorded.
+Illustrative, invented placeholders. A plant has <n> rows: some `CALCULATION` tracked (<a> EUR),
+some `ESTIMATION` tracked (<b> EUR), some proven via SPRINT (<c> EUR, already counted inside
+the tracked total — proven is a subset, not an addition), and some not recorded.
 
-**Wrong:** "Plant X: €57,000 in savings." (silently drops the proven/tracked distinction,
-and silently drops the six unrecorded rows from view entirely.)
+**Wrong:** "Plant X: <a+b> EUR in savings." (silently drops the proven/tracked distinction,
+and silently drops the unrecorded rows from view entirely.)
 
-**Right:** "Plant X: €57,000 tracked (€45,000 `CALCULATION`, €12,000 `ESTIMATION`), of
-which €8,000 is SPRINT-proven; 6 of 12 rows carry no reliability label and are not
-reflected in this figure." Four sentences instead of one, because the one-sentence version
+**Right:** "Plant X: <a+b> EUR tracked (<a> `CALCULATION`, <b> `ESTIMATION`), of
+which <c> is SPRINT-proven; <k> of <n> rows carry no reliability label and are not
+reflected in this figure." More words than one sentence, because the one-sentence version
 is the one that gets quoted without its qualifiers three forwards later.
 
 ## Applying this to a portfolio view

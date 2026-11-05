@@ -133,5 +133,5 @@ skill is trying to prevent, and it is invisible from the data.
 The full twelve-cluster set — definitions, KPI sets, requirements checklists and public
 references — is in the department's standardization knowledge base. **Use the checklist as
 the default requirements baseline for a use case with no local notes**, then record only the
-plant's deltas on top. That is the mechanism by which 534 of 650 use cases with no narrative
+plant's deltas on top. That is the mechanism by which a use case with no narrative
 detail can still be built to a standard.

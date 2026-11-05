@@ -1,49 +1,51 @@
 ---
 type: Skill Reference
 title: Deployment reality
-description: Real per-plant tool-availability snapshots showing the same tool catalogue in three different states, so a system-fit check is run against what a specific plant actually has, not against the estate average.
+description: Guidance, no figures. Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table so a system-fit check runs against what that plant has, not the estate average.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
 tags: [practice, system-fit]
 generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
-# Deployment reality — the same tools, three different plants
+# Deployment reality — the same tools, different plants
 
 Every Use Case Definition Workshop records a **Smart Factory Tools Availability** table —
-status and recommendation, per tool, for that one plant. Three real snapshots, to make the
-point concrete: the non-bets list is estate-wide policy, but whether MDA/PDA or QFPR is
-*available right now* is a per-plant fact that changes between these three alone.
+status and recommendation, per tool, for that one plant. The non-bets list is estate-wide
+policy; whether MDA/PDA or QFPR is *available right now* is a per-plant fact.
 
-| Tool | San Luis Potosí (Dec 2023) | Subotica/Carei (May 2024) | Timisoara (Jul 2024) |
-|---|---|---|---|
-| IIoT Edge Computing Platform | Ongoing — planned 2023 | Done | Done |
-| Manufacturing Service Bus | Ongoing — planned 2023 | Done | Done |
-| MDA/PDA (Iconics Genesis64) | Ongoing — planned 2023 | *(not listed)* | *(not listed)* |
-| Manufacturing Execution System | Not available — **not necessary** | Not available — **not recommended as of now** | Not available — **not recommended as of now** |
-| Recipe Management (Camline) | Not available — not necessary | Not available — not necessary | Not available — not necessary |
-| Manufacturing Image Library | Not available — not necessary | Not available — not necessary | Not available — not necessary |
-| Quality Feedback App (QFPR) | Not available — not necessary | **Ongoing — needed for multiple use cases** | Not available — not necessary |
-| Data Science Factory | Not available | Not available — planned 2024 | Ongoing — planned 2025 |
+## How to read a plant's table
 
-**What this is actually useful for:** QFPR goes from "not necessary" to "needed for
-multiple use cases" between two plants with no other column changing — availability
-tracks demand, not a rollout schedule applied uniformly. **Check this plant's own current
-table before assuming a tool is or is not there** — the MES row is the one constant across
-every plant checked; everything else moves.
+| Field | Meaning | Trap |
+|---|---|---|
+| Tool | One row per catalogue tool (IIoT edge platform, Manufacturing Service Bus, MDA/PDA, MES, Recipe Management, MIL, QFPR, Data Science Factory) | A tool absent from the table is "not listed", not "not available" |
+| Status | Done / Ongoing / Not available, with a planned year where stated | "Ongoing" is not "available"; the planned year slips |
+| Recommendation | e.g. "not necessary", "not recommended as of now", "needed for multiple use cases" | The recommendation is the plant's reasoning at workshop date, and changes |
 
-## The one-weeks'-difference case for MIL specifically
+## Patterns to expect
 
-Two separate 2024 workshop summaries (Subotica, Timisoara) record the *identical* line for
-the Manufacturing Image Library: a demo/test system is already **deployed**, and in the
-same breath — *"No Use Cases yet. Not yet planned for [that plant]."* A tool being
-technically present is not the same fact as a use case being in scope there. Check which
-one a request is actually claiming before accepting it.
+- **Availability tracks demand, not a uniform rollout schedule.** A tool can be "not
+  necessary" at one plant and "needed for multiple use cases" at another with no other row
+  differing. Never infer a plant's state from another plant's table.
+- **MES is the stable row.** It is typically "not available" with a "not necessary" or "not
+  recommended as of now" reason; everything else moves.
+- **Present is not in scope.** A demo/test system of the Manufacturing Image Library can be
+  deployed at a plant while the same table says "no use cases yet, not yet planned". A tool
+  being technically present is not the same fact as a use case being in scope there. Check
+  which one a request is claiming.
+- **Workshop tables age.** A "planned <year>" line is a statement at a date; compare with the
+  live Tool Overview ([`plant-tool-availability.md`](plant-tool-availability.md)).
+
+## How to get the plant's current table
+
+1. Open the plant's most recent Use Case Definition Workshop summary and read its tool
+   availability table; note its date.
+2. Open the plant's rollout rows in the live Tool Overview and note its export date.
+3. Where they differ, state both with dates and ask the plant (ME/IT). See the rule in
+   `plant-tool-availability.md`.
 
 ## Sources
 
-Internal evidence, read 2026-10-22: `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--
-2023_06_29_Summary_SanLuisPotosi_SmartFactory_UseCase_Definition_Workshop*.pptx`,
-`--2024_04_04_Summary_Subotica_SmartFactory_UseCase_Definition_Workshop*.pptx`,
-`--2024_07_04_Summary_Timisoara_SmartFactory_UseCase_Definition_Workshop*.pptx`. Full
-citations in `SKILL.md`'s `metadata.derived_from`.
+Internal evidence: per-plant Use Case Definition Workshop summaries in
+`Work-OpsDigit-Knowledge/Split Slides/10-Workshops--*`. Full citations in `SKILL.md`'s
+`metadata.derived_from`.

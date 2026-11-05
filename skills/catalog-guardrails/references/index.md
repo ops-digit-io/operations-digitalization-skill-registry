@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Failure cases and routing](failure-cases-and-routing.md) | Skill Reference | The failures the vault has actually recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. Open it to justify a guardrail or to decide what a failed check means. |
-| [Technical guardrails](technical-guardrails.md) | Skill Reference | Candidate guardrails G8 to G17 for a self-served dashboard, each with its recorded source, the measured failure count in the Grafana estate and a proposed block-or-warn setting. Open it when the seven seeded guardrails are not enough for the screen a plant has built. |
+| [Failure cases and routing](failure-cases-and-routing.md) | Skill Reference | The failure patterns the vault has recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. No figures. Open it to justify a guardrail or to decide what a failed check means. |
+| [Technical guardrails](technical-guardrails.md) | Skill Reference | Candidate guardrails G8 to G18 for a self-served dashboard, each with its recorded source rule, the failure pattern it prevents (no counts) and a proposed block-or-warn setting. Open it when the seven seeded guardrails are not enough for the screen a plant has built. |

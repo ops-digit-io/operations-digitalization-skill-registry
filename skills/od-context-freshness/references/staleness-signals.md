@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Staleness signals
 
-Read 2026-11-05. The layers are listed from the source outwards.
+The layers are listed from the source outwards. This file describes the marks and what they prove; it carries no counts or dates of the current estate.
 
 ## 1. Department OS bundle files (the context layer)
 
@@ -20,10 +20,10 @@ keeps the layer trustworthy".
 
 | Field | Meaning | Carried by |
 |---|---|---|
-| `owner` | The person or role who answers for the file | all 38 files with front matter |
-| `review-cadence` | How often it should be re-checked. In the 38 files: quarterly 28, weekly 5, monthly 4, yearly 1 | all |
-| `last-verified` | When someone last checked it. 37 files carry 2026-08-10 and 1 carries 2026-08-25 | all |
-| `valid-until` | A hard expiry. Only critical files carry it | 5 of 38: 00-core strategy, metrics, decision-rights and swot, and the systems-of-record module, all with `valid-until` 2026-11-10 |
+| `owner` | The person or role who answers for the file | all files with front matter |
+| `review-cadence` | How often it should be re-checked: weekly, monthly, quarterly or yearly. Metrics pages are expected to drift fastest | all |
+| `last-verified` | When someone last checked it. Files verified in one pass share a date, so they fall due together | all |
+| `valid-until` | A hard expiry. Only critical files carry it | A small set of critical files (typically strategy, metrics, decision rights, SWOT and the systems-of-record module); read the set from the front matter |
 | `verification-method` | How to verify: for decision rights, "confirm with OD lead and MPEE head at quarterly review" | critical files |
 | `source-of-truth` | Where the content really lives | critical files |
 
@@ -40,7 +40,7 @@ reported as "no usable last-verified", not silently skipped.
 | `metadata.derived_from` | What the skill was built from: a bare path or a sentence | the brief; `docs/okf-conventions.md` |
 | `verified: {by, at}` | A human reading, with an actor. **Absent on every skill**; the trust tier is "unverified" | `docs/okf-conventions.md` |
 | `⟨…⟩` in prose | An unresolved gap: a fact the sources did not give | the registry's honesty rule in `od-context` |
-| Dated figures in prose | "331 on 2026-08-10": the date is the only freshness mark | by convention |
+| Dated figures in prose | Should not exist in skills. If one is found, rewrite it to "how to read it live" | the no-company-figures rule |
 
 What it proves: when a person or agent last read the source. What it does not prove: that the source was current,
 or that the skill still matches it.
@@ -53,7 +53,7 @@ or that the skill still matches it.
 | `graph_as_of` | Portfolio and ledger figures from the knowledge bundle |
 | `flows_as_of` | The Node-RED corpus and the machine estate |
 | `registry.status` | `draft`: "unverified - drafted from the bundle, not yet read line by line" |
-| `open_gaps` | A list of questions the sources did not answer (65 entries on 2026-11-05) |
+| `open_gaps` | A list of questions the sources did not answer (count it at run time and compare with the previous run) |
 
 These three marks are what a figure inside a skill should be read against. A skill that quotes an equipment target
 is only as current as `data_as_of`.
@@ -65,14 +65,14 @@ skill relies on them:
 
 | Stamp | Example | Reading |
 |---|---|---|
-| `enriched:` | "plant-profile v1, 2026-09-25; sp-fulltext v1, 2026-11-05" | When the generated profile block was last built |
+| `enriched:` | "<profile version>, <date>; <fulltext version>, <date>" | When the generated profile block was last built |
 | `generated:` with `review_status` | "AI-generated ... not reviewed by a human" | The note is a machine extract, unreviewed |
-| Export date in prose | "SharePoint exports of 2026-08-21" | The date of the underlying list, not of the note |
+| Export date in prose | "SharePoint exports of <date>" | The date of the underlying list, not of the note |
 | ODEC Facts slide dates | slide text with dates and `Archive:` paths | The date of the call; open the archive slide before using it as evidence |
 
 ## 5. What cannot be checked mechanically
 
-- Whether a figure in prose is still the figure in the source. Sample by hand.
+- Whether any figure that slipped into prose is still the figure in the source. Find them with the figure finder and rewrite them.
 - Whether a role named in a skill still holds the job. Named owners are an open gap throughout.
 - Whether a statement the skills copy from the vault is still true on the shop floor.
 - Whether a `stable` skill earned that status; the status is set by the registry owner.

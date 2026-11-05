@@ -30,7 +30,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/02-strategy.md
     - Skill od-equipment-integration, its references barrier-classes, fallbacks, decision-paths and connectors, and its assessment protocol, read 2026-11-05
     - Skill od-decision-routing, escalation forums and the risk triggers, read 2026-11-05
-    - Work vault bundle file kg_nodes.csv, the 1,715 Machine records read as an aggregate (status, vendor, protocol, blocker text) and the 26 Connector records, 2026-11-05
+    - Work vault bundle file kg_nodes.csv, the Machine records read as an aggregate (status, vendor, protocol, blocker text) and the Connector records, 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases notes PLC Evergreening and Sensor-Upgrade Decision Frame, read 2026-11-05
     - New-state flow (docs/new-state-flow.md, VSM skill map), Lane 3b step 4b connector design, read 2026-11-05
   okf:
@@ -75,7 +75,7 @@ the barrier; this skill classifies and routes it.
 | File | Use it for |
 |---|---|
 | [`references/classes-and-routes.md`](references/classes-and-routes.md) | The seven root-cause classes, the questions that tell them apart, and for each the exit, the owner, the forum and the wait state |
-| [`references/estate-patterns.md`](references/estate-patterns.md) | What the 1,715 machine records show: where `NOT INTEGRATED` sits by vendor, protocol and plant, the recorded blocker texts grouped by class, and the data gaps that make triage impossible |
+| [`references/estate-patterns.md`](references/estate-patterns.md) | How to read the Machine List for barrier patterns: where `NOT INTEGRATED` clusters by vendor, protocol and plant, how to group recorded blocker texts by class, and the data gaps that make triage impossible - guidance and live-count recipes, no figures |
 | [`assets/barrier-triage-record.md`](assets/barrier-triage-record.md) | The record: facts, class, tier, exit, owner, log line |
 
 Already in `od-equipment-integration`, not repeated here: the difficulty ranking
@@ -90,10 +90,9 @@ an unavailable PLC program and the eight blocking places
 1. **Facts first.** Fill the Machine List fields (vendor, PLC model, part number, protocol, status) and
    the pre-assessment tells from `barrier-classes` (cabinet and cabling, a usable network drop, Plant IT /
    ME responsiveness, topology, whether the PLC program is available and under own control). Missing
-   fields stay `⟨unknown⟩`; in the estate 551 of 1,715 machines carry no protocol and 447 no PLC model,
-   so expect gaps.
-2. **Is there a use case waiting?** `NOT INTEGRATED` records a state, not a failure (395 machines;
-   `od-equipment-integration`). No accepted or planned use case needs the data: close the triage as
+   fields stay `⟨unknown⟩`; many machine records carry no protocol or PLC model, so expect gaps.
+2. **Is there a use case waiting?** `NOT INTEGRATED` records a state, not a failure
+   (`od-equipment-integration`). No accepted or planned use case needs the data: close the triage as
    "parked, no demand" and stop. Otherwise name the use case.
 3. **Run the ladder.** Work through the seven rungs of `fallbacks` item 1 (machine already on an OPC-UA
    server, vendor connector, file drop, HTTP or SOAP, serial, neighbouring PLC, added sensor). A hit is a
@@ -137,7 +136,7 @@ identical machines.
 - `⟨Lead times⟩` for connector development and for OT and IT cyber-security approvals: called "high",
   no number in the sources.
 - `⟨Counterpart for tool rollout decisions⟩` (open in `08-decision-rights.md`).
-- `⟨Whether a vendor-less machine row (133 of 1,715)⟩` is a data gap or an unknown machine: Plant ME.
+- `⟨Whether a vendor-less machine row⟩` is a data gap or an unknown machine: Plant ME.
 - The class list is this skill's grouping of the recorded fallbacks and blocker texts; the OD lead has
   not confirmed it.
 

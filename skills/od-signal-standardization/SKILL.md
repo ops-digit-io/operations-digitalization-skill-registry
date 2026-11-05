@@ -25,7 +25,6 @@ metadata:
   authority_level: recommend on standards; configure the offload
   status: stable
   sources_read: 2026-11-05
-  corpus: 260 distinct signal names across 3,400 references in 825 flows
   requires: [od-context]
   composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
@@ -34,8 +33,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills}.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes (1,010 notes), Graph/Use Case Views (11 template views and template-standards), Graph/Machines (1,715 front matters) and Graph/Connectors (26 notes), read 2026-11-05
-    - Node-RED auto-docs flow JSON re-counted 2026-11-05 for flow-config keys and CT topic leaves (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs)
+    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes, Graph/Use Case Views (template views and template-standards), Graph/Machines (front matter) and Graph/Connectors, read 2026-11-05
+    - Node-RED auto-docs flow JSON, read 2026-11-05 for flow-config keys and CT topic leaves (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs)
   okf:
     type: Agent Skill
     title: Signal analysis and standardization
@@ -49,26 +48,26 @@ metadata:
 Read `od-context` first.
 
 Connecting a machine gets you a signal. **Standardizing it is what makes that signal
-comparable to the same signal at the other thirty-two plants** — which is the only reason a
+comparable to the same signal at the other plants** — which is the only reason a
 cross-plant capability template means anything.
 
 ## Why this is the department's most-recorded blocker
 
-*Data model standardization* is the single most-recorded integration blocker in the
-estate — **23 machines**. And the corpus shows why: **260 distinct signal names across 3,400
-references** for a far smaller set of concepts.
+*Data model standardization* is among the most-recorded integration blockers in the estate
+(tally the blocker text on the Machine List live). And the flow corpus shows why: **many
+distinct signal names for a far smaller set of concepts**.
 
-| Concept | Names in use |
-|---|--:|
-| Machine state | **8** |
-| Part number | 7 |
-| Counter | 5 |
-| Tool id | 4 |
-| Temperature | 3, one of them a typo with 34 references |
+| Concept | What the variance looks like |
+|---|---|
+| Machine state | the most names of any concept (raw code, mapped string, status, state, setup...) |
+| Part number | several (internal, supplier, gauge, OK/NOK qualified) |
+| Counter | several (total, trigger, setup, cycle) |
+| Tool id | a few |
+| Temperature | a few, one of them a typo that many flows now read |
 
-`AverageMeltTempature` is now an interface. Thirty-four places would break if it were
-corrected. **That is the cost of not catching a name at creation**, and it is the whole
-argument for doing this before a flow is built rather than after.
+A misspelled temperature name that many flows read is now an interface: all of them would break
+if it were corrected. **That is the cost of not catching a name at creation**, and it is the
+whole argument for doing this before a flow is built rather than after.
 
 ## The references
 
@@ -79,12 +78,12 @@ argument for doing this before a flow is built rather than after.
 | [`references/multilingual-tags.md`](references/multilingual-tags.md) | **Tags are not in English.** Chinese, German, Spanish, French, Romanian, Hungarian, Slovak/Czech, Serbian and Portuguese terms, the normalization that must happen before any comparison, and why the local name is an alias rather than a replacement |
 | [`references/machine-context.md`](references/machine-context.md) | **The other input.** What a PLC program, sequence chart, layout, handbook, HMI or schematic each tells you about how the machine works, with confidence per source and what to do when the context is thin |
 | [`assets/signal-analysis-report.md`](assets/signal-analysis-report.md) | The defined output format — the report this skill produces |
-| [`references/public-data-models.md`](references/public-data-models.md) | **Check before defining anything.** OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84 for Plastic and Rubber, PackML's 17-state model — and what each solves here |
+| [`references/public-data-models.md`](references/public-data-models.md) | **Check before defining anything.** OPC UA for Machinery (VDMA 40001), EUROMAP 77/83/84 for Plastic and Rubber, PackML's state model — and what each solves here |
 | [`references/clustering-signals.md`](references/clustering-signals.md) | Search patterns that sort a raw signal list into functional areas, and the importance score that says what to standardize first |
 | [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Runs the checks, and with `--cluster` the functional-area grouping and ranking |
-| [`references/field-signal-vocabulary.md`](references/field-signal-vocabulary.md) | **What is in use on the consuming sides (2026-11-05).** The 255 flow-config signal keys with counts and collisions, the 47 `CT` leaf names, display labels in four languages on the dashboards, and the rules that follow |
-| [`references/capability-template-signal-sets.md`](references/capability-template-signal-sets.md) | **Per capability template**, what the existing dashboards read (signals, variables, data sources), the template boundary, recorded blocker themes and reference solutions - to set against the requirement sets above |
-| [`references/machine-vendor-and-connector-landscape.md`](references/machine-vendor-and-connector-landscape.md) | Counts of the 1,715 machines by controller vendor, integration route and status, and what each connector family reaches |
+| [`references/field-signal-vocabulary.md`](references/field-signal-vocabulary.md) | **How to read what is in use on the consuming sides.** The flow-config signal keys and collisions, the `CT` leaf names, display labels in several languages on the dashboards, and the rules that follow |
+| [`references/capability-template-signal-sets.md`](references/capability-template-signal-sets.md) | **Per capability template**, what the existing dashboards typically read (signals, variables, data sources), the template boundary, blocker themes to expect and how to look up reference solutions - to set against the requirement sets above |
+| [`references/machine-vendor-and-connector-landscape.md`](references/machine-vendor-and-connector-landscape.md) | How to read the machine records by controller vendor, integration route and status, and what each connector family reaches |
 | [`assets/signal-binding-sheet.md`](assets/signal-binding-sheet.md) | **Form.** One row per signal - unit, scale, value type, delta meaning, setpoint or actual, consumers - the record the dashboard exports show is missing |
 
 ## Two inputs, one output
@@ -104,7 +103,7 @@ plant, or ten minutes with the setter. → [`machine-context.md`](references/mac
 > where each machine's cycle starts, and no tag list carries that.
 
 **The context is not recorded anywhere.** `documentation_available` and `documentation_link`
-exist as fields on all **1,715** machine rows and are populated on **none of them**. So it is
+exist as fields on every machine row and have not been filled (check the live list). So it is
 gathered per machine from whatever the plant can produce — and the report says which sources
 were used and how far to trust each.
 
@@ -191,7 +190,7 @@ buys a vendor-neutral name, a defined meaning, and machines that arrive already 
 |---|---|
 | **Plastic, Rubber** | **EUROMAP 83** (general types), then **77** (injection moulding) or **84** (extrusion). Two of the four material families are covered by a dedicated spec family |
 | **Any machine** | **OPC UA for Machinery** (VDMA 40001) — `MachineIdentification` is what the Machine List is trying to be; `MachineryItemState` is the answer to eight names for machine state |
-| **Machine state anywhere** | **PackML** (ISA-TR88.00.02) — 17 states, and the acting/wait split that decides which stops count as downtime |
+| **Machine state anywhere** | **PackML** (ISA-TR88.00.02) — a fixed state model, and the acting/wait split that decides which stops count as downtime |
 
 Detail, mappings onto the estate's own signals, and the open questions:
 [`public-data-models.md`](references/public-data-models.md).
@@ -227,8 +226,8 @@ Standardize those on a machine and most of the portfolio becomes buildable on it
 is a long tail worth doing per demand.
 
 **Not standardizing is a valid outcome** — record it as a decision, not an omission. And
-treat a low rank as *unknown demand*: `business_process` is populated on 150 of 650 use cases
-and `targets` on 59, so the ranking sees a quarter of the portfolio. Absence is not a zero.
+treat a low rank as *unknown demand*: `business_process` and `targets` are populated on only
+part of the use cases, so the ranking sees only part of the portfolio. Absence is not a zero.
 
 Patterns, the German-language caution and the full scoring model:
 [`clustering-signals.md`](references/clustering-signals.md).
@@ -308,8 +307,8 @@ python3 scripts/analyze_signals.py points.json --capability oee --report > repor
 **State the context situation honestly** — *full context* · *tag export only* · *handbook
 only* · *nothing but the machine* · *adopting a proven instance*. A report that says
 "tag export only, existence unverified" is usable. One that omits it invites the reader to
-assume more certainty than exists, and that assumption is how `AverageMeltTempature` reached
-34 flows.
+assume more certainty than exists, and that assumption is how a misspelled name ends up read
+by many flows.
 
 The report feeds `od-requirements-breakdown` §5 *Tags of Interest*,
 `od-equipment-integration` (guidance route), the flow config in `od-node-red-flow-builder`, and the
@@ -349,8 +348,8 @@ result. Then `od-acceptance-test`.
 
 - **Do not fix a standardization gap downstream.** A per-plant transformation buried in a
   Node-RED function or a Grafana query is how comparability is lost — and it is invisible.
-- **Do not rename a live signal casually.** It is an interface: 34 references depend on one
-  misspelling today. Renaming is a breaking change with a migration, not a tidy-up.
+- **Do not rename a live signal casually.** It is an interface: many references can depend on one
+  misspelling. Renaming is a breaking change with a migration, not a tidy-up.
 - **Do not accept a raw PLC tag** into the data-point config. It is unmatched at every other
   plant and silently wrong after the next PLC change.
 - **Do not standardize a name without its meaning.** The name is the easy quarter of it, and

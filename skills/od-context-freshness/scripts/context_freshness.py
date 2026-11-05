@@ -23,7 +23,7 @@ it understands only plain "key: value" lines (that is all these files use).
 
 Examples:
   python context_freshness.py --skills ../../ --registry ../../../registry.yaml
-  python context_freshness.py --bundle <bundle>/OperationsDigitalization-Department --today 2026-11-05
+  python context_freshness.py --bundle <bundle>/OperationsDigitalization-Department --today <YYYY-MM-DD>
 
 Exit status is 0 unless --fail-on-findings is given and something was found.
 """

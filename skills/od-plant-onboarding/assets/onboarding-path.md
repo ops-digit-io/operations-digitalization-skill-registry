@@ -19,7 +19,7 @@ Roles only. Status values: not started · in progress · waiting (state the wait
 | Field | Entry |
 |---|---|
 | Plant / country / region | ⟨⟩ |
-| Snapshot date of the Machine List used | ⟨date⟩ |
+| Date the Machine List was read | ⟨date⟩ |
 | Machines recorded / integrated / share | ⟨⟩ / ⟨⟩ / ⟨⟩ |
 | Starting profile (A, B, C, D) | ⟨⟩ |
 | Ingress route(s) recorded | ⟨IIoT Edge / central OPC UA / evaluation ongoing⟩ |

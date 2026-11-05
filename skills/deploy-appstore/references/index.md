@@ -5,4 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [App manifest and release gate](app-manifest-and-release-gate.md) | Skill Reference | The fields an app should declare to join the platform, the interface and versioning rules the WIP design proposes, the security review triggers, and the release-gate checklist assembled from them. Open it when you assemble a deployment package or review one. |
-| [Platform and pilot status](platform-and-pilot-status.md) | Skill Reference | What the vault records about the manufacturing app store, the container platform and the edge runtime, sorted into running, pilot, planned and design-only, so a deployment is never described as more mature than it is. Open it before you name a target platform. |
+| [Platform and pilot status](platform-and-pilot-status.md) | Skill Reference | How to classify the manufacturing app store, the container platform and the edge runtime as running, pilot, planned or design-only, where to look the current status up, and how the two platform layers relate - guidance only, no status snapshot. Open it before you name a target platform. |

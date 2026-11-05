@@ -30,7 +30,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/project-support-consultancy/skills.md
     - New-state flow (docs/new-state-flow.md and docs/new-state/OD_NewState_VSM_SkillMap.html), the Lane 1b cost-template step, the Lane 2 capital-request step and the Lane 3 shared front-end, read 2026-11-05
-    - Skills od-decision-routing and od-benefit-calculation (the spend ladder, the dependency counts), od-equipment-integration (assessment protocol section 3, edge-device hardware constraint) and od-system-fit-check (tool boundaries with their recorded cost references), read 2026-11-05
+    - Skills od-decision-routing and od-benefit-calculation (the spend ladder, the dependency values), od-equipment-integration (assessment protocol section 3, edge-device hardware constraint) and od-system-fit-check (tool boundaries with their recorded cost references), read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases notes Sensor-Upgrade Decision Frame and PLC Evergreening, and Case Groups - Overview, read 2026-11-05
     - Work vault bundle file kg_nodes.csv, Machine records read as an aggregate (integration status, priority, method), 2026-11-05
   okf:
@@ -76,8 +76,8 @@ proposed form until the OD lead confirms it.
 
 | File | Use it for |
 |---|---|
-| [`references/cost-lines.md`](references/cost-lines.md) | The cost lines an integration or system pack can carry, which of them have a recorded figure in the sources (with scope and date), which do not, and how big a wave is (machine-estate aggregate) |
-| [`references/approval-route.md`](references/approval-route.md) | Who decides what, the recorded spend ladder, the open threshold and the overlap in the ladder as written, and the dependencies to record |
+| [`references/cost-lines.md`](references/cost-lines.md) | The cost lines an integration or system pack can carry, where each line's figure must come from, where the reference figures live, and how to size a wave from the live machine records |
+| [`references/approval-route.md`](references/approval-route.md) | Who decides what, how to find the current spend ladder, the open threshold and the overlap in the ladder as written, and the dependencies to record |
 | [`assets/investment-input-pack.md`](assets/investment-input-pack.md) | The pack itself |
 
 ## Procedure
@@ -94,13 +94,13 @@ proposed form until the OD lead confirms it.
 4. **Build the cost lines** from [`references/cost-lines.md`](references/cost-lines.md). One row per line,
    each with a figure and a source, or `⟨not known: who can supply⟩`. Do not average, do not fill from a
    similar plant without saying so, do not price internal effort unless the OD lead says so
-   (`Case Groups - Overview` records that costs there are taken as zero by an owner statement of 2026-11-04,
-   which is a convention of that note and not a rule for this pack).
+   (some notes, such as `Case Groups - Overview`, take costs as zero by an owner statement, which is a
+   convention of that note and not a rule for this pack).
 5. **Put the benefit side next to it.** Link the `od-benefit-calculation` rows. Show **tracked** and
    **proven** euros separately and never add them. If no saving row exists, write "to be collected" and
    stop short of a payback figure.
-6. **Name the gates.** Spend through eCR (CTO up to EUR 150k, Board above EUR 75k, as recorded in
-   `od-decision-routing`); the budget threshold of the *digitalization investment planning* decision is
+6. **Name the gates.** Spend through eCR (approver per the current approval policy, look up:
+   `od-decision-routing` and the OD lead); the budget threshold of the *digitalization investment planning* decision is
    still `⟨to confirm⟩` and is not guessed here. Add Cyber Security / OT (`od-cybersec-gate`) for any
    external connection, IT demand if the item touches a platform OD does not own.
 7. **Record the dependencies** on the use case or saving rows (`ECR APPROVAL`, `ECR CREATION`, `MACHINE
@@ -120,7 +120,7 @@ traceability.
 
 - `⟨Budget threshold of the digitalization investment planning decision⟩` - the decision-rights table
   leaves it open. Supplier: OD lead.
-- `⟨Which spend route applies between EUR 75k and EUR 150k⟩` - the ladder as recorded overlaps there
+- `⟨Which spend route applies where the recorded limits overlap⟩` - the ladder as recorded overlaps there
   (see the approval route). Supplier: OD lead / controlling.
 - `⟨Counterpart of the OD lead for tool and system rollout decisions⟩` - open in the decision rights.
 - `⟨Unit costs for edge devices, OT hardware, licences, connector development⟩` - none are recorded in

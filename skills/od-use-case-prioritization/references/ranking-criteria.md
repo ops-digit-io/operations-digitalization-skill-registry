@@ -30,9 +30,9 @@ A candidate that fails a gate is not ranked low; it is out of this exercise (`od
 
 | Criterion | What to read | Source | Limit |
 |---|---|---|---|
-| Saving potential | Tracked saving rows and their reliability label | `00-core/05-intake.md` ("savings, lead-time reduction, cost avoidance"); `od-benefit-calculation` | Only 62 of 650 use cases carry a saving figure (`od-benefit-calculation`, state of the ledger 2026-10-22); blank is "not assessed", not zero |
-| Generalization potential | Is this a standard use case that other plants can take over? | Workshop slide "Collection of Smart Factory Use Case demand": classification and priority currently by highest generalization potential, then highest saving potential | The slide is a 2024 workshop deck, not a rule document |
-| Roadmap fit | Does it sit in the plant's machine integration wave or project (for example MSB rollout, QFPR rollout)? | Carei 2024 workshop purpose: "Use Case Prioritization for Machine Integration Wave 2 (2024)" | Plant specific |
+| Saving potential | Tracked saving rows and their reliability label | `00-core/05-intake.md` ("savings, lead-time reduction, cost avoidance"); `od-benefit-calculation` | Many use cases carry no saving figure (count them in the ledger); blank is "not assessed", not zero |
+| Generalization potential | Is this a standard use case that other plants can take over? | Workshop slide "Collection of Smart Factory Use Case demand": classification and priority currently by highest generalization potential, then highest saving potential | The slide is a workshop deck, not a rule document |
+| Roadmap fit | Does it sit in the plant's machine integration wave or project (for example MSB rollout, QFPR rollout)? | A definition workshop's stated purpose, for example "Use Case Prioritization for the next Machine Integration Wave" | Plant specific |
 | Lead-time or cost avoidance | Named separately in the intake rule | `05-intake.md` | No metric or unit given: ⟨how lead time is valued⟩ |
 
 ## 3 · Effort and risk criteria
@@ -44,7 +44,7 @@ A candidate that fails a gate is not ranked low; it is out of this exercise (`od
 | Category | A standard use case with an existing library entry costs less to repeat than a non-standard one | `od-use-case-definition`, `od-use-case-standardization` |
 | Fit of the solution | Does the idea quietly need MES/EMS or a capability nobody has? | `od-use-case-solution-evaluation` |
 | Wait states OD does not control | Investment approval (OD lead, BA Operations); Cyber Security sign-off for an external machine connection | `playbook.md` "Wait states" |
-| Infrastructure effort | Example in the Carei 2024 summary slide: a measure rated low because "Infrastructure (Cabling) + QFPR is needed to be deployed, thus time frame is longer, while other Measures have direct impact" | Split Slides, Carei 2024 summary (Slide Index note for 10-Workshops) |
+| Infrastructure effort | Example in a definition-workshop summary slide: a measure rated low because "Infrastructure (Cabling) + QFPR is needed to be deployed, thus time frame is longer, while other Measures have direct impact" | Split Slides, a definition-workshop summary (Slide Index note for 10-Workshops) |
 
 ## 4 · The two views OD uses to show a ranking
 
@@ -53,27 +53,25 @@ A candidate that fails a gate is not ranked low; it is out of this exercise (`od
 | Urgency and Importance | Each 1 to 4, Low to High, plus a Cost/Benefit field and the remark "incremental value: even if some objectives are not reached, the use case provides tangible benefits for the organization" | Use Case Canvas page 2 (Standard Agenda deck, canvas templates per plant) |
 | Technology and business value | Two-dimensional diagram; the slide note says "How to generate matrix?" and gives no answer | Use Case Canvas speaker note |
 | Value and risk | "Build the cheapest possible test design to learn the most important thing": low-risk high-value means just build it; low-value items are not worked on, not tested and in most cases not built | Standard Agenda deck, slide "How - Value Creation by Digitalization" |
-| Planning tiers | "Just do it", "Go forward", "Lead change" over clusters, with columns Cluster, Use Case, Description, Impact, Year, Budget | UseCase_Priorities deck of 2025-03-10 (slides 2 to 4 for the tiers, slide 7 for the table) |
+| Planning tiers | "Just do it", "Go forward", "Lead change" over clusters, with columns Cluster, Use Case, Description, Impact, Year, Budget | UseCase_Priorities deck (tiers slides and table slide) |
 
-Reading the planning tiers as used there (by their own wording): *Just do it* = generic dashboard,
-notification and reaction-time use cases plus one energy related saving; *Go forward* = continue or
-integrate a prototype that needs a data aggregation step first; *Lead change* = exploratory topics
-(factory simulation, digital shadow, agentic AI). The deck states these as headlines of the
-planning state at that date, not as a scoring rule.
+Reading the planning tiers as used there (by their own wording): *Just do it* = generic, low-effort use cases (dashboard,
+notification, reaction time); *Go forward* = continue or integrate a prototype that needs a data aggregation step first;
+*Lead change* = exploratory topics (simulation, digital shadow, agentic AI). The deck states these as headlines of a
+planning state, not as a scoring rule; open the current deck for the current content.
 
 ## 5 · The planning iteration
 
-The 2025 priorities deck labels its state "Planning State 3" and lists three inputs that drive each
+The priorities deck labels its state as a numbered planning state and lists three inputs that drive each
 iteration: technical inputs, the latest use case workshops, and the latest input on plant priority
 (slide 6). Use the same three when you re-rank: technical constraints, what the last workshop
 collected (`od-workshop-facilitation`), and what the plant says now.
 
 ## 6 · A portfolio pattern worth borrowing
 
-The vault's Business Cases notes (`Graph/Business Cases`, 29 notes at the read date) carry a
+The vault's Business Cases notes (`Graph/Business Cases`) carry a
 "portfolio tier" such as Quick Win, Big Bet, Enabler, Platform and "Defer to Year 2+", plus score
 fields (strategic fit, synergy, value-effort score, confidence). They belong to a separate AI
 business case list, so do not copy their scores onto plant use cases. What transfers is the idea of
 **naming an enabler that earns no euro of its own** (for example the Catalog Maturity Sprint, whose
-stated gate is at least 80 % of the catalogued use cases carrying priority, potential and risk
-scores): enablers are ranked by what they unlock, not by savings.
+stated gate is that catalogued use cases carry priority, potential and risk scores): enablers are ranked by what they unlock, not by savings.

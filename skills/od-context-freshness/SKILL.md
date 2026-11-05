@@ -59,14 +59,14 @@ and the skills' own dates are still current, and writes down what is not. It **r
 | File | Use it for |
 |---|---|
 | [`references/staleness-signals.md`](references/staleness-signals.md) | How each layer marks freshness (bundle file, skill, registry, vault note) and what each mark does and does **not** prove |
-| [`references/triage-and-actions.md`](references/triage-and-actions.md) | Each flag type, who owns it, the action, and the first run of 2026-11-05 as a dated worked example |
+| [`references/triage-and-actions.md`](references/triage-and-actions.md) | Each flag type, who owns it, the action, and how to read a run (what to lead with, what the typical pattern is) |
 | [`scripts/context_freshness.py`](scripts/context_freshness.py) | Standard-library, read-only report. Opens files for reading only; writes only to the terminal |
 
 ## The rule
 
 **A date is a claim about a read, not about the world.** `sources_read` records when the source data was read. It says
-nothing about whether that source had been re-verified. A skill read on 2026-10-22 from a bundle file last verified
-on 2026-08-10 is only as fresh as August. The report therefore checks *both*: the skill's own date and the dates of
+nothing about whether that source had been re-verified. A skill read on one date from a bundle file last verified
+months earlier is only as fresh as that earlier verification. The report therefore checks *both*: the skill's own date and the dates of
 the sources it names (`--cross`).
 
 ## Procedure
@@ -90,8 +90,9 @@ the sources it names (`--cross`).
    depends on it.
 5. **Read the registry marks.** `data_as_of` (Scorecard / Power BI figures), `graph_as_of` (portfolio and ledger
    figures), `flows_as_of` (Node-RED corpus and machine estate), and the number of `open_gaps`.
-6. **Do the checks the script cannot.** (a) Sample three dated figures quoted in skills and compare them with the
-   registry marks. (b) Compare the bundle README's open-gap list with `open_gaps` in `registry.yaml`: which entries
+6. **Do the checks the script cannot.** (a) Run the figure finder (`scripts/check_no_figures.py`): skills should
+   quote no company figures, so any hit is a finding (rewrite it, or record it as a technical
+   constant or method value), and any dated figure that slipped in is compared with the registry marks. (b) Compare the bundle README's open-gap list with `open_gaps` in `registry.yaml`: which entries
    are closed, which are new. (c) Note the date stamps of vault notes you relied on (`enriched:`, `generated:`,
    export dates, `review_status`).
 7. **Draft the report** and name an owner per finding (table in `references/triage-and-actions.md`).
@@ -117,7 +118,7 @@ the sources it names (`--cross`).
 - ⟨A `verified` field⟩: no skill has one (`docs/okf-conventions.md`: every concept is unverified), so "stale" and
   "verified" cannot yet be told apart. Until somebody adds `verified: {by: human:<id>, at: <date>}`, freshness means
   "last read", not "last checked by a human".
-- Dated figures inside prose (counts, euro amounts) are not machine-checkable; step 6 samples them by hand.
+- Company figures inside prose (counts, euro amounts, dates of the company's own state) should not exist in skills; the figure finder in step 6 is a heuristic, so read the flagged files too.
 
 ## Do not
 

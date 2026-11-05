@@ -5,4 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Decision rights framework](decision-rights-framework.md) | Skill Reference | Why Tandem, Consultation and Information are not ad hoc labels — each is one role pairing from a named decision-rights framework, cited so the vocabulary can be checked and extended. |
-| [Escalation worked examples](escalation-worked-examples.md) | Skill Reference | Real blockers where the forum (ODEC vs COP) was not obvious, how it was actually decided, and what happens when something lands at the wrong forum — Phase-1 tacit-knowledge item #4, resolved from the department's own call decks rather than from memory. |
+| [Escalation worked examples](escalation-worked-examples.md) | Skill Reference | Illustrative patterns where the forum (ODEC vs COP) was not obvious, how it is decided, and what happens when something lands at the wrong forum - guidance only, no plant names or figures. |

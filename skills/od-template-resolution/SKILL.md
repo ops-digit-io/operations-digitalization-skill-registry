@@ -114,18 +114,21 @@ a gap marker, the OD lead role is the fallback question, but the register has no
 The filled [`assets/template-resolution-record.md`](assets/template-resolution-record.md). It authorises nothing:
 the skill is read-only, and the record is evidence that the master was looked up, not that the deliverable is approved.
 
-## What is still open
+## Kinds of gap to expect
 
-- The use-case one-pager and business-case template: the register says `dedicated OD template - to confirm or create`
-  (owner role DBVE). Until it exists, `od-benefit-calculation` and `od-use-case-definition` carry their own protocols
-  and those are the best available, not the approved master.
-- Locations of the Power BI reports, the data platform portal and the IIoT Edge / MSB portal are `to confirm` or
-  `to collect` in the register. Owner: IIAE for the platforms, DBVE / OD lead for the reports.
-- The Cyber Security sign-off standard is `to collect` (with Cyber Security). Until then `od-cybersec-gate` (planned)
-  has no approved master to start from.
-- The vault holds a master-slide file that the register does not list ([section C](references/master-register.md)):
+These are patterns, not a status report. Whether a gap is open today is read from the register on the day.
+
+- The use-case one-pager and business-case template has been a gap row (`to confirm or create`, owner role DBVE).
+  While it is a gap, `od-benefit-calculation` and `od-use-case-definition` carry their own protocols and those are the
+  best available, not the approved master.
+- Locations of Power BI reports, the data platform portal and the IIoT Edge / MSB portal are often `to confirm` or
+  `to collect`. Owner: IIAE for the platforms, DBVE / OD lead for the reports.
+- The Cyber Security sign-off standard is a standard that belongs to another team; while it is `to collect`,
+  `od-cybersec-gate` (planned) has no approved master to start from.
+- The vault can hold a master-slide file that the register does not list ([section C](references/master-register.md)):
   whether it is approved, and for which deliverable, is `to confirm` with the OD lead role.
-- Register freshness: the register was last verified 2026-08-10; a refresh is due. See `od-context-freshness` (planned).
+- Register freshness: check the register's own verification date against the quarterly review cadence. See
+  `od-context-freshness` (planned).
 
 ## Do not
 

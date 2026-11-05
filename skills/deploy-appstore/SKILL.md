@@ -60,19 +60,19 @@ Two descriptions exist, and the sources do not say they are the same:
 
 ⟨Is the Container Orchestration Platform of the flow the IIoT Edge plant runtime?⟩ Until the OD lead answers, name the target
 exactly as the requester does and record the open question in the package.
-**Partial answer from the vault (2026-11-05):** the sources describe two layers, not one. The app store initiative calls its platform CMO (Container Management and
+**Partial answer from the vault:** the sources describe two layers, not one. The app store initiative calls its platform CMO (Container Management and
 Orchestration: registry, source host, GitOps catalog) and lists the IIoT edge runtime as a prerequisite that is already deployed; the edge runtime is where the app
 runs, CMO is how it gets there. The flow's term most likely means CMO, but no source says so - the marker stays. See `references/platform-and-pilot-status.md`.
 
-**Pilot status, stated once.** The manufacturing app store with GitOps deployment is a **pilot** (department AI deck, one line, no date, no plant list).
-The wider app-store initiative (X1, "CMO") is **planned**, and the microservice landscape that would use it is **design only**. Details and the table of what is
-running, pilot, planned and design-only are in [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md).
+**Maturity, checked every time.** Never describe the app store or the platform as more mature than it is. Classify each element as
+running, pilot, planned or design-only and look the current status up in the sources named in
+[`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md); this skill does not carry a status snapshot.
 
 ## The references
 
 | File | Use it for |
 |---|---|
-| [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | What is running, pilot, planned, design-only; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
+| [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | How to classify maturity (running, pilot, planned, design-only) and where to look the current status up; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
 | [`references/app-manifest-and-release-gate.md`](references/app-manifest-and-release-gate.md) | The proposed app manifest, interface and versioning rules, what the vault does NOT hold, and the release-gate checklist R1 to R11 |
 | [`assets/deployment-package.md`](assets/deployment-package.md) | The package and gate table to fill per app |
 
@@ -111,7 +111,7 @@ route), and the open questions with their owners.
 - ⟨The target platform⟩ and ⟨the deployment procedure⟩, including who holds deploy rights.
 - ⟨The Cyber Security requirements for an app⟩ and ⟨the lead time⟩.
 - ⟨The release cadence⟩ - the bundle says "per release" without a rhythm; neither the AI deck nor the initiative note gives one.
-- ⟨The pilot's scope, plants and exit criteria⟩ - the deck marks the GitOps deployment as a pilot and says no more.
+- ⟨The pilot's scope, plants and exit criteria⟩ - the department deck marks the GitOps deployment as a pilot and says no more.
 
 ## Do not
 

@@ -11,8 +11,8 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 # How the real-time streaming works
 
 The mechanics underneath every flow: how a machine value gets from a PLC into a derived
-signal, what guarantees hold at each hop, and where throughput is actually spent. Figures
-are from the 825-flow corpus.
+signal, what guarantees hold at each hop, and where throughput is actually spent. Settings
+quoted below are properties of the technology or the method; count your own usage live.
 
 ## The path, hop by hop
 
@@ -28,7 +28,7 @@ PLC ──① ingress variant ──► IIoT Edge Platform ──② MQTT (proto
 
 | Hop | Carries | Timing |
 |---|---|---|
-| ① PLC → edge | Cyclic read or change event, per connector | Cyclic interval, typically 500–1000 ms |
+| ① PLC → edge | Cyclic read or change event, per connector | Cyclic interval, set per connector (read it from the connector configuration) |
 | ② edge → Node-RED | `PLCPacketList` over MQTT, protobuf-encoded | Event-driven, as published |
 | ③ Node-RED | The transformation; usually publishes a new packet back onto ② | Sub-millisecond per message |
 | ④ edge → data platform | Batched offload | Per offload, **not** real time |
@@ -43,16 +43,16 @@ Each MQTT message is one protobuf `PLCPacketList` containing a repeated `plc_pac
 array. See [`plc-packet.md`](plc-packet.md) for the schema.
 
 **Set `mqtt in` datatype to `buffer`** for protobuf topics — the decode node needs the raw
-bytes. The corpus splits 341 `auto` / 214 `buffer`; `auto` works because the payload is
+bytes. Both `auto` and `buffer` appear in the estate; `auto` works because the payload is
 binary either way, but `buffer` states the intent.
 
-**QoS is 0 on most subscriptions** (577 of 665 `mqtt in` nodes). That is at-most-once: a
+**QoS is 0 on most subscriptions.** That is at-most-once: a
 message lost in transit is gone, and nothing retries. It is the right default for a cyclic
 signal — the next sample is 500 ms away — and the **wrong** default for an event that is
 only published once.
 
 > **If your signal is an event rather than a sample, QoS 0 will silently lose some.**
-> 60 subscriptions in the estate use QoS 2 and 31 use QoS 1, which is where the
+> Subscriptions at QoS 1 or 2 are where the
 > event-shaped flows live. Choose deliberately; the default is not a decision.
 
 **Retain.** Not used on the publish side in the corpus. A retained message would give a new
@@ -69,7 +69,7 @@ Everything in the estate is built from these.
 decode → function "filter uuids" → split (arraySplt 1) → per-packet processing
 ```
 
-648 split nodes, 640 of them `arraySplt: 1`. It turns one `PLCPacketList` into N single
+Almost all split nodes use `arraySplt: 1`. It turns one `PLCPacketList` into N single
 packets so the rest of the flow reasons about one value.
 
 **Filter before you split.** `filter uuids` runs over `msg.payload.plcPackets` while it is
@@ -80,36 +80,34 @@ encode.
 
 ### 2 · rbe — change detection
 
-192 nodes. This is how a cyclic stream becomes an event stream.
+This is how a cyclic stream becomes an event stream.
 
 | Mode | Behaviour |
 |---|---|
 | `rbe` | Block unless the value changed |
 | `rbei` | Same, but also ignore the **initial** value after deploy |
 
-**Always point it at the value field, never the whole payload.** The corpus does:
-`payload.isHigh` (43), `payload.valueString` (42), `payload.valueInteger` (32),
-`payload.valueDouble` (22, mostly `rbei`), `payload.valueBool` (16). Thirteen nodes compare
-`payload` whole — and a payload contains a changing `sysTime`, so those never block
-anything.
+**Always point it at the value field, never the whole payload.** The estate does so:
+`payload.isHigh`, `payload.valueString`, `payload.valueInteger`, `payload.valueDouble` (mostly `rbei`),
+`payload.valueBool`. A few nodes compare `payload` whole — and a payload contains a changing
+`sysTime`, so those never block anything.
 
 `rbei` matters after a redeploy: without it every flow re-emits its current value on
 restart, which downstream looks like a real event.
 
 ### 3 · delay — rate limiting
 
-95 nodes, all in *rate limit* mode at **1 message per second**, with queue timeouts of
-20 ms (43), 30 ms (15), 5 s (20). Used to pace a burst so a downstream consumer or an HTTP
-endpoint is not flooded.
+Used in *rate limit* mode with a short queue timeout to pace a burst so a downstream consumer or an
+HTTP endpoint is not flooded. Read the configured rate and timeout on the node; do not assume them.
 
 **Rate limiting drops or queues — know which.** A rate limiter in front of a counter turns
 a burst of parts into one part.
 
 ### 4 · join — batching
 
-82 nodes. The dominant configuration is `mode: custom, build: array, count: 1001,
-joiner: \n` — 72 of them, and that is the **CSV read** pattern: a file is split into lines,
-1001 lines are joined back into an array, and the `csv` node parses it. It is not a
+The dominant configuration is `mode: custom, build: array, joiner: \n` with a fixed line count, and that
+is the **CSV read** pattern: a file is split into lines, the lines are joined back into an array, and the
+`csv` node parses it. It is not a
 streaming construct; it is how a lookup table is loaded at startup.
 
 ## Ordering, and what it guarantees
@@ -132,7 +130,7 @@ Three things break that assumption:
 
 ## State: flow context
 
-~14,000 `flow.get` and ~12,700 `flow.set` calls across the corpus. Two rules that cause
+`flow.get` / `flow.set` are used throughout the estate. Two rules that cause
 most "it worked yesterday" reports:
 
 1. **Scope is the tab.** Two flows on one tab share context. Moving a flow to another tab
@@ -140,7 +138,7 @@ most "it worked yesterday" reports:
 2. **Deploy clears it** unless persistent context storage is configured. Every accumulator
    must tolerate `undefined` — the house pattern is `flow.get("ShiftPartProduced") || 0`.
 
-`global` context appears 496 times and node-scoped `context` 189/142 — both are rare, and
+`global` context and node-scoped `context` are rare, and
 `global` couples flows that should not know about each other. Prefer `flow`.
 
 ## Back-pressure — there isn't any
@@ -150,9 +148,9 @@ busy**. If a flow cannot keep up, messages queue in memory and then are lost. Pr
 consequences:
 
 - Keep per-message work small. Heavy work belongs in the offload, not the flow.
-- A synchronous `http request` inside the per-packet chain is the classic stall — 142
-  http request nodes exist, and the safe pattern is to fetch config **once at startup**
-  into flow context (the `get variable config from iiot edge platform` group, 24 flows),
+- A synchronous `http request` inside the per-packet chain is the classic stall — the safe
+  pattern is to fetch config **once at startup**
+  into flow context (the `get variable config from iiot edge platform` group),
   not per message.
 - `delay` in rate-limit mode protects the *downstream*, not this flow.
 
@@ -160,7 +158,7 @@ consequences:
 
 A `catch` node receives the error and the message is dropped from its original chain.
 Nothing retries, nothing is dead-lettered. So an error is a **lost message**, not a paused
-stream, which is why the standard four-node error path exists and why 380 flows without
+stream, which is why the standard four-node error path exists and why flows without
 one lose messages invisibly.
 
 ## Throughput checklist
@@ -171,5 +169,5 @@ one lose messages invisibly.
 | Subscribe with a wildcard and filter in the flow | Topic stays stable when a data block is renumbered |
 | Use `rbe` on the value field | Turns a cyclic stream into events; cuts downstream volume |
 | Fetch config once at startup | Avoids a synchronous HTTP call per message |
-| Keep debug nodes off in prod | 1,976 exist across the corpus; they are a development aid |
+| Keep debug nodes off in prod | They are a development aid |
 | Choose QoS deliberately | 0 for cyclic samples, 1–2 for events that happen once |

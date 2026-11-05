@@ -26,7 +26,7 @@ metadata:
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
     - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
-    - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (650 use cases; field population, target_text and blockers grammar; 268 legacy applications)
+    - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (use case field population, target_text and blockers grammar; legacy applications)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/.../00-core/{05-intake,15-resources}.md
   okf:
@@ -51,17 +51,18 @@ is for: making the judgement explicit enough to be run by somebody else.
 **This does not introduce a new form.** The best-documented use cases in the portfolio
 already use these headings, inside their `target_text` and `blockers` fields:
 
-| Heading already in use | Use cases carrying it |
-|---|--:|
-| `Use Case Target Overview` | 99 |
-| `Major Issue` / `Key Problem` | 44 |
-| `Tags of Interest` | 29 |
-| `Acceptance criteria` | 13 |
-| `Traces to` | 13 |
-| `Major` / `Minor Blocking Points` | 162 |
+| Heading already in use | How common it is |
+|---|---|
+| `Use Case Target Overview` | The most widely used of these headings |
+| `Major Issue` / `Key Problem` | Used by a minority |
+| `Tags of Interest` | Used by a minority |
+| `Acceptance criteria` | Rare |
+| `Traces to` | Rare |
+| `Major` / `Minor Blocking Points` | Used in many records |
 
-The estate knows what a requirement looks like. **It writes one about one use case in eight.**
-The job is to make that the default.
+The estate knows what a requirement looks like. **It writes one about only a small fraction of
+its use cases.** The job is to make that the default. (To measure it, count the headings in the
+live `target_text` and `blockers` fields and quote the export date.)
 
 ## The references
 
@@ -69,7 +70,7 @@ The job is to make that the default.
 |---|---|
 | [`references/requirement-template.md`](references/requirement-template.md) | The ten core sections and the four lane variants, with what each is for and how it fails |
 | [`references/elicitation.md`](references/elicitation.md) | The question rounds that get the problem out, and the five judgement calls that make this hard |
-| [`references/legacy-system-assessment.md`](references/legacy-system-assessment.md) | The other half of the output — checking 268 legacy applications and the lean-footprint fit |
+| [`references/legacy-system-assessment.md`](references/legacy-system-assessment.md) | The other half of the output — checking the legacy applications and the lean-footprint fit |
 | [`references/epic-and-user-stories.md`](references/epic-and-user-stories.md) | The second output — the background description, which epic axis to use, how to cut stories, and what makes acceptance testable |
 | [`assets/requirement-template.md`](assets/requirement-template.md) | The blank requirement to copy |
 | [`assets/epic-and-stories.md`](assets/epic-and-stories.md) | The blank epic to copy |
@@ -140,22 +141,22 @@ can start on Monday. Every requirement produces exactly one, and it always carri
 |---|---|
 | **Background — what this is used for** | Prose. What happens today with the role and the hour named, the moment the output gets used, the decision it changes, why now, and what it is *not* for. This is the part that survives the person who asked leaving |
 | **Epic statement** | As ⟨named role⟩, we want ⟨capability⟩, so that ⟨outcome particular to this plant⟩ |
-| **Both epic axes** | The capability epic *and* the process epic — the source data shows 334 leaves carrying only one and 291 only the other, so a query on either axis misses half the portfolio |
+| **Both epic axes** | The capability epic *and* the process epic — the source data shows many leaves carrying only one of the two, so a query on either axis misses part of the portfolio |
 | **At least two user stories** | Each with its own background, signals carrying an existence verdict, Given/When/Then acceptance including one use-in-a-real-shift criterion, blockers, and dependencies |
 | **Epic acceptance** | What is only true across the whole epic — or "all stories accepted", if that is honestly the case |
 
 ### This structure already exists, and it is hollow
 
-The use case list encodes the hierarchy in its own fields — **22 process epics, 11 capability
-epics, 650 leaf stories.** What is in them:
+The use case list encodes the hierarchy in its own fields — process epics, capability
+epics and leaf stories. What is typically in the leaves:
 
-| Of the 650 leaf stories | Count |
-|---|--:|
-| Carry an **"I want"** tag | **59** — the other 591 render as *"I want (not tagged)"* |
-| Mention **acceptance criteria** | **3** |
-| Carry a **"so that"** that differs from the generated one | **0** |
+| Of the leaf stories | Pattern |
+|---|---|
+| Carry an **"I want"** tag | Few do — the rest render as *"I want (not tagged)"* |
+| Mention **acceptance criteria** | Almost none |
+| Carry a **"so that"** that differs from the generated one | None |
 
-All 650 end with the same sentence: *"…so that the process gains transparency, faster reaction
+Every generated story ends with the same sentence: *"…so that the process gains transparency, faster reaction
 and less manual effort."* True of every use case ever written, which is what makes it useless.
 
 **So the job is not to introduce the structure. It is to stop filling it with a sentence that
@@ -192,7 +193,7 @@ Five calls, in full in [`elicitation.md`](references/elicitation.md):
 
 1. **One use case or three?** Different people, different moments → different use cases.
 2. **Is the stated problem the real one?** Ask what they would do differently with the answer.
-3. **Standard or genuinely specific?** Two thirds of the portfolio is declared standard at
+3. **Standard or genuinely specific?** Most of the portfolio is declared standard at
    intake, and that declaration is the hinge the whole function turns on.
 4. **Is the missing thing a signal or a decision?** *"Selection of process parameter to be
    connected"* is a real recorded blocker — and it is the requirement's job, not engineering's.
@@ -204,7 +205,7 @@ No roadmap link and no nameable business case · needs a system outside the lean
 owned by a sibling function · a one-off with no recurring value · already exists elsewhere.
 
 **Refuse with a named route and a written reason.** A refusal is a better outcome than a thin
-requirement: the thin one consumes an integration slot and then stalls. Some of the 229 `IDEA`
+requirement: the thin one consumes an integration slot and then stalls. Some `IDEA`
 use cases are refusals nobody wrote down.
 
 ## Definition of done
@@ -227,8 +228,8 @@ reporting zero blockers. Then the receiving lane accepts it — or says what is 
 - **Do not skip the library check.** Rebuilding what another plant has is the failure the
   whole standardization effort exists to prevent.
 - **Do not hand over without the lane variant.** It is the only part the receiver acts on.
-- **Do not write "so that the process gains transparency."** That clause is already on all 650
-  stories in the estate and has never once told anybody anything.
+- **Do not write "so that the process gains transparency."** That clause is already generated on
+  every story in the estate and has never once told anybody anything.
 - **Do not cut stories by technical layer.** *Connect the PLC · build the flow · build the
   dashboard* are tasks: none is usable alone, so none can be accepted.
 - **Do not call one story an epic.** If it will not split, it is a story — say so and move on.

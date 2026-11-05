@@ -52,8 +52,8 @@ Threshold used: ⟨to confirm with the DBVE lead⟩. Judgement: ⟨recurring · 
 | | |
 |---|---|
 | **Library search** | ⟨entries checked; covering entry: none / id⟩ |
-| **Capability template** | ⟨one of eleven⟩ |
-| **Process group** | ⟨one of 29, family⟩ |
+| **Capability template** | ⟨capability template⟩ |
+| **Process group** | ⟨process group, family⟩ |
 | **Cluster tag (from the classifier, not hand-assigned)** | ⟨C01 to C12⟩ |
 | **Case group and its stage** | ⟨group, plants delivered⟩ |
 | **Deltas against the cluster baseline** | ⟨machines, line, local constraint⟩ |

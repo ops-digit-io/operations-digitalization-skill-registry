@@ -33,10 +33,10 @@ and must be re-run on the live Machine List before they go into a decision.
 | Machine rows | | Machine List |
 | Integrated / not integrated / ongoing / **no status** | | Machine List |
 | Route recorded: edge / aggregation / evaluation ongoing / **blank** | | Machine List |
-| Controller vendors (top 3) | | Machine List |
+| Controller vendors (main ones) | | Machine List |
 | Concepts available in the Tool Overview (1, 2, 3) | | Tool Overview |
 | Machines routed to a concept the Tool Overview does not list for this plant | | compare the two rows |
-| Blocker texts (count; kinds) | | [`blockers-and-waves.md`](../references/blockers-and-waves.md) |
+| Blocker texts (kinds; count live) | | [`blockers-and-waves.md`](../references/blockers-and-waves.md) |
 | Project reference(s) / wave | | Machine List |
 | Legacy applications at the plant | | Legacy Application List |
 
@@ -72,7 +72,7 @@ and must be re-run on the live Machine List before they go into a decision.
 | Is there a patch window for the firmware-patching blockers? | | Plant IT / OT |
 | Does Cyber Security / OT sign-off exist for the external connections planned? | | Plant IT; `od-cybersec-gate` |
 | Who is the Local OT Expert for the eCR? | ⟨role⟩ | Plant ME |
-| What edge hardware is already in the plant? Only the large edge device is approved | | IIAE |
+| What edge hardware is already in the plant? Check which edge device sizes are currently approved | | IIAE |
 
 ## 5. Hand-off
 

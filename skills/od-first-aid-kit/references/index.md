@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [First aid offering](first-aid-offering.md) | Skill Reference | What OD's documents say about the Process First-Aid Kit - purpose, the two data scenarios, the priced example, and two ad-hoc analyses that show how a plant issue becomes an analytical question - with what the sources do not say. |
+| [First aid offering](first-aid-offering.md) | Skill Reference | Guidance on the Process First-Aid Kit - purpose, the two data scenarios, how to handle the cost question, and the shape of typical ad-hoc analyses that show how a plant issue becomes an analytical question. Guidance only, no company figures. |

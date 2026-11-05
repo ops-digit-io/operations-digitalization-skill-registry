@@ -86,7 +86,7 @@ the OD lead sets it, use the practical triggers in the description above and wri
    ([`references/savings-proof-path.md`](references/savings-proof-path.md)): is there a baseline, a
    methodology line a stranger can check, a dependency, a SPRINT link? Mark each row with its
    current firmness and the next step. Where no saving was ever recorded, say "not recorded"; the
-   vault shows 269 delivered cases in this state, which is the common case, not a failure of yours.
+   vault shows delivered cases in this state, which is common, not a failure of yours.
 7. **Decide the outcome** and let the plant owner confirm the adoption part:
 
 | Finding | Outcome | Next |

@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Review checklist
 
-`SKILL.md` already records the honest state of the ledger — 474 of 553 rows carry no
+`SKILL.md` explains how to read the honest state of the ledger - many rows carry no
 reliability label at all. This file is *why*, taken from the department's own
 retrospective rather than from memory, and the smell test it implies.
 
@@ -21,7 +21,7 @@ reasoning that they know their own process best. The real result, in its own wor
 *"Plants lack confidence in Use Case evaluation and provided 'social proof' by
 collectively avoiding doing it."* A plant that is not confident in its own estimate does
 not produce a wrong number — it produces no number, or a number with nothing behind it.
-**This is the root cause the 474-empty-rows figure is a symptom of**, not a data-entry
+**This is the root cause the many empty reliability fields are a symptom of**, not a data-entry
 gap to chase down row by row.
 
 ## Three things tried before the current approach, in order, each one failing differently
@@ -62,10 +62,7 @@ explains the upstream cause, not the review gate's own criteria.
 
 ## Sources
 
-Internal evidence, read 2026-10-22: `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--
-2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx` (Thomas Zipf,
-"Agility in System & Process," MPEE strategy workshop, January 2025, Chapter 4 — "Use Case
-Saving Calculation") and `10-Workshops--2024_04_04_Summary_Carei_SmartFactory_UseCase_
-Definition_Workshop*.pptx` ("Savings Estimation for Use Cases: open task — ~33 Use Cases
-collected!", confirming the pattern at plant level). Full citations in `SKILL.md`'s
+Internal evidence from the department's own workshop material (the MPEE strategy workshop
+chapter on use case saving calculation, and a plant definition workshop summary that
+listed savings estimation as an open task). Full citations in `SKILL.md`'s
 `metadata.derived_from`.

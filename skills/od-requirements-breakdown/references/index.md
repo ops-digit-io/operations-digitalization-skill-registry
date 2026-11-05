@@ -6,5 +6,5 @@
 |---|---|---|
 | [Elicitation](elicitation.md) | Skill Reference | The question rounds that get the real problem out, and the five judgement calls the department names as the hard part. |
 | [Epic and user stories](epic-and-user-stories.md) | Skill Reference | The background description, which epic axis to use, how to cut stories that stand alone, and what makes acceptance testable. |
-| [Legacy system assessment](legacy-system-assessment.md) | Skill Reference | The other half of the requirement: checking the 268 legacy applications a demand touches and whether it fits the lean footprint. |
+| [Legacy system assessment](legacy-system-assessment.md) | Skill Reference | Guidance, no figures. The other half of the requirement: checking the legacy applications a demand touches and whether it fits the lean footprint. |
 | [Requirement template](requirement-template.md) | Skill Reference | The ten core sections and the four lane variants, what each is for, and how each one fails in practice. |

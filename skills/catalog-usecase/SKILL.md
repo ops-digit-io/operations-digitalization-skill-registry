@@ -26,10 +26,10 @@ metadata:
   derived_from:
     - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 1 step "Pick from catalog", the Lane 2 graduation and the gap register entry, read 2026-11-05
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-    - Skill od-use-case-standardization, which holds the eleven capability templates, the 100-entry reference library and the CSP gate
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Use Cases frontmatter of all 846 notes (use_case_level, csp_decision, use_case_template, status, plant, scalable), counted 2026-11-05
+    - Skill od-use-case-standardization, which holds the eleven capability templates, the reference library and the CSP gate
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Use Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
     - Work vault, Graph/Use Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
-    - Work vault, Graph/Target Types and the five library notes with a recorded CSP Yes (Subotica and Monterrey), read 2026-11-05
+    - Work vault, Graph/Target Types and the library notes with a recorded CSP Yes, read 2026-11-05
   okf:
     type: Agent Skill
     title: Use-case catalog
@@ -56,23 +56,23 @@ It does not state that any particular entry exists.
 
 | Source | What it gives |
 |---|---|
-| `od-use-case-standardization` | The eleven cross-plant capability templates, the 100-entry reference library, the twelve-cluster tags and the CSP gate - run by OD, not by plants |
-| Knowledge bundle, `Decision rights` | Whether a solution is standard enough to roll out across plants is the **CSP** decision, recorded per reference-library entry. "Applied to 51 of the 100 entries so far: 5 `Yes`, 46 `No`" (bundle as of 2026-08-24; check it is still current) |
+| `od-use-case-standardization` | The eleven cross-plant capability templates, the reference library, the cluster tags and the CSP gate - run by OD, not by plants |
+| Knowledge bundle, `Decision rights` | Whether a solution is standard enough to roll out across plants is the **CSP** decision, recorded per reference-library entry. The bundle states how many entries have been decided so far, split into `Yes` and `No` (check its date and re-count in the vault) |
 | Same | A use case has a plant owner, and the plant decides whether it goes into daily use |
 
 So today, at most the entries with a recorded CSP `Yes` are standard enough for another plant to take as they are.
 
-**Re-counted on 2026-11-05** from the 846 notes in `Graph/Use Cases`: the library has 100 entries (122 reference-solution notes
-with 22 archive-derived ones), of which 5 carry `Yes`, 46 `No` and 49 no recorded decision - the bundle's 51 of 100 is confirmed.
-The five are named in [`references/library-and-csp-state.md`](references/library-and-csp-state.md).
+To see the current state, count the library entries in `Graph/Use Cases` by `csp_decision` (`Yes`, `No`, no recorded
+decision) and name the entries with a `Yes`; how to do this and what to watch for is in
+[`references/library-and-csp-state.md`](references/library-and-csp-state.md). Re-count before quoting.
 
 ## The references
 
 | File | Use it for |
 |---|---|
-| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | The library counts, the five entries with a recorded CSP `Yes` by name, which of the four "catalogued" conditions the vault shows for them |
-| [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: delivered versus all, plants that want and plants that run each, peer plants, data each template needs, boundary table, typical screen components |
-| [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | The match record to fill per request, with a worked example from a real entry |
+| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | How to count the library and the CSP decisions live, how to find the entries with a recorded CSP `Yes`, which of the four "catalogued" conditions the vault shows for them |
+| [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: how to read delivered versus wanted coverage and find peer plants live, data each template needs, boundary table, typical screen components |
+| [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | The match record to fill per request, with an illustrative worked example |
 
 ## What counts as "catalogued"
 
@@ -117,8 +117,8 @@ for the plant handover. Propose the entry only when the four conditions above ho
 - ⟨Where the catalog lives and in what form (list, library, portal)⟩ and ⟨who maintains it⟩.
   Partial answer from the vault: the nearest thing to a catalog today is the SharePoint list `UseCase-Library` (the CSP field lives there) read through
   the eleven template pages in `Graph/Use Case Views`; no plant-facing portal is recorded. The marker stays for the intended form and the maintainer.
-- ⟨Whether a recorded CSP `Yes` is the right threshold for self-service⟩, given how few entries have one.
-- The 5 `Yes` entries are now named (Subotica: Automatic Bending - Cycle Time Analysis, two Bending Cell availability dashboards; Monterrey: Plant Assembly Report, Production Panel for Assembly Lines - source: library notes in `Graph/Use Cases`, 2026-11-05).
+- ⟨Whether a recorded CSP `Yes` is the right threshold for self-service⟩, given how few entries may have one.
+- The entries with a `Yes` are found live (see `references/library-and-csp-state.md`).
   ⟨Which of them a plant can take as it is today⟩ stays open: conditions 3 and 4 above (standardized signals, plant owner and handover) are not recorded in the entries - IIAE and plant owner.
 - ⟨How a plant reaches the catalog⟩ and ⟨who may add an entry⟩.
 

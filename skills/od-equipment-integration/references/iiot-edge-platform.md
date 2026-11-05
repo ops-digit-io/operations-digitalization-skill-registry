@@ -29,7 +29,7 @@ cross-conversation friction on this route:
 | Layer | What it is | Where it appears |
 |---|---|---|
 | **Edge device** | The hardware in or beside the machine cabinet. Currently one approved size | Edge Device List; the hardware branch of the guide |
-| **Connector** | The protocol driver reaching the PLC — 26 of them, 24 DATATRONiQ, 2 Softing | Connector Overview list; [`decision-paths.md`](decision-paths.md) |
+| **Connector** | The protocol driver reaching the PLC — mostly DATATRONiQ, a few Softing | Connector Overview list; [`decision-paths.md`](decision-paths.md) |
 | **Platform** | The DATATRONiQ dashboard and server cluster the devices register into, on the plant Kubernetes runtime | Steps 6 and 9 of the hardware sequence |
 
 A machine is integrated only when all three are done. Cabled and addressed but not
@@ -134,13 +134,13 @@ So the two live options are:
 
 | Option | When |
 |---|---|
-| **Large edge device** | Default, and currently the only approved hardware |
+| **Large edge device** | Default; the only approved hardware at the last check (re-confirm with the IIAE) |
 | **Low-frequency collection** | Where a large device cannot be justified or does not fit — on Siemens this is the S7 Net / low-frequency route and its `DTQ-S7-NET-Connector` |
 
 Plan a wave against these two. Anything sized around a medium or small device is sized
-against hardware that is not approved. Confirmed still current with the IIAE, 2026-10-22 —
-this is the kind of line that changes without the tree changing, so re-check it rather than
-trusting the date.
+against hardware that is not approved. Re-confirm with the IIAE before sizing — this is the kind of
+line that changes without the tree changing, so re-check it rather than trusting a remembered
+answer.
 
 ---
 
@@ -150,11 +150,11 @@ The knowledge graph records three integration concepts as tools in their own rig
 department numbers them. They are exactly the three shapes a machine can take into the
 platform:
 
-| Concept (Tool Overview) | Variant | Shape | Plants |
-|---|---|---|--:|
-| **Concept 3 — IIoT Edge Computing Platform** | **①** | PLC → **edge device** with connector → IIoT platform. Device per machine or cell; the only variant for cameras | **20** |
-| **Concept 2 — container-based Machine Integration** | **②** | PLC → **connector** → IIoT platform. The connector runs without a dedicated edge device at the machine | **1** (Carei) |
-| **Concept 1 — Central OPC-UA Server** | **③** | PLC → **aggregation server** → IIoT platform. Softing dataFEED concentrates the drivers; the edge reads its address space — see [`softing-datafeed.md`](softing-datafeed.md) | **11** |
+| Concept (Tool Overview) | Variant | Shape |
+|---|---|---|
+| **Concept 3 — IIoT Edge Computing Platform** | **①** | PLC → **edge device** with connector → IIoT platform. Device per machine or cell; the only variant for cameras |
+| **Concept 2 — container-based Machine Integration** | **②** | PLC → **connector** → IIoT platform. The connector runs without a dedicated edge device at the machine |
+| **Concept 1 — Central OPC-UA Server** | **③** | PLC → **aggregation server** → IIoT platform. Softing dataFEED concentrates the drivers; the edge reads its address space — see [`softing-datafeed.md`](softing-datafeed.md) |
 
 These are not three destinations. The IIoT Edge Platform is the terminus in all three;
 ① and ② differ only in *where the connector runs*, and ③ adds a concentrator in front,
@@ -169,16 +169,16 @@ Aggregation Server" (as the guide labels the route) are the same thing seen from
 Prefer the guide's wording when handing someone a procedure — it is the label on their
 screen.
 
-### Variant ② — real, and barely deployed
+### Variant ② — real, and rarely deployed
 
-Concept 2 is recorded at **one plant, Carei**, which also runs ①. The Equipment integration
-guide has **no written route for it**. That combination — a live concept with a single
-deployment and no procedure — means: do not offer ② as a standard option, and do not invent
+Concept 2 is recorded at very few plants, and where it appears it runs alongside ①. The Equipment integration
+guide has **no written route for it**. That combination — a live concept with very few
+deployments and no procedure — means: do not offer ② as a standard option, and do not invent
 the procedure. If a machine looks like a ② candidate, it is an IIAE conversation.
 
 What ② looks like in the field is visible in the estate's `integration_approach` values:
-**"Low Cost — Direct Connection"** (50 machines) and **"Low Cost — Helmholz"** (19), alongside
-bare protocol entries like "TCP/IP Ethernet driver" (30). The *low cost* is precisely the
+**"Low Cost — Direct Connection"** and **"Low Cost — Helmholz"**, alongside
+bare protocol entries like "TCP/IP Ethernet driver". The *low cost* is precisely the
 absence of edge-device hardware.
 
 **Both rows are Concept ②, confirmed with the IIAE.** A Helmholz gateway is hardware at the
@@ -189,18 +189,15 @@ move a machine out of ②.
 
 ### Which variants a plant has
 
-Not one per plant. Of the 23 plants with any concept recorded:
+Not one per plant. The Tool Overview records the concepts per plant; read it live
+([`plant-integration-status.md`](plant-integration-status.md) says how). Patterns to expect:
 
-| | Plants |
-|---|--:|
-| ① only | 11 — Auburn, Delicias, Dolne Vestenice, Hann. Münden, Karben, Monterrey, Northeim, San Luis Potosi, Subotica, Timisoara, Vac |
-| ③ only | 3 — Ostrava, Ponta Grossa, Sun Prairie |
-| **① and ③ both** | **8** — Caluire, Changchun, Changshu, Korbach, Mako, Qingdao, Somersworth, Waltershausen |
-| ② | 1 — Carei, alongside ① |
+- Plants with ① only, plants with ③ only, and plants with **both ① and ③**.
+- ② may appear alongside ① at a plant.
 
-Eight plants carry both ① and ③, so *"which platform does this plant have"* is often the
-wrong question. Ten of the 33 plants have no concept recorded at all — there the first
-conversation is rollout, not integration.
+Where both ① and ③ are available, *"which platform does this plant have"* is often the
+wrong question: the choice is per machine. Plants with no concept recorded at all exist — there
+the first conversation is rollout, not integration.
 
 ## Choosing between the two, when both are open
 

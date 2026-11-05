@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Artefacts
-description: What the 825 flows across 53 instances actually build, crawled from their labels, with a generalized key-free example per artefact.
+description: Guidance, no figures - the artefact families Node-RED flows actually build, the naming convention, a generalized key-free example per artefact, and the reusable building blocks; count usage live.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -10,83 +10,89 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The artefact catalogue
 
-What the 825 flows across 53 instances actually build. Crawled from the flow labels and
-node contents, not from a wish list — if it is in this table, somebody has built it and
-you can copy it.
+What the flows across the instances actually build. Crawled from the flow labels and
+node contents, not from a wish list - if it is in this catalogue, somebody has built it and
+you can copy it. This page holds **no counts**; count families and artefacts live from the
+exported flow labels (see `corpus-census.md`) and quote the figure with its date.
 
 **Before building anything, look here first.** Almost every new request is an instance of a
 family that already exists at another plant.
 
 ## Naming convention
 
-**74 % of flows (608 of 825)** follow:
+Most flows follow:
 
 ```text
 [(status)] <asset> [(EQ id)] - <artefact>
 ```
 
-- `(OK)` — 60 flows · `(TODO)` — 20 flows. A status prefix in the *name* is the estate's
-  informal review marker.
-- `(EQ40018861)`-style equipment ids appear on 38 flows — the strongest form, because it
-  joins straight to the Machine List.
+- `(OK)` / `(TODO)`: a status prefix in the *name* is the estate's informal review marker.
+- An `(EQ<id>)`-style equipment id is the strongest form, because it joins straight to the Machine List.
 - The **artefact half after the last ` - `** is what the flow produces, and it is the
-  column that makes the table below possible.
+  column that makes the catalogue possible.
 
 > **Name a new flow this way.** The tab label is the page title in the generated docs and
-> the only index anyone browses. `Flow 1` — which exists — is unfindable.
+> the only index anyone browses. A default title such as `Flow 1` is unfindable.
 
-## Artefact families, by flow count
+To measure how well the convention holds today: split every tab label on the last ` - `, and count the
+labels that have both halves.
 
-| Artefact family | Flows | What it produces |
-|---|--:|---|
-| Part / piece counter | 193 | A part-produced trigger, a total, a shift total |
-| Autoclave / vessel process | 120 | Temperature, pressure and heating-mode signals per vessel |
-| Cycle time | 104 | A derived duration between two trigger events |
-| Config / setup | 93 | Protobuf schema injection, base models, test harnesses |
-| Alerting / notification | 51 | An error-number → message lookup, published or pushed |
-| Pressure | 51 | Filtered pressure, thresholds, quality events |
-| Tool / mould | 50 | Tool-id to part-number mapping |
-| Shift | 42 | Shift-scoped counters and resets |
-| Temperature | 31 | Tolerances, limits, quality events |
-| Machine state / mode | 29 | A normalized machine status from raw mode integers |
-| Braider | 27 | Status duration, standard speed, operation time |
-| Extrusion | 21 | Setup monitors, product-failure mapping |
-| Scrap / NOK | 21 | Failure mapping and transformation |
-| Downtime / stoppage | 20 | Downtime events and durations |
-| Quality event | 14 | Threshold-breach events per process value |
-| Speed | 11 | Standard speed, operation time |
-| OEE | 11 | Availability × performance × quality |
-| Dashboard / UI | 10 | Local HMI and alert screens |
-| Traceability / recipe | 2 | Recipe data, serial injection |
+## Artefact families
+
+| Artefact family | What it produces |
+|---|---|
+| Part / piece counter | A part-produced trigger, a total, a shift total |
+| Autoclave / vessel process | Temperature, pressure and heating-mode signals per vessel |
+| Cycle time | A derived duration between two trigger events |
+| Config / setup | Protobuf schema injection, base models, test harnesses |
+| Alerting / notification | An error-number to message lookup, published or pushed |
+| Pressure | Filtered pressure, thresholds, quality events |
+| Tool / mould | Tool-id to part-number mapping |
+| Shift | Shift-scoped counters and resets |
+| Temperature | Tolerances, limits, quality events |
+| Machine state / mode | A normalized machine status from raw mode integers |
+| Braider | Status duration, standard speed, operation time |
+| Extrusion | Setup monitors, product-failure mapping |
+| Scrap / NOK | Failure mapping and transformation |
+| Downtime / stoppage | Downtime events and durations |
+| Quality event | Threshold-breach events per process value |
+| Speed | Standard speed, operation time |
+| OEE | Availability x performance x quality |
+| Dashboard / UI | Local HMI and alert screens |
+| Traceability / recipe | Recipe data, serial injection |
+
+The families are listed by kind, not ranked. Part counters, cycle times and the config/setup tabs are the
+common ones; traceability is rare. Re-rank on the live label tally if volume matters.
 
 ## The specific artefacts, by name
 
-The exact artefact string after the ` - `, top of the distribution:
+The exact artefact string after the ` - ` maps to a pattern:
 
-| Artefact | Flows | Pattern used |
-|---|--:|---|
-| Part Counter Trigger | 56 | Delta gate → publish trigger |
-| Cycle Time | 55 | Two-event time range |
-| Shift Part Counter | 34 | Delta gate → accumulator → reset |
-| Alerting | 32 | CSV lookup table → code-to-message |
-| Tool ID Mapping | 28 | CSV lookup table → id-to-part-number |
-| Tolerance Values for Temperature | 19 | Static limits into context |
-| Loading Time Estimation on Pressure | 18 | Threshold-crossing time range |
-| Downtime | 16 | State duration |
-| Cycle Time Estimation on Pressure | 14 | Threshold-crossing time range |
-| Machine Mode Normalization | 14 | Integer → normalized state mapping |
-| OK / NOK Part Counter Trigger | 21 | Delta gate, split by quality outcome |
-| Load Counter Threshold | 11 | Accumulator with a threshold event |
-| Cycle Counter Trigger | 8 | Delta gate on a cycle signal |
-| Cycle Time Calculation / Normalization | 15 | Two-event time range |
-| String Split | 8 | Parse a composite `valueString` |
-| Standard Speed / Operation Time | 5 + | Static reference values into context |
-| Machine Status | 5 | State mapping, published |
-| Shot Weight Estimation | 5 | Derived value from process signals |
-| Error Handling | 6 | Dedicated error-routing flow |
+| Artefact | Pattern used |
+|---|---|
+| Part Counter Trigger | Delta gate -> publish trigger |
+| Cycle Time | Two-event time range |
+| Shift Part Counter | Delta gate -> accumulator -> reset |
+| Alerting | CSV lookup table -> code-to-message |
+| Tool ID Mapping | CSV lookup table -> id-to-part-number |
+| Tolerance Values for Temperature | Static limits into context |
+| Loading Time Estimation on Pressure | Threshold-crossing time range |
+| Downtime | State duration |
+| Cycle Time Estimation on Pressure | Threshold-crossing time range |
+| Machine Mode Normalization | Integer -> normalized state mapping |
+| OK / NOK Part Counter Trigger | Delta gate, split by quality outcome |
+| Load Counter Threshold | Accumulator with a threshold event |
+| Cycle Counter Trigger | Delta gate on a cycle signal |
+| Cycle Time Calculation / Normalization | Two-event time range |
+| String Split | Parse a composite `valueString` |
+| Standard Speed / Operation Time | Static reference values into context |
+| Machine Status | State mapping, published |
+| Shot Weight Estimation | Derived value from process signals |
+| Error Handling | Dedicated error-routing flow |
 
-Six flows exist whose whole artefact is **Error Handling** — a dedicated tab that collects
-and routes errors rather than the per-flow catch. Worth knowing before building a seventh.
+Some flows have **Error Handling** as their whole artefact - a dedicated tab that collects
+and routes errors rather than the per-flow catch. Check whether the instance already has one before
+building another.
 
 ## Generalized example per artefact
 
@@ -198,8 +204,8 @@ return msg;
 ```
 
 **Never put a webhook URL or token in the flow.** If an alert is pushed to a chat channel,
-the endpoint comes from `$env(...)` or Node-RED credentials. 42 flows in the estate get this
-wrong and the values are in git history.
+the endpoint comes from `$env(...)` or Node-RED credentials. Flows in the estate have got this
+wrong, and the values are in git history.
 
 ### Tool / mould id → part number
 
@@ -220,8 +226,7 @@ function "Define filter array" → filter uuids (array) → split → convert
 ```
 
 The evaluation, the cold-start guard and the trigger-selection trap are in
-[`composing-transformations.md`](composing-transformations.md) — this is the shape **461 of
-665** configured flows actually use, and the one most worth getting right.
+[`composing-transformations.md`](composing-transformations.md) — this is the shape most configured flows use, and the one most worth getting right.
 
 ### Rate / output per period — windowed
 
@@ -296,96 +301,98 @@ heartbeat. There is no inbound packet to re-pack from, so pack the timestamp exp
 
 ## The building blocks these are made of
 
-The reusable pieces, with how many flows carry each. Copy them; do not rewrite them.
+The reusable pieces. Copy them; do not rewrite them. To see how widely each is used, count the node
+names or group names across the flow exports.
 
 ### Standard function nodes
 
-| Node name | Flows | Purpose |
-|---|--:|---|
-| `Debug flow config` | 675 | Echo the config so a misconfiguration shows at deploy |
-| `Convert sysTime (UTC timestamp)` | 625 | Unpack the packed `sys_time` |
-| `Convert sysTime back (UTC timestamp)` | 617 | Re-pack before the encode |
-| `filter uuids` | 599 | Keep only the configured data points |
-| `set datapointConfigFilter` | 205 | Build the data-point config query filter |
-| `create json payload` | 157 | Assemble the outbound packet |
-| `calculate timerange between cycle_start and cycle_end event` | 148 | The cycle-time primitive |
-| `create object` | 65 | Build a packet from flow config rather than an input |
-| `lookup and filter messages raw mqtt messages` | 41 | Attach a label from the data-point config |
-| `set device endpoint` / `set data_points endpoint` | 41 each | Edge-platform API calls |
-| `set null to multiple keys` | 34 | Clear unused `oneof` members |
-| `lookup toolId to partnumber` | 29 | CSV-backed id mapping |
+| Node name | Purpose |
+|---|---|
+| `Debug flow config` | Echo the config so a misconfiguration shows at deploy |
+| `Convert sysTime (UTC timestamp)` | Unpack the packed `sys_time` |
+| `Convert sysTime back (UTC timestamp)` | Re-pack before the encode |
+| `filter uuids` | Keep only the configured data points |
+| `set datapointConfigFilter` | Build the data-point config query filter |
+| `create json payload` | Assemble the outbound packet |
+| `calculate timerange between cycle_start and cycle_end event` | The cycle-time primitive |
+| `create object` | Build a packet from flow config rather than an input |
+| `lookup and filter messages raw mqtt messages` | Attach a label from the data-point config |
+| `set device endpoint` / `set data_points endpoint` | Edge-platform API calls |
+| `set null to multiple keys` | Clear unused `oneof` members |
+| `lookup toolId to partnumber` | CSV-backed id mapping |
 
 Verbatim source: [`standard-functions.js`](standard-functions.js).
 
 ### Standard groups
 
-| Group | Flows |
-|---|--:|
-| `config flow` | 656 |
-| `prepare and convert payload` | 620 |
-| `mqtt connection and message decoding` | 606 |
-| `message encoding and connection` | 580 |
-| `functional flow` | 552 |
-| `set inputs for config flow` | 458 |
-| `set message filters` | 309 |
-| `lookup uuid to label, including postprocessing` | 195 |
-| `filter messages` | 180 |
-| `calculate cycle time based on triggers` | 152 |
-| `parse csv input for alert messages` | 83 |
-| `get variable config from iiot edge platform` | 24 |
+| Group | Role |
+|---|---|
+| `config flow` | Where the flow is bound to a machine |
+| `prepare and convert payload` | Format the outbound packet and re-pack `sysTime` |
+| `mqtt connection and message decoding` | Subscribe, decode, filter, split, unpack |
+| `message encoding and connection` | Encode and publish |
+| `functional flow` | The logic as a whole |
+| `set inputs for config flow` | Inputs that feed the config |
+| `set message filters` | Switches on the stream |
+| `lookup uuid to label, including postprocessing` | P7 enrichment |
+| `filter messages` | Additional filtering |
+| `calculate cycle time based on triggers` | The cycle-time pattern |
+| `parse csv input for alert messages` | CSV-backed lookup |
+| `get variable config from iiot edge platform` | Fetch data-point config |
 
-The first seven are the canonical layout. The rest are the named transformation groups —
+The first seven are the canonical layout. The rest are the named transformation groups -
 adding one of those to a flow is a signal to the reader that a known pattern is in use.
 
 ### Standard comment headings
 
-Comments carry the prose in the generated documentation. The recurring headings —
-`config flow` (661), `connect to MQTT and decode messages` (600), `functional flow` (594),
-`prepare and convert payload` (585), `encode and publish to MQTT` (553), `set filters`
-(509), `set necessary input` (458) — mirror the groups. The valuable ones are the
+Comments carry the prose in the generated documentation. The recurring headings -
+`config flow`, `connect to MQTT and decode messages`, `functional flow`,
+`prepare and convert payload`, `encode and publish to MQTT`, `set filters`,
+`set necessary input` - mirror the groups. The valuable ones are the
 configuration contracts written in the `config flow` comment: which flow variables must be
-set, what each means, where to get it. **32 % of comment nodes carry a body; those are what
-the good ones look like.**
+set, what each means, where to get it. Only a minority of comment nodes carry a body; those are what
+the good ones look like.
 
 ### Node types in use
 
-106 distinct types across the corpus. The ones that matter:
+Many distinct node types appear in the corpus. The ones that matter:
 
-| Type | Nodes | Role |
-|---|--:|---|
-| `comment` | 5,749 | Documentation |
-| `group` | 5,313 | Structure |
-| `change` | 4,711 | Mapping and config |
-| `function` | 4,670 | Transformation |
-| `switch` | 2,068 | Filtering and routing |
-| `debug` | 1,976 | Development aid |
-| `link in` / `link out` | 1,668 / 1,631 | Inter-group routing |
-| `inject` | 1,154 | Config trigger, timers |
-| `mqtt in` / `mqtt out` | 742 / 661 | The spine |
-| `split` | 648 | One packet at a time |
-| `decode` / `encode` | 600 / 588 | Protobuf |
-| `template` | 541 | Error and CSV text |
-| `catch` | 448 | Error handling |
-| `rbe` | 192 | Change detection |
-| `http request` | 142 | Edge-platform config, webhooks |
-| `delay` | 95 | Rate limiting |
-| `csv` | 83 | Lookup tables |
-| `join` | 82 | Batching |
-| `OPCUA-IIoT-*` | 209 | Direct OPC UA read/browse/write |
-| `influxdb out` | 39 | Local timeseries write |
-| `ui-*` / `ui_*` | ~250 | Local dashboards |
-
-Five subflows are in use, the largest at 22 flows (`subflow:e38c467b545b6fe2`, 66 nodes).
-⟨Subflow contents are not in the per-flow exports — read them on the instance.⟩
-
-## Coverage, honestly
-
-| | |
+| Type | Role |
 |---|---|
-| Groups named | 92 % |
-| Nodes named | 63 % |
-| Comment nodes with a body | 32 % |
-| **Flows carrying a description** | **1 %** (12 of 825) |
+| `comment` | Documentation |
+| `group` | Structure |
+| `change` | Mapping and config |
+| `function` | Transformation |
+| `switch` | Filtering and routing |
+| `debug` | Development aid |
+| `link in` / `link out` | Inter-group routing |
+| `inject` | Config trigger, timers |
+| `mqtt in` / `mqtt out` | The spine |
+| `split` | One packet at a time |
+| `decode` / `encode` | Protobuf |
+| `template` | Error and CSV text |
+| `catch` | Error handling |
+| `rbe` | Change detection |
+| `http request` | Edge-platform config, webhooks |
+| `delay` | Rate limiting |
+| `csv` | Lookup tables |
+| `join` | Batching |
+| `OPCUA-IIoT-*` | Direct OPC UA read/browse/write |
+| `influxdb out` | Local timeseries write |
+| `ui-*` / `ui_*` | Local dashboards |
 
-The catalogue above was reconstructable only because the *naming* convention held. It
-would have been reconstructable far better if the 1 % were 100 %.
+Subflows are in use at some sites. ⟨Subflow contents are not in the per-flow exports - read them on the instance.⟩
+
+## Documentation coverage: how to measure it
+
+The generated pages are built from four fields only (see `SKILL.md`, "Build so the documentation writes
+itself"). To measure coverage on the day, over the flow exports:
+
+- share of groups with a `name`;
+- share of non-comment nodes with a `name`;
+- share of `comment` nodes with a body;
+- share of tabs with a non-empty `info` (the flow description).
+
+Pattern to expect: groups are disciplined, node names are mostly present, comment bodies are a minority,
+and flow-level descriptions are close to absent. The catalogue above was reconstructable only because the
+*naming* convention held; it would be far better if every tab carried a description.

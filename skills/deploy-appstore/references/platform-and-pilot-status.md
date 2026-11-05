@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Platform and pilot status
-description: What the vault records about the manufacturing app store, the container platform and the edge runtime, sorted into running, pilot, planned and design-only, so a deployment is never described as more mature than it is. Open it before you name a target platform.
+description: How to classify the manufacturing app store, the container platform and the edge runtime as running, pilot, planned or design-only, where to look the current status up, and how the two platform layers relate - guidance only, no status snapshot. Open it before you name a target platform.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,27 +10,40 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Platform and pilot status
 
-Read 2026-11-05. Sources: the department deck `AI_Where_We_Apply_Today.pptx` (one slide), vault `Graph/Keynote Initiatives` (note "Manufacturing App Store (CMO)" and the notes X2, X3, X4), `Graph/Tools` (Concept 3), `_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/systems-of-record.md`, and the vault folder `Microservice Apps (WIP)` (17 notes, AI-drafted, not reviewed by a human, generated 2026-09-27).
+Sources to read for the *current* picture (this file does not copy their content): the department deck
+`AI_Where_We_Apply_Today.pptx` (the "MPEE / OD" slide), vault `Graph/Keynote Initiatives` (note "Manufacturing App Store (CMO)" and the
+notes X2, X3, X4), `Graph/Tools` (Concept 3), `_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/systems-of-record.md`,
+and the vault folder `Microservice Apps (WIP)` (AI-drafted, not reviewed by a human). Note each source's own date when you quote it.
 
-## The short answer
+## The rule
 
-**The manufacturing app store with GitOps deployment is a pilot.** The only dated, first-hand statement is one line in the department's AI deck: under "MPEE / OD", *"Manufacturing App Store - GitOps deployment (pilot)"*. The same slide marks other lines "live" (AI Manufacturing Dashboards at two plants, in rollout), "building", "PoC" and "initiative", so "pilot" is a deliberate step between a PoC and a rollout. The deck gives no date, no list of plants and no number of apps. Everything below is sorted by how firm its source is.
+**A deployment is never described as more mature than its source says.** Classify every element on this ladder, using the
+firmest source available, and say which source:
 
-## What is running, pilot, planned, design-only
-
-| Item | Status | Source and how firm |
+| Level | Meaning | What counts as evidence |
 |---|---|---|
-| IIoT Edge Computing Platform (Concept 3), the plant Kubernetes runtime that apps would run on | **Running.** Rollout status `Available` at 14 plants (tool note, export 2026-08-24); the systems-of-record note says "significantly deployed". The WIP landscape says the edge runtime exists at 16-17 of the 33 plants - not reconciled with the 14 (⟨which count is current⟩, IIAE) | Tool overview records; verified 2026-08-10 |
-| Manufacturing apps and dashboards "in the manufacturing app store on the IIoT Edge platform", written by the dev team, per release, data owner OD | **Recorded as the current arrangement** in the systems-of-record note. The release rhythm is not given | Systems of record, last verified 2026-08-10 |
-| Manufacturing App Store - GitOps deployment | **Pilot** | AI deck, one line |
-| Manufacturing App Store (CMO), initiative X1: a central app marketplace; every plant app delivered as a container with declared interfaces, governance and cyber-security posture; replaces the decentralized "Mendix, VBA, FTP, Windows" collection over 24 to 36 months | **Planned.** Portfolio tier "Big Bet"; business case figures are the authors' own inputs and not verified (the note says so). Validation plan: one process family (25 camera inspection apps), consolidate at least 3 plant-variant apps into one container; pass criterion: cyber-security posture delta positive and maintenance hours delta favourable, and the first 5 plants adopt voluntarily before any mandate | Keynote initiative note; business case |
-| Tools named for the app store: a container registry for images, a source-code host for app and deployment-set code, a GitOps tool "available across locations" - stated as enabled in 15 or more locations; a worked example is a LoRaWAN infrastructure app for low-cost sensors distributed to 15 or more locations | **Described** in two initiative decks (2026); archive decks not opened again in this session | Keynote initiative note, archive section (AI-curated) |
-| Three onboarding scenarios: internal development; external development with the source owned by the department; external development without source access | **Described** (same decks) | same |
-| X4 Cybersec Backlog Closure: every catalogued app through a formal IEC 62443-4-2 conformance gate, coordinated with the CRA enforcement window of 2027; 30 highest-risk apps first, a 90-day clearance sprint, pass criterion "certified or replaced" per app, at least 10 of 30 cleared in the first quarter | **Planned**, tier "Mandatory" | Keynote initiative note |
-| X2 AI-coding assimilation: assimilate plant-local apps (Mendix, VBA-Excel chains, internal C# tools) into the catalog: requirements document (X3), container build with declared interfaces, cyber-security check (X4), plant pilot deployment | **Planned**; prerequisites X1, X3, X4 | Keynote initiative note |
-| Fifteen domain microservices (ten on the templates, five extension services) and four shared-kernel services as "first tenants" of the app-store catalog | **Design only** (WIP, AI-drafted). Nothing in the notes says any of it is built or deployed | Microservice Apps (WIP) |
+| **Running** | In use at plants | A tool-overview record with an `Available` rollout status, or an owner's dated statement |
+| **Recorded as current arrangement** | The systems-of-record module states it as how things work | The module's text and its `last-verified` date |
+| **Pilot** | A deliberate step between a PoC and a rollout | A dated first-hand statement (the department AI deck marks lines "live", "building", "PoC", "pilot", "initiative" - read the label, not the headline) |
+| **Planned** | An initiative with a tier and a validation plan, not yet built | The keynote initiative note; its business-case inputs are the authors' own and unverified unless the note says otherwise |
+| **Described** | Written up in initiative decks but not confirmed | The decks; re-open the archive deck before relying on it |
+| **Design only** | WIP notes, AI-drafted, nothing says it is built or deployed | The Microservice Apps (WIP) folder |
 
-Do not describe the app store as "the platform" in a package for a plant. Say **"pilot"** and name the plant or app that is in the pilot if the requester knows it (⟨pilot plants and apps⟩ - OD lead; not in the deck).
+Typical placement (re-check before quoting): the IIoT edge runtime (Concept 3, the plant Kubernetes runtime) is **running**, but plant
+counts differ between sources (tool overview versus the WIP landscape) - state the source and mark `⟨which count is current⟩` for the IIAE
+instead of picking one. The manufacturing app store with GitOps deployment is a **pilot**; the wider app-store initiative (CMO) is **planned**;
+the microservice landscape that would use it is **design only**. The deck gives no plant list, so name the pilot plant or app only if the
+requester knows it (`⟨pilot plants and apps⟩` - OD lead).
+
+Initiative notes also describe, qualitatively: a central app marketplace where every plant app is delivered as a container with
+declared interfaces, governance and cyber-security posture, replacing a decentralized collection of ad-hoc tools; a validation plan built on
+one process family, consolidation of plant-variant apps into one container, and voluntary adoption by early plants before any mandate;
+a cyber-security backlog-closure initiative sending every catalogued app through a formal IEC 62443-4-2 conformance gate (coordinated with the
+EU Cyber Resilience Act enforcement window), highest-risk apps first; and an AI-coding assimilation initiative that brings plant-local apps
+into the catalog (requirements document, container build with declared interfaces, cyber-security check, plant pilot). Read the initiative
+notes for their current scope, sizing and criteria; do not quote them from memory.
+
+Do not describe the app store as "the platform" in a package for a plant. Say **"pilot"** where that is the level.
 
 ## Are the "Container Orchestration Platform" and the IIoT Edge runtime the same thing?
 
@@ -43,7 +56,8 @@ The flow marks "Container Orchestration Platform" as "to confirm". The vault all
 
 ## What this means for the four sourcing routes of Lane 3a
 
-The three onboarding scenarios of the initiative decks line up with the flow, but the mapping below is **inferred**, not stated:
+The three onboarding scenarios of the initiative decks (internal development; external development with the source owned by the department;
+external development without source access) line up with the flow, but the mapping below is **inferred**, not stated:
 
 | Flow route | Nearest onboarding scenario | Note |
 |---|---|---|
@@ -56,4 +70,4 @@ The three onboarding scenarios of the initiative decks line up with the flow, bu
 
 - ⟨Release cadence of the app store⟩ - the systems-of-record note says "per release" without a rhythm; the deck gives none.
 - ⟨Scope and plants of the GitOps pilot⟩ and ⟨exit criteria of the pilot⟩ - OD lead.
-- ⟨Whether the pass criterion of the validation plan (first five plants adopt voluntarily) has been tested⟩ - OD lead.
+- ⟨Whether the validation plan's adoption criterion has been tested⟩ - OD lead.

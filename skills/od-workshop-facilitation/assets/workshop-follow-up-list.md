@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop summary and follow-up list — ⟨plant⟩ — ⟨workshop dates⟩
 
-Modelled on OD's summary decks (Carei 2024, Mako and Subotica 2024). Send to the Plant ME and the
+Modelled on OD's summary decks (plant summary decks). Send to the Plant ME and the
 participants. Authority: draft; nothing below commits money or a connection.
 
 ## 1 · What happened (five lines)
@@ -53,7 +53,7 @@ summaries into local (plant) and central (OD or other function).
 | 10 | Both | Schedule the utilization review for the use cases already live | ⟨DBVE with Plant ME⟩ | ⟨⟩ | `od-impact-evaluation` | |
 | 11 | Both | Log ad-hoc issues raised as first-aid cases | ⟨DBVE⟩ | ⟨⟩ | `od-first-aid-kit` | |
 
-Rows 1 to 7 are the kinds of actions OD's Carei 2024 summary listed; keep only those that apply and
+Rows 1 to 7 are the kinds of actions OD's past plant summaries listed; keep only those that apply and
 add the plant's own.
 
 ## 5 · Items returned or refused

@@ -27,8 +27,7 @@ input. Not a master-data tool beyond the quality specifications the shopfloor ch
 **Integration recommended if:** the plant is starting its digitalization journey, some
 machines are already connected, and parts carry a serial code read automatically.
 
-**Real cost reference:** app development ~25 k€ per plant; deployment ~5 k€ per plant if
-externally supported.
+**Cost reference:** per the current tool one-pager (look up: tool owner / System Overview one-pager); do not quote a remembered amount.
 
 **The tell this resolves:** a request that wants QFPR itself to compute OEE/quality KPIs,
 or to become the master-data system for specs beyond the checklist, has outgrown QFPR —
@@ -57,7 +56,7 @@ values. Not a tool to directly execute Deep Learning training itself.
 process is being built that includes vision systems; it fits any industrial camera system.
 Integration effort is rated low once edge integration already exists.
 
-**Real cost reference:** connectors for different camera systems, ~5-10 k€ one-time.
+**Cost reference:** one-time connector cost per camera system, per the current tool one-pager (look up: tool owner).
 
 **The tell this resolves:** a vision/inspection request that wants to store process values
 alongside images, or wants the model trained inside the app itself, has outgrown MIL's own
@@ -80,11 +79,9 @@ a Camline request.
 
 ## Manufacturing Execution System (MES) — the department's clearest non-bet
 
-**Is not pursued as a standardized rollout, short/mid-term.** Recorded, consistently, across
-every plant's own Smart Factory Tool Overview checked (San Luis Potosí, Subotica/Carei,
-Timisoara): `NOT AVAILABLE` — `NOT NECESSARY` or `NOT RECOMMENDED AS OF NOW`. The strategy
-record states why: ERP/S4HANA-dependent, and the kill criterion for the pilot bet (two
-current MES plants) is "MES value-add not demonstrated" — see `references/non-bets.md`.
+**Is not pursued as a standardized rollout, short/mid-term.** Typically recorded in a plant's own Smart Factory Tool Overview as `NOT AVAILABLE` with the
+reason `NOT NECESSARY` or `NOT RECOMMENDED AS OF NOW`. The strategy
+record states why: ERP/S4HANA-dependent, and the kill criterion for the pilot bet (the existing MES plants) is "MES value-add not demonstrated" — see `references/non-bets.md`.
 
 **The tell:** if neither QFPR nor MDA/PDA — alone or together — cover what the request
 actually needs (cross-process scheduling, work-order management, genealogy across the
@@ -99,18 +96,15 @@ pass data to analytics (e.g. the Data Science Factory).
 
 **Is not:** a system to collect any data other than energy data from the processes.
 
-**Status — a live discrepancy, not a resolved fact:** the department's own non-bets record
-(`references/non-bets.md`) states EMS rollout is *stopped until operational criteria are
-resolved*. The January 2025 tool catalogue, in the same breath, records WiriTec as
-*"already rolled out to most of the locations"* with a real cost example (250-300 k€,
-Monterrey) and lists "Energy Consumption vs. Output" as an active 2025 OD initiative with a
-named lead. **Confirm which is current before treating either as settled** — this is
+**Status — a possible discrepancy, not a resolved fact:** the department's own non-bets record
+(`references/non-bets.md`) can say EMS rollout is *stopped until operational criteria are
+resolved*, while the tool catalogue describes WiriTec as rolled out and used for energy use
+cases, with its own cost example. **Confirm which is current (look up: OD lead; the live Tool Overview) before treating either as settled** — this is
 exactly the kind of drift this skill exists to catch, including in its own source material.
 
 ## Data Science Factory (DSF)
 
-**Status:** central, planned capability (recorded as `PLANNED 2024` or `PLANNED 2025`
-depending on the plant and the deck's date), not yet a thing a single use case can assume
+**Status:** a central capability whose status differs by plant and by the date of the source (planned, ongoing, stopped), not yet a thing a single use case can assume
 exists at an arbitrary plant. Treat a request that assumes central DSF access the same way
 as a request that assumes MES: check the specific plant's current status before promising
 it, and if it is not yet there, that is a platform-readiness escalation, not a use case.

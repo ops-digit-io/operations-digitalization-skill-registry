@@ -19,23 +19,24 @@ have written a story and called it an epic; zero stories means you have written 
 
 The SharePoint use case list encodes a two-axis hierarchy in its own fields
 (`UseCaseParentId`, `UseCaseParent-ProcessId`), and the generated register
-`usecase-epics-user-stories.md` renders it: **22 process epics, 11 capability epics, 650 leaf
-user stories.** So this is not a new ceremony. The structure is there. What is in it:
+`usecase-epics-user-stories.md` renders it: process epics, capability epics and leaf
+user stories. So this is not a new ceremony. The structure is there. What is typically in it
+(re-count on the live register before quoting anything):
 
-| Of the 650 leaf stories | Count | Share |
-|---|--:|--:|
-| Carry a target text | 429 | 66% |
-| Carry any narrative at all (target, comments, blockers) | 466 | 72% |
-| Carry an **"I want"** tag — the capability the story asks for | **59** | **9%** |
-| Mention **acceptance criteria** anywhere | **3** | **0.5%** |
-| Carry a distinct **"so that"** — a reason particular to this story | **0** | **0%** |
+| Of the leaf stories | Pattern |
+|---|---|
+| Carry a target text | A majority |
+| Carry any narrative at all (target, comments, blockers) | A bit more than carry a target text |
+| Carry an **"I want"** tag — the capability the story asks for | Few |
+| Mention **acceptance criteria** anywhere | Almost none |
+| Carry a distinct **"so that"** — a reason particular to this story | None |
 
-Every one of the 650 renders with the same generated benefit clause:
+Every leaf renders with the same generated benefit clause:
 
 > *…**so that** the process gains transparency, faster reaction and less manual effort.*
 
 That sentence is true of every use case ever written, which is what makes it worthless. And
-because only 59 stories tag what they want, 591 render as *"I want (not tagged)"* — a story
+because few stories tag what they want, most render as *"I want (not tagged)"* — a story
 with neither a capability nor a reason.
 
 **The failure this reference exists to prevent is not a missing structure. It is a structure
@@ -61,8 +62,8 @@ It answers five things, and it is prose, not a table:
    06:00 instead of 14:00 lets the shift leader re-plan the second shift while there is still
    a second shift to re-plan."*
 4. **Why now** — the trigger. A customer complaint, a line moved, an audit finding, a machine
-   purchased. Requirements with no trigger sit in `IDEA` for years; **229 of 650 use cases
-   are in `IDEA`** and some of them are refusals nobody wrote down.
+   purchased. Requirements with no trigger sit in `IDEA` for years; many use cases
+   are in `IDEA` and some of them are refusals nobody wrote down.
 5. **What it is *not* for** — the scope fence. Written here, the fence holds; written nowhere,
    the epic grows a dashboard for a second department by the third sprint.
 
@@ -76,12 +77,12 @@ questions:
 
 | Axis | The epic is | Use it as the epic when |
 |---|---|---|
-| **Capability** (`OESL-Process_Values`, `OESL-Andon_Board`, 11 templates) | this plant's instance of a digital capability | **Default.** Reuse across plants happens here — this is the axis `od-use-case-standardization` reads |
-| **Process** (`OESL-Rubber-Vulcanization`, 22 templates) | this plant's instance of a manufacturing process | The demand came from a process owner and covers several capabilities on one process |
+| **Capability** (`OESL-Process_Values`, `OESL-Andon_Board`, from the capability template list) | this plant's instance of a digital capability | **Default.** Reuse across plants happens here — this is the axis `od-use-case-standardization` reads |
+| **Process** (`OESL-Rubber-Vulcanization`, from the process template list) | this plant's instance of a manufacturing process | The demand came from a process owner and covers several capabilities on one process |
 
-**Record both.** The source data shows what happens when you do not: 334 leaves carry only a
-capability parent and 291 only a process parent, so a query on either axis silently misses
-half the portfolio. Whichever you pick as the epic, fill the other as an attribute.
+**Record both.** The source data shows what happens when you do not: many leaves carry only a
+capability parent and many only a process parent, so a query on either axis silently misses
+part of the portfolio. Whichever you pick as the epic, fill the other as an attribute.
 
 ## Cutting stories out of an epic
 
@@ -95,7 +96,7 @@ integration and the last three often do not:
 2. **By signal availability.** The strongest cut in this estate. Split what is deliverable
    from signals that **exist today** (verified via `od-data-availability-check`) from what
    waits on machine integration. The first story delivers while the second sits behind a
-   connectivity blocker — and **131 of 650 use cases carry a machine-connectivity blocker**,
+   connectivity blocker — and **machine connectivity is a recurring blocker class**,
    so this cut is the difference between shipping something and shipping nothing.
 3. **By manual step removed.** Each manual step that disappears is a story with its own
    before/after. It is also the only cut whose benefit is directly measurable.
@@ -115,12 +116,12 @@ written tasks. Put them under one story as its steps.
 
 | Part | Rule | How it fails here |
 |---|---|---|
-| **Role** | A named plant role — shift leader, process engineer, maintenance planner, quality technician | *"the shop-floor / process team"* — the generated placeholder on all 650 |
-| **Capability** | What they want, in the plant's words | *"(not tagged)"* — 591 of 650 |
-| **Reason** | The decision or action it changes, particular to this story | *"…transparency, faster reaction and less manual effort"* on all 650 |
+| **Role** | A named plant role — shift leader, process engineer, maintenance planner, quality technician | *"the shop-floor / process team"* — the generated placeholder on every generated story |
+| **Capability** | What they want, in the plant's words | *"(not tagged)"* — the usual state |
+| **Reason** | The decision or action it changes, particular to this story | *"…transparency, faster reaction and less manual effort"* on every generated story |
 | **Background** | Two or three sentences of context for this story specifically | usually absent; the epic's background is not a substitute |
 | **Signals** | Canonical names with an existence verdict, from §5 | assumed rather than verified — the most common late failure |
-| **Acceptance criteria** | Testable, Given/When/Then, including one use-in-a-real-shift criterion | **3 of 650** mention acceptance at all |
+| **Acceptance criteria** | Testable, Given/When/Then, including one use-in-a-real-shift criterion | almost none mention acceptance at all |
 | **Value** | Inherited from the epic or apportioned, labelled `CALCULATION` / `ESTIMATION` / *not yet assessed* | a figure with no label reads as fact |
 | **Definition of done** | Development · Implementation · Handover, per the list's own three fields | the estate already tracks these; use them rather than inventing a status |
 | **Sequencing** | What must be true before this story starts | the connectivity blocker discovered in week three |

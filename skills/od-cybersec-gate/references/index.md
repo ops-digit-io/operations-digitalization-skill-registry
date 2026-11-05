@@ -6,4 +6,4 @@
 |---|---|---|
 | [Gate rules](gate-rules.md) | Skill Reference | Every rule that governs the Cyber Security sign-off gate, one line each with its source, plus what the sources do not give - open this to answer "is this allowed and who decides". |
 | [Package contents](package-contents.md) | Skill Reference | What the Cyber Security sign-off package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item - open when filling the package. |
-| [Precedents](precedents.md) | Skill Reference | What the department's own record shows about Cyber Security approvals - Groot2B, the QFPR approval, a network-separation case, legacy-application cyber status and blocker counts - so a plant sees how the gate behaved before. |
+| [Precedents](precedents.md) | Skill Reference | Patterns from the department's own record of Cyber Security approvals - the Groot2B programme, an app that waited on approval, a network-separation case, how application cyber status is recorded, how security shows up in blocker records - so a plant sees how the gate behaved before. Guidance only, no current figures. |

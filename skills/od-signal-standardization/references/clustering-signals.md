@@ -24,47 +24,48 @@ follows, which business process consumes it, and what it targets. That is the de
 
 | Axis | Values | Where it comes from | Answers |
 |---|---|---|---|
-| **Functional area** | 11 capability templates | Capability node per use case | *What kind of signal is this?* |
-| **Use-case pattern** | 12 AI clusters | `ai_cluster` per use case | *What will be built with it?* |
-| **Consumer / department** | 8 business processes | `business_process` per use case | *Who expects it, and when?* |
-| **Expectation** | 12 target types | `targets` per use case | *What must it be able to produce?* |
+| **Functional area** | the capability templates | Capability node per use case | *What kind of signal is this?* |
+| **Use-case pattern** | the AI clusters | `ai_cluster` per use case | *What will be built with it?* |
+| **Consumer / department** | the business processes | `business_process` per use case | *Who expects it, and when?* |
+| **Expectation** | the target types | `targets` per use case | *What must it be able to produce?* |
 
 A signal that maps to none of the four is a candidate for *not standardizing at all* — see
 importance below.
 
-### Functional areas — the 11 capability templates
+### Functional areas — the capability templates
 
 `Andon Board` · `OEE Calculation` · `Downtime Reporting` · `Process Quality Data` ·
 `Machine Alerts` · `Cycle Time` · `Recipe Values` · `Process Values` · `Manual Quality Data`
 · `Analytics` · `Other Use Cases`
 
-Every capability is instantiated at 32 or 33 of the 33 plants. **The template is never what
-is missing** — so a signal that serves one is a signal 32 other plants can already use.
+Every capability is instantiated at nearly every plant. **The template is never what
+is missing** — so a signal that serves one is a signal the other plants can already use.
 
-### Consumers — the 8 business processes, by demand
+### Consumers — the business processes
 
-| Business process | Use cases | Reads signals for |
-|---|--:|---|
-| `DAILY GEMBA` | 56 | Current state at the line, now |
-| `PROCESS IMPROVEMENT` | 48 | Series over time, comparable |
-| `ACTIVITY TRACKING` | 42 | Counts and durations per period |
-| `UTILIZATION IMPROVEMENT` | 35 | Availability, downtime reasons |
-| `TROUBLESHOOTING` | 35 | High-resolution recent history |
-| `QUALITY IMPROVEMENT` | 17 | Measured values against limits |
-| `TRACEABILITY` | 16 | Identifiers bound to a time window |
-| `ENERGY REPORTING` | 8 | Consumption normalized by output |
+Rank them by use-case count on the live use-case list; the counts change.
+
+| Business process | Reads signals for |
+|---|---|
+| `DAILY GEMBA` | Current state at the line, now |
+| `PROCESS IMPROVEMENT` | Series over time, comparable |
+| `ACTIVITY TRACKING` | Counts and durations per period |
+| `UTILIZATION IMPROVEMENT` | Availability, downtime reasons |
+| `TROUBLESHOOTING` | High-resolution recent history |
+| `QUALITY IMPROVEMENT` | Measured values against limits |
+| `TRACEABILITY` | Identifiers bound to a time window |
+| `ENERGY REPORTING` | Consumption normalized by output |
 
 **The consumer decides the collection method, not just the signal.** `DAILY GEMBA` needs the
 current value and tolerates a gap in history. `PROCESS IMPROVEMENT` needs an unbroken
 comparable series and tolerates latency. Same signal name, two different contracts — and
 this is exactly the fourth standardization element the data cannot show you.
 
-### Expectations — the 12 target types
+### Expectations — the target types
 
-`Process Values` (22) · `SPC Charts` (19) · `Image Data` (10) · `Andon Board` (10) ·
-`Notification` (9) · `Machine Availability` (7) · `Manual Quality Data Input` (7) ·
-`Quality Losses` (5) · `Manual Data Input` (4) · `Cycle Time Monitoring` (4) ·
-`Energy Data` (3) · `Process Set Values` (2)
+`Process Values` · `SPC Charts` · `Image Data` · `Andon Board` · `Notification` ·
+`Machine Availability` · `Manual Quality Data Input` · `Quality Losses` · `Manual Data Input` ·
+`Cycle Time Monitoring` · `Energy Data` · `Process Set Values`
 
 `Process Set Values` appearing separately from `Process Values` is the **setpoint/actual
 distinction** the `_sv` topic suffix already encodes. Keep them apart.
@@ -74,7 +75,7 @@ distinction** the `_sv` topic suffix already encodes. Keep them apart.
 ## Search patterns — classifying an unknown signal
 
 Apply in order; first match wins. These are the patterns behind the analyser's clustering,
-and they were built from the 260 names actually in use.
+and they were built from the names actually in use in the flow corpus.
 
 | # | Functional area | Regex (case-insensitive) | Typical names |
 |---|---|---|---|
@@ -108,8 +109,8 @@ Not every signal deserves the effort. Score each one; standardize down the list.
 
 | Factor | Weight | Rationale |
 |---|--:|---|
-| **Capability coverage** — how many of the 11 templates need it | ×4 | A signal three capabilities need is three use cases unblocked |
-| **Consumer demand** — use-case count of the business processes that read it | ×3 | `DAILY GEMBA` at 56 outranks `ENERGY REPORTING` at 8 |
+| **Capability coverage** — how many of the capability templates need it | ×4 | A signal three capabilities need is three use cases unblocked |
+| **Consumer demand** — use-case count of the business processes that read it | ×3 | a business process with many use cases (for example `DAILY GEMBA`) outranks one with few (for example `ENERGY REPORTING`) |
 | **Cross-plant presence** — how many plants have the same machine or process group | ×3 | The whole point is the second plant taking the first plant's solution |
 | **Blocking** — is a `PLANNED` use case waiting on it | ×2 | Demand already committed |
 | **Standard exists** — a public data model already names it | ×2 | Adoption is cheaper than invention |
@@ -155,7 +156,7 @@ group when the demand changes:
 4. **Intersect with what the machine exposes** — `analyze_signals.py --capability`.
 5. **Rank the gap** by the score above.
 
-**The caution the data itself demands:** `business_process` is populated on **150 of 650**
-use cases and `targets` on **59**. So a demand ranking built from those fields alone is built
-on a quarter of the portfolio. Treat a low score as *unknown demand*, not *no demand* — and
+**The caution the data itself demands:** `business_process` and `targets` are populated on only
+part of the use cases (measure the fill rate live). So a demand ranking built from those fields
+alone is built on part of the portfolio. Treat a low score as *unknown demand*, not *no demand* — and
 absence is not a zero, which is `od-context`'s third honesty rule and applies here directly.

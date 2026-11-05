@@ -46,16 +46,16 @@ Read `od-context` first.
 | [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | What counts as evidence of adoption, strongest first — confirmed 2026-10-22, closing "how is adoption confirmed and recorded" |
 
 Handover is a **tracked state** in this function, not a courtesy at the end of a build.
-272 use cases record it `DONE` and 38 `ONGOING` — it trails development and implementation
-by about thirty, consistently, which is exactly why it is measured.
+Use cases record it as `DONE` or `ONGOING`; it typically trails development and
+implementation, which is exactly why it is measured (count the lag live on the use-case list).
 
 ## The rule
 
 **Built is not handed over, and handed over is not in use.**
 
 The three are separate states because they fail separately. A use case can be finished,
-documented, and still not opened by anyone: **eight of the use cases that record a
-utilization rate are recorded as `NEVER`.** That is a finding the function acts on, not a
+documented, and still not opened by anyone: **use cases that record a
+utilization rate of `NEVER` exist.** That is a finding the function acts on, not a
 number it hides.
 
 ## The three-question test
@@ -64,9 +64,8 @@ A handover is complete when the receiving side can answer all three **without as
 person who built it**:
 
 1. **What is this, and what decision does it support?** Not the tool — the moment in the
-   day it belongs to. The daily Gemba walk is the single largest consumer of what this
-   function builds; 125 of the 202 use cases that record a utilization rate are used
-   daily. Shift checks and two-step Andon escalation are the other named moments.
+   day it belongs to. The daily Gemba walk is typically the largest consumer of what this
+   function builds (check the utilization field for the current picture). Shift checks and two-step Andon escalation are the other named moments.
 2. **Where does its data come from, and what breaks it?** Which machines, which connector,
    which tool — written down to the machine, so a silent dashboard is diagnosable by the
    plant rather than only by the builder.
@@ -84,7 +83,7 @@ person who built it**:
 ## Adoption is the plant's decision
 
 OD can deliver something and hand it over; **only the plant can make it productive.** That
-is why `IMPLEMENTED` (129) and `PRODUCTIVE` (167) are separate statuses and why
+is why `IMPLEMENTED` and `PRODUCTIVE` are separate statuses and why
 utilization is tracked at all. The recipient-feedback loop for this lane is the
 utilization rate on the Digitalization Scorecard.
 

@@ -49,10 +49,10 @@ name attached. Hold any new scorecard row to the same five fields before it is a
    from" column is this field, OD-specific).
 
 A metric that cannot state its formula and elements is not ready for the table — record
-honestly that no target exists rather than publishing a number nobody can recompute. Three
-rows were exactly this state and are now resolved as such, confirmed rather than invented:
-use-case utilization rate and asset mix carry no fixed target by design (trend-only,
-descriptive), and the value-delivery-cycle row is not captured in any system today.
+honestly that no target exists rather than publishing a number nobody can recompute. Some
+rows are legitimately in this state: use-case utilization rate and asset mix carry no fixed
+target by design (trend-only, descriptive), and the value-delivery-cycle row is not
+captured in any system.
 
 ## Equipment work units, specifically
 

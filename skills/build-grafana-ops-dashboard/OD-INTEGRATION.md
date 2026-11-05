@@ -23,11 +23,11 @@ An OD dashboard inherits the department's honesty rules, and two of them constra
 panel may show:
 
 - **Tracked is not proven.** A savings panel that sums the `UseCase SavingCalculation` rows
-  shows **€2,384,217 tracked**. Only 19 rows, **€653,820**, have passed the SPRINT review.
-  A single "Savings" stat tile that shows the first number is wrong by the department's own
-  standard. Split the tile, or label it. See `od-benefit-calculation`.
-- **Absence is not a zero.** 474 of 553 saving rows carry no reliability and 362 of 650 use
-  cases carry `UNKNOWN` priority. `COALESCE(x, 0)` on those columns turns an honest gap into
+  shows the *tracked* total. Only the rows that have passed the SPRINT review are *proven*.
+  A single "Savings" stat tile that shows the tracked number as if it were proven is wrong by the
+  department's own standard. Read both totals live from the saving rows; quote neither here. Split the tile, or label it. See `od-benefit-calculation`.
+- **Absence is not a zero.** Many saving rows carry no reliability and many use cases carry
+  `UNKNOWN` priority (count the share on the live list). `COALESCE(x, 0)` on those columns turns an honest gap into
   a false floor. Filter to rows that carry a value and show the coverage denominator
   alongside, or bucket `UNKNOWN` as its own visible category.
 
@@ -55,8 +55,8 @@ what a per-plant Grafana estate needs.⟩
 
 ## Grafana's place in the OD landscape
 
-Grafana is where **most of what the function builds is actually seen** — 173 of the 202 use
-cases that record an output asset are dashboards. Two consequences:
+Grafana is where **most of what the function builds is actually seen** — the dashboard is by far the
+most common output asset recorded on use cases. Two consequences:
 
 1. **Grafana is the shop-floor layer; Power BI is the steering layer.** The Digitalization
    Scorecard and the two OD reports (`OD-Report-Use_Case_Integration`,
@@ -76,12 +76,12 @@ cases that record an output asset are dashboards. Two consequences:
   standard.
 - **`od-analytics-asset-build`** — name the **ritual** the dashboard is read inside (daily
   Gemba, shift check, Andon escalation) before choosing panels. A dashboard that is not read
-  inside a ritual is a dashboard nobody reads: 8 of the use cases that record a utilization
-  rate are recorded as `NEVER`.
+  inside a ritual is a dashboard nobody reads: use cases whose utilization rate is recorded as
+  `NEVER` are the symptom (count them on the live list).
 
-That check also decides whether a dashboard is the right asset at all. Of the recorded
-output assets, 173 are dashboards against 12 reports, 11 apps and 5 analytics workflows —
-the dashboard is the default, and the default is worth questioning.
+That check also decides whether a dashboard is the right asset at all. Dashboards
+dominate the recorded output assets over reports, apps and analytics workflows — the
+dashboard is the default, and the default is worth questioning.
 
 ## Timeseries archetype ↔ the OESL signal model
 

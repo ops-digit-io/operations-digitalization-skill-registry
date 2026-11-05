@@ -1,5 +1,5 @@
 {
-  "name": "Predictive quality alert, extrusion line 3",
+  "name": "Illustrative: predictive quality alert, <line>",
   "drivers": {
     "a14": "h",
     "a23": "d",

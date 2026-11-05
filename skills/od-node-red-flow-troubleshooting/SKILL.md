@@ -21,12 +21,12 @@ metadata:
   authority_level: read and diagnose; fixes on a test instance; prod deploys are human-approved
   status: stable
   sources_read: 2026-11-05
-  corpus: validated against 825 flows across 53 ct-oesl instances
+  corpus: validated against the exported ct-oesl flow corpus (count it live, do not quote a remembered figure)
   requires: [od-context]
   composes: [od-node-red-flow-builder, od-data-availability-check, od-acceptance-test]
   derived_from:
-    - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 flow JSON exports)
-    - Analyser re-run unchanged over all 825 flow files on 2026-11-05 and the same files re-counted for disabled tabs, drivers and context keys
+    - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (flow JSON exports)
+    - Analyser re-run unchanged over all exported flow files on 2026-11-05 and the same files re-checked for disabled tabs, drivers and context keys
     - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors, DTQ-Beckhoff-Connector profile block, read 2026-11-05
   okf:
     type: Agent Skill
@@ -60,29 +60,30 @@ warning, **0** otherwise — so it drops into CI or a pre-deploy check unchanged
 **Severities.** `BLOCKER` corrupts or loses data · `WARN` degrades it or makes the flow
 unmaintainable · `INFO` is hygiene.
 
-Every check exists because the failure it catches is present in the estate. Run over all
-825 flows, the analyser finds:
+Every check exists because the failure it catches has been found in real estate flows.
+How often each occurs today is not recorded here: run the analyser over the instance
+exports (`--quiet`, whole instance) and count the findings on the day.
 
-| Check | Severity | Flows |
-|---|---|--:|
-| `hardcoded-secret` | BLOCKER | 40 |
-| `systime-not-unpacked` | BLOCKER | 39 |
-| `systime-not-repacked` | BLOCKER | 19 |
-| `oneof-violation` | BLOCKER | 18 |
-| `systime-unpaired` | BLOCKER | 1 |
-| `no-flow-description` | WARN | 813 |
-| `no-catch` | WARN | 380 |
-| `output-uuid-not-set` | WARN | 203 |
-| `no-flow-config` | WARN | 136 |
-| `hardcoded-threshold` | WARN | 68 |
-| `spine-severed` | WARN | 67 |
-| `unset-context-read` | WARN | 99 |
-| `mostly-unnamed-nodes` | WARN | 47 |
+| Check | Severity | What it means |
+|---|---|---|
+| `hardcoded-secret` | BLOCKER | A literal token or password in the flow |
+| `systime-not-unpacked` | BLOCKER | Inbound `sysTime` is used without unpacking |
+| `systime-not-repacked` | BLOCKER | `sysTime` is unpacked but not re-packed before the encode |
+| `oneof-violation` | BLOCKER | More than one `measured_value` field survives to the encode |
+| `systime-unpaired` | BLOCKER | Only one half of the unpack / re-pack pair is present |
+| `no-flow-description` | WARN | The tab has no description |
+| `no-catch` | WARN | No error handling; runtime exceptions are silent |
+| `output-uuid-not-set` | WARN | The output UUID equals the input UUID |
+| `no-flow-config` | WARN | UUIDs are not held in a `Set flow config` node |
+| `hardcoded-threshold` | WARN | A limit is a literal in a function body |
+| `spine-severed` | WARN | A pipeline node has no inbound wire |
+| `unset-context-read` | WARN | A context key is read but never written on the tab |
+| `mostly-unnamed-nodes` | WARN | Most nodes have no name |
 
-**119 blocker findings across 98 flows.** These are not hypothetical. `hardcoded-threshold`
+Blocker findings are not hypothetical. `hardcoded-threshold`
 is the newest check, added once `od-node-red-flow-builder` named the pattern (P4/P12): a
-limit compared directly in a function body instead of read from flow config — real examples
-range from a pressure threshold to a day-length constant, and all of them make the flow
+limit compared directly in a function body instead of read from flow config — typical examples
+range from a process threshold to a day-length constant, and all of them make the flow
 untunable without a redeploy.
 
 ## Step 2 — read the findings in this order
@@ -96,7 +97,7 @@ untunable without a redeploy.
 4. **`spine-severed`** — a decode, split, encode or mqtt out node with no inbound wire. The
    flow moves no data at all; this is usually why "it publishes nothing".
 5. **`hardcoded-threshold`** — not data loss, but the flow cannot be tuned or ported without
-   editing a function. 68 flows in the corpus carry one; see `od-node-red-flow-builder`'s
+   editing a function. It is a common finding; see `od-node-red-flow-builder`'s
    P4/P12 for the pattern it should have been instead.
 6. Everything else, in the order printed.
 
@@ -124,7 +125,7 @@ bytes, nanoseconds in the lower four. Unpack inbound, re-pack outbound. Symptoms
 | Timestamps far past any plausible date | Read as epoch **seconds** without unpacking |
 | Downstream time is wrong but the flow "works" | Unpacked inbound, **never re-packed** before the encode |
 
-The two conversions are a pair. 19 flows in the estate ship one without the other.
+The two conversions are a pair. Flows turn up in the estate that ship one without the other.
 
 **2 · The protobuf `oneof`.** `measured_value` is a `oneof`: exactly one of
 `value_integer` / `value_string` / `value_double` / `value_bool` / `value_bytes` may be
@@ -136,11 +137,11 @@ no type system underneath it: a holding register is sixteen bits and nothing say
 tenths of a degree. If the conversion is missing the data flows and is wrong. See
 `od-equipment-integration` (guidance route).
 
-## More material (2026-11-05)
+## More material
 
 | File | Use it for |
 |---|---|
-| [`references/symptoms-extended.md`](references/symptoms-extended.md) | **Check the tab is enabled first** (72 of 825 tabs are disabled). Where the analyser findings concentrate by site, eleven more symptom rows, three worked findings on real flows |
+| [`references/symptoms-extended.md`](references/symptoms-extended.md) | **Check the tab is enabled first** (how to count disabled tabs live). Where findings tend to concentrate and how to measure it, more symptom rows, three illustrative worked findings |
 | [`assets/triage-record.md`](assets/triage-record.md) | The record to fill in while diagnosing: cheapest checks first, analyser result, what the analyser cannot see, decision |
 
 ## Fast triage by symptom
@@ -158,7 +159,7 @@ tenths of a degree. If the conversion is missing the data flows and is wrong. Se
 
 ## Flow context is per-tab, and it is cleared on deploy
 
-`flow.get` / `flow.set` appear ~14,000 / ~12,700 times across the corpus, so almost every
+`flow.get` / `flow.set` are used throughout the estate, so almost every
 flow carries state. Two consequences that produce most "it worked yesterday" reports:
 
 - **Scope is the tab.** Two flows on one tab share context. A key written by one and read

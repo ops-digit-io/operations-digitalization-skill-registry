@@ -39,7 +39,7 @@ a round; the weighted score is what the ranking actually rests on.
 
 ## The bucket a score must not hide: unscoreable
 
-362 of 650 use cases carry `UNKNOWN` priority and 405 `UNKNOWN` potential today. **A use
+Many use cases carry `UNKNOWN` priority or `UNKNOWN` potential (count them live and quote the date). **A use
 case with no value field populated is not a zero-value use case — it is unscored**, and
 belongs in a separate bucket reported alongside the ranked list, not blended into it at the
 bottom. Forcing a score onto it (defaulting blanks to zero, or to the scale's midpoint)
@@ -47,10 +47,10 @@ manufactures a ranking the input data does not support, and `od-use-case-standar
 own point about C12 "Other" applies here too: a rising unscoreable bucket is a data-quality
 signal, not a finding about those use cases' worth.
 
-## Worked example — one quadrant read correctly
+## Worked example (illustrative) — one quadrant read correctly
 
 A `standard, cross process` OEE-capability use case with a `CALCULATION` tracked saving of
-€18,000/year, roadmap-linked at a strategic plant, one dependency (`ECR APPROVAL`, owner
+<amount>/year, roadmap-linked at a strategic plant, one dependency (`ECR APPROVAL`, owner
 named): **high value, low-to-medium effort** — a quick win, prioritized ahead of a
 `non-standard` use case with a larger but `ESTIMATION`-only saving and three unresolved
 blockers, which is **high value on paper, high effort in practice** — paced, not dropped,
@@ -60,5 +60,5 @@ and flagged for whoever owns its blockers.
 
 Rank only within a category (standard vs. non-standard, region) before comparing across
 them — the same rule `rollup-method.md` states for euros applies to rank. A single
-portfolio-wide ranked list that puts Asia's 12 %-conversion use cases beside the Americas'
-42 % ones on one axis manufactures a comparison the regional-handling reference forbids.
+portfolio-wide ranked list that puts the use cases of a low-conversion region beside those of a
+high-conversion region on one axis manufactures a comparison the regional-handling reference forbids.

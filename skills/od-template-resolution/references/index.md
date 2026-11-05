@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Master register](master-register.md) | Skill Reference | The lookup of every template, standard and tool the resource register lists, with owner, state and gap markers, plus the templates produced inside registry skills and one vault file the register does not list; open it to resolve a template. |
+| [Master register](master-register.md) | Skill Reference | Guidance for reading the department resource register to resolve a template - which kinds of rows exist, who owns them, how to read the state markers, plus the templates produced inside registry skills; no state or date snapshot, look the live state up in the register. |

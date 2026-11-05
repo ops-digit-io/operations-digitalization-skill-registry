@@ -35,8 +35,8 @@ what the nearest example did.
 
 ## Q1 · Inputs — and the majority case the catalogue under-sells
 
-**461 of the 665 flows that carry data-point config read two or more data points.** Single
-input is the minority (204 flows). Anything evaluating a rule — a tolerance, a quality
+**Most flows that carry data-point config read two or more data points.** Single
+input is the minority. Anything evaluating a rule — a tolerance, a quality
 event, a machine-state-aware calculation — is multi-input by nature.
 
 ### Single input
@@ -123,17 +123,17 @@ The table is loaded once at startup into flow context, not per message.
 | Since a boundary | Accumulator + an explicit reset trigger | The reset fires |
 
 **Flow context is per-tab and cleared on deploy.** Every accumulator needs
-`flow.get(k) || 0`. 12 flows carry an explicit `reset flow` group; a counter with no reset
+`flow.get(k) || 0`. Some flows carry an explicit `reset flow` group; a counter with no reset
 path only ever grows.
 
-**`context` (node-scoped) vs `flow` (tab-scoped).** 72 flows use node-scoped `context` —
+**`context` (node-scoped) vs `flow` (tab-scoped).** Node-scoped `context` is
 correct when the state belongs to one node and nothing else should see it, such as a
 window buffer. Use `flow` for configuration and for anything a second node reads. `global`
-(496 uses) couples flows that should not know about each other; avoid it.
+couples flows that should not know about each other; avoid it.
 
 ### Windowed aggregation
 
-36 flows buffer values over a window. The shape:
+Some flows buffer values over a window. The shape:
 
 ```javascript
 let buf   = context.get('valueArray') || [];
@@ -160,7 +160,7 @@ return msg;
 **Windowing has three traps.** A window that never closes because no message arrives (add a
 timer to close it). An unbounded buffer if the close condition is wrong (cap the length). And
 **counter wrap-around** — where the value is a cumulative counter, `last - first` is wrong
-whenever the PLC counter resets inside the window, which is why the corpus's per-minute
+whenever the PLC counter resets inside the window, which is why a per-minute
 output function inspects `min`/`max` against `first`/`last` rather than subtracting blindly.
 
 ---
@@ -175,7 +175,7 @@ output function inspects `min`/`max` against `first`/`last` rather than subtract
 | A closed window | The window function returns only when closed | Rates, per-period aggregates |
 | A boundary | Shift change, day change | Resets and period totals |
 
-**798 flows carry a scheduled or repeating inject** — mostly the once-at-start config
+**Many flows carry a scheduled or repeating inject** — mostly the once-at-start config
 trigger, but timer-driven emit is normal here. A KPI that must appear on a dashboard every
 minute regardless of machine activity is clock-driven, not event-driven.
 
@@ -220,7 +220,7 @@ filter → split → convert → [latch] → gate → transform → [window] →
 
 **Chaining across flows** is legitimate and common: one flow derives a signal and publishes
 it, another consumes that derived UUID. Prefer this over a single flow with fifteen config
-keys — 22 flows carry 8 or more data-point keys and they are the hardest in the estate to
+keys — flows with many data-point keys are the hardest in the estate to
 read. **The seam between two flows is a published data point**, which is diagnosable; the
 seam inside one flow is a wire nobody can inspect.
 
@@ -231,11 +231,11 @@ seam inside one flow is a wire nobody can inspect.
 The references describe the packed `sysTime`. That is the `datatroniq/*` protobuf envelope
 and it covers most of the estate — but not all of it.
 
-| Envelope | Field | Format | Flows |
-|---|---|---|--:|
-| protobuf `PLCPacketList` | `sysTime` | packed `uint64`, seconds `<<32` \| nanos | most |
-| protobuf `PLCPacketList` | `plcTime` | same packing — **the PLC's own clock** | 145 |
-| JSON topics (e.g. `extrusion-cutting/…`) | `sys_time` | formatted string `MM/DD/YYYYThh:mm:ss AM/PM` | 75 |
+| Envelope | Field | Format | Prevalence |
+|---|---|---|---|
+| protobuf `PLCPacketList` | `sysTime` | packed `uint64`, seconds `<<32` \| nanos | most flows |
+| protobuf `PLCPacketList` | `plcTime` | same packing — **the PLC's own clock** | some flows |
+| JSON topics (e.g. `extrusion-cutting/…`) | `sys_time` | formatted string `MM/DD/YYYYThh:mm:ss AM/PM` | few flows |
 
 **`sysTime` and `plcTime` are different clocks.** `sysTime` is when the edge saw it;
 `plcTime` is when the PLC produced it. For anything measuring machine behaviour — cycle

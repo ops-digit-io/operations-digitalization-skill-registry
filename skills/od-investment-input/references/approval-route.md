@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Approval route
-description: Who decides an investment input, the recorded spend ladder and its overlap, the open budget threshold, and the gates and dependencies to record.
+description: Who decides an investment input, how to find the current spend ladder and its ambiguity, the open budget threshold, and the gates and dependencies to record. Guidance only, no amounts.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,8 +10,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Approval route
 
-Source of the rows: `08-decision-rights.md` (last verified 2026-08-10, valid until 2026-11-10; check it is
-still current) and `od-decision-routing`. This skill reads them; it does not decide.
+Source of the rows: `08-decision-rights.md` and `od-decision-routing`. Check on the live decision-rights page that
+the rows are still verified and not past their review date. This skill reads them; it does not decide.
 
 ## The decisions around one investment
 
@@ -24,15 +24,16 @@ still current) and `od-decision-routing`. This skill reads them; it does not dec
 The pack feeds the first row. The second row uses the approved plan ("per investment plan"). The third row
 is a different decision, taken when the pack contains a tool and not only machines.
 
-## The spend ladder, as recorded
+## The spend ladder
 
-`od-decision-routing`: spend is routed through eCR (engineering change request), **CTO up to EUR 150k,
-Board above EUR 75k**, "a ladder, not alternatives". `od-benefit-calculation` repeats it in the same words.
+`od-decision-routing`: spend is routed through eCR (engineering change request) with two approval limits, a CTO
+limit and a Board limit, described as "a ladder, not alternatives". The amounts are company policy and are not
+repeated here: per the current approval policy (look up: `od-decision-routing`, the OD lead, controlling). Quote
+them with source and date.
 
-Read literally, the two bounds overlap between EUR 75k and EUR 150k. The sources do not say which body
-decides in that band, or whether the figures apply per item, per plant or per programme. This skill does
-not resolve it: write the amount and its scope in the pack and mark `⟨route between 75k and 150k: OD lead /
-controlling⟩`.
+Read literally, the two limits overlap in a band. The sources do not say which body decides in that band, or
+whether the limits apply per item, per plant or per programme. This skill does not resolve it: write the amount
+and its scope in the pack and mark `⟨route in the overlapping band: OD lead / controlling⟩`.
 
 Whether the ladder is the same thing as the "budget threshold" of the digitalization investment planning
 row is also not stated. They may be two thresholds (who within OD plans, who approves the eCR). Keep both

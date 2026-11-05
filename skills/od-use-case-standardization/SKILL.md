@@ -1,9 +1,9 @@
 ---
 name: od-use-case-standardization
 description: >-
-  Make one plant's solution into every plant's — check a use case against the eleven
-  cross-plant capability templates and the 100-entry reference library before anything is
-  specified, apply the twelve-cluster classification, take a use case through the CSP
+  Make one plant's solution into every plant's — check a use case against the
+  cross-plant capability templates and the reference library before anything is
+  specified, apply the cluster classification (C01-C12), take a use case through the CSP
   (Common Solution Portfolio) gate, and measure standardization by adoption rather than
   by how many templates exist. Use when a use case is declared standard, when a second
   plant wants something a first plant already has, when a library entry is proposed for
@@ -42,10 +42,10 @@ Read `od-context` first.
 
 | File | Use it for |
 |---|---|
-| [`references/clusters.md`](references/clusters.md) | All 12 clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
+| [`references/clusters.md`](references/clusters.md) | All clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
 
 The function's leverage is not building one dashboard well. It is building one dashboard
-well and then having the other thirty-two plants **take** it rather than re-specify it.
+well and then having the other plants **take** it rather than re-specify it.
 Three mechanisms exist for that, at different levels.
 
 ## 1. The cross-plant template
@@ -53,32 +53,33 @@ Three mechanisms exist for that, at different levels.
 A use case is never recorded loose. It hangs off a **capability** — eleven of them,
 cross-plant: Andon Board, OEE Calculation, Downtime Reporting, Process Quality Data,
 Machine Alerts, Cycle Time, Recipe Values, Process Values, Manual Quality Data,
-Analytics, Other Use Cases — and off a **process group**, 29 of them inside four material
-families. Both templates exist once and are instantiated per plant.
+Analytics, Other Use Cases (check the live capability list before quoting it) — and off a
+**process group**, which sits inside a material family (rubber, plastic, metal, assembly).
+Both templates exist once and are instantiated per plant.
 
-Every capability is instantiated at 32 or 33 of the 33 plants. **The templates are not
-aspirational and they are not the constraint** — the whole estate is already mapped onto
-them. What varies is how far each instance has got, which is what makes a gap visible as
-a gap.
+Every capability is meant to be instantiated at every plant; check the live capability
+instance list for which plants are missing one. **The templates are not aspirational and
+they are not the constraint** — the estate is mapped onto them. What varies is how far
+each instance has got, which is what makes a gap visible as a gap.
 
 ## 2. The reference library and the CSP gate
 
-100 already-built, standardized solutions are kept as their own catalogue, separate from
-the plant use cases. A library entry is a solution somebody proved, with its methods and
+Already-built, standardized solutions are kept as their own catalogue (the reference
+library), separate from the plant use cases. A library entry is a solution somebody proved, with its methods and
 actions written down — the thing a plant should take instead of starting from a blank
 page.
 
 The **CSP (Common Solution Portfolio) decision** is the gate that says an entry is
-standard enough to roll out. Applied to 51 of the 100 entries so far: **5 `Yes`,
-46 `No`**. That is the honest state — the library exists, the gate exists, and it has
-been applied to about half the catalogue.
+standard enough to roll out. The decision is recorded per library entry as `Yes`, `No`
+or blank (not yet submitted). Count the three outcomes on the live library before
+quoting a status: a blank means the gate has not been applied, not that the entry failed.
 
 A `No` is information, not a failure. It says this entry is not yet the thing another
 plant should take.
 
 ## 3. The cluster tags
 
-All 650 use cases carry exactly one of twelve cluster tags (C01–C12), assigned by a
+Every use case carries exactly one cluster tag (C01–C12), assigned by a
 **deterministic rule-based classifier** over three signals in priority order:
 
 1. the use case's own **category** — an AI category routes straight to the AI cluster;
@@ -90,14 +91,14 @@ the tags exactly. Do not hand-assign a tag — fix the input fields and re-run.
 
 Each cluster carries a standard **definition**, a standard **KPI set** and a
 **requirements checklist** drawn from published references — ISO 22400-2, VDI 3423,
-ISA-95, ISO 22005 and the TPS literature; the full 12 are in
+ISA-95, ISO 22005 and the TPS literature; the full set is in
 [`references/clusters.md`](references/clusters.md). The checklist is the **default
 requirements baseline for a use case with no local notes**: a plant then records only its
 own deltas — which machines, which line, which local constraint — instead of re-deriving
 what a good Andon board is.
 
-**C12 Other and plant-specific is the largest cluster at 168 use cases, and that is a
-data-quality number as much as a topical one.** It is the bucket for everything the
+**C12 Other and plant-specific tends to be the largest cluster, and its size is a
+data-quality number as much as a topical one; count it live and track it over time.** It is the bucket for everything the
 classifier could not place, and it should shrink as plant notes get written. A rising C12
 means the intake text is getting thinner, not that the portfolio is getting more
 idiosyncratic.
@@ -118,14 +119,15 @@ idiosyncratic.
 
 Not by how many templates exist — all of them do — but by **how often the second plant
 takes the first plant's solution**. Capability instances are the denominator; delivered
-instances are the numerator.
+instances are the numerator. Compute both from the live use case list and quote the read date.
 
 The portfolio analysis is blunt about the finding: *the catalogue is built to standardize
 and has not scaled.* Adoption of the proven instance is the constraint. And the regions
-are not variations of one another — Europe 312 use cases with 81 productive, the Americas
-168 with 70 (the best conversion rate in the estate), Asia 138 with 16. **Asia is a
-different problem from Europe, not a smaller one**, and a standardization plan that
-treats it as a smaller Europe will not work.
+are not variations of one another: compare use cases to productive use cases per region on
+the live list, and expect the conversion pattern to differ by region. **A region with a
+low conversion rate is a different problem from one with a high rate, not a smaller
+one**, and a standardization plan that treats one region as a scaled-down copy of another
+will not work.
 
 ## Output — the protocol
 

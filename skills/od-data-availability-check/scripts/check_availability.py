@@ -11,10 +11,10 @@ identical from a dashboard and are entirely different problems with different ow
 
 Sources, and what each can actually answer:
 
-  Machine List (1,715 rows)      steps 1-3: does the plant have the machine, is it
+  Machine List                   steps 1-3: does the plant have the machine, is it
                                  integrated, by which method
-  Connector Overview (26 rows)   step 3: is there a connector for that PLC and protocol
-  Node-RED corpus (825 flows)    step 4: which signal names are demonstrably flowing at
+  Connector Overview            step 3: is there a connector for that PLC and protocol
+  Node-RED corpus               step 4: which signal names are demonstrably flowing at
                                  that plant today
   -- nothing here --             step 5: fitness for use. No source in the bundle carries
                                  granularity, freshness or completeness per signal. The
@@ -98,7 +98,7 @@ PROTOCOL_HINT = {
 # The OPC UA direct connector reaches any OPC UA server — a machine's own embedded one, or
 # the Central Aggregation Server — so it is the standing fallback wherever a vendor's native
 # connector does not exist. B&R and Bachmann are the live proof: both native connectors are
-# Idea/NOT AVAILABLE, and 73 machines across the two families are integrated anyway, mostly
+# Idea/NOT AVAILABLE, and machines across the two families may be integrated anyway, mostly
 # recorded as `Central OPCUA Aggregation Server`.
 OPCUA_DIRECT = "DTQ-OPCUA-Connector"
 OPCUA_FALLBACK_VENDORS = ("b&r", "bachmann", "engel")
@@ -231,8 +231,8 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
         v.step(2, "integrated", "WARN",
                f"{integrated} of {len(machines)} INTEGRATED, but {blank} row(s) carry no "
                "status at all.",
-               fix="A blank status is not 'not integrated' — it is unknown. 451 of the "
-                   "1,715 rows are blank; do not read one as a no.",
+               fix="A blank status is not 'not integrated' — it is unknown. Count the "
+                   "blank rows on the live list; do not read one as a no.",
                evidence="Machine List integration_status")
     else:
         v.step(2, "integrated", "INFO",
@@ -279,8 +279,8 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
                          for ven, n, h in viaopc)
                + f" — reachable via {OPCUA_DIRECT} instead.",
                fix="Confirm the machine exposes an OPC UA server, or that it is already on the "
-                   "Central Aggregation Server. Do not report this as a connector gap: 73 B&R "
-                   "and Bachmann machines are integrated today without their native connector.",
+                   "Central Aggregation Server. Do not report this as a connector gap: machines of "
+                   "this vendor family may be integrated today without their native connector.",
                evidence="Connector Overview + Machine List integration_method")
 
     NOT_A_VENDOR = {"s7.schnitt.", "mra", "asi", "pma", "eos"}
@@ -314,11 +314,11 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
                    fix=f"Ask what the controller exposes before declaring a gap — if it serves "
                        f"OPC UA, {OPCUA_DIRECT} reaches it today. Otherwise this is connector "
                        "development, with long lead times.",
-                   evidence="Connector Overview, 26 connectors")
+                   evidence="Connector Overview")
 
     if covered:
-        # A connector existing is not one you may use: 19 of 26 are marked USE, 6 are
-        # NOT AVAILABLE and 1 is DO NOT USE. Only usable ones reach this line.
+        # A connector existing is not one you may use: only those marked USE are, others are
+        # NOT AVAILABLE or DO NOT USE. Only usable ones reach this line.
         v.step(3, "connector", "INFO",
                "; ".join(f"{ven} → {', '.join(h[:2])}" for ven, _, h in covered[:4]),
                evidence="Connector Overview")
@@ -334,7 +334,7 @@ def analyze(kg: pathlib.Path, plant_in: str, machine_q: str | None,
     if not methods:
         v.step(3, "concept", "WARN",
                "No integration_method recorded on any machine in scope.",
-               fix="542 of 1,715 rows carry none. Without it the ingress variant is unknown, "
+               fix="Many rows carry none (count them live). Without it the ingress variant is unknown, "
                    "and the three variants have different signal availability.",
                evidence="Machine List integration_method")
 
@@ -433,9 +433,9 @@ def emit_report(v: Verdict, ctx: dict) -> None:
     print("| Source | What it answered | Limit |")
     print("|---|---|---|")
     print(f"| Machine List | steps 1–3 · {ctx.get('machine_count', 0)} machine(s) in scope | "
-          "451 of 1,715 rows carry no integration status |")
+          "rows with no integration status are 'not recorded', not 'no' |")
     print(f"| Connector Overview | step 3 · vendors {', '.join(ctx.get('vendors', {})) or '—'} | "
-          "26 connectors; the match is on vendor and protocol, not on the machine |")
+          "the match is on vendor and protocol, not on the machine |")
     print(f"| Node-RED corpus | step 4 · {ctx.get('flow_signal_count', 0)} name(s) at {plant} | "
           "a flow proves presence, never absence |")
     print("| — | step 5 | no source in the bundle carries fitness for use |")

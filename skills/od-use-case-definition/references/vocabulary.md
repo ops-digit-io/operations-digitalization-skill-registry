@@ -47,12 +47,12 @@ Named systems and tools a use case's data actually passes through or lands on:
 - Concept 3 — IIoT Edge Computing Platform
 
   (the three integration concepts — see `od-equipment-integration`)
-- MSB 1.0 / 2.0 / 4.0
-- MDA-PDA 1.0 / 2.0 / 3.0
+- MSB (versioned family)
+- MDA-PDA (versioned family)
 - QFPR
-- MIL 1.0
+- MIL
 - Data Science Factory
-- Energy Management 1.0 / 2.0
+- Energy Management (versioned family)
 
-268 legacy applications are separately tracked as being replaced or retired — check
+The Legacy Application List separately tracks applications being replaced or retired — check
 whether the need is already served by one on that list before specifying a new one.

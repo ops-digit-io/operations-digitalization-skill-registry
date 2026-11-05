@@ -8,7 +8,7 @@
 USE_CASE.json shape (see ../assets/example-use-case.json for a filled-in example):
 
     {
-      "name": "Predictive quality alert, extrusion line 3",
+      "name": "Illustrative: predictive quality alert, <line>",
       "drivers": {"a14": "h", "a23": "d", "a9": "m"},   # rated h/d matter; n/l/m are context
       "as_is":  {"F3": 2, "F11": 2, "F13": 2, "F14": 2, "F16": 1},
       "target": {"F3": 3, "F11": 3, "F13": 3, "F14": 4, "F16": 2}
@@ -241,7 +241,7 @@ def render(uc: dict) -> str:
 
 
 DEMO = {
-    "name": "Predictive quality alert, extrusion line 3",
+    "name": "Illustrative: predictive quality alert, <line>",
     "drivers": {"a14": "h", "a23": "d", "a9": "m", "a20": "l"},
     "as_is":  {"F3": 2, "F11": 2, "F13": 2, "F14": 2, "F16": 1},
     "target": {"F3": 3, "F11": 3, "F13": 3, "F14": 4, "F16": 2},

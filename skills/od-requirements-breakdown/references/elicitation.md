@@ -20,27 +20,27 @@ requirement needs. Both halves are necessary and neither is sufficient.
 
 ## What the portfolio proves people leave out
 
-Field population across 650 use cases — this is what happens when a requirement is *not*
-elicited:
+Field population across the use case list is what happens when a requirement is *not*
+elicited. Re-measure it on the live list (share of rows with the field filled) when you need
+a figure; the pattern below is stable:
 
-| Field | Populated | What is missing |
-|---|--:|---|
-| `savings_eur` | **100 %** | — the number is always demanded |
-| `category` | 90 % | — |
-| `target_text` | 66 % | |
-| `priority` | 44 % | |
-| `potential` | 38 % | |
-| `output_asset` | 31 % | **What form the deliverable takes** |
-| `blockers` | 25 % | **What stops it** |
-| `description` | 25 % | |
-| `business_process` | 23 % | **Who consumes it, and when** |
-| `targets` | 9 % | **What it must be able to produce** |
-| `comment` · `methods` · `actions` · `utilization` · `csp_decision` | **0 %** | **How, and whether anyone used it** |
+| Field | Typical population | What is missing |
+|---|---|---|
+| `savings_eur` | Always filled | — the number is always demanded |
+| `category` | Almost always filled | — |
+| `target_text` | Mostly filled | |
+| `priority`, `potential` | About half or less | |
+| `output_asset` | Often blank | **What form the deliverable takes** |
+| `blockers` | Often blank | **What stops it** |
+| `description` | Often blank | |
+| `business_process` | Often blank | **Who consumes it, and when** |
+| `targets` | Rarely filled | **What it must be able to produce** |
+| `comment` · `methods` · `actions` · `utilization` · `csp_decision` | Hardly ever filled | **How, and whether anyone used it** |
 
 **The pattern is unambiguous.** What gets asked for in a meeting — a number, a category, a
 title — is populated. What requires a conversation with the operator is not.
 
-So: **the questions below are ordered to get the 0 % and 9 % fields first**, while the person
+So: **the questions below are ordered to get the rarely filled fields first**, while the person
 is still in the room. The savings figure will get filled in whatever you do.
 
 ---
@@ -59,16 +59,16 @@ is still in the room. The savings figure will get filled in whatever you do.
 > **Refuse to move on while the answer names a technology.** "We need a dashboard" is not an
 > answer to question 1. Ask again: *what goes wrong today?*
 
-## Round 2 — the moment (the 23 % field)
+## Round 2 — the moment (the `business_process` field)
 
 6. **When would somebody look at this?** — Daily Gemba · shift check · escalation · weekly
    review · only when something breaks.
 7. **What decision follows?** — If none, this is reporting, not a use case. Say so.
 8. **What do they do now, at that moment, instead?**
 
-> This round produces `business_process` and the second half of §3. **125 of 202 use cases
-> that record utilization are used daily — because the daily Gemba is the moment.** A use case
-> attached to no moment is the one that ends up in the 8 recorded as `NEVER`.
+> This round produces `business_process` and the second half of §3. **Where utilization is
+> recorded, the use cases used daily are the ones attached to the daily Gemba — the moment.** A
+> use case attached to no moment is the one that ends up recorded as `NEVER`.
 
 ## Round 3 — the signals (the section that decides feasibility)
 
@@ -84,7 +84,7 @@ is still in the room. The savings figure will get filled in whatever you do.
 > Map their words to canonical names **after** the conversation, not during. "The counter" is
 > a fine answer; `TotalPartCounter` is your job.
 
-## Round 4 — done (the 0 % field)
+## Round 4 — done (the `methods` / `utilization` fields)
 
 13. **How will you know it works?** — Push until it is testable. "It's accurate" → *compared
     to what, within what tolerance, over what period?*
@@ -92,12 +92,12 @@ is still in the room. The savings figure will get filled in whatever you do.
     requirement.
 15. **What would make you stop using it?** — Surfaces the fragility nobody volunteers.
 
-## Round 5 — the obstacles (the 25 % field)
+## Round 5 — the obstacles (the `blockers` field)
 
 16. **What has to happen before this can even start?**
 17. **Who else has to agree?** — Cyber Security, IT demand, the tool owner, another plant.
 18. **Is anything already planned that this depends on?** — The corpus is full of
-    *"planned for 2022"* blockers that nobody re-checked.
+    *"planned for <year>"* blockers that nobody re-checked.
 
 ---
 
@@ -113,7 +113,7 @@ a single business case; resist it — one use case, one decision, one moment.
 *"we cannot tell which of our losses is the biggest"*. Ask what they would do differently
 with the answer. If nothing, the requirement is wrong.
 
-**3 · Is this standard or genuinely specific?** Two thirds of the portfolio is declared
+**3 · Is this standard or genuinely specific?** Most of the portfolio is declared
 standard at intake, and **that declaration is the hinge the whole function turns on**. Check
 the reference library before writing anything: if another plant has it, this is an adoption,
 not a build — and adoption is what the department is actually short of.
@@ -142,7 +142,7 @@ From the intake rules, and each has a route:
 | Already exists at another plant | Adoption, via the reference library |
 
 **A refusal with a named route is a better outcome than a thin requirement**, because a thin
-requirement consumes an integration slot and then stalls. The estate has 229 `IDEA` use cases;
+requirement consumes an integration slot and then stalls. The estate keeps many use cases in `IDEA`;
 some of them are refusals nobody wrote down.
 
 ---

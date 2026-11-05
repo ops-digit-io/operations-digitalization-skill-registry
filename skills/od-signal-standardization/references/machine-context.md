@@ -15,8 +15,8 @@ that, you get names without meanings — which is the failure the whole skill ex
 prevent.
 
 **The context is not in any system of record.** `documentation_available` and
-`documentation_link` exist as fields on all **1,715** machine rows and are populated on
-**none of them**. So the context has to be gathered from whatever the plant can actually
+`documentation_link` exist as fields on every machine row; check on the live Machine List whether anyone fills
+them (they have been empty so far). So the context has to be gathered from whatever the plant can actually
 produce, and this file is about working from that.
 
 ---
@@ -54,8 +54,8 @@ An SDFI file, a Softing import `.txt`, a CSV from a tag-export tool. **This is t
 analyser reads directly.**
 
 Yields names, addresses and types — and nothing about meaning. **Names in an export are the
-programmer's, not the data model's**: this is where `_part0_io`, `DB15.DBW20` and
-`AverageMeltTempature` come from. Treat every name as a candidate to be renamed, not as an
+programmer's, not the data model's**: this is where names like `_part0_io`, `DB15.DBW20` and
+misspellings such as `Tempature` come from (illustrative). Treat every name as a candidate to be renamed, not as an
 answer.
 
 ### 3 · Sequence chart / flow chart / cycle diagram
@@ -197,4 +197,4 @@ Common, and not a reason to stop.
 
 **Write down which of these you were in.** A report that says *"tag export only, existence
 unverified"* is honest and usable. One that omits it invites the reader to assume more
-certainty than exists — and that assumption is what puts `AverageMeltTempature` into 34 flows.
+certainty than exists — and that assumption is how a misspelled name ends up read by many flows.

@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Library and CSP state](library-and-csp-state.md) | Skill Reference | What the vault records today about the reference library and the CSP decision - the counts, the five entries with a recorded Yes by name, and what that does and does not make self-servable. Open it before you tell a plant that something is catalogued. |
-| [Template coverage](template-coverage.md) | Skill Reference | The eleven capability templates with their delivery status, the plants that already run each one, where it is wanted but not yet delivered, what data it needs and which template a request belongs to. Open it to find a peer plant and the preconditions for a match. |
+| [Library and CSP state](library-and-csp-state.md) | Skill Reference | Guidance, no figures - how to read the reference library and the CSP decision in the vault, how to find the entries with a recorded Yes live, and what that does and does not make self-servable. Open it before you tell a plant that something is catalogued. |
+| [Template coverage](template-coverage.md) | Skill Reference | Guidance, no figures - the eleven capability templates, how to find live which plants run or want each one, what data each template needs, the boundary rules for placing a request, and the typical components of a matching screen. Open it to find a peer plant and the preconditions for a match. |

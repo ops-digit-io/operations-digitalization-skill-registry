@@ -27,7 +27,7 @@ figure and its source, or with `⟨not known: who can supply⟩`. Nothing in thi
 |---|---|---|---|---|
 | ⟨⟩ | ⟨accepted or planned use case⟩ | ⟨⟩ | ⟨per barrier-classes⟩ | ⟨n of m⟩ |
 
-Left out because no use case waits for it: ⟨count and why⟩.
+Left out because no use case waits for it: ⟨which and why⟩.
 
 ## 2 Cost lines
 
@@ -44,9 +44,8 @@ Left out because no use case waits for it: ⟨count and why⟩.
 | Internal effort | ⟨priced or not, per OD lead⟩ | ⟨⟩ | ⟨⟩ | ⟨OD lead⟩ |
 | **Total** | | ⟨sum of sourced lines only; list the unsourced lines beside it⟩ | | |
 
-Total amount and its scope (per item / plant / programme): ⟨⟩. Route: eCR ⟨CTO up to EUR 150k, Board above
-EUR 75k as recorded; route between 75k and 150k open⟩. Digitalization investment planning threshold:
-⟨to confirm⟩.
+Total amount and its scope (per item / plant / programme): ⟨⟩. Route: eCR ⟨approver per the current approval policy; route open where the recorded limits
+overlap⟩. Digitalization investment planning threshold: ⟨to confirm⟩.
 
 ## 3 Benefit side
 

@@ -14,11 +14,11 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 
 Across past ODEC rounds, the KPI content that actually gets presented breaks out **by
 region** against its own plan, not as one department-wide number: Equipment Integration
-and Use Case Development each reported as *today vs. plan*, region by region (EMEA
-East/West, Americas, APAC), not blended into a single total. Mirror that shape when
+and Use Case Development each reported as *today vs. plan*, region by region (the
+regions as named on the Scorecard), not blended into a single total. Mirror that shape when
 preparing a round — a blended total hides exactly the regional divergence
-`od-use-case-standardization` already documents (Asia converts proven use cases at a much
-lower rate than Europe or the Americas, and is "a different problem, not a smaller one").
+`od-use-case-standardization` documents (conversion of proven use cases differs by region,
+and a lagging region is "a different problem, not a smaller one").
 Report per-region figures first; the department-wide total is a secondary rollup, not the
 headline.
 
@@ -41,7 +41,7 @@ rather than a plant-level one.
 
 1. Pull the scorecard figures with their read date (per the main `SKILL.md` procedure).
 2. Split by region before summarizing department-wide — region-blind figures have hidden
-   the Asia/Europe divergence before and will again.
+   regional divergence before and will again.
 3. Match content to the round's own input column (strategy and rollout items to ODEC,
    technical and connection items to COP) — a technical blocker raised at ODEC gets
    redirected, not solved there.

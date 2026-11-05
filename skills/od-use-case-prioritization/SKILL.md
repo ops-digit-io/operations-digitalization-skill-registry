@@ -62,7 +62,7 @@ cases sit in a separate bucket; the Plant ME has seen the list; the record is fi
 | File | Use it for |
 |---|---|
 | [`references/ranking-criteria.md`](references/ranking-criteria.md) | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
-| [`references/evidence-baselines.md`](references/evidence-baselines.md) | What the vault can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting |
+| [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the vault can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
 | [`assets/prioritization-record.md`](assets/prioritization-record.md) | The output: candidate table, scoring sheet, unscored bucket, recommendation, sign-off |
 
 Weighted-score mechanics are not repeated here; they live in
@@ -86,7 +86,7 @@ inputs that skill's method scores, and the plant-facing record around it.
    label (`od-benefit-calculation`), dependencies with owner, machines and data readiness
    (`od-data-availability-check`).
 4. **Look up the baseline** in [`references/evidence-baselines.md`](references/evidence-baselines.md):
-   which case group the candidate belongs to, how many plants already run it, and how strong the
+   which case group the candidate belongs to, which plants already run it (read the group's rollout map), and how strong the
    savings basis of that group is. A strong precedent lowers effort; a group with no recorded
    savings is a gap in evidence, not a verdict on value.
 5. **Score on the criteria** of [`references/ranking-criteria.md`](references/ranking-criteria.md).
@@ -117,8 +117,8 @@ the planning inputs the ODEC calls collect and the portfolio reviews in
 - ⟨Formal prioritisation rule⟩ — `05-intake.md` itself marks it "to confirm". Supplier: OD lead.
 - ⟨Weights between value, generalization and effort⟩ — not written anywhere read. Supplier: OD
   lead with Plant ME.
-- ⟨How capacity is counted⟩ — the service catalogue lists "2 DBVE roles" as capacity limit for the
-  lane, but no unit per use case. Supplier: OD lead.
+- ⟨How capacity is counted⟩ — the service catalogue names the DBVE roles as the capacity limit for the
+  lane, but gives no unit per use case. Supplier: OD lead.
 - ⟨Lane lead time⟩ — "to confirm" in the service catalogue, so "overdue" cannot be flagged.
 
 ## Do not
