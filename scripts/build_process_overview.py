@@ -28,6 +28,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from build_skill_map import LABEL, state  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+import skillpaths as sp
 OUT = ROOT / "docs" / "process-overview.html"
 REPO = "https://github.com/ops-digit-io/operations-digitalization-skill-registry"
 
@@ -157,11 +158,11 @@ def skill_info() -> dict[str, dict]:
         # (origin: plan-draft) belongs to docs/new-state-flow.md and is not placed here.
         if s.get("origin") in ("new-state", "plan-draft"):
             continue
-        text = (ROOT / "skills" / sid / "SKILL.md").read_text(encoding="utf-8")
+        text = (sp.skill_dir(sid) / "SKILL.md").read_text(encoding="utf-8")
         fm = yaml.safe_load(text.split("---", 2)[1])
         desc = re.sub(r"\s+", " ", fm["description"]).strip()
         first = re.split(r"(?<=[.!?])\s", desc, maxsplit=1)[0]
-        d = ROOT / "skills" / sid
+        d = sp.skill_dir(sid)
         info[sid] = {
             "label": LABEL.get(sid, sid),
             "tier": s.get("tier", ""),
@@ -169,8 +170,8 @@ def skill_info() -> dict[str, dict]:
             "refs": len(list((d / "references").glob("*.md"))) if (d / "references").is_dir() else 0,
             "scripts": len(list((d / "scripts").glob("*.py"))) if (d / "scripts").is_dir() else 0,
             "summary": first,
-            "path": f"../skills/{sid}/SKILL.md",
-            "url": f"{REPO}/blob/main/skills/{sid}/SKILL.md",
+            "path": f"../{sp.folder_of(sid)}/{sid}/SKILL.md",
+            "url": f"{REPO}/blob/main/{sp.folder_of(sid)}/{sid}/SKILL.md",
         }
     return info
 

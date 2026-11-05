@@ -10,7 +10,7 @@ description: >-
   or someone asks how to connect a Siemens / Rockwell / Beckhoff / B&R / Omron / Mitsubishi /
   Modbus / OPC-UA device, configure a Softing dataFEED data source, or what to specify when
   ordering a new machine.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-equipment-integration
   tier: technical

@@ -10,7 +10,7 @@ description: >-
   platform, Databricks, MSB,
   IIoT Edge, MDA/PDA, MES, ODEC, COP, DBVE, IIAE, Digitalization Scorecard, CSP, eCR or
   SPRINT appear and must resolve to exactly one meaning.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-context
   tier: foundation

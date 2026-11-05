@@ -8,7 +8,7 @@ description: >-
   use case, a definition or integration workshop is requested, a use case needs
   prioritizing or a business case, or someone asks what happens to a use case between
   demand and daily use. Owner is the Digital-Business-Value-Engineer (DBVE).
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-use-case-support-service
   tier: lane

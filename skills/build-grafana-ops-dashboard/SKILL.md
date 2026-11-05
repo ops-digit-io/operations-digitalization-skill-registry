@@ -1,5 +1,6 @@
 ---
 name: build-grafana-ops-dashboard
+license: MIT
 description: >
   Build production-grade Grafana JSON dashboards backed by SQL for operations
   data — manufacturing, IIoT, energy, quality, throughput. Supports two data

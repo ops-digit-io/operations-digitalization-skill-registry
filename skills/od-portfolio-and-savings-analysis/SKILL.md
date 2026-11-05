@@ -8,7 +8,7 @@ description: >-
   use). Use for any portfolio question, regional or plant comparison, standardization or
   conversion-rate analysis, savings roll-up, or when a number about the portfolio is going
   into a deck, a board paper or a business case.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-portfolio-and-savings-analysis
   tier: practice

@@ -9,7 +9,7 @@ description: >-
   connected, when someone asks which system to order, or when an entry for the
   standardized-system list is proposed. Draft scaffold: no standardized-system list exists
   in the sources.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: catalog-systems

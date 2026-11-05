@@ -3,6 +3,14 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-05 (libraries)
+
+- **Two skill libraries.** The registry now separates a **core library** (`skills/`, 29 skills: every skill the four New-State process files name on a step or on
+  the supporting spine) from an **extension library** (`skills-extension/`, 28 skills: all others, optional add-ons). `registry.yaml` carries `library: core|extension`;
+  `scripts/skillpaths.py` is the one place that knows both folders; `validate_registry.py` checks library against folder; the generators, the spec export, the site
+  (core and extension downloads, extension skills switchable on the map) and `check_no_figures.py` use it. Cross-skill links across the two folders were rewritten.
+  No skill content changed. Core skills require no extension skill; three `composes` entries point from core to extension and are optional.
+
 ## 2026-11-05 (wave 2)
 
 - **Registry 1.11.0, 57 skills.** Folded the vault notes that no skill drew on into the skills as patterns, without figures: the IT/IoT

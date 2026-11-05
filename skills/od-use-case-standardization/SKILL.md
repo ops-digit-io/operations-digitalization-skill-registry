@@ -9,7 +9,7 @@ description: >-
   plant wants something a first plant already has, when a library entry is proposed for
   rollout, when a cluster tag needs assigning or checking, or when someone asks why the
   catalogue has not scaled.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-use-case-standardization
   tier: practice

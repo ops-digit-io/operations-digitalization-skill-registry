@@ -17,6 +17,7 @@ import sys
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+import skillpaths as sp
 OUT = ROOT / "docs" / "skill-state-map.md"
 
 # Short labels: the node text, kept terse so the diagram stays readable.
@@ -107,7 +108,7 @@ NEXT = {
 
 
 def state(skill_id: str) -> str:
-    d = ROOT / "skills" / skill_id
+    d = sp.skill_dir(skill_id)
     refs = len(list((d / "references").glob("*.md"))) if (d / "references").is_dir() else 0
     scripts = len(list((d / "scripts").glob("*.py"))) if (d / "scripts").is_dir() else 0
     if refs and scripts:
@@ -131,7 +132,7 @@ def render() -> str:
     inbound: dict[str, int] = {i: 0 for i in ids}
     for i in ids:
         fm = yaml.safe_load(
-            (ROOT / "skills" / i / "SKILL.md").read_text(encoding="utf-8").split("---", 2)[1])
+            (sp.skill_dir(i) / "SKILL.md").read_text(encoding="utf-8").split("---", 2)[1])
         for c in ((fm.get("metadata") or {}).get("composes") or []):
             if c in inbound:
                 inbound[c] += 1
@@ -210,17 +211,17 @@ def render() -> str:
         [m for _, _, members in LANES for m in members])}
     rank = {"deep": 0, "documented": 1, "stub": 2}
     for i in sorted(ids, key=lambda x: (rank[states[x]], order.get(x, 99), x)):
-        d = ROOT / "skills" / i
+        d = sp.skill_dir(i)
         refs = len(list((d / "references").glob("*.md"))) if (d / "references").is_dir() else 0
         scr = len(list((d / "scripts").glob("*.py"))) if (d / "scripts").is_dir() else 0
         icon = {"deep": "🟩", "documented": "🟨", "stub": "⬜"}[states[i]]
         lane = lane_of.get(i, "—")
-        L.append(f"| [`{i}`](../skills/{i}/SKILL.md) | {lane} | {icon} {states[i]} | "
+        L.append(f"| [`{i}`](../{sp.folder_of(i)}/{i}/SKILL.md) | {lane} | {icon} {states[i]} | "
                  f"{refs} | {scr} | {inbound.get(i, 0)} |")
 
     L += ["", "## What is next, and why", ""]
     for i, why in NEXT.items():
-        L.append(f"- **[`{i}`](../skills/{i}/SKILL.md)** — {why}")
+        L.append(f"- **[`{i}`](../{sp.folder_of(i)}/{i}/SKILL.md)** — {why}")
     L += ["",
           "*Inbound* counts how many other skills name this one in `composes`. It is the "
           "cheapest proxy for what the rest of the registry is leaning on, and it is what "

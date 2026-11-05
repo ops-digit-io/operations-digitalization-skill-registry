@@ -54,8 +54,8 @@ lanes:
           - id: 1b3
             title: Order and connect the system
             wait: "~wks"
-            skills: [od-equipment-integration]
-            proposed: [od-cybersec-gate, od-machine-integration-plan]
+            skills: [od-equipment-integration, od-cybersec-gate]
+            proposed: [od-machine-integration-plan]
           - id: 1b4
             title: Apply the template and go live
             skills: [od-analytics-asset-build]
@@ -126,8 +126,8 @@ lanes:
           - id: 3a5
             title: Deploy to the platform and Cyber Security
             wait: "CS ~wks"
-            skills: [deploy-appstore, od-acceptance-test]
-            proposed: [od-cybersec-gate, od-migration-cutover]
+            skills: [deploy-appstore, od-acceptance-test, od-cybersec-gate]
+            proposed: [od-migration-cutover]
           - id: 3a6
             title: Rollout and adopt
             skills: [od-handover-and-adoption]
@@ -146,14 +146,13 @@ lanes:
           - id: 3b6
             title: Acceptance and Cyber Security, live on the data platform
             wait: "CS ~wks"
-            skills: [od-acceptance-test]
-            proposed: [od-cybersec-gate]
+            skills: [od-acceptance-test, od-cybersec-gate]
 
 spine:
   title: Supporting spine
   summary: Skills that apply across the lanes and are not drawn as steps.
-  skills: [od-context, od-scorecard-reporting, od-portfolio-and-savings-analysis, od-sharepoint-list-export]
-  proposed: [od-context-freshness, od-template-resolution, od-retro, od-risk-watch, od-plant-onboarding, od-ai-generation-playbook, od-governance-cadence, od-plant-diagnosis, od-utilization-review]
+  skills: [od-context, od-scorecard-reporting, od-portfolio-and-savings-analysis, od-sharepoint-list-export, od-ai-generation-playbook]
+  proposed: [od-context-freshness, od-template-resolution, od-retro, od-risk-watch, od-plant-onboarding, od-governance-cadence, od-plant-diagnosis, od-utilization-review]
 
 unplaced:
   title: Not placed in the flow

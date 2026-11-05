@@ -10,7 +10,7 @@ description: >-
   Edge platform or the container platform, when someone asks what must be true before a
   deployment, or when the deploy step of a new system is planned. Draft scaffold: the
   platform procedure is not recorded in the sources.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: deploy-appstore

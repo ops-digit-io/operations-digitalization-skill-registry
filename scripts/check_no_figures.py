@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-SKILLS = Path(__file__).resolve().parent.parent / "skills"
+import skillpaths as sp
 ENT = (r"machines?|plants?|sites?|flows?|instances?|use cases?|dashboards?|apps?|applications?|"
        r"signals?|tags?|decks?|notes?|rows?|records?|templates?|panels?|tools?|connectors?|"
        r"controllers?|lines?|users?|projects?|epics?|items?|entries|files?|workshops?|reviews?")
@@ -28,7 +28,7 @@ RULES = [
 SKIP = re.compile(r"^(name|version|generated|sources_read|created|updated|last_reviewed|review_by|expires):")
 
 def lines(skill):
-    for p in sorted((SKILLS / skill).rglob("*")):
+    for p in sorted(sp.skill_dir(skill).rglob("*")):
         if not p.is_file() or p.name == "index.md" or p.suffix not in (".md", ".py", ".yaml", ".yml", ".txt"):
             continue
         for n, l in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
@@ -38,10 +38,10 @@ def lines(skill):
                 pass
             hit = [k for k, r in RULES if r.search(l)]
             if hit:
-                yield p.relative_to(SKILLS), n, hit, l.strip()
+                yield p.relative_to(sp.skill_dir(skill).parent), n, hit, l.strip()
 
 def main():
-    names = sys.argv[1:] or sorted(p.name for p in SKILLS.iterdir() if p.is_dir())
+    names = sys.argv[1:] or sp.all_ids()
     total = 0
     for s in names:
         for f, n, hit, l in lines(s):

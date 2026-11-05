@@ -8,7 +8,7 @@ description: >-
   use case is being prioritized and needs a business case, when a saving needs recording
   or defending, when someone asks what a use case or the portfolio is worth, or when a
   savings figure is about to leave the department.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-benefit-calculation
   tier: practice

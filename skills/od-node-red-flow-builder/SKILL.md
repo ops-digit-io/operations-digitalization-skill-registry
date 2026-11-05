@@ -9,7 +9,7 @@ description: >-
   modifying a Node-RED flow for a machine or use case, reviewing someone else's flow,
   porting a flow between plant instances, debugging why a flow produces nothing, or asking
   how the flows across the ct-oesl Node-RED instances are structured.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Write Edit
 metadata:
   id: od-node-red-flow-builder

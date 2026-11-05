@@ -9,7 +9,7 @@ description: >-
   that stay human. Names the process step where each rule applies. Use before an agent drafts, generates
   or checks anything in a lane, when someone proposes an AI assistant, agent or generated app, or when
   asked what an AI agent may do at a step and who must sign.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-ai-generation-playbook

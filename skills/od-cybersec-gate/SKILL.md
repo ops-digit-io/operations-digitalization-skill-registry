@@ -8,7 +8,7 @@ description: >-
   recommends only; the Cyber Security sign-off itself is human-only and has no expedited
   path. Use before scheduling a machine connection, before an app goes to the platform,
   when a plant asks what Cyber Security needs, or when a connection waits on sign-off.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-cybersec-gate

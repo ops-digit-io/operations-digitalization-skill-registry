@@ -9,7 +9,7 @@ description: >-
   plant has applied a catalogued template and wants to go live, when someone asks whether a
   self-served use case is safe to adopt, or when a guardrail is proposed. Draft scaffold:
   the guardrail set is seeded from rules already recorded and needs the OD lead's review.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: catalog-guardrails
