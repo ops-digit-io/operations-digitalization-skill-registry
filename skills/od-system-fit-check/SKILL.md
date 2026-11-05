@@ -55,6 +55,7 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 | [`references/tool-boundaries.md`](references/tool-boundaries.md) | What each lightweight tool (QFPR, MDA/PDA, MIL, Camline, WiriTec) is and is not for, in the department's own words — the actual tell, per tool |
 | [`references/deployment-reality.md`](references/deployment-reality.md) | Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table — check this plant, not the estate average |
 | [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | How to read the live Tool Overview for a plant (status codes, what an empty cell means), how to count use cases naming a tool, and how to handle disagreement with workshop tables. Guidance only, no figures |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the check runs as chain step i1 / 32: boundary and "recommended if" lines as intake classifiers, demand shapes, the operations-concept precondition, handoff contract, agent notes |
 | [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | How to read the Legacy Application List (fields, blank-cell traps) and how to spot the plant that already runs a parallel MES, SCADA or dashboard system. Guidance only, no figures |
 
 ## The check — three steps
@@ -74,6 +75,9 @@ data), MDA/PDA (machine/asset data, the "lightweight MES" for automation data), 
 Manufacturing Image Library (images and DL inspection, not process-parameter storage or
 model training itself), Recipe Management / Camline (recipe master data, not live value
 storage or alerting), the Energy Management System (energy data only).
+
+Test each tool's "integration recommended if" trigger as well: it says when the tool earns a
+rollout, and the tool's cost class (never a number) goes on the record.
 
 **If none of them cover it, the need is MES- or EMS-shaped.** That is the actual tell this
 skill resolves to — not a vibe, a specific boundary line the need crosses.
@@ -114,6 +118,8 @@ catch, including in its own source material. Do not silently pick one.
   crosses; if you cannot name one, the check is not finished.
 - **Never treat an available tool as not available, or vice versa, from the estate average.**
   Check the specific plant.
+- **Never return "fits" for a tool nobody runs.** A tool with no named operations owner and
+  support level is a service gap, not a fit: escalate (`references/process-chain-practice.md`).
 - **Never let this check itself approve a rollout exception.** It recommends; the "Tool /
   system rollout" gate in `od-decision-routing` decides.
 - **Never silently resolve the EMS discrepancy above by picking the version that is more

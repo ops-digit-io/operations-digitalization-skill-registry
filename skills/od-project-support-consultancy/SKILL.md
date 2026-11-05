@@ -40,6 +40,7 @@ Read `od-context` first.
 
 | File | Use it for |
 |---|---|
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Project order and plan structure, kick-off workshop, status colours, milestone and closure reports, integration-workshop preparation, wave and consultancy gates, handover lessons, handoff contract, agent notes |
 | [`references/composed-protocols.md`](references/composed-protocols.md) | Which real protocol in which composed skill answers each happy-path step — this lane routes through them, it does not duplicate them |
 
 **Trigger.** A digital investment project kick-off.
@@ -70,6 +71,8 @@ Step 7 → `od-scorecard-reporting`. Investment and gate questions → `od-decis
   hide: blocking points say why value is not flowing.
 - **Solution fails acceptance** → rework loop back to step 3.
 - **Tool or licensing dependency unresolved** → wait state ⟨owner to confirm⟩.
+- **Application has no operations concept** (no business owner, IT owner, service level or support role) →
+  do not roll out; route to the operations-concept discussion first.
 
 ## Wait states
 
@@ -80,7 +83,7 @@ licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off.
 
 | Task | Trigger | Template |
 |---|---|---|
-| Project kick-off with OD team | Digital investment project initiated | ⟨kick-off agenda — to confirm⟩ |
+| Project kick-off with OD team | Digital investment project initiated | ⟨approved kick-off agenda — to confirm⟩; the structure the decks show is in `references/process-chain-practice.md` |
 | Requirements breakdown | Kick-off done | `od-requirements-breakdown`'s `assets/requirement-template.md` |
 | Integration project status | Weekly / milestone | Project tracker |
 | Application consultancy session | Solution design needed | ⟨template — to confirm; PS-04 application consulting was never built as its own skill⟩ |

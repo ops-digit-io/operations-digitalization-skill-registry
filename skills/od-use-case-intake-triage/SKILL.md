@@ -42,6 +42,7 @@ department — this skill is the entrance.
 | File | Use it for |
 |---|---|
 | [`references/refusal-playbook.md`](references/refusal-playbook.md) | Request patterns that look legitimate but should be refused or re-scoped, the tell in each, and one pattern accepted that should have been refused |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How step i1 is run in the AI-driven chain: SMART test and object/event reduction, standard versus special, three-way triage (just do / go forward / lead change), lane by demand shape, handoff record, agent notes |
 
 ## Channels a request legitimately arrives through
 
@@ -80,6 +81,13 @@ solution" is an OD request. "Own the outcome" is not.
 - work owned by a sibling function (automation build, facility/energy, tool centers).
 
 A refusal is returned to the demand owner with the reason and the route, not dropped.
+
+**2b — Shape the statement before lane matching.** A request is admitted only if it passes
+the SMART test (purpose, objective, real problem, timeframe, named stakeholder; a target
+with no baseline fails) and has been reduced to object, event and time. Then set the class
+(standard cross-process, standard per-process, non-standard unique) and, for a list, the
+three-way bucket (just do, go forward, lead change). Detail in
+[`references/process-chain-practice.md`](references/process-chain-practice.md).
 
 **3 — Match the trigger to exactly one lane.**
 

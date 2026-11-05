@@ -67,6 +67,7 @@ stop and route**, or **no master exists: route to creation**.
 | File | Use it for |
 |---|---|
 | [`references/master-register.md`](references/master-register.md) | The lookup: every template, standard and tool the resource register lists, with owner, state and the exact gap marker it carries, plus the templates that live inside skills and the vault file not in the register |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Which template type each process step uses, the seven-step pipeline for a template-bound generated deliverable, residue and placeholder-leak checks, handoff contract, agent notes (types only, no locations) |
 | [`assets/template-resolution-record.md`](assets/template-resolution-record.md) | The one-page output that travels with the deliverable |
 
 ## Procedure
@@ -87,6 +88,8 @@ stop and route**, or **no master exists: route to creation**.
 5. **Check the master is the master.** Compare the title and the version date with the register row. A copy that
    differs from the master is a fork; record it and tell the owner, do not merge it silently.
 6. **Fill the record** and attach it to the deliverable. Cite the register row in the deliverable's source line.
+   Before it leaves your hands, check that no placeholder text and no sample figure from the master remains
+   (the leak check in `references/process-chain-practice.md`).
 7. **If the outcome is "stop" or "route"**, write the one sentence that says who can supply the master (the owner
    column) and carry on only with the parts of the work that do not depend on it. Do not substitute a plausible
    structure; an empty section beats an invented one.

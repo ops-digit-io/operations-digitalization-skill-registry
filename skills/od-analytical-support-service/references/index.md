@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Composed artefacts](composed-artefacts.md) | Skill Reference | Which composed skill's real, built asset answers each happy-path step, now that those skills have gone deep — so this lane page routes to them instead of carrying its own unresolved placeholder for the same thing. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the analytical lane, abstracted from the Operations Digitalization slide decks - ad-hoc, standard and custom analytics, plausibility before explainability, local-versus-global comparison, the idea-collection and potential-analysis routes, the statements an analysis must carry. Guidance only, no figures. |

@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.9.0
+  version: 1.10.0
   department: MPEE Operations Digitalization (OD)
   business: neuwerk
   owner: Jakob Gabriel
@@ -471,6 +471,86 @@ skills:
     authority_level: draft
     summary: "Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua DRAFT."
 
+  - id: od-ai-generation-playbook
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: recommend - drafts and checks only; every gate named here is a human gate
+    summary: "Cross-cutting rulebook for safe AI-agent use along the process chain: pipeline with human gate, generation rules, governance, citation and human-only decisions. DRAFT."
+
+  - id: od-event-object-modelling
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft
+    summary: "Reduces unique plant requests to objects, events and time, separates sensor values from events and writes data requirements for the data platform. DRAFT."
+
+  - id: od-governance-cadence
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft
+    summary: "The governance rhythm around the chain: CoP/ODIC/ODEC rounds, call for action and status, change routing, sprint runbook and training programme. DRAFT."
+
+  - id: od-machine-integration-plan
+    tier: practice
+    lane: information-integration-service
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft
+    summary: "Plans a machine-integration wave from machine list to flow design: known types first, route per machine type, readiness criteria, barrier log. DRAFT."
+
+  - id: od-migration-cutover
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft the assessment, the migration plan, the checklists and the back-out plan; recommend sequencing; the cutover, the back-out decision, Cyber Security sign-off and decommissioning are human
+    summary: "Plans and runs the migration of a legacy application, server, middleware or platform to the target platform, with staged cutover, back-out and decommissioning. DRAFT."
+
+  - id: od-plant-diagnosis
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft the diagnosis, tiering proposal and roadmap; recommend on sequencing and tier; tier assignment and roadmap approval are human
+    summary: "Diagnoses unequal plant results with four Ishikawa branches, tiers plants as first mover or fast follower and writes plant and regional roadmaps. DRAFT."
+
+  - id: od-project-order
+    tier: practice
+    lane: project-support-consultancy
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft
+    summary: "Drafts the project order (PREQ) and runs kick-off, milestone reports and closure for a use case or system project; sponsor approval and budget stay with humans. DRAFT."
+
+  - id: od-utilization-review
+    tier: practice
+    lane: use-case-support-service
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft
+    summary: "Reviews whether a deployed use case is actually used and delivers value, and routes the no-saving cases to a human decision. DRAFT."
+
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
   - comment, methods, actions, utilization and csp_decision are not populated on the use cases; the requirement template asks for what those fields were meant to hold.
@@ -556,3 +636,9 @@ open_gaps:
   - "od-use-case-prioritization (draft), open: Formal prioritisation rule (05-intake marks it to confirm); Weights between value, generalization and effort; How lane capacity is counted per use case"
   - "od-use-case-promotion (draft), open: Recurrence threshold for an ad-hoc asset; Whether an ad-hoc asset must pass full UC-02 definition before catalog assessment; Who may propose / add a catalog entry and where the catalog lives"
   - "od-workshop-facilitation (draft), open: Official SharePoint agenda templates (definition and integration); Scheduling, pre-read and summary lead times; Per-item attendance matrix (slide 2 table, empty cells lost in extraction) and meaning of CBS"
+  - "Deck-derived guidance still to confirm with the OD lead: wave allocation (request order vs first-mover priority); ODEC/ODIC cadence; order of eCR, offer and contract events; prioritisation order (generalisation vs savings first); scaled use case without saving (to be evaluated vs no potential); cyber security as wave blocker vs decoupled from use-case work."
+  - "od-migration-cutover (draft), open: Back-out plan content is a proposal because the decks only hold diagrams; RAG meanings are a proposal"
+  - "od-utilization-review (draft), open: Settling period before the first review; where utilization rows come from; which forum decides no potential"
+  - "od-project-order (draft), open: Where the order is stored; customer-mandated programme intake branch (proposal only)"
+  - "od-governance-cadence (draft), open: Single status taxonomy per round; cadence of ODEC vs ODIC; training format"
+  - "od-machine-integration-plan (draft), open: Where the barrier log lives; who convenes the rapid decision board; budget-class limits"

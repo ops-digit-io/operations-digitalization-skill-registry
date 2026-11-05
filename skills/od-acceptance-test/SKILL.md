@@ -55,6 +55,7 @@ through the same gate, but not the same test: see `references/test-structure.md`
 | [`references/signoff-and-rework.md`](references/signoff-and-rework.md) | Who signs off on each artefact type, what a failure actually means, and which rework loop it routes into |
 | [`references/acceptance-by-route.md`](references/acceptance-by-route.md) | What to test per route (edge, aggregation, file or image endpoint, energy tool), each item graded as rule, record pattern or suggested check, and the failure patterns the Machine List and tool notes typically show. Guidance only, no figures |
 | [`references/cluster-acceptance-criteria.md`](references/cluster-acceptance-criteria.md) | The department's standard per use case cluster (C01 to C12) restated as UAT items, with the baseline item every acceptance should add |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Acceptance as proof of use at 3a5 / 3b6 and at sprint close: reconciliation against the paper process, parallel run and switch-off owner, utilization table, pre-go-live adoption checklist, handoffs, agent notes |
 | [`references/worked-cases.md`](references/worked-cases.md) | Seven illustrative case patterns read from the acceptance side: what the record typically shows, what the protocol would have needed to evidence |
 
 ## Write the protocol before the build, not after
@@ -115,5 +116,7 @@ owner straight off it.
 - Do not accept "it works on the edge" as an integration passing — the pipeline into the
   offload to the data platform and the asset on top of it are in scope.
 - Do not mark a machine `INTEGRATED` or a readiness dimension green ahead of the pass.
+- Do not pass a dashboard that disagrees with the paper record the plant trusts, or a handover
+  whose old process has no named switch-off owner (`references/process-chain-practice.md`).
 - Do not treat a demonstration as an acceptance test. The plant owner has to have used it
   in a real shift; see `od-handover-and-adoption`.

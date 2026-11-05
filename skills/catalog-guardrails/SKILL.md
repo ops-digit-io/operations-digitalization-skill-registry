@@ -62,7 +62,7 @@ version of the part that can be.
 | G3 | The solution stays inside the lean footprint, no system outside it | `od-system-fit-check` | Stop. Escalate as an exception through `od-decision-routing` |
 | G4 | **No invented figures:** no savings or impact number appears unless a source and a capture date are named | `od-context` honesty rules; lane agent brief | Remove the number, or mark it as to be collected |
 | G5 | A **named plant owner** exists, and the plant, not OD, decides daily use | Knowledge bundle, `Decision rights` | Stop. Name the owner first |
-| G6 | The **three-question handover test** is answerable by the receiving side from the handover record alone | `od-handover-and-adoption` | Not done. Close the gap before go-live |
+| G6 | The **three-question handover test** is answerable by the receiving side from the handover record alone, and the record names **who uses the screen, in which meeting, and which action follows** | `od-handover-and-adoption`; deck practice in `references/process-chain-practice.md` | Not done. Close the gap before go-live |
 | G7 | An **external connection** has a Cyber Security sign-off. This is human-only | Knowledge bundle, decision rights | Hold at the wait state. Do not go live |
 
 ## The references
@@ -71,6 +71,7 @@ version of the part that can be.
 |---|---|
 | [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidate guardrails G8 to G18 for the screen itself (signal binding, time handling, data sources, panels, identity, states, free text, no write-back), each with its source rule and the failure pattern it prevents, and a proposed block-or-warn setting |
 | [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | The failure patterns the vault has recorded, each mapped to the guardrail that would have caught it; proposed G19; who to call when a guardrail fails; the utilization expectation after go-live |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Process-level candidates P1 to P7 (paper-process reconciliation, utilization ritual, action owner, operations concept, switching off the old process, early IT changes, flows under version control), how the check is run, handoff contract, agent notes |
 | [`assets/go-live-check-record.md`](assets/go-live-check-record.md) | The record to fill: G1 to G19, a content check against the template, the post-go-live fields, the result line |
 
 Status of the extra guardrails: they come from AI-drafted draft specifications (SPEC-02 to SPEC-04) and from recorded failure cases. They are **candidates** that the OD lead has not confirmed. The plant answers G1 to G7 always; G8 to G19 are answered when the plant has built or copied the screen itself.

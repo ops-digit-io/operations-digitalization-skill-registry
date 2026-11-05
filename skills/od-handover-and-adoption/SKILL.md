@@ -44,6 +44,7 @@ Read `od-context` first.
 |---|---|
 | [`references/adkar-diagnostic.md`](references/adkar-diagnostic.md) | Why a use case stalls between `IMPLEMENTED` and `PRODUCTIVE` — the ADKAR barrier-point diagnostic, mapped onto this function's own lifecycle, with a worked example |
 | [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | What counts as evidence of adoption, strongest first — confirmed 2026-10-22, closing "how is adoption confirmed and recorded" |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Pre-go-live checklist from rollout lessons, the operations-concept gate, handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft |
 
 Handover is a **tracked state** in this function, not a courtesy at the end of a build.
 Use cases record it as `DONE` or `ONGOING`; it typically trails development and
@@ -129,6 +130,8 @@ not file it away after one good week.
 
 ## Do not
 
+- Do not accept a handover without a named operations owner; for a dashboard or data product also without documented transformation, an owned workspace, access control and a named successor.
+- Do not let old and new process run in parallel without an end date and a person assigned to switch the old one off.
 - Do not record handover `DONE` because delivery happened.
 - Do not report `IMPLEMENTED` counts as adoption.
 - Do not close a handover with an unnamed plant owner.

@@ -48,6 +48,7 @@ Read `od-context` first.
 | [`references/lane-handoffs.md`](references/lane-handoffs.md) | Each happy-path step matched to the real asset the composed skill produces, not just named |
 | [`references/tool-fact-sheets.md`](references/tool-fact-sheets.md) | How to read the tool records for each shop-floor tool: what to look up (rollout, architecture, cost and hardware, status, open blockers), where, and the prerequisites per tool |
 | [`references/roles-and-support-model.md`](references/roles-and-support-model.md) | The roles around the IIoT edge platform (local key user, business-area key user, governance board, central key user, divisional engineering, divisional and local IT, platform provider) and the incident, change and security-incident flows |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The lane's operating rhythm in the AI-driven chain: wave cadence and plant status, the community-call pack, plant tiering, integration workshop, recurring blockers, handoffs, agent notes |
 | [`references/finding-decks.md`](references/finding-decks.md) | How to search the Slide Index and a topic-to-deck map for the lane |
 | [`assets/plant-status-input.md`](assets/plant-status-input.md) | One-page plant input for an ODEC status slot on equipment integration |
 
@@ -117,7 +118,8 @@ Patterns to expect:
 - **Cyber Security sign-off missing** for an external connection → hold at the wait
   state. Never connect anyway.
 - **Operations concept missing for the target system** (MSB / the data platform) → escalate to strategy
-  as a tool-rollout decision.
+  as a tool-rollout decision; do not roll the tool out on demand until a named operations owner and
+  support level exist (`references/process-chain-practice.md`).
 
 ## Wait states
 

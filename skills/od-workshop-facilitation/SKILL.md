@@ -52,6 +52,7 @@ other decisions).
 | File | Use it for |
 |---|---|
 | [`references/workshop-formats.md`](references/workshop-formats.md) | The formats OD has actually run (definition, integration, equipment integration, machine integration, savings), their purpose lines, days, audience and typical outputs, and where to find the workshops on record |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice: intent and order decision, IT-side preparation checklist, in-room practices, utilization table, legacy-application pattern, handoff contract, agent notes |
 | [`assets/workshop-agenda-and-preread.md`](assets/workshop-agenda-and-preread.md) | Agenda skeletons per format and the pre-read checklist to send |
 | [`assets/workshop-capture-template.md`](assets/workshop-capture-template.md) | The sheet filled during the workshop: demand list, canvas, savings pre-evaluation, tool and machine assessment, decisions |
 | [`assets/workshop-follow-up-list.md`](assets/workshop-follow-up-list.md) | The follow-up list and summary skeleton to close the workshop |
@@ -63,7 +64,10 @@ other decisions).
 1. **Pick the format** from [`references/workshop-formats.md`](references/workshop-formats.md). Rule
    from the decks' speaker notes: which comes first, a Machine Integration workshop or a Use Case
    workshop, depends on the plant ("Dependent on which Workshop format is first"). If the plant has
-   an ad-hoc process issue and no use case, it is not a workshop; use `od-first-aid-kit`.
+   an ad-hoc process issue and no use case, it is not a workshop; use `od-first-aid-kit`. Write the
+   reason for the chosen order into the pre-read (machine-integration first when connectivity is
+   missing, use-case first when machines are connected; `<to confirm>` with the OD lead where an
+   agenda fixes an order).
 2. **State purpose and timeframe** in the style of OD's own agenda slide: a short purpose list
    (what is defined, what status is followed up, what is prioritized, what project it starts) and a
    preferred window agreed with the plant. See the plant-agenda example in the formats reference.
@@ -99,7 +103,8 @@ other decisions).
    For each demand run the questions of `od-use-case-definition`'s questionnaire; do not define a
    duplicate of something already logged. Check the library before drafting from a blank page.
 9. **Savings: pre-evaluate, do not promise.** Use OD's pre-evaluation template with its examples
-   (productivity, quality, maintenance) and mark each figure with its basis. Workshops have not
+   (productivity, quality, maintenance) and mark each figure with its basis (calculated /
+   estimated / none); make tool recommendations only against a named use case. Workshops have not
    always produced the number: past summaries carried "Savings Estimation for Use Cases:
    open task" for the use cases collected. Past attempts to fit savings calculation into the
    workshop agenda stalled it (`od-benefit-calculation`, review checklist), so book calculation as a

@@ -11,6 +11,7 @@
 | [Deployable flow](deployable-flow.md) | Skill Reference | The half that is not the transformation: tabs, groups, wires, config nodes, and the traps that make a flow import but not run. |
 | [Instances](instances.md) | Skill Reference | Guidance, no figures - how Node-RED instances are named and discovered, what a site code is, what the instance shape tells you, and how to count flows per instance live. |
 | [PLC packet](plc-packet.md) | Skill Reference | The protobuf message every datatroniq MQTT topic carries: its fields, the packed timestamp, the oneof, and the decoding traps. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How a flow is built and handed on inside the new process chain - placement of logic, the flow library classes, streaming against scheduled work, legacy-middleware migration, version control, handoff contract, pitfalls, and AI agent operating notes. Process guidance only; no figures. |
 | [Streaming](streaming.md) | Skill Reference | The mechanics under every flow: how a PLC value reaches a derived signal, and what is synchronous, buffered or lost along the way. |
 | [Topic conventions](topic-conventions.md) | Skill Reference | The two topic grammars the flows publish and subscribe to, plus the small tail that follows neither; vocabulary and conventions, no usage counts. |
 | [Transformation patterns](transformation-patterns.md) | Skill Reference | Thirteen patterns covering almost every flow in the estate, each with its trigger, its state, its output and how it fails. |

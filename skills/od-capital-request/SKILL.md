@@ -61,6 +61,7 @@ marked as a proposal. The investment planning template that the project-support 
 | [`references/spend-route.md`](references/spend-route.md) | How to find the spend gate and approver for an amount, the ambiguity to resolve with the OD lead, how it sits in Lane 2 and Lane 3, what a booked saving waits on |
 | [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
 | [`assets/capital-request-package.md`](assets/capital-request-package.md) | The package this skill produces and the human submits |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Management-summary shape, decisions with risk of not doing, pilot and scope-limiting patterns, mandatory sensitivity, the offer-eCR-contract consistency check, and what an agent may draft |
 
 ## Where it sits
 
@@ -93,7 +94,7 @@ marked as a proposal. The investment planning template that the project-support 
    IT demand ([`references/business-case-structure.md`](references/business-case-structure.md)). Every figure has a source
    and a date, or is ⟨to be collected⟩ with the role who supplies it. `od-benefit-calculation` is thin on cost
    (the conformance page notes it once); this section is where the cost side lives.
-7. **Give options and the do-nothing case.** At least: the request, a smaller or staged version, and not acting.
+7. **Give options and the do-nothing case**, and for each decision its risk of not doing. At least: the request, a smaller or staged version, and not acting.
    Include the library alternative (adopt a proven solution) if one exists.
 8. **State risks, sensitivity and dependencies.** The one assumption the case fails on, a range not a point where
    the value is asserted, an adoption haircut if people must act on the output, prerequisites that must exist.
@@ -124,6 +125,8 @@ has been submitted or approved by the agent.
 
 ## Do not
 
+- Do not call the request ready before offer, eCR and contract agree on version and a named role drives purchasing (`references/process-chain-practice.md`).
+- Do not net value against cost, and do not print NPV or IRR when no measured baseline exists; fund the baseline first.
 - Do not submit, sign, approve or state that approval will be given. Those are human (`od-decision-routing`: an
   agent never commits investment or allocates resources).
 - Do not put a threshold, a form field or an approval time in the package that no source gives.

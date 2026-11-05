@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the freshness check, abstracted from the Operations Digitalization slide decks - time-stamped facts that change fastest (tool status, plant tier, forum cadence, vocabulary), copy residue, orphaned ownership, list clean-up. Guidance only, no figures. |
 | [Staleness signals](staleness-signals.md) | Skill Reference | How each layer of the OD knowledge system marks freshness - bundle file, skill, registry, vault note - what each mark proves and what it does not, with the field names and the conventions behind them. |
 | [Triage and actions](triage-and-actions.md) | Skill Reference | Each kind of flag the freshness script raises, who owns it, what to do, and the first run of 2026-11-05 as a dated worked example - open it when turning the script output into a hygiene report. |

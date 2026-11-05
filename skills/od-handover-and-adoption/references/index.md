@@ -6,3 +6,4 @@
 |---|---|---|
 | [ADKAR diagnostic](adkar-diagnostic.md) | Skill Reference | Why a use case stalls between IMPLEMENTED and PRODUCTIVE, diagnosed against the five elements of individual change adoption rather than guessed at. |
 | [Evidence of adoption](evidence-of-adoption.md) | Skill Reference | What counts as evidence that a use case is actually in use, in order of strength, so adoption is recorded as a fact with a source rather than an impression. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How handover and adoption (steps 26 and 3a6) is run in the AI-driven chain - deployed is not used, the pre-go-live checklist from rollout lessons, the operations-concept gate, the pitfalls of handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft. Pattern only, no figures. |

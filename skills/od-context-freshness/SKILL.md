@@ -59,6 +59,7 @@ and the skills' own dates are still current, and writes down what is not. It **r
 | File | Use it for |
 |---|---|
 | [`references/staleness-signals.md`](references/staleness-signals.md) | How each layer marks freshness (bundle file, skill, registry, vault note) and what each mark does and does **not** prove |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Which time-bound facts go stale fastest (tool status, plant tier, forum cadence, vocabulary, KPI basis), copy residue and orphaned ownership, handoff and agent notes |
 | [`references/triage-and-actions.md`](references/triage-and-actions.md) | Each flag type, who owns it, the action, and how to read a run (what to lead with, what the typical pattern is) |
 | [`scripts/context_freshness.py`](scripts/context_freshness.py) | Standard-library, read-only report. Opens files for reading only; writes only to the terminal |
 
@@ -109,6 +110,7 @@ the sources it names (`--cross`).
 | Skill stale and carries gaps | Old read and open questions | Ask whether the gaps were answered since; re-read the sources if so | registry owner |
 | Skill stale, no gaps | Old read, nothing flagged open | Spot-check one figure | registry owner |
 | Skill rests on an expired source | Copy may be out of date | Re-read the source, then update the skill, then (and only then) its `sources_read` | registry owner |
+| Skill states a time-bound fact (tool status, plant tier, forum cadence, KPI basis) as current | A fresh read date does not make a moving fact current | Look the fact up live and name the source and its date in the report; list in `references/process-chain-practice.md` | registry owner |
 | Registry mark older than the threshold | Figures quoted by skills may have moved | Ask for a new export of the Scorecard or graph; do not edit the mark | registry owner |
 
 ## Open

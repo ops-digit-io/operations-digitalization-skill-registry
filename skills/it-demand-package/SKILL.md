@@ -68,6 +68,7 @@ that follows as weeks (IT commitment and approval).
 |---|---|
 | [`references/it-touchpoints.md`](references/it-touchpoints.md) | Which demands belong here, the kinds of ask OD puts to IT (licences and budget, platform integration, capacity), the IT roles of the platform operations concept, how to find the initiatives that lean on IT, where demands typically wait |
 | [`references/external-build-and-foreign-app-inputs.md`](references/external-build-and-foreign-app-inputs.md) | The foreign-app description in the legacy list's own columns, the four assessment questions, what an external developer can be handed from OD's side, typical foreign-app patterns and how to count them on the live legacy list |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The package at chain step 3a4: demand-management question list, request flow, small change versus project, supplier-built app practice, commercial consistency check, decision pairs, agent notes |
 | [`assets/it-demand-package.md`](assets/it-demand-package.md) | The package to fill: parts 0 to 12, with the pre-wired skills and the checks before hand-over |
 
 What stays open after mining the vault: IT's own demand form, the board's criteria and rhythm, the contact and the lead time are in none of the sources read.
@@ -88,9 +89,11 @@ What stays open after mining the vault: IT's own demand form, the board's criter
 ## Procedure
 
 1. **Check the front-end** is complete: requirement, tool decision, business case. If a part is missing, name it and stop.
+   A small change (a few days, budget available, standard interface) is a ticket by the local key user, not a package.
 2. **Pick the route**: 3a.3 or 3a.4. The routes 3a.1 and 3a.2 do not need this package.
 3. **Assemble the package** from the table. Every gap stays visible as ⟨missing⟩ with the person who can close it.
 4. **Add IT's own required fields** once they are known: ⟨IT demand form fields - to be supplied⟩.
+   Before calling it ready check that offer, capital request and contract are the same version and that a named role drives purchasing.
 5. **Hand over for submission.** A human submits to IT demand management. The evaluation board decides. This skill neither
    submits nor decides.
 6. **After the decision**, continue with `deploy-appstore` (deployment gate) and `od-handover-and-adoption` (rollout).

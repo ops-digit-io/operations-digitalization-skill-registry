@@ -84,6 +84,7 @@ whole argument for doing this before a flow is built rather than after.
 | [`references/field-signal-vocabulary.md`](references/field-signal-vocabulary.md) | **How to read what is in use on the consuming sides.** The flow-config signal keys and collisions, the `CT` leaf names, display labels in several languages on the dashboards, and the rules that follow |
 | [`references/capability-template-signal-sets.md`](references/capability-template-signal-sets.md) | **Per capability template**, what the existing dashboards typically read (signals, variables, data sources), the template boundary, blocker themes to expect and how to look up reference solutions - to set against the requirement sets above |
 | [`references/machine-vendor-and-connector-landscape.md`](references/machine-vendor-and-connector-landscape.md) | How to read the machine records by controller vendor, integration route and status, and what each connector family reaches |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: data class and route, information-model layering, the five data-model steps, AI-assisted signal selection, decision rules, handoff contract, AI agent operating notes |
 | [`assets/signal-binding-sheet.md`](assets/signal-binding-sheet.md) | **Form.** One row per signal - unit, scale, value type, delta meaning, setpoint or actual, consumers - the record the dashboard exports show is missing |
 
 ## Two inputs, one output

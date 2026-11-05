@@ -80,6 +80,7 @@ to `deploy-appstore` and `it-demand-package` (draft skills).
 | [`references/footprint-and-data-path.md`](references/footprint-and-data-path.md) | The reference architecture and systems of record, how to read the tools' rollout and use records, how the footprint is bounded, and the discrepancies to confirm before citing a status |
 | [`references/build-path-options.md`](references/build-path-options.md) | The four build paths, the question that selects each, the skill that executes it, the gates, and the support-tier split |
 | [`references/legacy-application-landscape.md`](references/legacy-application-landscape.md) | How to read the recorded plant-local applications: categories, support, licences, network placement, and what that means for "replace, integrate or keep" |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the recommendation is produced at chain steps 32 / 3a4: rule chain from use case to make-or-buy, supplier-built app and selection round, legacy component assessment, operations-concept precondition, handoffs, agent notes |
 | [`assets/design-recommendation.md`](assets/design-recommendation.md) | The recommendation form |
 
 The per-tool "is / is not" lines and the per-plant availability guidance are in `od-system-fit-check`; they are used
@@ -111,7 +112,9 @@ here, not copied.
    the capability (plan row P-08, `od-cross-plant-compatibility`; `od-signal-standardization`). An app
    that fixes a plant-specific layout into its tags fails this.
 7. **Name the run owner.** Who supports the app after go-live, local or central, and who is the plant
-   owner (`od-handover-and-adoption`: the three-question test).
+   owner (`od-handover-and-adoption`: the three-question test). A tool with no business owner, IT
+   owner, service concept and support level is not recommended for rollout: escalate it as a
+   service gap (`references/process-chain-practice.md`).
 8. **Write the recommendation** in the form and hand it over: the tool/system rollout row of
    `od-decision-routing` if a tool is added, the IT demand route if a platform OD does not own is touched,
    `od-benefit-calculation` for the value side, `od-investment-input` for the cost side.

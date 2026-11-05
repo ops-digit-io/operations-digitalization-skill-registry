@@ -45,6 +45,7 @@ Read `od-context` first.
 | [`references/rollup-method.md`](references/rollup-method.md) | Which boundaries a sum may never cross (tracked/proven, reliability class) — the general rule behind "never merge tracked and proven" |
 | [`references/prioritization.md`](references/prioritization.md) | A weighted-scoring/value-effort method for ranking use cases in a review, and the unscoreable bucket for `UNKNOWN` priority/potential |
 | [`references/regional-handling.md`](references/regional-handling.md) | Why Europe/Americas/Asia are never blended into one conversion figure, and what to report instead |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Order of ranking criteria, numbered planning states, the where-saved matrix, dependency versus return ordering, kill and hold hygiene, and what an agent may draft |
 
 Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) — one
 document per review round, built from `od-sharepoint-list-export`'s capture and
@@ -138,6 +139,8 @@ Rationale, blockers and comments were written during active work and later tidie
 
 ## Do not
 
+- Do not treat rollout or deployment count as value, and do not write "no potential" for a scaled use case without savings; mark it for further investigation.
+- Do not rank without saying which order of criteria was used and which planning state it is.
 - Do not roll up savings across reliability classes into one headline.
 - Do not compare regional counts without their conversion rates.
 - Do not present a portfolio figure without the date it was read.

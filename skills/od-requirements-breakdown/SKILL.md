@@ -71,6 +71,7 @@ live `target_text` and `blockers` fields and quote the export date.)
 | [`references/requirement-template.md`](references/requirement-template.md) | The ten core sections and the four lane variants, with what each is for and how it fails |
 | [`references/elicitation.md`](references/elicitation.md) | The question rounds that get the problem out, and the five judgement calls that make this hard |
 | [`references/legacy-system-assessment.md`](references/legacy-system-assessment.md) | The other half of the output — checking the legacy applications and the lean-footprint fit |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice for steps 22 and 31: category to method to data job, object/event/metadata checks, signal-list handoff, AI-assisted signal selection, legacy and OT application assessment (rubrics), agent notes |
 | [`references/epic-and-user-stories.md`](references/epic-and-user-stories.md) | The second output — the background description, which epic axis to use, how to cut stories, and what makes acceptance testable |
 | [`assets/requirement-template.md`](assets/requirement-template.md) | The blank requirement to copy |
 | [`assets/epic-and-stories.md`](assets/epic-and-stories.md) | The blank epic to copy |
@@ -95,6 +96,10 @@ defines the signals — `od-signal-standardization`.
 **4 · Name the signals, and verify them.** Canonical names, direction in/out, and an
 existence verdict per signal from `od-data-availability-check` — **verified, not assumed**.
 An `out` signal must be registered on the edge platform before anything publishes to it.
+A sensor value is not an event: say how each event is derived, and check whether the use case needs
+production metadata (order, part, batch) that time-series alone cannot give; a missing relation is a
+data gap, not something to approximate. Signals needed but not collecting go into a
+`signal id | label | why needed` table for the information-integration lane.
 
 **5 · Write testable acceptance criteria**, including one that requires use in a real shift
 by a named plant role. That is the department's own handover rule.

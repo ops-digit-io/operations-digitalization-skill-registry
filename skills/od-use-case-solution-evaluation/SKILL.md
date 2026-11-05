@@ -56,6 +56,7 @@ always ends in a visualized ranking and a single evaluation score — never pros
 | [`references/case-library.md`](references/case-library.md) | **Step 0.** How the pre-evaluation ranking works, what the 70-case library actually is (literature cold-start, not a benchmark), and how to grow it with real cases |
 | [`references/complexity-drivers.md`](references/complexity-drivers.md) | The 27 drivers that describe *why* a use case is complex, and which of the 16 areas each one points at — the problem side |
 | [`references/focus-areas.md`](references/focus-areas.md) | All 16 IT/OT capability areas: levels, what each level looks like in a plant, and where to set the target from need — the solution side |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Quick fit tests used in the chain next to the capability model (tool boundary, edge versus plain connection, PLC versus rule engine, make or buy), the operations-concept gate, handoff and agent notes |
 | [`references/dependencies.md`](references/dependencies.md) | Which capability levels require which others first, the source table's own reliability caveat, and the recommended backbone chain |
 
 ## The method — one fast pre-check, then four steps, same order every time
@@ -153,6 +154,9 @@ output into it, not by re-describing the run from memory.
 
 ## Guardrails
 
+- **A tool without an operations concept (owner, service level, support level) is not "ready to
+  build"** whatever the capability levels say; verdict is escalate. Tool boundary sentences and
+  the operations-concept status go next to the verdict (`references/process-chain-practice.md`).
 - **Never rate a driver from memory of a similar use case.** Each use case gets its own
   driver profile; two use cases at the same plant can be rated differently and both be right.
 - **A close case-ranking match is a reason to move faster, never a reason to skip steps 1-4.**

@@ -53,7 +53,9 @@ From the IIoT Edge platform tool deck: purpose is **process or product
 ramp-up support** and **process or product trouble shooting**. What OD does: prepare process data
 acquisition that fulfils the analytics requirements, **make problems S.M.A.R.T.**, generate
 insights. Details, the two data scenarios, how to talk about cost, and the shape of two typical ad-hoc
-analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md).
+analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md). How the step is run in
+practice (SMART test with a good and a bad pair, object and event reduction, organizational versus technical
+split, diagnosis patterns, handoff contract, agent notes): [`references/process-chain-practice.md`](references/process-chain-practice.md).
 
 ## When it applies, and when it does not
 
@@ -77,10 +79,12 @@ analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md)
    answer. If the requester cannot state a question, run the S.M.A.R.T. step of the form before
    anything else.
 3. **Make it S.M.A.R.T.** Restate the problem so that it has a measurable symptom, a defined scope,
-   a question the data can answer, a reason it matters and a time frame. The deck does not expand
-   the acronym; the usual expansion (specific, measurable, achievable, relevant, time-bound) is the
-   working assumption here. Use the examples in the offering reference to see the difference
-   between "diameter oscillates" and a question a dataset can answer.
+   a question the data can answer, a reason it matters and a time frame. The workshop decks give the test
+   as: specific purpose, clear objective, a real problem, a timeframe, and a named stakeholder who needs it;
+   a precise date and a quantified target **without a baseline** still fail, because the target is invented.
+   (The acronym's own expansion is still not written out in the decks.) Use the examples in the offering
+   reference and in `references/process-chain-practice.md` to see the difference between "diameter oscillates"
+   and a question a dataset can answer, and reduce the sentence to object and event.
 4. **Check the data** with `od-data-availability-check`: is the signal readable, at what
    resolution, for what period? Classify into the two scenarios of the offering (A: edge platform
    and compliant network available; B: no way to connect the machine to an available edge

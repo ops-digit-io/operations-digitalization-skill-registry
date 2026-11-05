@@ -1,0 +1,40 @@
+---
+type: Skill Reference
+title: Training programme
+description: Running the toolbox training offer - request, registration, invitation cycle, feedback, needs list and delivery format. Programme management, not the plant package.
+resource: ../SKILL.md
+status: draft
+owner: human:jakob.gabriel
+tags: [all, practice]
+generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
+---
+# Training programme
+
+The plant training package and competence checklist belong to `od-rollout-training`. This file runs the offer.
+
+## Participant process
+
+Check the offer overview, register for a session, wait for the invitation (reviewed on a monthly cycle), join,
+give feedback. If nothing fits, state the need and the idea. Pre-recorded sessions serve those who do not wait.
+Training need is raised by request or in the regular project calls.
+
+## Programme management steps
+
+1. Keep a **needs list**: training, description, requester, status. Typical gaps: query language for
+   dashboards, edge platform, dashboard creation, ETL tools, scripting for time-series ETL.
+2. Per tool a stepwise path from entry to advanced; plant-level sessions first, later common sessions per tool at a fixed interval.
+3. Review registrations monthly; invite; collect feedback; iterate content into short self-learning units.
+4. Periodic short survey: level of understanding, expectations for transfer, wished topics; analyse in the next CoP.
+5. Report offer, attendance and feedback as inputs to the next round and to `od-retro`.
+
+## Rules and tension
+
+- Plans diverged: plant-level hands-on sessions versus fewer sessions with more participants. Safer reading:
+  common sessions for concepts and tools, plant hands-on for competence `<to confirm>`.
+- Prefer real use-case training over generic tool demos; learning paths by level and function.
+- Tool training does not replace an operations concept.
+
+## Agent notes
+
+An agent may keep the needs list, draft the invitation list and summarise feedback; the programme owner
+approves the schedule. Training and calls under-used is a risk signal for `od-risk-watch`.

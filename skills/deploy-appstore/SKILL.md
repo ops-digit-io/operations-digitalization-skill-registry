@@ -74,6 +74,7 @@ running, pilot, planned or design-only and look the current status up in the sou
 |---|---|
 | [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | How to classify maturity (running, pilot, planned, design-only) and where to look the current status up; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
 | [`references/app-manifest-and-release-gate.md`](references/app-manifest-and-release-gate.md) | The proposed app manifest, interface and versioning rules, what the vault does NOT hold, and the release-gate checklist R1 to R11 |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The deploy step in the chain: source-ownership scenarios, GitOps shape, local preparation checklist, migration and cutover pitfalls, pilot scope limits, back-out gap, handoffs, agent notes |
 | [`assets/deployment-package.md`](assets/deployment-package.md) | The package and gate table to fill per app |
 
 ## Where the flow puts it
@@ -92,7 +93,7 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 1. **Precondition.** The front-end is done: requirement (`od-requirements-breakdown`), tool decision (`od-system-fit-check`,
    `od-decision-routing`), business case (`od-benefit-calculation`), capital approved where needed.
 2. **Confirm the target and the route** (above). Record both.
-3. **Assemble the deployment package**: what the app is and who owns it; the plant sponsor; the target; the sourcing route;
+3. **Assemble the deployment package** (ask for source ownership in the supplier contract; otherwise the highest-effort scenario applies, see `references/process-chain-practice.md`): what the app is and who owns it; the plant sponsor; the target; the sourcing route;
    the data it reads and writes (against `systems-of-record`); the dependencies; the rollback owner; the acceptance protocol.
    ⟨Containerization requirements, image and registry rules, resource limits⟩ - to be supplied. A proposed manifest (name, owner, topics consumed and published,
    API description, whether it writes to a machine, identity, Cyber Security review state) is in `references/app-manifest-and-release-gate.md`; it is a design proposal, not the pilot's procedure.

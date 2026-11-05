@@ -126,7 +126,9 @@ topology* below.
 6. **Size the investment** and take it through integration investment planning; the
    go-ahead is `execute-with-approval`, Tandem with Plant ME / Plant IT.
 7. **Confirm the Cyber Security / OT gate** for anything involving an external
-   connection, before it is scheduled — not after.
+   connection, before it is scheduled — not after. Treat controller patch status and the
+   sign-off scope as a **precondition of the wave**: open patches blocked the second wave
+   in practice (`references/process-chain-practice.md`).
 8. Hand to execution, then `od-signal-standardization`, then `od-acceptance-test`.
 
 Reference standard for the requirement spec: **PRS — Requirement Specification for
@@ -176,6 +178,7 @@ per machine.
 | [`references/plant-integration-status.md`](references/plant-integration-status.md) | How to build a plant-by-plant status view from the Machine List and the Tool Overview: which fields to read, the computed flags, the typical record mismatches between the two, and how to count live |
 | [`references/vendor-protocol-routes.md`](references/vendor-protocol-routes.md) | Per vendor, PLC model and network protocol: which route and connector applies, which combinations have no route recorded, and how to read the Machine List for them |
 | [`references/connector-fact-sheets.md`](references/connector-fact-sheets.md) | Per connector: signal limits and sampling rates as product facts, file and camera endpoints, written build estimates (as a kind of source), and how to read connector-to-machine links |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the wave is run in the chain (1b3, 3b4, 3b5): weekly capital-request micro-process, Cyber Security as wave precondition, per-plant planning workflow, data classes with default hub and leading system, energy-monitoring and MES lessons, agent notes |
 | [`references/blockers-and-waves.md`](references/blockers-and-waves.md) | Kinds of recorded blocker and their root causes, project references and waves, the eCR step, and where department roadmap figures live (staging, unverified) |
 
 ### Terminology — one name per thing

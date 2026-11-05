@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How a flow fault is handled inside the new process chain - where the symptom usually comes from, the handoff contract, ownership signals, platform-change causes, pitfalls, and AI agent operating notes. Process guidance only; no figures. |
 | [Symptoms extended](symptoms-extended.md) | Skill Reference | Guidance, no figures - the disabled-tab check, how to measure where analyser findings concentrate, extra symptom rows, and three illustrative worked findings. |
 | [Symptoms](symptoms.md) | Skill Reference | What the static analyser cannot see: work down from the symptom to the cause and the file to open. |

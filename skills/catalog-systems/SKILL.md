@@ -71,6 +71,7 @@ then "Apply template and go live". If no standard system fits, the demand falls 
 | [`references/validated-routes.md`](references/validated-routes.md) | How to classify a route: written down **and** proven in the Machine List, in four classes (A written and proven, B proven but unwritten, C fallback or single plant, D none), and how to count the evidence live |
 | [`references/tools-and-footprint.md`](references/tools-and-footprint.md) | The three integration concepts, the shop-floor tools, how to read rollout and deployment status live, what lean footprint means for a kit |
 | [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: how to read licence, support, criticality and cyber-security position of the legacy application list |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the match is run: the is / is-not boundary and recommended-if trigger per tool, data-class routes, edge versus plain client, operations-concept gate, wave rules, handoff contract, agent notes |
 | [`assets/standard-system-entry.md`](assets/standard-system-entry.md) | The blank entry, the route-candidate template, and the system match record |
 
 **Pattern from mining the vault:** a route meets the proposed test when it is "written in full and proven in at least two plants" (typically Siemens S7/TIA and Rockwell, on the edge and on the aggregation server; re-derive live). None of them has a kit, price or lead time on record, so they are **route candidates**, not yet standard systems. Routes that are in use at only one or two plants with an unwritten procedure (typically some Beckhoff, Omron, B&R, Bachmann and Modbus routes) are not candidates.
@@ -86,6 +87,10 @@ then "Apply template and go live". If no standard system fits, the demand falls 
 | Lead time (procurement, Cyber Security) | ⟨to be supplied⟩ |
 | Cyber Security status | ⟨to be supplied⟩ |
 | Validated at | plants where machines are recorded `INTEGRATED` through the route - count live per `references/validated-routes.md` (Machine List, state the export date); ⟨plants where the *kit* runs⟩ to be supplied |
+| What it is / what it is **not** | the tool's boundary sentences, so a request can be tested against them |
+| Integration recommended if | the trigger condition, tied to a named use case |
+| Cost class | free / per-connector / per-plant development - a class, not a number |
+| Operations concept | named operations owner, service and support level at the plant - without it no rollout match |
 | Known blockers | `od-equipment-integration`, `barrier-classes.md` |
 
 A **standardized system** is, until the OD lead says otherwise, a route that is written down in full **and** a purchasable kit.

@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Process chain practice](process-chain-practice.md) | Skill Reference | Additional early indicators the chain produces for risk watch - operations concept, ticket age, stale lists, savings-forecast gaps, preconditions that block waves, the blocker brief - plus the cadence formats and what an agent may draft. Pattern only, no figures. |
 | [Risk indicators](risk-indicators.md) | Skill Reference | The six registered risks with the source of each early indicator, how to read each indicator live, the trigger test and the kinds of gap that make an indicator unreadable. |

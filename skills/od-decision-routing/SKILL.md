@@ -42,6 +42,7 @@ Read `od-context` first.
 |---|---|
 | [`references/decision-rights-framework.md`](references/decision-rights-framework.md) | Why Tandem/Consultation/Information are a cited framework (Bain's RAPID), not a house convention — and how to pick a mode for a decision not yet in the table |
 | [`references/escalation-worked-examples.md`](references/escalation-worked-examples.md) | Illustrative ODEC-vs-COP patterns and how the forum is chosen — the strategic/technical split within one topic (cybersecurity), a blocker that stays at COP, and what happens when COP under-delivers |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Small change versus project, what may enter routing, decisions as decision / proposal / risk of not doing, the operations-concept gate, board patterns, and what an agent may draft |
 
 **The function proposes; other people decide.** Most portfolio gates sit
 outside OD. The work that reliably moves is the work where the gate was identified at
@@ -118,7 +119,7 @@ Escalate on these triggers from the risk register:
 2. Read off the owner, the mode, the threshold and the authority level.
 3. If the required level is above yours, produce the recommendation and route it — do not
    narrow the action until it fits your level.
-4. Record the gate as a **dependency** on the use case or saving row so it stays visible.
+4. Record the gate as a **dependency** on the use case or saving row so it stays visible. Write the decision as decision, proposal, risk of not doing.
 5. Escalate on the trigger, to the right forum, inside the round's window.
 
 ## Output — the protocol

@@ -60,6 +60,7 @@ who owns five of the six risks (the sixth, value not materializing, is owned by 
 |---|---|
 | [`references/risk-indicators.md`](references/risk-indicators.md) | The six risks, one by one: where the indicator is read, how to read the indicator live (source, field, filter), the trigger test, the kinds of gap that make an indicator unreadable |
 | [`assets/risk-reading.md`](assets/risk-reading.md) | The monthly reading to fill |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Supporting indicators the chain produces, the blocker brief, cadence formats, the scoring conflict to avoid, and what an agent may draft |
 
 ## Statuses
 
@@ -114,6 +115,7 @@ reference); reporting them as clear would be the exact failure the honesty rules
 
 ## Do not
 
+- Do not import probability or impact scoring from project plans into the register (`references/process-chain-practice.md`).
 - Do not assign probabilities, impact scores or colours that the register excludes by design.
 - Do not report an unreadable indicator as clear.
 - Do not take a vault aggregate as a live reading; label the snapshot date.

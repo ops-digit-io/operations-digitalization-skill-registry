@@ -62,7 +62,9 @@ State which one you mean, every time. The department's own AI decks use these la
 | **Pilot** | It runs with real users in one place for a time-boxed period | That it scales; that the saving is real |
 | **Rollout** | It is deployed and used at more than the pilot site | Proven value: that is only SPRINT (`od-benefit-calculation`) |
 
-A pilot or PoC result is evidence for the business case. It is never "proven". The two AI decks even disagree
+The strategy material works with four working stages - PoC, prototype, pilot, rollout - where the prototype validates feasibility and the pilot
+validates operational scalability ([`references/process-chain-practice.md`](references/process-chain-practice.md)). A prototype outside the
+standard needs a path to the reference architecture. A pilot or PoC result is evidence for the business case. It is never "proven". The two AI decks even disagree
 on the same items; quote the label with its deck and date.
 
 ## The references are the substance
@@ -71,6 +73,7 @@ on the same items; quote the label with its deck and date.
 |---|---|
 | [`references/status-labels.md`](references/status-labels.md) | The label ladder the decks use, how labels mislead (disagreement between decks, "rollout" is not proven value), and the rule for quoting one |
 | [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | The Gemba App requirements-to-mockup pilot as a method: process, click-dummy prompt system, what to copy, what the sources do not show |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: the PoC, prototype, pilot, rollout stages, scope-limiting as a gate strategy, AI-assisted mock-ups, handoff contract, AI agent operating notes |
 | [`references/validation-patterns.md`](references/validation-patterns.md) | How the AI business cases define a validation plan and pass criterion; wording patterns to copy (placeholder thresholds) |
 | [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) | The brief to write before anyone builds a mock-up |
 | [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) | The record this skill produces; `od-benefit-calculation` and `od-capital-request` read it next |

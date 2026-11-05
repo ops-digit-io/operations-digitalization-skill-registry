@@ -5,3 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [OD context](SKILL.md) | Agent Skill | The shared ground truth for MPEE Operations Digitalization (OD) — the department's vocabulary, its four service lines, who decides what, where the truth actually lives, and the honesty rules every other OD skill inherits. Load this before any OD work: before answering a question about a use case, a machine, a saving, a plant or a scorecard figure; before routing a request to a service line; before quoting any OD number. Use it whenever terms like use case, asset, equipment integration, the data platform, Databricks, MSB, IIoT Edge, MDA/PDA, MES, ODEC, COP, DBVE, IIAE, Digitalization Scorecard, CSP, eCR or SPRINT appear and must resolve to exactly one meaning. |
+
+| Folder | Holds |
+|---|---|
+| [references/](references/index.md) | 1 concept(s) |

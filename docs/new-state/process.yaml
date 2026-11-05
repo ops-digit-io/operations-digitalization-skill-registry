@@ -17,7 +17,7 @@ intake:
       title: Classify the demand
       text: Known use case runs in Lane 1; a new use case on a connected machine goes to Lane 2; a new system or connector goes to Lane 3.
       skills: [od-use-case-intake-triage, od-system-fit-check]
-      proposed: [od-first-aid-kit]
+      proposed: [od-first-aid-kit, od-event-object-modelling, od-ai-generation-playbook]
 
 lanes:
   - id: lane1
@@ -38,7 +38,7 @@ lanes:
           - id: 1a3
             title: Validate and go live
             skills: [catalog-guardrails]
-            proposed: [od-rollout-training]
+            proposed: [od-rollout-training, od-utilization-review]
       - id: 1b
         title: Machine not connected, standardized-system onboarding
         steps:
@@ -54,7 +54,7 @@ lanes:
             title: Order and connect the system
             wait: "~wks"
             skills: [od-equipment-integration]
-            proposed: [od-cybersec-gate]
+            proposed: [od-cybersec-gate, od-machine-integration-plan]
           - id: 1b4
             title: Apply the template and go live
             skills: [od-analytics-asset-build]
@@ -71,26 +71,28 @@ lanes:
           - id: "21"
             title: Define and diagnose
             skills: [od-use-case-definition, od-use-case-support-service]
-            proposed: [od-workshop-facilitation, od-first-aid-kit]
+            proposed: [od-workshop-facilitation, od-first-aid-kit, od-event-object-modelling]
           - id: "22"
             title: Features and data check
             skills: [od-requirements-breakdown, od-data-availability-check, od-use-case-solution-evaluation]
+            proposed: [od-machine-integration-plan, od-event-object-modelling]
           - id: "23"
             title: Prototype and validate
             skills: [od-analytics-asset-build, od-prototype-poc]
+            proposed: [od-governance-cadence]
           - id: "24"
             title: Business case and rank
             skills: [od-benefit-calculation, od-portfolio-and-savings-analysis]
-            proposed: [od-use-case-prioritization]
+            proposed: [od-use-case-prioritization, od-plant-diagnosis]
           - id: "25"
             title: Capital request
             wait: "~wks"
             skills: [od-decision-routing, od-capital-request]
-            proposed: [od-investment-input]
+            proposed: [od-investment-input, od-project-order]
           - id: "26"
             title: Implement and graduate to the catalog
             skills: [od-analytics-asset-build, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
-            proposed: [od-impact-evaluation, od-use-case-promotion, od-rollout-training]
+            proposed: [od-impact-evaluation, od-use-case-promotion, od-rollout-training, od-utilization-review, od-project-order]
 
   - id: lane3
     title: New system or connector
@@ -107,35 +109,35 @@ lanes:
           - id: "32"
             title: Tool decision and IT gate
             skills: [od-system-fit-check, od-decision-routing]
-            proposed: [od-application-consulting]
+            proposed: [od-application-consulting, od-migration-cutover]
           - id: "33"
             title: Business case and capital
             wait: "~wks"
             skills: [od-benefit-calculation, od-capital-request]
-            proposed: [od-investment-input]
+            proposed: [od-investment-input, od-project-order]
       - id: 3a
         title: New system (make, buy, integrate)
         steps:
           - id: 3a4
             title: Package or build the app
             skills: [it-demand-package]
-            proposed: [od-application-consulting]
+            proposed: [od-application-consulting, od-project-order]
           - id: 3a5
             title: Deploy to the platform and Cyber Security
             wait: "CS ~wks"
             skills: [deploy-appstore, od-acceptance-test]
-            proposed: [od-cybersec-gate]
+            proposed: [od-cybersec-gate, od-migration-cutover]
           - id: 3a6
             title: Rollout and adopt
             skills: [od-handover-and-adoption]
-            proposed: [od-rollout-training]
+            proposed: [od-rollout-training, od-migration-cutover, od-utilization-review]
       - id: 3b
         title: New connector for a new machine
         steps:
           - id: 3b4
             title: Connector and pipeline to the data platform
             skills: [od-equipment-integration, od-signal-standardization, od-node-red-flow-builder]
-            proposed: [od-barrier-triage, od-cross-plant-compatibility]
+            proposed: [od-barrier-triage, od-cross-plant-compatibility, od-machine-integration-plan]
           - id: 3b5
             title: Procure and connect the machine
             wait: "procurement ~wks"
@@ -150,7 +152,7 @@ spine:
   title: Supporting spine
   summary: Skills that apply across the lanes and are not drawn as steps.
   skills: [od-context, od-scorecard-reporting, od-portfolio-and-savings-analysis, od-sharepoint-list-export]
-  proposed: [od-context-freshness, od-template-resolution, od-retro, od-risk-watch, od-plant-onboarding]
+  proposed: [od-context-freshness, od-template-resolution, od-retro, od-risk-watch, od-plant-onboarding, od-ai-generation-playbook, od-governance-cadence, od-plant-diagnosis, od-utilization-review]
 
 unplaced:
   title: Not placed in the flow

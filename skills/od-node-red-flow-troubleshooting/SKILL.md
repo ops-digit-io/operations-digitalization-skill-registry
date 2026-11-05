@@ -142,6 +142,7 @@ tenths of a degree. If the conversion is missing the data flows and is wrong. Se
 | File | Use it for |
 |---|---|
 | [`references/symptoms-extended.md`](references/symptoms-extended.md) | **Check the tab is enabled first** (how to count disabled tabs live). Where findings tend to concentrate and how to measure it, more symptom rows, three illustrative worked findings |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How a fault moves through the chain**: what changed first, wrong-value causes, platform-change causes, ownership signals, handoff contract, AI agent operating notes |
 | [`assets/triage-record.md`](assets/triage-record.md) | The record to fill in while diagnosing: cheapest checks first, analyser result, what the analyser cannot see, decision |
 
 ## Fast triage by symptom

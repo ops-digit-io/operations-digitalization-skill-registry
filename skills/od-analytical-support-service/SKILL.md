@@ -47,6 +47,7 @@ solution — and knowing which of the two is being asked for is step one.
 
 | File | Use it for |
 |---|---|
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How ad-hoc work is run in practice: descriptive first, plausibility before models, the statements an analysis must carry, idea-collection and potential-analysis routes, handoff contract, agent notes |
 | [`references/composed-artefacts.md`](references/composed-artefacts.md) | Which composed skill's real, built asset answers each step below, and what is still genuinely open rather than just unlinked |
 
 ## Happy path
@@ -70,6 +71,9 @@ promotion → hand to `od-use-case-support-service`.
 - **One-off insight with no recurring value** → close as ad-hoc; do **not** industrialize.
   Refusing to promote is a valid outcome of this lane.
 - **Low utilization of a delivered asset** → review with the requester or retire it.
+- **Data too sparse, sample too small, or model quality too low** → say so and stop at the descriptive
+  result; do not present explainability output as a finding. Any process conclusion goes to the
+  process expert as "needs expert review" first.
 
 ## Wait states
 

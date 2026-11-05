@@ -62,6 +62,7 @@ the OD lead sets it, use the practical triggers in the description above and wri
 | [`references/savings-proof-path.md`](references/savings-proof-path.md) | The path a saving takes from pre-evaluation to proven, the gates on it, and the common ways it stalls |
 | [`references/evaluation-questions.md`](references/evaluation-questions.md) | What to ask the plant owner and what to read in the systems, mapped to OD's utilization template and the Use Case Canvas success criteria |
 | [`assets/impact-evaluation-record.md`](assets/impact-evaluation-record.md) | The output: evaluation and adoption confirmation record |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Deployed is not used, the savings-forecast gate at sprint close, the utilisation table, dashboard-to-paper reconciliation, who attests value, and what an agent may draft |
 
 ## Procedure
 
@@ -123,6 +124,8 @@ proven euros as one total.
 
 ## Do not
 
+- Do not close a sprint or an evaluation while savings baseline, forecast and registered project are missing (forecast gate in `references/process-chain-practice.md`).
+- Do not accept a dashboard as valid before it is reconciled with the paper process, and do not count a dashboard without an action owner as impact.
 - Do not mark adoption confirmed without the plant owner's dated statement.
 - Do not turn a missing figure into zero or an estimate into a calculation.
 - Do not add tracked and proven euros together, or report a plant's saving as a department total.

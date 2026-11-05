@@ -76,6 +76,7 @@ the barrier; this skill classifies and routes it.
 |---|---|
 | [`references/classes-and-routes.md`](references/classes-and-routes.md) | The seven root-cause classes, the questions that tell them apart, and for each the exit, the owner, the forum and the wait state |
 | [`references/estate-patterns.md`](references/estate-patterns.md) | How to read the Machine List for barrier patterns: where `NOT INTEGRATED` clusters by vendor, protocol and plant, how to group recorded blocker texts by class, and the data gaps that make triage impossible - guidance and live-count recipes, no figures |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Recurring blocker patterns mapped onto the classes, ownership tells of a stuck case, the blocker one-pager, barrier reporting with cost of non-decision, handoffs, agent notes |
 | [`assets/barrier-triage-record.md`](assets/barrier-triage-record.md) | The record: facts, class, tier, exit, owner, log line |
 
 Already in `od-equipment-integration`, not repeated here: the difficulty ranking
@@ -104,6 +105,9 @@ an unavailable PLC program and the eight blocking places
    that no longer exists (`barrier-classes`).
 5. **Place the tier.** Position of the machine's protocol and vendor in the easy-to-hard ranking
    (`barrier-classes`). Say where the ranking disagrees with the raw integration rate of the estate.
+   A tool or system with no named operations owner and support level is class C4 whatever the
+   blocker text says (`references/process-chain-practice.md`), and a case with no named owner is
+   not a Roadmap exit.
 6. **Choose the exit.**
    - **Roadmap**: the barrier is known, owned and can clear (patch window, program from the supplier,
      Cyber Security sign-off, edge device on order). Log it, give it a sequence position and an owner,

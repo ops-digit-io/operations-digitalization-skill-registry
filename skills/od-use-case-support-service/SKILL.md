@@ -41,6 +41,7 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/lane-templates.md`](references/lane-templates.md) | Which already-built skill's asset answers each step's template — this lane routes to them rather than repeating them |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The lane's flow blocks mapped to chain steps, the use-case sprint (rhythm, standard deliverable set), registration gate for savings, handoff table between blocks, agent notes |
 
 **Trigger.** Plant use-case demand, or a request for a definition or integration
 workshop.
@@ -70,6 +71,9 @@ take it rather than be re-specified.
 - **Required system not deployed / operations concept missing** → route to strategy as a
   tool-rollout decision; mark the use case blocked in the portfolio.
 - **No nameable business case** → refuse per intake and return to the demand owner.
+- **Savings with no registered plant savings project or no baseline** → the saving is a claim, not a result;
+  register the project and fix the baseline before the next sprint review.
+- **Machine not connected** → no use case yet; open an integration request and record the dependency.
 - **Integration fails acceptance** → rework loop back to step 5.
 
 ## Wait states

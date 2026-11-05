@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Lane templates](lane-templates.md) | Skill Reference | Which already-built skill's asset answers each happy-path step's template, so this lane routes to the real artefact instead of leaving a placeholder next to a skill that already has the answer. |
+| [Process chain practice](process-chain-practice.md) | Skill Reference | How the use case support lane is run end to end in the AI-driven chain - the flow blocks with preconditions, the use-case sprint, the standard deliverable set, utilization and savings tracking, handoffs between blocks and agent operating notes. |
