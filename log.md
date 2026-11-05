@@ -91,7 +91,7 @@ not a concept.
   more than `spine-severed` (67). That same full-corpus run also caught two pre-existing,
   unrelated staleness bugs in `SKILL.md`'s findings table — `hardcoded-secret` was recorded
   as more flows than it affects (the finding count differs from the flow count when a flow carries two) and
-  `spine-severed` as 102 (actually 67) — both corrected along with the blocker-flow total
+  `spine-severed` with a wrong count — both corrected along with the blocker-flow total
   (98, not 59). Not an effect of anything changed this session; the table had simply drifted
   from the script.
 
