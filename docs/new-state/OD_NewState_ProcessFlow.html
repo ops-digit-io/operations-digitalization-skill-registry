@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OD New-State Service Lanes — Process Flow</title>
+<style>
+  :root{
+    color-scheme:light;
+    --navy:#1b1e52;--b1:#273993;--b2:#4e66af;--b3:#8895cb;--b4:#afc6e7;
+    --sun:#ffa500;
+    --mint:#1eb78b;--mint-d:#156e4e;
+    --melon-d:#f37558;--azure-d:#1d7375;
+    --g1:#333;--g2:#666;--g3:#999;--g6:#e6e6e6;
+    --built:#156e4e;--built-bg:#e2f1ea;
+    --part:#b9790a;--part-bg:#fff3df;
+    --gap:#8a8a8a;--gap-bg:#eeeeee;
+    --font:"Poppins","Segoe UI",Arial,sans-serif;
+    --serif:"Lora",Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:#dfe3ec;}
+  body{font-family:var(--font);color:var(--navy);padding:22px;-webkit-font-smoothing:antialiased;}
+  .page{width:1240px;max-width:100%;margin:0 auto;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 40px rgba(27,30,82,.18);}
+
+  header{background:var(--navy);color:#fff;padding:24px 34px 20px;position:relative;}
+  header::after{content:"";position:absolute;left:34px;bottom:0;width:110px;height:5px;background:var(--sun);}
+  .eyebrow{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--b4);font-weight:600;}
+  header h1{font-size:23px;font-weight:700;margin-top:6px;}
+  header h1 .thin{font-weight:300;color:#cdd6ef;}
+  .logo{position:absolute;top:24px;right:34px;text-align:right;}
+  .logo .mark{font-weight:700;font-size:18px;} .logo .mark b{color:var(--sun);}
+  .logo .tag{font-family:var(--serif);font-size:9.5px;color:#aab6dd;font-style:italic;margin-top:1px;}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;background:#eef1f8;border-bottom:1px solid var(--g6);padding:11px 34px;font-size:10.5px;color:var(--g2);}
+  .legend .grp{display:flex;align-items:center;gap:7px;}
+  .legend b{color:var(--navy);}
+  .st{display:inline-flex;align-items:center;gap:5px;font-weight:600;}
+  .st .sw{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .sw.built{background:var(--built);} .sw.part{background:var(--part);} .sw.gap{background:var(--gap);}
+  .own-k{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#fff;padding:2px 7px;border-radius:3px;}
+  .own-k.self{background:var(--mint-d);} .own-k.od{background:var(--b2);} .own-k.mix{background:var(--navy);}
+
+  /* lane */
+  .flow{padding:14px 30px 6px;}
+  .lane{display:flex;align-items:stretch;gap:0;margin-bottom:16px;border:1px solid var(--g6);border-radius:8px;overflow:hidden;}
+  .lane .spine{flex:none;width:118px;padding:14px 12px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+  .lane.l1 .spine{background:var(--mint-d);}
+  .lane.l2 .spine{background:var(--b2);}
+  .lane.l3 .spine{background:var(--navy);}
+  .spine .ln{font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+  .spine .nm{font-size:14px;font-weight:700;line-height:1.15;}
+  .spine .ow{font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:2px 6px;border-radius:3px;align-self:flex-start;}
+  .lane .body{flex:1;padding:12px 14px;display:flex;flex-direction:column;gap:12px;background:#fff;}
+
+  /* branch row */
+  .brow{display:flex;align-items:center;gap:0;flex-wrap:nowrap;}
+  .btag{flex:none;width:58px;font-size:9px;font-weight:700;color:var(--navy);line-height:1.2;padding-right:8px;}
+  .btag span{display:block;font-weight:400;font-size:8px;color:var(--g2);margin-top:1px;}
+  .track{flex:1;display:flex;align-items:stretch;gap:0;flex-wrap:nowrap;}
+
+  /* node */
+  .node{flex:1 1 0;min-width:0;background:#fff;border:1px solid var(--g6);border-top:4px solid var(--gap);border-radius:6px;padding:8px 9px 9px;display:flex;flex-direction:column;gap:5px;position:relative;}
+  .node.built{border-top-color:var(--built);}
+  .node.part{border-top-color:var(--part);}
+  .node.gap{border-top-color:var(--gap);background:#fbfbfb;}
+  .node .t{font-size:10.5px;font-weight:700;color:var(--navy);line-height:1.2;}
+  .node .who{font-size:8px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--g3);}
+  .chip{display:inline-block;font-size:8.7px;font-weight:600;padding:2px 6px;border-radius:3px;line-height:1.3;margin:1px 2px 0 0;}
+  .chip.built{background:var(--built-bg);color:var(--built);}
+  .chip.part{background:var(--part-bg);color:var(--part);}
+  .chip.gap{background:var(--gap-bg);color:var(--gap);border:1px dashed #c7c7c7;}
+  .node .state{position:absolute;top:7px;right:8px;font-size:7.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+  .node.built .state{color:var(--built);} .node.part .state{color:var(--part);} .node.gap .state{color:var(--gap);}
+
+  /* arrow between nodes */
+  .arr{flex:none;width:26px;display:flex;align-items:center;justify-content:center;position:relative;}
+  .arr::before{content:"";height:2px;background:var(--b3);width:100%;}
+  .arr::after{content:"";position:absolute;right:4px;width:0;height:0;border-left:6px solid var(--b3);border-top:4px solid transparent;border-bottom:4px solid transparent;}
+  .arr.wait::before{background:var(--melon-d);}
+  .arr.wait::after{border-left-color:var(--melon-d);}
+  .wlab{position:absolute;top:-2px;left:50%;transform:translateX(-50%);font-size:7.5px;font-weight:700;color:var(--melon-d);white-space:nowrap;background:#fff;padding:0 2px;}
+
+  /* fork connector cell (lane3) */
+  .fork{flex:none;width:30px;display:flex;align-items:center;justify-content:center;color:var(--b3);font-size:18px;font-weight:700;}
+  .branchcol{flex:1;display:flex;flex-direction:column;gap:9px;}
+  .subrow{display:flex;align-items:center;}
+
+  .fallnote{font-size:9px;color:var(--g2);font-family:var(--serif);font-style:italic;padding-left:2px;}
+  .fallnote b{color:var(--navy);font-style:normal;}
+
+  /* 3a option strip */
+  .opts{display:flex;gap:7px;}
+  .opt{flex:1;border:1px solid var(--g6);border-left:3px solid var(--b2);border-radius:5px;padding:6px 8px;font-size:8.6px;line-height:1.3;color:var(--g1);}
+  .opt .h{font-size:9px;font-weight:700;color:var(--navy);display:block;margin-bottom:2px;}
+
+  /* gap strip */
+  .gaps{margin:4px 30px 8px;}
+  .gaps h2{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+  .gaps h2::before{content:"";width:12px;height:12px;background:var(--sun);border-radius:3px;}
+  .gaprow{display:flex;flex-wrap:wrap;gap:8px;}
+  .gcard{flex:1 1 180px;border:1px dashed #c7c7c7;background:var(--gap-bg);border-radius:6px;padding:8px 10px;}
+  .gcard.thin{background:var(--part-bg);border-color:#e3c488;}
+  .gcard .gn{font-size:10px;font-weight:700;color:var(--navy);}
+  .gcard .gl{font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g2);margin-top:1px;}
+  .gcard .gd{font-size:9px;color:var(--g1);margin-top:4px;line-height:1.35;}
+  .gcard.thin .gn{color:var(--part);}
+
+  .foot{padding:12px 34px 20px;border-top:1px solid var(--g6);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;}
+  .foot .src{font-size:9px;color:var(--g3);line-height:1.5;}
+  .foot .src b{color:var(--g2);}
+  .foot .way{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--navy);}
+
+  @media print{body{padding:0;background:#fff;}.page{box-shadow:none;border-radius:0;width:100%;}@page{size:A3 landscape;margin:8mm;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="logo"><div class="mark">neu<b>werk</b></div><div class="tag">The neuwerk way</div></div>
+    <div class="eyebrow">Operations Digitalization &middot; MPEE</div>
+    <h1>New-State Service Lanes <span class="thin">— process flow with skills &amp; gaps</span></h1>
+  </header>
+
+  <div class="legend">
+    <div class="grp"><b>Skill state:</b>
+      <span class="st"><span class="sw built"></span>Built</span>
+      <span class="st"><span class="sw part"></span>Partial</span>
+      <span class="st"><span class="sw gap"></span>Gap (net-new)</span>
+    </div>
+    <div class="grp"><b>Owner:</b> <span class="own-k self">Self-service</span><span class="own-k od">OD-led</span><span class="own-k mix">OD / Ext / IT&middot;CS</span></div>
+    <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait (approval / CS / procurement)</div>
+  </div>
+
+  <div class="flow">
+
+    <!-- ===== INTAKE ===== -->
+    <div class="lane" style="background:#f2f5fb;">
+      <div class="spine" style="background:var(--b1);">
+        <div class="ln">Intake</div><div class="nm">Classify</div>
+        <div class="ow">triage + fit-check</div>
+      </div>
+      <div class="body" style="background:#f2f5fb;">
+        <div class="track">
+          <div class="node built" style="flex:2;"><div class="t">Known use case?</div><span class="chip built">od-use-case-intake-triage</span><span class="chip built">od-system-fit-check</span></div>
+          <div class="arr"></div>
+          <div class="node built"><div class="t">YES &rarr; run it</div><span class="chip built">Lane&nbsp;1</span></div>
+          <div class="arr"></div>
+          <div class="node built"><div class="t">NEW use case, machine connected</div><span class="chip built">Lane&nbsp;2</span></div>
+          <div class="arr"></div>
+          <div class="node built"><div class="t">NEW system / connector</div><span class="chip built">Lane&nbsp;3</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LANE 1 ===== -->
+    <div class="lane l1">
+      <div class="spine">
+        <div class="ln">Lane 1</div><div class="nm">Run a known use case</div>
+        <div class="ow">Self-service</div>
+      </div>
+      <div class="body">
+        <div class="brow">
+          <div class="btag">1a<span>connected</span></div>
+          <div class="track">
+            <div class="node gap"><span class="state">Gap</span><div class="t">Pick from catalog</div><span class="chip gap">catalog-usecase</span></div>
+            <div class="arr"></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Apply template</div><span class="chip built">od-analytics-asset-build</span></div>
+            <div class="arr"></div>
+            <div class="node gap"><span class="state">Gap</span><div class="t">Validate &amp; go live</div><span class="chip gap">catalog-guardrails</span></div>
+          </div>
+        </div>
+        <div class="brow">
+          <div class="btag">1b<span>not connected</span></div>
+          <div class="track">
+            <div class="node gap"><span class="state">Gap</span><div class="t">Pick UC + std system</div><span class="chip gap">catalog-usecase</span><span class="chip gap">catalog-systems</span></div>
+            <div class="arr wait"><span class="wlab">~d</span></div>
+            <div class="node part"><span class="state">Part</span><div class="t">Cost template + approval</div><span class="chip part">od-decision-routing</span></div>
+            <div class="arr wait"><span class="wlab">~wks</span></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Order &amp; connect system</div><span class="chip built">od-equipment-integration</span></div>
+            <div class="arr"></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Apply template &amp; go live</div><span class="chip built">od-analytics-asset-build</span></div>
+          </div>
+        </div>
+        <div class="fallnote">Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b></div>
+      </div>
+    </div>
+
+    <!-- ===== LANE 2 ===== -->
+    <div class="lane l2">
+      <div class="spine">
+        <div class="ln">Lane 2</div><div class="nm">Develop a new use case</div>
+        <div class="ow">OD-led</div>
+      </div>
+      <div class="body">
+        <div class="track">
+          <div class="node built"><span class="state">Built</span><div class="t">Define &amp; diagnose</div><span class="chip built">od-use-case-definition</span></div>
+          <div class="arr"></div>
+          <div class="node built"><span class="state">Built</span><div class="t">Features + data check</div><span class="chip built">od-requirements-breakdown</span><span class="chip built">od-data-availability-check</span></div>
+          <div class="arr"></div>
+          <div class="node part"><span class="state">Part</span><div class="t">Prototype / validate</div><span class="chip part">od-analytics-asset-build</span><span class="chip gap">PoC skill</span></div>
+          <div class="arr"></div>
+          <div class="node built"><span class="state">Built</span><div class="t">Business case + rank</div><span class="chip built">od-benefit-calculation</span><span class="chip part">bc-assessment</span></div>
+          <div class="arr wait"><span class="wlab">~wks</span></div>
+          <div class="node part"><span class="state">Part</span><div class="t">Capital request</div><span class="chip part">od-decision-routing</span></div>
+          <div class="arr"></div>
+          <div class="node part"><span class="state">Part</span><div class="t">Implement &amp; graduate</div><span class="chip built">od-handover-and-adoption</span><span class="chip gap">&rarr; catalog</span></div>
+        </div>
+        <div class="fallnote">Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b></div>
+      </div>
+    </div>
+
+    <!-- ===== LANE 3 ===== -->
+    <div class="lane l3">
+      <div class="spine">
+        <div class="ln">Lane 3</div><div class="nm">New system or connector</div>
+        <div class="ow">OD / Ext / IT&middot;CS</div>
+      </div>
+      <div class="body">
+        <!-- shared front-end -->
+        <div class="brow">
+          <div class="btag">Front&#8209;end<span>shared</span></div>
+          <div class="track">
+            <div class="node built"><span class="state">Built</span><div class="t">Requirements</div><span class="chip built">od-requirements-breakdown</span></div>
+            <div class="arr"></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Tool-decision gate</div><span class="chip built">od-system-fit-check</span><span class="chip built">od-decision-routing</span></div>
+            <div class="arr wait"><span class="wlab">~wks</span></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Business case + capital</div><span class="chip built">od-benefit-calculation</span></div>
+            <div class="fork">&#9666;</div>
+          </div>
+        </div>
+        <!-- 3a options -->
+        <div class="opts">
+          <div class="opt"><span class="h">3a.1 reuse app</span>deploy existing codebase</div>
+          <div class="opt"><span class="h">3a.2 self dev</span>build then deploy</div>
+          <div class="opt"><span class="h">3a.3 external dev</span>spec in-house, build ext.</div>
+          <div class="opt"><span class="h">3a.4 integrate</span>foreign app via IT&middot;CS</div>
+        </div>
+        <!-- 3a flow -->
+        <div class="brow">
+          <div class="btag">3a<span>new system</span></div>
+          <div class="track">
+            <div class="node gap"><span class="state">Gap</span><div class="t">Package / build</div><span class="chip gap">it-demand-package</span></div>
+            <div class="arr wait"><span class="wlab">CS ~wks</span></div>
+            <div class="node gap"><span class="state">Gap</span><div class="t">Deploy to platform + CS</div><span class="chip gap">deploy-appstore</span></div>
+            <div class="arr"></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Rollout &amp; adopt</div><span class="chip built">od-handover-and-adoption</span></div>
+          </div>
+        </div>
+        <!-- 3b flow -->
+        <div class="brow">
+          <div class="btag">3b<span>new connector</span></div>
+          <div class="track">
+            <div class="node built"><span class="state">Built</span><div class="t">Connector + pipeline to MDL</div><span class="chip built">od-equipment-integration</span><span class="chip built">od-signal-standardization</span><span class="chip built">od-node-red-flow-builder</span></div>
+            <div class="arr wait"><span class="wlab">proc ~wks</span></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Procure &amp; connect machine</div><span class="chip built">od-equipment-integration</span></div>
+            <div class="arr wait"><span class="wlab">CS ~wks</span></div>
+            <div class="node built"><span class="state">Built</span><div class="t">Acceptance + CS &rarr; live</div><span class="chip built">od-acceptance-test</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== GAP STRIP ===== -->
+  <div class="gaps">
+    <h2>The only net-new builds</h2>
+    <div class="gaprow">
+      <div class="gcard"><div class="gn">catalog-usecase</div><div class="gl">Lane 1 &amp; 2</div><div class="gd">Plant self-serve catalog; Lane&nbsp;2 graduation target.</div></div>
+      <div class="gcard"><div class="gn">catalog-systems</div><div class="gl">Lane 1b</div><div class="gd">Standardized connection-kit list to match &amp; order.</div></div>
+      <div class="gcard"><div class="gn">catalog-guardrails</div><div class="gl">Lane 1</div><div class="gd">Self-check to go live without OD labour.</div></div>
+      <div class="gcard"><div class="gn">deploy-appstore</div><div class="gl">Lane 3a</div><div class="gd">Containerize &amp; deploy to platform + CS.</div></div>
+      <div class="gcard"><div class="gn">it-demand-package</div><div class="gl">Lane 3a</div><div class="gd">Package demand for IT / external dev.</div></div>
+      <div class="gcard thin"><div class="gn">prototype / PoC</div><div class="gl">Lane 2 &middot; thin</div><div class="gd">Exists partially via asset-build.</div></div>
+      <div class="gcard thin"><div class="gn">capital-request</div><div class="gl">Lane 2 &amp; 3 &middot; thin</div><div class="gd">Routing only, no packaging skill.</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="src">Source: new-state model (<b>Thomas, 2026-09</b>) &amp; the <b>OD skill registry</b> (25 skills). Green/amber/grey read from each <code style="font-family:var(--font);background:#eef1f8;padding:0 3px;border-radius:2px">SKILL.md</code>. <b>Corrected vs draft:</b> Lane&nbsp;3b + rollout + acceptance are Built, not gaps.</div>
+    <div class="way">The neuwerk way</div>
+  </div>
+</div>
+</body>
+</html>

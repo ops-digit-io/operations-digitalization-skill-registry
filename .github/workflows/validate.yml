@@ -4,6 +4,7 @@ on:
   push:
     branches: ["**"]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   registry:
@@ -13,5 +14,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
-      - run: python3 scripts/validate_registry.py
+      - run: pip install pyyaml markdown
+      - name: Registry, frontmatter and cross-references
+        run: python3 scripts/validate_registry.py
+      - name: Generated pages are current
+        run: |
+          python3 scripts/build_okf_index.py --check
+          python3 scripts/build_skill_map.py --check
+          python3 scripts/build_process_overview.py --check
+          python3 scripts/build_new_state_skill_map.py --check
+      - name: Skills against the open Agent Skills specification (strict export must be valid)
+        run: python3 scripts/agent_skills_spec.py --export dist/skills
+      - name: Build the documentation site
+        run: python3 scripts/build_site.py --out site --repo-url "${{ github.server_url }}/${{ github.repository }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site
+          retention-days: 30

@@ -23,7 +23,7 @@ decode side and the encode side — see [`architecture.md`](architecture.md).
 **The most common thing in the estate.** 193 counter flows and every event-shaped flow
 start here.
 
-```
+```text
 link in → switch "is delta true >> 1"  (property: payload.isDelta, rule: is true)
         → …
 ```
@@ -52,7 +52,7 @@ return msg;
 
 Then publish it:
 
-```
+```text
 change "format msg.payload":
   set payload.isDelta       = true                       (bool)
   set payload.valueInteger  = ShiftPartProduced          (flow)
@@ -96,7 +96,7 @@ a meaningless number that is not obviously wrong.
 Where no explicit start/end trigger exists, derive one from a process value crossing a
 limit.
 
-```
+```text
 rbe (payload.isHigh) → switch "is higher than 1.5 bar" → capture timestamp into flow context
                                                        → on the falling edge, run P3
 ```
@@ -142,7 +142,7 @@ hysteresis rather than raising the rate limit.
 
 29 `Machine Mode Normalization` / `Machine Status` flows.
 
-```
+```text
 switch "isDelta is true"
   → switch "valueInteger is 1"   → change → set valueString "Running"
   → switch "valueInteger is 15"  → change → set valueString "Setup"
@@ -190,7 +190,7 @@ claim it. Give this one the `else` the real copies skip, for the same reason as 
 
 **Load once, at startup:**
 
-```
+```text
 inject (once) → file in → split → join (custom, array, count 1001, joiner \n)
               → csv (sep ';', no header, columns: error_number,error_message)
               → change: set flow.alertmessageConfig = payload
@@ -237,7 +237,7 @@ if (check.length > 0) {
 
 The `datapointConfig` comes from the IIoT edge platform:
 
-```
+```text
 http request GET {url}/datatrons → set device endpoint
   → http request GET {url}/{datatronId}/data_points → change: set flow.datapointConfig
 ```
@@ -287,7 +287,7 @@ return msg;
 `oneof`, and a present-but-null field is still a present field. The standard change node
 does it correctly:
 
-```
+```text
 delete payload.valueDouble
 delete parts
 delete protobufType
@@ -303,7 +303,7 @@ troubleshooting analyser reports.
 8 `String Split` flows. A PLC packs several fields into one `valueString`; split it into
 named values.
 
-```
+```text
 switch (payload.uuid eq the composite point) → function: split, validate, emit N packets
 ```
 

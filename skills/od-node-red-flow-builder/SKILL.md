@@ -10,6 +10,7 @@ description: >-
   porting a flow between plant instances, debugging why a flow produces nothing, or asking
   how the flows across the ct-oesl Node-RED instances are structured.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Write Edit
 metadata:
   id: od-node-red-flow-builder
   tier: technical
@@ -19,7 +20,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: author flows on a test instance; deploying to a prod instance is human-approved
   status: stable
-  sources_read: 2026-08-25
+  sources_read: 2026-11-05
   corpus: 825 flows across 53 ct-oesl Node-RED instances
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-node-red-flow-troubleshooting]
@@ -27,6 +28,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (825 exported flow JSON + 827 generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
+    - Node-RED auto-docs flow JSON re-counted 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs, 825 flow files) for the census of disabled flows, drivers, MQTT settings, timers and flow-config keys
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
   okf:
     type: Agent Skill
     title: Node-RED flow builder
@@ -45,7 +48,7 @@ consistent, that consistency is the standard; where it is not, this file says so
 
 A Node-RED flow is the **transformation stage** between a connected machine and a use case.
 
-```
+```text
 PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node-RED ──► IIoT Edge Platform
                                                                           │ offload
                                                                           ▼
@@ -81,6 +84,8 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**. Full inve
 | [`references/deployable-flow.md`](references/deployable-flow.md) | **Read before generating a flow file.** The palette module, the config nodes the corpus exports do not contain, the structural envelope, and how to verify a flow actually starts |
 | [`assets/protobuf-schema-bootstrap.flow.json`](assets/protobuf-schema-bootstrap.flow.json) | **Importable flow.** Writes the PLCPacketList schema to the instance's file store — run once on any new instance before any decode/encode flow |
 | [`references/instances.md`](references/instances.md) | The 53 instances, naming, and the documentation pipeline |
+| [`references/corpus-census-2026-11.md`](references/corpus-census-2026-11.md) | **Re-count of 2026-11-05.** Corrects the disabled-flow count (72 of 825, not 0), driver mix per site, MQTT QoS and retain settings, cron and delay patterns, the flow-config key vocabulary, global-context use, HTTP and UI use |
+| [`assets/flow-config-contract.md`](assets/flow-config-contract.md) | **Form.** The config contract a key user fills in before building - identity, input and output UUIDs, limits, shift and timezone, topics - using the key names the flows already use |
 
 **A broken flow rather than a new one?** Use `od-node-red-flow-troubleshooting`, which runs
 a static analyser over the flow JSON.
@@ -100,7 +105,7 @@ a static analyser over the flow JSON.
 620 of 825 flows carry a group called *prepare and convert payload*; 606 carry *mqtt
 connection and message decoding*. This is not a coincidence — it is the template.
 
-```
+```text
 ┌ config flow ──────────────────────────────────────────── (656 flows)
 │   inject "Trigger once"  →  change "Set flow config"  →  function "Debug flow config"  →  debug
 │   └ set inputs for config flow ───────────────────────── (458 flows)
@@ -310,7 +315,7 @@ flows that should not know about each other — prefer `flow`.
 
 446 flows carry a `catch`. The house pattern is four nodes and is worth copying exactly:
 
-```
+```text
 catch (all nodes)
   → change  "get env variables of flow"   $env('NR_FLOW_ID'), $env('NR_FLOW_NAME')
   → template "create error message"

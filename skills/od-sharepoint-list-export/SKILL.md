@@ -9,6 +9,7 @@ description: >-
   record (rationale, blockers, comments) has to be recovered from version history, or when
   someone asks how the exports underneath the analyses were produced.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/check_export_schema.py:*)
 metadata:
   id: od-sharepoint-list-export
   tier: practice

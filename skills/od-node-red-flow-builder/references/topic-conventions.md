@@ -22,7 +22,7 @@ What the 825 flows actually publish and subscribe to. Two families, plus a small
 
 ## Family 1 — `datatroniq` (the spine)
 
-```
+```text
 datatroniq/data/protob/plc/<edge-device>/<driver>/<id>
                     │         │             │        └─ data-block or device id — e.g. 2, 111, 811-7
                     │         │             └────────── connector/driver family
@@ -56,7 +56,7 @@ data block is renumbered.
 
 ## Family 2 — `CT` (hierarchical, one signal per topic)
 
-```
+```text
 CT / <BA> / <region> / <country> / <plant> / <area> / <sub-area> / <machine> / <signal>
  │     │       │          │           │        │         │            │           └─ leaf value
  │     │       │          │           │        │         │            └───────────── AC324_Braider

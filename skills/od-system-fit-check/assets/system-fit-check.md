@@ -63,7 +63,7 @@ tool being deployed here are two different checks.
 
 ## Worked example
 
-```
+```text
 Request: "Live dashboard showing which work order is running on which line, with
           automatic re-sequencing when a line goes down."
 Plant: Example plant, MDA/PDA deployed, QFPR deployed, no MES.

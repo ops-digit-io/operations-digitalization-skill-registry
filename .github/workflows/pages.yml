@@ -1,0 +1,37 @@
+name: pages
+
+# MANUAL ONLY. Publishing makes the site reachable from the internet, also for a private repository (unless the organisation
+# uses GitHub Enterprise Cloud with private Pages). The skills are labelled "Internal - not for external distribution".
+# Before you run this: enable Settings > Pages > Source: GitHub Actions, and decide who may see the site.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml markdown
+      - run: python3 scripts/validate_registry.py
+      - run: python3 scripts/build_site.py --out site --repo-url "${{ github.server_url }}/${{ github.repository }}"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

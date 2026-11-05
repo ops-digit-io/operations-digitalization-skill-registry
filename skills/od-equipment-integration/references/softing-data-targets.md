@@ -57,7 +57,7 @@ All three require the participating datapoints to exist in the local address spa
 This is the only approved route. The OESL recommendation text describes it from the *edge*
 side and the manual describes it from the *server* side, so people talk past each other.
 
-```
+```text
 PLC ──driver──► dataFEED data source ──► local address space ──► OPC UA server interface
                                                                           │
                                                       OPC UA  ────────────┤

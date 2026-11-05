@@ -113,7 +113,7 @@ an item that sits in the portfolio for a year.
 
 Add this to §8 of the requirement:
 
-```
+```text
 Systems required:        ⟨list⟩
 Footprint verdict:       inside · outside → refuse & route · substitute available ⟨name⟩
 Legacy applications touched:

@@ -13,6 +13,7 @@ description: >-
   looks more complex than the stated need, or when a target keeps getting set to "as high as
   possible" instead of from a stated reason.
 license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+allowed-tools: Read Grep Glob Bash(python3 scripts/evaluate_fit.py:*)
 metadata:
   id: od-use-case-solution-evaluation
   tier: practice

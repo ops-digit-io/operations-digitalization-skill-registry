@@ -106,7 +106,7 @@ Route it to the IIAE and say which branch is unwritten.
 All three end at the IIoT Edge Platform — it is the terminus, and the data platform is
 reached only through it. The department numbers the three shapes itself, in the Tool Overview:
 
-```
+```text
  ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED ──► data platform
                                         Platform          Concept 3, 20 plants
  ②  PLC ──────(connector)─────────────►  IIoT
@@ -247,7 +247,7 @@ not a claim that the connector is protocol-free — confirm before quoting one.
 
 Every route runs the same five blocks. They fail in a predictable order.
 
-```
+```text
 1. Budget           ── edge device + OT hardware; IT infrastructure and licences
        ↓ fails → wave slips; nothing technical is wrong
 2. Infrastructure   ── cabling; power; IP address assigned by IT

@@ -14,7 +14,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 
 ## Naming
 
-```
+```text
 ct-oesl-<plant-code>-nodered-<prod|test>[N]
 ```
 
@@ -86,9 +86,10 @@ formality, and also why a test instance can hold a literal secret that matters.
 **Flow count is not maturity.** A site with one flow may have a single well-built
 integration; a site with 97 may have accumulated variants. Read the flows, not the count.
 
-**No flow in the corpus is marked disabled** — 0 of 825. Either disabled flows are deleted
-rather than parked, or the exported per-flow JSON drops the tab's `disabled` state. The
-generator does track it, so treat a zero here as *not evidenced* rather than *none*.
+**72 of the 825 flows are marked disabled** (35 on prod instances, 37 on test), counted on 2026-11-05 from the
+`disabled` value of each flow's first element in the exported JSON; an earlier version of this file said 0 and
+suspected the export dropped the field, which it does not. See [`corpus-census-2026-11.md`](corpus-census-2026-11.md)
+for the split, including the protobuf-config bootstrap tab that is meant to be disabled after its first run.
 
 ## The documentation pipeline
 

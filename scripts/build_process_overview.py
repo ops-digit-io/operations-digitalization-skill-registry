@@ -152,6 +152,11 @@ def skill_info() -> dict[str, dict]:
     info = {}
     for s in reg["skills"]:
         sid = s["id"]
+        # This page draws the four service lanes. A skill born in the new-state flow
+        # (origin: new-state) or taken from the department's own skill plan after this page was drawn
+        # (origin: plan-draft) belongs to docs/new-state-flow.md and is not placed here.
+        if s.get("origin") in ("new-state", "plan-draft"):
+            continue
         text = (ROOT / "skills" / sid / "SKILL.md").read_text(encoding="utf-8")
         fm = yaml.safe_load(text.split("---", 2)[1])
         desc = re.sub(r"\s+", " ", fm["description"]).strip()

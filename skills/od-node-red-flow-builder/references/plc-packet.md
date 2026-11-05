@@ -71,7 +71,7 @@ actually touch:
 
 The single most important detail. `sys_time` is a `uint64` carrying two 32-bit halves:
 
-```
+```text
 ┌──────────── 32 bits ────────────┬──────────── 32 bits ────────────┐
 │  seconds since 1970-01-01 UTC   │          nanoseconds            │
 └─────────────────────────────────┴─────────────────────────────────┘

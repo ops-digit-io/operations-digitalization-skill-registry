@@ -19,7 +19,7 @@ metadata:
   authority_level: recommend — flags the fit risk and proposes a redesign or an escalation; never approves a system change or a rollout exception itself
   status: stable
   origin: derived
-  sources_read: 2026-10-23
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-decision-routing, od-use-case-solution-evaluation]
   derived_from:
@@ -27,6 +27,8 @@ metadata:
     - personal vault, Work-OpsDigit-Knowledge/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (P-02's own scope statement and deployment-reality framing), read 2026-10-23.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-12-1.1-OnePager-System_Overview*.pptx (the per-tool is/is-not boundary cards, integration-recommended-if criteria, real cost estimates), read 2026-10-22.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2023_06_29_Summary_SanLuisPotosi_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_04_04_Summary_Subotica_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_07_04_Summary_Timisoara_SmartFactory_UseCase_Definition_Workshop*.pptx (three real per-plant Smart Factory Tools Availability snapshots), read 2026-10-22. Resolves PHASE1-ELICITATION.md topic 5 (non-bet system-fit judgement) and builds the skill the department's own Wave-1 plan named but never built (P-02, `od-p-system-fit-check`).
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools (16 notes, rollout history and tables, use of the tool, archive-evidence blocks), Graph/Plants rollout blocks and Graph/Legacy Applications (268 notes), counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), Slide Index (deck OD Initiative - CS Legacy Application As_Is_Analysis) and ODEC Facts staging notes (Department KPIs and Roadmap Status), AI-extracted and unverified, read 2026-11-05
   okf:
     type: Agent Skill
     title: System fit check
@@ -52,6 +54,8 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 | [`references/non-bets.md`](references/non-bets.md) | The department's own choice architecture — what is deliberately not pursued, the trade-offs behind it, and the kill criteria attached to what *is* pursued |
 | [`references/tool-boundaries.md`](references/tool-boundaries.md) | What each lightweight tool (QFPR, MDA/PDA, MIL, Camline, WiriTec) is and is not for, in the department's own words — the actual tell, per tool |
 | [`references/deployment-reality.md`](references/deployment-reality.md) | Three real per-plant snapshots showing the same tool catalogue in three different states — check this plant, not the estate average |
+| [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | Matrix of the sixteen tool rows against 27 plants (available, ongoing, stopped, planned, with year), use cases naming each tool, and where the matrix disagrees with the workshop snapshots. Record counts, export 2026-08-24 |
+| [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | The 268 legacy applications in aggregate - category, criticality, network, support, cyber-security - and how to spot the plant that already runs a parallel MES, SCADA or dashboard system |
 
 ## The check — three steps
 
@@ -90,7 +94,8 @@ both before concluding anything.
 | **Escalate as exception** | The need is genuinely MES/EMS-shaped, or needs a tool not yet deployed here with no substitute | `od-decision-routing`'s "Tool/system rollout" decision row — note its counterpart is itself still `⟨to confirm⟩`; name the OD lead at minimum |
 
 Fill [`assets/system-fit-check.md`](assets/system-fit-check.md) as the check happens — five
-minutes, not a workshop. A request that resolves to "escalate" and also has a large,
+minutes, not a workshop. When the plant may already run a legacy application or a tool that covers
+the need, add [`assets/existing-system-worksheet.md`](assets/existing-system-worksheet.md). A request that resolves to "escalate" and also has a large,
 multi-area capability gap in `od-use-case-solution-evaluation`'s own gap analysis is the
 same finding seen from two angles; check whether that evaluation has already been run
 before escalating twice for one request.

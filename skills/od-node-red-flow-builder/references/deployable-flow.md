@@ -36,7 +36,7 @@ It registers exactly three types: `decode`, `encode`, `protobuf-file`.
 
 Without it, Node-RED starts, loads the flow, and then sits at:
 
-```
+```text
 [info] Waiting for missing types to be registered:
  -  decode
  -  encode
@@ -192,7 +192,7 @@ troubleshooting analyser.
 
 Ordered as Node-RED writes it: tab, groups, nodes, config nodes last.
 
-```
+```text
 [
   { tab },
   { group: "config flow" }, { group: "set inputs for config flow" },

@@ -18,7 +18,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
   status: stable
-  sources_read: 2026-08-25
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flow-builder]
   derived_from:
@@ -30,6 +30,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf (Softing dataFEED OPC Suite V5.70 manual, 1,540 pp., 2026-02-16)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (1,715 Machine + 26 Connector nodes)
     - interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation)
+    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (1,715 notes; Machine-List export 2026-08-21), Graph/Connectors (26 notes), Graph/Plants (33 notes) and Graph/Tools (16 notes), counted and read 2026-11-05
+    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
   okf:
     type: Agent Skill
     title: Equipment integration — assessment and guidance
@@ -167,6 +169,10 @@ per machine.
 | [`references/softing-data-targets.md`](references/softing-data-targets.md) | How the data leaves dataFEED — the OPC UA path the edge reads, Store and Forward, the Preprocessing Engine, and the MQTT capability that has no OESL route |
 | [`references/iiot-edge-platform.md`](references/iiot-edge-platform.md) | The **IIoT Edge** pattern in detail — the six phases, the hardware sequence, device sizing, non-PLC endpoint classes |
 | [`references/fallbacks.md`](references/fallbacks.md) | The eight ways an integration blocks, what to try before declaring each one blocked, and when to stop |
+| [`references/plant-integration-status.md`](references/plant-integration-status.md) | Plant-by-plant table (28 plants with machine rows): machines, status, route, vendors, concepts in the Tool Overview, blocker rows, legacy applications, with computed flags and the record mismatches between Machine List and Tool Overview. Record counts, export 2026-08-21/24 |
+| [`references/vendor-protocol-routes.md`](references/vendor-protocol-routes.md) | Per vendor, PLC model and network protocol: counts by status and route, the connector the Overview names, readings such as the Modbus rows with no route recorded. Record counts |
+| [`references/connector-fact-sheets.md`](references/connector-fact-sheets.md) | Per connector: signal limits and sampling rates (Sinumerik 2 ms / 30 signals, Sinuvars 10 ms / 100 signals), file and camera endpoints, linked machine counts, written build estimates, and how to read the counts |
+| [`references/blockers-and-waves.md`](references/blockers-and-waves.md) | The 110 recorded blocker texts grouped by kind and plant, project references and waves, the eCR step, and department roadmap numbers (staging, unverified) |
 
 ### Terminology — one name per thing
 
@@ -214,7 +220,7 @@ Every machine reaches **the data platform** through the **IIoT Edge Platform**. 
 how the PLC gets to it, and there are exactly three shapes. The department numbers them
 itself — they are recorded as tools in the Tool Overview as *Concept 1*, *2* and *3*.
 
-```
+```text
  ①  PLC ──► edge device ──(connector)──►  IIoT ──MQTT──► Node-RED
                                         Platform      │
                                                    offload ▼  Databricks ──► Azure Storage
@@ -443,6 +449,8 @@ afterwards:
   document per plant/wave, a machine-by-machine table, and a sign-off.
 - **Route B** → [`assets/guidance-protocol.md`](assets/guidance-protocol.md) — one document
   per machine, the gates answered in order, and a hand-off to `od-acceptance-test`.
+- **Before either route, at plant level** → [`assets/plant-readiness-brief.md`](assets/plant-readiness-brief.md) — the
+  plant's row from the records, the flags to clear and the questions only the plant can answer.
 
 Both are written so a plant engineer who wasn't in the room can pick up the finished
 document and know exactly what was decided, why, and what's still open — a reusable record,

@@ -165,7 +165,7 @@ restarted without touching another's.
 Whatever the driver, the moves are the same. Learn the shape once; the per-driver sections
 only differ in the italicised parts.
 
-```
+```text
 Configurator → Data Sources → *driver family*
  1. Add a connection                                    (button, context menu, or CTRL+A)
  2. Name it — unique in the configuration

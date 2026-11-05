@@ -16,7 +16,7 @@ are from the 825-flow corpus.
 
 ## The path, hop by hop
 
-```
+```text
 PLC ──① ingress variant ──► IIoT Edge Platform ──② MQTT (protobuf) ──► Node-RED
                                                                           │
                                                               ③ transform │
@@ -65,7 +65,7 @@ Everything in the estate is built from these.
 
 ### 1 · split — one packet at a time
 
-```
+```text
 decode → function "filter uuids" → split (arraySplt 1) → per-packet processing
 ```
 

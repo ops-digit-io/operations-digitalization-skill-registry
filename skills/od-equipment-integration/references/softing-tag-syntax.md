@@ -21,13 +21,13 @@ reads a plausible-looking wrong address, which nothing will flag.
 
 ## Siemens S7
 
-```
+```text
 [Group.]<Area><Data type><Start address>[.Array size][Suffix]
 ```
 
 For a boolean, a bit number is mandatory:
 
-```
+```text
 [Group.]<Area><Data type><Start address><.Bit no.>[.Array size][Suffix]
 ```
 
@@ -75,7 +75,7 @@ the client: `BA`, `KA`, `S5T`, `KT`, `D`, `T`, `DT`, `DU`, `TOD`.
 
 Read or write several bits of a data type as one decimal value. Arrays can be masked too.
 
-```
+```text
 db5.w0#2.8      8 bits of word 0 in DB5, starting at bit 2
 db5.w0#2#8      equivalent
 ```
@@ -95,7 +95,7 @@ leading junk characters — or truncated by two — is this setting.
 
 ## Modbus
 
-```
+```text
 [UnitID.][Group.]<Area><Data type><Start address>[.Bit number][.Array size][Suffix]
 ```
 
@@ -148,7 +148,7 @@ status messages, because the number in the log is not the number you typed.
 
 ## Rockwell PLC-5 / SLC
 
-```
+```text
 <Area>[File number]<Start address>[.Array size][Suffix]
 ```
 

@@ -41,7 +41,7 @@ event, a machine-state-aware calculation — is multi-input by nature.
 
 ### Single input
 
-```
+```text
 mqtt in → decode → filter uuids (one UUID from config) → split → convert → …
 ```
 
@@ -51,7 +51,7 @@ You cannot evaluate two data points in one message, because **each arrives in it
 packet**. The house solution is to latch each into flow context as it arrives, and evaluate
 on whichever arrives last.
 
-```
+```text
 config: one flow variable per input data point, plus the output one
    ↓
 function "Define filter array"   ← builds the UUID array from config
@@ -205,7 +205,7 @@ prerequisite, not a finishing step.
 
 Patterns chain, and the order is not arbitrary.
 
-```
+```text
 filter → split → convert → [latch] → gate → transform → [window] → format → wrap → convert back → encode
 ```
 

@@ -16,7 +16,7 @@ and working inward.
 
 ## The rule: walk outward from the machine
 
-```
+```text
 machine → connector → ingress variant → IIoT Edge → MQTT → Node-RED → offload → asset
    1          2              3               4         5        6         7        8
 ```
@@ -108,7 +108,7 @@ like a duplicate of the source. 203 flows in the corpus never set an output UUID
 
 The house error pattern is four nodes:
 
-```
+```text
 catch (all) → change "get env variables of flow" → template "create error message" → debug
 ```
 

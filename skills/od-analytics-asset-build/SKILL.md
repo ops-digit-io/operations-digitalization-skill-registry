@@ -16,7 +16,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  sources_read: 2026-10-22
+  sources_read: 2026-11-05
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
   derived_from:
@@ -25,7 +25,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
     - Kimball, R. and Ross, M. (2013). The Data Warehouse Toolkit / the Kimball Lifecycle (3rd ed.), Wiley — the requirements-track/data-track/BI-track structure and the deployment-readiness gate, adapted below to this registry's own upstream/downstream skills.
-    - Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from.
+    - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
+    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the 1,010 Dashboard Notes, the 4 change reports (counts only), a 20-dashboard sample of the JSON exports, Graph/Use Case Views (11 template views, template-standards, Dashboard Use Cases - Overview), the 74 dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
   okf:
     type: Agent Skill
@@ -45,6 +46,12 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 |---|---|
 | [`references/lifecycle-and-validation.md`](references/lifecycle-and-validation.md) | The build lifecycle mapped onto this registry's own upstream/downstream skills, and the validation checklist that separates "it renders" from "it is correct" |
 | [`references/asset-type-and-tier.md`](references/asset-type-and-tier.md) | The asset-type decision worked through, and exactly where this skill's job ends and `build-grafana-ops-dashboard`'s begins once "Dashboard" is chosen |
+| [`references/dashboard-estate-baseline.md`](references/dashboard-estate-baseline.md) | **What the 19 plant Grafana instances contain (exports of 2026-10/11).** Size, versions, data sources per plant, how dashboards read data, lifecycle and churn - and the answer to the data-source question left open in the vendored skill's OD note |
+| [`references/dashboard-families-catalogue.md`](references/dashboard-families-catalogue.md) | **Look here before building.** The 74 families, the 17 cross-plant titles with their class (central / template / same name different content), and 14 family cards with the signals each needs and the traps seen |
+| [`references/dashboard-worked-examples.md`](references/dashboard-worked-examples.md) | 14 best-documented dashboards by title, plant and template, each with the lesson it teaches |
+| [`references/dashboard-json-sample-2026-11.md`](references/dashboard-json-sample-2026-11.md) | A **sample** of 20 dashboard JSON files: real structure, and the nine query patterns found |
+| [`references/capability-templates-and-placement.md`](references/capability-templates-and-placement.md) | The 11 templates, the 13 placement rules and their precedence, member counts, the 36 case groups, how to place a new asset |
+| [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, 19 authoring rules with the estate's violation counts, placement, delivery |
 
 **This skill does not re-derive Grafana build mechanics.** `build-grafana-ops-dashboard` already
 owns the SQL patterns, the manager/analyst/operations tiers, the variable wiring and the
@@ -102,6 +109,17 @@ that plant's data for that plant's manufacturing dashboards. **Databricks and th
 Storage Account are the global data platform**, where the edge offload lands and where
 cross-plant analysis happens. A line-side dashboard belongs on the local instance; a
 portfolio or cross-plant question does not.
+
+## What the plants already have
+
+Before designing, read the baseline and the catalogue: **74 % of the 1,010 exported dashboards
+exist in one plant only, and 17 titles that occur in three or more plants are shared in name
+but, for Andon, Alert and Operations, not in content.** The local Grafana reads a PostgreSQL-type
+`telemetry` source at 17 of 19 locations and InfluxDB at Changshu and Sun Prairie; signals are
+bound by literal UUID in 498 dashboards. Those are counts from the exports of 2026-10/11
+(`references/dashboard-estate-baseline.md`); the specs they come from are drafts, unreviewed.
+Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
+configuration.
 
 ## Procedure
 

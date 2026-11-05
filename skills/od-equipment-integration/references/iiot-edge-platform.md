@@ -240,7 +240,7 @@ all arrive at the edge and leave on MQTT.
 The link from the aggregation server is the `DTQ-OPCUA-Connector`, and it is the one
 connector in the set that does not reach a machine — it reaches an OPC UA server:
 
-```
+```text
 PLC ──Softing driver──► Central Aggregation Server ──OPC UA──► IIoT Edge ──MQTT──► Node-RED
                         (dataFEED OPC Suite)                     Platform
                         server side: SFT-OPC-Suite       edge side: DTQ-OPCUA-Connector
