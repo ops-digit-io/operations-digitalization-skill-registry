@@ -52,6 +52,10 @@ The specification does not say where a client looks for skills; that depends on 
 
 The mapping of skills to steps is data: `docs/new-state/process.yaml`. A skill the New-State files do not name on a step is shown with a dashed outline (*proposed*).
 
+## Libraries
+
+The repository holds two libraries side by side: `skills/` (core, the skills the four New-State process files name) and `skills-extension/` (optional add-ons). Both follow the same specification rules and the same export; the site and the downloads (`core-library.zip`, `extension-library.zip`) keep them apart.
+
 ## Publishing
 
 `scripts/build_site.py` produces a static site. CI (`.github/workflows/validate.yml`) builds it on every push and keeps it as a downloadable artifact. The site is published on GitHub Pages at <https://ops-digit-io.github.io/operations-digitalization-skill-registry/> by the manual workflow `.github/workflows/pages.yml` (Actions, "pages", run workflow on `main`). Pages must stay on **Settings, Pages, Source: GitHub Actions**; the legacy branch build serves the Markdown through Jekyll instead and hides the process map.

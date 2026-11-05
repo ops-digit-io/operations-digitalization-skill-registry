@@ -104,7 +104,7 @@ flowchart TD
 | [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | Information Integration | 🟩 deep | 11 | 1 | 14 |
 | [`od-node-red-flow-troubleshooting`](../skills/od-node-red-flow-troubleshooting/SKILL.md) | Information Integration | 🟩 deep | 4 | 1 | 1 |
 | [`od-sharepoint-list-export`](../skills/od-sharepoint-list-export/SKILL.md) | Analytical Support | 🟩 deep | 3 | 1 | 2 |
-| [`od-context-freshness`](../skills/od-context-freshness/SKILL.md) | — | 🟩 deep | 5 | 1 | 2 |
+| [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) | — | 🟩 deep | 5 | 1 | 2 |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 8 |
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | Use Case Support | 🟨 documented | 8 | 0 | 20 |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | Use Case Support | 🟨 documented | 7 | 0 | 8 |
@@ -124,37 +124,37 @@ flowchart TD
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | — | 🟨 documented | 5 | 0 | 5 |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | — | 🟨 documented | 5 | 0 | 5 |
 | [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-ai-generation-playbook`](../skills/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`od-analytical-support-service`](../skills/od-analytical-support-service/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
-| [`od-application-consulting`](../skills/od-application-consulting/SKILL.md) | — | 🟨 documented | 6 | 0 | 2 |
-| [`od-barrier-triage`](../skills/od-barrier-triage/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
+| [`od-ai-generation-playbook`](../skills-extension/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-analytical-support-service`](../skills-extension/od-analytical-support-service/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
+| [`od-application-consulting`](../skills-extension/od-application-consulting/SKILL.md) | — | 🟨 documented | 6 | 0 | 2 |
+| [`od-barrier-triage`](../skills-extension/od-barrier-triage/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
 | [`od-context`](../skills/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`od-cross-plant-compatibility`](../skills/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-cybersec-gate`](../skills/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 11 |
-| [`od-event-object-modelling`](../skills/od-event-object-modelling/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
-| [`od-first-aid-kit`](../skills/od-first-aid-kit/SKILL.md) | — | 🟨 documented | 3 | 0 | 1 |
-| [`od-governance-cadence`](../skills/od-governance-cadence/SKILL.md) | — | 🟨 documented | 6 | 0 | 0 |
-| [`od-impact-evaluation`](../skills/od-impact-evaluation/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
-| [`od-information-integration-service`](../skills/od-information-integration-service/SKILL.md) | — | 🟨 documented | 7 | 0 | 2 |
-| [`od-investment-input`](../skills/od-investment-input/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) | — | 🟨 documented | 4 | 0 | 1 |
-| [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`od-migration-cutover`](../skills/od-migration-cutover/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
-| [`od-plant-diagnosis`](../skills/od-plant-diagnosis/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`od-plant-onboarding`](../skills/od-plant-onboarding/SKILL.md) | — | 🟨 documented | 3 | 0 | 3 |
-| [`od-project-order`](../skills/od-project-order/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
-| [`od-project-support-consultancy`](../skills/od-project-support-consultancy/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
+| [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
+| [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 11 |
+| [`od-event-object-modelling`](../skills-extension/od-event-object-modelling/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
+| [`od-first-aid-kit`](../skills-extension/od-first-aid-kit/SKILL.md) | — | 🟨 documented | 3 | 0 | 1 |
+| [`od-governance-cadence`](../skills-extension/od-governance-cadence/SKILL.md) | — | 🟨 documented | 6 | 0 | 0 |
+| [`od-impact-evaluation`](../skills-extension/od-impact-evaluation/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
+| [`od-information-integration-service`](../skills-extension/od-information-integration-service/SKILL.md) | — | 🟨 documented | 7 | 0 | 2 |
+| [`od-investment-input`](../skills-extension/od-investment-input/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
+| [`od-machine-integration-plan`](../skills-extension/od-machine-integration-plan/SKILL.md) | — | 🟨 documented | 4 | 0 | 1 |
+| [`od-maturity-assessment`](../skills-extension/od-maturity-assessment/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-migration-cutover`](../skills-extension/od-migration-cutover/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
+| [`od-plant-diagnosis`](../skills-extension/od-plant-diagnosis/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-plant-onboarding`](../skills-extension/od-plant-onboarding/SKILL.md) | — | 🟨 documented | 3 | 0 | 3 |
+| [`od-project-order`](../skills-extension/od-project-order/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
+| [`od-project-support-consultancy`](../skills-extension/od-project-support-consultancy/SKILL.md) | — | 🟨 documented | 4 | 0 | 2 |
 | [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | — | 🟨 documented | 5 | 0 | 2 |
-| [`od-retro`](../skills/od-retro/SKILL.md) | — | 🟨 documented | 4 | 0 | 6 |
-| [`od-risk-watch`](../skills/od-risk-watch/SKILL.md) | — | 🟨 documented | 3 | 0 | 7 |
-| [`od-rollout-training`](../skills/od-rollout-training/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
-| [`od-template-resolution`](../skills/od-template-resolution/SKILL.md) | — | 🟨 documented | 3 | 0 | 2 |
-| [`od-use-case-prioritization`](../skills/od-use-case-prioritization/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
-| [`od-use-case-promotion`](../skills/od-use-case-promotion/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
+| [`od-retro`](../skills-extension/od-retro/SKILL.md) | — | 🟨 documented | 4 | 0 | 6 |
+| [`od-risk-watch`](../skills-extension/od-risk-watch/SKILL.md) | — | 🟨 documented | 3 | 0 | 7 |
+| [`od-rollout-training`](../skills-extension/od-rollout-training/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
+| [`od-template-resolution`](../skills-extension/od-template-resolution/SKILL.md) | — | 🟨 documented | 3 | 0 | 2 |
+| [`od-use-case-prioritization`](../skills-extension/od-use-case-prioritization/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
+| [`od-use-case-promotion`](../skills-extension/od-use-case-promotion/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
 | [`od-use-case-support-service`](../skills/od-use-case-support-service/SKILL.md) | — | 🟨 documented | 4 | 0 | 1 |
-| [`od-utilization-review`](../skills/od-utilization-review/SKILL.md) | — | 🟨 documented | 3 | 0 | 0 |
-| [`od-workshop-facilitation`](../skills/od-workshop-facilitation/SKILL.md) | — | 🟨 documented | 3 | 0 | 3 |
+| [`od-utilization-review`](../skills-extension/od-utilization-review/SKILL.md) | — | 🟨 documented | 3 | 0 | 0 |
+| [`od-workshop-facilitation`](../skills-extension/od-workshop-facilitation/SKILL.md) | — | 🟨 documented | 3 | 0 | 3 |
 
 ## What is next, and why
 

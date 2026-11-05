@@ -16,6 +16,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import skillpaths as skp
 OUT = ROOT / "docs" / "new-state-skill-map.md"
 FILES = {"Flow": "OD_NewState_Flow.mermaid", "Process flow": "OD_NewState_ProcessFlow.html", "BPMN": "OD_NewState_BPMN.html", "VSM": "OD_NewState_VSM_SkillMap.html"}
 
@@ -28,7 +29,8 @@ def render() -> str:
 
     def link(s: str) -> str:
         mark = " *(draft)*" if reg[s].get("status") == "draft" else ""
-        return f"[`{s}`](../skills/{s}/SKILL.md){mark}"
+        mark += " *(extension)*" if reg[s].get("library") == "extension" else ""
+        return f"[`{s}`](../{skp.folder_of(s)}/{s}/SKILL.md){mark}"
 
     where: dict[str, list[str]] = {s: [] for s in reg}
     L = ["---", "type: Map of Content", "title: New-state skill map",
