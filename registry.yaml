@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.10.0
+  version: 1.11.0
   department: MPEE Operations Digitalization (OD)
   business: neuwerk
   owner: Jakob Gabriel
@@ -57,6 +57,7 @@ tiers:
 
 skills:
   - id: od-context
+    library: core
     tier: foundation
     lane: all
     owner_role: OD lead (Thomas Zipf)
@@ -64,6 +65,7 @@ skills:
     summary: Vocabulary, service lines, systems of record, decision gates and the honesty rules.
 
   - id: od-use-case-support-service
+    library: core
     tier: lane
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -72,6 +74,7 @@ skills:
     definition_of_done: Use case defined, prioritized, impact-evaluated and handed to integration with a business case.
 
   - id: od-information-integration-service
+    library: extension
     tier: lane
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -80,6 +83,7 @@ skills:
     definition_of_done: Machine or equipment integrated, signals standardized, data landing on the data platform.
 
   - id: od-project-support-consultancy
+    library: extension
     tier: lane
     lane: project-support-consultancy
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -88,6 +92,7 @@ skills:
     definition_of_done: Integration project managed to acceptance test; application consulted and accepted.
 
   - id: od-analytical-support-service
+    library: extension
     tier: lane
     lane: analytical-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -96,6 +101,7 @@ skills:
     definition_of_done: Process diagnostics / analytical insight delivered.
 
   - id: od-use-case-intake-triage
+    library: core
     tier: practice
     lane: all
     owner_role: OD lead (Thomas Zipf)
@@ -103,6 +109,7 @@ skills:
     summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
 
   - id: od-system-fit-check
+    library: core
     tier: practice
     lane: all
     owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
@@ -110,6 +117,7 @@ skills:
     summary: Catch the request that quietly needs a system outside the lean footprint — checks a stated need against each lightweight tool's own boundary and this plant's actual availability, resolves to fits/redesign/escalate.
 
   - id: od-requirements-breakdown
+    library: core
     tier: practice
     lane: all
     owner_role: DBVE or IIAE, per lane
@@ -117,6 +125,7 @@ skills:
     summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, the lane handover packet, and a standardized epic carrying a background description and at least two user stories. Covers all four service lines.
 
   - id: od-use-case-definition
+    library: core
     tier: technical
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -124,6 +133,7 @@ skills:
     summary: Scope one plant's instance of one need through four phases to a benefit case ready for od-benefit-calculation — a proven library, the abstract patterns behind them, and the Benefits Dependency Network linking the build to the change that makes it land.
 
   - id: od-use-case-solution-evaluation
+    library: core
     tier: practice
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -131,6 +141,7 @@ skills:
     summary: Rank a scoped use case against a case library as a fast pre-check, then profile its complexity drivers, find which IT/OT capability areas its solution depends on, and sequence any as-is/target gap — a visualized ranking and a total evaluation score resolving to ready/raise-capability/over-engineered/escalate.
 
   - id: od-benefit-calculation
+    library: core
     tier: practice
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -138,6 +149,7 @@ skills:
     summary: Build the OD business case and write saving rows; keep tracked and proven apart.
 
   - id: od-use-case-standardization
+    library: core
     tier: practice
     lane: use-case-support-service
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -145,6 +157,7 @@ skills:
     summary: Capability templates, the reference library, the CSP gate and the twelve cluster tags.
 
   - id: od-equipment-integration
+    library: core
     tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -153,6 +166,7 @@ skills:
 
 
   - id: od-acceptance-test
+    library: core
     tier: practice
     lane: [information-integration-service, project-support-consultancy]
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -160,6 +174,7 @@ skills:
     summary: Define pass before the build, verify along the whole data path, route failures into the right rework loop.
 
   - id: od-handover-and-adoption
+    library: core
     tier: practice
     lane: all
     owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns adoption
@@ -167,6 +182,7 @@ skills:
     summary: The three-question handover test, its definition of done, and what to do about an asset nobody opens.
 
   - id: od-data-availability-check
+    library: core
     tier: practice
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE
@@ -174,6 +190,7 @@ skills:
     summary: Walks the six availability steps against the Machine List, the Connector Overview and the deployed flow corpus, names which step a request dies at, and writes a defined verdict. Distinguishes not-integrated from not-standardized from not-fit-for-use - three shortfalls that look identical from a dashboard.
 
   - id: od-analytics-asset-build
+    library: core
     tier: practice
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -181,6 +198,7 @@ skills:
     summary: Choose the asset type and design it for the ritual that consumes it.
 
   - id: od-scorecard-reporting
+    library: core
     tier: practice
     lane: all
     owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
@@ -188,6 +206,7 @@ skills:
     summary: Fetch, assess and report OD's numbers against targets and thresholds; prepare and follow up ODEC and COP.
 
   - id: od-portfolio-and-savings-analysis
+    library: core
     tier: practice
     lane: [analytical-support-service, use-case-support-service]
     owner_role: Digital-Business-Value-Engineer (DBVE)
@@ -195,6 +214,7 @@ skills:
     summary: Cut the use-case portfolio and the savings ledger without the three standard misreadings.
 
   - id: od-decision-routing
+    library: core
     tier: practice
     lane: all
     owner_role: OD lead (Thomas Zipf)
@@ -202,6 +222,7 @@ skills:
     summary: Owner, mode, threshold and authority level per decision; the five gates; escalation triggers.
 
   - id: od-sharepoint-list-export
+    library: core
     tier: practice
     lane: all
     owner_role: human:jakob.gabriel
@@ -209,6 +230,7 @@ skills:
     summary: Full list export including version history, from the browser console, with its stated limits.
 
   - id: build-grafana-ops-dashboard
+    library: core
     tier: technical
     lane: [analytical-support-service, use-case-support-service]
     scope: portable
@@ -219,6 +241,7 @@ skills:
     od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
 
   - id: od-signal-standardization
+    library: core
     tier: technical
     lane: information-integration-service
     scope: od
@@ -228,6 +251,7 @@ skills:
     summary: Reads the machine context (PLC program, sequence chart, layout, handbook, HMI) alongside the tag list, maps signals to the canonical vocabulary and the public data models, clusters and ranks them, translates tags from nine plant languages, and writes a defined signal analysis report.
 
   - id: od-node-red-flow-troubleshooting
+    library: core
     tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -235,6 +259,7 @@ skills:
     summary: Diagnoses a broken Node-RED flow from its exported JSON - a static analyser for the failure modes that actually occur, plus a symptom-to-cause table for what it cannot see.
 
   - id: od-node-red-flow-builder
+    library: core
     tier: technical
     lane: information-integration-service
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -242,6 +267,7 @@ skills:
     summary: The house Node-RED pattern - seven-group layout, the transformation patterns plus a method for composing one that is not in the catalogue, the streaming mechanics, the artefact catalogue with a sanitized example per artefact, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
 
   - id: catalog-usecase
+    library: core
     tier: practice
     lane: all
     scope: od
@@ -252,6 +278,7 @@ skills:
     summary: "Lane 1 self-service: match a request to a catalogued, CSP-approved use case and name the branch (1a, 1b, falls through). DRAFT scaffold - the catalog itself does not exist yet."
 
   - id: catalog-systems
+    library: core
     tier: practice
     lane: all
     scope: od
@@ -262,6 +289,7 @@ skills:
     summary: "Lane 1b: match a catalogued use case to a standardized system a plant can order; says when no standard system fits. DRAFT scaffold - no standardized-system list is recorded."
 
   - id: catalog-guardrails
+    library: core
     tier: practice
     lane: all
     scope: od
@@ -272,6 +300,7 @@ skills:
     summary: "Lane 1: the plant-run go-live check - seven guardrails seeded from recorded rules; the plant decides to go live. DRAFT scaffold."
 
   - id: deploy-appstore
+    library: core
     tier: practice
     lane: project-support-consultancy
     scope: od
@@ -282,6 +311,7 @@ skills:
     summary: "Lane 3a: the deployment package and the release gate for a manufacturing app, with Cyber Security sign-off. DRAFT scaffold - the platform procedure is not recorded."
 
   - id: it-demand-package
+    library: core
     tier: practice
     lane: all
     scope: od
@@ -292,6 +322,7 @@ skills:
     summary: "Lane 3a (3a.3, 3a.4): package a demand for IT demand management or an external developer. DRAFT scaffold - IT's own demand form is not recorded."
 
   - id: od-application-consulting
+    library: extension
     tier: practice
     lane: project-support-consultancy
     scope: od
@@ -302,6 +333,7 @@ skills:
     summary: "Give a solution design recommendation for an application question inside the lean footprint - which existing tool or app covers the need, whether to reuse, build, buy externally or integrate a foreign app, how the data reaches it, which gat DRAFT."
 
   - id: od-barrier-triage
+    library: extension
     tier: practice
     lane: information-integration-service
     scope: od
@@ -312,6 +344,7 @@ skills:
     summary: "Classify why a machine will not connect (legacy hardware, protocol with no route, missing PLC program, platform not installed, Cyber Security wait, data model) and route it to one of three exits - the integration roadmap, strategy, or a sub DRAFT."
 
   - id: od-capital-request
+    library: core
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -322,6 +355,7 @@ skills:
     summary: "Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their fi DRAFT."
 
   - id: od-context-freshness
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -332,6 +366,7 @@ skills:
     summary: "Run the quarterly freshness check that keeps every other OD skill honest - find the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry unresolved gaps, t DRAFT."
 
   - id: od-cross-plant-compatibility
+    library: extension
     tier: practice
     lane: information-integration-service
     scope: od
@@ -342,6 +377,7 @@ skills:
     summary: "Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of t DRAFT."
 
   - id: od-cybersec-gate
+    library: core
     tier: practice
     lane: information-integration-service
     scope: od
@@ -352,6 +388,7 @@ skills:
     summary: "Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the ne DRAFT."
 
   - id: od-first-aid-kit
+    library: extension
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -362,6 +399,7 @@ skills:
     summary: "Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data s DRAFT."
 
   - id: od-impact-evaluation
+    library: extension
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -372,6 +410,7 @@ skills:
     summary: "Evaluate the impact of a use case that is live in a plant and prepare the adoption confirmation record - what the use case is used for, how often, what changed in the process, what saving can be shown and at what firmness (calculated, estim DRAFT."
 
   - id: od-investment-input
+    library: extension
     tier: practice
     lane: information-integration-service
     scope: od
@@ -382,6 +421,7 @@ skills:
     summary: "Prepare the investment planning input pack once an integration roadmap or a use-case plan is agreed and budget is needed - cost lines per machine or system, the benefit side taken from the benefit case, the gates the spend must pass, and th DRAFT."
 
   - id: od-plant-onboarding
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -392,6 +432,7 @@ skills:
     summary: "Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the DRAFT."
 
   - id: od-prototype-poc
+    library: core
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -402,6 +443,7 @@ skills:
     summary: "Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, bui DRAFT."
 
   - id: od-retro
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -412,6 +454,7 @@ skills:
     summary: "Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, ODEC and COP feedback), list what was learned with its evidence, pick the DRAFT."
 
   - id: od-risk-watch
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -422,6 +465,7 @@ skills:
     summary: "Read the department's early indicators against the six-row risk register each month and say which escalation triggers are hit - for every risk, find the monitorable value, read it from its source with a date, compare it with the trigger, an DRAFT."
 
   - id: od-rollout-training
+    library: extension
     tier: practice
     lane: project-support-consultancy
     scope: od
@@ -432,6 +476,7 @@ skills:
     summary: "Draft the plant training package and the competence checklist for a solution that is rollout-ready - who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence DRAFT."
 
   - id: od-template-resolution
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -442,6 +487,7 @@ skills:
     summary: "Resolve which approved master template or standard a deliverable must start from, before anyone writes it - look the artefact up in the department's resource register, name its owner, location and verification state, and say plainly when th DRAFT."
 
   - id: od-use-case-prioritization
+    library: extension
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -452,6 +498,7 @@ skills:
     summary: "Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. DRAFT."
 
   - id: od-use-case-promotion
+    library: extension
     tier: practice
     lane: analytical-support-service
     scope: od
@@ -462,6 +509,7 @@ skills:
     summary: "Decide whether a recurring ad-hoc asset (a dashboard, report, analytics workflow or app first built for one request) should become a standard use case, and if so assemble the promotion package - the recurrence and value evidence, the reprod DRAFT."
 
   - id: od-workshop-facilitation
+    library: extension
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -472,6 +520,7 @@ skills:
     summary: "Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua DRAFT."
 
   - id: od-ai-generation-playbook
+    library: core
     tier: practice
     lane: all
     scope: od
@@ -482,6 +531,7 @@ skills:
     summary: "Cross-cutting rulebook for safe AI-agent use along the process chain: pipeline with human gate, generation rules, governance, citation and human-only decisions. DRAFT."
 
   - id: od-event-object-modelling
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -492,6 +542,7 @@ skills:
     summary: "Reduces unique plant requests to objects, events and time, separates sensor values from events and writes data requirements for the data platform. DRAFT."
 
   - id: od-governance-cadence
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -502,6 +553,7 @@ skills:
     summary: "The governance rhythm around the chain: CoP/ODIC/ODEC rounds, call for action and status, change routing, sprint runbook and training programme. DRAFT."
 
   - id: od-machine-integration-plan
+    library: extension
     tier: practice
     lane: information-integration-service
     scope: od
@@ -512,6 +564,7 @@ skills:
     summary: "Plans a machine-integration wave from machine list to flow design: known types first, route per machine type, readiness criteria, barrier log. DRAFT."
 
   - id: od-migration-cutover
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -522,6 +575,7 @@ skills:
     summary: "Plans and runs the migration of a legacy application, server, middleware or platform to the target platform, with staged cutover, back-out and decommissioning. DRAFT."
 
   - id: od-plant-diagnosis
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -532,6 +586,7 @@ skills:
     summary: "Diagnoses unequal plant results with four Ishikawa branches, tiers plants as first mover or fast follower and writes plant and regional roadmaps. DRAFT."
 
   - id: od-project-order
+    library: extension
     tier: practice
     lane: project-support-consultancy
     scope: od
@@ -542,6 +597,7 @@ skills:
     summary: "Drafts the project order (PREQ) and runs kick-off, milestone reports and closure for a use case or system project; sponsor approval and budget stay with humans. DRAFT."
 
   - id: od-utilization-review
+    library: extension
     tier: practice
     lane: use-case-support-service
     scope: od
@@ -550,6 +606,17 @@ skills:
     owner_role: human:jakob.gabriel
     authority_level: draft
     summary: "Reviews whether a deployed use case is actually used and delivers value, and routes the no-saving cases to a human decision. DRAFT."
+
+  - id: od-maturity-assessment
+    library: extension
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the object came through
+    authority_level: draft
+    summary: "As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas, with drivers, prerequisite chain and a route signal. DRAFT."
 
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
@@ -642,3 +709,4 @@ open_gaps:
   - "od-project-order (draft), open: Where the order is stored; customer-mandated programme intake branch (proposal only)"
   - "od-governance-cadence (draft), open: Single status taxonomy per round; cadence of ODEC vs ODIC; training format"
   - "od-machine-integration-plan (draft), open: Where the barrier log lives; who convenes the rapid decision board; budget-class limits"
+  - "od-maturity-assessment (draft), open: Level definitions for two focus areas are undefined in the source model; the dependency table does not reproduce the papers' development paths"

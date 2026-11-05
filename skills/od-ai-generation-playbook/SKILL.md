@@ -9,7 +9,7 @@ description: >-
   that stay human. Names the process step where each rule applies. Use before an agent drafts, generates
   or checks anything in a lane, when someone proposes an AI assistant, agent or generated app, or when
   asked what an AI agent may do at a step and who must sign.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-ai-generation-playbook
@@ -140,6 +140,7 @@ promotion to the catalog; confirming a savings status.
 | [`references/generation-pipeline.md`](references/generation-pipeline.md) | The generation pipeline with human gate and visual-QA loop; signal selection; dashboard, mock-up, analyser and deployment-set generation |
 | [`references/ai-governance.md`](references/ai-governance.md) | GenAI PoC governance, agentic workflows, AI-built app intake, assistants, the AI maturity check |
 | [`references/evidence-and-human-decisions.md`](references/evidence-and-human-decisions.md) | Citation rules per step and the full human-decision list |
+| [`references/ai-initiative-maturity-ladder.md`](references/ai-initiative-maturity-ladder.md) | The evidence ladder for AI initiatives (idea to proven), the rule that PoC claims are not savings, pilot design pattern, failure modes |
 | [`assets/ai-step-card.md`](assets/ai-step-card.md) | The card that admits an agent step and records its evidence and gate |
 | [`assets/missing-signal-and-binding-table.md`](assets/missing-signal-and-binding-table.md) | The missing-signal table and the signal-to-panel binding table |
 

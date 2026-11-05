@@ -44,9 +44,9 @@ into Lane 1 or Lane 2, or retired.
 
 ## Cross-check against the registry (2026-11-05)
 
-Skill names in the four files compared with the 56 skills in `skills/` (25 existing, 31 drafts written from this flow, the department's plan and the slide-deck practice review):
+Skill names in the four files compared with the 57 skills in `skills/` (25 existing, 32 drafts written from this flow, the department's plan and the slide-deck practice review):
 
-- 28 of the 56 skills are named in at least one file; 17 are named in all four. The other 28 are placed on the flow by this registry alone: the 18 skills built from the department's plan and the flow's two thin spots, and the two lane orchestrators the files do not mention. Where each skill sits: [`new-state-skill-map.md`](new-state-skill-map.md); the interactive version is the site built by `scripts/build_site.py`.
+- 28 of the 57 skills are named in at least one file; 17 are named in all four. The other 29 are placed on the flow by this registry alone: the 18 skills built from the department's plan and the flow's two thin spots, and the two lane orchestrators the files do not mention. Where each skill sits: [`new-state-skill-map.md`](new-state-skill-map.md); the interactive version is the site built by `scripts/build_site.py`.
 - Every name the flow marks as Built exists in the registry. The one name that is not a registry skill is `bc-assessment`, which the
   flow itself places outside the registry.
 - The existing [`process-overview.html`](process-overview.html) draws **four** service lanes; the new

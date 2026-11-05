@@ -9,7 +9,7 @@ description: >-
   has been accepted and needs turning into a defined use case, when an existing use-case
   record is too thin to act on, or when a definition or integration workshop is being
   prepared.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-use-case-definition
   tier: technical

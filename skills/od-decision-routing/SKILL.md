@@ -8,7 +8,7 @@ description: >-
   right forum. Use before committing spend, approving an integration or a connection,
   changing a standard or a rollout, or whenever it is unclear whether an action is
   recommend, execute-with-approval or execute-autonomously.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-decision-routing
   tier: practice

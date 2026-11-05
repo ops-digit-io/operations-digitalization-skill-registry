@@ -34,6 +34,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import skillpaths as sp
 SKILLS = ROOT / "skills"
 ALLOWED = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -191,10 +192,10 @@ def export_skill(skill: Path, dest: Path) -> None:
 
 
 def main(argv):
-    names = sorted(p.name for p in SKILLS.iterdir() if p.is_dir())
+    names = sp.all_ids()
     rows, fail = [], False
     for n in names:
-        e, w, d = check(SKILLS / n)
+        e, w, d = check(sp.skill_dir(n))
         rows.append({"skill": n, "errors": e, "warnings": w, "metadata_non_string": d})
         if e:
             fail = True
@@ -211,7 +212,7 @@ def main(argv):
         dest.mkdir(parents=True, exist_ok=True)
         ex = []
         for n in names:
-            export_skill(SKILLS / n, dest)
+            export_skill(sp.skill_dir(n), dest)
             e, w, d = check(dest / n)
             ex.append({"skill": n, "errors": e, "warnings": w, "metadata_non_string": d})
             if e or d:

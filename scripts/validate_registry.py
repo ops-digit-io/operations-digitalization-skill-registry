@@ -23,7 +23,10 @@ except ImportError:  # pragma: no cover
     sys.exit("PyYAML is required: pip install pyyaml")
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKILLS_DIR = ROOT / "skills"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import skillpaths  # noqa: E402
+
+LIBRARIES = ("core", "extension")
 REGISTRY = ROOT / "registry.yaml"
 
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -66,19 +69,25 @@ def main() -> int:
     listed = {entry["id"] for entry in registry.get("skills", [])}
     tiers = set(registry.get("tiers", {}))
 
-    on_disk = {p.name for p in sorted(SKILLS_DIR.iterdir()) if p.is_dir()}
+    on_disk = set(skillpaths.all_ids())
+    for entry in registry.get("skills", []):
+        lib = entry.get("library")
+        if lib not in LIBRARIES:
+            fail(f"registry.yaml: '{entry['id']}' needs library: core or extension")
+        elif entry["id"] in on_disk and skillpaths.library_of(entry["id"]) != lib:
+            fail(f"registry.yaml: '{entry['id']}' is library {lib} but its folder is {skillpaths.folder_of(entry['id'])}/")
 
     for missing in sorted(listed - on_disk):
-        fail(f"registry.yaml lists '{missing}' but skills/{missing}/ does not exist")
+        fail(f"registry.yaml lists '{missing}' but no skills*/{missing}/ folder exists")
     for unlisted in sorted(on_disk - listed):
-        fail(f"skills/{unlisted}/ exists but is not listed in registry.yaml")
+        fail(f"{skillpaths.folder_of(unlisted)}/{unlisted}/ exists but is not listed in registry.yaml")
 
     frontmatters: dict[str, dict] = {}
 
     for name in sorted(on_disk):
-        skill_file = SKILLS_DIR / name / "SKILL.md"
+        skill_file = skillpaths.skill_dir(name) / "SKILL.md"
         if not skill_file.exists():
-            fail(f"skills/{name}/: no SKILL.md")
+            fail(f"{skillpaths.folder_of(name)}/{name}/: no SKILL.md")
             continue
 
         fm = read_frontmatter(skill_file)
@@ -88,53 +97,53 @@ def main() -> int:
 
         declared = fm.get("name")
         if declared != name:
-            fail(f"skills/{name}/SKILL.md: name '{declared}' does not match its directory")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name '{declared}' does not match its directory")
         if declared and not NAME_RE.match(str(declared)):
-            fail(f"skills/{name}/SKILL.md: name must be lowercase, digits and hyphens")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name must be lowercase, digits and hyphens")
         if declared and len(str(declared)) > MAX_NAME:
-            fail(f"skills/{name}/SKILL.md: name exceeds {MAX_NAME} characters")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name exceeds {MAX_NAME} characters")
 
         description = (fm.get("description") or "").strip()
         if not description:
-            fail(f"skills/{name}/SKILL.md: description is missing")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: description is missing")
         elif len(description) < MIN_DESCRIPTION:
             fail(
-                f"skills/{name}/SKILL.md: description is {len(description)} chars — "
+                f"{skillpaths.folder_of(name)}/{name}/SKILL.md: description is {len(description)} chars — "
                 f"too thin to trigger on reliably (min {MIN_DESCRIPTION})"
             )
         elif len(description) > MAX_DESCRIPTION:
-            fail(f"skills/{name}/SKILL.md: description exceeds {MAX_DESCRIPTION} characters")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: description exceeds {MAX_DESCRIPTION} characters")
 
         meta = fm.get("metadata") or {}
         if meta.get("id") != name:
-            fail(f"skills/{name}/SKILL.md: metadata.id '{meta.get('id')}' does not match its directory")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.id '{meta.get('id')}' does not match its directory")
         for field in ("tier", "lane", "owner_role", "authority_level", "status", "derived_from"):
             if not meta.get(field):
-                fail(f"skills/{name}/SKILL.md: metadata.{field} is missing")
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.{field} is missing")
         if meta.get("tier") and meta["tier"] not in tiers:
-            fail(f"skills/{name}/SKILL.md: tier '{meta['tier']}' is not one of {sorted(tiers)}")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: tier '{meta['tier']}' is not one of {sorted(tiers)}")
 
         scope = meta.get("scope", "od")
         if scope not in ("od", "portable"):
-            fail(f"skills/{name}/SKILL.md: metadata.scope '{scope}' is not 'od' or 'portable'")
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.scope '{scope}' is not 'od' or 'portable'")
         # OD-scoped skills inherit the department's vocabulary and honesty rules. A
         # portable skill is domain-generic and must instead say how it plugs in.
         if scope == "od" and name != "od-context":
             if "od-context" not in (meta.get("requires") or []):
-                fail(f"skills/{name}/SKILL.md: every od-scoped skill must require od-context")
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: every od-scoped skill must require od-context")
         if scope == "portable":
             note = meta.get("od_integration")
             if not note:
-                fail(f"skills/{name}/SKILL.md: a portable skill must declare metadata.od_integration")
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: a portable skill must declare metadata.od_integration")
             elif not (ROOT / note).exists():
-                fail(f"skills/{name}/SKILL.md: metadata.od_integration path '{note}' does not exist")
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.od_integration path '{note}' does not exist")
 
     for name, fm in frontmatters.items():
         meta = fm.get("metadata") or {}
         for field in ("requires", "composes"):
             for ref in meta.get(field) or []:
                 if ref not in on_disk:
-                    fail(f"skills/{name}/SKILL.md: metadata.{field} references unknown skill '{ref}'")
+                    fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.{field} references unknown skill '{ref}'")
 
     for entry in registry.get("skills", []):
         fm = frontmatters.get(entry["id"])

@@ -13,7 +13,7 @@ description: >-
   or before publishing any derived data point. Covers the public data models — OPC UA for
   Machinery, EUROMAP, PackML — so a standard is adopted rather than re-invented, and produces
   a defined signal analysis report as its output.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
   id: od-signal-standardization

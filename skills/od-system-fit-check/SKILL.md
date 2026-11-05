@@ -10,7 +10,7 @@ description: >-
   exception. Use during intake (`od-use-case-intake-triage`) or requirements breakdown
   (`od-requirements-breakdown`), whichever catches the request first — never after a use
   case has already been scoped around the heavier system.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-system-fit-check
   tier: practice
@@ -56,6 +56,7 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 | [`references/deployment-reality.md`](references/deployment-reality.md) | Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table — check this plant, not the estate average |
 | [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | How to read the live Tool Overview for a plant (status codes, what an empty cell means), how to count use cases naming a tool, and how to handle disagreement with workshop tables. Guidance only, no figures |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the check runs as chain step i1 / 32: boundary and "recommended if" lines as intake classifiers, demand shapes, the operations-concept precondition, handoff contract, agent notes |
+| [`references/maturity-profile-signals.md`](references/maturity-profile-signals.md) | Which maturity-model levels on a requested or existing system act as fit-check signals (MES shape, edge need, reporting before AI, integration cost); profile from `od-maturity-assessment`, evidence next to the boundary line, never a verdict |
 | [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | How to read the Legacy Application List (fields, blank-cell traps) and how to spot the plant that already runs a parallel MES, SCADA or dashboard system. Guidance only, no figures |
 
 ## The check — three steps

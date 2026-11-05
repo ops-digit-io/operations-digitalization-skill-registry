@@ -26,6 +26,7 @@ import markdown
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+import skillpaths as skp
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import agent_skills_spec as spec  # noqa: E402
 
@@ -108,6 +109,8 @@ def page(title: str, body: str, depth: int, active: str = "", extra_head: str = 
     up = "../" * depth
     nav = (f'<a href="{up}index.html">Process map</a><a href="{up}spec/index.html">Specification</a>'
            f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a><a href="{up}docs/new-state-flow.html">Flow notes</a>'
+           f'<a href="{up}downloads/core-library.zip">Core library</a> '
+           f'<a href="{up}downloads/extension-library.zip">Extension library</a> '
            f'<a href="{up}downloads/all-skills.zip">Download all</a>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{esc(title)}</title><style>{CSS}</style>{extra_head}</head><body>'
@@ -121,16 +124,16 @@ def build(out: Path, repo_url: str) -> None:
     out.mkdir(parents=True)
     reg = yaml.safe_load((ROOT / "registry.yaml").read_text(encoding="utf-8"))
     proc = yaml.safe_load((ROOT / "docs/new-state/process.yaml").read_text(encoding="utf-8"))
-    ids = sorted(p.name for p in (ROOT / "skills").iterdir() if p.is_dir())
+    ids = skp.all_ids()
 
     # ---- spec-strict export + zips
     export = out / "_export"
     results = {}
     for n in ids:
-        spec.export_skill(ROOT / "skills" / n, export)
+        spec.export_skill(skp.skill_dir(n), export)
     for n in ids:
         e, w, d = spec.check(export / n)
-        se, sw, sd = spec.check(ROOT / "skills" / n)
+        se, sw, sd = spec.check(skp.skill_dir(n))
         results[n] = {"export_errors": e, "source_errors": se, "source_warnings": sw, "metadata_non_string": sd}
     dl = out / "downloads"
     (dl / "skills").mkdir(parents=True)
@@ -145,19 +148,23 @@ def build(out: Path, repo_url: str) -> None:
     for n in ids:
         zip_skills([n], dl / "skills" / f"{n}.zip")
     zip_skills(ids, dl / "all-skills.zip")
+    core_ids = [n for n in ids if skp.library_of(n) == "core"]
+    ext_ids = [n for n in ids if skp.library_of(n) == "extension"]
+    zip_skills(core_ids, dl / "core-library.zip")
+    zip_skills(ext_ids, dl / "extension-library.zip")
 
     # ---- skill facts
     info = {}
     regmap = {s["id"]: s for s in reg["skills"]}
     for n in ids:
-        fm, body = fm_of(ROOT / "skills" / n / "SKILL.md")
+        fm, body = fm_of(skp.skill_dir(n) / "SKILL.md")
         meta = fm.get("metadata") or {}
-        files = {k: sorted(p.name for p in (ROOT / "skills" / n / k).glob("*") if p.is_file() and p.name != "index.md")
-                 for k in ("references", "assets", "scripts") if (ROOT / "skills" / n / k).is_dir()}
+        files = {k: sorted(p.name for p in (skp.skill_dir(n) / k).glob("*") if p.is_file() and p.name != "index.md")
+                 for k in ("references", "assets", "scripts") if (skp.skill_dir(n) / k).is_dir()}
         info[n] = {"id": n, "desc": " ".join(str(fm.get("description", "")).split()), "short": first_sentences(fm.get("description", ""), 1),
                    "state": "draft" if str(meta.get("status")) == "draft" else "built", "tier": meta.get("tier", ""), "lane": meta.get("lane", ""),
                    "authority": meta.get("authority_level", ""), "summary": regmap.get(n, {}).get("summary", ""), "files": files,
-                   "words": len(body.split()), "steps": []}
+                   "words": len(body.split()), "steps": [], "library": skp.library_of(n)}
 
     # ---- lanes for the map
     lanes = []
@@ -193,7 +200,7 @@ def build(out: Path, repo_url: str) -> None:
     for n in ids:
         info[n]["zip"] = f"downloads/skills/{n}.zip"
         info[n]["page"] = f"skills/{n}/index.html"
-        info[n]["github"] = f"{repo_url}/blob/main/skills/{n}/SKILL.md"
+        info[n]["github"] = f"{repo_url}/blob/main/{skp.folder_of(n)}/{n}/SKILL.md"
 
     # ---- map page
     data = json.dumps({"lanes": lanes, "skills": info}, ensure_ascii=False).replace("</", "<\\/")
@@ -201,9 +208,9 @@ def build(out: Path, repo_url: str) -> None:
     body = f"""
 <p>{len(ids)} skills ordered along the new-state process flow: pick a lane, a step, then a skill. {n_built} are in use, {len(ids) - n_built} are drafts.
 A dashed outline marks a skill this registry <em>proposes</em> for a step; the New-State files do not name it there.</p>
-<div class="bar"><input id="q" type="search" placeholder="Search a skill, a step or a word (e.g. cyber, template, rollout)" aria-label="Search"><label><input type="checkbox" id="prop" checked> show proposed placements</label></div>
+<div class="bar"><input id="q" type="search" placeholder="Search a skill, a step or a word (e.g. cyber, template, rollout)" aria-label="Search"><label><input type="checkbox" id="prop" checked> show extension skills (second library)</label></div>
 <div class="tabs" role="tablist" id="tabs"></div>
-<div class="legend"><span class="chip"><i></i>in use</span><span class="chip draft"><i></i>draft</span><span class="chip proposed"><i></i>proposed placement</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
+<div class="legend"><span class="chip"><i></i>in use</span><span class="chip draft"><i></i>draft</span><span class="chip proposed"><i></i>extension library (optional)</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
 <div id="lanes"></div><aside id="panel" aria-live="polite"></aside>
 <script id="data" type="application/json">{data}</script>
 <script>
@@ -244,7 +251,7 @@ render();
 
     # ---- skill pages
     for n in ids:
-        sd = ROOT / "skills" / n
+        sd = skp.skill_dir(n)
         od = out / "skills" / n
         shutil.copytree(export / n, od)
         fm, text = spec.split((export / n / "SKILL.md").read_text(encoding="utf-8"))

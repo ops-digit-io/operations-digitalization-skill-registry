@@ -8,7 +8,7 @@ description: >-
   demand, idea or "can you just…" arrives and it is not yet clear whether it is OD work,
   which lane it belongs to, or whether it should be refused. Also use to check that a
   request already in flight was admitted on legitimate grounds.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-use-case-intake-triage
   tier: practice

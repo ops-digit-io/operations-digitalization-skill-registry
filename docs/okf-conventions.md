@@ -52,7 +52,7 @@ top-level OKF frontmatter.
 name: od-signal-standardization          # equals the directory; this is the identity
 description: >-
   ...                                    # serves both the loader and OKF
-license: Internal — ...
+license: MIT
 metadata:
   id: od-signal-standardization
   tier: technical

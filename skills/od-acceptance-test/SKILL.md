@@ -7,7 +7,7 @@ description: >-
   complete, a solution is ready, an acceptance protocol needs writing, or a delivery is
   being declared done. Acceptance sign-off is human-only; an agent drafts the protocol
   and reports the result, never approves it.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-acceptance-test
   tier: practice

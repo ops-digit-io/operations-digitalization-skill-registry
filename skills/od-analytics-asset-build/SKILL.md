@@ -8,7 +8,7 @@ description: >-
   utilization expectation, and knowing when not to build. Use whenever a delivery asset is
   being designed or built, when an existing one is being reworked, or when choosing
   between a dashboard, a report and an app.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 metadata:
   id: od-analytics-asset-build
   tier: practice
@@ -51,7 +51,9 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 | [`references/dashboard-worked-examples.md`](references/dashboard-worked-examples.md) | 14 illustrative dashboard patterns, each with the lesson it teaches, and how to pick real ones |
 | [`references/dashboard-json-sample.md`](references/dashboard-json-sample.md) | How to sample dashboard JSON, and the nine query patterns found |
 | [`references/capability-templates-and-placement.md`](references/capability-templates-and-placement.md) | The 11 templates, the 13 placement rules and their precedence, how case groups work, how to place a new asset |
+| [`references/dashboard-spec-and-change-report-patterns.md`](references/dashboard-spec-and-change-report-patterns.md) | **Structure of a dashboard spec set** (hub, baseline, data contract, authoring standard, families), requirement id families, the requirements and summary pair with its markers, reverse-engineering routine, how to read the change and creation reports |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: the dashboard-without-action-owner smell, the generative-AI dashboard process, reconciling with paper records, sprint practice, handoff contract, AI agent operating notes |
+| [`assets/dashboard-requirements-template.md`](assets/dashboard-requirements-template.md) | **Template.** Requirements specification and summary for one system's dashboards, with the observed / issue / open markers and the common requirements |
 | [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, authoring rules with how to check each on the current export, placement, delivery |
 
 **This skill does not re-derive Grafana build mechanics.** `build-grafana-ops-dashboard` already

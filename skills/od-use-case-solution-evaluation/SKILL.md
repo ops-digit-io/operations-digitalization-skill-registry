@@ -12,7 +12,7 @@ description: >-
   (`od-use-case-definition`) and before its business case is calculated, whenever a solution
   looks more complex than the stated need, or when a target keeps getting set to "as high as
   possible" instead of from a stated reason.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/evaluate_fit.py:*)
 metadata:
   id: od-use-case-solution-evaluation

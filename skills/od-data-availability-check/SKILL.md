@@ -10,7 +10,7 @@ description: >-
   writes a defined verdict naming which step the request dies at. Use at the start of any
   analytical request, before scoping a use case, and whenever an analysis is about to be
   built on data whose provenance has not been checked.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/check_availability.py:*)
 metadata:
   id: od-data-availability-check

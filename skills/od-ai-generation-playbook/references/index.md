@@ -5,5 +5,6 @@
 | Concept | Type | Description |
 |---|---|---|
 | [AI governance](ai-governance.md) | Skill Reference | Governance for GenAI proofs of concept, agentic workflows, AI-built apps and AI assistants - start conditions, scope limits, intake path, fit criteria and the maturity sanity check - with the step ids where each applies. |
+| [AI initiative maturity ladder](ai-initiative-maturity-ladder.md) | Skill Reference | The evidence ladder for AI and agentic initiatives (idea, drafted case, prototype or PoC, validated pilot, productive, proven), what each rung may claim, the rule that PoC claims are not savings, and the failure modes the strategic business cases name. Not the data-maturity ladder of ai-governance. Pattern only, no values. |
 | [Evidence and human decisions](evidence-and-human-decisions.md) | Skill Reference | What an AI agent must cite at each process step, how it labels drafts, and the list of decisions and signatures that stay with a named human role. |
 | [Generation pipeline](generation-pipeline.md) | Skill Reference | The seven-stage pipeline for a template-bound generated deliverable with its human gate and visual-QA loop, and the recipes for signal selection, dashboard generation, click-dummy, guided analyser and deployment set. |

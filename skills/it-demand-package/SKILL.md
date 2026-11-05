@@ -9,7 +9,7 @@ description: >-
   touches a platform OD does not own, when a foreign app must be integrated, when an app is
   to be built externally, or when someone asks what IT needs from OD. Draft scaffold: IT's
   own demand form is not recorded in the sources.
-license: Internal — OESL MPEE Operations Digitalization. Not for external distribution.
+license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: it-demand-package
