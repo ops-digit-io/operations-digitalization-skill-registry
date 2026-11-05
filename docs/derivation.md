@@ -28,8 +28,8 @@ _knowledge/OperationsDigitalization-Department/20-lanes/<lane>/
   agent-brief.md  may / may not / authority_level / guardrails / escalation
 ```
 
-**The Node-RED flow corpus** — 825 exported flow JSON files and their generated pages
-across 53 `ct-oesl-*-nodered-*` instances, plus the generator that produces them:
+**The Node-RED flow corpus** — the exported flow JSON files and their generated pages
+across the `ct-oesl-*-nodered-*` instances, plus the generator that produces them:
 
 ```
 _knowledge/node-red-auto-docs/docs/<instance>/<Flow_Name>.json   the flow, tab + nodes
@@ -41,9 +41,9 @@ _knowledge/node-red-auto-docs/generate_docs.py                   what reads whic
 integration guide walks, and the machine and connector rows behind it:
 
 ```
-_knowledge/_apps/machine-integration-guidance-app/rules.json       live tree, 25 q / 27 recs
-_knowledge/_apps/machine-integration-guidance-app/rules-next.json  next tree, 35 q / 31 recs
-_knowledge/90-Sources/generated/kg_nodes.csv                       1,715 Machine + 26 Connector
+_knowledge/_apps/machine-integration-guidance-app/rules.json       live tree
+_knowledge/_apps/machine-integration-guidance-app/rules-next.json  next tree
+_knowledge/90-Sources/generated/kg_nodes.csv                       Machine + Connector nodes
 ```
 
 The raw SharePoint exports under `90-Sources/**/*.json` are Git-LFS pointers and were not
@@ -90,8 +90,8 @@ is derived from that material.
 | `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
 | `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
 | `od-equipment-integration` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*`; `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation) |
-| `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across 650 use cases, the latent heading grammar inside `target_text`/`blockers`, and the 268 legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
-| `od-signal-standardization` | `node-red-auto-docs/docs/**` (260 signal names in use across 3,400 references); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
+| `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across the use cases, the latent heading grammar inside `target_text`/`blockers`, and the legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
+| `od-signal-standardization` | `node-red-auto-docs/docs/**` (the signal names in use across the flows); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
 | `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
 | `od-handover-and-adoption` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
 | `od-data-availability-check` | `20-lanes/analytical-support-service/{playbook,tasks}`; `10-Department/Machine integration`; `10-modules/.../systems-of-record` |
@@ -100,8 +100,8 @@ is derived from that material.
 | `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
 | `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
 | `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
-| `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (825 flows); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
-| `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against all 825 flows, and its finding counts are the corpus's actual defect distribution |
+| `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (the flow corpus); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
+| `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against the whole flow corpus |
 | `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
 ## Where this registry deliberately contradicts the bundle
@@ -122,7 +122,7 @@ table stays.
 What was **kept**, deliberately, because they are live identifiers rather than references:
 
 - the `ct-oesl-*-nodered-*` **repository names** — the doc generator matches on
-  `^ct-oesl-.*-nodered-(prod|test).*`, so renaming them makes 825 flows undocumentable;
+  `^ct-oesl-.*-nodered-(prod|test).*`, so renaming them makes the flows undocumentable;
 - the **`CT/…` MQTT topic root** and its `OESL` / `MFS` segments — a topic is an interface
   and every subscriber breaks; both are marked as legacy in `od-node-red-flow-builder`;
 - **CT Base** as the recorded name of the data-model blocker on 23 machines — the estate
@@ -159,11 +159,11 @@ question is worse than one that shows where the department has not decided yet.
 
 **The Node-RED builder was re-measured after review, and the first cut was wrong about the
 majority case.** The ten patterns were all framed single-input. Counting distinct
-`datapoint*` config keys per flow showed **461 of 665 configured flows read two or more** —
+`datapoint*` config keys per flow showed that **most configured flows read two or more** —
 so multi-input is the norm, not an edge case, and the latch-and-evaluate shape it requires
-was absent. The same pass surfaced three more gaps the catalogue hid: windowed aggregation
-(36 flows), a second timestamp envelope on JSON topics (75 flows) alongside `plcTime` as a
-distinct clock (145 flows), and timer-driven emit. `composing-transformations.md` exists
+was absent. The same pass surfaced three more gaps the catalogue hid: windowed aggregation,
+a second timestamp envelope on JSON topics alongside `plcTime` as a
+distinct clock, and timer-driven emit. `composing-transformations.md` exists
 because a catalogue answers "what has been built" and a builder also needs "what do I do
 when mine is not in it".
 
@@ -171,7 +171,7 @@ when mine is not in it".
 from the skill alone and started in Node-RED v5.0.4. It reached `Started flows` — but only
 after three additions the skill did not mention, and the reason it did not is structural:
 the corpus is the *per-flow* export, which contains a tab and its nodes and **nothing else**.
-Across all 825 exports there are zero config nodes. So the derived patterns described a
+Across all exports there are zero config nodes. So the derived patterns described a
 correct transformation and an undeployable file. `deployable-flow.md` closes that, with the
 palette module named and the config-node shapes taken from the flow that actually ran. It is
 also a caution about derivation in general: a corpus can be complete for what it shows and
@@ -179,8 +179,8 @@ silently missing a whole layer.
 
 **`od-signal-standardization` was promoted from practice to technical, because the evidence
 turned it into a real analysis job.** Mining the flow corpus for `datapoint*` config keys
-found **260 distinct signal names across 3,400 references** — eight for machine state alone,
-seven for part number, and `AverageMeltTempature`, a misspelling with 34 references that is
+found **many distinct signal names for a far smaller set of concepts** — several for machine state alone,
+several for part number, and a misspelled name that is referenced widely and is
 now an interface. That is *data model standardization*, the estate's most-recorded
 integration blocker at 23 machines, in measurable form. The skill gained a canonical
 vocabulary, the normative KPI standards that decide which signals a capability needs before
@@ -196,8 +196,8 @@ note *"Development to be started with Rollout in Dolne Vestenice"*. `check_avail
 had the same defect from the other side — its vendor map pointed B&R and Bachmann machines at
 connectors that do not exist, which would have produced a connector-gap barrier.
 
-What makes it a real correction rather than a typo is the second half: **73 machines across
-those two families are integrated today**, 29 of 32 B&R and 44 of 63 Bachmann, and 30 of the
+What makes it a real correction rather than a typo is the second half: **machines across
+those two families are integrated today**, and many of the
 B&R rows are recorded as `Central OPCUA Aggregation Server`. The estate had already solved it
 over OPC UA. Reporting "no connector" would have contradicted machines that are delivering
 data — the failure mode where a check invents a gap.
@@ -225,8 +225,8 @@ protocol; it is an unfilled field, and the difference decides whether you plan f
 visit.
 
 **The availability check was the most-depended-upon skill in the registry and the least
-built.** Fifteen files across the library route to it — more than to any other — and every one
-of them leans on a phrase like *"verified, not assumed"*. It was 475 words and a six-row table,
+built.** Many files across the library route to it — more than to any other — and every one
+of them leans on a phrase like *"verified, not assumed"*. It was a short note and a small table,
 with no way to actually run the check. So it got a script, and building the script decided the
 skill's real claim.
 
@@ -236,7 +236,7 @@ reports step 5 as unproven on every single run, deliberately. A tool that guesse
 be worse than one that admits what it cannot see — step 5 is the only one of the three that
 fails *quietly*, handing back a number that renders, gets believed, and is wrong.
 
-Step 4 turned out to be answerable in a way the skill had not claimed. The 825-flow Node-RED
+Step 4 turned out to be answerable in a way the skill had not claimed. The Node-RED flow
 corpus is the only source in the bundle that says anything about an individual signal rather
 than a machine, so a signal name appearing in a deployed flow is real evidence it exists at
 that plant. Using it needed a plant↔instance mapping that nothing in the bundle states, and the
@@ -255,12 +255,12 @@ let a four-character token confirm anything containing it — a generic `Pressur
 signal name (`datapointTotalPartCounter` proves `TotalPartCounter`), never less.
 
 Three properties of the sources became checks because reading them wrong is the normal
-mistake. A blank `integration_status` is not a no — 451 of 1,715 rows are blank, so reading
-one as "not integrated" fabricates a gap across a quarter of the estate. A connector existing
-is not a connector you may use — 19 of 26 are Productive and marked USE, 6 are NOT AVAILABLE
-and one is DO NOT USE. And `plc_vendor` holds `S7.Schnitt.` on 8 machines, a German note
-meaning "S7 interface" rather than a manufacturer, plus `MRA`, `ASI`, `PMA` and `EOS` on 15
-more: those machines match no connector, which reads as a connector gap and is a data-entry
+mistake. A blank `integration_status` is not a no — many rows are blank, so reading
+one as "not integrated" fabricates a gap across a large part of the estate. A connector existing
+is not a connector you may use — some are Productive and marked USE, others are NOT AVAILABLE
+or DO NOT USE. And `plc_vendor` holds a German note
+meaning "S7 interface" on some machines rather than a manufacturer, plus other non-vendor codes on
+others: those machines match no connector, which reads as a connector gap and is a data-entry
 error. The script names it as one.
 
 **Adopting OKF was decided by one hard constraint, not by preference.** The registry was
@@ -314,16 +314,16 @@ is the point; in metadata a consumer reads it as the value.
 The plan was to design an epic/user-story format. Then `usecase-epics-user-stories.md` turned
 up in the knowledge graph: the SharePoint list encodes a two-axis hierarchy in its own
 `UseCaseParentId` and `UseCaseParent-ProcessId` fields, and the generated register already
-renders 22 process epics, 11 capability epics and 650 leaf user stories.
+renders process epics, capability epics and leaf user stories.
 
-Counting what is inside them changed the design. Of the 650 leaf stories, 429 carry a target
-text and 466 carry some narrative — but **59** carry an "I want" tag, so 591 render as
-*"I want (not tagged)"*; **3** mention acceptance criteria anywhere; and **0** carry a "so
+Counting what is inside them changed the design. Many leaf stories carry a target
+text or some narrative — but **few** carry an "I want" tag, so most render as
+*"I want (not tagged)"*; **hardly any** mention acceptance criteria; and **none** carry a "so
 that" that differs from the generated clause *"…so that the process gains transparency, faster
-reaction and less manual effort"*, which is appended identically to all 650.
+reaction and less manual effort"*, which is appended identically to all of them.
 
 I had also expected the filled fields to be hollow forms — headings with nothing under them.
-They are not: of 429 filled target texts, 0 contain only headings. The estate fills what it
+They are not: none of the filled target texts contain only headings. The estate fills what it
 is asked for in a meeting and leaves blank what needs a conversation with an operator. So the
 skill does not introduce a structure; it attacks a benefit clause that fits anything, and
 `check_epic.py` refuses a "so that" built only from generic benefit words. That check earned
@@ -358,7 +358,7 @@ unless somebody knows where each machine's cycle starts. The context sources are
 confidence rather than treated as equivalent — a live data-point config is verified, a
 deployed PLC program is high, a tag export is high for existence and low for meaning, a verbal
 description is low. The reason this had to be written at all is a gap in the estate:
-`documentation_available` and `documentation_link` exist as fields on all 1,715 machine rows
+`documentation_available` and `documentation_link` exist as fields on the machine rows
 and are populated on none, so there is no system of record for the context and it must be
 gathered per machine.
 
@@ -369,18 +369,17 @@ collection method and owners are not, and a report that guessed at them would be
 one that asks — that guess is exactly how `AverageMeltTempature` reached 34 flows.
 
 **The requirements skill formalizes a template the estate had already half-written.** The
-headings it uses — `Use Case Target Overview` (99 use cases), `Major Issue` / `Key Problem`
-(44), `Tags of Interest` (29), `Acceptance criteria` (13), `Traces to` (13), `Major` / `Minor
-Blocking Points` (162) — were found inside the existing free-text `target_text` and `blockers`
+headings it uses — `Use Case Target Overview`, `Major Issue` / `Key Problem`,
+`Tags of Interest`, `Acceptance criteria`, `Traces to`, `Major` / `Minor
+Blocking Points` — were found inside the existing free-text `target_text` and `blockers`
 fields, not designed. Imposing a new form on a department that already has one would have
-been the wrong move; the finding is that the form exists and is used on about one use case in
-eight.
+been the wrong move; the finding is that the form exists and is used on a minority of use cases.
 
 The field-population profile also decided the *order* of the elicitation questions.
-`savings_eur` is populated on 100 % of 650 use cases and `targets` on 9 %, while `comment`,
-`methods`, `actions`, `utilization` and `csp_decision` are on none — what gets asked for in a
+`savings_eur` is populated on nearly every use case and `targets` on few, while `comment`,
+`methods`, `actions`, `utilization` and `csp_decision` are almost empty — what gets asked for in a
 meeting is recorded, what needs a conversation with the operator is not. The question rounds
-are ordered to get the 0 % and 9 % answers first, because the savings figure will be filled in
+are ordered to get the thinly populated answers first, because the savings figure will be filled in
 regardless.
 
 **Two things in the signal skill come from outside the bundle, and are labelled as such.**
@@ -390,7 +389,7 @@ inline; the specifications themselves were not read in full, so the mappings are
 starting point to confirm rather than a conformance statement. The clustering and importance
 patterns are the opposite: derived entirely from the portfolio's own `ai_cluster`,
 `business_process` and `targets` fields, which is why the reference states plainly that those
-fields are populated on 150 and 59 of 650 use cases and that a low rank therefore means
+fields are populated on only part of the use cases and that a low rank therefore means
 unknown demand rather than none.
 
 **The one shipped flow asset was deployed before it was documented, and the test found a
@@ -410,18 +409,17 @@ verified by grep. The corpus has 42 flows with committed secrets; a reference th
 real identifiers would propagate exactly that.
 
 **One skill ships an executable, and it was calibrated on the corpus rather than guessed.**
-`od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over all 825 flows with zero
+`od-node-red-flow-troubleshooting/scripts/analyze_flow.py` runs over the whole flow corpus with zero
 parse failures, and every check earns its place by finding a defect that is actually present.
-Calibration mattered: an early version of the flow-context check fired on 575 flows, which is
-70 % and therefore noise. Splitting it into a real read of unset context (99) and a copied
-`Debug flow config` echo (94) made it a finding instead of a nag. The counts in the skill are
-the analyser's own output, so they can be re-derived by re-running it.
+Calibration mattered: an early version of the flow-context check fired on most flows, which is
+noise. Splitting it into a real read of unset context and a copied
+`Debug flow config` echo made it a finding instead of a nag. The skill states no counts;
+the analyser re-derives them on the live corpus.
 
 **The technical tier is measured, not asserted.** The Node-RED and machine-integration
-skills state frequencies (620 of 825 flows carry a *prepare and convert payload* group;
-1,032 of 1,715 machines are Siemens; 1 % of flows carry a description) because a house
-pattern claimed without a count is one person's preference. Every number in those two
-skills was computed over the corpus, and the computation is reproducible from the paths in
+skills were checked against frequencies in the corpus (a house pattern is only one when most flows carry it)
+because a pattern claimed without evidence is one person's preference. They no longer quote those numbers,
+which drift; every check was computed over the corpus, and the computation is reproducible from the paths in
 the traceability table. Where the corpus is inconsistent, the skill says so rather than
 picking a winner.
 
@@ -445,7 +443,7 @@ the few figures that genuinely change a routing decision now sit in `SKILL.md` w
 consequence attached.
 
 **The Softing material is now grounded in the vendor manual, and the disagreements are
-reported rather than resolved.** The dataFEED OPC Suite V5.70 manual (1,540 pp.) reached the
+reported rather than resolved.** The dataFEED OPC Suite V5.70 manual reached the
 bundle after the first pass; the Softing references were rewritten against it with page
 references throughout, and two OESL recommendations turned out to describe steps the product
 cannot perform — a Beckhoff/ADS data source that does not exist, and a NetLink protocol

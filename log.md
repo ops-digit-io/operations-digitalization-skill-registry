@@ -45,7 +45,7 @@ not a concept.
 
 ## 2026-10-22
 
-- **Mined the full 825-flow corpus again**, this time for function/change/switch node bodies
+- **Mined the full flow corpus again**, this time for function/change/switch node bodies
   rather than structure, to extend `od-node-red-flow-builder` beyond the original ten
   transformation patterns. Added three new patterns — **P11 OEE chain** (availability ×
   performance × quality), **P12 windowed extremum capture** (peak value while a threshold
@@ -87,10 +87,10 @@ not a concept.
   `hardcoded-threshold` check to `analyze_flow.py` (a limit compared or assigned as a bare
   literal in a function body instead of `flow.get(...)`) and cross-referenced it from both
   sides — the builder's P4/P12 now name the check, the troubleshooting `SKILL.md` and
-  `references/symptoms.md` now name the pattern. Run fresh over all 825 flows: 68 carry it,
+  `references/symptoms.md` now name the pattern. Run fresh over all the flow corpus: 68 carry it,
   more than `spine-severed` (67). That same full-corpus run also caught two pre-existing,
   unrelated staleness bugs in `SKILL.md`'s findings table — `hardcoded-secret` was recorded
-  as 42 flows (actually 40; 42 was the finding count, two flows carry two each) and
+  as more flows than it affects (the finding count differs from the flow count when a flow carries two) and
   `spine-severed` as 102 (actually 67) — both corrected along with the blocker-flow total
   (98, not 59). Not an effect of anything changed this session; the table had simply drifted
   from the script.
@@ -255,16 +255,16 @@ not a concept.
 - Described the OPC UA direct connector properly and added availability to every connector
   table. `references/connectors.md` covers all 26 with what each reaches, over which protocol,
   which PLCs, its container image, and whether it can be used — seven cannot. The B&R and
-  Bachmann connectors are `Idea · NOT AVAILABLE` while 73 machines across those families are
+  Bachmann connectors are `Idea · NOT AVAILABLE` while machines across those families are
   integrated over OPC UA, so `check_availability.py` now routes them to `DTQ-OPCUA-Connector`
   instead of raising a connector gap, and no longer offers the `DO NOT USE`
   `SFT-SIMATIC S7-Connector` to Siemens machines.
 - Built out `od-data-availability-check`: four references, the verdict asset, and
   `check_availability.py`, which walks the six steps against the Machine List, the Connector
-  Overview and the 825-flow Node-RED corpus and names which step a request dies at. Step 5 is
+  Overview and the Node-RED flow corpus and names which step a request dies at. Step 5 is
   reported unproven on every run because no source in the bundle records fitness for use.
-- Recorded five new open gaps found while building it, among them 16 plants with no flow
-  evidence, 191 machines integrated by an unrecorded method, and 23 machine rows whose
+- Recorded five new open gaps found while building it, among them plants with no flow
+  evidence, machines integrated by an unrecorded method, and machine rows whose
   `plc_vendor` is not a vendor.
 
 ## 2026-08-25
@@ -283,7 +283,7 @@ not a concept.
   dropped `--lane=` and `--capability=` and reported success; `tokens()` never split
   camelCase, so `HeadTemperature` was reported as German; ambiguous terms across Spanish,
   Portuguese and Serbian resolved to whichever loaded first; three call sites read the label
-  column differently; the money check missed the `EUR 340,000 2026` form its own template
+  column differently; the money check missed a currency-and-year form its own template
   uses; a `"signal" not in row` filter dropped real rows such as `SignalQuality`; unnamed
   Node-RED groups leaked an empty entry into a finding; and `arraySplt` was gated on the
   wrong field.
