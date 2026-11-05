@@ -49,6 +49,7 @@ its source, its target and the value at which somebody intervenes.
 |---|---|
 | [`references/scorecard-structure.md`](references/scorecard-structure.md) | Why the metrics split into build/delivery/adoption/value, the discipline (formula, elements, time behaviour, unit, user group) a new metric must meet before it joins the table, and the IEC 62264 work-unit basis of the equipment KPIs |
 | [`references/readiness-evidence.md`](references/readiness-evidence.md) | What actually moves a readiness-matrix cell to "Available" — never a status update, always a recorded `od-acceptance-test` pass — and what red/amber/green mean here |
+| [`references/metric-reading-guide.md`](references/metric-reading-guide.md) | How to read a lane metric row and the rule behind each "intervene from"; labels for a missing target; lane metric definitions incl. not-yet-captured ones with proposed start and stop events; companion pairs |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How a round is prepared and followed up in practice: forums and agenda blocks, call for action, status colours, KPI-basis discipline, utilization next to delivery count, handoff contract, agent notes |
 | [`references/rounds-and-escalation.md`](references/rounds-and-escalation.md) | ODEC/COP's real recurring content shape (regional breakout, not a blended total), how to prepare and follow up each, and where the escalation-window gap actually sits |
 

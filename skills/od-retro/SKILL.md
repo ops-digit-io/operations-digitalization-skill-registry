@@ -62,6 +62,7 @@ adjustment. Everything else goes to the parking list and is revisited, not decid
 | File | Use it for |
 |---|---|
 | [`references/retro-inputs.md`](references/retro-inputs.md) | Where each of the three inputs is read from, what a usable item looks like, which signals the sources already supply and the limits of each |
+| [`references/reading-change-logs.md`](references/reading-change-logs.md) | What the generated use-case change logs record, how to read a line, which changes are signal and which are sweeps or tidy-ups, limits to state, and how to turn a log into a retro item |
 | [`assets/retro-record.md`](assets/retro-record.md) | The one-page record: last month's check, the evidence list, the one adjustment, the parking list |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Where good learning items come from, a cause classification, clean-up and kill/hold hygiene, and what an agent may draft |
 

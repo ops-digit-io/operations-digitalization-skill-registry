@@ -45,6 +45,7 @@ lanes:
           - id: 1b1
             title: Pick the use case and the standard system
             skills: [catalog-usecase, catalog-systems]
+            proposed: [od-maturity-assessment]
           - id: 1b2
             title: Cost template and lightweight approval
             wait: "~d"
@@ -75,7 +76,7 @@ lanes:
           - id: "22"
             title: Features and data check
             skills: [od-requirements-breakdown, od-data-availability-check, od-use-case-solution-evaluation]
-            proposed: [od-machine-integration-plan, od-event-object-modelling]
+            proposed: [od-machine-integration-plan, od-event-object-modelling, od-maturity-assessment]
           - id: "23"
             title: Prototype and validate
             skills: [od-analytics-asset-build, od-prototype-poc]
@@ -109,7 +110,7 @@ lanes:
           - id: "32"
             title: Tool decision and IT gate
             skills: [od-system-fit-check, od-decision-routing]
-            proposed: [od-application-consulting, od-migration-cutover]
+            proposed: [od-application-consulting, od-migration-cutover, od-maturity-assessment]
           - id: "33"
             title: Business case and capital
             wait: "~wks"
@@ -137,7 +138,7 @@ lanes:
           - id: 3b4
             title: Connector and pipeline to the data platform
             skills: [od-equipment-integration, od-signal-standardization, od-node-red-flow-builder]
-            proposed: [od-barrier-triage, od-cross-plant-compatibility, od-machine-integration-plan]
+            proposed: [od-barrier-triage, od-cross-plant-compatibility, od-machine-integration-plan, od-maturity-assessment]
           - id: 3b5
             title: Procure and connect the machine
             wait: "procurement ~wks"

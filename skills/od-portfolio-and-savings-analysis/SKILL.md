@@ -46,6 +46,7 @@ Read `od-context` first.
 | [`references/prioritization.md`](references/prioritization.md) | A weighted-scoring/value-effort method for ranking use cases in a review, and the unscoreable bucket for `UNKNOWN` priority/potential |
 | [`references/regional-handling.md`](references/regional-handling.md) | Why Europe/Americas/Asia are never blended into one conversion figure, and what to report instead |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Order of ranking criteria, numbered planning states, the where-saved matrix, dependency versus return ordering, kill and hold hygiene, and what an agent may draft |
+| [`references/strategic-initiatives-and-savings.md`](references/strategic-initiatives-and-savings.md) | How to read strategic business cases next to plant savings: addressable vs realistic, anchors, no double counting, what may enter the portfolio |
 
 Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) — one
 document per review round, built from `od-sharepoint-list-export`'s capture and

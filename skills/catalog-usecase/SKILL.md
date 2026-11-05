@@ -73,6 +73,7 @@ decision) and name the entries with a `Yes`; how to do this and what to watch fo
 | [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | How to count the library and the CSP decisions live, how to find the entries with a recorded CSP `Yes`, which of the four "catalogued" conditions the vault shows for them |
 | [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: how to read delivered versus wanted coverage and find peer plants live, data each template needs, boundary table, typical screen components |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the pick and the graduation are run in practice: archetypes (cross-process, per-process, unique), prototype to configurable container app, triage buckets, entry content, handoff contract, agent notes |
+| [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Placement traps (same title, mis-templated, boundary pairs), what "Other Use Cases" resolves into, the documentation standard that makes a peer a usable match, choosing the reference solution |
 | [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | The match record to fill per request, with an illustrative worked example |
 
 ## What counts as "catalogued"

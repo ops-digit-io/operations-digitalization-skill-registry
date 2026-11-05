@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Application maturity profile](application-maturity-profile.md) | Skill Reference | How to read a plant-local or foreign application on the IT/OT focus areas that matter for integration - which areas to rate, what the levels say about integrate, keep or replace, the data path and the run owner. |
 | [Build path options](build-path-options.md) | Skill Reference | The four ways an application question can be answered in Lane 3a - reuse, self-develop, external development, integrate a foreign app - with the selecting question, executing skill, gates and what is not yet defined. |
 | [Footprint and data path](footprint-and-data-path.md) | Skill Reference | Guidance, no figures. The reference architecture and systems of record an app design must fit, how to read the rollout and use of the tools, how the lean footprint is bounded, and the discrepancies to confirm before citing a tool status. |
 | [Legacy application landscape](legacy-application-landscape.md) | Skill Reference | Guidance, no figures. How to read the recorded plant-local applications (categories, functional mapping, support, licences, network placement) and use it when the question is replace, integrate or keep. |

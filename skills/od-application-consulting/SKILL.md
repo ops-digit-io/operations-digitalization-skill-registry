@@ -81,6 +81,7 @@ to `deploy-appstore` and `it-demand-package` (draft skills).
 | [`references/build-path-options.md`](references/build-path-options.md) | The four build paths, the question that selects each, the skill that executes it, the gates, and the support-tier split |
 | [`references/legacy-application-landscape.md`](references/legacy-application-landscape.md) | How to read the recorded plant-local applications: categories, support, licences, network placement, and what that means for "replace, integrate or keep" |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the recommendation is produced at chain steps 32 / 3a4: rule chain from use case to make-or-buy, supplier-built app and selection round, legacy component assessment, operations-concept precondition, handoffs, agent notes |
+| [`references/application-maturity-profile.md`](references/application-maturity-profile.md) | Which IT/OT focus areas describe an application and what their levels say about integrate, keep or replace, the data path and the run owner (profile from `od-maturity-assessment`) |
 | [`assets/design-recommendation.md`](assets/design-recommendation.md) | The recommendation form |
 
 The per-tool "is / is not" lines and the per-plant availability guidance are in `od-system-fit-check`; they are used

@@ -44,6 +44,7 @@ Read `od-context` first.
 |---|---|
 | [`references/clusters.md`](references/clusters.md) | All clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Archetypes (cross-process, per-process, unique), category to method to data-job mapping, prototype to configurable container app, scaling lessons (utilization, not rollout count), handoff contract, agent notes |
+| [`references/process-family-patterns.md`](references/process-family-patterns.md) | What a use case looks like per process family (rubber, plastic, metal, assembly, cross-process): process groups, typical capabilities, data needed, standardization potential, traps, blocker themes per capability |
 
 The function's leverage is not building one dashboard well. It is building one dashboard
 well and then having the other plants **take** it rather than re-specify it.

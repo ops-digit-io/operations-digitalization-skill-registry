@@ -41,6 +41,7 @@ Read `od-context` first.
 | File | Use it for |
 |---|---|
 | [`references/lane-templates.md`](references/lane-templates.md) | Which already-built skill's asset answers each step's template — this lane routes to them rather than repeating them |
+| [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | The lane's recurring tasks as a trigger chain (starts when, needs, tool, leaves behind, feeds), why each tool has its access, metric hooks |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | The lane's flow blocks mapped to chain steps, the use-case sprint (rhythm, standard deliverable set), registration gate for savings, handoff table between blocks, agent notes |
 
 **Trigger.** Plant use-case demand, or a request for a definition or integration

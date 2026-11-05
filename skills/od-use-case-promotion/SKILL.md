@@ -33,7 +33,7 @@ metadata:
     - Skills catalog-usecase (the four conditions for "catalogued"), od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, od-analytics-asset-build and od-use-case-definition, read 2026-11-05
     - New-state flow (docs/new-state-flow.md and the VSM skill map), Lane 2 step 6 implement, adopt and graduate, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Case Groups - Overview and the group notes CG-03 and others, read 2026-11-05
-    - Work vault bundle file kg_nodes.csv, the 650 use case records and 100 library use case records read as aggregates (category, handover, output asset, CSP decision), 2026-11-05
+    - Work vault bundle file kg_nodes.csv, the use case records and library use case records read as aggregates (category, handover, output asset, CSP decision), 2026-11-05
   okf:
     type: Agent Skill
     title: Use-case promotion

@@ -47,6 +47,7 @@ solution — and knowing which of the two is being asked for is step one.
 
 | File | Use it for |
 |---|---|
+| [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | The lane's recurring tasks as a trigger chain (starts when, needs, tool, leaves behind, feeds), why each tool has its access, metric hooks, ad-hoc versus industrialize |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | How ad-hoc work is run in practice: descriptive first, plausibility before models, the statements an analysis must carry, idea-collection and potential-analysis routes, handoff contract, agent notes |
 | [`references/composed-artefacts.md`](references/composed-artefacts.md) | Which composed skill's real, built asset answers each step below, and what is still genuinely open rather than just unlinked |
 

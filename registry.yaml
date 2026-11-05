@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.10.0
+  version: 1.11.0
   department: MPEE Operations Digitalization (OD)
   business: neuwerk
   owner: Jakob Gabriel
@@ -551,6 +551,16 @@ skills:
     authority_level: draft
     summary: "Reviews whether a deployed use case is actually used and delivers value, and routes the no-saving cases to a human decision. DRAFT."
 
+  - id: od-maturity-assessment
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the object came through
+    authority_level: draft
+    summary: "As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas, with drivers, prerequisite chain and a route signal. DRAFT."
+
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
   - comment, methods, actions, utilization and csp_decision are not populated on the use cases; the requirement template asks for what those fields were meant to hold.
@@ -642,3 +652,4 @@ open_gaps:
   - "od-project-order (draft), open: Where the order is stored; customer-mandated programme intake branch (proposal only)"
   - "od-governance-cadence (draft), open: Single status taxonomy per round; cadence of ODEC vs ODIC; training format"
   - "od-machine-integration-plan (draft), open: Where the barrier log lives; who convenes the rapid decision board; budget-class limits"
+  - "od-maturity-assessment (draft), open: Level definitions for two focus areas are undefined in the source model; the dependency table does not reproduce the papers' development paths"

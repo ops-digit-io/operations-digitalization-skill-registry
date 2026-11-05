@@ -40,6 +40,7 @@ Read `od-context` first.
 
 | File | Use it for |
 |---|---|
+| [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | The lane's recurring tasks as a trigger chain (starts when, needs, tool, leaves behind, feeds), why each tool has its access, metric hooks, the business-case shape (A/B anchors, strategic fit) |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Project order and plan structure, kick-off workshop, status colours, milestone and closure reports, integration-workshop preparation, wave and consultancy gates, handover lessons, handoff contract, agent notes |
 | [`references/composed-protocols.md`](references/composed-protocols.md) | Which real protocol in which composed skill answers each happy-path step — this lane routes through them, it does not duplicate them |
 

@@ -75,6 +75,7 @@ running, pilot, planned or design-only and look the current status up in the sou
 | [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | How to classify maturity (running, pilot, planned, design-only) and where to look the current status up; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
 | [`references/app-manifest-and-release-gate.md`](references/app-manifest-and-release-gate.md) | The proposed app manifest, interface and versioning rules, what the vault does NOT hold, and the release-gate checklist R1 to R11 |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | The deploy step in the chain: source-ownership scenarios, GitOps shape, local preparation checklist, migration and cutover pitfalls, pilot scope limits, back-out gap, handoffs, agent notes |
+| [`references/microservice-app-pattern.md`](references/microservice-app-pattern.md) | The service-per-capability pattern (design proposal): event envelope, what each capability service does, contract, config, degradation, shared kernel, composition, where a new request belongs |
 | [`assets/deployment-package.md`](assets/deployment-package.md) | The package and gate table to fill per app |
 
 ## Where the flow puts it

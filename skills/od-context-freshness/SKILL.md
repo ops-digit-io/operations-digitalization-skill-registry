@@ -61,6 +61,7 @@ and the skills' own dates are still current, and writes down what is not. It **r
 | [`references/staleness-signals.md`](references/staleness-signals.md) | How each layer marks freshness (bundle file, skill, registry, vault note) and what each mark does and does **not** prove |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Which time-bound facts go stale fastest (tool status, plant tier, forum cadence, vocabulary, KPI basis), copy residue and orphaned ownership, handoff and agent notes |
 | [`references/triage-and-actions.md`](references/triage-and-actions.md) | Each flag type, who owns it, the action, and how to read a run (what to lead with, what the typical pattern is) |
+| [`references/fact-triage-and-generated-registers.md`](references/fact-triage-and-generated-registers.md) | Triage pattern for a staging pile of extracted facts (verdicts, plant buckets), limits of text extraction, honesty rules for generated registers, the masking review |
 | [`scripts/context_freshness.py`](scripts/context_freshness.py) | Standard-library, read-only report. Opens files for reading only; writes only to the terminal |
 
 ## The rule

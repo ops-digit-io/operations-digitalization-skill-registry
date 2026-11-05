@@ -36,7 +36,7 @@ The process flow of the [four New-State files](new-state-flow.md) with the skill
 
 | Step | Named in the files | Proposed here | Wait |
 |---|---|---|---|
-| Pick the use case and the standard system | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)*, [`catalog-systems`](../skills/catalog-systems/SKILL.md) *(draft)* | - | - |
+| Pick the use case and the standard system | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)*, [`catalog-systems`](../skills/catalog-systems/SKILL.md) *(draft)* | [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) *(draft)* | - |
 | Cost template and lightweight approval | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | [`od-investment-input`](../skills/od-investment-input/SKILL.md) *(draft)* | ~d |
 | Order and connect the system | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | [`od-cybersec-gate`](../skills/od-cybersec-gate/SKILL.md) *(draft)*, [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)* | ~wks |
 | Apply the template and go live | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) *(draft)* | - |
@@ -50,7 +50,7 @@ The process flow of the [four New-State files](new-state-flow.md) with the skill
 | Step | Named in the files | Proposed here | Wait |
 |---|---|---|---|
 | Define and diagnose | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md), [`od-use-case-support-service`](../skills/od-use-case-support-service/SKILL.md) | [`od-workshop-facilitation`](../skills/od-workshop-facilitation/SKILL.md) *(draft)*, [`od-first-aid-kit`](../skills/od-first-aid-kit/SKILL.md) *(draft)*, [`od-event-object-modelling`](../skills/od-event-object-modelling/SKILL.md) *(draft)* | - |
-| Features and data check | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md), [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md), [`od-use-case-solution-evaluation`](../skills/od-use-case-solution-evaluation/SKILL.md) | [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)*, [`od-event-object-modelling`](../skills/od-event-object-modelling/SKILL.md) *(draft)* | - |
+| Features and data check | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md), [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md), [`od-use-case-solution-evaluation`](../skills/od-use-case-solution-evaluation/SKILL.md) | [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)*, [`od-event-object-modelling`](../skills/od-event-object-modelling/SKILL.md) *(draft)*, [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) *(draft)* | - |
 | Prototype and validate | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md), [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) *(draft)* | [`od-governance-cadence`](../skills/od-governance-cadence/SKILL.md) *(draft)* | - |
 | Business case and rank | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md), [`od-portfolio-and-savings-analysis`](../skills/od-portfolio-and-savings-analysis/SKILL.md) | [`od-use-case-prioritization`](../skills/od-use-case-prioritization/SKILL.md) *(draft)*, [`od-plant-diagnosis`](../skills/od-plant-diagnosis/SKILL.md) *(draft)* | - |
 | Capital request | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md), [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | [`od-investment-input`](../skills/od-investment-input/SKILL.md) *(draft)*, [`od-project-order`](../skills/od-project-order/SKILL.md) *(draft)* | ~wks |
@@ -65,7 +65,7 @@ The process flow of the [four New-State files](new-state-flow.md) with the skill
 | Step | Named in the files | Proposed here | Wait |
 |---|---|---|---|
 | Requirements | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | [`od-workshop-facilitation`](../skills/od-workshop-facilitation/SKILL.md) *(draft)* | - |
-| Tool decision and IT gate | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md), [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | [`od-application-consulting`](../skills/od-application-consulting/SKILL.md) *(draft)*, [`od-migration-cutover`](../skills/od-migration-cutover/SKILL.md) *(draft)* | - |
+| Tool decision and IT gate | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md), [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | [`od-application-consulting`](../skills/od-application-consulting/SKILL.md) *(draft)*, [`od-migration-cutover`](../skills/od-migration-cutover/SKILL.md) *(draft)*, [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) *(draft)* | - |
 | Business case and capital | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md), [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | [`od-investment-input`](../skills/od-investment-input/SKILL.md) *(draft)*, [`od-project-order`](../skills/od-project-order/SKILL.md) *(draft)* | ~wks |
 
 **New system (make, buy, integrate)**
@@ -80,7 +80,7 @@ The process flow of the [four New-State files](new-state-flow.md) with the skill
 
 | Step | Named in the files | Proposed here | Wait |
 |---|---|---|---|
-| Connector and pipeline to the data platform | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | [`od-barrier-triage`](../skills/od-barrier-triage/SKILL.md) *(draft)*, [`od-cross-plant-compatibility`](../skills/od-cross-plant-compatibility/SKILL.md) *(draft)*, [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)* | - |
+| Connector and pipeline to the data platform | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | [`od-barrier-triage`](../skills/od-barrier-triage/SKILL.md) *(draft)*, [`od-cross-plant-compatibility`](../skills/od-cross-plant-compatibility/SKILL.md) *(draft)*, [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)*, [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) *(draft)* | - |
 | Procure and connect the machine | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-node-red-flow-troubleshooting`](../skills/od-node-red-flow-troubleshooting/SKILL.md) | - | procurement ~wks |
 | Acceptance and Cyber Security, live on the data platform | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | [`od-cybersec-gate`](../skills/od-cybersec-gate/SKILL.md) *(draft)* | CS ~wks |
 
@@ -102,7 +102,7 @@ Registry skills that the New-State files do not place. The flow leaves their fut
 
 ## All skills
 
-56 skills. 'Files' lists which of the four New-State files name the skill.
+57 skills. 'Files' lists which of the four New-State files name the skill.
 
 | Skill | State | Tier | Steps | Files |
 |---|---|---|---|---|
@@ -135,6 +135,7 @@ Registry skills that the New-State files do not place. The flow leaves their fut
 | [`od-information-integration-service`](../skills/od-information-integration-service/SKILL.md) | in use | lane | Not placed in the flow | none |
 | [`od-investment-input`](../skills/od-investment-input/SKILL.md) *(draft)* | draft | practice | Run a known use case: Cost template and lightweight approval; Develop a new use case: Capital request; New system or connector: Business case and capital | none |
 | [`od-machine-integration-plan`](../skills/od-machine-integration-plan/SKILL.md) *(draft)* | draft | practice | Run a known use case: Order and connect the system; Develop a new use case: Features and data check; New system or connector: Connector and pipeline to the data platform | none |
+| [`od-maturity-assessment`](../skills/od-maturity-assessment/SKILL.md) *(draft)* | draft | practice | Run a known use case: Pick the use case and the standard system; Develop a new use case: Features and data check; New system or connector: Tool decision and IT gate; New system or connector: Connector and pipeline to the data platform | none |
 | [`od-migration-cutover`](../skills/od-migration-cutover/SKILL.md) *(draft)* | draft | practice | New system or connector: Tool decision and IT gate; New system or connector: Deploy to the platform and Cyber Security; New system or connector: Rollout and adopt | none |
 | [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector and pipeline to the data platform | Flow, Process flow, BPMN, VSM |
 | [`od-node-red-flow-troubleshooting`](../skills/od-node-red-flow-troubleshooting/SKILL.md) | in use | technical | New system or connector: Procure and connect the machine | VSM |
@@ -163,4 +164,4 @@ Registry skills that the New-State files do not place. The flow leaves their fut
 | [`od-utilization-review`](../skills/od-utilization-review/SKILL.md) *(draft)* | draft | practice | Run a known use case: Validate and go live; Develop a new use case: Implement and graduate to the catalog; New system or connector: Rollout and adopt; Supporting spine | none |
 | [`od-workshop-facilitation`](../skills/od-workshop-facilitation/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Define and diagnose; New system or connector: Requirements | none |
 
-28 of 56 skills are named in at least one of the four files; 28 are placed here by this registry alone.
+28 of 57 skills are named in at least one of the four files; 29 are placed here by this registry alone.

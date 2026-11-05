@@ -64,6 +64,7 @@ cases sit in a separate bucket; the Plant ME has seen the list; the record is fi
 | [`references/ranking-criteria.md`](references/ranking-criteria.md) | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
 | [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the vault can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice for step 24: planning states, explicit ordering rule, foundation-first and dependency column, value tiers and grounding tags, kill/defer outcomes, handoff columns, agent notes |
+| [`references/business-case-archetypes.md`](references/business-case-archetypes.md) | Archetypes of the strategic business cases, what a complete case record contains, dependency-before-return ordering, keynote cluster maturity labels |
 | [`assets/prioritization-record.md`](assets/prioritization-record.md) | The output: candidate table, scoring sheet, unscored bucket, recommendation, sign-off |
 
 Weighted-score mechanics are not repeated here; they live in

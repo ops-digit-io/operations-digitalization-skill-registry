@@ -202,6 +202,9 @@ The function proposes; other people decide. Most gates sit outside OD.
 | File | Use it for |
 |---|---|
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Why the context layer is the precondition for agent work, the currency rules per field, the three demand shapes, plant tiering (first mover, fast follower), the AI maturity sanity check, handoff contract, agent notes |
+| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Use the SWOT as a filter on a proposed action (ids, so-what, derived moves); read the dependency seams and their mode (tandem, consultation, information); the corrections table and the open-gaps queue |
+| [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | What the knowledge graph is and is not; node kinds (region, family, process group, capability, cluster tag) and how they relate; provenance of descriptions |
+| [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | Find content in non-Markdown files via the source catalogues; the reference library tiers; using published benchmarks without overclaiming; provenance tags for agent output |
 
 ## Escalation
 

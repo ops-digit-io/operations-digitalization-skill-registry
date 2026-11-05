@@ -61,6 +61,7 @@ the lane flow of a use case (`od-use-case-support-service`). It names them at th
 | [`references/demand-and-change-routing.md`](references/demand-and-change-routing.md) | Small change versus project versus governance board; the demand-management question list; first mover versus fast follower |
 | [`references/sprint-runbook.md`](references/sprint-runbook.md) | Use-case sprint: preconditions, rhythm, standard deliverables, review, additional-phase rule, pitfalls |
 | [`references/training-programme.md`](references/training-programme.md) | Toolbox training offer: request, register, invitation cycle, feedback, needs list |
+| [`references/rituals-and-consumption.md`](references/rituals-and-consumption.md) | The plant rituals the output is consumed in (daily Gemba, shift checks, escalation, portfolio review, waves), how to find the ritual behind a use case, the cadence ladder from shift to round |
 | [`assets/call-for-action-and-status.md`](assets/call-for-action-and-status.md) | Round pack: agenda, plant status table, numbered call for action |
 | [`assets/sprint-plan-and-review.md`](assets/sprint-plan-and-review.md) | Sprint plan, weekly log, sprint-end review |
 

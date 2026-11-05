@@ -3,6 +3,16 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-05 (wave 2)
+
+- **Registry 1.11.0, 57 skills.** Folded the vault notes that no skill drew on into the skills as patterns, without figures: the IT/IoT
+  maturity model became the draft skill `od-maturity-assessment` (with maturity-profile references in `od-system-fit-check` and
+  `od-application-consulting`); process-family patterns, the microservice-app pattern, tool boundaries, business-case archetypes, the AI
+  initiative maturity ladder and strategic-initiative savings rules went into the catalog, standardization, prioritization, portfolio and AI
+  skills; rituals, SWOT seams, knowledge-graph and source-catalogue reading, metric-reading rules, change-log reading, fact triage and
+  dashboard spec patterns went into the governance, context, scorecard, retro, freshness, analytics and lane skills.
+- Removed the remaining company figures from `docs/derivation.md` and this log.
+
 ## 2026-11-05 (later)
 
 - **No company figures in skills.** Removed counts, spend, savings, per-plant status, dated snapshots and real example values from
