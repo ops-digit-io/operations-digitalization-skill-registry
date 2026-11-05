@@ -1,8 +1,7 @@
 name: pages
 
-# MANUAL ONLY. Publishing makes the site reachable from the internet, also for a private repository (unless the organisation
-# uses GitHub Enterprise Cloud with private Pages). The skills are labelled "Internal - not for external distribution".
-# Before you run this: enable Settings > Pages > Source: GitHub Actions, and decide who may see the site.
+# Manual trigger. Publishes the site to GitHub Pages (Settings > Pages > Source: GitHub Actions must stay selected;
+# the legacy branch build would serve the Markdown through Jekyll instead).
 on:
   workflow_dispatch:
 
