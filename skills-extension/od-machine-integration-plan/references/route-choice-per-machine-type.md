@@ -55,7 +55,7 @@ Edge is **not** needed when the machine has no high-frequency signals and OPC-UA
 
 ## 5. Side notes for the plan
 
-- A sensor value is not automatically an event; decide events in the flow design (`od-node-red-flow-builder`).
+- A sensor value is not automatically an event; decide events in the flow design (`od-node-red-flows`).
 - Measure-point naming must be thought through up front; master data entry is laborious.
 - Standard machine-state signals and template flows are enablers of the waves (`od-signal-standardization`).
 - Reusing existing edge devices with network address translation avoids IP conflicts, only for lower data frequency.

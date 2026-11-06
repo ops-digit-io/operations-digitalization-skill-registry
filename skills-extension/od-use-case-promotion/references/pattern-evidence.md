@@ -39,7 +39,7 @@ portfolio** (ad-hoc requests) and about the "unique" ones that turn out to recur
 Recipe: on the UseCase Library list, count entries by CSP decision (`Yes`, `No`, no decision recorded) and by "CSP initiated".
 The Knowledge Bundle, `Decision rights`, states how far the gate has been applied. Reading: if only a few entries are recorded as
 standard enough to roll out, the realistic outcome of a promotion is *prepared for the CSP gate*, not *in the catalog*
-(`catalog-usecase`).
+(`od-catalog`).
 
 ## The case groups (template x process family)
 

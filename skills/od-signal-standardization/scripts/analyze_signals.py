@@ -719,7 +719,7 @@ def emit_report(path: str, rows: list[dict], findings: list[dict], capability: s
     print("\n## 9 · Open questions\n\n- ⟨what could not be established, and who can answer it⟩")
     print("\n## 10 · Feeds\n")
     print("`od-requirements-breakdown` §5 Tags of Interest · `od-equipment-integration` (guidance route) · "
-          "`od-node-red-flow-builder` flow config · the Machine CV")
+          "`od-node-red-flows` flow config · the Machine CV")
 
 
 CAPABILITIES = ("oee", "downtime", "cycle-time", "spc", "energy", "quality",

@@ -53,10 +53,10 @@ Tally: consumable ⟨n⟩ · with mapping ⟨n⟩ · not consumable ⟨n⟩ · u
 |---|---|
 | Recommendation | ⟨standard for all in-scope plants / standard for the checked plants only / not yet a standard⟩ |
 | Plants it does not cover, and the evidence that would resolve each | ⟨⟩ |
-| Decision owner and mode | IIAE, consultation; counterpart ⟨to confirm⟩ (`08-decision-rights.md`) |
+| Decision owner and mode | IIAE, consultation; for a tool or system rollout, in tandem with the IT-responsible role of the business side (`08-decision-rights.md`) |
 | Forum | ⟨COP if a data model or connector changes; the deciding role or forum named in the current approval policy (look up) if rollout or priority⟩ |
 | Routed with | `od-decision-routing`, `assets/decision-request.md` |
-| Handed to the catalog? | ⟨yes: grid passed to `catalog-usecase` / no⟩ |
+| Handed to the catalog? | ⟨yes: grid passed to `od-catalog` / no⟩ |
 
 ## 6. Still open
 

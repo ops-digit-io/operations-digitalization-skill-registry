@@ -56,8 +56,7 @@ than silently absorbed.
 | O-02–07, 09 (W2/W3) | scorecard update / portfolio sweep / odec-cop prep / retro / risk-watch / onboarding | `od-portfolio-and-savings-analysis` (documented, 2026-10-22 — PMI portfolio standard), `od-scorecard-reporting` (partial) | mostly not separated |
 | O-08 (**W1**, "keeps every other skill honest") | `od-o-context-freshness` | — | **not built** |
 
-Not on the plan at all, and additions from the technical corpus instead: `od-node-red-flow-builder`,
-`od-node-red-flow-troubleshooting`, `od-use-case-standardization`, `od-sharepoint-list-export`,
+Not on the plan at all, and additions from the technical corpus instead: `od-node-red-flows`, `od-use-case-standardization`, `od-sharepoint-list-export`,
 `build-grafana-ops-dashboard` (vendored). These came from mining the Node-RED flow corpus and the
 `20-Done/` record directly, a source the skill map did not have in front of it.
 
@@ -79,7 +78,7 @@ than from a fresh interview.
 `P-*` procedures first (they are dependencies), then `UC-01→04`, then `II-01→04`, then
 `PS-02`, then `O-01`/`O-08`. What actually went deep was picked by inbound-composition count
 instead (`od-requirements-breakdown`, `od-data-availability-check`, `od-signal-standardization`,
-`od-node-red-flow-troubleshooting`) — a defensible metric, and it left `P-02` and `O-08`
+`od-node-red-flows`) — a defensible metric, and it left `P-02` and `O-08`
 untouched for most of the registry's life; `P-02` is no longer one of them.
 
 **All six tacit-knowledge items the plan names ("★ What only you can supply") now have a

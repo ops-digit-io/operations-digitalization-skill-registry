@@ -155,10 +155,9 @@ package and release gate).
 
 ## Still open
 
-- `<to confirm>` Whether an AI knowledge assistant (troubleshooting, documentation) counts as a use case:
-  one deck keeps it outside the before/after-and-savings definition, later decks list AI as an
-  initiative with tracked value; no step says how it is classified and measured. Safer reading: log it
-  as an initiative with a named owner and a usage measure, not as a counted saving.
+- An AI knowledge or troubleshooting assistant is decided case by case at intake: ask for a measurable
+  before/after. With one it goes the use-case route (savings only with documented basis); without one it is
+  tracked as an initiative with a named owner and a usage measure, not as a counted saving.
 - `<to confirm>` Whether general-purpose assistants are low impact (one deck) or already useful for
   deployment sets (another). Safer reading: allowed as a drafting aid, never as a gate.
 - `<...>` Time-box lengths, accuracy thresholds and the champion-user group for pilots: not in the sources.

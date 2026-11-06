@@ -36,7 +36,7 @@ Deck-derived practice for the lane's steps 1 to 6, which sit beside the new-stat
 - **Infrastructure:** cloud data lake when no real time, many sources, long storage; edge platform when real time, few sources, modest compute.
 - **Human-supervised analysers:** the tool proposes (signal candidates, start and stop conditions, plausible cycle times and downtimes), a person confirms, abnormal values go to notification, outputs include an influencer ranking; user interaction at tuning and deployment is mandatory.
 - **Promote only on recurrence** (`od-use-case-promotion`). A one-off analysis closes as ad-hoc.
-- **A knowledge or troubleshooting assistant** is outside the classic use-case definition (before / after and savings) and no step classifies it `<to confirm>`; treat it as advice, not a measured use case, until the OD lead decides.
+- **A knowledge or troubleshooting assistant** is decided case by case at intake: ask for a measurable before/after. With one it goes the use-case route (savings only with documented basis); without one it is tracked as an initiative with an owner and a usage measure, not a counted saving.
 
 ## 3. Statements every analysis must carry
 

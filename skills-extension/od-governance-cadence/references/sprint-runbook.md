@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Sprint runbook
 
-Lane flow lives in `od-use-case-support-service`; build in `od-analytics-asset-build`; prototype in `od-prototype-poc`.
+Lane flow lives in `od-use-case-definition`; build in `od-analytics-asset-build`; prototype in `od-prototype-poc`.
 
 ## Preconditions (all before day one)
 

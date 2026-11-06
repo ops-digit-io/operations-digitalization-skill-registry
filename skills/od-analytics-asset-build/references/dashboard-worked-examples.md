@@ -130,7 +130,7 @@ Each pattern gives: **template / what it reads / lesson.**
   `CT/OESL/<region>/<country>/<plant>/...` topic (leaf `Line_Running` in the sampled sibling); fast
   refresh; InfluxDB, no UUID, older Grafana server.
 - **Lesson.** The plant-level status board on the other data family (InfluxDB, topic-bound). The `CT`
-  topic path is the interface (`od-node-red-flow-builder`, `topic-conventions.md`).
+  topic path is the interface (`od-node-red-flows`, `topic-conventions.md`).
 
 ## What the patterns have in common
 

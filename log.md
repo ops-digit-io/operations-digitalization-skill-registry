@@ -3,6 +3,15 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-06
+
+- **Core library merged, registry 1.12.0, 53 skills (core 27, extension 26).** Related core skills that the process does not keep apart were merged:
+  `catalog-usecase`, `catalog-systems` and `catalog-guardrails` into `od-catalog`; `od-node-red-flow-builder` and `od-node-red-flow-troubleshooting` into
+  `od-node-red-flows`; `od-use-case-support-service` into `od-use-case-definition`. Every rule, reference, asset and the `analyze_flow.py` script moved over;
+  the four original New-State files keep the old names and `docs/new-state-flow.md` maps them.
+- Applied the owner's second round of decisions (deputy, rollout tandem, ladder overlap, dashboard standard, data model, MES overlap, tool scale, platform names,
+  KI assistants, customer programmes, rule engine) and the first round (wave allocation, ODEC as history, savings first, Cyber Security in parallel, plant evaluates).
+
 ## 2026-11-05 (libraries)
 
 - **Two skill libraries.** The registry now separates a **core library** (`skills/`, 29 skills: every skill the four New-State process files name on a step or on

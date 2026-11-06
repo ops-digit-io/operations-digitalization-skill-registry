@@ -29,7 +29,7 @@ signals). The same skill covers the signals of a machine that is already connect
 
 | Hands on | To | What it carries |
 |---|---|---|
-| Signal analysis report, filled binding sheet | `od-node-red-flow-builder` (flow config contract) | Canonical names, units, collection method, derived outputs to register |
+| Signal analysis report, filled binding sheet | `od-node-red-flows` (flow config contract) | Canonical names, units, collection method, derived outputs to register |
 | Same report | `od-acceptance-test`, `od-cross-plant-compatibility` | A second plant can consume it without asking |
 | Machine-specific barrier | `od-barrier-triage` | Class, owner |
 | Proposed standard change | IIAE decision (consultation) | An agent proposes; it does not enact |
@@ -88,8 +88,9 @@ description. Time-series data is not needed to generate a proposal, but is neede
 - **Standard or special.** Cross-process standard (independent of the core process but with constraints and integration work
   because data models differ), per-process standard (depends on process values of one core process, fewest constraints, scales
   fastest), or non-standard unique (factory conditions, legacy system, not scalable beyond the site).
-- **Fit of the base model.** Greenfield, discrete, time-series-centric machines fit; brownfield with many controllers and
-  continuous processes need other models. Say which applies `<to confirm: roadmap material calls the base model standard for all connected machines>`.
+- **Fit of the base model.** The base model applies to discrete manufacturing; greenfield, discrete, time-series-centric machines fit,
+  brownfield with many controllers may need other models, and continuous processes check the fit before a standard answer is given
+  (they may need another model). Say which applies.
 - **Scale known machine types.** Scale known machine types first; at most one unknown machine type per new deployment; document the
   process per controller type and write an integration standard.
 - **Never bury a per-plant fix-up** in a function or a query (see Do not in the skill); a mapping layer is the place for it.
@@ -135,5 +136,5 @@ the report states the context situation (full context, tag export only, and so o
   and its confidence per signal.
 - **Human gate:** the domain expert validates the proposal on a running dashboard; the IIAE decides any standard or data-model
   change; a native speaker confirms translated tag names. The agent never translates a signal name and uses it directly.
-- **Hands over:** the report and binding sheet to `od-node-red-flow-builder`; open gaps back to `od-data-availability-check`
+- **Hands over:** the report and binding sheet to `od-node-red-flows`; open gaps back to `od-data-availability-check`
   or `od-barrier-triage`.

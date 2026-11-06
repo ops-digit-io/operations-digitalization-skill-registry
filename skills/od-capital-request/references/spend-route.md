@@ -28,15 +28,9 @@ OD lead, Finance) and quote them with their source and date.
 ## The overlap
 
 As recorded, the CTO limit and the Board limit overlap in a band: the wording does not say which body decides there.
-Two readings are possible and the sources support neither over the other:
-
-1. Below the lower threshold the CTO decides, in the band both are involved, above the upper threshold only the
-   Board.
-2. The thresholds are for different spend types or for different organisations (the second source is the Digital
-   Unit plan, not the OD route).
-
-Rule for this skill: **write the amount, quote the ladder as the source words it, and mark the route as
-⟨to confirm with the OD lead⟩ if the amount falls in the overlapping band.** Also open: ⟨the route for small
+Rule for this skill: **write the amount, quote the ladder as the source words it, and when the amount falls in the
+overlapping band apply the stricter (higher) route; Controlling may downgrade it.** Look the amounts up in the current
+approval policy; none are written here. Still open: ⟨the route for small
 spend⟩. The Lane 1b step "cost template and lightweight approval" in the flow (rated Partial) suggests a lighter
 route for small spend, but no source gives its limit.
 

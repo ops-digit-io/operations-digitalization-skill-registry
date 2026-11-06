@@ -29,7 +29,7 @@ metadata:
     - Work vault (Work-OpsDigit-Knowledge), Slide Index - 25-Adhoc_Analysis (two Waltershausen ad-hoc analyses of 2024), read 2026-11-05
     - Skill od-analytical-support-service, SKILL.md and references/composed-artefacts.md (happy path, error paths, the open Process First-Aid Kit template)
     - Skill od-use-case-definition, assets/use-case-definition-questionnaire.md (a need that surfaces once is a first-aid request)
-    - Skill od-use-case-support-service, references/lane-templates.md (the first-aid template gap)
+    - Skill od-use-case-definition, references/lane-templates.md (the first-aid template gap)
   okf:
     type: Agent Skill
     title: Process First-Aid Kit
@@ -43,7 +43,7 @@ Read `od-context` first. The service catalogue lists the Smart Factory Use Case 
 "(incl. Process First-Aid Kit)"; the glossary calls it a "rapid diagnostic offering within Use Case
 Support Service", next to Ad-Hoc Analytics in the Analytical Support Service. The lane's recurring
 tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with the template marked
-"to confirm", and two registry pages (`od-analytical-support-service`, `od-use-case-support-service`)
+"to confirm", and two registry pages (`od-analytical-support-service`, `od-use-case-definition`)
 record that no dedicated template exists. This skill supplies the **working version of that
 template** and the routing rule. It is a draft for the DBVE to adopt or replace.
 

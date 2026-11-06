@@ -21,7 +21,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, catalog-usecase, od-use-case-definition, od-analytics-asset-build, od-benefit-calculation, od-signal-standardization, od-data-availability-check, od-decision-routing, od-scorecard-reporting, od-use-case-prioritization]
+  composes: [od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, od-catalog, od-use-case-definition, od-analytics-asset-build, od-benefit-calculation, od-signal-standardization, od-data-availability-check, od-decision-routing, od-scorecard-reporting, od-use-case-prioritization]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/playbook.md
@@ -30,7 +30,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
-    - Skills catalog-usecase (the four conditions for "catalogued"), od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, od-analytics-asset-build and od-use-case-definition, read 2026-11-05
+    - Skills od-catalog (the four conditions for "catalogued"), od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, od-analytics-asset-build and od-use-case-definition, read 2026-11-05
     - New-state flow (docs/new-state-flow.md and the VSM skill map), Lane 2 step 6 implement, adopt and graduate, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Case Groups - Overview and the group notes CG-03 and others, read 2026-11-05
     - Work vault bundle file kg_nodes.csv, the use case records and library use case records read as aggregates (category, handover, output asset, CSP decision), 2026-11-05
@@ -66,7 +66,7 @@ industrialization without the responsible human").
 - **Analytical lane, step 6** (old lane) and **Lane 2 step 6** of the new-state flow: "Implement, adopt and
   graduate to catalog - if repeatable, graduate to a future Lane 1" (VSM skill map). The registry's skills for
   the step are `od-analytics-asset-build`, `od-handover-and-adoption`, `od-use-case-standardization`; the
-  graduation into a plant self-serve catalog is `catalog-usecase`, a draft.
+  graduation into a plant self-serve catalog is `od-catalog`, a draft.
 - **Feeds UC-02**: use case definition (`od-use-case-definition`), whose Phase 1 is *Collect*: "demand
   logged against plant roadmap". The package is that logged demand, with its evidence attached.
 - Handover to the Use Case Support lane: "Recurring, high-value analytics go to the Use Case Support lane
@@ -103,7 +103,7 @@ industrialization without the responsible human").
    the deltas.
 6. **Check the handover record.** Plant owner named; the three-question test passed
    (`od-handover-and-adoption`); the plant has used it in a real shift.
-7. **State which catalog conditions are met** (`catalog-usecase`): CSP `Yes` recorded; capability template;
+7. **State which catalog conditions are met** (`od-catalog`): CSP `Yes` recorded; capability template;
    standardized signals; plant owner and handover record. Conditions 2 and 3 there are proposals awaiting
    the OD lead. Say plainly: *prepared for the CSP gate*, never *catalogued*, unless all four hold. A validated
    prototype alone is not enough: it must also be packaged as a configurable application
@@ -127,10 +127,10 @@ industrialization without the responsible human").
 - `⟨Sequence⟩`: whether an ad-hoc asset must pass full UC-02 definition before it can be proposed for the
   catalog, or whether a proven asset can be assessed against the catalog conditions directly.
 - `⟨Who may propose and who may add a catalog entry⟩`, and `⟨where the catalog lives⟩` (open in
-  `catalog-usecase`).
+  `od-catalog`).
 - `⟨Promotion rate target and tracker⟩`: the lane metric has no source and no target.
 - `⟨Whether a recorded CSP Yes is the right threshold for self-service⟩`, given how few
-  library entries have a recorded Yes (`catalog-usecase`; count live).
+  library entries have a recorded Yes (`od-catalog`; count live).
 - `⟨Who takes the CSP decision step⟩` for a new candidate and how often the gate sits (owner outside OD).
 
 ## Do not

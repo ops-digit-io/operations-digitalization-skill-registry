@@ -71,7 +71,7 @@ Column notes (rules, each from a pattern seen in the exports):
 
 ## E. How the sheet feeds the next steps
 
-`od-node-red-flow-builder` takes the UUID, type and limit rows into its config contract
+`od-node-red-flows` takes the UUID, type and limit rows into its config contract
 (`assets/flow-config-contract.md`); `od-analytics-asset-build` takes the same rows into the
 dashboard review (`assets/dashboard-review-checklist.md`); `od-acceptance-test` checks the
 "verified on live data" column.

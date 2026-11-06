@@ -36,7 +36,7 @@ VALUE_CHAIN = ["Captured", "Evaluated", "Assessed", "Planned", "Handed over", "E
 
 LANES = [
     {
-        "id": "uc", "name": "Smart Factory Use Case Support", "skill": "od-use-case-support-service",
+        "id": "uc", "name": "Smart Factory Use Case Support", "skill": "od-use-case-definition",
         "owner": "DBVE · 2 roles", "customer": "Plant ME / plant operations",
         "trigger": "Plant use-case demand or definition-workshop request",
         "done": "Use case defined, prioritized, impact-evaluated and handed to integration with a business case",
@@ -70,7 +70,7 @@ LANES = [
             ("Assess and roadmap", "Equipment assessment and integration roadmap per plant", [("od-equipment-integration", 0), ("od-data-availability-check", 0)]),
             ("Plan investment", "Integration investment planning", [("od-decision-routing", 1), ("od-benefit-calculation", 1)]),
             ("Integrate machine", "Machine integration and data acquisition — connect to the IIoT Edge", [("od-equipment-integration", 0)]),
-            ("Standardize signals", "Signal standardization; data pipelines into the MDL", [("od-signal-standardization", 0), ("od-node-red-flow-builder", 0), ("od-node-red-flow-troubleshooting", 0)]),
+            ("Standardize signals", "Signal standardization; data pipelines into the MDL", [("od-signal-standardization", 0), ("od-node-red-flows", 0), ("od-node-red-flows", 0)]),
             ("Acceptance test", "Interface / software integration consulting and acceptance test", [("od-acceptance-test", 0)]),
             ("Prepare rollout", "Prepare Manufacturing Software Suite rollout; training", [("od-handover-and-adoption", 1)]),
             ("Update readiness", "Update the Equipment Integration report and readiness matrix", [("od-scorecard-reporting", 0)]),

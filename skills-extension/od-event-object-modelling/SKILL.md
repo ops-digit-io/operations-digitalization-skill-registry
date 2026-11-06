@@ -115,7 +115,7 @@ named skill at step `22`.
 | Canvas plus archetype class and category | `od-use-case-definition` (canvas data box), `od-use-case-standardization` |
 | Event, identifier and relation requirements per signal | `od-requirements-breakdown` (requirement and acceptance criteria), `od-signal-standardization` |
 | Missing relation or identifier named as a data gap | `od-data-availability-check`, then the Information Integration lane |
-| Method and ETL list, asset type hint | `od-analytics-asset-build`, `od-node-red-flow-builder` |
+| Method and ETL list, asset type hint | `od-analytics-asset-build`, `od-node-red-flows` |
 
 ## AI agent operating notes
 

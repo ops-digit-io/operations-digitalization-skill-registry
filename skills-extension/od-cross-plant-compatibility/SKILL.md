@@ -22,7 +22,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, catalog-usecase]
+  composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, od-catalog]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -64,7 +64,7 @@ asks the question neither asks: *does the thing still work at the plants that ar
   ongoing"). A name or mapping that holds for the first plant's path may not hold for another.
 - The foundation data model does not fit every machine: it was found suitable for greenfield, discrete,
   time-series-centric machines, while brownfield and continuous processes need other models
-  (`references/process-chain-practice.md`). A standard for "all connected machines" must be tested per machine class.
+  (`references/process-chain-practice.md`). The base model applies to discrete manufacturing; a standard for continuous processes must be checked for fit first.
 - Naming already drifts without a check: many distinct signal names for a much smaller set of concepts, several names for
   machine state alone (`od-signal-standardization`). Plant languages are a further source of variance.
 
@@ -102,10 +102,10 @@ asks the question neither asks: *does the thing still work at the plants that ar
    so it holds (a COP matter, see below); add a mapping rule to the standard; narrow the stated scope of the standard
    and say which plants it does not cover. Never add a plant-specific branch inside the standard.
 7. **Write the recommendation** in [`assets/compatibility-check.md`](assets/compatibility-check.md) and route it with
-   `od-decision-routing`. The decision is IIAE's by consultation; the counterpart is `⟨to confirm⟩` in
-   `08-decision-rights.md` (the old counterpart was removed and not replaced). A change to a data model or connector
+   `od-decision-routing`. The decision is IIAE's by consultation; for a tool or system rollout the
+   IIAE decides in tandem with the IT-responsible role of the business side (`08-decision-rights.md`). A change to a data model or connector
    is taken to the COP (monthly, technical), which is where the operating rhythm puts datamodel and connector updates.
-8. **If the standard feeds the catalog**, hand the verdict grid to `catalog-usecase` so a plant picking the entry sees
+8. **If the standard feeds the catalog**, hand the verdict grid to `od-catalog` so a plant picking the entry sees
    which plants it was checked at and which not.
 
 ## Decision table: what to do with the result
@@ -120,7 +120,6 @@ asks the question neither asks: *does the thing still work at the plants that ar
 
 ## What is still open
 
-- **The decision counterpart** for data-model / signal standardization is `⟨to confirm⟩` (decision-rights table).
 - **Per-plant tag language** is recorded nowhere as a field; infer from the signal list with `od-signal-standardization`.
 - **Plants with no machine records** (zero machines in the plant notes) cannot be graded; their verdict is *unknown*.
 - **Tool rollout records** in the plant notes list only tools that are recorded per plant; a missing line is not proof of

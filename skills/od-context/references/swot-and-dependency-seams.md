@@ -123,3 +123,10 @@ placeholder (`od-context-freshness` finds them).
   statements are not edited by agents.
 - **Hands over to:** `od-decision-routing` (when no entry is touched), `od-risk-watch` (threats), `od-context-freshness` (stale
   evidence).
+
+## Resolved gaps (moved from the skill body)
+
+Resolved 2026-10-22/23, no longer open: the value-delivery-cycle metric is confirmed not captured in any system today
+(`od-scorecard-reporting`) rather than merely unconfirmed; the adoption-confirmation mechanism is the three-tier evidence
+ranking in `od-handover-and-adoption/references/evidence-of-adoption.md` (system usage log > named owner's dated statement >
+third-party observation).

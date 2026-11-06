@@ -25,7 +25,7 @@ Deck-derived practice for step 26 (implement and graduate) and the archetype log
 
 A use case is **ready to use** when its methods have run and their outputs exist. A need alone (a sentence in the backlog) is not a specification: it has no technical requirements until a category is assigned.
 
-**Archetype classes** (fixed vocabulary, same as `catalog-usecase`): standard cross-process, standard per-process, non-standard unique. The classes are about **reuse potential**, and each has a default action: cross-process - start with priority; per-process - start; unique - do not start, run an impact analysis first.
+**Archetype classes** (fixed vocabulary, same as `od-catalog`): standard cross-process, standard per-process, non-standard unique. The classes are about **reuse potential**, and each has a default action: cross-process - start with priority; per-process - start; unique - do not start, run an impact analysis first.
 
 **Library tree** (for navigation): standard group (savings tracked per fixed number of machines) -> plant standard group -> single element; and core-process group -> plant core-process group -> single element.
 
@@ -54,7 +54,7 @@ A use case is **ready to use** when its methods have run and their outputs exist
 
 | Hands on | To |
 |---|---|
-| review record: template, library check, cluster baseline and delta, CSP-readiness verdict, graduation checklist with missing items | `od-decision-routing` (CSP gate), `catalog-usecase` |
+| review record: template, library check, cluster baseline and delta, CSP-readiness verdict, graduation checklist with missing items | `od-decision-routing` (CSP gate), `od-catalog` |
 | list of plants where it saved / deployed without saving / has potential | `od-portfolio-and-savings-analysis`, `od-scorecard-reporting` |
 | utilization moment per plant | `od-handover-and-adoption` |
 

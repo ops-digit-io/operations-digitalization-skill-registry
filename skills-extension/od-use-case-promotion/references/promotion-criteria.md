@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Promotion criteria
 
-Sources: the analytical lane's playbook, tasks, agent brief and metrics; `catalog-usecase` (four conditions);
+Sources: the analytical lane's playbook, tasks, agent brief and metrics; `od-catalog` (four conditions);
 `od-use-case-standardization`; `od-handover-and-adoption`; `od-analytics-asset-build`. The tests are this
 skill's arrangement of those sources. The OD lead has not confirmed them as a rule; **no numeric threshold
 is given in the sources** and none is invented here.
@@ -24,18 +24,18 @@ is given in the sources** and none is invented here.
 | 3 | **Reproducibility** | Can a second plant take it without the builder? | Data path written to machine and signal; data-fitness verdict; standardized signals; validation checklist passed; plant-specific parts separable | `od-data-availability-check`, `od-signal-standardization`, `od-analytics-asset-build` (validate before calling it built) |
 | 4 | **Placement** | Is there already a library entry, and where would a new one sit? | Library search result; capability template, process group, cluster tag assigned by the classifier; deltas against the cluster baseline | `od-use-case-standardization`, procedure steps 1 to 4 |
 | 5 | **Handover** | Does the plant own it and use it in real shifts? | Named plant owner; the three-question test answered without the builder; handover state | `od-handover-and-adoption` |
-| 6 | **Catalog conditions** | Which of the four conditions for "catalogued" hold? | See below | `catalog-usecase` |
+| 6 | **Catalog conditions** | Which of the four conditions for "catalogued" hold? | See below | `od-catalog` |
 
-### Test 6 in detail (`catalog-usecase`, "What counts as catalogued")
+### Test 6 in detail (`od-catalog`, "What counts as catalogued")
 
 | Condition | Status in the sources |
 |---|---|
 | 1. A CSP decision `Yes` is recorded | A rule from the decision rights: "whether a solution is standard enough to roll out" is the CSP decision, per library entry |
-| 2. It maps to one of the capability templates | A **proposal** of `catalog-usecase`, awaiting the OD lead |
-| 3. Its signals are standardized | A **proposal** of `catalog-usecase`, awaiting the OD lead |
+| 2. It maps to one of the capability templates | A **proposal** of `od-catalog`, awaiting the OD lead |
+| 3. Its signals are standardized | A **proposal** of `od-catalog`, awaiting the OD lead |
 | 4. It has a plant owner and a handover record that passed the three-question test | From the sources |
 
-A candidate without a recorded CSP `Yes` is not catalogued; `catalog-usecase` routes it to Lane 2 (OD-led).
+A candidate without a recorded CSP `Yes` is not catalogued; `od-catalog` routes it to Lane 2 (OD-led).
 So the promotion package **prepares** the CSP decision (methods and actions written down, evidence it works
 at its first plant); it does not take it.
 

@@ -136,7 +136,7 @@ request, a short block to prepare the handover to use-case support.
 | Receive | `od-cybersec-gate` | Sign-off scope and conditions, or the wait state |
 | Hand on | `od-signal-standardization` | Machine CV with mandatory and optional tags, tag list, base-model flow design |
 | Hand on | `od-acceptance-test` | Data path, signal list, witness, expected values |
-| Hand on | use-case support (`od-use-case-support-service`) | Machine list with connected status, remaining machines with blocker, integration-to-use-case handover note |
+| Hand on | use-case support (`od-use-case-definition`) | Machine list with connected status, remaining machines with blocker, integration-to-use-case handover note |
 | Hand on | `od-barrier-triage` | Machines with no route, class and dependent use cases |
 | Hand on | `od-scorecard-reporting` | Wave status, traffic light, call-for-action |
 

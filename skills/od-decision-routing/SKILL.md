@@ -56,7 +56,7 @@ engineering.**
 | Use-case prioritization & selection | DBVE | Plant ME | Tandem | no | yes | within plant roadmap scope | `recommend` |
 | Equipment integration go-ahead | IIAE | Plant ME / Plant IT | Tandem | **yes** | partially | per investment plan; Cyber Security sign-off for external connection | `execute-with-approval` |
 | Digitalization investment planning | OD lead | BA Operations | Consultation | **yes** | no | ⟨budget threshold — to confirm⟩ | `recommend` |
-| Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | ⟨counterpart to confirm⟩ | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
+| Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | IT-responsible role of the business side | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
 | Data-model / signal standardization | IIAE | Plant ME / Plant IT | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
 | Ad-hoc analytics delivery | DBVE | — | — | no | yes | read-only on source systems | `execute-autonomously` |
@@ -84,8 +84,8 @@ theoretical — it is a common recorded reason a booked saving is not yet real.
 
 ## Deputisation
 
-In the OD lead's absence, ⟨deputy — to confirm⟩ decides prioritization and rollout matters
-**within the agreed roadmap**. Investment commitments wait for the OD lead. No level of
+In the OD lead's absence, the next-higher management role decides prioritization and rollout matters
+**within the agreed roadmap**. Investment commitments stay with the competent approval body. No level of
 urgency substitutes.
 
 ## What an agent may never do, at any authority level

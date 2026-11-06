@@ -30,7 +30,7 @@ approval are human.** Leave section 10 blank.
 | **What it buys / phase funded** | ⟨one line⟩ |
 | **Decide by** | ⟨date and the reason⟩ |
 | **Spend ladder** | ⟨per the current approval policy (look up: OD lead / Finance); quote it as the source words it, with its date⟩ |
-| **Approver for this amount** | ⟨name the body; ⟨to confirm with the OD lead⟩ if the recorded thresholds overlap at this amount⟩ |
+| **Approver for this amount** | ⟨name the body; if the recorded thresholds overlap at this amount, the stricter (higher) route applies and Controlling may downgrade⟩ |
 | **OD decision row** | ⟨Digitalization investment planning: OD lead with BA Operations, consultation, `recommend`⟩ |
 | **Other gates touched** | ⟨IT demand · Cyber Security · CSP · plant adoption · none⟩ |
 

@@ -15,7 +15,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-equipment-integration, od-data-availability-check, od-barrier-triage, od-node-red-flow-builder, od-signal-standardization, od-capital-request, od-workshop-facilitation, od-decision-routing, od-cybersec-gate, od-risk-watch]
+  composes: [od-equipment-integration, od-data-availability-check, od-barrier-triage, od-node-red-flows, od-signal-standardization, od-capital-request, od-workshop-facilitation, od-decision-routing, od-cybersec-gate, od-risk-watch]
   derived_from:
     - Operations Digitalization slide decks (machine-integration waves, integration workshops, community-of-practice calls, connector and architecture decks), abstracted into process guidance; no figures.
   okf:
@@ -31,7 +31,7 @@ metadata:
 Read `od-context` first. This skill turns a **machine list** into an **integration wave plan** that can
 be sized, funded, run and handed over. It plans; it does not assess a single machine
 (`od-equipment-integration`), classify a stuck machine (`od-barrier-triage`), build the flow
-(`od-node-red-flow-builder`) or write the request (`od-capital-request`). It decides what goes into the
+(`od-node-red-flows`) or write the request (`od-capital-request`). It decides what goes into the
 wave, in which order, with which route, and what must be true before the plant kicks off.
 
 ## Where it sits in the chain
@@ -47,7 +47,7 @@ wave, in which order, with which route, and what must be true before the plant k
 Upstream: `od-use-case-intake-triage` (lane), `od-data-availability-check` (which machines lack data),
 `od-workshop-facilitation` (the workshop where the list is finalised). Downstream:
 `od-capital-request`, `od-equipment-integration` Route B per machine, `od-signal-standardization`,
-`od-node-red-flow-builder`, `od-acceptance-test`, `od-cybersec-gate`.
+`od-node-red-flows`, `od-acceptance-test`, `od-cybersec-gate`.
 
 ## Purpose and definition of done
 

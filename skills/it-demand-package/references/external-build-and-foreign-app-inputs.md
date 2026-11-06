@@ -29,7 +29,7 @@ The legacy application list is the only place the vault records third-party and 
 | Interfaced machines | free text (for example "<n> machines" or "all <n> machines of <vendor>") | what the app reads or writes on the floor |
 | Status | in use, etc. | |
 
-Aggregates and what they imply are in [catalog-systems legacy-application-position](../../catalog-systems/references/legacy-application-position.md). Add to the list of questions:
+Aggregates and what they imply are in [od-catalog legacy-application-position](../../od-catalog/references/legacy-application-position.md). Add to the list of questions:
 
 1. Divisional standard or local application? (the operations concept separates global IT support from local-only support; interfaces between the two need governance-board approval - see [it-touchpoints.md](it-touchpoints.md))
 2. What does it read and write, from which system, in which direction, and does it write to a machine? (a write to a machine goes to the segmentation review and is not a plain IT demand)

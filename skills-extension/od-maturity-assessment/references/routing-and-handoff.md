@@ -20,7 +20,7 @@ quote the rule with the signal.
 
 | Profile | Signal | Hand to |
 |---|---|---|
-| F9 at least cable, F10 at least proprietary with a known connector, F1 for assets at least 3 | A standard system can be matched; proceed to the kit pick | `catalog-systems`, then `od-equipment-integration` |
+| F9 at least cable, F10 at least proprietary with a known connector, F1 for assets at least 3 | A standard system can be matched; proceed to the kit pick | `od-catalog`, then `od-equipment-integration` |
 | F9 not networked or no usable drop | The kit cannot be fitted yet; a connection prerequisite is missing | `od-barrier-triage` (legacy hardware or information class) |
 | F10 level 1 or 2 with no connector on the fallback ladder | No route; substitution or roadmap question | `od-barrier-triage` |
 | Many `unknown` on F9, F10, F2 | Information gap; do not match a kit on assumptions | the plant ME to fill the Machine List fields |

@@ -5,9 +5,6 @@
 | Folder | Holds |
 |---|---|
 | [build-grafana-ops-dashboard/](build-grafana-ops-dashboard/index.md) | 13 concept(s) |
-| [catalog-guardrails/](catalog-guardrails/index.md) | 5 concept(s) |
-| [catalog-systems/](catalog-systems/index.md) | 7 concept(s) |
-| [catalog-usecase/](catalog-usecase/index.md) | 6 concept(s) |
 | [deploy-appstore/](deploy-appstore/index.md) | 6 concept(s) |
 | [it-demand-package/](it-demand-package/index.md) | 5 concept(s) |
 | [od-acceptance-test/](od-acceptance-test/index.md) | 9 concept(s) |
@@ -15,23 +12,22 @@
 | [od-analytics-asset-build/](od-analytics-asset-build/index.md) | 13 concept(s) |
 | [od-benefit-calculation/](od-benefit-calculation/index.md) | 3 concept(s) |
 | [od-capital-request/](od-capital-request/index.md) | 5 concept(s) |
+| [od-catalog/](od-catalog/index.md) | 15 concept(s) |
 | [od-context/](od-context/index.md) | 5 concept(s) |
 | [od-cybersec-gate/](od-cybersec-gate/index.md) | 6 concept(s) |
 | [od-data-availability-check/](od-data-availability-check/index.md) | 11 concept(s) |
 | [od-decision-routing/](od-decision-routing/index.md) | 5 concept(s) |
-| [od-equipment-integration/](od-equipment-integration/index.md) | 17 concept(s) |
+| [od-equipment-integration/](od-equipment-integration/index.md) | 18 concept(s) |
 | [od-handover-and-adoption/](od-handover-and-adoption/index.md) | 5 concept(s) |
-| [od-node-red-flow-builder/](od-node-red-flow-builder/index.md) | 13 concept(s) |
-| [od-node-red-flow-troubleshooting/](od-node-red-flow-troubleshooting/index.md) | 5 concept(s) |
+| [od-node-red-flows/](od-node-red-flows/index.md) | 17 concept(s) |
 | [od-portfolio-and-savings-analysis/](od-portfolio-and-savings-analysis/index.md) | 7 concept(s) |
 | [od-prototype-poc/](od-prototype-poc/index.md) | 7 concept(s) |
 | [od-requirements-breakdown/](od-requirements-breakdown/index.md) | 9 concept(s) |
 | [od-scorecard-reporting/](od-scorecard-reporting/index.md) | 7 concept(s) |
 | [od-sharepoint-list-export/](od-sharepoint-list-export/index.md) | 4 concept(s) |
-| [od-signal-standardization/](od-signal-standardization/index.md) | 13 concept(s) |
+| [od-signal-standardization/](od-signal-standardization/index.md) | 14 concept(s) |
 | [od-system-fit-check/](od-system-fit-check/index.md) | 10 concept(s) |
-| [od-use-case-definition/](od-use-case-definition/index.md) | 9 concept(s) |
+| [od-use-case-definition/](od-use-case-definition/index.md) | 12 concept(s) |
 | [od-use-case-intake-triage/](od-use-case-intake-triage/index.md) | 3 concept(s) |
 | [od-use-case-solution-evaluation/](od-use-case-solution-evaluation/index.md) | 7 concept(s) |
 | [od-use-case-standardization/](od-use-case-standardization/index.md) | 5 concept(s) |
-| [od-use-case-support-service/](od-use-case-support-service/index.md) | 4 concept(s) |

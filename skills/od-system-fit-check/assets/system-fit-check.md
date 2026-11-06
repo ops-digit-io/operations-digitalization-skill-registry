@@ -58,8 +58,8 @@ tool being deployed here are two different checks.
   re-scope the request to that tool before it is defined any further.
 - **Escalate as exception** — the need genuinely crosses into non-bet territory (MES/EMS-
   shaped, or a tool not yet deployed at this plant with no substitute). Route via
-  `od-decision-routing`'s "Tool/system rollout" decision row — the rollout counterpart is
-  itself still `⟨to confirm⟩` there; name the OD lead at minimum.
+  `od-decision-routing`'s "Tool/system rollout" decision row — the OD lead decides in tandem
+  with the IT-responsible role of the business side.
 
 ## Worked example
 

@@ -104,7 +104,7 @@ refresh is usually this, not a network change.
 ## The capability with no route: dataFEED publishing straight to MQTT
 
 OESL's spine is MQTT — `datatroniq/data/protob/plc/…` carrying protobuf `PLCPacketList`,
-consumed by Node-RED (see `od-node-red-flow-builder`). dataFEED can publish to an MQTT
+consumed by Node-RED (see `od-node-red-flows`). dataFEED can publish to an MQTT
 broker directly, as a data target, without an edge device in between.
 
 **There is no OESL route for this, and this section is not permission to build one.** It is
@@ -130,7 +130,7 @@ topic**. The available format includes *JSON text with datapoint ID, value, time
 quality* (p. 962) — structurally the same four fields as a `PLCPacket` (`uuid`,
 `measured_value`, `sys_time`, and quality), but JSON rather than protobuf and with a
 different time encoding. That difference is exactly why this would be a data-model decision
-and not a wiring change: `od-node-red-flow-builder`'s decode stage expects
+and not a wiring change: `od-node-red-flows`'s decode stage expects
 `PLCPacketList`, and its `sysTime` is a packed 64-bit value, not a formatted string.
 
 **Topic names are constrained.** Printable ASCII only, and the characters `.`, `/`, `+` and

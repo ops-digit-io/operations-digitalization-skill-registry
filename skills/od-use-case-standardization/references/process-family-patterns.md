@@ -18,7 +18,7 @@ or savings**; read those live and quote the read date.
 
 ## The two axes
 
-A plant use case sits on a **capability** (eleven templates, see `catalog-usecase` `references/template-coverage.md`) and on a
+A plant use case sits on a **capability** (eleven templates, see `od-catalog` `references/template-coverage.md`) and on a
 **process group** inside a **family**. The family tells you what the machine does; the capability tells you what the screen does.
 Standardization potential comes from the combination: a capability that does not depend on the process (a status board) travels
 across families; a capability that reads process parameters travels only inside one process group.

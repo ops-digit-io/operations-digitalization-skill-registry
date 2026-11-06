@@ -20,7 +20,7 @@ Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and 
 | The function does not own the ERP or the core systems; a change there goes through the demand and investment routes | `Operating model`, "What it does not do" |
 | IT means "platforms, data access and the demand route"; the function does not run platforms | `Roles and organization` |
 | Spend is a separate gate (eCR; approver per the current approval policy, look up: `od-decision-routing` and the OD lead) and can run in parallel; the package should name it, not replace it | `Decision rights`, section Spend; `od-decision-routing` |
-| Tool or system rollout (MES, MSB, IIoT Edge, the data platform) is an OD lead decision with ⟨counterpart to confirm⟩ | `08-decision-rights.md` |
+| Tool or system rollout (MES, MSB, IIoT Edge, the data platform) is an OD lead decision, taken in tandem with the IT-responsible role of the business side | `08-decision-rights.md` |
 
 A demand that stays inside platforms OD owns or operates with its own tools does not need this package.
 
@@ -71,11 +71,10 @@ If a demand is a camera, quality, SCADA or custom MES application in the legacy 
 ## Where a demand typically waits (recurring patterns)
 
 - Platform access: machines stay unintegrated while access to the aggregation server is open; this works as a technical follow-up with Central IT, never a governance-forum item (`od-decision-routing`, escalation worked examples). Lesson: name Central IT or Plant IT as the unblocking role in the package.
-- Unknown licence: many legacy applications have an unknown licence status (see [../../catalog-systems/references/legacy-application-position.md](../../catalog-systems/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
+- Unknown licence: many legacy applications have an unknown licence status (see [../../od-catalog/references/legacy-application-position.md](../../od-catalog/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
 - MES: a rollout that is on hold or ERP-dependent blocks a demand that depends on it; the demand is blocked, not planned (`od-requirements-breakdown`).
 
 ## Open
 
 - ⟨IT's demand form fields⟩, ⟨the evaluation board's criteria and rhythm⟩ and ⟨the usual lead time⟩ - not in any source read. The deck, the bundle and the vault carry the *route*, not the form. Owner: OD lead, with the IT demand management contact.
 - ⟨The IT contact in demand management⟩ - no source names a role or a mailbox for it.
-- ⟨Who is the counterpart of the OD lead for tool and system rollout decisions⟩ - `08-decision-rights.md` leaves it open.

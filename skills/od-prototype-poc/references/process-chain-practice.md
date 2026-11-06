@@ -94,8 +94,8 @@ standard systems before it counts as mature.
 - **Prompt-to-prototype for applications** shows value fast, but the path is generated solution, IT takeover, Cyber Security
   approval; assume supplier code is partly AI-generated.
 - **Knowledge assistants** (troubleshooting, documentation) are low barrier but fall outside the classic use-case definition (a
-  before and after state with savings); classify them as `PROPOSAL: assistant` with usage and quality measures instead of a
-  savings claim, and say so. Good fit: a repetitive task, a public or general skill set, good internal documentation. The answer is
+  before and after state with savings); decide case by case at intake: with a measurable before and after, take the use-case route (savings only with a documented basis); without one, track
+  them as an initiative with an owner and a usage measure (`PROPOSAL: assistant`), not as a counted saving, and say so. Good fit: a repetitive task, a public or general skill set, good internal documentation. The answer is
   advice only; a parameter change is a human decision by the process engineer.
 
 ## Pitfalls and lessons

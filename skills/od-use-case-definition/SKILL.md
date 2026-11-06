@@ -1,14 +1,14 @@
 ---
 name: od-use-case-definition
 description: >-
-  Define a plant use case so it can be built, standardized, handed over and measured —
-  scope it against the plant's process, break down the requirement, assess the (legacy)
-  MF IT systems it touches, place it on its capability template and process group, and
-  record the fields that make it findable and evaluable later. Also covers preparing and
-  running Use Case Definition and Use Case Integration workshops. Use when a plant demand
-  has been accepted and needs turning into a defined use case, when an existing use-case
-  record is too thin to act on, or when a definition or integration workshop is being
-  prepared.
+  Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it.
+  Define a plant use case so it can be built, standardized, handed over and measured: scope it,
+  break down the requirement, assess the (legacy) MF IT systems, place it on its capability
+  template and process group, record the fields that make it evaluable. Also prepares and runs
+  Use Case Definition and Integration workshops, and answers what happens to a use case between
+  demand and daily use (roles, control points, error paths, autonomy, metrics, Process First-Aid
+  Kit, prioritizing a use case or business case). Use when an accepted plant demand needs a
+  definition, a use-case record is too thin to act on, or a workshop is being prepared.
 license: MIT
 metadata:
   id: od-use-case-definition
@@ -16,12 +16,14 @@ metadata:
   lane: use-case-support-service
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft
+  capacity: per the current DBVE roster
+  escalation: OD lead (decision route per the current approval policy; look up)
   status: stable
-  sources_read: 2026-09-17
+  sources_read: 2026-10-23
   requires: [od-context]
-  composes: [od-use-case-standardization, od-use-case-solution-evaluation, od-benefit-calculation, od-data-availability-check]
+  composes: [od-use-case-standardization, od-use-case-solution-evaluation, od-benefit-calculation, od-data-availability-check, od-use-case-intake-triage, od-system-fit-check, od-requirements-breakdown, od-handover-and-adoption, od-scorecard-reporting]
   derived_from:
-    - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
+    - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/12-portfolio.md
@@ -29,214 +31,169 @@ metadata:
   okf:
     type: Agent Skill
     title: Use-case definition
-    tags: [technical, use-case-support-service]
+    tags: [technical, lane, use-case-support-service]
     owner: human:jakob.gabriel
     generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Use-case definition
 
-Read `od-context` first. Every use case is **one plant's instance of one need** — never a
-programme, never a plant-wide ambition.
+Read `od-context` first. Provenance: merged from the lane's playbook and the use-case vault pages.
 
-## The references are the substance
+## Purpose and where it sits
 
-| File | Use it for |
-|---|---|
-| [`references/benefit-theory.md`](references/benefit-theory.md) | The Benefits Dependency Network mapped to the four phases — why a technical enabler is not a benefit, the business/process change that closes the Implemented-to-Productive gap, the tangible/intangible × cashable/non-cashable benefit classification, and the options-considered discipline |
-| [`references/patterns.md`](references/patterns.md) | The abstract rules this procedure runs on — match effort to category, a decision isn't a scope, the legacy-system check is tacit knowledge — each stated as a rule, illustrated once |
-| [`references/vocabulary.md`](references/vocabulary.md) | The controlled vocabulary actually in use: business process, output asset, legacy systems and tools — for Phases 1, 3 and 4 |
-| [`references/worked-examples.md`](references/worked-examples.md) | Three illustrative use cases (invented, placeholder values) carried through the four phases — a complete record, one correctly stopped before Control, and a minimal-but-correct standard case |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How step 21 runs in the AI-driven chain: canvas and data-source split, diagnosis patterns, can/cannot statement, utilization moment, handoff row to step 22, agent notes |
-| [`references/library-catalog.md`](references/library-catalog.md) | How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the method vocabulary — a guide to the live list, not a copy of it |
+Serves **step 21, define and diagnose**, and holds the service flow of the lane around it
+(Lane 2, steps 21 to 26, plus the use-case half of Lane 1). Key user: the
+Digital-Business-Value-Engineer (DBVE), with Plant ME as customer; an AI agent drafts, humans decide.
+Every use case is **one plant's instance of one need**, never a programme or plant-wide ambition.
+Lane detail (error paths, wait states, tasks, access, autonomy, metrics): `references/lane-service-flow.md`.
+
+## Inputs and output
+
+- **In:** an accepted plant demand (`od-use-case-intake-triage`), a SMART statement, the plant owner.
+- **Out:** a defined use case: the filled [`assets/use-case-definition-protocol.md`](assets/use-case-definition-protocol.md)
+  (one per use case, four sections = four phases), produced by asking
+  [`assets/use-case-definition-questionnaire.md`](assets/use-case-definition-questionnaire.md)
+  (Is/Is-Not and 5 Whys for Analyse, Benefits Dependency Network walk-through for Control).
+
+## Lane flow: from demand to adoption
+
+**Trigger:** plant use-case demand, or a workshop request. **Done (lane):** use case defined,
+prioritized, impact-evaluated and handed to integration **with a business case**. Step 21 = rows 1 to 4.
+
+| # | Step | Who | Control point | Skill |
+|---|---|---|---|---|
+| 1 | Collect plant use-case demand | DBVE + Plant ME | Demand logged against the plant roadmap | `od-use-case-intake-triage` |
+| 2 | Plant- and process-specific definition; diagnostics | both | Use case scoped with a clear objective | this skill |
+| 3 | Break down requirement; assess (legacy) MF IT systems; system fit | DBVE | System assessment complete | `od-requirements-breakdown`, `od-system-fit-check` |
+| 4 | Plan benefit calculation and business case; prioritize | both | Business case and priority agreed with Plant ME | `od-benefit-calculation` |
+| 5 | Hand to Information Integration Service | DBVE | Integration request accepted | `od-information-integration-service` |
+| 6 | System qualification, training, execution support | DBVE | Use case running on the shopfloor | |
+| 7 | Evaluate impact; ensure adoption | both | Impact evaluated; recipient confirms adoption | `od-handover-and-adoption` |
+
+Before step 5 run `od-use-case-standardization`: a match to a library entry takes it rather than
+being re-specified. Per-step template routing: `references/lane-templates.md`.
 
 ## The coordinate every use case carries
 
-1. **Plant** — one of the manufacturing plants (plant master data).
-2. **Material family / process group** — Rubber, Plastic, Metal or Assembly, and one of
-   the process groups inside them.
-3. **Capability** — one of the cross-plant templates, for example: Andon Board, OEE Calculation,
-   Downtime Reporting, Process Quality Data, Machine Alerts, Cycle Time, Recipe Values,
-   Process Values, Manual Quality Data, Analytics, Other Use Cases.
+1. **Plant** (plant master data). 2. **Material family / process group**: Rubber, Plastic, Metal or Assembly, and a process group within.
+3. **Capability**: a cross-plant template (Andon Board, OEE Calculation, Downtime Reporting, Process Quality Data, Machine Alerts,
+Cycle Time, Recipe Values, Process Values, Manual Quality Data, Analytics, Other Use Cases).
 
-Without all three, the use case is not findable from another plant, which is the whole
-reason the taxonomy exists. A capability is typically already instantiated at nearly every plant — the template is
-rarely the thing that is missing. **Instantiated is not
-delivered**, though: many capability-epic records at a plant group no use case at all (see
-`references/patterns.md`; count them live). Confirm a usable precedent exists — in
-`references/library-catalog.md`, not from the coordinate alone — before assuming the
-template already answers this need.
+Without all three the use case is not findable from another plant. Instantiated is not delivered:
+confirm a usable precedent in `references/library-catalog.md` before assuming the template answers the need.
 
-## The states it will be tracked in
+## States it is tracked in (set expectations at definition time)
 
-Set expectations at definition time, because these fail separately:
+- **Delivery status:** `IDEA` -> `PLANNED` -> `IMPLEMENTED` -> `PRODUCTIVE` (or `STOPPED`).
+- **Workflow states** (development, implementation, handover) and **rollout phase** (`PHASE 1`..`5`) are tracked independently; detail in `references/lane-service-flow.md`.
+- **Category:** standard cross-process · standard per-process · non-standard unique to one plant · AI use case.
+  **The hinge:** declaring "standard" commits the use case to `od-use-case-standardization`.
 
-- **Delivery status** — `IDEA` → `PLANNED` → `IMPLEMENTED` → `PRODUCTIVE` (or `STOPPED`).
-- **Three workflow states, tracked independently** — development, implementation,
-  handover. Handover consistently trails the other two by about thirty use cases across
-  the portfolio; that is the normal shape, not an anomaly to explain away.
-- **Rollout phase** — `PHASE 1`…`PHASE 5`, named rollout batches usually tied to a plant
-  project, not sequential queues.
-- **Category** — standard cross-process · standard per-process · non-standard unique to
-  one plant · AI use case. **This declaration is the hinge the whole function turns on**:
-  declaring "standard" commits the use case to `od-use-case-standardization`.
+## Procedure: four phases, each with a control point
 
-## Procedure — four phases, each with a control point
-
-The playbook's happy path (`20-lanes/use-case-support-service/playbook.md`) names a
-**control point** at every step — the department's own term for the checkpoint that must be
-true before the use case moves on. Read as four phases, in the playbook's own order —
-**Collect → Analyse → Assess → Control** — not the order the words might suggest:
-
-| Phase | Playbook step(s) | Control point |
-|---|---|---|
-| 1 · Collect | 1 | Demand logged against plant roadmap |
-| 2 · Analyse | 2 | Use case scoped with clear objective |
-| 3 · Assess | 3 | System assessment complete |
-| 4 · Control (decide) | 4 | Business case & priority agreed with Plant ME |
-
-This also lines up with the portfolio's own stage-gate model
-(`00-core/12-portfolio.md`: `Captured → Evaluated → Assessed → Planned/Implementation →
-Handed over → Effective`) — Collect produces *Captured*, Analyse produces *Evaluated*,
-Assess produces the literal *Assessed* gate, and Control is the decision that moves a use
-case into *Planned*. A use case stuck at one portfolio stage has stalled in the matching
-phase below; that's where to look first.
-
-Run [`assets/use-case-definition-questionnaire.md`](assets/use-case-definition-questionnaire.md)
-to get there — the actual questions to ask, in order, including Is/Is-Not and 5 Whys for
-Analyse and the Benefits Dependency Network walk-through for Control. Record each answer as
-it happens, in `assets/use-case-definition-protocol.md` — the four phases are that
-document's four sections.
+Collect -> Analyse -> Assess -> Control. Maps to the portfolio stages Captured / Evaluated / Assessed / Planned;
+a use case stuck at a stage stalled in the matching phase (`references/lane-service-flow.md`).
 
 ### 1 · Collect
-
-- **Confirm the need is one need.** If it decomposes into two decisions taken by two
-  people at two moments, it is two use cases.
-- **Start from a SMART statement.** If intake did not already pass it (purpose, objective, real
-  problem, timeframe, named stakeholder; a target without a baseline fails), run the test and the
-  object / event / time reduction first (`od-use-case-intake-triage`).
-- **Log the demand** against the plant roadmap — workshop output or a direct request.
-- **Name the moment in the day it belongs to**, from the controlled vocabulary in
-  `references/vocabulary.md` (Daily Gemba, Troubleshooting, Activity Tracking, Utilization
-  Improvement, Process Improvement, Quality Improvement, Traceability, Energy Reporting — a
-  use case can carry more than one). A use case that fits none of these is a use case
-  nobody will open.
+1. **Confirm the need is one need.** Two decisions by two people at two moments = two use cases.
+2. **Start from a SMART statement** (purpose, objective, real problem, timeframe, named stakeholder; a target without a baseline fails); if intake did not pass it, run the test and object / event / time reduction first.
+3. **Log the demand** against the plant roadmap (workshop output or direct request).
+4. **Name the moment in the day** from `references/vocabulary.md` (Daily Gemba, Troubleshooting, Activity Tracking, Utilization Improvement, Process Improvement, Quality Improvement, Traceability, Energy Reporting; more than one allowed). One that fits none is a use case nobody opens.
 
 **Control point: demand logged against the plant roadmap.**
 
 ### 2 · Analyse
-
-- **Run process diagnostics** to get from the stated problem to the actual one.
-- **State the diagnosis, not the ask.** A diagnosis names what's actually wrong and why it
-  matters; a restated request does not. See `references/worked-examples.md` §1 for the
-  shape of one.
-- **Scope the objective.** This phase's control point is the objective, not the solution —
-  do not let a specific dashboard or app design substitute for a stated problem.
-- **State the business benefit, not the technical enabler.** What measurably improves, for
-  whom — then classify it tangible/intangible × cashable/non-cashable, per
-  `references/benefit-theory.md`. This is the input `od-benefit-calculation` needs; it
-  does not derive the benefit from the output asset on its own.
-- **Name what else was considered.** Doing nothing, the closest library entry, a smaller
-  scope — one sentence each, per `references/benefit-theory.md` § *Options considered*. A
-  bespoke build with no rejected alternative on record is a default, not a decision.
-- **Match the depth to the category** — see `references/patterns.md`. A `standard` use
-  case inherits its objective from the capability template; a one-line target is enough. A
-  `non-standard, unique to one plant` use case has no template behind it — write the full
-  diagnosis here, or nobody downstream can build it.
+1. **Run process diagnostics** from the stated problem to the actual one.
+2. **State the diagnosis, not the ask:** what is wrong and why it matters (`references/worked-examples.md` §1).
+3. **Scope the objective**, not the solution; no dashboard design in place of a problem.
+4. **State the business benefit, not the technical enabler**; classify tangible/intangible × cashable/non-cashable (`references/benefit-theory.md`). It is the input `od-benefit-calculation` needs.
+5. **Name what else was considered** (doing nothing, closest library entry, smaller scope; one sentence each). A bespoke build with no rejected alternative is a default, not a decision.
+6. **Match depth to category** (`references/patterns.md`): `standard` inherits its objective from the template, a one-line target is enough; `non-standard, unique to one plant` needs the full diagnosis.
 
 **Control point: use case scoped with a clear objective.**
 
 ### 3 · Assess
-
-- **Break down the customer / process requirement.**
-- **Assess the (legacy) MF IT systems** it touches — named systems and tools in
-  `references/vocabulary.md`. The Legacy Application List tracks applications being replaced or
-  retired; check whether the need is already served by one being retired. This is a
-  question to ask the plant, not a lookup — see `references/patterns.md`.
-- **Name the machine(s), if any**, and confirm rather than assume whether the use case
-  genuinely has none.
-- **Split the data points by source** (from machine / from checklist or manual / from system), per
-  process step; this split is what the data check consumes.
-- **Check the data exists** → `od-data-availability-check`. A use case whose data is not
-  readable is an integration request first; record that dependency now.
-- **Check the library before specifying** → [`references/library-catalog.md`](references/library-catalog.md),
-  the proven entries by capability. Take the closest one rather than drafting from a
-  blank page; if it composes into a standard declaration, `od-use-case-standardization` is
-  the library of record.
+1. **Break down the customer / process requirement.**
+2. **Assess the (legacy) MF IT systems** (`references/vocabulary.md`). Check whether the need is already served by one on the Legacy Application List being retired; ask the plant, it is not a lookup (`references/patterns.md`).
+3. **Name the machine(s)**, or confirm there are none.
+4. **Split data points by source** (machine / checklist or manual / system) per process step; the data check consumes this.
+5. **Check the data exists** -> `od-data-availability-check`. Unreadable data = integration request first; record the dependency now.
+6. **Check the library before specifying** (`references/library-catalog.md`); take the closest entry, not a blank page. If it composes into a standard declaration, `od-use-case-standardization` is the library of record.
 
 **Control point: system assessment complete.**
 
 ### 4 · Control (decide)
-
-- **Name the business or process change.** Who does something differently once this
-  exists, and who confirms it's actually happening — not who receives the output, who
-  *acts* on it. See `references/benefit-theory.md`. A use case with no named change is a
-  technical enabler with nothing connecting it to its benefit; that is the shape of a use
-  case that reaches `IMPLEMENTED` and stalls before `PRODUCTIVE`.
-- **Record the fields that make it evaluable**: output asset (Dashboard is the default;
-  Report, App, Analytics Workflow and Agent are the alternatives — see
-  `references/vocabulary.md`), business process, utilization expectation, plant owner by
-  name, and every known dependency. A title alone is not a definition. Naming an App or
-  Agent is unusual enough to be worth a second look at whether a Dashboard would serve the
-  same need cheaper.
-- **Evaluate whether the envisioned solution actually fits** → `od-use-case-solution-evaluation`,
-  before the business case — a solution that looks standard can still need a capability
-  nobody has built yet, and that belongs in the business case's scope and cost, not as a
-  surprise at integration.
-- **Calculate the business case and prioritize** → `od-benefit-calculation`.
-- **Decide.** This is the phase that actually commits capacity — everything before it is
-  preparation for this decision, not the decision itself.
-- **This phase's numbers are not Phase 2's objective.** Priority, potential and savings get
-  filled on the benefit-calculation cadence, independent of whether Phase 2 ever produced a
-  stated objective — see `references/patterns.md`. A filled priority is not evidence the
-  use case was scoped.
+1. **Name the business or process change:** who does something differently and who confirms it happens (who *acts*, not who receives). No named change = a technical enabler that reaches `IMPLEMENTED` and stalls before `PRODUCTIVE`.
+2. **Record the fields that make it evaluable:** output asset (Dashboard default; Report, App, Analytics Workflow, Agent alternatives; an App or Agent warrants asking if a Dashboard serves cheaper), business process, utilization expectation, plant owner, every known dependency. A title is not a definition.
+3. **Evaluate whether the solution fits** -> `od-use-case-solution-evaluation` before the business case; a missing capability belongs in its scope and cost, not as an integration surprise.
+4. **Calculate the business case and prioritize** -> `od-benefit-calculation`.
+5. **Decide.** This commits capacity; everything before is preparation.
 
 **Control point: business case and priority agreed with Plant ME.**
 
-## Input and output — the questionnaire and the protocol
+## Decision rules
 
-Neither the four phases nor the workshops end in prose. Ask
-[`assets/use-case-definition-questionnaire.md`](assets/use-case-definition-questionnaire.md);
-fill [`assets/use-case-definition-protocol.md`](assets/use-case-definition-protocol.md) as
-the work happens — one document per use case, its four sections matching the four phases
-above, so a plant engineer who wasn't in the room can read what was decided, why, and
-what's still open.
+- Not one need -> split. No nameable business case -> refuse per intake, return to demand owner.
+- Library entry matches -> take it (`od-use-case-standardization`). Machine not connected -> no use case yet; integration request.
+- Required system not deployed / operations concept missing -> tool-rollout decision to strategy; mark blocked in the portfolio.
+- Savings with no registered plant project or no baseline -> a claim, not a result; fix before the next sprint review.
+- Priority, potential and savings are filled on the benefit-calculation cadence, independent of Phase 2; a filled priority is not evidence of scoping (`references/patterns.md`).
+- `UNKNOWN` priority or potential is not "low". Integration fails acceptance or no adoption -> rework back to step 5.
 
 ## Workshops
 
 | Workshop | When | Template |
 |---|---|---|
-| Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda — Use Case Workshop (SharePoint); run [`assets/use-case-definition-questionnaire.md`](assets/use-case-definition-questionnaire.md) inside it |
+| Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda - Use Case Workshop (SharePoint); run the questionnaire inside it |
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 
-Past workshop locations are listed in the workshop folder of the vault. ⟨A dedicated OD use-case one-pager / business-case template
-beyond the SharePoint agenda is not confirmed to exist in the source systems — checked, not
-found; the questionnaire and protocol here are what fills that gap.⟩
+Past workshop locations: the workshop folder of the vault.
 
 ## Definition of done
 
-All four control points are met: demand logged against the plant roadmap, the use case
-scoped with a clear objective, its requirement broken down and system assessment complete,
-and a business case and priority agreed with Plant ME. It carries plant, capability, process
-group, category, output asset, utilization expectation, a named plant owner and its
-dependencies — plus, per `references/benefit-theory.md`: the business benefit stated and
-classified, the rejected options named, and the business/process change named with who
-confirms it happened.
+All four control points met. The use case carries plant, capability, process group, category, output asset,
+utilization expectation, named plant owner and dependencies, plus (`references/benefit-theory.md`) the benefit
+stated and classified, rejected options named, and the business/process change with who confirms it.
 
-## Do not
+## Handoff
 
-- Do not record `UNKNOWN` priority or potential as though it were low. Many use cases
-  carry `UNKNOWN` priority or potential; absence is not an answer.
-- Do not declare a use case `standard` to make it look scalable. The CSP gate will not
-  agree, and the declaration is what the rollout economics rest on.
-- Do not write a definition that only its author can read. The handover test applies from
-  the first draft: what is this, where does its data come from, who owns it.
-- Do not treat a filled priority or savings figure as proof the use case was scoped —
-  see Phase 4.
-- Do not expect the legacy-system check to be pre-answered anywhere. It is asked fresh,
-  every time — see `references/patterns.md`.
-- Do not record the output asset as the benefit. A dashboard is not a benefit; the decision
-  someone makes differently because it exists is — see `references/benefit-theory.md`.
-- Do not leave a benefit field blank because it resists a number. A blank field and "never
-  assessed" already look identical, which is exactly why "intangible, non-cashable" is a
-  valid, recordable answer and silence is not.
+To `od-information-integration-service` **with** business case and requirement breakdown (via `od-use-case-standardization` first);
+to `od-handover-and-adoption` at step 7. Receiver needs the completed protocol, so a plant engineer who was not in the room can read what
+was decided, why, what is open. Block-to-block handoff table: `references/process-chain-practice.md`.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** read the data platform, Scorecard and library; draft definitions, benefit calculations, prioritization proposals, impact reports, workshop material.
+- **Only a human decides:** investment, equipment integration, external machine connection (Cyber Security sign-off), data-model or rollout changes, external publishing; escalation OD lead.
+- **Evidence:** never invent savings or impact (mark to-be-collected); cite the protocol answers, library entry and source for each figure.
+- Systems and access, metrics: `references/lane-service-flow.md`.
+
+## Pitfalls
+
+- Declaring `standard` to look scalable: the CSP gate disagrees and rollout economics rest on it.
+- A definition only its author can read: the handover test applies from the first draft (what is this, where does data come from, who owns it).
+- Expecting the legacy-system check to be pre-answered: it is asked fresh every time.
+- Recording the output asset as the benefit: the decision someone makes differently is the benefit.
+- A blank benefit field because it resists a number: "intangible, non-cashable" is valid; silence is not.
+
+## Open points
+
+- ⟨Lane lead time to confirm⟩.
+- ⟨Process First-Aid Kit request template: none found anywhere in the registry (real gap, `references/lane-templates.md`)⟩.
+- ⟨MSB access scope (read / write) to confirm⟩.
+- ⟨A dedicated OD use-case one-pager / business-case template beyond the SharePoint agenda: checked, not found; the questionnaire and protocol fill that gap⟩.
+
+## References
+
+| File | Open when |
+|---|---|
+| [`references/benefit-theory.md`](references/benefit-theory.md) | Benefits Dependency Network, benefit classification, options considered, the Implemented-to-Productive gap |
+| [`references/patterns.md`](references/patterns.md) | Match effort to category, a decision isn't a scope, legacy check is tacit |
+| [`references/vocabulary.md`](references/vocabulary.md) | Controlled vocabulary: business process, output asset, legacy systems and tools |
+| [`references/worked-examples.md`](references/worked-examples.md) | Three illustrative use cases through the four phases |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Part A: step 21 in the AI chain (canvas, diagnosis patterns, can/cannot, handoff to 22). Part B: lane blocks, sprint deliverables, registration gate, handoffs |
+| [`references/lane-service-flow.md`](references/lane-service-flow.md) | Error paths, wait states, recurring tasks, systems and access, autonomy, metrics |
+| [`references/lane-templates.md`](references/lane-templates.md) | Which skill's asset answers each lane step's template |
+| [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | Recurring tasks as a trigger chain, tool access reasons, partner seams |
+| [`references/library-catalog.md`](references/library-catalog.md) | Searching the use-case library by capability |

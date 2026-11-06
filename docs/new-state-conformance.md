@@ -47,7 +47,7 @@ files that the registry does not support, so the flow needs correcting as much a
 |---|---|---|
 | Lane 1b, cost template and lightweight approval | `od-decision-routing` | Routes spend with thresholds; the cost template is an artifact, not a skill. The flow rates it Partial and the skill agrees |
 | Lane 1b, order and connect; Lane 3b connector | `od-equipment-integration` | Procurement, connectors, standards. Also holds the Cyber Security gate |
-| Lane 2, define and diagnose | `od-use-case-definition`, `od-use-case-support-service` | Process diagnostics, definition lane end to end |
+| Lane 2, define and diagnose | `od-use-case-definition` | Process diagnostics, definition lane end to end |
 | Lane 2 and Lane 3, requirements | `od-requirements-breakdown` | Says requirement, epic and story; the word "feature" in the flow's wording is not used |
 | Lane 2, data check | `od-data-availability-check` | Verdict naming the step the request dies at |
 | Lane 2, solution evaluation | `od-use-case-solution-evaluation` | Complexity drivers and the 16 capability areas |
@@ -55,8 +55,8 @@ files that the registry does not support, so the flow needs correcting as much a
 | Lane 2, capital request | `od-decision-routing` | Routes the eCR, no packaging; the flow rates it Partial and the skill agrees |
 | Lane 2 step 6, Lane 3a rollout | `od-handover-and-adoption` | Handover and adoption yes; **no graduation into a catalog** (zero mentions), which is what the flow rates as Partial |
 | Lane 2 step 6, graduate | `od-use-case-standardization` | Catalogue, reference library, CSP gate. Run by OD, not by plants, as the flow says |
-| Lane 3b, signals and pipeline | `od-signal-standardization`, `od-node-red-flow-builder` | |
-| Lane 3b, connect the machine | `od-node-red-flow-troubleshooting` | |
+| Lane 3b, signals and pipeline | `od-signal-standardization`, `od-node-red-flows` | |
+| Lane 3b, connect the machine | `od-node-red-flows` | |
 | Spine | `od-context`, `od-scorecard-reporting`, `od-sharepoint-list-export` | `od-context` still frames the department as "four service lines" |
 
 ## Not placed on the flow
@@ -73,6 +73,6 @@ files that the registry does not support, so the flow needs correcting as much a
 2. Correct the flow's prototype claim, or decide that prototype / PoC is a missing skill.
 3. When the three-lane model is adopted, change `od-use-case-intake-triage` and the framing in `od-context` from four service lines to
    the three lanes. They are also the places the old lane model is written down.
-4. Write the self-service mode somewhere: in `od-analytics-asset-build`, or through the new `catalog-usecase` and `catalog-guardrails`.
+4. Write the self-service mode somewhere: in `od-analytics-asset-build`, or through the new `od-catalog`.
 5. Decide whether `od-benefit-calculation` should carry a cost side, or accept the flow's rating as too generous.
 6. Re-home or retire the three lane orchestrators. Then regenerate [`process-overview.html`](process-overview.html), which still draws four lanes.

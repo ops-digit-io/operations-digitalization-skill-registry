@@ -237,7 +237,7 @@ several plants with blockers on definitions, machine list and third-party system
   Lean) with link tiles.
 - **Use.** The cheapest diagnostic at a plant: `DTQ - Count Datapoints by UUID, label in last n
   minutes` and the Process Value Overview answer "is the signal arriving?" before any flow is opened
-  (see `od-node-red-flow-troubleshooting`).
+  (see `od-node-red-flows`).
 - **Trap.** `Home` and the tag/UUID overview exist at many locations in several query-set variants.
 
 ## 5. Gaps to expect when you use the catalogue

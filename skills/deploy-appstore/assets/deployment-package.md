@@ -20,10 +20,9 @@ Template or capability it belongs to (R1-R11), or "one-off":
 Sourcing route:   3a.1 reuse / 3a.2 self-developed / 3a.3 external, source owned / 3a.4 foreign app
 Nearest onboarding scenario (inferred): internal / external with source / external without source
 
-TARGET (record both layers; the flow's term "Container Orchestration Platform" is to confirm)
+TARGET (record both layers; "Container Orchestration Platform" = the edge runtime of the IIoT Edge platform, Concept 3)
 Runtime the app runs on:          plant edge Kubernetes runtime (Concept 3)?  plant ____  Concept 3 status Available? ____
 Catalog it is published through:  manufacturing app store / CMO (pilot) ____
-Open question carried:            ⟨is the flow's platform the app store, the edge runtime, or both⟩ (OD lead)
 
 DATA (against systems-of-record - one source per data object)
 Reads:   ____  source ____  freshness ____
@@ -37,7 +36,7 @@ Container, image and registry rules, resource limits:   ⟨to be supplied⟩ (OD
 
 DEPENDENCIES
 Systems outside the lean footprint?  no / yes -> od-system-fit-check
-Legacy applications touched (legacy-application-position in catalog-systems):
+Legacy applications touched (legacy-application-position in od-catalog):
 
 ROLLBACK
 Rollback owner (role):       Rollback step:
