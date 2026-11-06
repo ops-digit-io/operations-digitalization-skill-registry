@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Retro inputs
-description: Where each of the three retro inputs (incidents, metrics, ODEC and COP feedback) is read from, which usable signals the sources already carry, and the limits of each; open it when preparing a monthly retro.
+description: Where each of the three retro inputs (incidents, metrics, COP feedback and the historical ODEC record) is read from, which usable signals the sources already carry, and the limits of each; open it when preparing a monthly retro.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Retro inputs
 
-The operating rhythm names the three inputs: **incidents, metrics, ODEC/COP feedback**
+The operating rhythm names the three inputs: **incidents, metrics, ODEC/COP feedback** (ODEC no longer meets; its records are read as history)
 (`00-core/06-operating-rhythm.md`). This page says where to read each one, what a usable item looks like, and what the
 sources do not give.
 
@@ -32,9 +32,9 @@ Values drift: refetch before use and state the read date. Shape of a good readin
 when one metric is behind target-to-date and another is on or above it, list "⟨metric A⟩ is behind and ⟨metric B⟩ is
 ahead" as two items, then choose the one OD can change.
 
-## 2. ODEC and COP feedback
+## 2. COP feedback and the historical ODEC record
 
-Read from the round's own output: ODEC produces "central strategy updates; roadmaps, rollouts and workshops; priorities
+Read from the round's own output: ODEC (historical) produced "central strategy updates; roadmaps, rollouts and workshops; priorities
 and deadlines", COP produces "datamodel / connector updates; rollout guidance; technical Cyber Security aspects". The
 recurring content shape of the rounds (regional breakout, not a blended total) is in `od-scorecard-reporting`
 (`references/rounds-and-escalation.md`). Items that were *carried forward* from one round to the next are the ones to read
@@ -65,7 +65,7 @@ the change log.
 |---|---|
 | What happened | One sentence, observable |
 | Evidence | Source and date: a metric with its read date, a register line, a round output |
-| Input | metric / incident / ODEC-COP feedback |
+| Input | metric / incident / COP feedback / ODEC record |
 | Changeable by OD? | yes / no (if no: escalation item) |
 | First seen | month; used by the "recurred" rule |
 

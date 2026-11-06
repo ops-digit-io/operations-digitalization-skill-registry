@@ -89,7 +89,8 @@ split, diagnosis patterns, handoff contract, agent notes): [`references/process-
    resolution, for what period? Classify into the two scenarios of the offering (A: edge platform
    and compliant network available; B: no way to connect the machine to an available edge
    installation). Scenario B means a device on the machine and manual transfer of data; any
-   connection to a machine needs `od-cybersec-gate` first and is not committed by this skill.
+   live connection to a machine needs the `od-cybersec-gate` sign-off before go-live (start the package early; it
+   runs in parallel) and is not committed by this skill.
 5. **Decide the route** with the table below, and write the reason on the form.
 6. **State the cost question honestly.** First aid can carry an additional investment (device,
    reconfiguration, analytical template) that depends on the preconditions. Any indication in a

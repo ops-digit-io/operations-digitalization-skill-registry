@@ -26,7 +26,7 @@ lead); this file maps recurring patterns onto it. `PROPOSAL` = synthesis not sta
 |---|---|---|---|
 | Machine list not updated; vendor, controller or patch status unknown | C1 information missing | Blank fields on the list; response to a vulnerability notice is slow | Roadmap; fix the list first |
 | Old device signals incompatible with the bus or logger; old HMI hard to connect | C6 legacy limit | Compatibility not checked before the cost line | Substitution or replacement through `od-investment-input` |
-| Controller patch or approval open; second wave blocked | C3 security gate | Sign-off scope unknown at wave planning | Roadmap (hold); precondition of the wave |
+| Controller patch or approval open; second wave blocked | C3 security gate | Sign-off scope unknown at wave planning | Roadmap (go-live hold); parallel track, start the package early |
 | Connectivity budget approved, plant lacks resources or skill | C2 owner, window or will | Plant resource rating "average" or "insufficient" | Roadmap; capability gap to the OD lead |
 | Tool rolled out or requested, nobody runs it | C4 platform missing, operations concept | No named business owner, IT owner, service concept or support level | Strategy: tool rollout decision; no rollout on demand until the concept exists |
 | Protocol outside the connector set; branch not written | C5 no route | Branch marked unwritten in the guide | Substitution or connector development; name dependent use cases |
@@ -40,8 +40,7 @@ lead); this file maps recurring patterns onto it. `PROPOSAL` = synthesis not sta
 "Operations concept missing" was the most repeated barrier in the tool landscape review. It is a **service gap**, not a connection
 problem and not a use case: the machine can be connected and still have nowhere to send data. Test for the four components: a named
 business owner, an IT owner, a service concept with support level (out-of-hours or not), and a change and risk process. If one is
-missing, class C4, exit Strategy via `od-decision-routing`. Rollout continues only where the concept exists (`<to confirm>`: some decks
-say roll out on demand).
+missing, class C4, exit Strategy via `od-decision-routing`. No rollout without an operations concept and a named run owner; stop until both exist.
 
 ### Ownership signals (spot a stuck case early)
 
@@ -82,7 +81,7 @@ hold register with a recorded reason stops cancelled ideas from being re-raised 
 |---|---|
 | Two classes apply | The one that blocks first decides (existing rule); note the other as "behind it" |
 | Case has no named owner | Not Roadmap; escalate as ownership gap |
-| Open sign-off | Hold; never connect first; precondition of the wave |
+| Open sign-off | Hold go-live only; never connect first; parallel track, planning and build continue |
 | Substitution adds a tool | Back through `od-system-fit-check` |
 | Legacy application that cannot be replaced yet | Write a "continue as is" scenario with its consequences (persistent security issues, rising patching and compatibility problems, loss of know-how, expiring support) |
 

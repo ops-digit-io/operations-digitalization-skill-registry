@@ -36,8 +36,8 @@ requests proactively. Template fields: machine-integration wave, use-case deploy
 (security screening, admin use cases, energy data), data lifecycle, standard data models, know-how management, analytics and AI;
 the workload (one responsible person per location) and responsibility columns.
 
-**Wave mechanics.** Per wave and plant: kick-off, then a status of input collected / delayed / at risk before the equipment
-request is uploaded; the weekly micro-process (call the local OT expert, prepare the request, upload, close-loop until
+**Wave mechanics.** Per wave and plant: kick-off, then a traffic-light status (red / yellow / green, one scale per round; "input collected", "delayed" or "at risk" only as reason text)
+before the equipment request is uploaded; the weekly micro-process (call the local OT expert, prepare the request, upload, close-loop until
 approval). First mover waves ahead of fast follower waves when capacity is short (see section 2).
 
 ## 2. Decision rules
@@ -48,7 +48,7 @@ approval). First mover waves ahead of fast follower waves when capacity is short
 | **Fast follower** | Anything else | Central support only when capacity allows; locally driven; limited, resource-adjusted funding; roadmap from local assessment |
 
 - Tier decides *capacity*, not *eligibility*. Use the department definition of first mover; a sector-level definition is
-  background. Wave order by request date versus by tier is unsettled: record the rule used. `<to confirm>`
+  background. Eligibility follows request order; central capacity goes first to first-mover plants that are staffed.
 - **Scale known machine types.** At most one unknown machine type per new deployment; document the process per controller
   type; create an integration standard. Starting with the hardest machines first burned reputation and killed the local project.
 - **Do not skip the plant-readiness signals** (below) because the plant "looks like the last one".
@@ -98,7 +98,7 @@ of service documentation, contracts and processes as items with owners.
 
 - Is there a staffed key user? Is the machine list current (response speed is bounded by it)? Which machine types are known?
   Is the layout stable? Which customer deadline applies?
-- Done when: tier recorded with the criteria that set it; every stage has its artefact or a reason; the plant is in the monthly
+- Done when: tier recorded with the criteria that set it; every stage has its artefact or a reason; the plant is in the department's reporting routines
   rhythm; a plant-side owner per lane is named as a role.
 
 ## 6. AI agent operating notes

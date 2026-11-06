@@ -45,36 +45,34 @@ manager sets the colour within the agreed indicators; the steering committee dec
 | Tool or system without an operations concept (owner, service concept, SLA, support level) | Not a use case and not a rollout: a **service gap**. Resolve the operations concept first, then decide the rollout |
 | Plant software solution proposed locally | Approved by OD and IT together, so data, interface and knowledge domains fit |
 | Plant already runs a local solution that fits the method | Input to standardisation, not a new demand |
-| Cyber Security patch or approval blocks a wave | State which work it blocks; see the note below |
+| Cyber Security patch or approval open | Parallel track; it blocks only go-live (the live connection); start the package early; see the note below |
 
 - **Every application or system needs, before productive use:** a business owner, an IT owner, a service concept, roles and
   responsibilities, demands and requirements, a change-management process and a built-in risk-management process.
 - **First mover versus fast follower** is a capacity criterion, not an eligibility criterion. First mover: high estimated
   value, all regions, segments and technologies covered, capacity and knowledge in the plant, synergies, a dedicated and
   staffed key user. Fast follower: central support only when capacity allows, locally driven, limited funding.
-- **A rollout-stop decision** for tools without an operations concept is legitimate: rollout continues only where an
-  operations concept exists.
+- **A rollout-stop decision** for tools without an operations concept is legitimate: no rollout without an operations
+  concept and a named run owner; stop until both exist.
 - **Out-of-scope guard:** keep an explicit "not ours" list so triage does not drift (smart-automation measures were excluded
   from one strategy).
 - **Fund an unfamiliar field in a time-boxed first step** and decide continuation at the evaluation point.
 - **Corporate programme impacts** (for example a separation from a former parent's IT) are a precondition: make
   "separation or migration plan available" a field on any initiative that needs central data.
 
-Where decks disagree:
+Settled rules:
 
-- *Cyber Security as a gate.* One source treats patch and approval status as a blocker of integration waves; another says to
-  decouple use-case implementation from approvals to avoid dependencies outside OD's control. Safer reading: cyber status is
-  a precondition for *connecting* and for *productive rollout*, not for *defining or prototyping* a use case. Write which work
-  the gate blocks. `<to confirm>`
-- *Wave allocation.* First come first served within a quarter versus first-mover priority. Record which rule is used.
-  `<to confirm>`
+- *Cyber Security as a gate.* Cyber Security sign-off always runs decoupled and in parallel with planning and build. It
+  blocks only go-live (the live connection / live operation), not planning, build, use-case definition, prototyping or an
+  integration wave's preparation. Start the package early; `od-cybersec-gate` stays the gate for go-live.
+- *Wave allocation.* Eligibility follows request order; central capacity goes first to first-mover plants that are staffed.
 
 ## 3. Handoff contract
 
 | Receives (from) | Hands on (to) |
 |---|---|
 | Decision request with owner role, amount or scope, risk of not doing (`od-capital-request`, `od-investment-input`, `od-system-fit-check`) | Decision record with row, mode, outcome, dependency set on the use case or saving row |
-| Barrier record (`od-barrier-triage`) | Strategy exit -> ODEC; technical exit -> COP |
+| Barrier record (`od-barrier-triage`) | Strategy exit -> OD lead, deciding role or forum per the current approval policy (look up); technical exit -> COP |
 | Small-change request from a key user | Ticket id and change decision; larger ones as a project to the board |
 
 Demand-management checklist (for `it-demand-package`): who can raise requests; who manages the backlog; who evaluates; who

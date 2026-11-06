@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Call for action and status
-description: Template for a CoP, ODIC or ODEC round - agenda, plant status table with traffic light, numbered call for action and follow-up log.
+description: Template for a CoP or other department round - agenda, plant status table with traffic light, numbered call for action and follow-up log.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -27,7 +27,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 ## 2 Plant status
 
-| Plant (kind) | System status | Machines done of planned | Light (R/Y/G) | Call-for-action cell | Source · read date |
+| Plant (kind) | System status | Machines done of planned | Light (R/Y/G, one scale per round) | Call-for-action cell | Source · read date |
 |---|---|---|---|---|---|
 | <plant kind> | <> | <> | <> | <> | <> |
 

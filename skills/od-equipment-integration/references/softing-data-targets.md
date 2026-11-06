@@ -215,5 +215,5 @@ dataFEED target that writes directly into some other system is a second integrat
 around the data platform, and the data platform is the seam the whole department is built on.
 
 The case that would justify opening one is a use case that cannot be served through the
-data platform, named, with its benefit calculated — the same bar as any other intake. Put
+data platform, named, with its benefit estimated (or calculated with a documented basis) — the same bar as any other intake. Put
 it to the IIAE and the OD lead, not into a configuration.

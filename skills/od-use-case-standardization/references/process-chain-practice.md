@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - standardizing and scaling
 
-Deck-derived practice for step 26 (implement and graduate) and the archetype logic used at intake and definition. `PROPOSAL` = the registry's synthesis; `<to confirm>` = the decks disagree.
+Deck-derived practice for step 26 (implement and graduate) and the archetype logic used at intake and definition. `PROPOSAL` = the registry's synthesis.
 
 ## 1. Method in practice
 
@@ -33,13 +33,13 @@ A use case is **ready to use** when its methods have run and their outputs exist
 
 ## 2. Decision rules
 
-- **Priority order.** Workshop decks rank by generalization potential first, savings potential second; strategy decks stress savings and speed. State the order you used on every ranking. Safer reading until confirmed: generalization first, then savings `<to confirm with the OD lead>`.
+- **Priority order.** Savings first (value, ROI); generalization potential and effort are secondary criteria; dependency order (foundations before what depends on them) is the tie-breaker. State the order you used on every ranking.
 - **Custom use cases** only if the expected value is very high; prototype first; they count as mature only after integration into the standard systems.
 - **Low saving, cheap to scale.** A low-saving entry is cleaned from the list, but may stay as a scaling-effect item if a container already exists. `PROPOSAL`.
 - **Manual-entry use cases** (lab data, quality data, downtime reasons) need data model, storage, input screen and analytics in one standard, otherwise each plant builds its own variant.
 - **Machine-learning standards** need requirements, multi-plant data, a validated model, a defined model interface, a retraining process and a visualization concept validated with the plant.
-- **Scaling is a promise to measure, not a result.** For every top use case keep three lists: where it saved, where it was deployed without saving, where it still has potential. Deployed without saving means "further investigation necessary", not "no potential".
-  When a scaled use case is retired versus re-evaluated: `<rule to confirm>`.
+- **Scaling is a promise to measure, not a result.** For every top use case keep three lists: where it saved, where it was deployed without saving, where it still has potential. Deployed without saving means "to be evaluated", not "no potential".
+  Such an entry stays "to be evaluated" until investigated; only a human (the OD lead with the plant owner) may decide "no potential" or retirement. An agent never writes it.
 - **Adoption means integration into a standard operating routine** with a defined screen, escalation flow and owner, not "dashboard live".
 - **Local solutions that already fit the method** are input to standardization, not new demand.
 

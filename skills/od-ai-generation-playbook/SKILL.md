@@ -93,7 +93,9 @@ and confirms that cited figures are still current.
 
 **R6 - Advice versus change (i1, 23, 3b4).** An agent may advise, classify or propose. A parameter change
 on a machine, a PLC write or a configuration that acts on a process is a human or process-engineer
-action; external connections go through `od-cybersec-gate`.
+action; external connections go through `od-cybersec-gate`. The Cyber Security sign-off runs in parallel
+with planning and build and blocks only go-live (the live connection or live operation), not planning,
+build or the preparation of an integration wave: start the package early.
 
 **R7 - Evidence the agent must cite.** Per step, the source rows, list entries, library entries or
 documents the output rests on, with the read date
@@ -147,8 +149,8 @@ promotion to the catalog; confirming a savings status.
 ## Neighbours (not repeated here)
 
 `od-context` (honesty rules), `od-context-freshness` (stale sources), `od-analytics-asset-build` (what to
-build, ritual of use), `od-signal-standardization` (naming and data model), `od-prototype-poc` (pilot,
-PoC and rollout are three claims), `od-cybersec-gate` (sign-off package), `deploy-appstore` (deployment
+build, ritual of use), `od-signal-standardization` (naming and data model), `od-prototype-poc` (four stages: PoC for
+feasibility, prototype for benefit with real users, pilot, rollout; each is its own claim), `od-cybersec-gate` (sign-off package), `deploy-appstore` (deployment
 package and release gate).
 
 ## Still open
@@ -159,8 +161,6 @@ package and release gate).
   as an initiative with a named owner and a usage measure, not as a counted saving.
 - `<to confirm>` Whether general-purpose assistants are low impact (one deck) or already useful for
   deployment sets (another). Safer reading: allowed as a drafting aid, never as a gate.
-- `<to confirm>` Which work the Cyber Security gate blocks (integration waves) and what is decoupled from
-  it (use-case implementation); state it in each request.
 - `<...>` Time-box lengths, accuracy thresholds and the champion-user group for pilots: not in the sources.
 
 ## Do not

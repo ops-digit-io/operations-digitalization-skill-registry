@@ -80,9 +80,8 @@ operating procedure with dashboards and escalation flows**, not "dashboard live"
   what is already implemented rather than waiting.
 - **Savings are not rollout count.** Rollout count and savings are separate metrics; the widest-scaled cases
   often show no tracked saving, and savings concentrate in cases that attack a real cost driver. A scaled
-  use case with deployments but no savings is "further investigation necessary", not "no potential" (`<to
-  confirm>`: one deck wrote "probably no potential", another "to be evaluated"; use the second until the OD lead
-  sets a retire-or-re-evaluate rule).
+  use case with deployments but no savings is "to be evaluated" until investigated, not "no potential"; only a human (the OD lead
+  with the plant owner) may decide "no potential"; an agent never writes it.
 - **Staffing assumption** is written next to every savings projection (central staffing only versus central plus
   dedicated plant key users).
 - **Scope growth:** a requirement beyond the sprint frame becomes an additional use-case phase.

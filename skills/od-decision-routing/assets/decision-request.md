@@ -51,7 +51,7 @@ forcing a row.⟩
 |---|---|
 | **Decided by** | ⟨name, role⟩ · ⟨date⟩ |
 | **Outcome** | ⟨approved / declined / deferred, and to what⟩ |
-| **If escalated** | ⟨ODEC / COP⟩ · raised ⟨date⟩ · window: one round (unresolved at one cycle escalates to the next) |
+| **If escalated** | ⟨deciding role or forum named in the current approval policy (look up) / COP⟩ · raised ⟨date⟩ · window: one round (unresolved at one cycle escalates to the next) |
 
 A decision request with no row 4 is still open — do not let it read as closed because
 someone stopped updating it.

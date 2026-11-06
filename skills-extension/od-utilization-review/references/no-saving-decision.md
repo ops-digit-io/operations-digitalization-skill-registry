@@ -10,13 +10,12 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # No-saving decision
 
-## 1 The contradiction
+## 1 The rule
 
-One deck version records scaled-out top use cases as deployed without savings, with "expected savings to be evaluated". A revision
-a month later of the same material says "the use case probably has no potential". The sources give no evidence for the change.
-**Safer reading** (`<to confirm>` with the OD lead): a use case with deployments and no saving is "further investigation necessary" - **to be evaluated** -
-until the review below has run. "No potential" is a result of an investigation, not a status to write in advance. Treat the later
-wording as unproven.
+A scaled-out top use case that is deployed without a reported saving is "to be evaluated until investigated" (one deck version
+records it as "expected savings to be evaluated"; a later revision wrote "the use case probably has no potential" without evidence,
+so treat that wording as unproven). "No potential" is a result of an investigation, not a status to write in advance. Only a human
+(the OD lead with the plant owner) may decide "no potential"; an agent never writes it.
 
 ## 2 Three lists per use case
 
@@ -34,7 +33,7 @@ Take the rows deployed without saving and walk them in order:
 5. **Same use case saved elsewhere?** Then the gap is adoption or site fit, not the asset. Compare sites with similar systems and effort but different savings: equal effort with zero savings points to people and method, not technology (`od-use-case-standardization`).
 
 Use-case-wide "no potential" needs: investigation done at the sites listed, evidence cited, plant owner heard, decision by a human
-(OD lead; forum `<to confirm>` via `od-decision-routing`). Reasons seen for missed savings: no savings-calculation standard, weak requirements,
+(OD lead with the plant owner; the deciding role or forum named in the current approval policy, look up via `od-decision-routing`). Reasons seen for missed savings: no savings-calculation standard, weak requirements,
 no follow-up or escalation, culture and perceived value, cyber security, unclear roles, production and OPEX not involved.
 
 ## 4 Sprint-close savings-forecast gate

@@ -17,7 +17,7 @@ Copy once per reporting cycle. Fill as the work happens, not afterward.
 |---|---|
 | **Cycle** | ⟨month/quarter⟩ · ⟨year⟩ |
 | **Prepared by** | ⟨name⟩ · ⟨date⟩ |
-| **Round this feeds** | ⟨ODEC · COP · both⟩ on ⟨date⟩ |
+| **Round this feeds** | ⟨COP · other round · request from role⟩ on ⟨date⟩ |
 
 ## 1 · Inputs received
 

@@ -47,8 +47,8 @@ technology (for example a feeder that cannot run during breaks).
 - **Visibility alone does not create savings.** Process-value, alert, parameter-monitoring and andon dashboards were deployed
   widely without recorded savings; savings appeared where the dashboard drove a defined action. A dashboard without an action
   owner is a build smell: flag it.
-- **Zero-saving scaled use case** is *further investigation necessary*, not yet *no potential*. When to retire versus
-  re-evaluate is not defined in the decks `<to confirm>`.
+- **Zero-saving scaled use case** is *to be evaluated until investigated*, not yet *no potential*. Only a human (the OD lead
+  with the plant owner) may decide "no potential"; an agent never writes it.
 - **Adoption** means "integrated into a standard operating procedure with dashboards and escalation flows", not "dashboard
   live" (see `od-handover-and-adoption`).
 - **Who attests value:** the OPEX role plus the plant manufacturing-engineering role (a testimonial with the dashboards in
@@ -58,8 +58,7 @@ technology (for example a feeder that cannot run during breaks).
   method (who drives ideas, whether savings are calculated with controlling), then at technology.
 - **A claim of impact needs the strongest evidence tier available** (`od-handover-and-adoption`); say which tier.
 
-Where decks disagree: a use case with deployments and no savings is written "to be evaluated" in one revision and "probably
-no potential" in the next. Use the first reading until an evaluation exists. `<to confirm>`
+A use case with deployments and no reported saving stays "to be evaluated" until it is investigated.
 
 ## 3. Handoff contract
 

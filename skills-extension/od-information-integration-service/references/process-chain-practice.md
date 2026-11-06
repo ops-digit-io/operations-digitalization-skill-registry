@@ -40,7 +40,7 @@ the plant, training for self-service).
   workshop planned, projects, link to the use-case list; legend with three symbols (not planned, urgent, planned).
 - A plant brings to the call: latest PLC programs and tag lists in the central list, its use-case list, whether a savings project
   is registered. Use cases without a registered project are invisible to the savings ledger (`od-scorecard-reporting`).
-- Cyber Security is a precondition of the wave (see `od-cybersec-gate`); the plant status shows the sign-off scope.
+- Cyber Security runs decoupled and in parallel and blocks only go-live (see `od-cybersec-gate`); the plant status shows the sign-off scope.
 
 ### The community call as the lane's rhythm
 
@@ -56,8 +56,8 @@ calls. Check the current cadence before copying an agenda (an early deck defines
 
 First mover = high estimated value, coverage of regions, segments and technologies, capacity and knowledge in the plant, integration
 synergies, and a dedicated staffed key user. Fast follower = central support only when capacity allows, locally driven, limited
-funding. Which rule wins when a late request meets a first-mover priority is `<to confirm>` (decks: first come first served against
-a small set of first movers; the department definition is authoritative, the sector-level list is background).
+funding. Eligibility follows request order; central capacity goes first to first-mover plants that are staffed (the department definition is
+authoritative, the sector-level list is background).
 
 ### Integration workshop
 
@@ -74,7 +74,7 @@ use cases per area, IT preconditions, next steps toward the capital request.
 |---|---|
 | Use case wanted on a machine that is not connected | Integration wave first; use cases only afterwards |
 | Quality or lab dashboard, no machine connection | Separate path, owned by local quality; not in the integration sequence |
-| Wave allocation conflict | State the rule used (request order or first-mover priority) on the plan, `<to confirm>` |
+| Wave allocation conflict | Eligibility follows request order; central capacity goes first to staffed first-mover plants; state this on the plan |
 | Plant without staffed key user | Fast-follower support only; check the resource rating before committing the wave |
 | Centralising data into a new environment | Warn that every workflow and connection at every location changes; use a per-location checklist |
 
@@ -93,7 +93,7 @@ use cases per area, IT preconditions, next steps toward the capital request.
 
 - **Tool without an operations concept.** The most repeated barrier in tool reviews. A machine can be connected and still have no
   system to send data to; escalate as a tool rollout decision and do not roll out on demand until the concept exists.
-- **Cyber patches on controllers** blocked the second wave and the savings behind it: precondition, not a late gate.
+- **Cyber patches on controllers** delayed the second wave and the savings behind it: start the sign-off package early as a parallel track; it blocks only go-live.
 - **Machine lists not updated** at most plants bound the response to a vulnerability notice and the wave plan.
 - **Mixed ambitions.** Hard machines first burned reputation; scale known machine types.
 - **Connecting more machines needs capable IT infrastructure first.** Do not size a wave beyond what the infrastructure carries.

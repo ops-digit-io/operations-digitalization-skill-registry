@@ -47,7 +47,7 @@ patterns are available at all.
 | **Edge device on hand, not installed** | → Edge device hardware installation | Only the **large** device is approved — see below |
 | **Central Aggregation Server** (Softing dataFEED; legacy Kepware) available | → Gate 1, variant ③ | **③ also needs the IIoT Edge Platform** — the server is a concentrator, not a destination. Without the server ③ is closed; without the edge it delivers nothing |
 | **Not sure what is installed** | → *Plant Capabilities & System Availability & Rollout* list | Then a ≤30 min call with MPEE OD |
-| **Nothing standard installed** | → Rollout preparation, not integration | Bring: the urgent need and use case, a Machine List, a Use Case List, and calculated benefits |
+| **Nothing standard installed** | → Rollout preparation, not integration | Bring: the urgent need and use case, a Machine List, a Use Case List, and estimated benefits (each figure labelled input / assumption / market / unknown) |
 | **Ordering a new machine** | → *Electrical Standard — Equipment Integration Extension* in Compliance Quest | Not an integration path at all |
 
 Specifying connectivity at purchase is the cheapest integration there is. The new-machine

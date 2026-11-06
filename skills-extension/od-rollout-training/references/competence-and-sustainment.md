@@ -74,7 +74,7 @@ If the OD lead rules that stage 3 is not allowed, the package remains valid for 
 |---|---|---|
 | Utilization rate on the Digitalization Scorecard | Carries the Reinforcement element after the trainer is gone | `od-handover-and-adoption`, `od-scorecard-reporting` |
 | Re-confirm trigger | A competence is re-confirmed when the person changes role, when the solution changes version, or when the data path changes | proposal; ⟨interval⟩ is open |
-| COP as the sharing forum | Technical issues and connector or data-model updates are brought to the monthly COP; the risk register names COP as the knowledge-sharing channel | `06-operating-rhythm.md`, `09-risks.md` |
+| COP as the sharing forum | Technical issues and connector or data-model updates are brought to the COP; the risk register names COP as the knowledge-sharing channel | `06-operating-rhythm.md`, `09-risks.md` |
 | Recorded sessions | A session record (date, module, trainer role, attendee roles, evidence) so attendance is no longer the only trace | a call-deck plan; ⟨system where it is kept⟩ is open |
 
 ## 6. When competence is not confirmed

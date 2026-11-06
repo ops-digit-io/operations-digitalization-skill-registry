@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Portfolio review — ⟨period, e.g. 2026-Q4⟩
 
-Copy once per review round (monthly / ODEC / ad hoc). Fill as the review happens.
+Copy once per review round (on request / on the department's own schedule / ad hoc). Fill as the review happens.
 
 | | |
 |---|---|
@@ -72,8 +72,8 @@ cases, listed separately: ⟨…⟩.
 
 ## 6 · Handoff
 
-This protocol feeds `od-scorecard-reporting`'s ODEC/COP/retro prep with the *why* behind
-the monthly numbers (the regional diagnosis, the savings honesty, the ranked backlog) —
+This protocol feeds `od-scorecard-reporting`'s round and retro prep with the *why* behind
+the reported numbers (the regional diagnosis, the savings honesty, the ranked backlog) —
 it does not replace the Scorecard/Power BI figures `od-scorecard-reporting` reads directly
 from their own authoritative sources; name which of the two a number in a deck came from.
 

@@ -35,11 +35,10 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
 
 ## 2. Decision rules / triage
 
-- **Order of criteria, stated explicitly** (decks disagree: workshop material ranks generalisation potential first and
-  savings second; strategy material stresses savings and acceleration). Safer reading until the OD lead decides:
-  1) expected scaling effect, 2) number of recorded demands across plants, 3) existence of a validated prototype, 4) savings
-  potential with its basis label; and write which order you used. `<to confirm>`
-- **Foundation before return.** Rank by return *and* by dependency: foundation first (platform, standards, asset and
+- **Order of criteria, stated explicitly:** 1) savings (value, ROI, with its basis label), then as secondary criteria
+  2) generalisation potential (expected scaling effect, number of recorded demands across plants, existence of a validated
+  prototype) and 3) effort. Write which order you used.
+- **Dependency as tie-breaker.** Where criteria tie, order by dependency: foundation first (platform, standards, asset and
   lifecycle visibility), enablers next (training), risk and compliance, analytics last because it only proves benefit once the
   others exist. Add a dependency column to the ranking record. `PROPOSAL` (the deck shows the two orders side by side).
 - **Three buckets by action, not size:** *just do* (generic dashboards, notifications, energy-saving cases that need no new
@@ -50,9 +49,8 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
 - **Use cases with a missing baseline** go to the unscored bucket (already in the method), never to the bottom.
 - **Low-saving entries:** clean up the list, but an entry that is cheap to scale (a container exists) may stay as a scaling
   item. `PROPOSAL`
-- **Zero-saving scaled-out use case:** one deck revision wrote "to be evaluated", the next "probably no potential". Safer
-  reading: *further investigation necessary* until an investigation says otherwise; a rule for when to retire versus
-  re-evaluate is missing. `<to confirm>`
+- **Zero-saving scaled-out use case:** a use case that is scaled but reports no saving is "to be evaluated until
+  investigated". Only a human (the OD lead with the plant owner) may decide "no potential"; an agent never writes it.
 - **Kill or hold explicitly** with a recorded reason (no data foundation, insufficient savings, another party already
   collects the data), so cancelled ideas are not re-raised.
 - **Plants with equal integration and unequal savings** point to people and method, not technology: look at who drives ideas,

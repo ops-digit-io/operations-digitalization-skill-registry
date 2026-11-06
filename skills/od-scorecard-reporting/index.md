@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Scorecard and ODEC reporting](SKILL.md) | Agent Skill | Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case and Equipment Integration Power BI reports — against their targets and intervention thresholds, and prepare and follow up the ODEC and COP rounds. Covers which report is authoritative for which figure, how to read targets and actuals live with their read date, when a number crosses into "intervene", and the recipient-feedback loop per lane. Holds method and sources only, no current targets or actuals (look those up live). Use when monthly or ODEC reporting is due, when someone asks how OD is tracking, when a metric needs a source, or when a round needs preparing or following up. |
+| [Scorecard and round reporting](SKILL.md) | Agent Skill | Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case and Equipment Integration Power BI reports — against their targets and intervention thresholds, and prepare and follow up reporting rounds (the COP and any round held on request; ODEC is a historical source). Covers which report is authoritative for which figure, how to read targets and actuals live with their read date, when a number crosses into "intervene", and the recipient-feedback loop per lane. Holds method and sources only, no current targets or actuals (look those up live). Use when reporting is requested or due on the department's own schedule, when someone asks how OD is tracking, when a metric needs a source, or when a round needs preparing or following up. |
 
 | Folder | Holds |
 |---|---|

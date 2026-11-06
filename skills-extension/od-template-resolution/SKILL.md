@@ -99,7 +99,7 @@ stop and route**, or **no master exists: route to creation**.
 | Register state | Outcome | What you do |
 |---|---|---|
 | Location is a link and a version date is present | Use the master | Fill the record; cite the row |
-| Location is a link, version date is old or missing | Use the master and flag its age | Fill the record; name the date; ask the owner at the next COP or ODEC whether it still holds |
+| Location is a link, version date is old or missing | Use the master and flag its age | Fill the record; name the date; ask the owner (at the COP or directly) whether it still holds |
 | Location says `to collect` | Master not collected: stop and route | Ask the named owner role; log it as an open item |
 | Location says `to confirm or create` | No master: route to creation | Propose the gap to the owner role; produce a draft *clearly labelled as draft, not as the template* |
 | Artefact is not in the register at all | Not registered | Check sections B and C; if still absent, tell the register owner, who is the OD lead role |

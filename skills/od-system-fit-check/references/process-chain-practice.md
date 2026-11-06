@@ -91,9 +91,8 @@ Before a verdict of "fits", the tool needs:
 - a service concept and support level (who answers an incident, out-of-hours or not),
 - roles and responsibilities, a change-management process, and a risk process.
 
-No rollout without a named operations owner and support level. Decks disagree on the wording ("roll out on demand" against
-"stop rollout until the operations concept is clear"); the safer reading, `<to confirm>` with the OD lead: **rollout continues
-only where an operations concept exists.** In this skill that is a precondition of the "fits" verdict, and a missing concept
+No rollout without a named operations owner (run owner) and support level. A tool rollout on request does not start without an
+operations concept and a named run owner; stop until both exist. In this skill that is a precondition of the "fits" verdict, and a missing concept
 turns the verdict into "escalate" via `od-decision-routing`'s tool or system rollout row.
 
 ## 3 Handoff contract

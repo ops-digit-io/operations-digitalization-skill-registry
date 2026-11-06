@@ -30,7 +30,7 @@ Workshop agenda") were not available; replace this with them when you have them.
 
 | Day | Block | Time | Lead | Output |
 |---|---|---|---|---|
-| 1 | Intro to OD, service lines, ODEC and COP | ⟨⟩ | ⟨OD lead⟩ | shared picture |
+| 1 | Intro to OD, service lines and COP (ODEC decks as history) | ⟨⟩ | ⟨OD lead⟩ | shared picture |
 | 1 | Smart Factory tools, only those relevant to the plant | ⟨⟩ | ⟨DBVE / IIAE⟩ | tool awareness |
 | 1 | Use case creation process (canvas, benefits, standardization) | ⟨⟩ | ⟨DBVE⟩ | |
 | 1 | Use case library and analytics library walk-through | ⟨⟩ | ⟨DBVE⟩ | candidates to reuse |
@@ -69,8 +69,8 @@ Workshop agenda") were not available; replace this with them when you have them.
 - [ ] Request: existing use case list for the plant, machine list with PLC types, list of priority
       machines, known pain points
 - [ ] Tool availability table for the plant (to be reviewed in the workshop, not decided in advance)
-- [ ] Reminder of the wait states: Cyber Security sign-off precedes any external machine
-      connection; investment is decided elsewhere (OD lead with BA Operations)
+- [ ] Reminder of the wait states: Cyber Security sign-off runs in parallel and blocks only go-live of an external
+      machine connection (start the package early); investment is decided elsewhere (OD lead with BA Operations)
 - [ ] Logistics: room, plant tour access, safety requirements, remote participants
       ⟨not covered by the sources⟩
 - [ ] Contact for questions before the workshop (role)

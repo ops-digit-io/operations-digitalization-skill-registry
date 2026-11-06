@@ -5,10 +5,10 @@ description: >-
   projects with the MPEE OD team, break down requirements, manage equipment and solution
   integration projects to acceptance, consult on the Manufacturing Software Suite and
   manufacturing apps, confirm use cases are integrated into daily processes, and report
-  progress and impact into the ODEC cycle. Use when a digital investment project starts
+  progress and impact into the department's reporting. Use when a digital investment project starts
   or stalls, when a project needs a kick-off agenda, requirement spec or status report,
-  when application-consultancy advice is needed, or when ODEC progress and impact
-  reporting is due. Owner is the IIoT Interface & Automation Engineer (IIAE).
+  when application-consultancy advice is needed, or when progress and impact
+  reporting is requested or due. Owner is the IIoT Interface & Automation Engineer (IIAE).
 license: MIT
 metadata:
   id: od-project-support-consultancy
@@ -17,7 +17,7 @@ metadata:
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   capacity: unknown
   authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
-  escalation: OD lead via ODEC
+  escalation: OD lead (deciding role or forum per the current approval policy)
   status: stable
   sources_read: 2026-10-23
   requires: [od-context]
@@ -59,7 +59,7 @@ consulted and accepted. **Customer.** Plant / project teams. **Scope:** regional
 | 4 | Application consultancy (Manufacturing Software Suite, apps) | Human | Solution design accepted |
 | 5 | Acceptance testing | IIAE | Acceptance passed |
 | 6 | Ensure use cases are fully integrated into daily processes | both | Adoption confirmed |
-| 7 | Report progress and impact (Equipment / Applications / Use Cases) | both | ODEC reporting updated |
+| 7 | Report progress and impact (Equipment / Applications / Use Cases) | both | Progress and impact reporting updated |
 
 Step 5 → `od-acceptance-test`. Step 6 → `od-handover-and-adoption` — "adoption confirmed"
 means its three-tier evidence ranking is met, never just that handover is marked `DONE`.
@@ -78,7 +78,7 @@ Step 7 → `od-scorecard-reporting`. Investment and gate questions → `od-decis
 ## Wait states
 
 Awaiting resource allocation to prioritize the digital initiative · awaiting a tool or
-licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off.
+licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off before go-live (runs in parallel with planning and build).
 
 ## Recurring tasks
 
@@ -89,7 +89,7 @@ licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off.
 | Integration project status | Weekly / milestone | Project tracker |
 | Application consultancy session | Solution design needed | ⟨template — to confirm; PS-04 application consulting was never built as its own skill⟩ |
 | Acceptance test | Solution ready | `od-acceptance-test`'s `assets/acceptance-test-protocol.md` |
-| Progress & impact reporting | ODEC cycle | ODEC report (Equipment / Applications / Use Cases) |
+| Progress & impact reporting | On request or on the department's own schedule | Department report, formerly the ODEC report (Equipment / Applications / Use Cases) |
 
 ## Stage gates
 
@@ -107,7 +107,7 @@ the end-to-end chain is not yet named — to confirm.⟩
 
 Project management method / tracker (read / update) · Manufacturing Software Suite
 (configure ⟨scope to confirm⟩) · Manufacturing Apps / app store on IIoT Edge (deploy) ·
-acceptance-test protocols (author) · ODEC reporting (read / update) · investment planning
+acceptance-test protocols (author) · department reporting, formerly ODEC (read / update) · investment planning
 templates (author).
 
 Reference: **ProView Support Process** (incident management, Hannover et al.) as the
@@ -116,7 +116,7 @@ support/handover reference.
 ## Autonomy
 
 **May** — read the project tracker and roadmaps; draft kick-off agendas, requirement
-specs and status reports; assemble ODEC progress/impact reporting; flag blocked projects.
+specs and status reports; assemble progress/impact reporting (the department report, formerly the ODEC report); flag blocked projects.
 **May not** — commit investment or allocate resources; approve acceptance; deploy to
 production; make licensing commitments.
 **Guardrails** — never sign off acceptance; never invent progress or impact figures;
@@ -127,9 +127,9 @@ respect Cyber Security sign-off.
 | Metric | Source | Target | Intervene from |
 |---|---|---|---|
 | Integration projects to acceptance | ⟨project tracker — to collect⟩ | ⟨to confirm⟩ | acceptance slippage |
-| Equipment integration progress | ODEC report · Equipment Integration | on plan | behind plan |
-| Applications progress | ODEC report · Applications | on plan | behind plan |
-| Use-case impact | ODEC report · Use Cases (Impact) | ⟨to confirm⟩ | impact below plan |
+| Equipment integration progress | Department report · Equipment Integration | on plan | behind plan |
+| Applications progress | Department report · Applications | on plan | behind plan |
+| Use-case impact | Department report · Use Cases (Impact) | ⟨to confirm⟩ | impact below plan |
 | On-time delivery | ⟨tracker — to collect⟩ | ⟨to confirm⟩ | delays rising |
 
 ## Handover / rework rule

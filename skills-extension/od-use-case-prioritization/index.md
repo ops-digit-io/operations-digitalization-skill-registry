@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use case prioritization](SKILL.md) | Agent Skill | Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. Uses OD's own criteria (saving potential, generalization potential, roadmap link, effort and dependencies) and keeps unscored use cases in a separate bucket. Use when more than one use case is waiting for the same capacity, after a definition workshop has collected demand, before a planning round or ODEC input, or when a plant asks which of its use cases OD should do first. |
+| [Use case prioritization](SKILL.md) | Agent Skill | Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. Uses OD's own criteria (saving potential, generalization potential, roadmap link, effort and dependencies) and keeps unscored use cases in a separate bucket. Use when more than one use case is waiting for the same capacity, after a definition workshop has collected demand, before a planning round or roadmap input, or when a plant asks which of its use cases OD should do first. |
 
 | Folder | Holds |
 |---|---|

@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Plant status input](plant-status-input.md) | Skill Asset | One-page input a plant fills for the equipment-integration line of an ODEC status slot - the plant's numbers with sources and dates, the open blockers, the eCR state and the asks - built from the fields the ODEC KPI slides actually track. |
+| [Plant status input](plant-status-input.md) | Skill Asset | One-page input a plant fills for the equipment-integration line of a status request - the plant's numbers with sources and dates, the open blockers, the capital request (eCR) state and the asks - built from the fields the historical ODEC KPI slides tracked. |

@@ -36,7 +36,7 @@ Acceptance is human-only; this file helps draft the protocol
 | 3 | The row carries vendor, PLC model and network protocol | Suggested check | Record pattern: model and protocol are often blank, sometimes on every row of a plant that is fully integrated |
 | 4 | Write permission is **off** on an aggregation-server data source unless a use case writes to the PLC | Rule | `od-equipment-integration` guardrails |
 | 5 | Tags follow the agreed data model, not the PLC's layout | Rule | `od-equipment-integration` guardrails ("CT Base"); missing data-model alignment is the commonest recorded blocker class |
-| 6 | Cyber Security / OT sign-off exists for any external connection **before** the test | Rule | `od-equipment-integration`; `od-cybersec-gate` |
+| 6 | Cyber Security / OT sign-off exists for any external connection **before go-live**; a test that needs the live connection waits for it | Rule | `od-equipment-integration`; `od-cybersec-gate` |
 | 7 | An integration date is written; the status moves to `INTEGRATED` only after the pass | Rule | `SKILL.md`; record pattern: rows `INTEGRATED` without a date |
 | 8 | Any blocker text on the row is closed or restated before the pass | Suggested check | Record pattern: blocker texts that sit on machines already `INTEGRATED` ([`blockers-and-waves.md`](../../od-equipment-integration/references/blockers-and-waves.md)) |
 

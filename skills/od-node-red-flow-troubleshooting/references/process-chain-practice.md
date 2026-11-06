@@ -59,7 +59,7 @@ hard external deadline (for example a customer audit) outranks internal plans.
 ## Pitfalls and lessons
 
 - IT architecture changes during a sprint (firewall separation, access for local users) look like flow faults and cost weeks.
-- Cyber Security patching and approvals on controllers block waves; a flow fault on a blocked machine is a barrier, not a bug.
+- Cyber Security patching and approvals on controllers hold go-live (the sign-off is a parallel track); a flow fault on a blocked machine is a barrier, not a bug.
 - Fixing a data-model problem inside a function hides it from every other plant.
 - Treating a quiet dashboard as a flow fault when the machine stopped publishing.
 

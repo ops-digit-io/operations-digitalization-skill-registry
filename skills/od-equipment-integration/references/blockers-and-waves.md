@@ -92,15 +92,14 @@ slides of the ODEC and CoP calls:
 - **"Machine Integration Next Wave: Process Overview (Milestone 1: eCR)"**: step 1 exchange call
   with the Local OT Expert about the next machines; step 2 prepare the eCR with the Local OT Expert
   "as per planned budget"; step 3 upload the eCR with the local team; step 4 close-loop
-  communication until the eCR is approved. The wave slides list plants per quarter with "First come
-  first serve".
+  communication until the eCR is approved. The wave slides list plants per quarter; request order sets
+  eligibility and central capacity goes first to staffed first-mover plants.
 - **Status slides** carry per-plant states for each wave (kick-off done, delayed, at risk, eCR
   approved, in implementation) and cost figures that cannot be assigned to a plant from the
   extracted text (see [`vendor-protocol-routes.md`](vendor-protocol-routes.md)). Read the current
   status slide; do not quote an old one.
-- **Pre-planning rule:** "Pre-planning based on use case identification; however, first come /
-  first serve approach to utilize given budget at its best; redistribution based on on-going use
-  case identification possible."
+- **Pre-planning rule:** pre-planning is based on use case identification; eligibility follows request
+  order to use the given budget at its best; redistribution based on on-going use case identification is possible.
 - **Regional roadmap slides** list plants as "Done in site", "Done remote" or "Pending: ..."
   (for example "Pending: data lake integration?"). Read the latest slide.
 
@@ -113,7 +112,7 @@ in the vault areas read. Who could supply it: OD lead.⟩
 
 ## 4. Department numbers next to the Machine List (where they live)
 
-The ODEC series carries recurring figures: target versus actual integrated machines, implemented
+The historical ODEC series carried recurring figures: target versus actual integrated machines, implemented
 use cases, regional plan versus actual, machines connected, tags or datapoints, energy sensors,
 use cases deployed. Each slide is staging, unverified.
 

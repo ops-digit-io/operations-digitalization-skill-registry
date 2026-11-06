@@ -86,8 +86,8 @@ other decisions).
    agenda, purpose, the blank Use Case Canvas, the savings pre-evaluation template and its
    examples, the utilization template, the list of priority machines the plant should have ready,
    and who must be present on which day.
-6. **Check the wait states** you must not promise around: Cyber Security sign-off for any external
-   machine connection (`od-cybersec-gate`), investment approval (`playbook.md`).
+6. **Check the wait states** you must not promise around: Cyber Security sign-off, which runs in parallel and blocks only the go-live
+   of an external machine connection (start the package early; `od-cybersec-gate`), investment approval (`playbook.md`).
 
 ### B · During
 

@@ -48,7 +48,7 @@ status. The decks give examples, not a catalogue.
 |---|---|---|
 | Transactional | events, cycle time, counters, set values, limits, alarms; changes hard to propagate | service bus with OPC-UA |
 | Time-series | curves, process values; changes easy to propagate | MQTT stream |
-| Master data | single source of truth; leading system is ERP; others receive via API; per-system data such as recipes or meter structures must be reconciled | leading system |
+| Master data | ERP is the master for material, order and product master data; local systems (MES etc.) are derived and report back; a local master does not lead | leading system |
 
 Routes to the platform: native or OPC-UA machine, aggregation server, or edge device; standardized and
 non-standardized transactional and time-series each have their own interface choice. An edge device is needed for

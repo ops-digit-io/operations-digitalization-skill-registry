@@ -73,11 +73,11 @@ IT infrastructure" can be counted live (filter the register's blocker text). The
 keyword-inferred and unreviewed. Use for the gate: plants rarely write security down as the blocker.
 That is not evidence that security is rarely the real wait.
 
-## 6. The ODEC two-path model (cited in `od-decision-routing`)
+## 6. The two-path model from the historical ODEC record (cited in `od-decision-routing`)
 
-Cybersecurity appeared as a strategy item at ODEC with a two-path decision model: substitute the
+Cybersecurity appeared as a strategy item in past ODEC material (a historical forum and source of information) with a two-path decision model: substitute the
 solution, or approve it and manage it externally. Use for a refusal: name which path the case takes,
-and take it to ODEC when it changes a standard.
+and take it to the deciding role or forum named in the current approval policy (look up) when it changes a standard.
 
 ## 7. What the platform's operations concept adds (Graph/Tools Concept 3)
 

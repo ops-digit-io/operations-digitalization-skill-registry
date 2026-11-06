@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Rounds and escalation
-description: How to prepare and follow up ODEC and COP specifically - the real recurring shape of each round's content, and where the escalation gaps actually sit.
+description: How to prepare and follow up a round - the recurring shape of past ODEC content (historical, a source) and of the COP, and where the escalation gaps actually sit.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -10,9 +10,9 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Rounds and escalation
 
-## ODEC's recurring shape
+## ODEC's recurring shape (historical)
 
-Across past ODEC rounds, the KPI content that actually gets presented breaks out **by
+ODEC is historical (monthly only until 2025-12, no longer held, no fixed replacement forum). Its content shape is still the model for a regional report on request. Across past ODEC rounds, the KPI content that actually gets presented breaks out **by
 region** against its own plan, not as one department-wide number: Equipment Integration
 and Use Case Development each reported as *today vs. plan*, region by region (the
 regions as named on the Scorecard), not blended into a single total. Mirror that shape when
@@ -42,20 +42,20 @@ rather than a plant-level one.
 1. Pull the scorecard figures with their read date (per the main `SKILL.md` procedure).
 2. Split by region before summarizing department-wide — region-blind figures have hidden
    regional divergence before and will again.
-3. Match content to the round's own input column (strategy and rollout items to ODEC,
-   technical and connection items to COP) — a technical blocker raised at ODEC gets
-   redirected, not solved there.
+3. Match content to the round's own input column (technical and connection items to the COP;
+   strategy and rollout items to the OD lead or the deciding role named in the current approval
+   policy) — a technical blocker raised in a strategy setting gets redirected, not solved there.
 4. Bring the **one** retro change forward if it affects either round's content.
 
 ## Following up a round
 
 Record the output column's commitments against a named owner and the round that produced
-them — an ODEC roadmap decision or a COP technical guidance update that is not written down
+them — a roadmap decision or a COP technical guidance update that is not written down
 against an owner is indistinguishable, a cycle later, from a decision nobody made.
 
 ## The escalation window, confirmed 2026-10-22
 
-`od-decision-routing` names the escalation **destination** (OD lead, via ODEC for strategy
-or COP for technical matters); this skill names the escalation **window**: one round. An
-item unresolved at one ODEC or COP cycle escalates into the next, rather than being carried
+`od-decision-routing` names the escalation **destination** (OD lead; the deciding role or forum named in the current approval policy for strategy,
+the COP for technical matters); this skill names the escalation **window**: one round. An
+item unresolved at one round escalates into the next, rather than being carried
 quietly for an unstated number of cycles.

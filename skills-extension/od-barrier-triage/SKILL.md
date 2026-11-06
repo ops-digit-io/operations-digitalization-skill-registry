@@ -114,7 +114,7 @@ an unavailable PLC program and the eight blocking places
      and let the wave move on.
    - **Strategy**: it needs a decision above the machine (operations concept for the target system
      missing, tool or platform not rolled out at the plant, connector to be developed for several
-     machines). Escalate to the OD lead (rollout and strategy through ODEC, technical matters through
+     machines). Escalate to the OD lead (rollout and strategy to the deciding role named in the current approval policy, technical matters through
      COP, per `od-decision-routing`).
    - **Substitution**: reach the data another way, or replace the thing that cannot connect. When it
      costs money, hand the options to `od-investment-input`.

@@ -64,7 +64,7 @@ and certificates (not the values).⟩
 |---|---|---|---|
 | ⟨⟩ | ⟨⟩ | ⟨⟩ | ⟨⟩ |
 
-Escalation rule: a technical item unresolved beyond one COP cycle goes to ODEC; a security gap on a connected
+Escalation rule: a technical item unresolved beyond one COP cycle goes to the OD lead (escalation role per `od-decision-routing`); a security gap on a connected
 asset goes to the OD lead and Cyber Security at once.
 
 ## 8 · Answer record (filled only when given)

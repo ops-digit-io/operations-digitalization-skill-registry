@@ -62,7 +62,7 @@ State which one you mean, every time. The department's own AI decks use these la
 | **Pilot** | It runs with real users in one place for a time-boxed period | That it scales; that the saving is real |
 | **Rollout** | It is deployed and used at more than the pilot site | Proven value: that is only SPRINT (`od-benefit-calculation`) |
 
-The strategy material works with four working stages - PoC, prototype, pilot, rollout - where the prototype validates feasibility and the pilot
+The strategy material works with four working stages - PoC, prototype, pilot, rollout - where the PoC validates feasibility, the prototype the benefit with real users and the pilot
 validates operational scalability ([`references/process-chain-practice.md`](references/process-chain-practice.md)). A prototype outside the
 standard needs a path to the reference architecture. A pilot or PoC result is evidence for the business case. It is never "proven". The two AI decks even disagree
 on the same items; quote the label with its deck and date.

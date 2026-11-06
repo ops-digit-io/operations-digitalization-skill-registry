@@ -23,7 +23,7 @@ unknowns are `<...>`.
 | Machine integration execution | The investment is approved, Cyber Security cleared | Plan, connection design | Integration guidance protocol; IIoT edge platform (deploy / configure); connectors | A connected machine | Signal standardization |
 | Signal standardization | A machine is connected | Signal list, machine standard | Signal standard spec; data pipelines (write) | Standardized signals consumable by every plant's instance of the capability | Acceptance test |
 | Acceptance test | Integration complete | Requirements, protocol | Acceptance-test protocol | Pass or rework | Readiness matrix, report update |
-| Equipment Integration report update | Monthly or ODEC | Machine list | Equipment Integration report (read / update) | Updated report with read date | Rounds |
+| Equipment Integration report update | On request or on the department's own schedule | Machine list | Equipment Integration report (read / update) | Updated report with read date | Rounds |
 | Readiness matrix update | A capability changes | Acceptance evidence | Scorecard readiness matrix (read / update) | Colour with evidence | Strategic-plant readiness |
 
 **Chain rule.** A readiness cell turns to "available" only with an acceptance pass on record; an update without evidence is a

@@ -54,13 +54,11 @@ savings projection.
    estimated value. Put those as roadmap rows.
 5. Use the tier as an input to ranking (`od-use-case-prioritization`), not as a filter on eligibility.
 
-## Open conflict: wave allocation
+## Wave allocation
 
-Waves were once allocated "first come, first served" within a quarter and budget class; the strategy prioritises a
-small set of first-mover plants with central support. The two rules give different orders.
-`<to confirm: which rule wins>`. Safer reading until confirmed: a request is never refused because of the tier; the
-order of central capacity follows the tier, and a fast follower is scheduled when capacity is free. Raise an exception
-through `od-decision-routing`.
+Eligibility follows request order (within a quarter and budget class): a request is never refused because of the
+tier. Central capacity goes first to first-mover plants that are staffed; a fast follower is scheduled when capacity is
+free. Raise an exception through `od-decision-routing`.
 
 ## Pitfalls
 

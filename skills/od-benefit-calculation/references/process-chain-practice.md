@@ -66,13 +66,14 @@ number is grounded). Keep both on every figure that leaves the department.
 
 Where decks disagree:
 
-- *Calculated or estimated?* The standard agenda says savings are calculated and only in minor cases estimated; workshop
-  summaries carry "estimation: open task". Safer reading: label the basis on every row, never assume the first. `<to confirm>`
+- *Calculated or estimated?* Workshop summaries carry "estimation: open task". A saving is **estimated** until it is
+  confirmed; **calculated** only with a documented basis. Label the basis on every row and label every figure input /
+  assumption / market / unknown; finance-proven values stay separate.
 - *Realized or estimated?* A one-pager headline described as realized rested on a top-down estimate. Treat such a headline as
-  **potential** until a banked floor is shown. `<to confirm>`
-- *Who evaluates, the plant or OD?* An early idea was that plants evaluate their own use cases; a later one is that OD
-  provides a calculator and owns the evaluation after repeated plant pushback. Safer reading: OD drafts with a calculator,
-  the plant owner confirms baseline and factor. `<to confirm>`
+  **potential** until a banked floor is shown.
+- *Who evaluates, the plant or OD?* After go-live the plant evaluates its use cases; OD provides the calculator and the
+  method and reviews the result. Before go-live OD drafts with the calculator and the plant owner confirms baseline and
+  factor.
 
 ## 3. Handoff contract
 

@@ -35,7 +35,7 @@ Check: unknown types in this wave `<n>` (must be at most one).
 
 | Plant | Week of OT call | Week of request preparation | Week of upload | Status | Call for action (week, owner) |
 |---|---|---|---|---|---|
-| `<plant>` | `<cw>` | `<cw>` | `<cw>` | `<input collected / green / yellow / red / at risk>` | `<>` |
+| `<plant>` | `<cw>` | `<cw>` | `<cw>` | `<green / yellow / red>` | `<>` |
 
 ## 4 Readiness
 

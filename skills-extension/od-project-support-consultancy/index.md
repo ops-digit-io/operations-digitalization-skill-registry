@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Project Support & Application Consultancy](SKILL.md) | Agent Skill | Run the Project Support & Application Consultancy lane — kick off digital investment projects with the MPEE OD team, break down requirements, manage equipment and solution integration projects to acceptance, consult on the Manufacturing Software Suite and manufacturing apps, confirm use cases are integrated into daily processes, and report progress and impact into the ODEC cycle. Use when a digital investment project starts or stalls, when a project needs a kick-off agenda, requirement spec or status report, when application-consultancy advice is needed, or when ODEC progress and impact reporting is due. Owner is the IIoT Interface & Automation Engineer (IIAE). |
+| [Project Support & Application Consultancy](SKILL.md) | Agent Skill | Run the Project Support & Application Consultancy lane — kick off digital investment projects with the MPEE OD team, break down requirements, manage equipment and solution integration projects to acceptance, consult on the Manufacturing Software Suite and manufacturing apps, confirm use cases are integrated into daily processes, and report progress and impact into the department's reporting. Use when a digital investment project starts or stalls, when a project needs a kick-off agenda, requirement spec or status report, when application-consultancy advice is needed, or when progress and impact reporting is requested or due. Owner is the IIoT Interface & Automation Engineer (IIAE). |
 
 | Folder | Holds |
 |---|---|

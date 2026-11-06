@@ -26,7 +26,7 @@ is a different decision, taken when the pack contains a tool and not only machin
 
 ## The spend ladder
 
-`od-decision-routing`: spend is routed through eCR (engineering change request) with two approval limits, a CTO
+`od-decision-routing`: spend is routed through eCR (electronic capital request) with two approval limits, a CTO
 limit and a Board limit, described as "a ladder, not alternatives". The amounts are company policy and are not
 repeated here: per the current approval policy (look up: `od-decision-routing`, the OD lead, controlling). Quote
 them with source and date.

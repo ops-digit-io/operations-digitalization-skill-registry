@@ -60,9 +60,8 @@ the solution is first named. Each one can turn "ready to build" into "needs a na
 ## 2 · Decision rules
 
 - **Operations-concept gate.** A tool without a named operations owner, service level and support level is not
-  rolled out; the verdict is "escalate" (strategy / tool rollout decision), not "ready to build". Tools "on demand"
-  and tools "stopped until the concept is clarified" are reconciled as: rollout continues only where an operations
-  concept exists. `<to confirm>` current status per tool before recommending it (some strategy slides pause
+  rolled out; the verdict is "escalate" (strategy / tool rollout decision), not "ready to build". A tool rollout on request needs
+  an operations concept and a named run owner; stop until both exist. `<to confirm>` current status per tool before recommending it (some strategy slides pause
   rollouts that plant summaries still recommend).
 - **Precondition fields.** Separation or migration plan of a central data source available; cyber-security and
   purchasing lead times known; approval documents prepared upfront (hardened image, requirements) so approval is a

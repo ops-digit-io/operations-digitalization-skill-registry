@@ -66,8 +66,8 @@ management (yes or no). Review it with Production and the continuous-improvement
 | Dashboard disagrees with the paper record | Do not pass; explain the difference first |
 | No named ritual of use and no action owner | Build smell; accept the data half only, mark the use half open |
 | Old process still running at handover | Pass blocked on §6 until a switch-off owner and date are named |
-| Cyber Security sign-off missing | Hold (`od-cybersec-gate`); attach the recorded answer as evidence once given |
-| Deployed use case with no reported saving | "Further investigation necessary", not "no potential"; do not pass as value delivered |
+| Cyber Security sign-off missing | Hold go-live and any test that needs the live connection (`od-cybersec-gate`, a parallel track); attach the recorded answer as evidence once given |
+| Deployed use case with no reported saving | "To be evaluated until investigated", never "no potential" written by an agent (only the OD lead with the plant owner may decide that); do not pass as value delivered |
 | Handover from another organisation | Accept only with documented transformation, owned workspace, access control, a named successor |
 
 ## 3 Handoff contract

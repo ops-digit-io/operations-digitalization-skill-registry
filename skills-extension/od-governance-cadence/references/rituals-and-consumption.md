@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Rituals and consumption
-description: The recurring formats in which the function's output is actually consumed (daily Gemba, shift checks, escalation, portfolio review, rollout waves), how to find the ritual behind a use case, and how the plant rituals relate to the department's own cadence ladder from shift to quarter.
+description: The recurring formats in which the function's output is actually consumed (daily Gemba, shift checks, escalation, portfolio review, rollout waves), how to find the ritual behind a use case, and how the plant rituals relate to the department's own ladder of routines from shift to round.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -50,11 +50,11 @@ Work through these in order and stop when one is answered with a named person an
 The utilization frequencies recorded on use cases are dominated by the daily rhythm; the daily walk is visible in the data.
 Consequence for reading a utilization record: a use case recorded as used rarely, or never, usually has no ritual, not a bad
 screen. Ask for the ritual first, redesign second. The utilization columns to collect are in
-`od-handover-and-adoption`; the monthly review is in `od-scorecard-reporting`.
+`od-handover-and-adoption`; the utilization review is in `od-scorecard-reporting`.
 
-## The cadence ladder
+## The ladder of routines
 
-The plant rituals sit at the bottom of a ladder that the department's own rhythm continues. Use the ladder to decide where a
+The plant rituals sit at the bottom of a ladder that the department's own routines continue (rungs on request or on the department's own schedule; none is a mandatory fixed meeting). Use the ladder to decide where a
 recurring question belongs.
 
 | Rung | Plant side | Department side | Owner skill |
@@ -64,10 +64,10 @@ recurring question belongs.
 | Weekly to sprint | Sprint working session | use-case sprint | `references/sprint-runbook.md` |
 | Monthly | Utilization review, portfolio review | scorecard update, retrospective | `od-scorecard-reporting`, `od-retro` |
 | Quarterly | Roadmap check | context-layer review, SWOT and strategy check, freshness sweep | `od-context-freshness`, `od-context` |
-| Round | Regional community call | CoP, ODIC, ODEC | `references/forums-and-roadmap.md` |
+| Round | Regional community call | CoP; ODEC only as a historical source | `references/forums-and-roadmap.md` |
 
 `PROPOSAL`: when a plant raises a recurring complaint that spans rungs (a board that is correct but ignored), route it to the lowest
-rung that has an owner: first the plant ritual, then the sprint, then the monthly review. Only a pattern across plants goes to a round.
+rung that has an owner: first the plant ritual, then the sprint, then the utilization review. Only a pattern across plants goes to a round.
 
 ## Pitfalls
 

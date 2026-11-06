@@ -72,7 +72,7 @@ cite the skill, not the register.
 | Asset build protocol | `od-analytics-asset-build`: `assets/asset-build-protocol.md` | Lane 1 |
 | Standardization review | `od-use-case-standardization`: `assets/standardization-review.md` | Lane 2 graduation |
 | Decision request | `od-decision-routing`: `assets/decision-request.md` | any gate outside OD |
-| Scorecard update protocol | `od-scorecard-reporting`: `assets/scorecard-update-protocol.md` | monthly / ODEC / COP |
+| Scorecard update protocol | `od-scorecard-reporting`: `assets/scorecard-update-protocol.md` | on request or on the department schedule / COP |
 | Portfolio review protocol | `od-portfolio-and-savings-analysis`: `assets/portfolio-review-protocol.md` | portfolio review |
 | Export run log | `od-sharepoint-list-export`: `assets/export-run-log.md` | list export |
 | Investment input pack; prototype briefs | `od-investment-input`, `od-prototype-poc` (see each skill's assets folder) | Lane 1b / Lane 2 |

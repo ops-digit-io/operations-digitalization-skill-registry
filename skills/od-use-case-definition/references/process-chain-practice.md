@@ -63,10 +63,10 @@ to step 22 (`od-requirements-breakdown`, `od-data-availability-check`, `od-use-c
 
 ## 2 · Decision rules
 
-- **Priority of a collected list:** generalization potential first, then saving potential. Savings stay an
+- **Priority of a collected list:** savings first (value, ROI); generalization potential and effort are secondary criteria; dependency order is the tie-breaker. Savings stay an
   **open task** until a pre-evaluation with a named owner is done; never quote a sum without its shown basis,
-  and tag it calculated / estimated / none. (`<to confirm>`: the standard agenda says savings "shall be
-  calculated, only in minor cases estimated", yet summaries carry "open task"; keep the basis label.)
+  and label it "estimated" until confirmed; "calculated" only with a documented basis. Label every figure
+  input / assumption / market / unknown; finance-proven values stay separate.
 - **Tool recommendations need a use case.** Recommend a tool for a plant only against a named defined use case
   ("based on defined quality use case"); no named use case, no recommendation. Use one status vocabulary
   (done / ongoing / not available) crossed with one recommendation vocabulary; `<to confirm>` the controlled

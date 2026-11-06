@@ -63,7 +63,7 @@ Steering-committee boundary conditions: <>
 | Contracting | Project team | <> | <> | <> |
 
 ## 11 Procurement chain (only if a solution is bought)
-NDA closed <date> · quotation 1 <> · Q&A and selection <> · eCR launched and approved <> · quotation update <> · quotation 2 <> · sourcing complete <> · go-live window <window> after purchase order
+NDA closed <date> · quotation 1 <> · Q&A and selection <> · quotation update <> · quotation 2 (where the policy asks) <> · eCR launched and approved <> · sourcing complete (offer = eCR = contract) <> · go-live window <window> after purchase order
 
 ## 12 Open questions to the steering committee
 <question> · cost of not deciding <>

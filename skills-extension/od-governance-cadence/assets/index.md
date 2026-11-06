@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Call for action and status](call-for-action-and-status.md) | Skill Asset | Template for a CoP, ODIC or ODEC round - agenda, plant status table with traffic light, numbered call for action and follow-up log. |
+| [Call for action and status](call-for-action-and-status.md) | Skill Asset | Template for a CoP or other department round - agenda, plant status table with traffic light, numbered call for action and follow-up log. |
 | [Sprint plan and review](sprint-plan-and-review.md) | Skill Asset | Template for a use-case sprint - preconditions, rhythm, deliverable board, IT-issue log and sprint-end review. |

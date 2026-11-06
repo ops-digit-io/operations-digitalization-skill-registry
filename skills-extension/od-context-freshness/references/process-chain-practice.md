@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Process chain practice
-description: Method, decision rules, handoff contract, pitfalls and agent notes for the freshness check, abstracted from the Operations Digitalization slide decks - time-stamped facts that change fastest (tool status, plant tier, forum cadence, vocabulary), copy residue, orphaned ownership, list clean-up. Guidance only, no figures.
+description: Method, decision rules, handoff contract, pitfalls and agent notes for the freshness check, abstracted from the Operations Digitalization slide decks - time-stamped facts that change fastest (tool status, plant tier, forum status, vocabulary), copy residue, orphaned ownership, list clean-up. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -26,10 +26,10 @@ Deck-derived practice for the spine. The script finds old dates; this file tells
 |---|---|---|
 | Tool status and recommendation (continue, stop, pause, substitute, planned) | strategy decks change direction between years; some stop what others continue; plant summaries lag the strategy | tool overview list, with its date |
 | Plant tier (first mover, fast follower) and which plants are on a wave | follows value, capacity and a staffed key user | plant roadmap, key-user register |
-| Forum cadence and agenda (strategy / information call, technical call) | a later deck reused an earlier agenda unchanged; an early deck was marked not in use | current invitation, not a deck |
+| Forum status and agenda (ODEC is historical, no longer held; technical call) | ODEC met monthly only until 2025-12; no fixed replacement forum; a later deck reused an earlier agenda unchanged | current invitation, not a deck |
 | Recommendation vocabulary | several words for one status | the controlled vocabulary once the OD lead sets it |
 | The dashboard standard and the BI standard | one strategy keeps the open dashboard tool, another plans a BI tool and lists the first as needing an upgrade | `od-context`, register |
-| Training format (plant-level hands-on versus fewer, larger sessions) | decks conflict | training plan |
+| Training format (hands-on in the plant, small groups, real plant data; central material is support only) | plans change | training plan |
 | Master-data leader and which local masters remain | stated rule, reconciliation unstated | architecture owner |
 | KPI definitions that depend on the system landscape (for example a use-case count against a threshold) | platform centralization changes counts | KPI definition with its date |
 | Machine lists and tag lists | the speed of any vulnerability or migration response is bounded by their completeness | plant list with read date |

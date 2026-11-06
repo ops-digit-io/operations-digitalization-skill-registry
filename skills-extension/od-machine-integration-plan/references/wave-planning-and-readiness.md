@@ -29,7 +29,7 @@ not a wave member.
 
 - Waves are planned per year, by quarter per plant, with budget, machine list and bundled components (bus, edge platform, central aggregation server, machine connectivity).
 - Budget class follows the systems needed (small, medium, large); limits `<look up in the current approval policy>`.
-- Earlier practice: first come, first served within quarter and class. Another strategy line prioritises a small set of first-mover plants with central support and gives fast followers limited help. **Safer reading `<to confirm>`:** a plant with a staffed, dedicated key user and the preconditions in section 6 goes first; otherwise request order.
+- Eligibility follows request order within quarter and class. Central capacity goes first to first-mover plants that are staffed (a dedicated key user and the preconditions in section 6); fast followers get limited help.
 - Wave size depends on the plant's budget class and on whether the IT infrastructure can carry more machines. A plant whose message bus is not complete connects first what it can carry.
 - A connectivity budget can be approved while the plant lacks resource or skill. Put a staffing check (resource and skill: good, average, insufficient) into the wave decision.
 
@@ -46,13 +46,15 @@ first version, first three milestones. Budget is never left open: make an educat
 
 ## 4. Status taxonomy
 
+One traffic-light scale per round (red / yellow / green); no other values.
+
 | Value | Meaning | Action |
 |---|---|---|
-| input collected | Plant delivered list, method, preconditions | Prepare the request |
 | green, on track | Phase on plan | None |
 | yellow, close-loop update required | Waiting for a reply or document | Chase the named owner this week |
 | red, phase delayed | Behind plan | Barrier log; escalate if a decision is missing |
-| at risk | Likely to slip (staffing, patch, order) | Plan with the plant; log |
+
+Reasons such as "input collected" (plant delivered list, method, preconditions: prepare the request) or "at risk" (likely to slip: staffing, patch, order) go in the comment text, not in the status value.
 
 Each row carries a call-for-action cell with a calendar week and an owner. The plant's own status
 artefact is a checklist of connected versus ongoing equipment per area. In the status meeting ask each
@@ -88,7 +90,7 @@ versioning habits start.
 |---|---|
 | Machine list | Complete enough: location, layout, PLC model, program availability, interfaces, network, cyber-security update status |
 | Layout stability | Is the area still being rearranged? Repeated relocation delays many machines |
-| Controllers | Pending patch or approval that would block the second wave? Treat as precondition, not later gate |
+| Controllers | Pending patch or approval that would delay go-live of the second wave? Run the Cyber Security sign-off as a parallel track, started early |
 | IT platform | Reverse proxy, disk size, ordering, e-sign, jump hosts, firewall rules, apps running |
 | Team | Staffed rollout team, local OT expert, key user; IT and OT assessments scheduled separately; kick-off date fixed |
 | Compatibility | Old devices and signals checked before the cost line |
@@ -100,7 +102,7 @@ Red on any row: log it in the barrier log with owner and wait state before calli
 
 ## 7. Pitfalls
 
-- A patch or approval on installed controllers blocks the second wave and the savings behind it.
+- A patch or approval on installed controllers delays go-live of the second wave and the savings behind it; start the sign-off package early, it runs in parallel.
 - Platform rollouts stall on proxy, disk size, ordering and cancelled e-signatures; use a local preparation checklist and an onsite visit.
 - Use cases and sprint dates slip because connectivity is unfinished for some machines of a class.
 - Connectivity budget approved but no resource: the wave runs late.

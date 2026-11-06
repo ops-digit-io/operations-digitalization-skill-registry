@@ -57,9 +57,8 @@ A use case delivered without measurement of utilisation or saving is not "done" 
 
 For a top use case, state three lists: **where it saved**, **where it was deployed without savings**, **where it still
 has potential**. A scaled-out use case with deployments but no savings is *further investigation necessary*, not yet
-*no potential*. The decks disagree (one wording "to be evaluated within the year", a later one "probably has no
-potential"): write the safer reading and `<to confirm: rule for retiring vs re-evaluating>`. Run the Ishikawa on each
-"deployed without savings" plant before retiring the use case.
+*no potential*: write "to be evaluated until investigated". Only a human (the OD lead with the plant owner) may
+decide "no potential"; an agent never writes it. Run the Ishikawa on each "deployed without savings" plant first.
 
 ## Output of the diagnosis
 

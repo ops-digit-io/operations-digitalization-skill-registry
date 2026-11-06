@@ -67,7 +67,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 |---|---|
 | [`references/gate-rules.md`](references/gate-rules.md) | Every rule that governs the gate, one line each with its source: guardrail, decision right, risk row, wait state, what is not collected |
 | [`references/package-contents.md`](references/package-contents.md) | What the package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The gate as a wave precondition: security-relevance questions, request sequence, documentation completeness checklist, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council items, handoffs and agent notes |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The gate as a parallel go-live gate: security-relevance questions, request sequence, documentation completeness checklist, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council items, handoffs and agent notes |
 | [`references/precedents.md`](references/precedents.md) | Patterns from the department's own record: the Groot2B programme, an app that waited on approval, a plant network-separation case, how application cyber status is recorded, how security shows up in blocker records |
 
 ## The rule
@@ -75,6 +75,9 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 **A missing sign-off holds the case. There is no expedited path and no authority level that shortens it.**
 (`od-information-integration-service` guardrail; `od-equipment-integration` error paths.) An agent never
 connects, never approves an external connection, and never records "signed off" on its own say-so.
+
+The gate is **decoupled and runs in parallel**: start the package alongside planning and build. It blocks only go-live
+(the live connection and live operation), not planning, build or an integration wave's preparation.
 
 ## Procedure
 
@@ -105,16 +108,16 @@ connects, never approves an external connection, and never records "signed off" 
    ⟨Submission channel, form and the Cyber Security contact role⟩ are not in the sources.
 7. **Hold at the wait state.** Record the submission date, the owner of the follow-up and the next check.
    ⟨Typical lead time⟩ is not recorded; the new-state flow marks the step only as "weeks". While waiting, no
-   machine is connected, no app deployed, no date promised to the plant.
-8. **Escalate on the triggers**, not on impatience. Technical items stuck beyond one COP cycle go to ODEC; the
-   strategic half of cyber topics (the standard, the posture) is ODEC's, the project half is COP's
+   machine goes live, no app is deployed live, no go-live date is promised to the plant; planning and build continue.
+8. **Escalate on the triggers**, not on impatience. Technical items stuck beyond one COP cycle go to the OD lead; the
+   strategic half of cyber topics (the standard, the posture) goes to the deciding role or forum named in the current approval policy (look up), the project half is COP's
    (`od-decision-routing` `references/escalation-worked-examples.md`). A security gap on a connected asset is
    an immediate escalation to the OD lead and Cyber Security (`09-risks.md`).
 9. **Record the answer** in the package: who answered, date, scope (machines or apps covered), conditions,
    validity. Three outcomes:
    - *Granted* - attach it to the acceptance protocol evidence (`od-acceptance-test`), then proceed.
    - *Granted with conditions* - the conditions become open items on the case; re-check before go-live.
-   - *Refused* - route the barrier (`od-equipment-integration` `references/barrier-classes.md`); the ODEC
+   - *Refused* - route the barrier (`od-equipment-integration` `references/barrier-classes.md`); the
      two-path model is "substitute the solution" or "approve and manage it externally" (see precedents).
 10. **After go-live** the risk register's early indicator is "non-compliant connection detected". Anything
     found later is escalated, not quietly patched.
@@ -128,7 +131,7 @@ connects, never approves an external connection, and never records "signed off" 
 | Firmware patch required for security | Barrier class; patch before integration | barrier-classes.md |
 | Controller cannot do security-compliant communication | A security position, not a preference; the conversation ends | decision-paths.md (S7-300/400) |
 | App needs the platform | Same gate, via `deploy-appstore` step 4 | deploy-appstore |
-| Sign-off held beyond one COP cycle | Escalate to ODEC for capacity or priority | escalation-worked-examples.md |
+| Sign-off held beyond one COP cycle | Escalate to the OD lead for capacity or priority | escalation-worked-examples.md |
 
 ## Open - only the OD lead and Cyber Security can supply
 

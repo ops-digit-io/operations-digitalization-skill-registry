@@ -93,7 +93,7 @@ What stays open after mining the vault: IT's own demand form, the board's criter
 2. **Pick the route**: 3a.3 or 3a.4. The routes 3a.1 and 3a.2 do not need this package.
 3. **Assemble the package** from the table. Every gap stays visible as ⟨missing⟩ with the person who can close it.
 4. **Add IT's own required fields** once they are known: ⟨IT demand form fields - to be supplied⟩.
-   Before calling it ready check that offer, capital request and contract are the same version and that a named role drives purchasing.
+   Before calling it ready check that offer, capital request and contract are the same version (offer first, then the capital request; before ordering all three must agree) and that a named role drives purchasing.
 5. **Hand over for submission.** A human submits to IT demand management. The evaluation board decides. This skill neither
    submits nor decides.
 6. **After the decision**, continue with `deploy-appstore` (deployment gate) and `od-handover-and-adoption` (rollout).

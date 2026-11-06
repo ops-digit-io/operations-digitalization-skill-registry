@@ -33,7 +33,7 @@ Per row: owner role, end-of-quarter target, status colour, evidence, call-for-ac
 | Yellow | Close-loop update required (the plant has not confirmed the next step) |
 | Green | On track, evidence attached |
 
-`PROPOSAL`: add grey for "not started, not due". A row without evidence is not green.
+One traffic-light scale (red / yellow / green) per round. A row without evidence is not green; "not started" goes in the comment.
 
 ## Call for action
 
@@ -63,10 +63,10 @@ regional gaps are structural (complex infrastructure) as much as effort.
 
 ## Who consumes it
 
-- **Community-of-practice call** (monthly, technical, plant-facing): roadmap and rollout status, then cyber-security call
+- **Community-of-practice call** (technical, plant-facing; look up the current schedule): roadmap and rollout status, then cyber-security call
   for action, then use-case forecast with one worked example, then trainings, then feedback on the last open question. The
   plant status table: plant, system status, machines done of planned, traffic light, call for action.
-- **Strategy round and information call** (quarterly, why we prioritise): regional roadmaps, cyber-security status.
+- **Strategy rounds** (ODEC, now historical, no fixed replacement forum; past decks are a source): regional roadmaps, cyber-security status.
 - Plant management one-pager: current progress, regional engineering roadmap, plant scorecard, initiate investment,
   allocate resources, integrate with OPEX processes.
 Hand over to `od-scorecard-reporting`; investment items to `od-investment-input`.

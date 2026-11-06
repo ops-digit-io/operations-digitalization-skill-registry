@@ -85,7 +85,7 @@ Seams recorded for smart-factory use-case delivery, by kind of partner (roles an
 | Manufacturing Engineering (automation) | Insight-based ideation for control optimisation | Consultation |
 
 **How to use it.** Before committing to a plan, list each seam the plan crosses and check its mode. A consultation seam is a **gate**:
-the answer must be on record (this is why `od-machine-integration-plan` waits for Cyber Security). A tandem seam means you cannot
+the answer must be on record (this is why Cyber Security sign-off blocks go-live of a machine connection; planning and build run in parallel). A tandem seam means you cannot
 plan alone; name the partner's role in the plan. An information seam needs a message, not a meeting. `PROPOSAL`: put the seam and
 its mode in the plan header so a reviewer sees the dependencies without reading the body.
 

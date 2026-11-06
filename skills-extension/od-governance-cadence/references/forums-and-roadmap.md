@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Forums and roadmap
-description: CoP, ODIC and ODEC - question, cadence, input, output; preparation and follow-up; the call-for-action and traffic-light status pattern; regional and plant roadmap fields; community cadence between rounds.
+description: The CoP and ODEC (historical) as information sources - question, input, output; preparation and follow-up; the call-for-action and traffic-light status pattern; regional and plant roadmap fields; community routine between rounds.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,17 +10,20 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Forums and roadmap
 
-Method only. Cadence and agenda come from the decks and are `<to confirm>` against `od-scorecard-reporting`.
+Method only. Agenda and content come from the decks. No forum is assumed to run on a fixed schedule: look up whether and when a round is held.
 
-## The three formats
+## The forums as sources of information
 
-| Format | Question it answers | Cadence (per decks) | Input | Output |
+| Forum | Question it answers | Status | What it holds (input) | What it produced (output) |
 |---|---|---|---|---|
-| **CoP** (community of practice call) | How are we doing Operations Digitalization? Technical, plant-facing | monthly, about one hour, one common call | Plant issues and feedback, data-model needs, flow and dashboard questions, connector needs, training needs | Guidance on issues, a call for action, triggers for next steps |
-| **ODIC** (information call) | Why do we prioritise it? | quarterly `<to confirm>`, may be split by time zone | Strategy, priorities and deadlines, finished sprints with high effect, scaling potential, Cyber Security strategic view | Priorities and deadlines that feed the next CoP |
-| **ODEC** | Strategy, roadmap, reporting round | `<to confirm>` | Roadmaps, rollout and Cyber Security status, KPI reading | Strategy updates, priorities, deadlines, security announcements |
+| **CoP** (community of practice call) | How are we doing Operations Digitalization? Technical, plant-facing | Technical round; look up the current schedule | Plant issues and feedback, data-model needs, flow and dashboard questions, connector needs, training needs | Guidance on issues, a call for action, triggers for next steps |
+| **ODEC** (Operations Digitalization Exchange Call) | Strategy, roadmap, reporting | **Historical.** Met monthly only until 2025-12; no longer held; no fixed replacement forum | Roadmaps, rollout and Cyber Security status, KPI reading | Past strategy updates, priorities, deadlines, security announcements, decks and facts |
 
-Every format lists input, content and a **trigger for action**. A round without a trigger is a briefing.
+Use ODEC material as a source: past decisions, decks and facts, always with the call's date, and never as proof of
+the current state. A decision does not have to go to ODEC; route it as `od-decision-routing` defines, and where a
+forum is needed say "the deciding role or forum named in the current approval policy (look up)".
+
+Every round lists input, content and a **trigger for action**. A round without a trigger is a briefing.
 
 ## Standard CoP agenda
 
@@ -56,9 +59,8 @@ a savings project is registered for it.
   check own status and missing factors in the shared dashboard, contact OD for the remaining steps, finish
   before the deadline. Recurring blocker: firewall rules and VLAN configuration.
 - **Status per plant** (one row each): system status, machines done of planned, traffic light, call-for-action
-  cell. Traffic light: red = phase delayed, yellow = close-loop update required, green = on track. An earlier
-  taxonomy used input collected / delayed / at risk before the equipment request is uploaded. Use one taxonomy
-  per round and say which `<to confirm>`.
+  cell. Traffic light: red = phase delayed, yellow = close-loop update required, green = on track. One scale
+  per round; "input collected", "delayed" or "at risk" may appear only as the reason text in the comment.
 - **Plant readiness table**: sprint timing, savings project registered, workshop planned, projects, link to the
   use-case list; legend not planned / urgent / planned.
 - **Wave micro-process** (weekly, shifted per plant): call with the local OT expert, prepare the capital request
@@ -84,7 +86,7 @@ proactively. Fields (not content):
 
 PROPOSAL: a roadmap is `ready` only when every frame-condition row has an owner and a quarter or `<unknown>`.
 
-## Community cadence between rounds
+## Community routine between rounds
 
 Pre-recorded video plus live Q&A is the delivery pattern. Keep a transformation-flow library (documented
 standard flows, plant-specific flows, shared proactively), a use-case library organised from overview to
@@ -99,3 +101,4 @@ it back; the next call presents the impact.
 - Use cases without a registered project are invisible to the savings ledger.
 - KPI basis shifts when the architecture changes: record the basis and date next to every figure.
 - Calls under-used: low participation means feedback does not reach the chain. Ask for the open question in advance.
+- Quoting an ODEC deck as current: it is a dated record of a historical forum.

@@ -49,7 +49,7 @@ time-boxed first step to limit the cost of failure.
 
 Barriers that wait for a decision go to a **rapid decision board**: a short meeting for holdbacks only,
 with the barrier, the cost of non-decision and the options on one page. If no such board exists, the
-nearest forum is named in `od-decision-routing` `<to confirm>`. Barrier types that recur: patch window,
+deciding role or forum is the one named in the current approval policy (look up). Barrier types that recur: patch window,
 operations concept missing (the most repeated tool barrier), tool or platform not rolled out, connector
 to be developed for several machines, budget approved but no resource.
 

@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Plant readiness brief
-description: One-page form a local key user or IIAE fills before a plant integration conversation, an ODEC status slot or a wave eCR - the plant's row from the records, the flags to clear, and the open questions that only the plant can answer.
+description: One-page form a local key user or IIAE fills before a plant integration conversation, a status request or a wave capital request (eCR) - the plant's row from the records, the flags to clear, and the open questions that only the plant can answer.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -24,7 +24,7 @@ and must be re-run on the live Machine List before they go into a decision.
 | Plant | |
 | Prepared by (role) | Plant ME / Plant IT / IIAE |
 | Date; Machine List export date used | |
-| Occasion | plant start / wave eCR / ODEC slot / use case blocked for machine data |
+| Occasion | plant start / wave capital request (eCR) / status request / use case blocked for machine data |
 
 ## 1. The plant's row from the records
 

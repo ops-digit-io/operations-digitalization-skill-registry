@@ -93,8 +93,8 @@ list of what must be preserved; aim at parallel functionality, not a one-to-one 
 
 - **Plant tier** decides how much central workshop capacity a plant gets (first mover versus fast follower; see
   `od-use-case-intake-triage`), never whether its demand is legitimate.
-- **Ranking of the collected list:** generalization potential first, then saving potential; custom use cases may
-  need extra budget.
+- **Ranking of the collected list:** savings first (value, ROI); generalization potential and effort are secondary
+  criteria; dependency order is the tie-breaker; custom use cases may need extra budget.
 - **Tool recommendation** only against a named defined use case; a recommendation with no use case behind it is
   not made. Savings carry a basis label (calculated / estimated / none); a savings sum with no shown basis does not
   leave the room.

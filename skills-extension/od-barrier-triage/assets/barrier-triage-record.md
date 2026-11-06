@@ -63,7 +63,7 @@ demand".
 |---|---|
 | **Exit** | ⟨roadmap · strategy · substitution⟩ |
 | **Owner (role)** | ⟨⟩ |
-| **Forum** | ⟨ODEC for strategy and rollout · COP for technical⟩ |
+| **Forum** | ⟨OD lead / deciding role per the current approval policy (look up) for strategy and rollout · COP for technical⟩ |
 | **Wait state** | ⟨awaiting program · line stop · Cyber Security sign-off · rollout decision · connector development · investment decision⟩ |
 | **Look again on** | ⟨date⟩ |
 | **Gate to record as dependency** | ⟨eCR · Cyber Security · IT demand · tool rollout⟩ |

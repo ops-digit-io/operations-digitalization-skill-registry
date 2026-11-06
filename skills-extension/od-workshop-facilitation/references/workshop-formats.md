@@ -33,7 +33,7 @@ Machine Integration or Use Case Workshop." Decide it with the plant before the i
 
 | Day | Block | Content (from the agenda slides) |
 |---|---|---|
-| 1 Introduction | 1.1 Intro to the OD organization | What OD is, strategic pillars (digitalization benefit analysis; system and connectivity assessment; system and connectivity roadmap; use case executive support; demands and iterations; enhanced process understanding and control), the two call formats ODEC (why prioritize) and COP (how are we doing) |
+| 1 Introduction | 1.1 Intro to the OD organization | What OD is, strategic pillars (digitalization benefit analysis; system and connectivity assessment; system and connectivity roadmap; use case executive support; demands and iterations; enhanced process understanding and control), the call format COP (how are we doing); ODEC (why prioritize) is a historical forum whose past decks are a source of information |
 | | 1.2 Intro of Smart Factory tools | Tool by tool: IIoT Edge platform, Data Science Factory, MES, MDA/PDA, QFPR, recipe management, image library, rule engine, energy management system, trainings |
 | | 1.3 Use case creation process | Process flow, Use Case Canvas, benefits analysis, savings calculation, standardization, maturity |
 | | 1.4 Use case library | Proven reference solutions (see `od-use-case-definition`, library catalog) |

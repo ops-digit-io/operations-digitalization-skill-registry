@@ -29,7 +29,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
    |---|---|---|---|
    | Transactional | events, cycle time, counters, set values, limits, alarms | service bus (OPC UA) | changes are hard to propagate |
    | Time series | curves, process values | MQTT stream | changes easy to propagate |
-   | Master data | recipes, meter structures, work-centre naming | single source of truth; leading system pushes by API | reconcile local masters; how is `<to confirm>` |
+   | Master data | material, order and product master data (recipes, meter structures, work-centre naming) | ERP is the master; pushes by API | local systems (MES etc.) are derived and report back; a local master does not lead |
 
 5. **Edge device versus plain OPC UA client.** An edge device is needed if: a vision system or robot is involved; the customer expects full traceability (data loss means rejecting parts); high-resolution time series from process-critical sensors;
    inline measurement; advanced analytics (anomaly detection, predictive quality or maintenance) is planned. Not needed if the machine has no high-frequency signals and OPC UA can carry the series.
@@ -43,9 +43,9 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
 - **Footprint first.** A standard system is a validated route plus a purchasable kit (see `SKILL.md`). A tool recommendation must name the **defined use case** behind it; a recommendation without a use case is not made.
 - **Use one controlled recommendation vocabulary.** The decks use several for the same tool (planned, needed for several use cases, not necessary, not recommended as of now, stop / continue). Until the OD lead fixes one, write the status plus its date plus its source and mark `<vocabulary to confirm>`.
 - **Operations-concept gate.** A tool without an operations concept (named operations owner, service level, support level, change and incident process) is not matched for rollout. The decks name "operations concept missing" as the most repeated barrier;
-  the common reading is: rollout continues only where an operations concept exists. A request that is really a service gap on an existing tool is not a use-case match - route it to the system and operations-concept discussion.
+  rollout needs an operations concept and a named run owner; without both, stop until they exist. A request that is really a service gap on an existing tool is not a use-case match - route it to the system and operations-concept discussion.
 - **Security-relevant?** Indicators: connects to central systems or holds relevant data; profound effect on manufacturing; holds operational or customer data (exports, pictures, quality data). Yes means the cyber-security route applies (`od-cybersec-gate`), including patch and update management; two paths: substitute the solution, or approve it.
-- **Known machine types first.** Scaling known machine types, with at most one unknown type per new deployment, worked; connecting the most difficult machines first burned reputation. The opposite advice also appears in older material: `<to confirm>`; use the known-type reading.
+- **Known machine types first.** Scaling known machine types, with at most one unknown type per new deployment, worked; connecting the most difficult machines first burned reputation. Scale known machine types first.
 - **Wave size follows budget class and local resources.** Check the plant's staffing and skill for the connection, not only budget. Patch status of installed controllers is a **precondition** on the plan, not a later gate.
 - **Layout stability.** Check that the area will not be re-arranged repeatedly before committing an integration wave.
 

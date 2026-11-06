@@ -51,7 +51,7 @@ Read `od-context` first.
 | [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | The lane's recurring tasks as a trigger chain (starts when, needs, tool, leaves behind, feeds), why each tool has its access, metric hooks, signal-standardization rule and record-reading traps |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | The lane's operating rhythm in the AI-driven chain: wave cadence and plant status, the community-call pack, plant tiering, integration workshop, recurring blockers, handoffs, agent notes |
 | [`references/finding-decks.md`](references/finding-decks.md) | How to search the Slide Index and a topic-to-deck map for the lane |
-| [`assets/plant-status-input.md`](assets/plant-status-input.md) | One-page plant input for an ODEC status slot on equipment integration |
+| [`assets/plant-status-input.md`](assets/plant-status-input.md) | One-page plant input for a status request on equipment integration |
 
 **Trigger.** An equipment-integration or data-model-harmonization need per the roadmap.
 **Definition of done.** Machine or equipment integrated, signals standardized, data
@@ -136,7 +136,7 @@ awaiting a decision on shared tooling, licensing or signal standards — Plant M
 | Machine integration execution | Investment approved | `od-equipment-integration`'s `assets/guidance-protocol.md` (Route B) |
 | Signal standardization | Machine connected | Signal standard spec |
 | Acceptance test | Integration complete | Acceptance test protocol |
-| Equipment Integration report update | Monthly / ODEC | `OD-Report-Equipment_Integration` |
+| Equipment Integration report update | On request or on the department's own schedule | `OD-Report-Equipment_Integration` |
 | Readiness matrix update | Capability change | Scorecard readiness matrix |
 
 ## Systems and access
