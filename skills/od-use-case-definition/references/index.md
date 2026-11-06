@@ -5,6 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Benefit theory](benefit-theory.md) | Skill Reference | The Benefits Dependency Network, adapted to the four phases - why a dashboard is not a benefit, what closes the Implemented-to-Productive gap, and how to classify a benefit before it reaches od-benefit-calculation. |
+| [Lane service flow](lane-service-flow.md) | Skill Reference | Detail of the Smart Factory Use Case Support Service lane around step 21 - error paths, wait states, recurring tasks, systems and access, autonomy and the lane metrics. SKILL.md keeps only the compact flow table. |
 | [Lane templates](lane-templates.md) | Skill Reference | Which already-built skill's asset answers each happy-path step's template, so this lane routes to the real artefact instead of leaving a placeholder next to a skill that already has the answer. |
 | [Library catalog](library-catalog.md) | Skill Reference | How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the lean-method vocabulary - a how-to-get-it guide to the live list, with no entries, counts or plant names copied. |
 | [Patterns](patterns.md) | Skill Reference | The abstract rules this procedure runs on, each illustrated once against a real use case. |

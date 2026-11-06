@@ -45,11 +45,7 @@ metadata:
 
 # Node-RED flows (build, troubleshoot, connect)
 
-Read `od-context` first. This skill is the house pattern extracted from the flows across the
-`ct-oesl-*-nodered-*` instances, plus the way to repair one - not a Node-RED tutorial. Where the
-corpus is consistent, that consistency is the standard; where it is not, the references say so.
-
-Merged from `od-node-red-flows`.
+Read `od-context` first. The house pattern from the `ct-oesl-*-nodered-*` flows plus the way to repair one - not a Node-RED tutorial. Where the corpus is consistent, that is the standard.
 
 | Step | Part | Go to |
 |---|---|---|
@@ -72,10 +68,7 @@ PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node
                                                                         (Parquet)
 ```
 
-Flows publish back onto the MQTT spine; the platform offloads from there through **Databricks**
-to an **Azure Storage Account** in **Parquet**, which analytics and dashboards read. A derived
-signal therefore lands in the lake - the output UUID and `isDelta` semantics matter beyond the
-flow. The machine is connected per `od-equipment-integration` (guidance route); the signal
+Flows publish back onto the MQTT spine; the platform offloads via **Databricks** to an **Azure Storage Account** (**Parquet**) that dashboards read, so the output UUID and `isDelta` semantics matter beyond the flow. The machine is connected per `od-equipment-integration` (guidance route); the signal
 standard is set per `od-signal-standardization`; the flow turns raw `PLCPacket` messages into the
 derived signal a use case consumes (cycle time, part count, quality event, alert).
 
@@ -154,13 +147,9 @@ Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`**
    human approver with the analyser result and test evidence. File the flow-library entry (new,
    standard or plant-specific).
 
-Review of someone else's flow: the eight questions and the full standards table are in
-[`references/build-guide.md`](references/build-guide.md#reviewing-someone-elses-flow). Wire, topic
-and message detail: [`plc-packet.md`](references/plc-packet.md),
-[`topic-conventions.md`](references/topic-conventions.md). Topic families:
-`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>` (protobuf `PLCPacketList`, drivers
-`dqcdc`, `cifx`, `tia`, `ads`, `abrock`) and the ISA-95 `CT/<BA>/<region>/<country>/<plant>/<area>/<sub-area>/<machine>/<signal>`.
-Corpus census (no figures, read live): [`corpus-census.md`](references/corpus-census.md).
+Review of someone else's flow: eight questions and standards table in
+[`references/build-guide.md`](references/build-guide.md#reviewing-someone-elses-flow). Wire and topic detail (`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`, ISA-95 `CT/<BA>/...`):
+[`plc-packet.md`](references/plc-packet.md), [`topic-conventions.md`](references/topic-conventions.md); corpus census (read live): [`corpus-census.md`](references/corpus-census.md).
 
 ## Troubleshoot (step 3b5)
 
@@ -177,9 +166,7 @@ python3 scripts/analyze_flow.py docs/ct-oesl-som-nodered-prod/*.json --quiet   #
 python3 scripts/analyze_flow.py Flow.json --json                              # machine-readable
 ```
 
-Standard library only. Exit code **2** if any blocker, **1** if any warning, **0** otherwise, so it
-drops into CI or a pre-deploy check. `BLOCKER` corrupts or loses data, `WARN` degrades it or makes
-the flow unmaintainable, `INFO` is hygiene. Count findings on the day; no frequencies are recorded here.
+Standard library only. Exit **2** on any blocker, **1** on any warning, **0** otherwise (fits CI or a pre-deploy check). `BLOCKER` corrupts or loses data, `WARN` degrades it or makes the flow unmaintainable, `INFO` is hygiene. Count findings on the day.
 
 | Check | Severity | Meaning |
 |---|---|---|
@@ -217,28 +204,9 @@ connector, ingress variant, edge, flow, offload, asset), not inward from the das
 "dashboard is broken" reports are a machine that stopped publishing. After a platform or server
 migration the flow is rarely the cause (DNS, certificates, access, connector licence).
 
-### Silent corruptions (nothing errors, the flow looks healthy)
+### Silent corruptions and fast triage
 
-| What you see | Cause |
-|---|---|
-| Timestamps in the 23rd century | `sysTime` read as epoch **milliseconds** without unpacking |
-| Timestamps far past any plausible date | Read as epoch **seconds** without unpacking |
-| Value right, downstream time wrong | Unpacked inbound, **never re-packed** before the encode |
-| Packet encodes/decodes to something unintended | `oneof` violated; `prepare for protob encoding` skipped |
-| Modbus value flows but is wrong | Holding register is 16 bits, no type or unit underneath; conversion missing (see `od-equipment-integration`) |
-
-### Fast triage by symptom
-
-| Symptom | Look here first |
-|---|---|
-| Publishes nothing | `spine-severed`; broker connection; does the input UUID appear on the topic at all |
-| Published value always the same | `rbe` on the wrong property, or `isDelta` gating that never opens |
-| Value right, timestamp wrong | The sysTime pair |
-| Works on test, silent on prod | Different UUIDs in `Set flow config`; different broker; flow disabled on prod |
-| Stopped after a redeploy | Flow context cleared; accumulator never seeded starts at `undefined`, not 0 |
-| Counter resets or jumps | Accumulator with no reset trigger, or two flows on one tab writing the same key |
-| Dashboard flat since a fixed date | Almost never the flow: machine and connector first |
-| Error with no node name | An unnamed node: `{{error.source.name}}` resolves to nothing |
+The tables of silent corruptions (timestamps in the 23rd century, unpaired sysTime, oneof violation, Modbus 16-bit register) and the symptom-to-first-look table (publishes nothing, value constant, works on test but not prod, stopped after redeploy, counter jumps, dashboard flat, error with no node name) are in [`references/symptoms.md`](references/symptoms.md) § *Silent corruptions and fast triage*.
 
 Fill [`assets/triage-record.md`](assets/triage-record.md) while diagnosing (cheapest checks first,
 analyser result, what the analyser cannot see, decision). Route outcomes: a signal or topic

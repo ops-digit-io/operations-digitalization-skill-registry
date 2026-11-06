@@ -134,3 +134,28 @@ If the input topic carries no messages for the configured UUID, the flow is corr
 problem is upstream: machine, connector, ingress variant, or the data-point configuration
 on the edge platform. Hand it to `od-equipment-integration` (guidance route) — and record the finding
 against the machine, not the flow.
+
+## Silent corruptions and fast triage
+
+### Silent corruptions (nothing errors, the flow looks healthy)
+
+| What you see | Cause |
+|---|---|
+| Timestamps in the 23rd century | `sysTime` read as epoch **milliseconds** without unpacking |
+| Timestamps far past any plausible date | Read as epoch **seconds** without unpacking |
+| Value right, downstream time wrong | Unpacked inbound, **never re-packed** before the encode |
+| Packet encodes/decodes to something unintended | `oneof` violated; `prepare for protob encoding` skipped |
+| Modbus value flows but is wrong | Holding register is 16 bits, no type or unit underneath; conversion missing (see `od-equipment-integration`) |
+
+### Fast triage by symptom
+
+| Symptom | Look here first |
+|---|---|
+| Publishes nothing | `spine-severed`; broker connection; does the input UUID appear on the topic at all |
+| Published value always the same | `rbe` on the wrong property, or `isDelta` gating that never opens |
+| Value right, timestamp wrong | The sysTime pair |
+| Works on test, silent on prod | Different UUIDs in `Set flow config`; different broker; flow disabled on prod |
+| Stopped after a redeploy | Flow context cleared; accumulator never seeded starts at `undefined`, not 0 |
+| Counter resets or jumps | Accumulator with no reset trigger, or two flows on one tab writing the same key |
+| Dashboard flat since a fixed date | Almost never the flow: machine and connector first |
+| Error with no node name | An unnamed node: `{{error.source.name}}` resolves to nothing |

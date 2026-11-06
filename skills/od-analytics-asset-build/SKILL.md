@@ -100,19 +100,14 @@ building, name the moment:
 **Grafana** is where most of what the function builds is actually seen. Once this skill has
 named the ritual, the decision and chosen "Dashboard," the actual JSON build is
 `build-grafana-ops-dashboard`'s job — its schema interview, archetype choice and tier
-picking take over from here. Grafana has no export of its own worth relying on, which is why
-capturing dashboard state was automated separately (the dashboard-screenshot automation in
-`_apps/`). Plan for that: if the state of your dashboard needs to appear in a report or a
-review, it goes through the screenshot route, not through a Grafana export.
+picking take over from here. Grafana has no export worth relying on: if dashboard state must appear in a report or review, use the screenshot
+automation in `_apps/`.
 
 **Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the
 steering layer, not the shop-floor layer. Do not build a line-side asset there.
 
-**Know which layer you are building on.** Grafana is a **local instance per plant**, reading
-that plant's data for that plant's manufacturing dashboards. **Databricks and the Azure
-Storage Account are the global data platform**, where the edge offload lands and where
-cross-plant analysis happens. A line-side dashboard belongs on the local instance; a
-portfolio or cross-plant question does not.
+**Layer:** Grafana is a local instance per plant; Databricks and the Azure Storage Account are the global platform
+(`od-context`). A line-side dashboard belongs on the local instance, a cross-plant question does not.
 
 ## What the plants already have
 
@@ -129,8 +124,8 @@ configuration.
 1. Confirm data availability and fitness → `od-data-availability-check`.
 2. Check the reference library first — take a proven entry rather than building
    → `od-use-case-standardization`.
-3. Name the **ritual**, the **decision** and the **action owner** the asset supports. No named action and owner: it is a
-   "dashboard without an action owner" - do not build it (visibility alone has not produced savings;
+3. Name the **ritual**, the **decision** and the **action owner** the asset supports. Missing any of them, it is a
+   "dashboard without an action owner": do not build it (five smell checks in
    [`process-chain-practice.md`](references/process-chain-practice.md)).
 4. Choose the asset type from the table above; justify it if it is a dashboard by default
    → `references/asset-type-and-tier.md`.
@@ -154,12 +149,13 @@ configuration.
   ad-hoc, **do not industrialize**.
 - An asset for this capability already exists at another plant → adopt it.
 - The data gap is real → route it, do not build on a proxy.
-- No action owner, no recurring moment of use, no before condition → it is a dashboard without an action owner.
+- The smell checks in step 3 fail → a dashboard without an action owner.
 
 ## Do not
 
 - Do not present unvalidated insight as fact.
-- Do not state a figure without a nameable source.
-- Do not publish an asset externally without the responsible human.
-- Do not add a tool to build it. The strategy is a deliberately small operational
-  footprint; broad tool proliferation is an explicit non-bet.
+- Do not state a figure without a nameable source (`od-context` rule 4).
+- Do not publish an asset externally without the responsible human; an agent never marks an asset accepted before the paper reconciliation is signed.
+- Do not add a tool to build it. The strategy is a deliberately small operational footprint.
+
+**Open points:** none recorded; chain detail (handoff contract, generative-AI process, paper reconciliation, sprint practice, agent notes) is in `references/process-chain-practice.md`.

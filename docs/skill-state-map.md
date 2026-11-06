@@ -101,16 +101,16 @@ flowchart TD
 | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | Use Case Support | 🟩 deep | 6 | 2 | 12 |
 | [`od-use-case-solution-evaluation`](../skills/od-use-case-solution-evaluation/SKILL.md) | Use Case Support | 🟩 deep | 6 | 1 | 5 |
 | [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | Information Integration | 🟩 deep | 9 | 1 | 20 |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | Information Integration | 🟩 deep | 11 | 1 | 14 |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | Information Integration | 🟩 deep | 12 | 1 | 14 |
 | [`od-node-red-flows`](../skills/od-node-red-flows/SKILL.md) | Information Integration | 🟩 deep | 15 | 1 | 4 |
 | [`od-sharepoint-list-export`](../skills/od-sharepoint-list-export/SKILL.md) | Analytical Support | 🟩 deep | 3 | 1 | 2 |
 | [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) | — | 🟩 deep | 5 | 1 | 2 |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 8 |
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | Use Case Support | 🟨 documented | 8 | 0 | 18 |
-| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | Use Case Support | 🟨 documented | 9 | 0 | 8 |
+| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | Use Case Support | 🟨 documented | 10 | 0 | 8 |
 | [`od-use-case-standardization`](../skills/od-use-case-standardization/SKILL.md) | Use Case Support | 🟨 documented | 4 | 0 | 13 |
 | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 16 |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | Information Integration | 🟨 documented | 14 | 0 | 17 |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | Information Integration | 🟨 documented | 15 | 0 | 17 |
 | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 7 |
 | [`build-grafana-ops-dashboard`](../skills/build-grafana-ops-dashboard/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 1 |
 | [`od-portfolio-and-savings-analysis`](../skills/od-portfolio-and-savings-analysis/SKILL.md) | Analytical Support | 🟨 documented | 6 | 0 | 11 |
@@ -125,7 +125,7 @@ flowchart TD
 | [`od-application-consulting`](../skills-extension/od-application-consulting/SKILL.md) | — | 🟨 documented | 6 | 0 | 2 |
 | [`od-barrier-triage`](../skills-extension/od-barrier-triage/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
-| [`od-catalog`](../skills/od-catalog/SKILL.md) | — | 🟨 documented | 11 | 0 | 4 |
+| [`od-catalog`](../skills/od-catalog/SKILL.md) | — | 🟨 documented | 12 | 0 | 4 |
 | [`od-context`](../skills/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
 | [`od-cybersec-gate`](../skills/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 11 |

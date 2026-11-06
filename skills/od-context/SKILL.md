@@ -1,15 +1,11 @@
 ---
 name: od-context
 description: >-
-  The shared ground truth for MPEE Operations Digitalization (OD) — the department's
-  vocabulary, its four service lines, who decides what, where the truth actually lives,
-  and the honesty rules every other OD skill inherits. Load this before any OD work:
-  before answering a question about a use case, a machine, a saving, a plant or a
-  scorecard figure; before routing a request to a service line; before quoting any OD
-  number. Use it whenever terms like use case, asset, equipment integration, the data
-  platform, Databricks, MSB,
-  IIoT Edge, MDA/PDA, MES, ODEC, COP, DBVE, IIAE, Digitalization Scorecard, CSP, eCR or
-  SPRINT appear and must resolve to exactly one meaning.
+  Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the four service
+  lines, who decides what, where the truth lives, and the honesty rules every OD skill
+  inherits. Load before any OD work, before quoting any OD number, before routing a request,
+  and whenever terms like use case, asset, MSB, MES, ODEC, COP, DBVE, IIAE, CSP, eCR or SPRINT
+  must resolve to one meaning.
 license: MIT
 metadata:
   id: od-context
@@ -37,31 +33,28 @@ metadata:
 
 # OD context
 
-Every other skill in this registry assumes this file. It exists because inconsistent
-vocabulary and unlabelled numbers are the two ways OD work goes wrong that no amount of
-procedure fixes.
+## Purpose and where it sits
+
+The foundation every other OD skill assumes: one vocabulary, the four service lines, who decides what, where the
+truth lives, and the honesty rules. Serves every process step as the precondition (it is not a step of its own);
+users are all roles and every AI agent, which loads it before any OD work.
+**Inputs:** none (read-only). **Output:** a resolved term, route or source, never a figure (numbers are read live from
+the lists below).
 
 ## What the department does
 
-Operations digitalization turns a problem somebody has on a shop floor into a digital
-asset that plant uses every day — a dashboard, an app, an alert, a report — and then
-rolls the same asset out to the other plants that have the same problem.
+Operations digitalization turns a shop-floor problem into a digital asset the plant uses daily (dashboard, app,
+alert, report) and rolls it out to other plants with the same problem.
+It runs across the manufacturing plants of all regions (count them in the plant master data). Every piece of work is
+recorded against one plant, one of four material families (Rubber, Plastic, Metal, Assembly) and one cross-plant
+digital capability; that three-way coordinate makes a use case findable from another plant.
 
-It runs across the manufacturing plants of all regions (the live plant list is in the
-plant master data; count it there when a number is needed). Every
-piece of work is recorded against one plant, one of four material families (Rubber,
-Plastic, Metal, Assembly), and one cross-plant digital capability. That
-three-way coordinate is what makes a use case at one plant findable from another.
+**Mandate.** Enable the "Road to Smart Factory": measurable value from shopfloor data through lean, standardized,
+scalable digital use cases.
 
-**Mandate.** Enable manufacturing on its "Road to Smart Factory": generate measurable
-value from shopfloor data through digital use cases, delivered maximally value-adding, lean,
-standardized and scalable.
-
-**Not OD's** (refuse or route, do not absorb): functional lead of Plant ME and
-automation-solution development; customer-project industrialization, RFQ and
-P-FMEA/process-parameter standards; energy/facility and green production; tool-center
-operations; ERP / S4HANA ownership. OD supports these with digital solutions but does
-not own them.
+**Not OD's** (refuse or route, do not absorb): functional lead of Plant ME and automation-solution development;
+customer-project industrialization, RFQ and P-FMEA/process-parameter standards; energy/facility and green production;
+tool-center operations; ERP / S4HANA ownership. OD supports these digitally but does not own them.
 
 ## The four service lines
 
@@ -72,8 +65,7 @@ not own them.
 | Project Support & Application Consultancy | Digital investment project kick-off | Integration project managed to acceptance test; application consulted and accepted | IIAE | `od-project-support-consultancy` |
 | Analytical Support Service (incl. Ad-Hoc Analytics) | Analytical request or ad-hoc process-insight need | Process diagnostics / analytical insight delivered | DBVE | `od-analytical-support-service` |
 
-Lane cut rule: **one lane = one trigger + one definition of done + one autonomy
-profile.**
+Lane cut rule: **one lane = one trigger + one definition of done + one autonomy profile.**
 
 ## Vocabulary — one term, one meaning
 
@@ -104,18 +96,15 @@ profile.**
 | SPRINT | The portfolio review that turns a tracked saving into a proven one | — |
 | Process First-Aid Kit | Rapid diagnostic offering inside Use Case Support | Ad-Hoc Analytics (Analytical lane) |
 
-Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment
-Engineering ⟨expansion to confirm⟩ · OESL = Original Equipment Solutions (confirmed —
-the title slide of every ODEC/CoP call deck names it) · OPEX/CBS = Operational Excellence /
-Continental Business System · MIL = Manufacturing Image Library (confirmed 2026-10-22, see
-`od-system-fit-check/references/tool-boundaries.md`) · EMS = Energy Management System,
-**not** "Equipment Management System" (confirmed 2026-10-22, same source — WiriTec) ·
-ME = Manufacturing Engineering.
+Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment Engineering (expansion: see open
+points) · OESL = Original Equipment Solutions (confirmed, named on every ODEC/CoP deck title slide) · OPEX/CBS =
+Operational Excellence / Continental Business System · MIL = Manufacturing Image Library and EMS = Energy Management
+System, **not** "Equipment Management System" (both confirmed 2026-10-22, `od-system-fit-check/references/tool-boundaries.md`)
+· ME = Manufacturing Engineering.
 
 ## Where the truth lives
 
-**Write surface — SharePoint lists.** A correction reaches everyone by being made
-there, not in a downstream copy.
+**Write surface: SharePoint lists.** A correction reaches everyone by being made there, not in a downstream copy.
 
 | List | Holds |
 |---|---|
@@ -128,10 +117,9 @@ there, not in a downstream copy.
 | Legacy Application List | The applications being replaced or retired |
 | Business Cases (AI at Operations) | The strategic business-case set |
 
-**Read surfaces.** The Digitalization Scorecard and the two OD Power BI reports
-(`OD-Report-Use_Case_Integration`, `OD-Report-Equipment_Integration`); **Grafana — a local
-instance per plant**, where most delivered dashboards are actually seen; and the knowledge
-graph, which is rebuilt from the lists and does **not** travel corrections back.
+**Read surfaces.** The Digitalization Scorecard and the two OD Power BI reports (`OD-Report-Use_Case_Integration`,
+`OD-Report-Equipment_Integration`); **Grafana, a local instance per plant**, where most delivered dashboards are seen;
+the knowledge graph, rebuilt from the lists, which does **not** pass corrections back.
 
 **The data path.** Where shopfloor data goes after it is read:
 
@@ -147,21 +135,14 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
                                                         analytics · dashboards · use cases
 ```
 
-**Databricks** is the data platform the IIoT Edge Platform offloads through; the target is an
-**Azure Storage Account**, and the main file format is **Parquet**. ⟨Access paths, workspace
-and container naming, and the catalog layout are not recorded here — to confirm.⟩
+**Global platform, local dashboards.** Databricks and the storage account are the **global** layer (cross-plant
+analysis); **Grafana is a local instance per plant**, built on that plant's data. A line-side dashboard belongs on the
+local instance, a cross-plant question on the global platform. Do not point a plant's Grafana at the global platform,
+and do not build a cross-plant view on a local one.
 
-**Global platform, local dashboards.** Databricks and the storage account are the **global**
-layer, where cross-plant analysis happens. **Grafana is a local instance per plant**, building
-that plant's manufacturing dashboards from that plant's data. A line-side dashboard belongs
-on the local instance; a cross-plant question belongs on the global platform. Do not point a
-plant's Grafana at the global platform, and do not build a cross-plant view on a local one.
-
-**Shop-floor tools.** The tools rolled out at plants include the MSB family
-as the rollout backbone, MDA/PDA, MES, MIL, QFPR, Energy
-Management, RuleEngine, the Data Science Factory, and the three
-machine-integration concepts. A **tool** is a system a plant uses; a **connector**
-reaches a machine. They are never the same row.
+**Shop-floor tools.** The MSB family (rollout backbone), MDA/PDA, MES, MIL, QFPR, Energy Management, RuleEngine, the
+Data Science Factory and the three machine-integration concepts. A **tool** is a system a plant uses; a **connector**
+reaches a machine; never the same row.
 
 ## Who decides
 
@@ -181,52 +162,39 @@ The function proposes; other people decide. Most gates sit outside OD.
 
 ## The honesty rules — non-negotiable, inherited by every OD skill
 
-1. **Tracked is not proven, and the two are never added together.** Tracked and proven
-   savings are both true about the same portfolio; quoting the first without the
-   second is the easiest way to lose the audience that matters. Read both live from
-   the saving rows before quoting either.
-2. **Built is not handed over, and handed over is not in use.** `IMPLEMENTED` and
-   `PRODUCTIVE` are separate statuses because they fail separately.
-3. **Absence is not a zero.** Many use cases carry `UNKNOWN` priority and many
-   saving rows carry no reliability (count them live). Reading those as "low" is the most frequent way
-   to be wrong about this portfolio.
-4. **Never state a figure without a nameable source**, and never invent one. Mark
-   unknowns as `⟨… — to confirm⟩` rather than filling them.
-5. **Version history carries text the current record does not.** Rationale, blockers and
-   comments were often written during active work and later tidied back to `-`.
+1. **Tracked is not proven; never add the two.** Both are true of the same portfolio; quoting one without the other
+   loses the audience that matters. Read both live from the saving rows.
+2. **Built is not handed over, and handed over is not in use.** `IMPLEMENTED` and `PRODUCTIVE` fail separately.
+3. **Absence is not a zero.** Many use cases carry `UNKNOWN` priority and many saving rows no reliability (count live);
+   reading those as "low" is the most frequent error about this portfolio.
+4. **Never state a figure without a nameable source**, never invent one. Mark unknowns `⟨… — to confirm⟩`.
+5. **Version history carries text the current record does not** (rationale, blockers, comments later tidied to `-`).
 6. **The graph is a read surface.** Corrections go to the SharePoint list.
 7. **Never act on an external machine connection** without Cyber Security / OT sign-off.
 
-## Reference
+## Handoff
 
-| File | Use it for |
+Other skills take from here a resolved term, a gate route (`od-decision-routing`) or a source list. Blocked work goes to
+the OD lead; strategy, priority and rollout matters to the role named in the current approval policy (look up),
+technical ones may use the **COP**; ODEC is historical, not a route. In the OD lead's absence the next-higher
+management role decides prioritization and rollout within the roadmap; investment stays with the approval body.
+
+## Human gate and AI-agent notes
+
+An agent may resolve terms, quote a figure only from a live list (cite list and export date), and route. It never
+states an unsourced figure, writes to the graph, or acts on an external machine connection. Humans decide every gate
+in the table above.
+
+## Pitfalls and open points
+
+- Recurring errors: honesty rules 1, 3 and 6, and mixing the local Grafana with the global platform.
+- **Open points (to confirm):** Databricks access paths, workspace and container naming, catalog layout; MPEE expansion; named owners per lane (role labels only today); lane target lead times; budget figure; MES / MDA-PDA interface detail, write rights and freshness. Resolved gaps: `references/swot-and-dependency-seams.md`.
+
+## References
+
+| File | Open when |
 |---|---|
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Why the context layer is the precondition for agent work, the currency rules per field, the three demand shapes, plant tiering (first mover, fast follower), the AI maturity sanity check, handoff contract, agent notes |
-| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Use the SWOT as a filter on a proposed action (ids, so-what, derived moves); read the dependency seams and their mode (tandem, consultation, information); the corrections table and the open-gaps queue |
-| [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | What the knowledge graph is and is not; node kinds (region, family, process group, capability, cluster tag) and how they relate; provenance of descriptions |
-| [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | Find content in non-Markdown files via the source catalogues; the reference library tiers; using published benchmarks without overclaiming; provenance tags for agent output |
-
-## Escalation
-
-Blocked work → OD lead; strategy, priority and rollout matters go to the deciding role or forum
-named in the current approval policy (look up), technical ones can use the **COP**. ODEC is historical and no longer a route. In the OD lead's absence the next-higher management role
-decides prioritization and rollout within the agreed roadmap; investment commitments
-stay with the competent approval body.
-
-## Open gaps carried from the source
-
-Named owners per lane (role labels only today) · lane target lead times · budget figure ·
-MES / MDA-PDA interface detail, write rights and freshness.
-
-**Resolved 2026-10-22/23, no longer open:** the value-delivery-cycle metric is confirmed
-not captured in any system today (`od-scorecard-reporting`) rather than merely unconfirmed;
-the adoption-confirmation mechanism is the three-tier evidence ranking in
-`od-handover-and-adoption/references/evidence-of-adoption.md` (system usage log > named
-owner's dated statement > third-party observation).
-
-## Provenance
-
-Derived from the `ops-knowledge-graph` bundle: `OperationsDigitalization-Department/`
-(charter, service catalog, decision rights, glossary, resources) and `10-Department/`
-(operating model, systems of record, roles and organization). This skill carries no portfolio figures; every number is
-read live from the lists named above.
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Currency rules per field, three demand shapes, plant tiering, AI maturity check, handoff contract |
+| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Testing an action against the SWOT; dependency seams and their mode; corrections table; open-gaps queue; resolved gaps |
+| [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | Reading the knowledge graph: node kinds, relations, provenance of descriptions |
+| [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | Finding content in non-Markdown sources; reference library tiers; benchmarks without overclaiming; provenance tags |

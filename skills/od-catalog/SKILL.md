@@ -60,11 +60,7 @@ Read `od-context` first.
 
 Merged from: `od-catalog`.
 
-**Status: draft scaffold.** The new-state flow names three net-new builds that belong together: a plant-facing catalog of
-proven use cases a plant can pick and run without OD labour, a standardized connection-kit list a plant can match a use
-case against and order, and a self-check to go live. No catalog data set, no kit list (kits, prices, lead times) and no
-finished guardrail set exists in the sources. This skill defines how a request is matched, what an entry must hold and what
-the plant checks before go-live. It states no entry, names no kit and presents no guardrail set as complete.
+**Status: draft scaffold.** The new-state flow needs three net-new builds that belong together: a plant-facing catalog of proven use cases, a standardized connection-kit list a plant can match a use case against and order, and a self-check to go live. No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources. This skill defines how a request is matched, what an entry must hold and what the plant checks before go-live; it states no entry, names no kit and presents no guardrail set as complete.
 
 ## Where the flow puts it
 
@@ -89,17 +85,7 @@ If no catalogued entry fits: Lane 2 (OD-led). If no standard system fits: Lane 3
 
 # Part A - Pick a use case and graduate (steps 1a1, 1b1, 26)
 
-## What exists today to build on
-
-| Source | What it gives |
-|---|---|
-| `od-use-case-standardization` | The eleven cross-plant capability templates, the reference library, the cluster tags and the CSP gate - run by OD, not by plants |
-| Knowledge bundle, `Decision rights` | Standard enough to roll out across plants is the **CSP** decision, recorded per reference-library entry. The bundle states how many entries have been decided so far, split into `Yes` and `No` (check its date and re-count in the vault) |
-| Same | A use case has a plant owner, and the plant decides whether it goes into daily use |
-
-So today, at most the entries with a recorded CSP `Yes` are standard enough for another plant to take as they are. To see the
-current state, count the library entries in `Graph/Use Cases` by `csp_decision` (`Yes`, `No`, no recorded decision) and name
-those with a `Yes` ([`references/library-and-csp-state.md`](references/library-and-csp-state.md)). Re-count before quoting.
+What the catalog builds on, and how to count library entries by CSP decision live: [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md), [`references/library-and-csp-state.md`](references/library-and-csp-state.md). Re-count before quoting; at most the entries with a recorded CSP `Yes` are standard enough to take as they are.
 
 ## What counts as "catalogued"
 
@@ -131,15 +117,6 @@ graduation means the prototype has become a configurable, packaged application. 
 graduate. Record the plant's utilization moment in the entry; a deployed but unused use case is not a success.
 Stages, archetypes and entry content: [`references/process-chain-practice.md`](references/process-chain-practice.md) Part A.
 
-## References for Part A
-
-| File | Use it for |
-|---|---|
-| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Counting the library and CSP decisions live, finding entries with a recorded `Yes`, which of the four conditions the vault shows |
-| [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: delivered versus wanted coverage, peer plants live, data each needs, boundary table, typical screen components |
-| [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Placement traps (same title, mis-templated, boundary pairs), what "Other Use Cases" resolves into, the documentation standard that makes a peer a usable match, choosing the reference solution |
-| [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | The match record with an illustrative worked example |
-
 ---
 
 # Part B - Pick a standardized system (step 1b1, hand to 1b2 / 1b3)
@@ -147,36 +124,9 @@ Stages, archetypes and entry content: [`references/process-chain-practice.md`](r
 Branch 1b only: after the match record, flow continues with cost template and approval (`od-decision-routing`), "Order and connect"
 (`od-equipment-integration`), then "Apply template and go live" (Part C).
 
-## What exists today to build on
+Sources and the route-candidate pattern (a route "written in full and proven in at least two plants"; none has a kit, price or lead time on record, so they are **route candidates**, not standard systems): [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md).
 
-| Source | What it gives |
-|---|---|
-| `od-equipment-integration`, `decision-paths.md` | Integration routes per controller, protocol and platform, with their status |
-| Knowledge bundle, objectives | The aim of a lean, standardized system footprint |
-| Knowledge bundle, decision rights | Equipment-integration go-ahead sits with the integration owner and the plant, per investment plan, with Cyber Security sign-off for an external connection |
-| `registry.yaml`, open gaps | Some routes are marked TODO (for example Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); some plants have no integration concept recorded (read the open gaps live) |
-
-**Pattern from mining the vault:** a route meets the proposed test when it is "written in full and proven in at least two plants"
-(typically Siemens S7/TIA and Rockwell, on the edge and on the aggregation server; re-derive live). None has a kit, price or lead
-time on record, so they are **route candidates**, not yet standard systems. Routes in use at only one or two plants with an unwritten
-procedure (typically some Beckhoff, Omron, B&R, Bachmann and Modbus routes) are not candidates.
-
-## What a standardized-system entry must hold (proposal)
-
-| Field | Source of the value |
-|---|---|
-| Machine class: controller vendor and model, protocol | machine record |
-| Integration route | `od-equipment-integration`, `decision-paths.md` - only a route written down in full counts |
-| Kit contents (hardware, software) | ⟨to be supplied⟩ - the only hardware fact on record: for the edge route only the large edge device is approved |
-| Indicative cost | ⟨to be supplied⟩ - feeds the cost template |
-| Lead time (procurement, Cyber Security) | ⟨to be supplied⟩ |
-| Cyber Security status | ⟨to be supplied⟩ |
-| Validated at | plants where machines are recorded `INTEGRATED` through the route - count live ([`references/validated-routes.md`](references/validated-routes.md), state the Machine List export date); ⟨plants where the *kit* runs⟩ to be supplied |
-| What it is / what it is **not** | the tool's boundary sentences, so a request can be tested against them |
-| Integration recommended if | the trigger condition, tied to a named use case |
-| Cost class | free / per-connector / per-plant development - a class, not a number |
-| Operations concept | named operations owner, service and support level at the plant - without it no rollout match |
-| Known blockers | `od-equipment-integration`, `barrier-classes.md` |
+**Entry fields** (machine class, route, kit, cost, lead time, Cyber Security status, validated at, is / is-not, recommended-if, cost class, operations concept, known blockers): [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md); blank entry in `assets/standard-system-entry.md`.
 
 A **standardized system** is, until the OD lead says otherwise, a route written down in full **and** a purchasable kit. A route
 marked TODO or stub is not a standard system. Any route that is not class A in `validated-routes.md` gets no entry until the procedure is written (B) or a second route is proven (C).
@@ -194,16 +144,6 @@ marked TODO or stub is not a standard system. Any route that is not class A in `
 
 Recommendation vocabulary: recommended / recommended if ⟨condition⟩ / not recommended / not available, each with date and source.
 **Operations-concept gate:** a tool without a named operations owner, service and support level is not matched for rollout. Security-relevant (connects to central systems, holds operational or customer data, profound effect on manufacturing) means `od-cybersec-gate`.
-
-## References for Part B
-
-| File | Use it for |
-|---|---|
-| [`references/validated-routes.md`](references/validated-routes.md) | Classifying a route, written **and** proven: A written and proven, B proven but unwritten, C fallback or single plant, D none; counting evidence live |
-| [`references/tools-and-footprint.md`](references/tools-and-footprint.md) | The three integration concepts, shop-floor tools, reading rollout status live, what lean footprint means for a kit |
-| [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: licence, support, criticality, cyber-security position of the legacy application list |
-| [`references/tool-boundaries-mda-mes-mil-msb-qfpr.md`](references/tool-boundaries-mda-mes-mil-msb-qfpr.md) | Is / is-not / recommended-if for MDA/PDA, MES, MIL, MSB, QFPR, traps, decision shortcuts |
-| [`assets/standard-system-entry.md`](assets/standard-system-entry.md) | Blank entry, route-candidate template, system match record |
 
 ---
 
@@ -240,18 +180,9 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 5. All passed - report it. **The plant decides to go live** (`PRODUCTIVE`); this skill never does.
 6. After go-live, adoption is checked as `od-handover-and-adoption` describes.
 
-## References for Part C
-
-| File | Use it for |
-|---|---|
-| [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidates G8 to G18 for the screen, each with source rule, failure pattern prevented and a proposed block-or-warn setting |
-| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | Recorded failure patterns mapped to the guardrail that would have caught them; proposed G19; who to call when a guardrail fails; utilization expectation after go-live |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Part C: P1 to P7, how the check is run, handoff contract, agent notes |
-| [`assets/go-live-check-record.md`](assets/go-live-check-record.md) | The record: G1 to G19, content check against the template, post-go-live fields, result line |
-
 ---
 
-## Open - what only the OD lead can supply
+## Open points - what only the OD lead can supply
 
 - ⟨Where the catalog lives and in what form (list, library, portal)⟩ and ⟨who maintains it⟩. Partial answer from the vault: the nearest thing today is the SharePoint list `UseCase-Library` (the CSP field lives there) read through the eleven template pages in `Graph/Use Case Views`; no plant-facing portal is recorded.
 - ⟨Whether a recorded CSP `Yes` is the right threshold for self-service⟩, given how few entries may have one.
@@ -265,7 +196,7 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 - ⟨The utilization target after go-live⟩ for a self-served use case: the field is recorded, not a target.
 - ⟨Who OD names as the contact when a guardrail fails⟩: nearest recorded answer is by role (IIAE, DBVE, OD lead, Plant IT) in `references/failure-cases-and-routing.md`.
 
-## Do not
+## Pitfalls
 
 - Present a reference-library entry as catalogued without a recorded CSP `Yes`.
 - Invent entries, counts, kits, prices, lead times, savings or impact figures. Do not accept an unsourced figure to pass G4.
@@ -273,3 +204,20 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 - Let a plant self-serve a use case, or propose a system, outside the lean footprint without `od-system-fit-check`.
 - Take the CSP decision, approve a connection, sign off Cyber Security, or decide go-live for the plant.
 - Let a plant go live with a failed or unchecked guardrail, or present G1 to G7 as complete.
+
+## References
+
+| File | Open when |
+|---|---|
+| [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md) | What the catalog builds on, route-candidate pattern, standardized-system entry fields |
+| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Counting library and CSP decisions live, which of the four conditions the vault shows |
+| [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: delivered vs wanted coverage, peer plants, data needed, boundaries, screen components |
+| [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Placement traps, what "Other Use Cases" resolves into, documentation standard of a usable peer |
+| [`references/validated-routes.md`](references/validated-routes.md) | Classifying a route A to D, counting evidence live |
+| [`references/tools-and-footprint.md`](references/tools-and-footprint.md) | Integration concepts, shop-floor tools, rollout status, lean footprint for a kit |
+| [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: licence, support, criticality, cyber position |
+| [`references/tool-boundaries-mda-mes-mil-msb-qfpr.md`](references/tool-boundaries-mda-mes-mil-msb-qfpr.md) | Is / is-not / recommended-if for MDA/PDA, MES, MIL, MSB, QFPR |
+| [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidates G8 to G18 with source, failure prevented, block-or-warn |
+| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | Failure patterns mapped to guardrails, proposed G19, who to call, post-go-live utilization |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Part A graduation stages; Part B edge vs OPC UA client; Part C P1 to P7, handoff, agent notes |
+| `assets/catalog-match-record.md`, `assets/standard-system-entry.md`, `assets/go-live-check-record.md` | Match record, system entry, go-live record |
