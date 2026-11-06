@@ -134,15 +134,14 @@ shift ends; automatic MTTR and MTBF). An unclean KPI is flagged, not reported.
   high-risk idea build the cheapest test that teaches the most important thing (`od-prototype-poc`).
 - Rule-based per-machine solutions do not generalize; a learned approach is justified when generalization and influencers are the
   value. A prototype that works for one plant needs a containerized, more flexible algorithm to scale.
-- Dashboard tool: one strategy keeps the open dashboard tool for plants, another plans a BI tool as standard; check `od-context`
-  for the current standard before choosing `<to confirm>`.
+- Dashboard tool: Grafana for operations and near-real-time views, Power BI for management reporting; the choice follows the audience.
 
 ## Pitfalls and lessons
 
 - Per-plant, unharmonized dashboards are a standardization debt.
 - Delivery without explanation, no utilization measurement, no named owner: not done.
 - Strategy material counts dashboard use cases as full transparency while the gap analysis shows dashboard-type use cases
-  without savings. The safer reading: transparency is an enabler, savings need the action owner `<to confirm>`.
+  without savings. The safer reading: transparency is an enabler, savings need the action owner.
 - "Just do it" use cases on integrated equipment move fastest; copy from the library rather than design anew.
 
 ## Questions to ask

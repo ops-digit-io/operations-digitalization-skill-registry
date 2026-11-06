@@ -96,7 +96,7 @@ both before concluding anything.
 |---|---|---|
 | **Fits the lean footprint** | A covering tool exists and is available at this plant | Hand back to the calling skill — no further action |
 | **Redesign onto a lighter tool** | The need is covered by a lighter tool than the request assumed | Re-scope the request onto that tool before defining it any further |
-| **Escalate as exception** | The need is genuinely MES/EMS-shaped, or needs a tool not yet deployed here with no substitute | `od-decision-routing`'s "Tool/system rollout" decision row — note its counterpart is itself still `⟨to confirm⟩`; name the OD lead at minimum |
+| **Escalate as exception** | The need is genuinely MES/EMS-shaped, or needs a tool not yet deployed here with no substitute | `od-decision-routing`'s "Tool/system rollout" decision row — the OD lead decides in tandem with the IT-responsible role of the business side |
 
 Fill [`assets/system-fit-check.md`](assets/system-fit-check.md) as the check happens — five
 minutes, not a workshop. When the plant may already run a legacy application or a tool that covers

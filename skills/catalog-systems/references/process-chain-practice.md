@@ -22,7 +22,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
    - image library: stores and serves images and inspection results; is not for process parameters and does not run model training;
    - service bus: carries and routes signals; it does not calculate or interpret them; edge platform: not a substitute for data acquisition or an execution system.
 3. **Heavy request disguised as a dashboard.** Order or recipe execution, labels, batch genealogy, material validation are execution-system territory. Map the asked functions onto the shop-floor function list
-   (data acquisition, scheduling, equipment, materials, information, performance analysis, energy) before choosing a system. Where performance analysis overlaps with an execution system, no decision rule is given: `<to confirm with the OD lead>`.
+   (data acquisition, scheduling, equipment, materials, information, performance analysis, energy) before choosing a system. Where performance analysis overlaps with an execution system (MES), choose the lighter solution and name the overlap explicitly; do not build in parallel what the execution system already does.
 4. **Pick the route by data class** (feeds `od-equipment-integration`, `od-signal-standardization`):
 
    | Data class | Examples | Default hub | Note |
@@ -41,7 +41,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
 ## 2. Decision rules
 
 - **Footprint first.** A standard system is a validated route plus a purchasable kit (see `SKILL.md`). A tool recommendation must name the **defined use case** behind it; a recommendation without a use case is not made.
-- **Use one controlled recommendation vocabulary.** The decks use several for the same tool (planned, needed for several use cases, not necessary, not recommended as of now, stop / continue). Until the OD lead fixes one, write the status plus its date plus its source and mark `<vocabulary to confirm>`.
+- **Use one controlled recommendation vocabulary.** The scale is: recommended / recommended if ⟨condition⟩ / not recommended / not available. The decks use other words for the same tool (planned, needed for several use cases, not necessary, stop / continue); translate them to this scale. Every status carries its date and its source.
 - **Operations-concept gate.** A tool without an operations concept (named operations owner, service level, support level, change and incident process) is not matched for rollout. The decks name "operations concept missing" as the most repeated barrier;
   rollout needs an operations concept and a named run owner; without both, stop until they exist. A request that is really a service gap on an existing tool is not a use-case match - route it to the system and operations-concept discussion.
 - **Security-relevant?** Indicators: connects to central systems or holds relevant data; profound effect on manufacturing; holds operational or customer data (exports, pictures, quality data). Yes means the cyber-security route applies (`od-cybersec-gate`), including patch and update management; two paths: substitute the solution, or approve it.

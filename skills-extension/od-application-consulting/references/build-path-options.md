@@ -56,7 +56,6 @@ a proposal and not an approved programme. Use it to understand where 3a is headi
 ## Open
 
 - `⟨Who decides among 3a.1 to 3a.4⟩` and the criteria; the flow shows them as options after the gate.
-- `⟨Platform on which apps are deployed⟩`: the VSM skill map says "Container Orchestration Platform
-  ⟨confirm platform⟩".
+- The platform on which apps are deployed ("Container Orchestration Platform" in the VSM skill map) is the edge runtime of the IIoT Edge platform (Concept 3).
 - `⟨Lead times⟩` for IT demand, Cyber Security and external development: the flow marks them as weeks
   and leaves the figures open.

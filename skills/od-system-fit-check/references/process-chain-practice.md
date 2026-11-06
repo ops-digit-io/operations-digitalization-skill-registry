@@ -129,11 +129,13 @@ lane chosen, cost class noted, verdict named with the next step.
 ## 6 Contradictions left open
 
 - Performance analysis (OEE) is assigned both to the edge or analytics side and to the MES side ("may overlap with MES
-  functionalities"); no decision rule is given. Treat as `<to confirm>`; default to the lighter side and name the overlap.
+  functionalities"). Choose the lighter solution and name the overlap explicitly; do not build in parallel what the execution
+  system (MES) already does.
 - Energy monitoring: cloud tool with data logger against edge platform plus service bus; no deck says which is preferred for a
   new plant. `<to confirm>` with the OD lead.
-- Recommendation vocabulary differs for the same tool ("not necessary", "not recommended as of now", stop or continue). Use the
-  three verdicts of this skill and quote the source wording.
+- Recommendation wording differs for the same tool in the sources ("not necessary", "not recommended as of now", stop or
+  continue). State the tool recommendation on one scale: recommended / recommended if <condition> / not recommended / not
+  available. Each status carries its date and source; quote the source wording next to it.
 
 ## 7 AI agent operating notes
 

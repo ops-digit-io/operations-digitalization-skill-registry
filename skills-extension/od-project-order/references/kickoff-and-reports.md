@@ -69,7 +69,8 @@ decision request (`od-decision-routing`) with the cost of not deciding.
 
 ## Intake variant: customer-mandated program
 
-Source support is thin, so treat this as a variant to confirm with the OD lead.
+A customer-mandated programme has its own intake branch with its own KPI (deadline and compliance driven); it is not
+forced through the savings test. Required fields: customer requirement, deadline, scope, owner.
 
 - **Different driver.** A customer mandates a digital process-control framework with staged compliance
   targets; the case is not driven by savings. The business-case chapter is replaced by the mandate, its stages
@@ -87,4 +88,3 @@ Source support is thin, so treat this as a variant to confirm with the OD lead.
   what was shown to the customer, and the options with three separate deadlines: decision date,
   infrastructure-change deadline, customer deadline; plus the named people who can support local IT.
   PROPOSAL: use this as the escalation attachment to the decision request.
-- `<Intake branch and owner>`: the chain has no branch for this driver; confirm where a mandated program enters.

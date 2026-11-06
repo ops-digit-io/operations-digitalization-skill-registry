@@ -22,7 +22,7 @@ Draft. A human submits it. The evaluation board decides. This package does neith
 1  WHY IT (the rule that sends it here)
    Which platform OD does not own is touched:           Source: Decision rights, demand route
    Spend gate (eCR) needed in parallel?  yes / no       Threshold step: ____ (od-decision-routing)
-   Tool or system rollout decision involved?  yes / no  (OD lead decides; counterpart ⟨to confirm⟩)
+   Tool or system rollout decision involved?  yes / no  (OD lead decides, in tandem with the IT-responsible role of the business side)
 
 2  REQUIREMENT                       (od-requirements-breakdown)
    Requirement link (ten sections) / epic and stories link:

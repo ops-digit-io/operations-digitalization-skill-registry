@@ -44,8 +44,8 @@ Left out because no use case waits for it: ⟨which and why⟩.
 | Internal effort | ⟨priced or not, per OD lead⟩ | ⟨⟩ | ⟨⟩ | ⟨OD lead⟩ |
 | **Total** | | ⟨sum of sourced lines only; list the unsourced lines beside it⟩ | | |
 
-Total amount and its scope (per item / plant / programme): ⟨⟩. Route: eCR ⟨approver per the current approval policy; route open where the recorded limits
-overlap⟩. Digitalization investment planning threshold: ⟨to confirm⟩.
+Total amount and its scope (per item / plant / programme): ⟨⟩. Route: eCR ⟨approver per the current approval policy; where the recorded limits overlap, the stricter (higher) route
+applies and Controlling may downgrade⟩. Digitalization investment planning threshold: ⟨to confirm⟩.
 
 ## 3 Benefit side
 

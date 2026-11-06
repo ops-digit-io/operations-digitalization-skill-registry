@@ -38,7 +38,7 @@ Deck-derived practice for step 26 (graduate) and the analytical lane's step 6. `
 - **Go forward / lead change.** A candidate that depends on a shared enabler that does not exist yet waits for it and is recorded as such; an exploratory candidate is a human call.
 - **Value ordering.** Rank competing promotion candidates by savings first (value, ROI); generalization potential and effort are secondary criteria; dependency order is the tie-breaker (`od-use-case-prioritization`).
 - **Kill with a reason.** Record why a candidate was stopped (no data foundation, insufficient saving, another party collects the data) so it is not raised again.
-- **A knowledge or troubleshooting assistant** does not fit the before / after and savings definition of a use case; no step classifies it. Do not force it through promotion; mark `<classification to confirm>`.
+- **A knowledge or troubleshooting assistant** does not fit the before / after and savings definition of a use case; it is decided case by case at intake (`od-use-case-intake-triage`): with a measurable before and after it follows the use-case route, without one it is tracked as an initiative with an owner and a usage measure. Do not force it through promotion as a counted saving.
 
 ## 3. Handoff contract
 

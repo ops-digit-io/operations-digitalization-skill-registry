@@ -34,7 +34,7 @@ not at a summary of it.
   was never built as its own skill (`docs/vault-alignment.md` still lists it "not built");
   this lane's own step 4 is as far as that work goes today.
 - **Tool/licensing decision owner** — `od-decision-routing`'s "Tool/system rollout" row
-  still carries its own `⟨counterpart to confirm⟩`; this lane's wait state inherits the
-  same open question rather than answering a different one.
+  names the IT-responsible role of the business side as the counterpart in the tandem; this lane's wait state
+  uses the same counterpart.
 - **The end-to-end flow owner** — tracked separately in `registry.yaml`'s `open_gaps`,
   unchanged by this pass.

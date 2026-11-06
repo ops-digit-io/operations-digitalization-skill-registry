@@ -88,8 +88,9 @@ description. Time-series data is not needed to generate a proposal, but is neede
 - **Standard or special.** Cross-process standard (independent of the core process but with constraints and integration work
   because data models differ), per-process standard (depends on process values of one core process, fewest constraints, scales
   fastest), or non-standard unique (factory conditions, legacy system, not scalable beyond the site).
-- **Fit of the base model.** Greenfield, discrete, time-series-centric machines fit; brownfield with many controllers and
-  continuous processes need other models. Say which applies `<to confirm: roadmap material calls the base model standard for all connected machines>`.
+- **Fit of the base model.** The base model applies to discrete manufacturing; greenfield, discrete, time-series-centric machines fit,
+  brownfield with many controllers may need other models, and continuous processes check the fit before a standard answer is given
+  (they may need another model). Say which applies.
 - **Scale known machine types.** Scale known machine types first; at most one unknown machine type per new deployment; document the
   process per controller type and write an integration standard.
 - **Never bury a per-plant fix-up** in a function or a query (see Do not in the skill); a mapping layer is the place for it.

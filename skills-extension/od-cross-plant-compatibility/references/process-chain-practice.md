@@ -15,7 +15,7 @@ Deck-derived practice for step 3b4 (proposed) and for the standardization check 
 ## 1. Method in practice
 
 1. **Name the archetype first.** A cross-process standard is independent of the core process but has limits (for example not meaningful for continuous processes) and needs integration work because data models differ. A per-process standard depends on process values of one core process and scales fastest. A unique case is not tested for cross-plant use at all.
-2. **Check the model scope before the plants.** The foundation (base) data model holds no process values and was found to fit **greenfield, discrete-process, time-series-centric machines**. Brownfield with many controller types and continuous processes needed other models. Roadmap material says "all connected machines"; the thesis-level evidence says a minority. Safer reading: test fit per machine class `<to confirm>`.
+2. **Check the model scope before the plants.** The foundation (base) data model holds no process values and was found to fit **greenfield, discrete-process, time-series-centric machines**. Brownfield with many controller types and continuous processes needed other models. The base model applies to discrete manufacturing; for continuous processes check the fit before a standard answer is given, as another model may be needed.
 3. **Check the production-metadata relation.** Use cases that need order, part, batch or recipe cannot be served by signals alone. Where no standard execution or planning system exists, the relation is the blocker. First look at what object data the controller already carries; route a missing relation as a data gap.
 4. **Test the model layering.** Public companion specifications (types) -> company extensions for generalized use cases -> plant instance model; instances only from predefined types; models kept machine-readable and documented with context. Test: can every plant's machine of the process family be instantiated from the same type and expose the same views?
 5. **Process-specific model creation** (the standard fix for a per-process standard): survey public standards; draft the in-house extension in a modelling editor; combine with the public standard and make an example instance for one machine; review and iterate with process engineering until release; instantiate per machine and roll out. Order across processes can be set by a plant vote.
@@ -65,7 +65,7 @@ Deck-derived practice for step 3b4 (proposed) and for the standardization check 
 - **Reputation cost.** An unsuccessful first attempt at difficult machines made plants reluctant; stabilize trust before adding use cases.
 - **Relocating simple machines repeatedly** delays integration; check layout stability.
 - **Integrating an additional system without a standard integration and interface layer yields no benefit;** the processes were not understood.
-- **Customer-driven programs** (a customer mandating a process-control framework with staged compliance targets) have another driver than savings and another KPI (compliance progress); do not force them through the savings-driven grid `<to confirm>`.
+- **Customer-driven programs** (a customer mandating a process-control framework with staged compliance targets) have another driver than savings and another KPI (compliance progress); they have their own intake branch and are not forced through the savings-driven grid. Required fields: customer requirement, deadline, scope, owner.
 
 ## 6. Questions to ask and definition of done
 

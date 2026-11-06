@@ -209,9 +209,9 @@ The function proposes; other people decide. Most gates sit outside OD.
 ## Escalation
 
 Blocked work → OD lead; strategy, priority and rollout matters go to the deciding role or forum
-named in the current approval policy (look up), technical ones can use the **COP**. ODEC is historical and no longer a route. In the OD lead's absence ⟨deputy — to confirm⟩
+named in the current approval policy (look up), technical ones can use the **COP**. ODEC is historical and no longer a route. In the OD lead's absence the next-higher management role
 decides prioritization and rollout within the agreed roadmap; investment commitments
-wait for the OD lead.
+stay with the competent approval body.
 
 ## Open gaps carried from the source
 

@@ -121,9 +121,6 @@ traceability.
 
 - `⟨Budget threshold of the digitalization investment planning decision⟩` - the decision-rights table
   leaves it open. Supplier: OD lead.
-- `⟨Which spend route applies where the recorded limits overlap⟩` - the ladder as recorded overlaps there
-  (see the approval route). Supplier: OD lead / controlling.
-- `⟨Counterpart of the OD lead for tool and system rollout decisions⟩` - open in the decision rights.
 - `⟨Unit costs for edge devices, OT hardware, licences, connector development⟩` - none are recorded in
   the sources read. Supplier: IIAE, from supplier quotes.
 - `⟨The "lightweight approval" limit for a Lane 1b standardized system⟩` - the new-state flow says

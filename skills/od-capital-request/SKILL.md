@@ -116,7 +116,7 @@ has been submitted or approved by the agent.
 
 - ⟨eCR form, fields, system and who may file⟩: not in any source. OD lead with BA Operations / Finance.
 - ⟨Approval lead time⟩: the skill-map queue is a placeholder. OD data.
-- ⟨Route and approver where the recorded thresholds overlap, and for small spend below them⟩ ([`references/spend-route.md`](references/spend-route.md)). OD lead.
+- ⟨Route and approver for small spend below the recorded thresholds⟩ ([`references/spend-route.md`](references/spend-route.md)). OD lead.
 - ⟨Cost rates (people, hardware, compute) the department should use⟩: the vault cases use their own FTE rates; none is
   an OD standard. Finance.
 - ⟨The investment planning template⟩ and ⟨the use-case business-case template⟩ (`00-core/15-resources.md`). DBVE / OD lead.

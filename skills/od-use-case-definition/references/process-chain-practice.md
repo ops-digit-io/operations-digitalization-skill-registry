@@ -69,8 +69,9 @@ to step 22 (`od-requirements-breakdown`, `od-data-availability-check`, `od-use-c
   input / assumption / market / unknown; finance-proven values stay separate.
 - **Tool recommendations need a use case.** Recommend a tool for a plant only against a named defined use case
   ("based on defined quality use case"); no named use case, no recommendation. Use one status vocabulary
-  (done / ongoing / not available) crossed with one recommendation vocabulary; `<to confirm>` the controlled
-  list, because plant summaries and the strategy table use different words for the same tool.
+  (done / ongoing / not available) crossed with one recommendation scale: recommended / recommended if ⟨condition⟩ /
+  not recommended / not available. Plant summaries and the strategy table use different words for the same tool;
+  translate them to this scale, and keep date and source with each status.
 - **Machine not connected:** the use case is recorded as demand with an integration dependency; it is not
   defined down to dashboards. Use cases are available only for connected machines; a requirement beyond a
   sprint's frame becomes an additional phase, not scope creep.

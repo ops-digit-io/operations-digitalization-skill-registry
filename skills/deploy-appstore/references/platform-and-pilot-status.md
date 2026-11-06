@@ -45,14 +45,13 @@ notes for their current scope, sizing and criteria; do not quote them from memor
 
 Do not describe the app store as "the platform" in a package for a plant. Say **"pilot"** where that is the level.
 
-## Are the "Container Orchestration Platform" and the IIoT Edge runtime the same thing?
+## "Container Orchestration Platform" and the IIoT Edge runtime
 
-The flow marks "Container Orchestration Platform" as "to confirm". The vault allows a better-grounded answer than the scaffold gave, though not a final one:
+The flow's term "Container Orchestration Platform" means the edge runtime of the IIoT Edge platform (Concept 3); use both terms as synonyms. The sources describe two layers:
 
-- The initiative note calls the app store platform **CMO, Container Management & Orchestration**. This is the nearest match by name to the flow's term.
+- The initiative note calls the app store platform **CMO, Container Management & Orchestration** (registry, source host, GitOps catalog).
 - The same note lists the **IIoT edge runtime as a prerequisite that is "already deployed"**. The WIP landscape says the services would run "on the edge K8s runtime that already exists" and be "published through the same container registry and GitOps flow".
-- So the sources describe **two layers**: the edge runtime (Kubernetes at the plant, Concept 3) is where an app runs; the app store / CMO (registry, source host, GitOps catalog) is how an app gets there. They are related, but they are not the same thing.
-- ⟨Whether the flow's "Container Orchestration Platform" means CMO, the edge runtime, or both⟩ stays for the OD lead. Until then, name the target the way the requester does and record both layers in the package (see [../assets/deployment-package.md](../assets/deployment-package.md)).
+- So there are **two layers**: the edge runtime (Kubernetes at the plant, Concept 3; the "Container Orchestration Platform") is where an app runs; the app store / CMO is how an app gets there. Record both layers in the package (see [../assets/deployment-package.md](../assets/deployment-package.md)).
 
 ## What this means for the four sourcing routes of Lane 3a
 

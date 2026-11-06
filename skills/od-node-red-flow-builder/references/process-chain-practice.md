@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 Derived from the Operations Digitalization slide decks, abstracted into process guidance. Examples are illustrative and use
 `<placeholders>`. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`. The decks call the transformation tool the
-"rule engine"; this registry builds on Node-RED instances `<to confirm that they are the same thing>`.
+"rule engine"; in these skills the rule engine is Node-RED (the roadmap's term and the Node-RED instances are the same thing).
 
 ## Where it sits
 

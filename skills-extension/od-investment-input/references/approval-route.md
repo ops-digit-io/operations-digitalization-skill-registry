@@ -19,7 +19,7 @@ the rows are still verified and not past their review date. This skill reads the
 |---|---|---|---|---|---|---|---|
 | Digitalization investment planning | OD lead | BA Operations | Consultation | yes | no | `⟨budget threshold, to confirm⟩` | recommend |
 | Equipment integration go-ahead | IIAE | Plant ME / Plant IT | Tandem | yes | partially | per investment plan; Cyber Security sign-off for external connection | execute-with-approval |
-| Tool / system rollout (MES, MSB, IIoT Edge, data platform) | OD lead | `⟨counterpart, to confirm⟩` | Tandem | yes | no | strategic-plant scope | execute-with-approval |
+| Tool / system rollout (MES, MSB, IIoT Edge, data platform) | OD lead | IT-responsible role of the business side | Tandem | yes | no | strategic-plant scope | execute-with-approval |
 
 The pack feeds the first row. The second row uses the approved plan ("per investment plan"). The third row
 is a different decision, taken when the pack contains a tool and not only machines.
@@ -31,9 +31,9 @@ limit and a Board limit, described as "a ladder, not alternatives". The amounts 
 repeated here: per the current approval policy (look up: `od-decision-routing`, the OD lead, controlling). Quote
 them with source and date.
 
-Read literally, the two limits overlap in a band. The sources do not say which body decides in that band, or
-whether the limits apply per item, per plant or per programme. This skill does not resolve it: write the amount
-and its scope in the pack and mark `⟨route in the overlapping band: OD lead / controlling⟩`.
+Read literally, the two limits overlap in a band. Where an amount falls in that band, the stricter (higher) route
+applies; Controlling may downgrade it. Look the amounts up in the current approval policy and write the amount and its
+scope (per item, per plant or per programme) in the pack.
 
 Whether the ladder is the same thing as the "budget threshold" of the digitalization investment planning
 row is also not stated. They may be two thresholds (who within OD plans, who approves the eCR). Keep both
@@ -66,5 +66,5 @@ make licensing commitments, approve an external connection without Cyber Securit
 
 ## Deputisation
 
-In the OD lead's absence a deputy `⟨to confirm⟩` decides prioritization and rollout within the agreed
-roadmap; "investment commitments wait for the OD lead. No level of urgency substitutes."
+In the OD lead's absence the next-higher management role decides prioritization and rollout within the agreed
+roadmap; investment commitments stay with the competent approval body. No level of urgency substitutes.

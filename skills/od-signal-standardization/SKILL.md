@@ -331,7 +331,7 @@ native reading from the plant. Details, the term table and the normalization:
 ## Decision rights
 
 Changing a data model or a signal standard is **Consultation** at `recommend` authority and
-is reversible — IIAE hears ⟨the counterpart, to confirm⟩, then decides. Machine standards for
+is reversible — IIAE decides after consultation (for a tool or system rollout, in tandem with the IT-responsible role of the business side). Machine standards for
 digital connection sit one level up: OD lead, in Consultation with Manufacturing
 Engineering, aligned with M+E standards.
 

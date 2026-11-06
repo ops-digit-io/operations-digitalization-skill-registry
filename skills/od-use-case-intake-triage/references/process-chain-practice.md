@@ -92,11 +92,13 @@ Run the checks in this order; each one can end the triage.
   standard questions, the idea is recorded and prioritised later into initiatives, and the expectation is set
   that not every idea is ready to be executed. Sanity check: do not rank an AI idea above basic data-model and
   reporting work in a plant that has not reached reporting. Quick grid: low barrier and high potential, mid
-  barrier and high potential, high barrier and mid potential. Whether an AI assistant for troubleshooting
-  counts as a use case (it has no clean before-and-after state) is `<to confirm>` with the OD lead.
+  barrier and high potential, high barrier and mid potential. An AI knowledge or troubleshooting assistant
+  is decided case by case at intake: ask for a measurable before and after. With one, it takes the use-case route (savings
+  only with a documented basis). Without one, it is tracked as an initiative with an owner and a usage measure, not as a
+  counted saving.
 - **Customer-mandated programmes** (a customer requires a digital process-control framework with staged
-  compliance targets) have a different driver than savings. Do not force them through the savings test; flag
-  `<to confirm>` the intake branch and KPI.
+  compliance targets) have a different driver than savings. Do not force them through the savings test: they have their own intake
+  branch with their own KPI (deadline and compliance driven). Required fields: customer requirement, deadline, scope, owner.
 
 ## 3 · Handoff contract
 

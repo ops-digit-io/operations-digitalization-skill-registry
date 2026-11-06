@@ -24,10 +24,9 @@ Deck-derived practice for the spine. The script finds old dates; this file tells
 
 | Fact | Why it moves | How to check |
 |---|---|---|
-| Tool status and recommendation (continue, stop, pause, substitute, planned) | strategy decks change direction between years; some stop what others continue; plant summaries lag the strategy | tool overview list, with its date |
+| Tool status and recommendation (one scale: recommended / recommended if <condition> / not recommended / not available; with date and source) | strategy decks change direction between years; some stop what others continue; plant summaries lag the strategy | tool overview list, with its date |
 | Plant tier (first mover, fast follower) and which plants are on a wave | follows value, capacity and a staffed key user | plant roadmap, key-user register |
 | Forum status and agenda (ODEC is historical, no longer held; technical call) | ODEC met monthly only until 2025-12; no fixed replacement forum; a later deck reused an earlier agenda unchanged | current invitation, not a deck |
-| Recommendation vocabulary | several words for one status | the controlled vocabulary once the OD lead sets it |
 | The dashboard standard and the BI standard | one strategy keeps the open dashboard tool, another plans a BI tool and lists the first as needing an upgrade | `od-context`, register |
 | Training format (hands-on in the plant, small groups, real plant data; central material is support only) | plans change | training plan |
 | Master-data leader and which local masters remain | stated rule, reconciliation unstated | architecture owner |

@@ -41,7 +41,7 @@ Read each tool's note for its rollout records and the use cases naming it.
 | Tool | What the tool note says it is |
 |---|---|
 | MSB (versions 1.0 / 2.0 / 4.0) | Manufacturing Service Bus, the use-case enabler and integration backbone; a newer version can be Ongoing at plants while an older one is Available |
-| RuleEngine 2.0 | rule engine for rule-based alerting |
+| RuleEngine 2.0 | rule engine (Node-RED) for rule-based alerting; "rule engine" and "Node-RED" are the same thing in these skills |
 | MDA/PDA (versions 1.0 / 2.0 / 3.0) | machine and process data acquisition family |
 | MES 1.0 | manufacturing execution system |
 | MIL 1.0 | Manufacturing Image Library |

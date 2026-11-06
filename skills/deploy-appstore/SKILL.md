@@ -51,18 +51,16 @@ done. This skill defines the gates and the package. It contains **no deployment 
 
 ## Which platform
 
-Two descriptions exist, and the sources do not say they are the same:
+How the sources name the target:
 
 - The knowledge bundle records manufacturing apps and dashboards in the **manufacturing app store on the IIoT Edge
   platform** (the plant Kubernetes runtime), written by the dev team, per release, data owner OD. The Project Support lane
   lists "Manufacturing Apps / app store (IIoT Edge)" with the access "deploy".
-- The new-state flow says **"Container Orchestration Platform"** and marks the platform "to confirm".
+- The new-state flow says **"Container Orchestration Platform"**: that is the edge runtime of the IIoT Edge platform (Concept 3); use both terms as synonyms.
 
-⟨Is the Container Orchestration Platform of the flow the IIoT Edge plant runtime?⟩ Until the OD lead answers, name the target
-exactly as the requester does and record the open question in the package.
-**Partial answer from the vault:** the sources describe two layers, not one. The app store initiative calls its platform CMO (Container Management and
-Orchestration: registry, source host, GitOps catalog) and lists the IIoT edge runtime as a prerequisite that is already deployed; the edge runtime is where the app
-runs, CMO is how it gets there. The flow's term most likely means CMO, but no source says so - the marker stays. See `references/platform-and-pilot-status.md`.
+Two layers: the app store initiative calls its platform CMO (Container Management and Orchestration: registry, source host, GitOps catalog) and lists the IIoT edge
+runtime as a prerequisite that is already deployed; the edge runtime is where the app runs, CMO is how it gets there. Record both in the package.
+See `references/platform-and-pilot-status.md`.
 
 **Maturity, checked every time.** Never describe the app store or the platform as more mature than it is. Classify each element as
 running, pilot, planned or design-only and look the current status up in the sources named in

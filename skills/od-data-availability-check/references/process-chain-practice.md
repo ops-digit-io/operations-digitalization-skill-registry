@@ -84,9 +84,9 @@ the start. The table goes with the verdict; it hands over to the Information Int
   available for connected machines. A requirement beyond the time frame of a sprint becomes an additional phase, not scope creep.
 - **Which source answers it.** Machine time-series plus base model alone, or production metadata needed. Many "unique"
   cases only need the first.
-- **A base data model is not universal.** It fits greenfield, discrete-process, time-series-centric machines; brownfield
-  with many controllers and continuous processes needs other models. Do not promise a standard-model answer for a continuous
-  process without checking the fit `<to confirm with the data-model owner: roadmap material says "all connected machines", the thesis material says otherwise; the safer reading is used here>`.
+- **A base data model is not universal.** It applies to discrete manufacturing (greenfield, time-series-centric machines);
+  brownfield with many controllers and continuous processes may need another model. Check the fit before giving a
+  standard-model answer for a continuous process.
 - **Quality data from laboratory tests** runs on a different path (driven by quality, owned by the local quality team). Do not
   put it into the machine-integration sequence.
 - **Licence and hardware constraints** of laboratory devices (software bound to one test system by a dongle) are checked
