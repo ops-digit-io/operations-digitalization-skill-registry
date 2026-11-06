@@ -74,7 +74,7 @@ benefit; how much could be invested.
 | Receives (from) | Hands on (to) |
 |---|---|
 | Machine list, CVs, integration plan (`od-equipment-integration`) | Cost lines with source or open marker -> `od-decision-routing` decision request (lane 1b) |
-| Match record of the standard system (`catalog-systems`) | Cost lines by category and pool, benefit rows with firmness tag, alternatives table, open items with deciding role, checklist status -> `od-capital-request` |
+| Match record of the standard system (`od-catalog`) | Cost lines by category and pool, benefit rows with firmness tag, alternatives table, open items with deciding role, checklist status -> `od-capital-request` |
 | Fit verdict (`od-system-fit-check`) | Dependency `ECR CREATION` / `ECR APPROVAL` / `MACHINE INTEGRATION` on the rows |
 | Barrier record (`od-barrier-triage`) | Gate list including Cyber Security (`od-cybersec-gate`) |
 

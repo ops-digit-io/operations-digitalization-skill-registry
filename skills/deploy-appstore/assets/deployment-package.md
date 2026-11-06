@@ -36,7 +36,7 @@ Container, image and registry rules, resource limits:   ⟨to be supplied⟩ (OD
 
 DEPENDENCIES
 Systems outside the lean footprint?  no / yes -> od-system-fit-check
-Legacy applications touched (legacy-application-position in catalog-systems):
+Legacy applications touched (legacy-application-position in od-catalog):
 
 ROLLBACK
 Rollback owner (role):       Rollback step:

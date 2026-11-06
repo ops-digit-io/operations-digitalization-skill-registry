@@ -65,7 +65,7 @@ filed.
 ## Where it sits
 
 Lane 3b of the new-state flow: *4b connector design* (VSM skill map: `od-equipment-integration`,
-`od-signal-standardization`, `od-node-red-flow-builder`); the barrier sits ahead of *5b procure and
+`od-signal-standardization`, `od-node-red-flows`); the barrier sits ahead of *5b procure and
 connect*. It also serves Lane 1b, where a standardized-system match fails (the plant picked a kit and the
 machine will not take it). Assessment (Route A) and guidance (Route B) of `od-equipment-integration` find
 the barrier; this skill classifies and routes it.

@@ -76,7 +76,7 @@ The step ids are the registry's proposal (`PROPOSAL`); the owner places the skil
 
 ## Procedure
 
-1. **Scope.** Name the use cases and sites under review. Start from the live list (`catalog-usecase`, ledger via
+1. **Scope.** Name the use cases and sites under review. Start from the live list (`od-catalog`, ledger via
    `od-portfolio-and-savings-analysis`); read live, do not quote counts.
 2. **Fill the table** per use case and site with the plant owner (`assets/utilization-table.md`). Unknown cells stay `<unknown>`.
 3. **Ask the utilization questions** (method reference, section 3) - with Production, OPEX and Engineering, not with the builder alone.

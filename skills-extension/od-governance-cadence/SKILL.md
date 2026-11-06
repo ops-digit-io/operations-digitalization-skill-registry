@@ -22,7 +22,7 @@ metadata:
   origin: plan-draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-support-service, od-rollout-training, od-plant-onboarding, it-demand-package, od-use-case-prioritization]
+  composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-definition, od-rollout-training, od-plant-onboarding, it-demand-package, od-use-case-prioritization]
   derived_from:
     - Operations Digitalization slide decks (community and strategy rounds, roadmap templates, demand management, use-case sprint reviews, training programme), abstracted into process guidance; no figures.
   okf:
@@ -42,7 +42,7 @@ that keep it moving: which forums exist or existed, what each asks, what it need
 behind. ODEC met monthly only until 2025-12 and no longer does; there is no fixed replacement forum, so a recurring
 governance meeting is never assumed. Past ODEC decks and facts remain a source of information. It does not repeat the metrics and thresholds (`od-scorecard-reporting`), the decision rights and
 escalation (`od-decision-routing`), the one-change retro (`od-retro`), the risk readings (`od-risk-watch`) or
-the lane flow of a use case (`od-use-case-support-service`). It names them at the handoff.
+the lane flow of a use case (`od-use-case-definition`). It names them at the handoff.
 
 ## Where it sits in the chain
 
@@ -50,7 +50,7 @@ the lane flow of a use case (`od-use-case-support-service`). It names them at th
 |---|---|---|
 | Forums as sources, rounds on request, call for action, status, roadmap | spine; feeds 1b3, 3b5, 3a5 (waves, Cyber Security waits) | `od-scorecard-reporting`, `od-risk-watch`, `od-retro` |
 | Demand and change routing | i1, 32, 3a4 | `od-decision-routing`, `it-demand-package` |
-| Use-case sprint runbook | 23, 1a2, 1a3 | `od-use-case-support-service`, `od-analytics-asset-build` |
+| Use-case sprint runbook | 23, 1a2, 1a3 | `od-use-case-definition`, `od-analytics-asset-build` |
 | Training programme | 1a3, 3a6, 26 | `od-rollout-training` |
 | Community routine | spine, after 26 (library, best practice) | `od-use-case-promotion` |
 

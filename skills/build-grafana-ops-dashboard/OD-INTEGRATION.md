@@ -88,7 +88,7 @@ dashboard is the default, and the default is worth questioning.
 The skill's **timeseries archetype** (UUID-keyed long-format telemetry) is the shape the
 shop-floor data already arrives in. The `PLCPacket` record carried over MQTT is
 UUID-keyed, with a `sys_time` epoch and a `oneof` measured value —
-see `od-node-red-flow-builder` for the full schema and the UUID→label lookup. When you
+see `od-node-red-flows` for the full schema and the UUID→label lookup. When you
 pick the timeseries patterns, that is the model you are matching, and the label dimension
 comes from the IIoT edge platform's data-point config, not from the payload.
 

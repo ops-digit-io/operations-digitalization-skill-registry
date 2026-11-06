@@ -20,7 +20,7 @@ Precondition for all four: the need has passed the footprint check (`od-system-f
 | Path | Selecting question | Executed by | Gates it triggers |
 |---|---|---|---|
 | **3a.1 Available codebase or app** | Is there an app in the app store, a reference solution, or a plant-local app that already does this and can be deployed to this plant? | `deploy-appstore` (draft) | Deploy to the platform, Cyber Security sign-off (step 4a); `od-acceptance-test` |
-| **3a.2 New codebase, self-developed** | Is it a flow or dashboard-sized build the OD or plant team can make on the standard stack? | `od-node-red-flow-builder` (flow-type development, built) or `od-analytics-asset-build`, then `deploy-appstore` | Cyber Security; acceptance; handover |
+| **3a.2 New codebase, self-developed** | Is it a flow or dashboard-sized build the OD or plant team can make on the standard stack? | `od-node-red-flows` (flow-type development, built) or `od-analytics-asset-build`, then `deploy-appstore` | Cyber Security; acceptance; handover |
 | **3a.3 New codebase, external development** | Is it larger than the team can build, and can the specification be written in-house with a partner building it? | `it-demand-package` and an external developer | IT demand and demand evaluation; Cyber Security; spend (eCR); licensing decision owner `⟨to confirm⟩` |
 | **3a.4 Integrate a foreign app** | Is it a third-party or plant-local application whose data or function must be connected rather than rebuilt? | `it-demand-package` | IT demand, Cyber Security; possibly a tool rollout decision |
 

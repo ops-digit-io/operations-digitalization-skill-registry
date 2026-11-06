@@ -67,7 +67,7 @@ not own them.
 
 | Lane | Trigger | Definition of done | Owner | Skill |
 |---|---|---|---|---|
-| Smart Factory Use Case Support Service (incl. Process First-Aid Kit) | Plant use-case demand or definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE (2 roles) | `od-use-case-support-service` |
+| Smart Factory Use Case Support Service (incl. Process First-Aid Kit) | Plant use-case demand or definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE (2 roles) | `od-use-case-definition` |
 | Information Integration Service | Equipment integration or data-model harmonization need per roadmap | Machine/equipment integrated, signals standardized, data landing on the data platform | IIAE (3 roles) | `od-information-integration-service` |
 | Project Support & Application Consultancy | Digital investment project kick-off | Integration project managed to acceptance test; application consulted and accepted | IIAE | `od-project-support-consultancy` |
 | Analytical Support Service (incl. Ad-Hoc Analytics) | Analytical request or ad-hoc process-insight need | Process diagnostics / analytical insight delivered | DBVE | `od-analytical-support-service` |

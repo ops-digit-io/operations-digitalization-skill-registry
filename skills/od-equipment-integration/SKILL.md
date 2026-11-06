@@ -20,7 +20,7 @@ metadata:
   status: stable
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flow-builder]
+  composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flows]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md

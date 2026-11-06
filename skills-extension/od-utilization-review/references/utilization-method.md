@@ -64,7 +64,7 @@ perceived value and in-use). The union above covers both; keep the plant's own v
 Accept a dashboard only after it matches the paper process. Run one deep dive with Production (production records vs dashboard downtime)
 and one with Engineering (cycle-time records). Explain each difference (breaks, shift changes, a tolerance not yet applied), then settle
 signal selection and categories (for example a standard downtime reason list). The decks show this at an integration workshop; where
-it sits as a formal acceptance step is open (`PROPOSAL`: also a check in `od-acceptance-test` and `catalog-guardrails`).
+it sits as a formal acceptance step is open (`PROPOSAL`: also a check in `od-acceptance-test` and `od-catalog`).
 
 ## 6 Follow-up list
 

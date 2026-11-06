@@ -21,7 +21,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-system-fit-check, od-decision-routing, od-requirements-breakdown, od-project-support-consultancy, od-signal-standardization, od-cross-plant-compatibility, od-handover-and-adoption, od-node-red-flow-builder, od-analytics-asset-build, deploy-appstore, it-demand-package, od-cybersec-gate]
+  composes: [od-system-fit-check, od-decision-routing, od-requirements-breakdown, od-project-support-consultancy, od-signal-standardization, od-cross-plant-compatibility, od-handover-and-adoption, od-node-red-flows, od-analytics-asset-build, deploy-appstore, it-demand-package, od-cybersec-gate]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/02-strategy.md

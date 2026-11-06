@@ -22,7 +22,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-equipment-integration, od-decision-routing, od-benefit-calculation, od-system-fit-check, od-cybersec-gate, od-capital-request, catalog-systems, od-information-integration-service]
+  composes: [od-equipment-integration, od-decision-routing, od-benefit-calculation, od-system-fit-check, od-cybersec-gate, od-capital-request, od-catalog, od-information-integration-service]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -64,7 +64,7 @@ request. It is never "done" by approval: approval is not this skill's.
 | Where | Plan step | What the pack is |
 |---|---|---|
 | **Integration lane, step 2** | "Integration investment planning", IIAE with OD lead, control point "Investment approved" (`information-integration-service/playbook.md`) | The wave pack after an equipment assessment (Route A of `od-equipment-integration`, its protocol section 3 "Investment") |
-| **Lane 1b** | Fill cost template and lightweight approval: "standardized, pre-priced spend, template, not a full business case" (VSM skill map) | The cost template for a standardized system from `catalog-systems` |
+| **Lane 1b** | Fill cost template and lightweight approval: "standardized, pre-priced spend, template, not a full business case" (VSM skill map) | The cost template for a standardized system from `od-catalog` |
 | **Lane 2 step 5, Lane 3 step 3** | Capital request, business case and capital request | The cost side that `od-capital-request` packages together with the value side |
 
 The recurring-task table of the lane still lists the investment plan template as "⟨to confirm⟩"
@@ -84,7 +84,7 @@ proposed form until the OD lead confirms it.
 ## Procedure
 
 1. **Confirm the plan is agreed.** Wave pack: the roadmap is agreed with Plant ME / Plant IT (control
-   point of step 1). Template pack: the match record of `catalog-usecase` / `catalog-systems` exists. Cost
+   point of step 1). Template pack: the match record of `od-catalog` exists. Cost
    cannot be planned for a scope that is still moving; if scope is open, stop and say which part.
 2. **Run the demand filter.** Keep only machines or systems that an accepted or planned use case needs
    (`od-equipment-integration`, assessment step 2). A `NOT INTEGRATED` machine nobody waits for is not a

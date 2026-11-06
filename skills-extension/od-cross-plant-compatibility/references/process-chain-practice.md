@@ -55,7 +55,7 @@ Deck-derived practice for step 3b4 (proposed) and for the standardization check 
 
 | Hands on | To |
 |---|---|
-| verdict grid (consumable / with mapping / not consumable / unknown) with evidence and owner of each mapping | `catalog-usecase`, `od-decision-routing`, the technical community call |
+| verdict grid (consumable / with mapping / not consumable / unknown) with evidence and owner of each mapping | `od-catalog`, `od-decision-routing`, the technical community call |
 | model-scope finding (which machine classes fit) | `od-signal-standardization` |
 | missing-relation or missing-signal table | Information Integration lane |
 

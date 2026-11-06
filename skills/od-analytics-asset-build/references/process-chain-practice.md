@@ -27,7 +27,7 @@ Steps **23** (prototype and validate), **26** (implement and graduate), **1a2** 
 | Signal analysis report, binding sheet | `od-signal-standardization` | Canonical names, units, scaling |
 | Requirements (atomic, testable), the named ritual and the decision | `od-requirements-breakdown`, `od-use-case-definition` | Who opens it, when, what follows |
 | Validation record (if a mock-up or PoC ran) | `od-prototype-poc` | Pass criterion and result |
-| Reference solution | `od-use-case-standardization`, `catalog-usecase` | Adopt before building |
+| Reference solution | `od-use-case-standardization`, `od-catalog` | Adopt before building |
 
 | Hands on | To | What it carries |
 |---|---|---|

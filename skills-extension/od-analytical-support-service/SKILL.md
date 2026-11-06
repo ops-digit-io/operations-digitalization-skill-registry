@@ -63,7 +63,7 @@ solution — and knowing which of the two is being asked for is step one.
 | 6 | Track utilization; promote recurring value into a standard use case | both | Utilization recorded |
 
 Step 2 → `od-data-availability-check`. Step 4 → `od-analytics-asset-build`. Step 6
-promotion → hand to `od-use-case-support-service`.
+promotion → hand to `od-use-case-definition`.
 
 ## Error paths
 

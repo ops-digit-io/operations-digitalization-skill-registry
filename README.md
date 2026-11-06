@@ -1,7 +1,7 @@
 ---
 type: Map of Content
 title: Operations Digitalization skill registry
-description: What this registry is, the four lanes it serves, the tiers a skill can hold, and the index of all 57 skills.
+description: What this registry is, the four lanes it serves, the tiers a skill can hold, and the index of all 53 skills.
 status: stable
 owner: human:jakob.gabriel
 tags: [registry, navigation]
@@ -30,11 +30,11 @@ concept-by-concept trace.
 
 ## Two libraries: core and extension
 
-The registry is split into two skill libraries. The split follows one rule: **a skill is core when one of the four New-State process files (`docs/new-state/`) names it** on a step or on the supporting spine; every other skill is an extension, with two exceptions the owner promoted into the core (`od-cybersec-gate`, for the Cyber Security gate the files name as a step, and `od-ai-generation-playbook`, the rulebook for AI agents along the chain). Core is what the process chain needs to run end to end (31 skills, folder `skills/`). The extension library (26 skills, folder `skills-extension/`) holds the optional add-ons: deeper practice for a step, a neighbouring process, or a skill the files leave open. Extension skills require core skills (`od-context`), never the other way round; a core skill that points to an extension skill says so and works without it.
+The registry is split into two skill libraries. The split follows one rule: **a skill is core when one of the four New-State process files (`docs/new-state/`) names it** on a step or on the supporting spine; every other skill is an extension, with two exceptions the owner promoted into the core (`od-cybersec-gate`, for the Cyber Security gate the files name as a step, and `od-ai-generation-playbook`, the rulebook for AI agents along the chain). Related skills were merged where the process does not keep them apart: `od-catalog` (use-case entries, standard systems and go-live guardrails of the catalog), `od-node-red-flows` (build and troubleshoot a flow) and `od-use-case-definition` (which absorbed the support-service flow); the old names are kept only in the four original process files and in `log.md`. Core is what the process chain needs to run end to end (27 skills, folder `skills/`). The extension library (26 skills, folder `skills-extension/`) holds the optional add-ons: deeper practice for a step, a neighbouring process, or a skill the files leave open. Extension skills require core skills (`od-context`), never the other way round; a core skill that points to an extension skill says so and works without it.
 
 `registry.yaml` carries `library: core|extension` per skill and `scripts/validate_registry.py` checks that it matches the folder. The process map and the site show core skills on their steps; extension skills appear on the step they deepen when you switch them on. Downloads: `core-library.zip`, `extension-library.zip`, one zip per lane and per skill. Move a skill between libraries by changing `library` and the folder (`git mv`), then re-run the generators.
 
-**Core library (31)**: `build-grafana-ops-dashboard`, `catalog-guardrails`, `catalog-systems`, `catalog-usecase`, `deploy-appstore`, `it-demand-package`, `od-acceptance-test`, `od-ai-generation-playbook`, `od-analytics-asset-build`, `od-benefit-calculation`, `od-capital-request`, `od-context`, `od-cybersec-gate`, `od-data-availability-check`, `od-decision-routing`, `od-equipment-integration`, `od-handover-and-adoption`, `od-node-red-flow-builder`, `od-node-red-flow-troubleshooting`, `od-portfolio-and-savings-analysis`, `od-prototype-poc`, `od-requirements-breakdown`, `od-scorecard-reporting`, `od-sharepoint-list-export`, `od-signal-standardization`, `od-system-fit-check`, `od-use-case-definition`, `od-use-case-intake-triage`, `od-use-case-solution-evaluation`, `od-use-case-standardization`, `od-use-case-support-service`.
+**Core library (27)**: `build-grafana-ops-dashboard`, `deploy-appstore`, `it-demand-package`, `od-acceptance-test`, `od-ai-generation-playbook`, `od-analytics-asset-build`, `od-benefit-calculation`, `od-capital-request`, `od-catalog`, `od-context`, `od-cybersec-gate`, `od-data-availability-check`, `od-decision-routing`, `od-equipment-integration`, `od-handover-and-adoption`, `od-node-red-flows`, `od-portfolio-and-savings-analysis`, `od-prototype-poc`, `od-requirements-breakdown`, `od-scorecard-reporting`, `od-sharepoint-list-export`, `od-signal-standardization`, `od-system-fit-check`, `od-use-case-definition`, `od-use-case-intake-triage`, `od-use-case-solution-evaluation`, `od-use-case-standardization`.
 
 ### Extension library (26)
 
@@ -57,7 +57,7 @@ The registry is split into two skill libraries. The split follows one rule: **a 
 | [`od-plant-diagnosis`](skills-extension/od-plant-diagnosis/SKILL.md) | 24, spine | Diagnoses unequal plant results with four Ishikawa branches, tiers plants as first mover or fast follower and writes plant and regional roadmaps. |
 | [`od-plant-onboarding`](skills-extension/od-plant-onboarding/SKILL.md) | spine | Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the DRAFT. |
 | [`od-project-order`](skills-extension/od-project-order/SKILL.md) | 25, 26, 33, 3a4 | Drafts the project order (PREQ) and runs kick-off, milestone reports and closure for a use case or system project; sponsor approval and budget stay with humans. |
-| [`od-project-support-consultancy`](skills-extension/od-project-support-consultancy/SKILL.md) | - | Run the Project Support & Application Consultancy lane — kick off digital investment projects with the MPEE OD team, break down requirements, manage equipment and solution integration projects to acceptance, consult on the Manufacturing Software Suite and manufacturing apps, confirm use cases are integrated into daily processes, and report progress and impact into the ODEC cycle. |
+| [`od-project-support-consultancy`](skills-extension/od-project-support-consultancy/SKILL.md) | - | Run the Project Support & Application Consultancy lane — kick off digital investment projects with the MPEE OD team, break down requirements, manage equipment and solution integration projects to acceptance, consult on the Manufacturing Software Suite and manufacturing apps, confirm use cases are integrated into daily processes, and report progress and impact into the department's reporting. |
 | [`od-retro`](skills-extension/od-retro/SKILL.md) | spine | Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, ODEC and COP feedback), list what was learned with its evidence, pick the DRAFT. |
 | [`od-risk-watch`](skills-extension/od-risk-watch/SKILL.md) | spine | Read the department's early indicators against the six-row risk register each month and say which escalation triggers are hit - for every risk, find the monitorable value, read it from its source with a date, compare it with the trigger, an DRAFT. |
 | [`od-rollout-training`](skills-extension/od-rollout-training/SKILL.md) | 1a3, 26, 3a6 | Draft the plant training package and the competence checklist for a solution that is rollout-ready - who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence DRAFT. |
@@ -68,7 +68,7 @@ The registry is split into two skill libraries. The split follows one rule: **a 
 | [`od-workshop-facilitation`](skills-extension/od-workshop-facilitation/SKILL.md) | 21, 31 | Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua DRAFT. |
 
 
-## The 57 skills
+## The 53 skills
 
 **[See the skill state map](docs/skill-state-map.md)** for one picture of where every skill
 sits in the delivery order and how far it is built — 7 carry references and a runnable script,
@@ -84,7 +84,7 @@ sits in the delivery order and how far it is built — 7 carry references and a 
 
 | Skill | Trigger | Definition of done | Owner |
 |---|---|---|---|
-| [`od-use-case-support-service`](skills/od-use-case-support-service/SKILL.md) | Plant use-case demand or a definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE |
+| [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | Plant use-case demand or a definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE |
 | [`od-information-integration-service`](skills-extension/od-information-integration-service/SKILL.md) | Equipment integration or data-model harmonization need per roadmap | Machine integrated, signals standardized, data landing on the data platform | IIAE |
 | [`od-project-support-consultancy`](skills-extension/od-project-support-consultancy/SKILL.md) | Digital investment project kick-off | Integration project managed to acceptance; application consulted and accepted | IIAE |
 | [`od-analytical-support-service`](skills-extension/od-analytical-support-service/SKILL.md) | Analytical or ad-hoc process-insight request | Process diagnostics / analytical insight delivered | DBVE |
@@ -112,8 +112,7 @@ sits in the delivery order and how far it is built — 7 carry references and a 
 |---|---|---|
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | A demand has to become a defined use case, or a workshop needs preparing | OD |
 | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | A plant/wave needs an integration roadmap, or a specific machine needs a route, connector and checklist — two entry routes, one protocol | OD |
-| [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate | OD |
-| [`od-node-red-flow-troubleshooting`](skills/od-node-red-flow-troubleshooting/SKILL.md) | Diagnosing a flow that is silent, wrong, or broken — from its exported JSON | OD |
+| [`od-node-red-flows`](skills/od-node-red-flows/SKILL.md) | Writing, reviewing or porting a Node-RED flow on the shop-floor estate, or diagnosing a flow that is silent, wrong or broken from its exported JSON | OD |
 | [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | Analysing a machine's data points and standardizing them so another plant can consume them | OD |
 | [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Building an importable Grafana `.json` over live SQL | portable |
 
@@ -163,15 +162,13 @@ A consolidated view of what each lane may work with — and what the overlaps me
 
 ### Drafts: the new-state flow and the department's skill plan
 
-32 skills are **drafts**. Every statement in them carries a source; what the sources do not record is marked `⟨…⟩` and listed under `open_gaps` in `registry.yaml`. They are not drawn on [`docs/process-overview.html`](docs/process-overview.html), which shows the four service lanes of the old model; see [`docs/new-state-skill-map.md`](docs/new-state-skill-map.md) for where each sits in the new flow.
+30 skills are **drafts**. Every statement in them carries a source; what the sources do not record is marked `⟨…⟩` and listed under `open_gaps` in `registry.yaml`. They are not drawn on [`docs/process-overview.html`](docs/process-overview.html), which shows the four service lanes of the old model; see [`docs/new-state-skill-map.md`](docs/new-state-skill-map.md) for where each sits in the new flow.
 
 **From the new-state flow (7)**: the net-new builds the flow names.
 
 | Skill | What it does |
 |---|---|
-| [`catalog-guardrails`](skills/catalog-guardrails/SKILL.md) | Lane 1: the plant-run go-live check - seven guardrails seeded from recorded rules; the plant decides to go live. DRAFT scaffold. |
-| [`catalog-systems`](skills/catalog-systems/SKILL.md) | Lane 1b: match a catalogued use case to a standardized system a plant can order; says when no standard system fits. DRAFT scaffold - no standardized-system list is recorded. |
-| [`catalog-usecase`](skills/catalog-usecase/SKILL.md) | Lane 1 self-service: match a request to a catalogued, CSP-approved use case and name the branch (1a, 1b, falls through). DRAFT scaffold - the catalog itself does not exist yet. |
+| [`od-catalog`](skills/od-catalog/SKILL.md) | Lane 1: pick a catalogued, CSP-approved use case or a standard system a plant can order (1a / 1b / falls through), the go-live guardrails the plant checks, and graduating a proven use case into the catalog (lane 2). DRAFT | OD |
 | [`deploy-appstore`](skills/deploy-appstore/SKILL.md) | Lane 3a: the deployment package and the release gate for a manufacturing app, with Cyber Security sign-off. DRAFT scaffold - the platform procedure is not recorded. |
 | [`it-demand-package`](skills/it-demand-package/SKILL.md) | Lane 3a (3a.3, 3a.4): package a demand for IT demand management or an external developer. DRAFT scaffold - IT's own demand form is not recorded. |
 | [`od-capital-request`](skills/od-capital-request/SKILL.md) | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their fi |

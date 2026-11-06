@@ -26,7 +26,7 @@ metadata:
   status: stable
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
+  composes: [od-equipment-integration, od-data-availability-check, od-node-red-flows, od-acceptance-test]
   derived_from:
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
@@ -294,7 +294,7 @@ invents — until it exists, everything downstream ignores the packet.
 
 Name the derived point from the same vocabulary, and make the raw/derived distinction
 explicit in the name: `MachineMode` is the raw integer, `MachineModeNormalized` the mapped
-string. See `od-node-red-flow-builder`.
+string. See `od-node-red-flows`.
 
 ## Step 9 — write the report
 
@@ -312,7 +312,7 @@ assume more certainty than exists, and that assumption is how a misspelled name 
 by many flows.
 
 The report feeds `od-requirements-breakdown` §5 *Tags of Interest*,
-`od-equipment-integration` (guidance route), the flow config in `od-node-red-flow-builder`, and the
+`od-equipment-integration` (guidance route), the flow config in `od-node-red-flows`, and the
 Machine CV.
 
 ## A word on language

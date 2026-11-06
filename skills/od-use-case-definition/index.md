@@ -4,9 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case definition](SKILL.md) | Agent Skill | Define a plant use case so it can be built, standardized, handed over and measured — scope it against the plant's process, break down the requirement, assess the (legacy) MF IT systems it touches, place it on its capability template and process group, and record the fields that make it findable and evaluable later. Also covers preparing and running Use Case Definition and Use Case Integration workshops. Use when a plant demand has been accepted and needs turning into a defined use case, when an existing use-case record is too thin to act on, or when a definition or integration workshop is being prepared. |
+| [Use-case definition](SKILL.md) | Agent Skill | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. Define a plant use case so it can be built, standardized, handed over and measured — scope it against the plant's process, break down the requirement, assess the (legacy) MF IT systems it touches, place it on its capability template and process group, and record the fields that make it findable and evaluable later. Also covers preparing and running Use Case Definition and Use Case Integration workshops. Use when a plant demand has been accepted and needs turning into a defined use case, when an existing use-case record is too thin to act on, or when a definition or integration workshop is being prepared. Also use for the lane's service flow from plant demand to adoption (roles, control points, error paths, wait states, recurring tasks, autonomy, metrics), the Process First-Aid Kit, prioritizing a use case or a business case, or when someone asks what happens to a use case between demand and daily use. |
 
 | Folder | Holds |
 |---|---|
 | [assets/](assets/index.md) | 2 concept(s) |
-| [references/](references/index.md) | 6 concept(s) |
+| [references/](references/index.md) | 8 concept(s) |

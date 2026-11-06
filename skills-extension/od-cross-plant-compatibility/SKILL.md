@@ -22,7 +22,7 @@ metadata:
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, catalog-usecase]
+  composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, od-catalog]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -105,7 +105,7 @@ asks the question neither asks: *does the thing still work at the plants that ar
    `od-decision-routing`. The decision is IIAE's by consultation; for a tool or system rollout the
    IIAE decides in tandem with the IT-responsible role of the business side (`08-decision-rights.md`). A change to a data model or connector
    is taken to the COP (monthly, technical), which is where the operating rhythm puts datamodel and connector updates.
-8. **If the standard feeds the catalog**, hand the verdict grid to `catalog-usecase` so a plant picking the entry sees
+8. **If the standard feeds the catalog**, hand the verdict grid to `od-catalog` so a plant picking the entry sees
    which plants it was checked at and which not.
 
 ## Decision table: what to do with the result

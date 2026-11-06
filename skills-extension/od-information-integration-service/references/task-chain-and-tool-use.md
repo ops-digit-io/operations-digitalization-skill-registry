@@ -76,4 +76,4 @@ How to read each: `od-scorecard-reporting/references/metric-reading-guide.md`.
 - **Evidence to cite:** machine list and report read date, protocol result.
 - **Human gate:** no machine connection, no investment approval, no change to signal standards, no external connection without
   Cyber Security / OT sign-off.
-- **Hands over to:** `od-use-case-support-service` and `od-analytical-support-service` with standardized data.
+- **Hands over to:** `od-use-case-definition` and `od-analytical-support-service` with standardized data.

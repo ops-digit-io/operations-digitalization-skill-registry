@@ -33,8 +33,8 @@ LABEL = {
     "od-data-availability-check": "Data availability check",
     "od-equipment-integration": "Equipment integration",
     "od-signal-standardization": "Signal standardization",
-    "od-node-red-flow-builder": "Node-RED flow builder",
-    "od-node-red-flow-troubleshooting": "Node-RED troubleshooting",
+    "od-node-red-flows": "Node-RED flow builder",
+    "od-node-red-flows": "Node-RED troubleshooting",
     "od-analytics-asset-build": "Analytics asset build",
     "build-grafana-ops-dashboard": "Grafana dashboards",
     "od-portfolio-and-savings-analysis": "Portfolio and savings",
@@ -43,7 +43,7 @@ LABEL = {
     "od-scorecard-reporting": "Scorecard reporting",
     "od-sharepoint-list-export": "SharePoint export",
     "od-decision-routing": "Decision routing",
-    "od-use-case-support-service": "Use Case Support",
+    "od-use-case-definition": "Use Case Support",
     "od-information-integration-service": "Information Integration",
     "od-project-support-consultancy": "Project Support",
     "od-analytical-support-service": "Analytical Support",
@@ -62,12 +62,12 @@ FLOW: list[tuple[str, str, str]] = [
     ("od-data-availability-check", "od-equipment-integration", "not integrated"),
     ("od-data-availability-check", "od-signal-standardization", "not standardized"),
     ("od-equipment-integration", "od-signal-standardization", "connected"),
-    ("od-signal-standardization", "od-node-red-flow-builder", "named signals"),
-    ("od-node-red-flow-builder", "od-node-red-flow-troubleshooting", "when it breaks"),
-    ("od-node-red-flow-builder", "od-analytics-asset-build", "data flowing"),
+    ("od-signal-standardization", "od-node-red-flows", "named signals"),
+    ("od-node-red-flows", "od-node-red-flows", "when it breaks"),
+    ("od-node-red-flows", "od-analytics-asset-build", "data flowing"),
     ("od-analytics-asset-build", "build-grafana-ops-dashboard", "dashboards"),
     ("od-analytics-asset-build", "od-acceptance-test", "built"),
-    ("od-node-red-flow-builder", "od-acceptance-test", "built"),
+    ("od-node-red-flows", "od-acceptance-test", "built"),
     ("od-acceptance-test", "od-handover-and-adoption", "accepted"),
     ("od-handover-and-adoption", "od-scorecard-reporting", "in use"),
     ("od-benefit-calculation", "od-portfolio-and-savings-analysis", "value"),
@@ -84,8 +84,8 @@ LANES = [
     ("II", "Information Integration", ["od-data-availability-check",
                                        "od-equipment-integration",
                                        "od-signal-standardization",
-                                       "od-node-red-flow-builder",
-                                       "od-node-red-flow-troubleshooting"]),
+                                       "od-node-red-flows",
+                                       "od-node-red-flows"]),
     ("AS", "Analytical Support", ["od-analytics-asset-build", "build-grafana-ops-dashboard",
                                   "od-portfolio-and-savings-analysis",
                                   "od-sharepoint-list-export"]),
@@ -139,7 +139,7 @@ def render() -> str:
     c = counts(states)
     placed = {s for _, _, members in LANES for s in members}
     unplaced = [i for i in ids if i not in placed and i not in
-                ("od-context", "od-use-case-support-service",
+                ("od-context", "od-use-case-definition",
                  "od-information-integration-service", "od-project-support-consultancy",
                  "od-analytical-support-service")]
 
@@ -234,7 +234,7 @@ def render() -> str:
                 "delivery order.", ""]
     else:
         L += ["## Not on the map", "",
-              "The four lane skills (`od-use-case-support-service`, "
+              "The four lane skills (`od-use-case-definition`, "
               "`od-information-integration-service`, `od-project-support-consultancy`, "
               "`od-analytical-support-service`) are entry points rather than steps: each one "
               "names the skills its lane calls, so they sit above this diagram rather than in "

@@ -84,7 +84,7 @@ use cases per area, IT preconditions, next steps toward the capital request.
 |---|---|---|
 | Receive | `od-requirements-breakdown` | Requirement, use-case demand per machine |
 | Receive | `od-capital-request` / `od-investment-input` | Approved wave scope |
-| Hand on | `od-use-case-support-service` | Connected machine list, remaining machines with blocker, hand-over note |
+| Hand on | `od-use-case-definition` | Connected machine list, remaining machines with blocker, hand-over note |
 | Hand on | `od-analytical-support-service` | Standardized data, data period and quality notes |
 | Hand on | `od-scorecard-reporting` | Plant status table, traffic light, call-for-action |
 | Hand on | `od-barrier-triage` | Machines with no route, class and dependent use cases |

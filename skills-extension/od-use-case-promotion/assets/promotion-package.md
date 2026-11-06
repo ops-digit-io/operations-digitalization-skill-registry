@@ -64,7 +64,7 @@ Plant owner: ⟨role⟩. Three-question test answered without the builder: what 
 supports ⟨⟩ · where the data comes from and what breaks it ⟨⟩ · who owns it now and who to call ⟨⟩. Used in a
 real shift on ⟨date⟩.
 
-## 6 Catalog conditions (`catalog-usecase`)
+## 6 Catalog conditions (`od-catalog`)
 
 | Condition | Met? | Evidence |
 |---|---|---|

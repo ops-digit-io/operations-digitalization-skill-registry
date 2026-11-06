@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.11.0
+  version: 1.12.0
   department: MPEE Operations Digitalization (OD)
   business: neuwerk
   owner: Jakob Gabriel
@@ -63,15 +63,6 @@ skills:
     owner_role: OD lead (Thomas Zipf)
     authority_level: read-only
     summary: Vocabulary, service lines, systems of record, decision gates and the honesty rules.
-
-  - id: od-use-case-support-service
-    library: core
-    tier: lane
-    lane: use-case-support-service
-    owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: draft on definitions and reports; recommend on prioritization
-    trigger: Plant use-case demand or a definition-workshop request.
-    definition_of_done: Use case defined, prioritized, impact-evaluated and handed to integration with a business case.
 
   - id: od-information-integration-service
     library: extension
@@ -249,55 +240,6 @@ skills:
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: recommend on standards; configure the offload
     summary: Reads the machine context (PLC program, sequence chart, layout, handbook, HMI) alongside the tag list, maps signals to the canonical vocabulary and the public data models, clusters and ranks them, translates tags from nine plant languages, and writes a defined signal analysis report.
-
-  - id: od-node-red-flow-troubleshooting
-    library: core
-    tier: technical
-    lane: information-integration-service
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: read and diagnose; fixes on a test instance; prod deploys are human-approved
-    summary: Diagnoses a broken Node-RED flow from its exported JSON - a static analyser for the failure modes that actually occur, plus a symptom-to-cause table for what it cannot see.
-
-  - id: od-node-red-flow-builder
-    library: core
-    tier: technical
-    lane: information-integration-service
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: author flows on a test instance; deploying to a prod instance is human-approved
-    summary: The house Node-RED pattern - seven-group layout, the transformation patterns plus a method for composing one that is not in the catalogue, the streaming mechanics, the artefact catalogue with a sanitized example per artefact, PLCPacket protobuf, topic conventions, standard functions, documentation discipline.
-
-  - id: catalog-usecase
-    library: core
-    tier: practice
-    lane: all
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: recommend - the plant decides what it runs; the CSP decision stays with its owner
-    summary: "Lane 1 self-service: match a request to a catalogued, CSP-approved use case and name the branch (1a, 1b, falls through). DRAFT scaffold - the catalog itself does not exist yet."
-
-  - id: catalog-systems
-    library: core
-    tier: practice
-    lane: all
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: recommend - ordering and connecting stay with the integration owner and the approval route
-    summary: "Lane 1b: match a catalogued use case to a standardized system a plant can order; says when no standard system fits. DRAFT scaffold - no standardized-system list is recorded."
-
-  - id: catalog-guardrails
-    library: core
-    tier: practice
-    lane: all
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft the go-live check; report the result; the plant decides PRODUCTIVE
-    summary: "Lane 1: the plant-run go-live check - seven guardrails seeded from recorded rules; the plant decides to go live. DRAFT scaffold."
 
   - id: deploy-appstore
     library: core
@@ -618,6 +560,27 @@ skills:
     authority_level: draft
     summary: "As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas, with drivers, prerequisite chain and a route signal. DRAFT."
 
+  - id: od-catalog
+    library: core
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
+    summary: "The catalog of known use cases and standard systems with its go-live guardrails: pick a catalogued use case or standard system (lane 1), graduate a proven use case into the catalog (lane 2). DRAFT."
+
+  - id: od-node-red-flows
+    library: core
+    tier: technical
+    lane: information-integration-service
+    scope: od
+    status: stable
+    owner_role: IIoT Interface & Automation Engineer (IIAE)
+    authority_level: author flows and fixes on a test instance; read and diagnose only elsewhere; prod deploys are human-approved
+    summary: "Build a Node-RED flow to the house patterns on a test instance (step 3b4) and troubleshoot or diagnose a flow, connector or pipeline (3b5): one skill, build guide and analyser script."
+
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
   - comment, methods, actions, utilization and csp_decision are not populated on the use cases; the requirement template asks for what those fields were meant to hold.
@@ -679,9 +642,9 @@ open_gaps:
   - business_process and targets are populated on only part of the use cases, so any demand ranking derived from them sees a fraction of the portfolio.
   - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics. No stated rule on which to use where.
   - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.
-  - "catalog-usecase (draft): where the self-service catalog lives, who maintains it and whether a recorded CSP Yes is the right entry threshold are not decided; the entries with a CSP Yes are not named in the sources read."
-  - "catalog-systems (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
-  - "catalog-guardrails (draft): the guardrail set is seeded from seven recorded rules; further technical guardrails and which of them block go-live are not decided."
+  - "od-catalog (draft): where the self-service catalog lives, who maintains it and whether a recorded CSP Yes is the right entry threshold are not decided; the entries with a CSP Yes are not named in the sources read."
+  - "od-catalog (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
+  - "od-catalog (draft): the guardrail set is seeded from seven recorded rules; further technical guardrails and which of them block go-live are not decided."
   - "deploy-appstore (draft): whether the flow's Container Orchestration Platform is the IIoT Edge plant runtime, the deployment procedure and the Cyber Security requirements for an app are not recorded."
   - "it-demand-package (draft): IT's own demand form and the demand evaluation board's criteria and rhythm are not recorded."
   - "New-state flow (docs/new-state-flow.md): 13 registry skills are not on the three diagrams. Two are in none of the four files (od-information-integration-service, od-project-support-consultancy) and need a decision to be re-homed or retired; od-analytical-support-service orchestrates the Analytics lane that the flow dissolves; eleven are named only in the skill-map table and not drawn on the diagrams."

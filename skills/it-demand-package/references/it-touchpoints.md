@@ -71,7 +71,7 @@ If a demand is a camera, quality, SCADA or custom MES application in the legacy 
 ## Where a demand typically waits (recurring patterns)
 
 - Platform access: machines stay unintegrated while access to the aggregation server is open; this works as a technical follow-up with Central IT, never a governance-forum item (`od-decision-routing`, escalation worked examples). Lesson: name Central IT or Plant IT as the unblocking role in the package.
-- Unknown licence: many legacy applications have an unknown licence status (see [../../catalog-systems/references/legacy-application-position.md](../../catalog-systems/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
+- Unknown licence: many legacy applications have an unknown licence status (see [../../od-catalog/references/legacy-application-position.md](../../od-catalog/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
 - MES: a rollout that is on hold or ERP-dependent blocks a demand that depends on it; the demand is blocked, not planned (`od-requirements-breakdown`).
 
 ## Open
