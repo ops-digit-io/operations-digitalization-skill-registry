@@ -217,7 +217,7 @@ lanes:
     title: New connector for a new machine
     steps:
     - id: 3b4
-      title: Connector + pipeline to the data platform
+      title: Connector + pipeline to MDL
       wait: proc ~wks
       skills:
       - od-equipment-integration

@@ -80,7 +80,7 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Connector + pipeline to the data platform | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | proc ~wks |
+| Connector + pipeline to MDL | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | proc ~wks |
 | Procure & connect machine | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | CS ~wks |
 | Acceptance + CS → live | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | - |
 
@@ -107,16 +107,16 @@ Not a step; every skill reads it first.
 | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | in use | practice | New system or connector: Acceptance + CS → live | Flow, Process flow, BPMN, VSM |
 | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | in use | practice | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |
 | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | in use | practice | Develop a new use case: Business case + rank; New system or connector: Business case + capital | Flow, Process flow, BPMN, VSM |
-| [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow, Process flow |
+| [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow |
 | [`od-context`](../skills/od-context/SKILL.md) | in use | foundation | Foundation | Flow, VSM |
 | [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | in use | practice | Develop a new use case: Features + data check | Flow, Process flow, BPMN, VSM |
 | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to the data platform; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to MDL; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
 | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | in use | practice | Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | Flow, Process flow, BPMN, VSM |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to the data platform | Flow, Process flow, BPMN, VSM |
-| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Prototype / validate | Flow, Process flow |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
+| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Prototype / validate | Flow |
 | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | in use | practice | Develop a new use case: Features + data check; New system or connector: Requirements | Flow, Process flow, BPMN, VSM |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to the data platform | Flow, Process flow, BPMN, VSM |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | in use | practice | Intake: Known use case?; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | in use | technical | Develop a new use case: Define & diagnose | Flow, Process flow, BPMN, VSM |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | in use | practice | Intake: Known use case? | Flow, Process flow, BPMN, VSM |

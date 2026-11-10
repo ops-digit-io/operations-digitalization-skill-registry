@@ -109,7 +109,7 @@ def md_to_html(text: str, from_dir: Path, site_root: Path) -> str:
 
 def page(title: str, body: str, depth: int, active: str = "", extra_head: str = "") -> str:
     up = "../" * depth
-    nav = (f'<a href="{up}index.html">Process map</a><a href="{up}spec/index.html">Specification</a>'
+    nav = (f'<a href="{up}index.html">Process map</a><a href="{up}explorer/index.html">Skill explorer</a><a href="{up}spec/index.html">Specification</a>'
            f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a>'
            f'<a href="{up}downloads/core-library.zip">Download the core library</a>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -191,11 +191,11 @@ def build(out: Path, repo_url: str) -> None:
                 members += st.get("skills", [])
         zips[l["id"]] = sorted(set(members))
         zip_skills(zips[l["id"]], dl / f"{l['id']}.zip")
-        l["zip"] = f"downloads/{l['id']}.zip"
+        l["zip"] = f"../downloads/{l['id']}.zip"
         l["count"] = len(zips[l["id"]])
     for n in ids:
-        info[n]["zip"] = f"downloads/skills/{n}.zip"
-        info[n]["page"] = f"skills/{n}/index.html"
+        info[n]["zip"] = f"../downloads/skills/{n}.zip"
+        info[n]["page"] = f"../skills/{n}/index.html"
         info[n]["github"] = f"{repo_url}/blob/main/{skp.folder_of(n)}/{n}/SKILL.md"
 
     # ---- map page
@@ -243,7 +243,22 @@ document.addEventListener('keydown',e=>{{if(e.key==='Escape')$('#panel').classLi
 const h=location.hash.slice(1);if(h.startsWith('skill='))setTimeout(()=>open_(h.slice(6)),0);else if(D.lanes.some(l=>l.id===h))cur=h;
 render();
 </script>"""
-    (out / "index.html").write_text(page("OD skill registry: the process flow", body, 0), encoding="utf-8")
+    (out / "explorer").mkdir()
+    (out / "explorer" / "index.html").write_text(page("Skill explorer: the core skills by step", body, 1), encoding="utf-8")
+
+    # ---- the process map: the owner's diagram, as supplied; only the skill chips become links to the skill pages
+    src = (ROOT / "docs/new-state/OD_NewState_ProcessFlow.html").read_text(encoding="utf-8")
+    def link_chip(m):
+        name = m.group(3)
+        if name in info:
+            return f'<a class="{m.group(1)}" href="skills/{name}/index.html" style="text-decoration:none">{name}</a>'
+        return m.group(0)
+    src = re.sub(r'<span class="(chip [a-z]+)"( [^>]*)?>([a-z][a-z0-9-]+)</span>', link_chip, src)
+    bar = ('<p style="text-align:center;font:13px system-ui,sans-serif;margin:18px 0 28px">'
+           '<a href="explorer/index.html">Skill explorer</a> &middot; <a href="docs/new-state-skill-map.html">Skill map table</a> &middot; '
+           '<a href="spec/index.html">Specification</a> &middot; <a href="downloads/core-library.zip">Download the core library</a></p>')
+    src = src.replace("</body>", bar + "</body>", 1)
+    (out / "index.html").write_text(src, encoding="utf-8")
 
     # ---- skill pages
     for n in ids:
@@ -252,7 +267,7 @@ render();
         shutil.copytree(export / n, od)
         fm, text = spec.split((export / n / "SKILL.md").read_text(encoding="utf-8"))
         i = info[n]
-        where = "".join(f'<li><a href="../../index.html#{esc(x["lane"])}">{esc(x["laneTitle"])}</a>{" / " + esc(x["branch"]) if x["branch"] else ""} / {esc(x["step"])}{" <em>(proposed)</em>" if x["proposed"] else ""}</li>' for x in i["steps"]) or "<li>Not placed on the flow.</li>"
+        where = "".join(f'<li><a href="../../explorer/index.html#{esc(x["lane"])}">{esc(x["laneTitle"])}</a>{" / " + esc(x["branch"]) if x["branch"] else ""} / {esc(x["step"])}{" <em>(proposed)</em>" if x["proposed"] else ""}</li>' for x in i["steps"]) or "<li>Not placed on the flow.</li>"
         files = "".join(f'<li>{k}: ' + ", ".join(f'<a href="{k}/{esc(Path(f).stem)}.html">{esc(f)}</a>' if f.endswith(".md") else f'<a href="{k}/{esc(f)}">{esc(f)}</a>' for f in v) + "</li>" for k, v in i["files"].items())
         head = (f'<div class="card"><span class="badge {"b-warn" if i["state"] == "draft" else "b-ok"}">{"draft" if i["state"] == "draft" else "in use"}</span> '
                 f'<span class="badge b-grey">{esc(i["tier"])}</span> <span class="badge b-grey">{esc(i["lane"])}</span><p>{esc(i["desc"])}</p>'
