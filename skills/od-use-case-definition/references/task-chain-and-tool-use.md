@@ -21,7 +21,7 @@ is marked `PROPOSAL`; unknowns are `<...>`.
 |---|---|---|---|---|---|
 | Use Case Definition Workshop | Plant onboarding, or a new demand wave | Plant file, ritual candidates, library match | Use-case library (SharePoint), standard agenda | Defined use cases with problem, user, ritual | Prioritization, benefit calculation |
 | Benefit / savings calculation | A use case is prioritized | Baseline, expected change, basis | Benefit-calculation method | Saving basis row | Business case, tracked savings |
-| Use Case Integration Workshop | A use case is ready for integration | Business case, requirement breakdown, data availability verdict | Integration workshop agenda; data platform (read) | Integration plan, roles, utilization table started | Hand-off to Information Integration |
+| Use Case Integration Workshop | A use case is ready for integration | Business case, requirement breakdown, data availability verdict | Integration workshop agenda; data platform (read) | Integration plan, roles, utilization table started | Hand-off to Lane 3b (`od-equipment-integration`) |
 | Use-case impact evaluation | The use case is live | Utilization evidence, saving basis | Scorecard utilization view; `od-handover-and-adoption` test | Impact statement, adoption record | Utilization metric, retro |
 | Scorecard update | On request or on the department's own schedule | Current lists and reports | Scorecard (Power BI) | Updated figures with read date | Reporting on request |
 | Process First-Aid Kit request | Ad-hoc plant process issue | Plant question, data status | `<template to confirm>` | Quick answer or a routed definition | Analytical lane, or definition |

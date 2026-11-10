@@ -1,7 +1,7 @@
 ---
 name: od-use-case-definition
 description: >-
-  Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it.
+  Run step 21 (define and diagnose) and the Lane 2 funnel around it (the former Use Case Support Service).
   Define a plant use case so it can be built, standardized, handed over and measured: scope it,
   break down the requirement, assess the (legacy) MF IT systems, place it on its capability
   template and process group, record the fields that make it evaluable. Also prepares and runs
@@ -60,20 +60,28 @@ Lane detail (error paths, wait states, tasks, access, autonomy, metrics): `refer
 
 ## Lane flow: from demand to adoption
 
-**Trigger:** plant use-case demand, or a workshop request. **Done (lane):** use case defined,
-prioritized, impact-evaluated and handed to integration **with a business case**. Step 21 = rows 1 to 4.
+**Trigger:** a genuinely new recurring need on connected equipment (Lane 2), accepted by
+`od-use-case-intake-triage`, or a workshop request. A known, catalogued case is Lane 1 and does not
+come here (`catalog-usecase`). **Done (lane):** use case defined, requirements and data checked,
+prototype validated, business case agreed, capital request approved where investment is needed,
+implemented, adopted and, when proven and repeatable, catalogued. Step 21 = rows 1 and 2.
 
-| # | Step | Who | Control point | Skill |
-|---|---|---|---|---|
-| 1 | Collect plant use-case demand | DBVE + Plant ME | Demand logged against the plant roadmap | `od-use-case-intake-triage` |
-| 2 | Plant- and process-specific definition; diagnostics | both | Use case scoped with a clear objective | this skill |
-| 3 | Break down requirement; assess (legacy) MF IT systems; system fit | DBVE | System assessment complete | `od-requirements-breakdown`, `od-system-fit-check` |
-| 4 | Plan benefit calculation and business case; prioritize | both | Business case and priority agreed with Plant ME | `od-benefit-calculation` |
-| 5 | Hand to Information Integration Service | DBVE | Integration request accepted | `od-equipment-integration` |
-| 6 | System qualification, training, execution support | DBVE | Use case running on the shopfloor | |
-| 7 | Evaluate impact; ensure adoption | both | Impact evaluated; recipient confirms adoption | `od-handover-and-adoption` |
+| # | Flow step | Step | Who | Control point | Skill |
+|---|---|---|---|---|---|
+| 1 | intake | Collect plant use-case demand | DBVE + Plant ME | Demand logged against the plant roadmap; no nameable business case: refuse per intake | `od-use-case-intake-triage` |
+| 2 | 21 | Plant- and process-specific definition; process diagnostics | both | Use case scoped with a clear objective | this skill |
+| 3 | 22 | Requirements, features and data check; assess (legacy) MF IT systems | DBVE | Requirement and data verdict agreed | `od-requirements-breakdown`, `od-data-availability-check`, `od-system-fit-check` |
+| 4 | 23 | Prototype / validate with the recipient | DBVE + Plant | Prototype validated | `od-prototype-poc`, `od-analytics-asset-build` |
+| 5 | 24 | Benefit calculation, business case, rank | both | Business case and priority agreed with Plant ME | `od-benefit-calculation`, `bc-assessment` |
+| 6 | 25 | Capital request, if investment is needed | DBVE; humans approve | Approved by MPEE / BA Operations | `od-decision-routing`, `od-capital-request` |
+| 7 | 26 | Implement; evaluate impact; ensure adoption; catalogue | both | Use case running; recipient confirms adoption | `od-handover-and-adoption`, `od-use-case-standardization`, `catalog-usecase` |
 
-Before step 5 run `od-use-case-standardization`: a match to a library entry takes it rather than
+**Chaining out of Lane 2** (do not build it here): the use case needs new software or an app: hand
+the system demand to Lane 3, branch 3a (`od-system-fit-check` routes 3a.1 to 3a.4). It needs a new
+machine connection: hand it to Lane 3, branch 3b (`od-equipment-integration`). Record the move on the same
+demand. A proven, repeatable result is catalogued (`catalog-usecase`) and future runs are Lane 1.
+
+Before row 7 run `od-use-case-standardization`: a match to a library entry takes it rather than
 being re-specified. Per-step template routing: `references/lane-templates.md`.
 
 ## The coordinate every use case carries
@@ -141,7 +149,7 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 - Required system not deployed / operations concept missing -> tool-rollout decision to strategy; mark blocked in the portfolio.
 - Savings with no registered plant project or no baseline -> a claim, not a result; fix before the next sprint review.
 - Priority, potential and savings are filled on the benefit-calculation cadence, independent of Phase 2; a filled priority is not evidence of scoping (`references/patterns.md`).
-- `UNKNOWN` priority or potential is not "low". Integration fails acceptance or no adoption -> rework back to step 5.
+- `UNKNOWN` priority or potential is not "low". Integration fails acceptance or no adoption -> rework back to the Lane 3 hand-off (see "Chaining out of Lane 2").
 
 ## Workshops
 
@@ -161,7 +169,7 @@ stated and classified, rejected options named, and the business/process change w
 ## Handoff
 
 To `od-equipment-integration` **with** business case and requirement breakdown (via `od-use-case-standardization` first);
-to `od-handover-and-adoption` at step 7. Receiver needs the completed protocol, so a plant engineer who was not in the room can read what
+to `od-handover-and-adoption` at row 7 (flow step 26). Receiver needs the completed protocol, so a plant engineer who was not in the room can read what
 was decided, why, what is open. Block-to-block handoff table: `references/process-chain-practice.md`.
 
 ## Human gate and AI-agent notes
