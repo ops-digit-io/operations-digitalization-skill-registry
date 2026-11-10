@@ -26,7 +26,8 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 | 2 | Plant owner agrees | ⟨ ⟩ | ⟨answer and date⟩ |
 | 3 | Claims carry evidence | ⟨ ⟩ | ⟨register entry or none⟩ |
 | 4 | Sensitivity screen clear | ⟨ ⟩ | ⟨reviewer⟩ |
-| 5 | Audience named | ⟨ ⟩ | ⟨below⟩ |
+| 5 | People content handled (consent, balancing of interests, or "none") | ⟨ ⟩ | ⟨record or statement⟩ |
+| 6 | Audience named | ⟨ ⟩ | ⟨below⟩ |
 
 ## Claims that may be made
 

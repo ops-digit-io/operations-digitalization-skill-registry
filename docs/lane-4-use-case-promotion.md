@@ -29,12 +29,16 @@ Lanes 1 to 3 bring demand in and deliver. Lane 4 sends results out: it tells the
 
 | Step | Flow id | Skill | Control point | Who |
 |---|---|---|---|---|
-| Select and check the story | 41 | `od-showcase-selection` | Gate passed: live and adopted, plant owner agrees, claims carry evidence, nothing sensitive, audience named | DBVE; plant owner decides |
+| Select and check the story | 41 | `od-showcase-selection` | Gate passed: live and adopted, plant owner agrees, claims carry evidence, nothing sensitive, people content handled (consent or a documented balancing, otherwise roles and screenshots only), audience named | DBVE; plant owner decides |
 | Brief Internal Communications | 42 | `od-comms-brief` | Brief checked by `check_comms_brief.py` | DBVE |
 | Review and publish | 43 | `od-comms-brief` (approvals list) | Approvals: plant owner, OD lead, IC | Humans; IC publishes. External wait: IC |
 | Follow up and feed back | 44 | `od-showcase-followup` | Each reaction routed; review date set | DBVE |
 
 Feed-back routes: a request for a catalogued use case goes to Lane 1, a new recurring need to intake and Lane 2, a need for a system or connector to intake and Lane 3.
+
+## Built on the department's own material
+
+Lane 4 reuses what OD already has: the CSP appetizer fields, the pairing of an OPEX method with a digital standard use case, the plant testimonial template and the story shapes used at ODEC (`od-comms-brief`, `references/department-formats.md`), and it lists the peer-sharing channels that exist (ODEC use-case slot, CoP best-practice slot, the OPEX exchange call, the Yokoten database) as options to confirm. The January 2026 marketing-template initiative planned a marketing process and communication channels but left its results slide empty: Lane 4 is the first attempt to finish it, and its status is to be confirmed by the owner.
 
 ## Rules the lane enforces
 

@@ -108,7 +108,7 @@ flowchart TD
 | [`funnel-features`](../skills-extension/funnel-features/SKILL.md) | — | 🟩 deep | 2 | 1 | 1 |
 | [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟩 deep | 3 | 2 | 9 |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟩 deep | 11 | 1 | 6 |
-| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | — | 🟩 deep | 3 | 2 | 2 |
+| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | — | 🟩 deep | 4 | 2 | 2 |
 | [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) | — | 🟩 deep | 5 | 1 | 2 |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 8 |
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | Use Case Support | 🟨 documented | 15 | 0 | 15 |

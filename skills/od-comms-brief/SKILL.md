@@ -25,6 +25,9 @@ metadata:
     - "Work vault, OD Department Knowledge/OD-instance/use-case-development-transformation.md (Teams channel, Use Case Library and SharePoint as the collaboration surface; reporting by execution), read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/00-core/03-objectives.md (Lean and Digital with OPEX), read 2026-11-10"
     - "Vault rules (CLAUDE.md sections 1.5 and 3): no invented figures, roles not individuals, English deliverables"
+    - "Work vault, Deck Texts/D-Operations Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md (appetizer template, marketing pairing; results slide empty), read 2026-11-10"
+    - "Work vault, Deck Texts/03-AMT_MI_Standard_Agenda_Use_Case_Works/9.0-Marketing_Slides-WIP.md (testimonial key aspects, slide 17), and Deck Texts/D-Operations Digitalization/2025 10-ODEC.md (story shapes, slides 9-11), read 2026-11-10"
+    - "Work vault, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Communications brief
@@ -48,14 +51,15 @@ Read `od-context` first. Lane 4 is outbound and runs through Internal Communicat
 2. **Proof points,** two to four. Each has the claim, an evidence class (`CALCULATION`, `ESTIMATION`, `not yet assessed`), a source and the wording status (result or claim). A saving is a result only with a registered plant savings project and a baseline ([`references/message-and-claims.md`](references/message-and-claims.md)).
 3. **Audience variants.** One short variant per audience the selection named: other plants and key users (can I run it?), BA Operations leadership (value and progress), all employees (what changed), OPEX and PPI/ME (which method step it supports).
 4. **Call to action** that leads somewhere: the plant requests the use case from the catalogue (`catalog-usecase`), or asks for a definition if it is not catalogued. Name the contact as a role.
-5. **Channels and timing** as Internal Communications states them in its intake ([`references/ic-handover.md`](references/ic-handover.md)); until the IC brief is supplied these stay open points, never guesses.
-6. **Drafts** (article, one-pager, slide, short post) in English, in the house style once the brand template is available. A draft repeats the proof points and adds no new claim.
+5. **Channels and timing** as Internal Communications states them in its intake ([`references/ic-handover.md`](references/ic-handover.md)); until the IC brief is supplied these stay open points, never guesses. The peer-sharing formats that exist (ODEC use-case slot, CoP best-practice slot, OPEX exchange call, Yokoten database) are listed there as options to confirm.
+6. **Drafts** (article, one-pager, slide, short post) in English, in the house style once the brand template is available. Use the department's own formats where they fit: the CSP appetizer fields, the testimonial's four aspects, the ODEC story shapes ([`references/department-formats.md`](references/department-formats.md)). A draft repeats the proof points and adds no new claim.
+6a. **People content.** A photo, video or quote of a member of staff needs the person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only. Fill the section in the brief.
 7. **Run the check:** `python3 scripts/check_comms_brief.py MyBrief.md`. Exit 2 blockers, 1 warnings, 0 ready.
 8. **Approvals** (human, in this order): plant owner, OD lead, Internal Communications. The agent never publishes and never marks an approval as given.
 
 ## What the check catches
 
-A proof point without a source, a figure without an evidence class, a saving worded as a result without a registered project, a missing call to action or approvals list, a host name, address or link to an internal system, a named individual, and superlatives. It does not judge whether the story is true: that is the plant owner's approval.
+A proof point without a source, a figure without an evidence class, a saving worded as a result without a registered project, a missing call to action or approvals list, a host name, address or link to an internal system, a named individual, photo, video or quote content without a people-content statement, and superlatives. It does not judge whether the story is true: that is the plant owner's approval.
 
 ## Human gate and AI-agent notes
 
@@ -76,6 +80,7 @@ A proof point without a source, a figure without an evidence class, a saving wor
 | File | Open when |
 |---|---|
 | [`references/message-and-claims.md`](references/message-and-claims.md) | Wording a claim, the evidence classes, the style rules |
-| [`references/ic-handover.md`](references/ic-handover.md) | What OD hands to Internal Communications and what is still unknown |
+| [`references/department-formats.md`](references/department-formats.md) | The department's existing story formats (appetizer, testimonial, ODEC shapes, OPEX exchange call) and their status |
+| [`references/ic-handover.md`](references/ic-handover.md) | What OD hands to Internal Communications, the channels that exist, and what is still unknown |
 | [`assets/comms-brief.md`](assets/comms-brief.md) | The brief template |
 | [`scripts/check_comms_brief.py`](scripts/check_comms_brief.py) | The check; `scripts/test_check_comms_brief.py` tests it |

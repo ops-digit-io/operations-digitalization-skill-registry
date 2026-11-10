@@ -20,7 +20,12 @@ Source of the rule set: the owner's request of 2026-11-10 (an outbound lane via 
 | 2 | Plant owner agrees | A named role at the plant accepted the plant being named and the claims | The owner's written answer | Hold or No |
 | 3 | Claims carry evidence | Each figure has a class and a source; savings are results only with a registered project and baseline | Savings register entry, business-case file | Hold (reword the claim) |
 | 4 | Sensitivity screen clear | None of the items below is in the story | Reviewer's check | No, or Hold until removed |
-| 5 | Audience named | At least one audience with a next step | The selection record | Hold |
+| 5 | People content handled | No photo, video or quote of a member of staff without that person's consent or a documented balancing of interests; otherwise roles and screenshots only | Consent record or the balancing, or the statement "none" | Hold (remove the item) |
+| 6 | Audience named | At least one audience with a next step | The selection record | Hold |
+
+## People content: what the department has
+
+The vault holds one worked example of a balancing of interests, from March 2022, about photos of employees on a company website: the controller's reasons (a good impression for customers, a higher likelihood of contracts) are set against the employees' reasons (the website is public, images can be downloaded and reused, many staff have no customer contact), and the outcome limited photos to staff with regular customer contact and excluded production staff (Deck Texts: `Smart Factory - Tools and Architecture/Berechtigtes Interesse.md`, slides 1-2; a German deck, AI-drafted text). It is an **example of the method, not an internal-communications policy**: the rule in this skill (consent or a documented balancing, otherwise roles only) is proposed, and the data-protection route for internal channels is to be confirmed with Internal Communications and the plant owner. ⟨to confirm⟩
 
 ## Sensitivity screen
 

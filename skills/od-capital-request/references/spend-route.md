@@ -30,12 +30,27 @@ OD lead, Finance) and quote them with their source and date.
 As recorded, the CTO limit and the Board limit overlap in a band: the wording does not say which body decides there.
 Rule for this skill: **write the amount, quote the ladder as the source words it, and when the amount falls in the
 overlapping band apply the stricter (higher) route; Controlling may downgrade it.** Look the amounts up in the current
-approval policy; none are written here. Still open: ⟨the route for small
-spend⟩. The Lane 1b step "cost template and lightweight approval" in the flow (rated Partial) suggests a lighter
-route for small spend, but no source gives its limit.
+approval policy; none are written here. The route for small spend is
+recorded in 2026 material, quoted in the next section; it is **recorded, not confirmed** by the OD lead. The Lane 1b step
+"cost template and lightweight approval" in the flow (rated Partial) is the OD-side step that prepares such an item.
 
 Practical note for a key user: a single use case at one plant is usually far smaller than the portfolio-level
 amounts in the vault business cases, which are proposals, not eCR amounts. Do not infer the route from them.
+
+## The pre-approval route for small spend (recorded 2026, owner to confirm)
+
+Four 2026 sources record a route that runs **before** the eCR. Amounts are quoted as the sources give them, with source and date; they are company policy and may change, so look them up again before using them (the OD lead or Finance confirms).
+
+| Statement | Source |
+|---|---|
+| Locations enter all planned investment items for 2026 in a SharePoint list with status `IDEA`; a quarterly prioritisation and review meeting (location and central) follows; plants start the pre-approval workflow after it; the eCR is created after pre-approval; a location can request pre-approval on demand (rolling forecast); no approval workflow starts before the review meeting | Vault `Document Texts/Department Documents/20260302_Investment Planning Process_Introduction 1.md`, slides 5-6 (source deck dated 2026-03-02) |
+| Three amount bands are shown: below 25 kEUR, 25 to 100 kEUR, above 100 kEUR. The text next to them reads "Automated Pre-Approval Workflow to proceed with details (start D4/D5 Project & eCR)" and, for the top band, "PRE-eCR", then project management per the PM standard, the eCR, and end of production or closure. The diagram's arrows are not in the text, so **which band takes which route is an inference** (the automated workflow for the two lower bands, the pre-eCR for the top band) | same file, slide 7 |
+| A review-meeting action reads "Central Approval >> put to 25k EUR >> NOT 50k EUR" (the context of the change is not recorded) | Vault `Work-2015_2026/2026/2026-02-24 - Review Meeting 1.md` |
+| The central flow starts only if the local approval is "done" and "approved"; the request for execution now triggers only the local approval flow | Vault `Work-2015_2026/2026/2026-03-27 Changes on Invest Approval.md` |
+
+The eCR approval matrix itself (tiers below 50 kEUR, from 50 kEUR and from 150 kEUR) is in [`ecr-approval-matrix.md`](ecr-approval-matrix.md). How the pre-approval bands (25 and 100) relate to those tiers (50 and 150) is **not stated** in the sources.
+
+**Open points.** ⟨whether the 25 kEUR central-approval limit is the Lane 1b "lightweight approval" limit⟩ · ⟨which route the 25 to 100 kEUR band takes⟩ · ⟨what "eCR" stands for: this skill reads it as electronic capital request, while the bundle's `10-Department/Decision rights.md` says engineering change request; confirm with Finance⟩.
 
 ## Where the eCR sits in the lanes
 

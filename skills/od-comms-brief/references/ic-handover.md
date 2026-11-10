@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Handover to Internal Communications
 
-**Status.** Internal Communications is a department outside OD. No note in the vault was found that describes its process (a keyword search of `Work-OpsDigit-Knowledge` for internal communication, newsletter and intranet gave 17 hits in 13 files, mostly plant and deck notes; searched 2026-11-10, hits not opened, so a relevant note may exist; the archive was not searched). The owner will supply the Internal Communications brief. Until then everything marked ⟨to confirm⟩ is open, and this file must not be filled from general knowledge.
+**Status.** Internal Communications is a department outside OD. A staff census in the vault records the role as central, in HR and Communications, with the task of scalable communication around activities, keeping the image, sorting the funnel and managing expectations (`Document Texts/Department Documents/Digital or IT Staff in Business.md`, row Internal Communications; a person-level file, so use the role only). OD's own January 2026 marketing-template initiative planned to define the process, responsibilities and channels but left its results slide empty ([`department-formats.md`](department-formats.md)). No note in the vault was found that describes IC's process (a keyword search of `Work-OpsDigit-Knowledge` for internal communication, newsletter and intranet gave 17 hits in 13 files, mostly plant and deck notes; searched 2026-11-10, hits not opened, so a relevant note may exist; the archive was not searched). The owner will supply the Internal Communications brief. Until then everything marked ⟨to confirm⟩ is open, and this file must not be filled from general knowledge.
 
 ## What OD hands over
 
@@ -29,6 +29,18 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 | The story is true and the plant may be named | Plant owner (role) | Written |
 | OD tells it | OD lead | Proposed; not in the department decision rights |
 | Channel, form, date, final wording, publication | Internal Communications | IC decides; OD does not publish |
+
+## Channels that exist today (options to confirm, not arrangements)
+
+Peer-sharing formats recorded in OD's material; their current status is unknown. Details and sources in [`department-formats.md`](department-formats.md), section 5.
+
+| Channel | Audience it reaches | Status |
+|---|---|---|
+| ODEC use-case slot (25 minutes on the 2026 call-1 agenda) | Global OD community, leadership | An ODEC call for 2026 is recorded; whether ODEC continues is open ⟨to confirm⟩ |
+| CoP call best-practice slot, recorded | Plant key users and engineers | 2024 decks; current status ⟨to confirm⟩ |
+| CSP and use-case exchange call with OPEX (two use cases, five minutes each) | OPEX, ME, OD and location leads | Described in the 2026 OD x OPEX initiative deck; running status ⟨to confirm⟩ |
+| Manufacturing Engineering community call and Yokoten best-practice database | ME community | 2023 deck; current status ⟨to confirm⟩ |
+| Channels of Internal Communications itself (intranet, newsletter, Teams) | All employees | Not recorded: wait for the IC brief |
 
 ## Open points (to fill from the Internal Communications brief)
 

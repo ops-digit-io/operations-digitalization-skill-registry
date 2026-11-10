@@ -17,6 +17,7 @@ SECTIONS = {
     "cta": (r"^#+\s*call to action", True),
     "channels": (r"^#+\s*channels", False),
     "sensitivity": (r"^#+\s*sensitivity", True),
+    "people": (r"^#+\s*people content", False),
     "approvals": (r"^#+\s*approvals", True),
 }
 PLACEHOLDER = re.compile(r"⟨[^⟩]*⟩")
@@ -24,6 +25,7 @@ CLASSES = re.compile(r"\b(CALCULATION|ESTIMATION|not yet assessed)\b")
 FIGURE = re.compile(r"(€\s?\d|\d\s?(?:€|EUR|k€|kEUR)\b|\b\d+(?:[.,]\d+)?\s?%|\b\d+\s?k\b|\b\d{2,}\s+(?:machines?|plants?|lines?|users?|hours?|h)\b)", re.I)
 SENSITIVE = re.compile(r"(https?://|\\\\[\w.-]+\\|\b\d{1,3}(?:\.\d{1,3}){3}\b|\bpassword\b|\btoken\b)", re.I)
 SUPERLATIVE = re.compile(r"\b(revolution\w*|game[- ]chang\w*|first[- ]ever|best[- ]in[- ]class|world[- ]class|breakthrough)\b", re.I)
+PEOPLE_TRIGGER = re.compile(r"\b(photos?|videos?|portrait|testimonial|quote[sd]?)\b", re.I)
 PERSON = re.compile(r"\b(?i:built|developed|created|designed|led|driven) by [A-Z][a-z]+ [A-Z][a-z]+\b|\b(?:Mr|Ms|Mrs|Dr)\.? [A-Z][a-z]+")
 
 
@@ -90,6 +92,14 @@ def analyze(text):
                 "Use the role and the plant.")
         if SUPERLATIVE.search(line):
             add("WARN", "superlative", f"Line {n} uses a superlative: {line.strip()[:80]}")
+
+    # photo, video or quote content needs a people-content statement
+    body_wo_people = "\n".join(l for k, v in sec.items() if k != "people" for l in v.splitlines())
+    people = sec.get("people", "").strip()
+    if PEOPLE_TRIGGER.search(body_wo_people) and (not people or PLACEHOLDER.fullmatch(people)):
+        add("BLOCKER", "people-content-unstated",
+            "The brief mentions a photo, video, portrait, testimonial or quote but has no people-content statement.",
+            "Say 'none' (roles and screenshots only) or list each item with the consent or balancing of interests.")
 
     cta = sec.get("cta", "")
     if cta.strip() and (PLACEHOLDER.fullmatch(cta.strip()) or len(cta.split()) < 5):

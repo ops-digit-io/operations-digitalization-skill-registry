@@ -39,6 +39,10 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 
 ⟨Confirm: no individuals named, no host names or addresses, no links to internal systems, no supplier or customer detail, nothing the plant owner marked as not for release.⟩
 
+## People content
+
+⟨State "none" (roles and screenshots only), or list each photo, video or quote of a member of staff with the consent or the documented balancing of interests behind it.⟩
+
 ## Approvals
 
 | Approval | Role | Status | Date |

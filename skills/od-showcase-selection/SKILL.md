@@ -26,6 +26,7 @@ metadata:
     - "Work vault, OD Department Knowledge/OD-instance/10-modules/smart-factory-use-case/systems-of-record.md (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/00-core/07-metrics.md (use-case utilization rate; recipient feedback), read 2026-11-10"
     - "Registry reference: od-use-case-definition, lane service flow (savings without a registered plant savings project or a baseline are a claim, not a result), read 2026-11-10"
+    - "Work vault, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase selection
@@ -49,13 +50,14 @@ Read `od-context` first. Lane 4 is the outbound lane: it tells other plants, lea
 2. **The plant owner agrees,** in writing, to be named as the plant (not as a person) and to the claims.
 3. **Evidence per claim.** Every figure gets one class: `CALCULATION` (with its method), `ESTIMATION`, or `not yet assessed`. A saving counts as a **result** only when a plant savings project and a baseline are registered; before that it is a **claim** and is worded as one. Never invent or round up a figure.
 4. **Sensitivity screen.** No individual named, no host name, address or credential, no supplier or customer detail, nothing that exposes the cyber posture of a plant ([`references/readiness-gate.md`](references/readiness-gate.md)).
-5. **Audience fit.** Name the audiences the story is for and what each should do next ([`references/readiness-gate.md`](references/readiness-gate.md)).
+5. **People content.** A photo, video or quote of a member of staff needs that person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only. A balancing of interests lists the employer's reasons, the employees' counter-reasons and the weighing ([`references/readiness-gate.md`](references/readiness-gate.md)).
+6. **Audience fit.** Name the audiences the story is for and what each should do next ([`references/readiness-gate.md`](references/readiness-gate.md)).
 
 ## Verdicts
 
 | Verdict | When | Next |
 |---|---|---|
-| **Go** | Gate steps 1 to 5 pass | `od-comms-brief` |
+| **Go** | Gate steps 1 to 6 pass | `od-comms-brief` |
 | **Hold** | Adoption not yet confirmed, a figure is still a claim and the story needs it, the plant owner has not answered | Name what is missing and the owner; revisit at the next review |
 | **No** | The plant owner declines, the use case is not live, or the story cannot be told without a sensitive detail | Record the reason; do not retry through another channel |
 

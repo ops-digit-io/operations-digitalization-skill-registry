@@ -68,6 +68,15 @@ class CommsBriefChecks(unittest.TestCase):
         text = GOOD.replace("reviews downtime", "has a game-changing way to review downtime")
         self.assertIn("superlative", checks(text))
 
+    def test_quote_without_people_statement_blocks(self):
+        text = GOOD.replace("on one line.", "on one line, with a quote from the shift lead.")
+        self.assertIn("people-content-unstated", checks(text))
+
+    def test_quote_with_people_statement_passes(self):
+        text = GOOD.replace("on one line.", "on one line, with a quote from the shift lead.").replace(
+            "## Approvals", "## People content\nRole statement only; consent given by the plant owner role.\n## Approvals")
+        self.assertNotIn("people-content-unstated", checks(text))
+
     def test_missing_approver_blocks(self):
         text = GOOD.replace("| Publication | Internal Communications | pending | |\n", "")
         self.assertIn("missing-approver", checks(text))
