@@ -1,94 +1,73 @@
 %% OD New-State Service Lanes - process flow
-%% Aligned to the department's new-state lane files (OD-instance/20-lanes-newstate-DRAFT, lanes 1-3), the OD x IT
-%% alignment of 2026-09-11 and the department naming convention; revised 2026-11-10. Drawn from
-%% docs/new-state/process.yaml. Every core skill is a department skill and appears on a step or on the spine;
-%% extension skills deepen a step and are not drawn.
-%% Shapes: (( )) start/end · { } gateway · [ ] task · [( )] catalog store · dashed = external wait or supplier gap
+%% Transcribed from the department's own map: OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/
+%% OD_ServiceLine_NewState_VSM.html (Thomas, 2026-09-09, collapsed to 3 branched lanes 2026-09-10).
+%% Step numbers, titles and skills follow that map; docs/new-state/process.yaml holds the same as data.
+%% Department skills the map does not draw on a step are shown in the bottom band.
+%% Shapes: (( )) start/end · { } gateway · [ ] task · [( )] catalog · dashed = external wait or no skill
 flowchart TD
-    START((Demand)) --> CLS{"Classify into one lane<br/>human, OD intake"}
-    CLS -->|Refuse: no roadmap link or<br/>nameable business case| REF[Return to demand owner]
-    CLS -->|Known, catalogued| L1G{Machine<br/>connected?}
-    CLS -->|New recurring need| C1
-    CLS -->|New system or connector| D1
+    START((Demand)) --> CLS{"Is the use case already known<br/>(in the catalog)?"}
+    CLS -->|Yes · run it| L1G{Machine already<br/>connected?}
+    CLS -->|No · new use case on an existing machine| C1
+    CLS -->|No · new system / app and/or<br/>new machine connection| D1
 
-    %% ---------- LANE 1 : run a known use case (self-service) ----------
-    subgraph LANE1 [Lane 1 - Run a known use case · plant self-service]
+    subgraph LANE1 [Lane 1 - Run a known use case · Self-service]
         direction TB
-        L1G -->|Yes · 1a| A1["1a1 Pick from catalog<br/><i>catalog-usecase</i>"]
-        A1 --> A2["1a2 Apply standard template, self-service<br/><i>ops-dashboard-datatron, ops-dashboard-engine</i>"]
-        A2 --> A3["1a3 Guardrails, go live, confirm adoption<br/><i>catalog-guardrails</i>"]
+        L1G -->|Yes · branch 1a, no spend| A1["1 Pick known use case from catalog<br/><i>catalog-usecase</i>"]
+        A1 --> A2["2 Apply standardized template<br/><i>ops-dashboard-datatron</i>"]
+        A2 --> A3["3 Validate & go live<br/><i>catalog-guardrails</i>"]
         A3 --> L1END(((Live)))
 
-        L1G -->|No · 1b| B1["1b1 Pick UC + standardized system<br/><i>catalog-usecase, catalog-systems</i>"]
-        B1 --> L1F{Standardized<br/>system fits?}
-        L1F -->|Yes| B2["1b2 Cost template · plant budget owner approves<br/><i>bc-cost</i>"]
-        B2 --> B3["1b3 Order and connect · CS sign-off in parallel<br/><i>mi-connector</i>"]
-        B3 --> B4["1b4 Standardized deployment, go live, adoption<br/><i>ops-dashboard-datatron, catalog-guardrails</i>"]
+        L1G -->|No · branch 1b, standardized onboarding| B1["1 Pick known UC + identify standardized system<br/><i>catalog-usecase, catalog-systems</i>"]
+        B1 --> B2["2 Fill cost template & lightweight approval<br/>cost template, self-service · ~d"]
+        B2 --> B3["3 Order & connect standardized system<br/>standardized kit · procurement + CS ~wks"]
+        B3 --> B4["4 Apply known-UC template & go live<br/><i>ops-dashboard-datatron</i>"]
         B4 --> L1END
     end
-    L1F -->|No · non-standard system or new machine| D1
-    A1 -.->|Not truly catalogued| C1
+    LANE1 -.->|not truly catalogued| C1
+    LANE1 -.->|no standardized system fits| D1
 
-    %% ---------- LANE 2 : develop a new use case (OD-led) ----------
     subgraph LANE2 [Lane 2 - Develop a new use case · OD-led]
         direction TB
-        C1["21 Capture idea, process diagnostics<br/>human, DBVE + plant"] --> C2["22 Requirements and features, data check<br/><i>funnel-requirements, funnel-features</i>"]
-        C2 --> C3["23 Prototype / click-dummy, validated<br/><i>funnel-prototype</i>"]
-        C3 --> C4["24 Business case: value, cost, assessment<br/><i>bc-build, bc-cost, bc-assess</i>"]
-        C4 --> G2{Nameable<br/>business case?}
-        G2 -->|No| REF2[Refuse, return to demand owner]
-        G2 -->|Yes| G5{Invest<br/>needed?}
-        G5 -->|Yes| C5["25 Capital request ~wks<br/><i>bc-capital-request</i>"]
-        G5 -->|No| G6
-        C5 --> G6{Needs new system<br/>or connection?}
-        G6 -->|No| C6["26 Implement, evaluate impact, adoption, catalogue<br/><i>catalog-usecase</i>"]
-        C6 --> G3{Proven and<br/>repeatable?}
-        G3 -->|No| L2END(((Done)))
-        G3 -->|Yes| CAT[(Catalog)]
+        C1["1 Use-case definition & diagnostics<br/><i>funnel-requirements</i>"] --> C2["2 Feature breakdown & data/system check<br/><i>funnel-features</i>"]
+        C2 --> C3["3 Prototype / validate<br/><i>funnel-prototype</i>"]
+        C3 --> C4["4 Business case & prioritize<br/><i>bc-build, bc-assess</i>"]
+        C4 --> C5["5 Capital request, if invest needed · ~wks<br/><i>bc-capital-request</i>"]
+        C5 --> C6["6 Implement, adopt & graduate to catalog<br/><i>ops-dashboard-datatron → catalog-usecase</i>"]
+        C6 --> CAT[(Catalog)]
     end
     CAT -.->|becomes a Lane 1 case| L1G
-    G6 -->|Software · chains to 3a<br/>Machine connection · chains to 3b| D1
+    LANE2 -.->|needs new software · 3a<br/>needs new machine connection · 3b| D1
 
-    %% ---------- LANE 3 : introduce a new system or connector ----------
-    subgraph LANE3 [Lane 3 - New system or connector · front-end OD · build OD+external · IT / CS gated]
+    subgraph LANE3 [Lane 3 - Introduce a new system or connector · OD front-end / External / IT·CS]
         direction TB
-        D1["31 Requirements engineering<br/><i>funnel-requirements</i>"] --> D2{"32 Tool-decision / IT-footprint gate<br/><i>invest-screen</i>"}
-        D2 -->|Blocked / Hold| D2H[Hold: re-scope or reject]
-        D2 -->|Go| D3["33 Business case, assessment, capital request ~wks<br/><i>bc-build, bc-cost, bc-assess, bc-capital-request</i>"]
-        D3 --> D4["34 Handover once the demand is clear<br/><i>it-demand-package</i> · OpenSpec package"]
-        D4 --> G4{Route}
+        D1["1 Requirements engineering<br/><i>funnel-requirements</i>"] --> D2{"2 Tool-decision / IT-footprint gate<br/><i>invest-screen</i>"}
+        D2 --> D3["3 Business case & capital request · ~wks<br/><i>bc-build, bc-assess, bc-capital-request</i>"]
+        D3 -->|3a new system| OPT{Make / buy / integrate}
+        OPT -->|3a.1 available app| O1["<i>deploy-appstore</i>"]
+        OPT -->|3a.2 self dev| O2["<i>mi-connector, deploy-appstore</i>"]
+        OPT -->|3a.3 external dev| O3["<i>it-demand-package</i> + ext dev"]
+        OPT -->|3a.4 integrate foreign app| O4["<i>it-demand-package</i>"]
+        O1 & O2 & O3 & O4 --> E1["4a Deploy to platform + CS sign-off · ~wks<br/><i>deploy-appstore</i>"]
+        E1 --> E2["5a Rollout & adopt<br/>no skill yet"]
+        E2 --> L3AEND(((Live)))
 
-        G4 -->|3a.1 reuse · 3a.2 self-develop| E1["3a4 Build or integrate<br/><i>deploy-appstore, it-demand-package</i>"]
-        G4 -->|3a.3 external build · 3a.4 foreign app| EXT[IT demand / external developer accepts]
-        EXT --> E1
-        E1 --> E2["3a5 Deploy to platform, acceptance, CS sign-off ~wks<br/><i>deploy-appstore</i>"]
-        E2 --> E3["3a6 Rollout and adoption<br/>ownership on formal acceptance"]
-        E3 --> L3AEND(((Live)))
-
-        G4 -->|3b new connector| F1["3b4 Connector design + pipeline to data platform<br/><i>mi-connector, ops-pipeline</i>"]
-        F1 --> F2["3b5 Procure and connect · CS sign-off in parallel ~wks<br/><i>mi-connector, ops-pipeline</i>"]
-        F2 --> F2X[Integration execution · supplier-dependent]
-        F2X --> F3["3b6 Acceptance test, live on the data platform"]
-        F3 --> L3BEND(((On data platform)))
+        D3 -->|3b new connector| F1["4b Connector design + pipeline to MDL<br/><i>mi-connector, ops-pipeline</i>"]
+        F1 --> F2["5b Procure & connect machine · ~wks<br/>App-Store-Ops = supplier feature request"]
+        F2 --> F3["6b Acceptance + CS sign-off; live on MDL<br/>no skill yet"]
+        F3 --> L3BEND(((Live on MDL)))
     end
 
-    %% ---------- Spine : applies to every step ----------
-    subgraph SPINE [Spine - every step]
+    subgraph SUPPORT [Department skills without a step on the map]
         direction LR
-        S1["<i>dept-os</i><br/>context layer: vocabulary, lanes, decision rights"]
+        S1["<i>dept-os</i><br/>context layer"] ~~~ S2["<i>bc-cost</i><br/>feeds bc-assess"] ~~~ S3["<i>ops-dashboard-engine</i><br/>generic builder"]
     end
-    L3BEND ~~~ SPINE
+    L3BEND ~~~ SUPPORT
 
-    %% external waits and the supplier gap
     classDef gap fill:#ffffff,stroke:#f37558,stroke-width:2px,stroke-dasharray:5 4,color:#1b1e52;
-    class EXT,F2X gap;
-
-    %% event + gateway styling (minimal colour)
+    class B2,B3,E2,F2,F3 gap;
     classDef evt fill:#1b1e52,stroke:#1b1e52,color:#ffffff;
-    class START,L1END,L2END,L3AEND,L3BEND evt;
+    class START,L1END,L3AEND,L3BEND evt;
     classDef gate fill:#fff7e6,stroke:#ffa500,color:#1b1e52;
-    class CLS,L1G,L1F,G2,G3,G4,G5,G6,D2 gate;
-    classDef stop fill:#f4f4f4,stroke:#999999,color:#1b1e52;
-    class REF,REF2,D2H stop;
+    class CLS,L1G,D2,OPT gate;
     classDef spine fill:#eef1fb,stroke:#1b1e52,color:#1b1e52;
-    class S1 spine;
+    class S1,S2,S3 spine;

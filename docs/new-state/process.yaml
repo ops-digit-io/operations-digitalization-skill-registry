@@ -1,18 +1,19 @@
-# The new-state process flow as data: lanes, branches, steps, and the skills that serve each step.
-# Core = the department's own skills (OD Department Knowledge/OD-instance: lane files 1-3 and
-# OD_Skill_Naming_Convention.md), under the department's names; every other registry skill is an
-# extension that deepens a step (`proposed`). OD_NewState_Flow.mermaid draws exactly this file.
-# Step ids are stable (skills cite them). A step with no core skill is a human or plant step.
+# The new-state process flow as data, transcribed from the department's own map:
+# OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/OD_ServiceLine_NewState_VSM.html (Thomas, 2026-09-09/10).
+# Step numbers (`no`), titles, owners, waits and skills follow that map verbatim; `id` is a stable key that skills cite.
+# Core = the department's skills: every skill the map names on a step, plus the department skills the map does not place
+# on a step (spine). `proposed` = registry extension skills that deepen a step; they are not part of the map.
 intake:
   title: Intake
   who: Triage and fit check
-  summary: One lane per demand. Decide whether the use case is known (Lane 1), new on connected equipment (Lane 2), or needs a new system or connector (Lane 3); refuse what has no roadmap link or nameable
-    business case.
+  summary: One lane per demand; branch decided inside the lane.
   steps:
   - id: i1
-    title: Classify the demand into exactly one lane
-    text: Known catalogued use case runs in Lane 1 (1a connected, 1b standardized onboarding); a genuinely new recurring need on connected equipment goes to Lane 2; something that does not exist yet (new
-      system or new connector) goes to Lane 3. Ad-hoc questions go through the first-aid request and are routed from there.
+    'no': ''
+    title: Is the use case already known (in the catalog)?
+    who: OD intake
+    text: 'Known: run it in Lane 1 (1a connected / 1b standardized onboarding). New use case on an existing machine: Lane 2. New system / app and/or new machine connection: Lane 3 (3a system 3a.1-3a.4 /
+      3b connector).'
     skills: []
     proposed:
     - od-use-case-intake-triage
@@ -21,117 +22,161 @@ intake:
 lanes:
 - id: lane1
   title: Run a known use case
-  who: Self-service (plant key user); OD supplies catalog, templates, cost template, guardrails
-  summary: The plant picks a catalogued use case and runs it inside pre-approved guardrails. Falls through to Lane 2 when the case is not truly catalogued, to Lane 3 when it needs a non-standard system
-    or a new machine.
+  who: Self-service
+  summary: 'The plant self-serves a catalogued use case; OD supplies the library, standardized systems, cost template and guardrails, not the labour. Branches on one question: is the target machine already
+    connected?'
   branches:
   - id: 1a
-    title: Machine already connected (direct deploy, no money)
+    title: Machine already connected (no spend)
     steps:
     - id: 1a1
-      title: Pick from the catalog
+      'no': '1'
+      title: Pick known use case from catalog
+      who: plant
+      text: Self-service selection from OD's use-case library.
       skills:
       - catalog-usecase
       proposed: []
     - id: 1a2
-      title: Apply the standard template (self-service)
+      'no': '2'
+      title: Apply standardized template
+      who: plant
+      text: Configure the known dashboard/report/app against the connected machine.
       skills:
       - ops-dashboard-datatron
-      - ops-dashboard-engine
+      note: self-service mode
       proposed:
       - od-analytics-asset-build
       - od-template-resolution
     - id: 1a3
-      title: Guardrails, go live, confirm adoption
+      'no': '3'
+      title: Validate & go live
+      who: plant
+      text: Self-check against guardrails; adopt into daily use.
       skills:
       - catalog-guardrails
       proposed:
       - od-handover-and-adoption
       - od-rollout-training
   - id: 1b
-    title: Machine not connected, standardized-system onboarding (predictable money)
+    title: 'Not connected: standardized-system onboarding (predictable spend via cost template)'
     steps:
     - id: 1b1
-      title: Pick the use case and the standard system
+      'no': '1'
+      title: Pick known UC + identify standardized system
+      who: plant
+      text: Match the use case to a standardized connection kit from the list.
       skills:
       - catalog-usecase
       - catalog-systems
       proposed: []
     - id: 1b2
-      title: Cost template, approved by the plant budget owner
-      wait: ~d
-      skills:
-      - bc-cost
+      'no': '2'
+      title: Fill cost template & lightweight approval
+      who: plant
+      text: 'Standardized, pre-priced spend: template, not a full business case.'
+      wait: ~d small budget approval
+      skills: []
+      note: cost template (self-service)
       proposed:
       - od-decision-routing
     - id: 1b3
-      title: Order and connect; Cyber Security sign-off in parallel
-      wait: ~wks
-      skills:
-      - mi-connector
+      'no': '3'
+      title: Order & connect standardized system
+      who: both
+      text: Procure the standard kit; connect the machine; Cyber Security sign-off.
+      wait: ~wks procurement + CS
+      skills: []
+      note: standardized connection kit
       proposed:
       - od-cybersec-gate
     - id: 1b4
-      title: Standardized deployment, go live, confirm adoption
+      'no': '4'
+      title: Apply known-UC template & go live
+      who: plant
+      text: Same as branch 1a once connected.
       skills:
       - ops-dashboard-datatron
-      - catalog-guardrails
+      note: self-service
       proposed:
       - od-handover-and-adoption
       - od-rollout-training
 - id: lane2
   title: Develop a new use case
-  who: OD-led (DBVE)
-  summary: The full funnel for a genuinely new recurring need. Chains to Lane 3a when it needs new software and to Lane 3b when it needs a new machine connection; a proven, repeatable result is catalogued
-    and becomes a Lane 1 case.
+  who: OD-led
+  summary: 'Design-and-business-case-heavy path: a genuinely new use case on an already-connected machine. The only lane that runs the full funnel. A proven result graduates into the catalog and becomes
+    future Lane 1 self-service.'
   branches:
   - id: '2'
     title: Use-case funnel
     steps:
     - id: '21'
-      title: Capture the idea, process diagnostics
-      skills: []
+      'no': '1'
+      title: Use-case definition & diagnostics
+      who: human
+      text: Frame problem, constraints, assumptions.
+      wait: ~d
+      skills:
+      - funnel-requirements
       proposed:
       - od-use-case-definition
       - od-workshop-facilitation
       - od-first-aid-kit
       - od-event-object-modelling
     - id: '22'
-      title: Requirements, features and data check
+      'no': '2'
+      title: Feature breakdown & data/system check
+      who: human
+      text: Break into features; confirm signals exist.
+      wait: ~d
       skills:
-      - funnel-requirements
       - funnel-features
       proposed:
       - od-data-availability-check
       - od-use-case-solution-evaluation
       - od-event-object-modelling
     - id: '23'
-      title: Prototype / click-dummy, validated with the recipient
+      'no': '3'
+      title: Prototype / validate
+      who: both
+      text: Click-dummy or PoC to confirm value before build.
+      wait: ~d
       skills:
       - funnel-prototype
       proposed:
       - od-analytics-asset-build
       - od-governance-cadence
     - id: '24'
-      title: Business case (value and cost), assessment, ranking
+      'no': '4'
+      title: Business case & prioritize
+      who: human
+      text: Value model, cost side, portfolio ranking.
+      wait: ~d portfolio decision
       skills:
       - bc-build
-      - bc-cost
       - bc-assess
       proposed:
       - od-portfolio-and-savings-analysis
       - od-plant-diagnosis
     - id: '25'
-      title: Capital request if investment is needed
-      wait: ~wks
+      'no': '5'
+      title: Capital request (if invest needed)
+      who: human
+      text: Package value + cost for approval.
+      wait: ~wks MPEE / BA Operations approval
       skills:
       - bc-capital-request
       proposed:
       - od-decision-routing
       - od-project-order
     - id: '26'
-      title: Implement, evaluate impact, ensure adoption, catalogue
+      'no': '6'
+      title: Implement, adopt & graduate to catalog
+      who: both
+      text: 'Build on the existing machine; confirm savings; if repeatable, add to the catalog: future Lane 1.'
+      wait: ~d
       skills:
+      - ops-dashboard-datatron
       - catalog-usecase
       proposed:
       - od-handover-and-adoption
@@ -140,56 +185,95 @@ lanes:
       - od-rollout-training
       - od-project-order
 - id: lane3
-  title: New system or connector
-  who: Front-end OD-led (OD lead); build OD + external; integrate and connect IT, Cyber Security gated
-  summary: A shared front-end (requirements, mandatory tool-decision / IT-footprint gate, business case, capital request, handover once the demand is clear), then 3a a new system (3a.1 reuse, 3a.2 self-develop,
-    3a.3 external build, 3a.4 integrate a foreign app) or 3b a new connector. Delivery after handover is IT's or external.
+  title: Introduce a new system or connector
+  who: OD front-end / External / IT·CS
+  summary: 'The build/buy/integrate/connect lane. A shared front-end (requirements, tool-decision gate, business case) then branches: 3a introduces a system, 3b connects a new machine. OD''s value is the
+    front-end; execution hands off to IT / external once the demand is clear.'
   branches:
   - id: front
-    title: Shared front-end
+    title: 'Shared front-end: requirements, tool-decision gate, clear demand'
     steps:
     - id: '31'
+      'no': '1'
       title: Requirements engineering
+      who: human
+      text: Break down the demand; frame the need.
+      wait: ~d
       skills:
       - funnel-requirements
       proposed:
       - od-workshop-facilitation
     - id: '32'
-      title: Tool-decision / IT-footprint gate (make, buy, integrate or connect)
+      'no': '2'
+      title: Tool-decision / IT-footprint gate
+      who: human
+      text: Make, buy, integrate, or connect? Screen IT / software footprint; route the branch.
+      wait: ~d
       skills:
       - invest-screen
+      note: routes 3a / 3b
       proposed:
       - od-decision-routing
       - od-migration-cutover
     - id: '33'
-      title: Business case, prioritization, capital request
-      wait: ~wks
+      'no': '3'
+      title: Business case & capital request
+      who: human
+      text: Value + cost; capital request if needed; hand off once demand is clear.
+      wait: ~wks IT commitment + MPEE approval
       skills:
       - bc-build
-      - bc-cost
       - bc-assess
       - bc-capital-request
       proposed:
       - od-project-order
-    - id: '34'
-      title: Handover once the demand is clear
-      wait: IT / external accepts
-      skills:
-      - it-demand-package
-      proposed: []
   - id: 3a
-    title: New system (make, buy, integrate)
+    title: 'New system: make / buy / integrate'
     steps:
     - id: 3a4
-      title: Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app)
+      'no': 3a.1-3a.4
+      title: Make / buy / integrate
+      who: both
+      text: Routed by the gate; deploy to the Container Orchestration Platform (confirm platform).
       skills:
       - deploy-appstore
+      - mi-connector
       - it-demand-package
+      options:
+      - id: 3a.1
+        owner: OD + Ext
+        title: Available codebase / app
+        text: Reuse an existing app; deploy to the platform. Lowest effort.
+        skills:
+        - deploy-appstore
+      - id: 3a.2
+        owner: Self dev
+        title: New codebase (self dev)
+        text: OD/internal builds the app, then deploys.
+        skills:
+        - mi-connector
+        - deploy-appstore
+      - id: 3a.3
+        owner: External
+        title: New codebase (external dev)
+        text: Spec in-house, build with an external partner (DevOps via externals).
+        skills:
+        - it-demand-package
+        note: + ext dev
+      - id: 3a.4
+        owner: IT·CS
+        title: Integrate a foreign app
+        text: Integrate a third-party app via IT Demand + Cyber Security. The integrate-only path.
+        skills:
+        - it-demand-package
       proposed:
       - od-project-order
     - id: 3a5
-      title: Deploy to the platform, acceptance, Cyber Security sign-off
-      wait: CS ~wks
+      'no': 4a
+      title: Deploy to platform + Cyber Security sign-off
+      who: both
+      text: Containerize/deploy; clear CS.
+      wait: ~wks Cyber Security
       skills:
       - deploy-appstore
       proposed:
@@ -197,8 +281,13 @@ lanes:
       - od-cybersec-gate
       - od-migration-cutover
     - id: 3a6
-      title: Rollout and adoption; ownership on formal acceptance
+      'no': 5a
+      title: Rollout & adopt
+      who: both
+      text: Enable, train, embed.
+      wait: ~d
       skills: []
+      note: onboarding skill = gap
       proposed:
       - od-handover-and-adoption
       - od-rollout-training
@@ -207,7 +296,11 @@ lanes:
     title: New connector for a new machine
     steps:
     - id: 3b4
-      title: Connector design and data pipeline (edge to data platform)
+      'no': 4b
+      title: Connector design + pipeline to MDL
+      who: human
+      text: Design the integration; normalize signals; build the Edge-ETL-MDL pipeline.
+      wait: ~d
       skills:
       - mi-connector
       - ops-pipeline
@@ -215,23 +308,33 @@ lanes:
       - od-signal-standardization
       - od-cross-plant-compatibility
     - id: 3b5
-      title: Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent
-      wait: procurement ~wks
-      skills:
-      - mi-connector
-      - ops-pipeline
+      'no': 5b
+      title: Procure & connect machine
+      who: both
+      text: Order hardware; connect edge components; integration execution.
+      wait: ~wks procurement / hardware; supplier
+      skills: []
+      note: App-Store-Ops = supplier feature request (in talks)
       proposed:
       - od-cybersec-gate
     - id: 3b6
-      title: Acceptance test, live on the data platform
+      'no': 6b
+      title: Acceptance + CS sign-off; live on MDL
+      who: both
+      text: Acceptance test; clear Cyber Security; machine live on MDL.
+      wait: ~wks Cyber Security sign-off
       skills: []
+      note: exit-gate agent = gap
       proposed:
       - od-acceptance-test
 spine:
-  title: Supporting spine
-  summary: The department context layer every step loads; extension skills that apply across the lanes.
+  title: Department skills without a step on the map
+  summary: 'Department skills (OD-instance/30-skills and skills-inventory-and-roadmap.md) that the department map does not draw on a step: dept-os is the context layer every step loads, bc-cost feeds bc-assess,
+    ops-dashboard-engine is the generic builder behind ops-dashboard-datatron.'
   skills:
   - dept-os
+  - bc-cost
+  - ops-dashboard-engine
   proposed:
   - od-ai-generation-playbook
   - od-scorecard-reporting

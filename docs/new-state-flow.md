@@ -11,12 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 The registry's skills are measured against this flow: each step of it names the skill that
 serves the step and whether that skill is built, partial or missing. Four files in
-[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_Flow.mermaid` was redrawn on 2026-11-10** to fit
-the department context (lane files 1-3, OD x IT alignment): Lane 1 fall-through, Lane 2 chaining to 3a and
-3b, the mandatory tool-decision / IT-footprint gate with routes 3a.1-3a.4 and 3b, the handover once the
-demand is clear (step 34), Cyber Security in parallel, the supplier-dependent integration execution, the
-data platform instead of the MDL, and a spine band. It now draws exactly `process.yaml`, and every core
-skill appears on it (enforced by `validate_registry.py`). The three HTML files keep the 2026-11-05 state.
+[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_Flow.mermaid` and `OD_NewState_ProcessFlow.html` were redrawn on 2026-11-10 from the department's own map** (`OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/OD_ServiceLine_NewState_VSM.html`): the intake question, Lane 1 branches 1a (steps 1-3) and 1b (steps 1-4), Lane 2 steps 1-6, the Lane 3 front-end steps 1-3, the 3a options 3a.1-3a.4 with 4a/5a, and 3b steps 4b-6b, with the map's step names, owners, waits and skills. Department skills the map does not put on a step (`dept-os`, `bc-cost`, `ops-dashboard-engine`) are shown in a separate band. `process.yaml` holds the same as data. The BPMN and VSM files keep the 2026-11-05 state.
 
 | File | What it shows |
 |---|---|

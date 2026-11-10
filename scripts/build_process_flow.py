@@ -30,6 +30,8 @@ CSS_EXTRA = """
   .exts .lbl{font-size:7.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--g3);width:100%;margin-bottom:1px;}
   .sw.draft{background:var(--part);} .sw.human{background:var(--b4);} .sw.supplier{background:var(--melon-d);}
   .node .t{padding-right:40px;}
+  .node .d{font-size:8.5px;color:var(--g2);margin:2px 0 4px;line-height:1.35;}
+  .node .nt{font-size:8px;font-style:italic;color:var(--g3);margin-top:2px;}
   .chipk{display:inline-block;font-size:8.5px;padding:1px 6px;border-radius:3px;}
 """
 LANE = {"lane1": ("l1", "Lane 1", "Self-service"), "lane2": ("l2", "Lane 2", "OD-led"),
@@ -48,27 +50,25 @@ def e(s: str) -> str:
     return html.escape(str(s))
 
 
+def chips(sk: list) -> str:
+    return "".join(f'<span class="chip {status(x)}">{e(x)}</span>' for x in sk)
+
+
 def node(st: dict) -> str:
     core = st.get("skills") or []
-    ext = st.get("proposed") or []
     states = [status(s) for s in core]
     if not core:
-        cls, lab = "human", "Human"
+        cls, lab = "human", "No skill"
     elif all(x == "built" for x in states):
         cls, lab = "built", "Built"
     else:
         cls, lab = "draft", "Draft"
     out = [f'<div class="node {cls}"><span class="state">{lab}</span>',
-           f'<div class="t">{e(st["id"])} &middot; {e(st["title"])}</div>']
-    if not core:
-        out.append('<div class="who">human / plant step</div>')
-    for s, x in zip(core, states):
-        out.append(f'<span class="chip {x}">{e(s)}</span>')
-    if st["id"] in SUPPLIER:
-        out.append(f'<div class="who" style="color:var(--melon-d)">{e(SUPPLIER[st["id"]])}</div>')
-    if ext:
-        out.append('<div class="exts"><span class="lbl">extension</span>' +
-                   "".join(f'<span class="chip ext">{e(s)}</span>' for s in ext) + "</div>")
+           f'<div class="t">{e(st.get("no", ""))} &middot; {e(st["title"])}</div>',
+           f'<div class="who">{e(st.get("who", ""))}</div>',
+           f'<div class="d">{e(st.get("text", ""))}</div>', chips(core)]
+    if st.get("note"):
+        out.append(f'<div class="nt">{e(st["note"])}</div>')
     out.append("</div>")
     return "".join(out)
 
@@ -76,11 +76,23 @@ def node(st: dict) -> str:
 def track(steps: list) -> str:
     parts = []
     for i, st in enumerate(steps):
+        if st.get("options"):
+            continue
         parts.append(node(st))
         if i < len(steps) - 1:
             w = st.get("wait")
-            parts.append(f'<div class="arr wait"><span class="wlab">{e(w)}</span></div>' if w else '<div class="arr"></div>')
+            parts.append(f'<div class="arr wait"><span class="wlab">{e(w.split()[0])}</span></div>' if w and "wks" in w else '<div class="arr"></div>')
     return '<div class="track">' + "".join(parts) + "</div>"
+
+
+def options(steps: list) -> str:
+    for st in steps:
+        if st.get("options"):
+            return ('<div class="opts">' + "".join(
+                f'<div class="opt"><span class="h">{e(o["id"])} &middot; {e(o["owner"])}</span><b>{e(o["title"])}</b><br>{e(o["text"])}'
+                f'<div style="margin-top:4px">{chips(o["skills"])}{(" <i>" + e(o["note"]) + "</i>") if o.get("note") else ""}</div></div>'
+                for o in st["options"]) + "</div>")
+    return ""
 
 
 def build() -> str:
@@ -89,40 +101,36 @@ def build() -> str:
     core = [s for s in sp.all_ids() if sp.library_of(s) == "core"]
     n_built = sum(1 for s in core if status(s) == "built")
     body = []
-    i = p["intake"]["steps"][0]
     body.append('<div class="lane" style="background:#f2f5fb;"><div class="spine" style="background:var(--b1);">'
                 '<div class="ln">Intake</div><div class="nm">Classify</div><div class="ow">one lane per demand</div></div>'
-                f'<div class="body" style="background:#f2f5fb;">{track([i])}'
-                '<div class="fallnote">Known &amp; catalogued &rarr; <b>Lane&nbsp;1</b> &nbsp;&middot;&nbsp; new recurring need &rarr; '
-                '<b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; new system or connector &rarr; <b>Lane&nbsp;3</b> &nbsp;&middot;&nbsp; '
-                'no roadmap link or nameable business case &rarr; <b>refuse</b></div></div></div>')
-    notes = {"lane1": 'Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b>',
-             "lane2": 'Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b>',
-             "lane3": 'Hand over only once the demand is clear &nbsp;&middot;&nbsp; Cyber Security runs in parallel and blocks go-live &nbsp;&middot;&nbsp; delivery after handover is IT / external'}
+                '<div class="body" style="background:#f2f5fb;"><div class="fallnote" style="font-size:11px">'
+                '<b>Is the use case already known (in the catalog)?</b><br>'
+                'YES &rarr; run it &rarr; <b>Lane&nbsp;1</b> (1a connected / 1b standardized onboarding)<br>'
+                'NO, a new <b>use case</b> on an existing machine &rarr; <b>Lane&nbsp;2</b><br>'
+                'NO, a new <b>system / app</b> and/or a new <b>machine connection</b> &rarr; <b>Lane&nbsp;3</b> (3a system 3a.1&ndash;3a.4 / 3b connector)'
+                '</div></div></div>')
+    notes = {"lane1": 'Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standardized system fits or non-standard integration &rarr; <b>Lane&nbsp;3</b>',
+             "lane2": 'Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs a new machine connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; catalogue &rarr; <b>Lane&nbsp;1</b>',
+             "lane3": 'Post-handover (outside OD ownership): delivery via IT quarterly sprints or external dev; CS sign-off &amp; platform deploy; rollout &amp; adoption with OD support'}
     for lane in p["lanes"]:
-        cls, ln, ow = LANE[lane["id"]]
+        cls, ln, _ = LANE[lane["id"]]
         rows = []
         for br in lane["branches"]:
             tag, sub = BTAG[br["id"]]
+            opt = options(br["steps"])
+            if opt:
+                rows.append(f'<div class="brow"><div class="btag">{tag}<span>{sub}</span></div><div style="flex:1">{opt}</div></div>')
             t = track(br["steps"])
-            rows.append(f'<div class="brow"><div class="btag">{tag}<span>{sub}</span></div>{t}</div>' if tag else t)
-            if br["id"] == "front":
-                rows.append('<div class="opts"><div class="opt"><span class="h">3a.1 reuse app</span>deploy existing codebase</div>'
-                            '<div class="opt"><span class="h">3a.2 self dev</span>build then deploy</div>'
-                            '<div class="opt"><span class="h">3a.3 external dev</span>guided buy, IT guidelines</div>'
-                            '<div class="opt"><span class="h">3a.4 integrate</span>foreign app via IT&middot;CS</div>'
-                            '<div class="opt"><span class="h">3b connector</span>new machine connection</div></div>')
+            rows.append(f'<div class="brow"><div class="btag">{"" if opt else tag}<span>{"" if opt else sub}</span></div>{t}</div>' if tag else t)
         body.append(f'<div class="lane {cls}"><div class="spine"><div class="ln">{ln}</div><div class="nm">{e(lane["title"])}</div>'
-                    f'<div class="ow">{ow}</div></div><div class="body">{"".join(rows)}<div class="fallnote">{notes[lane["id"]]}</div></div></div>')
-    spine = p["spine"]
-    body.append('<div class="lane" style="background:#f7f8fc;"><div class="spine" style="background:var(--g2);"><div class="ln">Spine</div>'
-                '<div class="nm">Every step</div></div><div class="body" style="background:#f7f8fc;">'
-                + node({"id": "spine", "title": "Context layer", "skills": spine["skills"], "proposed": spine.get("proposed")})
-                + "</div></div>")
+                    f'<div class="ow">{e(lane["who"])}</div></div><div class="body"><div class="fallnote" style="margin:0 0 8px">{e(lane["summary"])}</div>'
+                    f'{"".join(rows)}<div class="fallnote">{notes[lane["id"]]}</div></div></div>')
+    spn = p["spine"]
+    body.append('<div class="lane" style="background:#f7f8fc;"><div class="spine" style="background:var(--g2);"><div class="ln">Not on a step</div>'
+                '<div class="nm">Department skills</div></div><div class="body" style="background:#f7f8fc;">'
+                f'<div class="fallnote" style="margin:0 0 6px">{e(spn["summary"])}</div>{chips(spn["skills"])}</div></div>')
     drafts = [s for s in core if status(s) == "draft"]
     cards = "".join(f'<div class="gcard thin"><div class="gn">{e(s)}</div><div class="gl">core &middot; draft</div></div>' for s in drafts)
-    cards += ('<div class="gcard"><div class="gn">Integration execution</div><div class="gl">Lane 3b &middot; supplier gap</div>'
-              '<div class="gd">Not an OD skill; waits on the App-Store-Ops supplier decision.</div></div>')
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,24 +144,23 @@ def build() -> str:
   <header>
     <div class="logo"><div class="mark">neu<b>werk</b></div><div class="tag">The neuwerk way</div></div>
     <div class="eyebrow">Operations Digitalization &middot; MPEE</div>
-    <h1>New-State Service Lanes <span class="thin">— process flow with the department skills</span></h1>
+    <h1>New-State Service Lanes <span class="thin">— three branched lanes, with the department skills</span></h1>
   </header>
   <div class="legend">
-    <div class="grp"><b>Core skill:</b>
+    <div class="grp"><b>Skill in the registry:</b>
       <span class="st"><span class="sw built"></span>Built</span>
       <span class="st"><span class="sw draft"></span>Draft</span>
-      <span class="st"><span class="sw human"></span>Human / plant step</span>
-      <span class="st"><span class="sw supplier"></span>Supplier gap</span>
+      <span class="st"><span class="sw human"></span>No skill on this step</span>
     </div>
-    <div class="grp"><b>Extension:</b> <span class="chip ext">outlined chip</span> deepens the step</div>
-    <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait</div>
+    <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait (weeks)</div>
   </div>
   <div class="flow">{"".join(body)}</div>
-  <div class="gaps"><h2>Still open: {len(drafts)} of {len(core)} core skills are drafts</h2><div class="gaprow">{cards}</div></div>
+  <div class="gaps"><h2>{len(drafts)} of {len(core)} department skills are still drafts</h2><div class="gaprow">{cards}</div></div>
   <div class="foot">
-    <div class="src">Generated by <b>scripts/build_process_flow.py</b> from <b>docs/new-state/process.yaml</b> and each skill's <code>SKILL.md</code>
-    status (stable = built, draft = draft). Core = the department's skills ({len(core)}, {n_built} built); lanes from the department's
-    new-state lane files (Thomas, 2026-09) and the OD x IT alignment of 2026-09-11.</div>
+    <div class="src">Steps, numbering and skills transcribed from the department map <b>OD_ServiceLine_NewState_VSM.html</b>
+    (OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT; Thomas, 2026-09-09, 3 branched lanes 2026-09-10) via
+    <b>docs/new-state/process.yaml</b>; skill state from each <code>SKILL.md</code> (stable = built, draft = draft).
+    {len(core)} department skills ({n_built} built). Generated by <b>scripts/build_process_flow.py</b>.</div>
     <div class="way">The neuwerk way</div>
   </div>
 </div>

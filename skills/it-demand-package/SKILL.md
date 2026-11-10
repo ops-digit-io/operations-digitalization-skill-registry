@@ -17,8 +17,8 @@ metadata:
   id: it-demand-package
   tier: practice
   lane: lane-3
-  new_state_lane: "Lane 3 front-end (34), Lane 3a (3a4)"
-  new_state_step: "Handover once the demand is clear; Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app)"
+  new_state_lane: "Lane 3a (3a.3, 3a.4); hand-off at the end of the Lane 3 front-end (step 3)"
+  new_state_step: "3a.3 New codebase (external dev); 3a.4 Integrate a foreign app; front-end step 3 hand off once demand is clear"
   department_names: ["it-demand-package"]
   owner_role: OD lead (Thomas Zipf) for the Lane 3 front-end; IIAE for connector demands
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
@@ -65,7 +65,7 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 
 | Where | Step | Route |
 |---|---|---|
-| Lane 3 front-end, step 34 | Handover once the demand is clear | After requirements (31), tool-decision gate (32), business case and capital request (33) |
+| Lane 3 front-end, end of step 3 | Business case & capital request: hand off once demand is clear | After requirements engineering (1) and the tool-decision / IT-footprint gate (2) |
 | Lane 3a | 3a.3 external build (guided buy); 3a.4 integrate a foreign app | IT, Cyber Security gated |
 | Lane 3a | 3a.1 / 3a.2, when IT must run what OD or externals deploy | Ownership terms of the annex; deploy with `deploy-appstore` |
 | Lane 2 → 3 | A new use case that needs software chains here through the front-end | — |
