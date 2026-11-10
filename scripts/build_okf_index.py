@@ -77,7 +77,10 @@ def render(directory: pathlib.Path) -> str:
         lines += ["| Concept | Type | Description |", "|---|---|---|"]
         for f in concepts:
             title, typ, desc = describe(f)
-            lines.append(f"| [{title}]({f.name}) | {typ} | {desc} |")
+            # A skill's references/ index names its files without links: a reference file points back to SKILL.md only
+            # (Agent Skills: keep references one level deep).
+            cell = f"{title} (`{f.name}`)" if directory.name == "references" else f"[{title}]({f.name})"
+            lines.append(f"| {cell} | {typ} | {desc} |")
         lines.append("")
     if subdirs:
         lines += ["| Folder | Holds |", "|---|---|"]

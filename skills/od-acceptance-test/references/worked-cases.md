@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 These are **illustrative patterns**, drawn from kinds of records the vault holds. They are not
 acceptance protocols from the department: none exists in the vault (see the open item in
-[`acceptance-by-route.md`](acceptance-by-route.md)). Plants, counts and dates are placeholders
+`acceptance-by-route.md`). Plants, counts and dates are placeholders
 (`<plant>`, `<n>`); look up the real record before applying a case. Each case says what the
 **record pattern** looks like and what the **reading** is.
 
@@ -27,8 +27,8 @@ acceptance protocols from the department: none exists in the vault (see the open
   cannot show which machines feed it. Acceptance would have needed the machine list for the use
   case (the data path "written down to the machine", per the *Handover* note), the baseline
   (scrap, downtime or reporting hours) and the plant owner's use in a real shift.
-- **Use.** Items 2 and 3 of [`acceptance-by-route.md`](acceptance-by-route.md) §1 and the
-  baseline item in [`cluster-acceptance-criteria.md`](cluster-acceptance-criteria.md).
+- **Use.** Items 2 and 3 of `acceptance-by-route.md` §1 and the
+  baseline item in `cluster-acceptance-criteria.md`.
 
 ## Case 2: A dry run recorded as "not productive" (image pilot)
 
@@ -40,7 +40,7 @@ acceptance protocols from the department: none exists in the vault (see the open
 - **Reading.** A clean example of the difference between "tested" and "accepted". Several
   conditions would have to flip before a SAT/SIT: the tool on the edge platform, the firewall
   change tested, images in the target store, live operation. A dry run on a test path is the
-  FAT-equivalent, not the gate ([`test-structure.md`](test-structure.md)).
+  FAT-equivalent, not the gate (`test-structure.md`).
 - **Use.** Never count a dry run as an acceptance item; list the unflipped conditions as
   open findings in section 4 of the protocol.
 
@@ -76,7 +76,7 @@ acceptance protocols from the department: none exists in the vault (see the open
 - **Reading.** The acceptance question is the drill-down, not the flow: take a serial number
   from the hourly overview, find its test results, and check them against the stations' own
   records. That is a UAT scenario tied to the benefit (C07 one up, one down, and C03).
-- **Use.** [`cluster-acceptance-criteria.md`](cluster-acceptance-criteria.md) C07; write the
+- **Use.** `cluster-acceptance-criteria.md` C07; write the
   serial number used in the evidence column.
 
 ## Case 6: A migration accepted location by location (energy management)
@@ -106,7 +106,7 @@ acceptance protocols from the department: none exists in the vault (see the open
 1. Every case turns on a **condition outside the build**: a security approval, a patch window, a
    firewall change, a Machine List write-back, a baseline.
 2. In none of them does the record show who accepted what. The acceptance/rework rate is
-   "not captured in any system" ([`od-equipment-integration`](../../../skills/od-equipment-integration/references/od-information-integration-service/procedure.md)).
+   "not captured in any system" (`od-equipment-integration` (`../../../skills/od-equipment-integration/references/od-information-integration-service/procedure.md`)).
    Start capturing it with the next protocol.
 
 ## Sources

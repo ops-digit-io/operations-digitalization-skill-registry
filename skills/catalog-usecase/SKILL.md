@@ -6,9 +6,10 @@ description: >-
   (CSP decision recorded, capability template, machine connected, signals present) or say plainly that
   it is not catalogued so the demand falls through to Lane 2 or Lane 3; and record what a proven,
   repeatable Lane 2 result must show before it becomes a catalog entry. Standardized systems are
-  catalog-systems, the go-live self-check is catalog-guardrails. Use when a plant asks for something
+  catalog-systems, the go-live self-check is catalog-guardrails. Use when a plant asks for a use case
   another plant already has, when a use case should graduate into the catalog, or when a catalog
-  entry is proposed. Draft: no catalog data set exists yet.
+  entry is proposed. Not for standardized systems (catalog-systems) or the go-live self-check (catalog-guardrails).
+  Draft: no catalog data set exists yet.
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -20,6 +21,8 @@ metadata:
   department_names: ["catalog-usecase", "use-case-catalog"]
   formerly: od-catalog
   owner_role: human:jakob.gabriel
+  author: human:jakob.gabriel
+  tags: [all, practice, new-state, draft, catalog]
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
   status: draft
   sources_read: 2026-11-10
@@ -59,6 +62,25 @@ metadata:
 Read `od-context` first.
 
 Merged from: `catalog-usecase`.
+
+## Purpose
+
+Matches a plant's request to a catalogued use case, or says plainly that it is not catalogued so the demand falls to Lane 2 or Lane 3, and records what a proven Lane 2 result must show to graduate into the catalog. Use it when a plant asks for a use case another plant already has, when a result should graduate, or when an entry is proposed.
+
+## Inputs and output
+
+- **Inputs**: the plant's request (reduced to object, event and time axis), the reference-library entries and their CSP status, the capability templates, and the data-availability result (machine connected, signals present).
+- **Output**: the match record [`assets/catalog-match-record.md`](assets/catalog-match-record.md) with the branch (1a, 1b, Lane 2 or Lane 3) and the next skill, or a graduation proposal when the four conditions hold.
+
+Fictional example (invented entry, not a catalog record):
+
+```text
+Request : "show scrap per shift on line X" (fictional)
+Match   : candidate = library entry E-0 (fictional), capability template = quality
+          CSP status = not decided -> not catalogued -> fall through to Lane 2
+```
+
+If it fails: a candidate without a recorded CSP `Yes`, or a precondition that fails validation, is not catalogued; route it to Lane 2 rather than matching it.
 
 **Status: draft scaffold.** The new-state flow needs three net-new builds that belong together: a plant-facing catalog of proven use cases, a standardized connection-kit list a plant can match a use case against and order, and a self-check to go live. No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources. This skill defines how a request is matched, what an entry must hold and what the plant checks before go-live; it states no entry, names no kit and presents no guardrail set as complete.
 
@@ -122,6 +144,15 @@ Stages, archetypes and entry content: [`references/process-chain-practice.md`](r
 # Part B - Standardized systems and Part C - Go-live guardrails
 
 Split into their own department skills (2026-11-10): **`catalog-systems`** (pick a standardized system, step 1b1, hand to 1b2 and 1b3) and **`catalog-guardrails`** (the go-live self-check, steps 1a3 and 1b4). This skill keeps the catalog of use cases and the graduation into it.
+
+## Human gate and AI-agent notes
+
+- **An agent may**: reduce the request, find the template and library entries, check CSP status and preconditions, and draft the match record or a graduation proposal.
+- **Stays with roles**: the plant decides what it runs and when it is `PRODUCTIVE`; the CSP decision stays with its owner; the OD lead confirms the open points below; Cyber Security sign-off for an external connection is human-only.
+
+## Done when
+
+The match record names the branch and the next skill, with the CSP status and its source and read date; or a fall-through to Lane 2 or Lane 3 is stated plainly. A graduation proposal is done when all four conditions hold and the plant's utilization moment is recorded.
 
 ## Open points - what only the OD lead can supply
 

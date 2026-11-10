@@ -25,51 +25,15 @@
   "D": 60,
   "F": 0
  },
- "mean": 82.9,
- "mean_core": 82.8,
+ "mean": 89.6,
+ "mean_core": 96.0,
  "skills": {
   "bc-assessment": {
-   "score": 79.5,
-   "grade": "C",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "706f5ca3b6592e67",
+   "folder_hash": "5d5b9c5a5abbc761",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -81,31 +45,13 @@
      "deduction": 5,
      "message": "Description very long (721 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
     }
    ],
    "categories": {
-    "correctness": 60.0,
-    "discoverability": 90.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 78.2
   },
@@ -113,7 +59,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "b875f3194125ae34",
+   "folder_hash": "8129a137a31229b6",
    "findings": [
     {
      "dimension": "efficiency",
@@ -208,35 +154,11 @@
    }
   },
   "catalog-guardrails": {
-   "score": 84.0,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "d99abb7a541b689b",
+   "folder_hash": "f6b10ed48a349dca",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -246,78 +168,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (516 chars, recommend 50-150)",
+     "message": "Description very long (625 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 84.0
   },
   "catalog-systems": {
-   "score": 85.2,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "13738173cd9d66b4",
+   "folder_hash": "9685b8960f2e8527",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -327,78 +195,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (484 chars, recommend 50-150)",
+     "message": "Description very long (583 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 85.2
   },
   "catalog-usecase": {
-   "score": 80.2,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "94a5aeb2d558fce0",
+   "folder_hash": "690eca38762a6f6e",
    "findings": [
-    {
-     "dimension": "discoverability",
-     "deduction": 15,
-     "message": "Description contains vague words",
-     "suggestion": "Be specific about what this skill does"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in failure-cases-and-routing.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -408,84 +222,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (735 chars, recommend 50-150)",
+     "message": "Description very long (831 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 70.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 80.2
   },
   "deploy-appstore": {
-   "score": 82.8,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "a10560c0cea80a70",
+   "folder_hash": "49368e17bf16d672",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in app-manifest-and-release-gate.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -497,45 +251,21 @@
      "deduction": 5,
      "message": "Description very long (798 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 75.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 82.8
   },
   "funnel-features": {
-   "score": 75.8,
+   "score": 77.2,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "9fca590baedbc66d",
+   "folder_hash": "788226c68ff10f46",
    "findings": [
     {
      "dimension": "correctness",
@@ -548,12 +278,6 @@
      "deduction": 10,
      "message": "No documented scripts in table format",
      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "reliability",
@@ -620,50 +344,20 @@
     "correctness": 60.0,
     "discoverability": 90.0,
     "reliability": 75.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "it-demand-package": {
-   "score": 79.5,
-   "grade": "C",
+   "score": 94.2,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "46bf70c3815e2027",
+   "folder_hash": "6083def259b66c03",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
     {
      "dimension": "efficiency",
      "deduction": 10,
      "message": "Deeply nested references in index.md",
      "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -682,58 +376,22 @@
      "deduction": 5,
      "message": "Description very long (1013 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 60.0,
+    "correctness": 95.0,
     "discoverability": 90.0,
-    "reliability": 90.0,
+    "reliability": 100.0,
     "efficiency": 90.0
    },
    "default_score": 78.2
   },
   "od-acceptance-test": {
-   "score": 86.5,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "30a2dcb7dc4a32e3",
+   "folder_hash": "e634bd56bfbd3350",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in acceptance-by-route.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -743,33 +401,15 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (472 chars, recommend 50-150)",
+     "message": "Description very long (591 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 85.2
   },
@@ -777,7 +417,7 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "99991ac80a3ece64",
+   "folder_hash": "dd131566100e1c16",
    "findings": [
     {
      "dimension": "efficiency",
@@ -860,35 +500,11 @@
    }
   },
   "od-analytics-asset-build": {
-   "score": 85.2,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ab8c22d18b345cd7",
+   "folder_hash": "e2bbec73d4364fb4",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in dashboard-families-catalogue.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -898,47 +514,23 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (562 chars, recommend 50-150)",
+     "message": "Description very long (696 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 85.2
   },
   "od-benefit-calculation": {
-   "score": 80.5,
-   "grade": "B",
+   "score": 93.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "6af404d047cf33ed",
+   "folder_hash": "b5a80fccd6bd328a",
    "findings": [
     {
      "dimension": "correctness",
@@ -947,36 +539,6 @@
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
     },
     {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
-    {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
@@ -985,78 +547,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (872 chars, recommend 50-150)",
+     "message": "Description very long (968 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 70.0,
-    "discoverability": 90.0,
-    "reliability": 80.0,
-    "efficiency": 90.0
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 79.2
   },
   "od-capital-request": {
-   "score": 79.5,
-   "grade": "C",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "7e5e062a96df5703",
+   "folder_hash": "b7d97321604344ca",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in business-case-structure.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1066,84 +574,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (644 chars, recommend 50-150)",
+     "message": "Description very long (751 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 60.0,
-    "discoverability": 90.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 78.2
   },
   "od-comms-brief": {
-   "score": 78.2,
-   "grade": "C",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "129f2df9ed5ca6ca",
+   "folder_hash": "b2928dae5fded5f4",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in ic-handover.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1155,58 +603,22 @@
      "deduction": 5,
      "message": "Description very long (655 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
     }
    ],
    "categories": {
-    "correctness": 60.0,
-    "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 75.8
   },
   "od-context": {
-   "score": 88.5,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "5bfdb5b8195a23a2",
+   "folder_hash": "d0219964c3f083e2",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 15,
-     "message": "Large skill (5013 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
-     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1216,21 +628,15 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (427 chars, recommend 50-150)",
+     "message": "Description very long (486 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 85.0,
+    "correctness": 95.0,
     "discoverability": 95.0,
-    "reliability": 95.0,
-    "efficiency": 75.0
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 86.0
   },
@@ -1238,7 +644,7 @@
    "score": 77.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "e1451cd8692b484a",
+   "folder_hash": "87c46a1f69bd1e52",
    "findings": [
     {
      "dimension": "correctness",
@@ -1255,7 +661,7 @@
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in triage-and-actions.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -1324,7 +730,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "ddcea85f0e817d44",
+   "folder_hash": "a47ba910c8e5e6a2",
    "findings": [
     {
      "dimension": "discoverability",
@@ -1410,12 +816,12 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "74052d6785342393",
+   "folder_hash": "36c87158ae1097c9",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in package-contents.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -1475,41 +881,11 @@
    }
   },
   "od-data-availability-check": {
-   "score": 78.8,
-   "grade": "C",
+   "score": 95.8,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "b1101f86de073cfd",
+   "folder_hash": "48135e70509774c3",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in data-needs-by-capability.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1527,45 +903,48 @@
      "deduction": 5,
      "message": "Description very long (760 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 65.0,
-    "discoverability": 85.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 90.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 78.8
   },
   "od-decision-routing": {
-   "score": 84.0,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "6a085e1c780a1988",
+   "folder_hash": "ba403c055c3ec6b4",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (638 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   },
+   "default_score": 85.2
+  },
+  "od-equipment-integration": {
+   "score": 95.5,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "b48b02005743cf3b",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1576,130 +955,19 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
     },
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (571 chars, recommend 50-150)",
+     "message": "Description very long (996 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No limits, pitfalls or 'do not' list documented",
-     "suggestion": "Add '## Pitfalls' or '## Do not': the failures the department has seen"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 80.0,
-    "efficiency": 90.0
-   },
-   "default_score": 85.2
-  },
-  "od-equipment-integration": {
-   "score": 87.8,
-   "grade": "B",
-   "skill_type": "resource-based",
-   "folder_hash": "63355fa9eadf1dd0",
-   "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in blockers-and-waves.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (955 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    }
-   ],
-   "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
+    "correctness": 95.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 90.0
    },
@@ -1709,7 +977,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "b22d7aa0353787a6",
+   "folder_hash": "7b29e563c634016e",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1777,7 +1045,7 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "eaaece19858b7f91",
+   "folder_hash": "4efbea2b657acb88",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1848,17 +1116,11 @@
    }
   },
   "od-governance-cadence": {
-   "score": 84.0,
+   "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "64b3de5c36675327",
+   "folder_hash": "b3a25c2e487377c1",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1924,44 +1186,20 @@
     "correctness": 80.0,
     "discoverability": 85.0,
     "reliability": 85.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-handover-and-adoption": {
-   "score": 81.5,
-   "grade": "B",
+   "score": 95.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "8ee1ab342c10b1e8",
+   "folder_hash": "ca120f93f9ce9e91",
    "findings": [
-    {
-     "dimension": "discoverability",
-     "deduction": 15,
-     "message": "Description contains vague words",
-     "suggestion": "Be specific about what this skill does"
-    },
     {
      "dimension": "efficiency",
      "deduction": 10,
      "message": "Deeply nested references in index.md",
      "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -1972,38 +1210,14 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (903 chars, recommend 50-150)",
+     "message": "Description very long (955 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 75.0,
-    "reliability": 85.0,
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 90.0
    },
    "default_score": 81.5
@@ -2012,12 +1226,12 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "5c1ec60296f21bb4",
+   "folder_hash": "c3d9e8f062a68fbc",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2083,22 +1297,16 @@
    }
   },
   "od-migration-cutover": {
-   "score": 84.2,
+   "score": 85.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "acf0a8e70c95e4bf",
+   "folder_hash": "4b2ab7b5130715c3",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Resource-based skill lacks documentation of available resources",
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -2147,44 +1355,20 @@
     "correctness": 70.0,
     "discoverability": 95.0,
     "reliability": 90.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-node-red-flow-builder": {
-   "score": 78.8,
-   "grade": "C",
+   "score": 94.8,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "98eed4d29b192011",
+   "folder_hash": "5874cc313945d5c3",
    "findings": [
     {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
      "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in architecture.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
+     "deduction": 15,
+     "message": "Large skill (5615 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
     },
     {
      "dimension": "correctness",
@@ -2197,43 +1381,13 @@
      "deduction": 5,
      "message": "Description very long (1002 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No limits, pitfalls or 'do not' list documented",
-     "suggestion": "Add '## Pitfalls' or '## Do not': the failures the department has seen"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 65.0,
-    "discoverability": 90.0,
-    "reliability": 80.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 85.0
    },
    "default_score": 80.0
   },
@@ -2241,12 +1395,12 @@
    "score": 87.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "f4b80f56c3ffe672",
+   "folder_hash": "1221e89d244c4cde",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in roadmap-templates.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2303,12 +1457,12 @@
    "score": 81.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "129d8b499e3e4d28",
+   "folder_hash": "3eca61ea3d89a66f",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2389,7 +1543,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "bf949df23806307f",
+   "folder_hash": "e09951974a28b932",
    "findings": [
     {
      "dimension": "efficiency",
@@ -2469,12 +1623,12 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "1d6b724123f18218",
+   "folder_hash": "69cf7d0ba9124f3e",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in order-structure.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2546,35 +1700,11 @@
    }
   },
   "od-prototype-poc": {
-   "score": 85.2,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "be8166714ec7134e",
+   "folder_hash": "cec56ac97accb0d6",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in gemba-app-pilot.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2584,78 +1714,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (703 chars, recommend 50-150)",
+     "message": "Description very long (806 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 84.0
   },
   "od-requirements-breakdown": {
-   "score": 83.8,
-   "grade": "B",
+   "score": 95.8,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "632d228accd221e5",
+   "folder_hash": "bdb048f67803b8a8",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2676,10 +1752,10 @@
     }
    ],
    "categories": {
-    "correctness": 65.0,
+    "correctness": 95.0,
     "discoverability": 90.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 80.0
   },
@@ -2687,7 +1763,7 @@
    "score": 81.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "9499ed8c4cfc82d1",
+   "folder_hash": "072a70b7a075ea9a",
    "findings": [
     {
      "dimension": "correctness",
@@ -2698,7 +1774,7 @@
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2767,12 +1843,12 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "15365637157f4c65",
+   "folder_hash": "6a1c371cbd4e6530",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2841,7 +1917,7 @@
    "score": 83.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "22db5d7c7fa7b095",
+   "folder_hash": "50c038429e0f04f5",
    "findings": [
     {
      "dimension": "correctness",
@@ -2852,7 +1928,7 @@
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -2912,17 +1988,11 @@
    }
   },
   "od-scorecard-reporting": {
-   "score": 82.8,
+   "score": 84.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "041b7142ec84b706",
+   "folder_hash": "19fd643b4818e4ee",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "reliability",
      "deduction": 10,
@@ -2988,14 +2058,14 @@
     "correctness": 80.0,
     "discoverability": 90.0,
     "reliability": 75.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-sharepoint-list-export": {
-   "score": 77.0,
+   "score": 78.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "0cbb3f4a5a97c44f",
+   "folder_hash": "d5d11b90aef561f5",
    "findings": [
     {
      "dimension": "correctness",
@@ -3008,12 +2078,6 @@
      "deduction": 10,
      "message": "No documented scripts in table format",
      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -3080,50 +2144,20 @@
     "correctness": 60.0,
     "discoverability": 85.0,
     "reliability": 85.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-showcase-followup": {
-   "score": 81.8,
-   "grade": "B",
+   "score": 93.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "f784976f06503cf0",
+   "folder_hash": "cde97b46a44100eb",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Resource-based skill lacks documentation of available resources",
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -3136,63 +2170,27 @@
      "deduction": 5,
      "message": "Description very long (556 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
     }
    ],
    "categories": {
-    "correctness": 70.0,
-    "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 79.2
   },
   "od-showcase-selection": {
-   "score": 81.8,
-   "grade": "B",
+   "score": 92.2,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ba09e512fa219c9d",
+   "folder_hash": "f82b575f237028a4",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Resource-based skill lacks documentation of available resources",
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -3211,76 +2209,22 @@
      "deduction": 5,
      "message": "Description very long (683 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 70.0,
-    "discoverability": 85.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 85.0,
+    "discoverability": 90.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 80.5
   },
   "od-signal-standardization": {
-   "score": 80.0,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "4ac4138ba17e297a",
+   "folder_hash": "de3703ab7833efcf",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Instructions don't mention 'run_script'",
-     "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "No documented scripts in table format",
-     "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in clustering-signals.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -3290,47 +2234,29 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (996 chars, recommend 50-150)",
+     "message": "Description very long (999 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
     }
    ],
    "categories": {
-    "correctness": 65.0,
-    "discoverability": 85.0,
-    "reliability": 90.0,
-    "efficiency": 90.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 76.2
   },
   "od-skill-authoring": {
-   "score": 86.0,
+   "score": 87.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "ca5223ff84014539",
+   "folder_hash": "c1e5ef6cbc7c69ad",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Instructions don't mention 'run_script'",
      "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "reliability",
@@ -3367,38 +2293,20 @@
     "correctness": 75.0,
     "discoverability": 95.0,
     "reliability": 90.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-system-fit-check": {
-   "score": 82.8,
-   "grade": "B",
+   "score": 94.2,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "e6200f085ec967e3",
+   "folder_hash": "04ba2ed0f86ddca4",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in deployment-reality.md",
+     "message": "Deeply nested references in index.md",
      "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -3417,58 +2325,22 @@
      "deduction": 5,
      "message": "Description very long (951 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No limits, pitfalls or 'do not' list documented",
-     "suggestion": "Add '## Pitfalls' or '## Do not': the failures the department has seen"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 80.0,
+    "correctness": 95.0,
+    "discoverability": 90.0,
+    "reliability": 100.0,
     "efficiency": 90.0
    },
    "default_score": 84.0
   },
   "od-template-resolution": {
-   "score": 84.0,
+   "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "79a3e96e9eb26b6f",
+   "folder_hash": "d1e1c41e71fad011",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "reliability",
      "deduction": 10,
@@ -3528,39 +2400,15 @@
     "correctness": 80.0,
     "discoverability": 90.0,
     "reliability": 80.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-use-case-definition": {
-   "score": 89.0,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "e0472410ec1ac954",
+   "folder_hash": "d83ea237dfca008e",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -3570,54 +2418,24 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (746 chars, recommend 50-150)",
+     "message": "Description very long (843 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
+    "correctness": 95.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 85.2
   },
   "od-use-case-intake-triage": {
-   "score": 84.5,
-   "grade": "B",
+   "score": 97.0,
+   "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "c9e665e7e724cc77",
+   "folder_hash": "f336faac81566cc3",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -3627,45 +2445,15 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (647 chars, recommend 50-150)",
+     "message": "Description very long (733 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 5,
-     "message": "Uses complex/corporate language",
-     "suggestion": "Use simple, direct language: 'use' not 'utilize'"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 85.0
+    "correctness": 95.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    },
    "default_score": 84.5
   },
@@ -3673,7 +2461,7 @@
    "score": 85.0,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "5f69e11e671b9281",
+   "folder_hash": "ce7e7706e08994d8",
    "findings": [
     {
      "dimension": "correctness",
@@ -3729,7 +2517,7 @@
    "score": 80.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "694fb2f1cf861bbd",
+   "folder_hash": "116cc4e5f471b529",
    "findings": [
     {
      "dimension": "discoverability",
@@ -3812,17 +2600,11 @@
    }
   },
   "od-workshop-facilitation": {
-   "score": 84.0,
+   "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "b1dc1dca8e6a9229",
+   "folder_hash": "43040fb8cb92d843",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "reliability",
      "deduction": 10,
@@ -3882,7 +2664,7 @@
     "correctness": 80.0,
     "discoverability": 90.0,
     "reliability": 80.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "ops-dashboard-datatron": {

@@ -33,7 +33,7 @@ site, not versions.
 List the folders under `ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/` (one per instance)
 and count the flow JSON files in each. The result is a per-instance and per-site-code table to build on
 the day; it is not kept in this skill because it would drift. A generated dashboard page may report
-totals that differ from the file count; see [`corpus-census.md`](corpus-census.md) for
+totals that differ from the file count; see `corpus-census.md` for
 how to treat sources that do not reconcile.
 
 ## Plant codes
@@ -67,7 +67,7 @@ superset of the other.
 with many may have accumulated variants. Read the flows, not the count.
 
 **Some flows are marked disabled.** Count them live from the `disabled` value of each flow's first
-element in the exported JSON. See [`corpus-census.md`](corpus-census.md) for how to read
+element in the exported JSON. See `corpus-census.md` for how to read
 the split, including the protobuf-config bootstrap tab that is meant to be disabled after its first run.
 
 ## The documentation pipeline

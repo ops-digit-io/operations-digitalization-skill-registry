@@ -87,7 +87,7 @@ Not a candidate.
 
 1. Controller vendor and model from the Machine List (a blank is unknown, not a "No").
 2. Find the family. Class A: continue on branch 1b with that route; cost, lead time and kit are still ⟨to be supplied⟩ (see
-   [standard-system-entry.md](../assets/standard-system-entry.md)).
+   `../assets/standard-system-entry.md`).
 3. Class B or C: say plainly "this has been done at other plants but the procedure is not written"; hand to the IIAE and
    `od-equipment-integration` / Lane 3b. Do not offer it as a standard system.
 4. Class D or no row: no standard system; hand to `od-system-fit-check` and Lane 3b.

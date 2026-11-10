@@ -15,6 +15,8 @@ metadata:
   new_state_lane: "Lane 4 (42, 43)"
   new_state_step: "Brief Internal Communications and draft; review and publish"
   owner_role: Digital-Business-Value-Engineer (DBVE); Internal Communications publishes
+  author: Digital-Business-Value-Engineer (DBVE); Internal Communications publishes
+  tags: [lane-4, practice, draft]
   authority_level: draft the brief and the assets and run the check; nothing is published by OD; the plant owner, the OD lead and Internal Communications approve
   status: draft
   sources_read: 2026-11-10
@@ -39,6 +41,10 @@ metadata:
 # Communications brief
 
 Read `od-context` first. Lane 4 is outbound and runs through Internal Communications (IC), a department OD does not control. OD supplies a brief that IC can use as it stands; IC decides channel, form and date. This skill covers steps 42 (brief and draft) and 43 (review and publish, the human part).
+
+## Purpose
+
+Turns a selected use case into the brief and draft pack Internal Communications can publish. Use it after `od-showcase-selection` returns `go`, when a use-case story must be written for the company, or when a draft story needs its claims checked.
 
 ## Inputs and output
 
@@ -74,6 +80,31 @@ A proof point without a source, a figure without an evidence class, a saving wor
 - A call to action that has no owner or no place to go.
 - Copying the business-case figure instead of the registered one.
 - Publishing the story and never updating it when the use case changes.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/check_comms_brief.py` | Check the form of a brief: sources, evidence classes, call to action, approvals, sensitive items. Exit 2 blockers, 1 warnings, 0 ready | `<Brief.md>` (exactly one file) |
+| `scripts/test_check_comms_brief.py` | Unit tests for the check | none; run `python3 test_check_comms_brief.py` |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+
+## Example
+
+Fictional example; the claim is made up for illustration.
+
+```text
+$ python3 scripts/check_comms_brief.py Brief.md
+BLOCKER  proof point "Stops fall noticeably" has no source and no evidence class
+exit 2   -> add the source and the class, then run again until exit 0
+```
+
+If the check reports a blocker, the brief does not leave OD. A failed or incomplete section is fixed in the brief, not argued with the script.
+
+## Definition of done
+
+The check exits 0 (or reports only warnings that are explained); every proof point has a source and an evidence class; the approvals list names roles and their real status; a human hands the brief to Internal Communications. Nothing is published by OD.
 
 ## References
 

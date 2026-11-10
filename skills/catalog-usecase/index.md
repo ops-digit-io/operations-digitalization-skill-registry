@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [catalog-usecase](SKILL.md) | Agent Skill | Run the plant self-service catalog of proven use cases (new-state Lane 1, the department's catalog-usecase) and the Lane 2 graduation into it: match a plant's request to a catalogued use case (CSP decision recorded, capability template, machine connected, signals present) or say plainly that it is not catalogued so the demand falls through to Lane 2 or Lane 3; and record what a proven, repeatable Lane 2 result must show before it becomes a catalog entry. Standardized systems are catalog-systems, the go-live self-check is catalog-guardrails. Use when a plant asks for something another plant already has, when a use case should graduate into the catalog, or when a catalog entry is proposed. Draft: no catalog data set exists yet. |
+| [catalog-usecase](SKILL.md) | Agent Skill | Run the plant self-service catalog of proven use cases (new-state Lane 1, the department's catalog-usecase) and the Lane 2 graduation into it: match a plant's request to a catalogued use case (CSP decision recorded, capability template, machine connected, signals present) or say plainly that it is not catalogued so the demand falls through to Lane 2 or Lane 3; and record what a proven, repeatable Lane 2 result must show before it becomes a catalog entry. Standardized systems are catalog-systems, the go-live self-check is catalog-guardrails. Use when a plant asks for a use case another plant already has, when a use case should graduate into the catalog, or when a catalog entry is proposed. Not for standardized systems (catalog-systems) or the go-live self-check (catalog-guardrails). Draft: no catalog data set exists yet. |
 
 | Folder | Holds |
 |---|---|

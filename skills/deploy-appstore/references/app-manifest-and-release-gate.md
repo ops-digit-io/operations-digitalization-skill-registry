@@ -35,7 +35,7 @@ The manifest is a design proposal. ⟨Whether the pilot uses a manifest, and its
 - **Operation.** A standard health endpoint and a standard metrics endpoint per app. Which log and metric pipeline the edge clusters ship to "is not recorded in the vault notes read" - ⟨logging and metrics pipeline⟩, IIAE.
 - **Edge resilience.** A plant-local app buffers its bus consumption locally and replays after a network outage. Locale is a per-plant configuration value, not a fork of the app per language.
 - **Free text.** An app with a free-text field must not summarise, enrich or forward the text by an automated pipeline without filtering (the vault's rule on names; one recorded case). See guardrail G17 in `catalog-usecase`.
-- **No new path.** Onboarding goes through one of the three scenarios in [platform-and-pilot-status.md](platform-and-pilot-status.md); the WIP note holds that a fourth, ad hoc path would defeat the purpose of the catalog.
+- **No new path.** Onboarding goes through one of the three scenarios in `platform-and-pilot-status.md`; the WIP note holds that a fourth, ad hoc path would defeat the purpose of the catalog.
 - **Where a new thing belongs.** Apply the placement rules (R1 to R11) first; a use case that fits a template is a new plant instance of an existing service, not a new app. A one-off goes to the store as an individually catalogued container. A new service is justified only when a second unrelated use case needs the same function.
 
 ## What is NOT in the vault

@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 # Softing dataFEED — how the data leaves
 
 A dataFEED configuration is a container of **data sources** and **data targets**. The
-[driver patterns](softing-datafeed.md) cover the sources; this covers who consumes them,
+driver patterns (`softing-datafeed.md`) cover the sources; this covers who consumes them,
 what OESL actually uses, and four product capabilities that have no OESL route but change
 what is possible if one were opened.
 

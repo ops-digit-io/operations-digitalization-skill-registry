@@ -152,7 +152,7 @@ group when the demand changes:
 2. **Read across `ai_cluster`, `business_process` and `targets`** — those three say what
    will be built, who consumes it and what it must produce.
 3. **Take the cluster's requirements checklist** from
-   [`standards.md`](standards.md) — that names the signals the standard needs.
+   `standards.md` — that names the signals the standard needs.
 4. **Intersect with what the machine exposes** — `analyze_signals.py --capability`.
 5. **Rank the gap** by the score above.
 

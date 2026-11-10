@@ -14,7 +14,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 
 This skill decides **what** a standard signal is (name, meaning, unit, value set). When the machine does not deliver
 it in that form, the department derives it as a calculated datapoint with its rule engine. The build is
-`od-node-red-flow-builder` ([rule-engine workflow](../../od-node-red-flow-builder/references/rule-engine.md)); this table
+`od-node-red-flow-builder` (rule-engine workflow (`../../od-node-red-flow-builder/references/rule-engine.md`)); this table
 says which pattern implements which normalization and where a production example is.
 
 | Normalization | Rule-engine pattern | Production example (in `od-node-red-flow-builder/references/rule-engine-examples/`) |

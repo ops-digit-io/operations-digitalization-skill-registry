@@ -171,10 +171,10 @@ point would be a guess.
 
 **3 · Map candidates to canonical names.** `od-signal-standardization` §Step 5, and check the
 public data models first: a machine exposing EUROMAP or OPC UA for Machinery is already
-named — [`public-data-models.md`](public-data-models.md).
+named — `public-data-models.md`.
 
 **4 · Cluster and rank.** Functional area and importance —
-[`clustering-signals.md`](clustering-signals.md). The HMI observation from source 6 is a
+`clustering-signals.md`. The HMI observation from source 6 is a
 strong tiebreak.
 
 **5 · Verify existence and state the four elements.** Name, meaning, unit, collection method.

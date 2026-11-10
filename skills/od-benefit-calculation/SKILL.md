@@ -11,6 +11,7 @@ description: >-
   use case is being prioritized and needs a business case, when a saving needs recording
   or defending, when someone asks what a use case or the portfolio is worth, or when a
   savings figure is about to leave the department.
+  Not for the capital request itself (od-capital-request) or the cost side (od-investment-input).
 license: MIT
 metadata:
   id: od-benefit-calculation
@@ -20,6 +21,8 @@ metadata:
   new_state_step: "Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
   department_names: ["bc-build", "bc-assess", "bc-value-model", "business-case-builder", "business-case-assessor", "bc-assessment"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
+  author: Digital-Business-Value-Engineer (DBVE)
+  tags: [practice, use-case-support-service]
   authority_level: draft on the business case; recommend on prioritization; never assert proven
   status: stable
   sources_read: 2026-11-10
@@ -44,6 +47,15 @@ metadata:
 # Benefit calculation and savings
 
 Read `od-context` first.
+
+## Purpose
+
+Builds and records the value side of an OD business case and keeps the savings ledger honest: saving rows with amount, year, category, rationale and methodology, tracked kept apart from proven. Use it when a use case is prioritized and needs a business case, when a saving needs recording or defending, or when a savings figure is about to leave the department.
+
+## Inputs and output
+
+- **Inputs**: the business rationale (which operational loss disappears, where), sourced drivers and volumes from the area owner, plant Controlling for rates, and the cost side from `od-investment-input`.
+- **Output**: the value backbone ([`assets/business-case-backbone.md`](assets/business-case-backbone.md)) and one saving row per mechanism, with reliability, dependency and an assessment verdict.
 
 ## First estimate in five steps (for anybody with an idea)
 
@@ -171,6 +183,24 @@ year, a category, a business rationale, a reliability label, and — for a `CALC
 its methodology; any gate is recorded as a dependency with an owner. The backbone carries the
 expected / min / potential headline with bankable and assumption-dependent value apart, the investment
 envelope and the rollout scenarios, and an assessment verdict.
+
+## Human gate and AI-agent notes
+
+- **An agent may**: draft the backbone, write rows with their methodology, tag every figure, label a row `ESTIMATION` when the methodology is missing, and list open questions.
+- **Stays with roles**: the DBVE owns the savings ledger; Plant ME agrees the priority; finance confirms a saving as proven through SPRINT; a person other than the case builder signs the maturity verdict. An agent never marks a row proven.
+
+## Example
+
+Fictional example (invented numbers, not a company figure):
+
+```text
+Row   : amount 5,280 per year (fictional), category time recovered, reliability CALCULATION
+Method: 12 min x 3 shifts x 220 days x 40 per hour (inputs tagged)
+Gate  : dependency ECR APPROVAL, owner = approval role
+Report: tracked 5,280 | proven 0   (never summed)
+```
+
+If it fails: a `CALCULATION` row with no methodology fails the check and is relabelled `ESTIMATION`; an invalid or `[unknown]` factor gets no number.
 
 ## Do not
 

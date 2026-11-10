@@ -68,14 +68,14 @@ branch 1a/1b, not a finished catalog hit.
 - The reusable thing is the **pattern plus the dashboard family** it points to, not a package. The vault records no
   deployable artefact per entry.
 - For a match, open the library note, then the dashboard family note it links (screenshots, panels), then the template page
-  in `Graph/Use Case Views` (see [template-coverage.md](template-coverage.md)).
+  in `Graph/Use Case Views` (see `template-coverage.md`).
 - For the dashboard build itself the registry has `build-grafana-ops-dashboard` and `od-analytics-asset-build`.
 
 ## Pre-screen signals that are not a CSP decision
 
 Plant use cases carry a `scalable` flag. It is set by the plant or OD when the use case is recorded; it is **not** a CSP
 decision and must not be shown as one. It is useful to find the next candidates to put to the CSP decision: filter `scalable`
-and status `IMPLEMENTED` or `PRODUCTIVE`, per template (see [template-coverage.md](template-coverage.md)).
+and status `IMPLEMENTED` or `PRODUCTIVE`, per template (see `template-coverage.md`).
 
 ## Open
 

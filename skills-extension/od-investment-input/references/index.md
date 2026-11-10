@@ -4,6 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Approval route](approval-route.md) | Skill Reference | Who decides an investment input, how to find the current spend ladder and its ambiguity, the open budget threshold, and the gates and dependencies to record. Guidance only, no amounts. |
-| [Cost lines](cost-lines.md) | Skill Reference | The cost lines an investment input pack can carry, where each line's figure must come from, and how to size a wave from the live machine records. Guidance only - no prices or estate figures. |
-| [Process chain practice](process-chain-practice.md) | Skill Reference | How the investment input (steps 1b2, 25, 33) is run in the AI-driven chain - cost build-up and allocation, cost calculator before the project, machine-integration planning workflow, staged scope, wave decision checks, and what an agent may draft. Pattern only, no figures. |
+| Approval route (`approval-route.md`) | Skill Reference | Who decides an investment input, how to find the current spend ladder and its ambiguity, the open budget threshold, and the gates and dependencies to record. Guidance only, no amounts. |
+| Cost lines (`cost-lines.md`) | Skill Reference | The cost lines an investment input pack can carry, where each line's figure must come from, and how to size a wave from the live machine records. Guidance only - no prices or estate figures. |
+| Process chain practice (`process-chain-practice.md`) | Skill Reference | How the investment input (steps 1b2, 25, 33) is run in the AI-driven chain - cost build-up and allocation, cost calculator before the project, machine-integration planning workflow, staged scope, wave decision checks, and what an agent may draft. Pattern only, no figures. |

@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Acceptance test](SKILL.md) | Agent Skill | Author and run the acceptance test that closes an equipment integration or a delivered solution — define what "passed" means before the build, verify against it, and route a failure into the right rework loop rather than around it. Use when an integration is complete, a solution is ready, an acceptance protocol needs writing, or a delivery is being declared done. Acceptance sign-off is human-only; an agent drafts the protocol and reports the result, never approves it. |
+| [Acceptance test](SKILL.md) | Agent Skill | Author and run the acceptance test that closes an equipment integration or a delivered solution — define what "passed" means before the build, verify against it, and route a failure into the right rework loop rather than around it. Use when an integration is complete, a solution is ready, an acceptance protocol needs writing, or a delivery is being declared done. Acceptance sign-off is human-only; an agent drafts the protocol and reports the result, never approves it. Not for building the integration (od-equipment-integration) or for adoption after the pass (od-handover-and-adoption). |
 
 | Folder | Holds |
 |---|---|

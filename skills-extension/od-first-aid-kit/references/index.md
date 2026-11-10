@@ -4,8 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [First aid offering](first-aid-offering.md) | Skill Reference | Guidance on the Process First-Aid Kit - purpose, the two data scenarios, how to handle the cost question, and the shape of typical ad-hoc analyses that show how a plant issue becomes an analytical question. Guidance only, no company figures. |
-| [Process chain practice](process-chain-practice.md) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the first-aid step, abstracted from the Operations Digitalization slide decks - the SMART test with a good and a bad pair, object and event reduction, organizational versus technical split, diagnosis templates (loss tree, error top list, control loop), preconditions for an explainable-model claim. Guidance only, no figures. |
+| First aid offering (`first-aid-offering.md`) | Skill Reference | Guidance on the Process First-Aid Kit - purpose, the two data scenarios, how to handle the cost question, and the shape of typical ad-hoc analyses that show how a plant issue becomes an analytical question. Guidance only, no company figures. |
+| Process chain practice (`process-chain-practice.md`) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the first-aid step, abstracted from the Operations Digitalization slide decks - the SMART test with a good and a bad pair, object and event reduction, organizational versus technical split, diagnosis templates (loss tree, error top list, control loop), preconditions for an explainable-model claim. Guidance only, no figures. |
 
 | Folder | Holds |
 |---|---|

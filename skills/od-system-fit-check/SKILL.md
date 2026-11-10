@@ -20,6 +20,8 @@ metadata:
   new_state_step: "Classify the demand into exactly one lane; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
   department_names: ["invest-screen", "investment-screening", "investment-checking"]
   owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
+  author: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
+  tags: [practice, all]
   authority_level: recommend — flags the fit risk and proposes a redesign or an escalation; never approves a system change or a rollout exception itself
   status: stable
   origin: derived
@@ -54,6 +56,36 @@ quietly need a system outside the lean footprint?**
 A request rarely names a system. It says "we need live cross-process scheduling with full
 order genealogy," which is MES in different words — and by the time a use case is already
 scoped around it, redesigning is a much bigger conversation than catching it at intake.
+
+## Purpose
+
+Checks whether a request quietly needs a system outside the lean footprint (MES, EMS or similar), and, in Lane 3, runs the tool-decision / IT-footprint gate that routes a demand to reuse, self-develop, external build, integrate or connector. Use it at intake, during requirements breakdown, at Lane 3 step 32, and whenever someone asks make, buy, integrate or connect.
+
+## Inputs and output
+
+- **In:** the request or demand as the requester worded it, the plant, and for Lane 3 the purchase or tool in question.
+- **Out:** the filled [`assets/system-fit-check.md`](assets/system-fit-check.md) with one verdict (fits, redesign, escalate; in Lane 3 also the route and a Go / PoC-first / Reduce-complexity / Hold / Blocked verdict) and a named next step.
+
+Example (fictional; the request and plant are invented for illustration):
+
+```text
+Request: "Live cross-process scheduling with full order genealogy" (plant X)
+Need restated: schedule across processes and trace every order end to end
+Boundaries crossed: no lightweight tool covers it (see references/tool-boundaries.md)
+Plant availability: checked, dated
+Verdict: Escalate as exception -> od-decision-routing, "Tool/system rollout"
+```
+
+## Procedure
+
+1. State the need, not the request (step 1 of "The check").
+2. Walk the tool boundaries in order (step 2).
+3. Check this plant's actual availability (step 3).
+4. Give the verdict and next step ("Verdict and next step").
+5. In Lane 3, run the footprint hard gate, route, score and verdict ("Lane 3 tool-decision gate").
+6. Fill the assets and hand over ("Definition of done").
+
+If a step fails (no boundary line can be named, two sources disagree, the plant status is unknown), the check is not finished: see the guardrails and the discrepancy section below.
 
 ## The references are the substance
 
@@ -167,6 +199,15 @@ catch, including in its own source material. Do not silently pick one.
   system rollout" gate in `od-decision-routing` decides.
 - **Never silently resolve the EMS discrepancy above by picking the version that is more
   convenient for the request in front of you.** Ask.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** restate the need, walk the boundaries, read the plant tool availability, draft the check and the Lane 3 screen, flag open footprint points. **Humans decide:** the OD lead and the IT-responsible role of the business side decide every rollout exception and every Lane 3 verdict; the plant's operations owner confirms what is deployed.
+- **Evidence to cite:** the boundary line crossed, the dated plant availability, the footprint gate points.
+
+## Pitfalls
+
+The guardrails above are the pitfalls: concluding "MES-shaped" without a named boundary, using the estate average instead of this plant, returning "fits" for a tool nobody runs, approving an exception inside the check, and silently picking one side of the EMS discrepancy.
 
 ## Definition of done
 

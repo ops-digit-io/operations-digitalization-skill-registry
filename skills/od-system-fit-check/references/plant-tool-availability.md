@@ -21,7 +21,7 @@ export. It tells you how to read it and what traps to expect.
 - Vault `Graph/Tools` notes (source: the `ToolOverview-List` export) and `Graph/Plants`
   rollout blocks. Note the export date every time you quote a cell.
 - Use cases naming a tool: the use case links in the `UseCase-List` export.
-- Machine-side readiness: [`plant-integration-status.md`](../../od-equipment-integration/references/plant-integration-status.md).
+- Machine-side readiness: `../../od-equipment-integration/references/plant-integration-status.md`.
 
 ## Reading a cell
 
@@ -65,7 +65,7 @@ started), `NOT AVAILABLE`. Plus a rollout year (may be missing) and a free-text 
 
 ## Workshop tables versus the Tool Overview
 
-The tables in [`deployment-reality.md`](deployment-reality.md) are statements of one workshop
+The tables in `deployment-reality.md` are statements of one workshop
 summary at one date; the Tool Overview is an export at another. They disagree in kind:
 "ongoing" in a workshop but "available" later; a tool "ongoing, needed for multiple use cases"
 in a workshop but without a row in the overview; a demo system deployed but "no use cases".
@@ -80,7 +80,7 @@ the plant. Neither wins by being newer.
 3. Note the machine side: a tool that needs machine data (MDA/PDA, MSB, RuleEngine) needs the
    plant's machines integrated.
 4. Write the plant, the cell value and the export date into
-   [`../assets/system-fit-check.md`](../assets/system-fit-check.md).
+   `../assets/system-fit-check.md`.
 
 ⟨Whether the Tool Overview is the department's reference for "available at plant", or the
 workshop tool-availability tables. Who could supply it: OD lead.⟩
@@ -88,4 +88,4 @@ workshop tool-availability tables. Who could supply it: OD lead.⟩
 ## Sources
 
 - Vault `Graph/Tools`, `Graph/Plants` rollout blocks.
-- Registry reference [`deployment-reality.md`](deployment-reality.md).
+- Registry reference `deployment-reality.md`.

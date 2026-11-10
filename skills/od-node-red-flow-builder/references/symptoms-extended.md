@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Symptoms, extended
 
-Adds to [`symptoms.md`](symptoms.md); nothing there is replaced. This page holds no counts of the
+Adds to `symptoms.md`; nothing there is replaced. This page holds no counts of the
 estate. Every "how often" question is answered by running `scripts/analyze_flow.py` over the
 instance exports on the day (`--quiet` for a whole instance, `--json` to tally) and by counting in
 the flow export itself.

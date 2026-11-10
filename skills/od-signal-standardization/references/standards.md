@@ -119,7 +119,7 @@ against. Energy per unit produced is the comparable figure; total kWh is not.
 
 That requires four things, and a name is only the first:
 
-1. **A canonical name** — [`signal-catalogue.md`](signal-catalogue.md).
+1. **A canonical name** — `signal-catalogue.md`.
 2. **A defined meaning**, from the cluster's standard — this file.
 3. **A stated unit and scale** — the estate has no written convention, which is a gap.
 4. **A stated collection method** — transition or sample, and at what interval.

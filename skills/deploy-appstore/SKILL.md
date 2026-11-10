@@ -20,6 +20,8 @@ metadata:
   new_state_step: "Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app); Deploy to the platform, acceptance, Cyber Security sign-off"
   department_names: ["deploy-appstore", "Manufacturing-App-Store-Ops", "container-deploy", "deploy-entrygate", "deploy-exitgate"]
   owner_role: human:jakob.gabriel
+  author: human:jakob.gabriel
+  tags: [project-support-consultancy, practice, new-state, draft]
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
   sources_read: 2026-11-10
@@ -54,6 +56,26 @@ OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gi
 This skill defines the gates and the package and checks a package against that shape. It contains **no
 deployment commands**; the department's package is the master for those. Serves 3a.1 and 3a.2, and 3a.3
 once the external build is delivered (`it-demand-package`).
+
+## Purpose
+
+Defines the gates and the deployment package for putting an app on the platform (routes 3a.1 and 3a.2, and 3a.3 once the external build is delivered), and checks a package against the department's GitOps shape. Use it after the Lane 3 front-end is done and before rollout. It does not deploy.
+
+## Inputs and output
+
+- **In:** the accepted requirement, the tool decision, the business case, the sourcing route and the app's owner and sponsor.
+- **Out:** the deployment package ([`assets/deployment-package.md`](assets/deployment-package.md)): app, owner, target, route, data, dependencies, rollback owner, acceptance protocol, gate table and open questions.
+
+Fictional example (names invented for illustration):
+
+```text
+App: demo-dashboard, owner role: DBVE, sponsor: plant X (fictional)
+Target: IIoT Edge runtime via CMO; route 3a.2
+Gate table: protocol drafted; Cyber Security sign-off requested, not granted
+Open: lead time, deploy rights (OD lead to supply)
+```
+
+If a field is missing or the sign-off is not granted, the package is invalid for release: list the gap with its owner and stop.
 
 ## Which platform
 
@@ -120,6 +142,15 @@ route), and the open questions with their owners.
 - ⟨The Cyber Security requirements for an app⟩ and ⟨the lead time⟩.
 - ⟨The release cadence⟩ - the bundle says "per release" without a rhythm; neither the AI deck nor the initiative note gives one.
 - ⟨The pilot's scope, plants and exit criteria⟩ - the department deck marks the GitOps deployment as a pilot and says no more.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** assemble and check the package, draft the acceptance protocol, list open points. **Humans decide:** Cyber Security sign-off, the approval route, the person with deploy rights who deploys, and the OD lead for the open items above.
+- **Evidence to cite:** the route, the maturity class of each platform element, the gate table.
+
+## Definition of done
+
+The package is complete, the release gate is passed or its gaps are named with owners, a human with deploy rights has deployed, and the hand-over to `od-handover-and-adoption` is made.
 
 ## Do not
 

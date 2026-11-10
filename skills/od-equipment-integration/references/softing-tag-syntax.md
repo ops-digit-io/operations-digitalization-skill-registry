@@ -173,7 +173,7 @@ when the program uses non-default files, which most real programs do.
 
 ControlLogix / CompactLogix use symbolic tag names rather than this file syntax, and are
 browsed from the controller — see the ControlLogix browsing note in
-[`softing-datafeed.md`](softing-datafeed.md).
+`softing-datafeed.md`.
 
 ---
 

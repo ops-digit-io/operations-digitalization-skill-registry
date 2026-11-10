@@ -34,7 +34,7 @@ policy; whether MDA/PDA or QFPR is *available right now* is a per-plant fact.
   being technically present is not the same fact as a use case being in scope there. Check
   which one a request is claiming.
 - **Workshop tables age.** A "planned <year>" line is a statement at a date; compare with the
-  live Tool Overview ([`plant-tool-availability.md`](plant-tool-availability.md)).
+  live Tool Overview (`plant-tool-availability.md`).
 
 ## How to get the plant's current table
 

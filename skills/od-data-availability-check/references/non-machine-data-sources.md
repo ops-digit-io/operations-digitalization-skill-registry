@@ -41,7 +41,7 @@ monitoring.
    is usually networked. The records give no export interface for it; ask per application.
 3. **PLC programming and configuration software** is where the PLC programs live. The
    integration guide stops every PLC route at "if you do not have the PLC program, we cannot
-   connect the PLC" ([`od-equipment-integration`](../../../skills/od-equipment-integration/SKILL.md)).
+   connect the PLC" (`od-equipment-integration` (`../../../skills/od-equipment-integration/SKILL.md`)).
    Check the licence status of the program software and that the program can be opened before
    treating a machine as "program available".
 4. **Camera system configuration** is often standalone. Image data from such systems needs the
@@ -57,7 +57,7 @@ Count the applications per plant live (a few applications are located at more th
 and some have no plant). Where a plant has many legacy applications but few machine rows with
 a status and no use cases, the application list is a better starting point for a data request
 than the machine list. Compare the plant's application count with its Machine List completeness
-([`machine-list-completeness.md`](machine-list-completeness.md)) before choosing.
+(`machine-list-completeness.md`) before choosing.
 
 ## 3. Reaching the data - what exists
 
@@ -86,7 +86,7 @@ Notes on the rows:
 - MIL and QFPR and the energy tool also appear in `od-system-fit-check`: whether the plant
   **has the tool** is a fit question there; whether the data **exists** is the question here.
 - A data class with a `NOT AVAILABLE` connector is a data gap routed to the Information
-  Integration lane as a named request ([`../assets/data-gap-request.md`](../assets/data-gap-request.md)),
+  Integration lane as a named request (`../assets/data-gap-request.md`),
   not a reason to approximate.
 
 ## 4. Where the Grafana and data platform split matters

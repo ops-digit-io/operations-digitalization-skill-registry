@@ -21,7 +21,7 @@ supply, no mounting — the cost sits in the server, its licences and its operat
 > the data platform through it like every other machine. ③ therefore needs both pieces — the
 > guide's own Siemens S7 recommendation says you cannot connect the PLCs *"when you have
 > chosen the OPC-UA server as the connectivity framework **and you don't have the IIoT Edge
-> Computing Platform available**"*. See [`iiot-edge-platform.md`](iiot-edge-platform.md)
+> Computing Platform available**"*. See `iiot-edge-platform.md`
 > § *The bridge* and § *The three integration concepts*.
 
 **Valid for BROWNFIELD.** (The OPC-UA-server data source is the exception — brownfield and
@@ -203,7 +203,7 @@ connections.**
 ## Tag definition — three methods
 
 Every PLC driver offers the same three. This is the highest-leverage choice in the pattern.
-Syntax detail for every family is in [`softing-tag-syntax.md`](softing-tag-syntax.md).
+Syntax detail for every family is in `softing-tag-syntax.md`.
 
 | Method | What it is | Use when | Failure mode |
 |---|---|---|---|
@@ -287,7 +287,7 @@ per-connection, and the configurator validates the constraints between them (p. 
 ## Driver — Rockwell / Allen Bradley
 
 *Data Sources → Rockwell.* Manual p. 242–256. Covers ControlLogix / CompactLogix and the
-PLC-5 / SLC families (separate tag syntax — see [`softing-tag-syntax.md`](softing-tag-syntax.md)).
+PLC-5 / SLC families (separate tag syntax — see `softing-tag-syntax.md`).
 
 One ControlLogix-specific global setting explains a common false bug report (p. 657):
 
@@ -397,7 +397,7 @@ dozens of connections.
 | Server present, **driver licence missing** | Procurement, not configuration. Check whether Suite Extended already covers it |
 | **Beckhoff PLC** | No Beckhoff driver exists. Modbus TCP, or a TwinCAT OPC UA / OPC DA server in front. Native ADS is the edge route — and that branch is `TODO` |
 | Somebody asks for **NetLink** | Discontinued since 5.38. Use the **Siemens S7** protocol; the Helmholz NetLink *hardware* is still fine |
-| **PLC program unavailable** | The breakpoint applies here too — see [`fallbacks.md`](fallbacks.md) §1 |
+| **PLC program unavailable** | The breakpoint applies here too — see `fallbacks.md` §1 |
 | PLC has **no Ethernet interface** | Helmholz NetLink or equivalent gateway, addressed as Siemens S7 |
 | **Connection Test fails** | Siemens → rack/slot, RFC1006 header, TSAP cross-match. Rockwell → timeouts and port. OPC UA → certificate trust, and for reverse connections a free listener port. **Do not start defining tags** |
 | Connection up, **tags empty or wrong** | Symbol file mismatch — re-export from the **deployed** program version, not an archived project |

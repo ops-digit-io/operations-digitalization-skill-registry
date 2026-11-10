@@ -10,7 +10,7 @@ description: >-
   od-barrier-triage). Use when a plant or wave starts, a machine's route is unclear, a use case is blocked
   for want of machine data, a machine is silent or blocked, or someone asks how to connect a Siemens /
   Rockwell / Beckhoff / B&R / Omron / Mitsubishi / Modbus / OPC-UA device, configure a dataFEED data
-  source, or what to specify when ordering a new machine.
+  source, or what to specify when ordering a new machine. Not for acceptance (od-acceptance-test).
 license: MIT
 metadata:
   id: od-equipment-integration
@@ -20,6 +20,8 @@ metadata:
   new_state_step: "Order and connect; Cyber Security sign-off in parallel; Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
   department_names: ["mi-connector", "mi-roadmap", "mi-readiness", "connector-design"]
   owner_role: IIoT Interface & Automation Engineer (IIAE)
+  author: IIoT Interface & Automation Engineer (IIAE)
+  tags: [information-integration-service, technical]
   authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
   status: stable
   sources_read: 2026-11-10
@@ -52,6 +54,11 @@ Read `od-context` first. Two entry routes to one protocol: **Route A - Assessmen
 Key user: IIoT Interface & Automation Engineer (IIAE), in tandem with Plant ME / Plant IT. AI agent: drafts and recommends only.
 Where the guide's `rules.json` and this skill disagree, `rules.json` wins (the maintained artefact). Detail behind every rule
 below: [`routing-detail.md`](references/routing-detail.md).
+
+## Purpose
+
+Use this skill to decide how machines get connected: per plant or wave (Route A) and per machine (Route B). It
+returns a route, a connector, a sequence position and a record of barriers, never a connection made by an agent.
 
 ## Inputs and output
 
@@ -87,6 +94,17 @@ Targets: look up the current integration target and actual in the department KPI
 6. **Gate 3 - clear preparation blocks in order**: budget, infrastructure, **PLC program**, tags, cyber security.
 7. **Blocked?** Work [`fallbacks.md`](references/fallbacks.md) before recording it as blocked.
 8. **Gate 4 - record**: Machine List, Machine CV (mandatory vs optional tags), Edge Device List, inform MPEE OD. `INTEGRATED` only after `od-acceptance-test` passes.
+
+Short example of a Route B record (fictional example; the machine and plant are invented):
+
+```text
+Machine: M-017 (fictional), PLC family from the Machine List row (dated)
+Gate 0: edge platform installed   Gate 1: variant 3 (already on an OPC-UA server)
+Gate 2: DTQ-OPCUA-Connector, available   Gate 3: PLC program present, cyber security open -> waits for go-live
+Handoff: od-acceptance-test; INTEGRATED only after it passes
+```
+
+If a gate would fail or a guide branch is `TODO`, do not compose a route: use the fallbacks or escalate as stated in the rules below.
 
 ## Decision rules
 

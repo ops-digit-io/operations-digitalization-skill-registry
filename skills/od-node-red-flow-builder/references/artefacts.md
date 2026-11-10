@@ -226,7 +226,7 @@ function "Define filter array" → filter uuids (array) → split → convert
 ```
 
 The evaluation, the cold-start guard and the trigger-selection trap are in
-[`composing-transformations.md`](composing-transformations.md) — this is the shape most configured flows use, and the one most worth getting right.
+`composing-transformations.md` — this is the shape most configured flows use, and the one most worth getting right.
 
 ### Rate / output per period — windowed
 
@@ -295,7 +295,7 @@ inject (repeat ⟨interval⟩ / crontab ⟨schedule⟩)
 
 Use when the output must exist even if nothing changed — a target value, a plan figure, a
 heartbeat. There is no inbound packet to re-pack from, so pack the timestamp explicitly
-(P8 in [`transformation-patterns.md`](transformation-patterns.md)).
+(P8 in `transformation-patterns.md`).
 
 ---
 

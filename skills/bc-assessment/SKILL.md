@@ -18,6 +18,8 @@ metadata:
   new_state_step: "Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
   department_names: ["bc-assess", "bc-assessment", "business-case-assessor"]
   owner_role: OD lead (separation of duties - not the person who built the case)
+  author: OD lead (separation of duties - not the person who built the case)
+  tags: [department-core, lane-2, lane-3]
   authority_level: recommend - scores and gives a verdict; the approvers decide
   status: draft
   sources_read: 2026-11-10
@@ -43,6 +45,10 @@ Read `od-context` first. The department's `bc-assessment`: it scores a case, it 
 separate from build** (department naming convention): the person who built the case in `od-benefit-calculation` does not
 assess it. The rubric below is the department package's own (`30-skills/bc-assessment.zip`, transcribed into
 [`references/`](references/)); the package stays the master.
+
+## Purpose
+
+Scores a business case against the OD house rubric and gives a maturity-gate verdict. Use it when a case is drafted and before a capital request, when a reviewer asks whether a case is signable, or when two cases must be compared on the same rubric.
 
 ## Inputs and output
 
@@ -85,8 +91,38 @@ assumption-dependent stated apart, with investment envelope, minimum viable roll
    `neuwerkbrand.zip`; not stored here).
 8. Hand a signable case to `od-capital-request` if money is needed.
 
+## Human gate and AI-agent notes
+
+- **Agent may:** read the case and its inputs, score the rubric with evidence, list conflicts, draft the report and the optional deck.
+- **Roles decide:** the OD lead names the assessor (never the builder of the case); the approvers decide on the capital request. The verdict is a recommendation only.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/build_bc_short.py` | Build the optional one-pager deck (needs `python-pptx` and the neuwerk template `_nw_template.pptx`) | none; the template path `SRC` and output path `OUT` are set at the top of the script and must be edited |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+
+## Example
+
+Fictional example; the case, rows and verdict are made up for illustration.
+
+```text
+| Criterion | Verdict | Evidence | Note |
+| C2 grounding tag on every figure | gap | business-case.md, "Levers" | two figures untagged |
+| C1 value-only separation | pass | business-case.md, "Scope" | |
+Verdict: Not ready (C2 gap). Missing input: the source of the two figures; owner: case builder.
+```
+
+If a criterion cannot be scored because an input file is missing or invalid, mark it gap and name the input; do not guess.
+
 ## Do not
 
 - Do not fix the case while assessing it; return it to `od-benefit-calculation` with the findings.
 - Do not pass a figure without a grounding tag, or a headline that sums hard and optional levers.
 - Do not let the builder assess their own case.
+
+## Definition of done
+
+`bc-assessment-report.md` holds the scorecard with evidence, the conflict register, the verdict and the ranked open questions; the assessor is not the builder; a signable case goes to `od-capital-request`, an unsigned one back to `od-benefit-calculation`.

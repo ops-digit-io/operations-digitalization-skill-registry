@@ -17,9 +17,9 @@ server that every machine depends on.
 
 **Valid for BROWNFIELD and GREENFIELD** — the only OESL route that covers new machines.
 
-Pairs with [`decision-paths.md`](decision-paths.md) for routing and
-[`fallbacks.md`](fallbacks.md) when a step blocks. The other route is
-[`softing-datafeed.md`](softing-datafeed.md).
+Pairs with `decision-paths.md` for routing and
+`fallbacks.md` when a step blocks. The other route is
+`softing-datafeed.md`.
 
 ## What "the platform" actually is
 
@@ -29,7 +29,7 @@ cross-conversation friction on this route:
 | Layer | What it is | Where it appears |
 |---|---|---|
 | **Edge device** | The hardware in or beside the machine cabinet. Currently one approved size | Edge Device List; the hardware branch of the guide |
-| **Connector** | The protocol driver reaching the PLC — mostly DATATRONiQ, a few Softing | Connector Overview list; [`decision-paths.md`](decision-paths.md) |
+| **Connector** | The protocol driver reaching the PLC — mostly DATATRONiQ, a few Softing | Connector Overview list; `decision-paths.md` |
 | **Platform** | The DATATRONiQ dashboard and server cluster the devices register into, on the plant Kubernetes runtime | Steps 6 and 9 of the hardware sequence |
 
 A machine is integrated only when all three are done. Cabled and addressed but not
@@ -154,7 +154,7 @@ platform:
 |---|---|---|
 | **Concept 3 — IIoT Edge Computing Platform** | **①** | PLC → **edge device** with connector → IIoT platform. Device per machine or cell; the only variant for cameras |
 | **Concept 2 — container-based Machine Integration** | **②** | PLC → **connector** → IIoT platform. The connector runs without a dedicated edge device at the machine |
-| **Concept 1 — Central OPC-UA Server** | **③** | PLC → **aggregation server** → IIoT platform. Softing dataFEED concentrates the drivers; the edge reads its address space — see [`softing-datafeed.md`](softing-datafeed.md) |
+| **Concept 1 — Central OPC-UA Server** | **③** | PLC → **aggregation server** → IIoT platform. Softing dataFEED concentrates the drivers; the edge reads its address space — see `softing-datafeed.md` |
 
 These are not three destinations. The IIoT Edge Platform is the terminus in all three;
 ① and ② differ only in *where the connector runs*, and ③ adds a concentrator in front,
@@ -190,7 +190,7 @@ move a machine out of ②.
 ### Which variants a plant has
 
 Not one per plant. The Tool Overview records the concepts per plant; read it live
-([`plant-integration-status.md`](plant-integration-status.md) says how). Patterns to expect:
+(`plant-integration-status.md` says how). Patterns to expect:
 
 - Plants with ① only, plants with ③ only, and plants with **both ① and ③**.
 - ② may appear alongside ① at a plant.
@@ -277,7 +277,7 @@ Task 4 is the one that gets skipped and should not be. *"The structure on the OP
 is clear and known"* means the address space is an interface: node ids are
 `<connection name>.<tag name>`, so the connection names chosen on the Softing side are what
 the edge subscribes to. Rename a connection later and every subscription breaks. See
-[`softing-data-targets.md`](softing-data-targets.md).
+`softing-data-targets.md`.
 
 The budget block still applies, and still names OT devices such as Helmholz NetLink,
 switches and cabling: "already on an OPC-UA server" does not always mean "already reachable
@@ -301,7 +301,7 @@ from `rules-next.json`:
 
 None of these hit the PLC-program breakpoint. When a machine's PLC program is
 unavailable, the first question is whether the data is reachable another way — see
-[`fallbacks.md`](fallbacks.md).
+`fallbacks.md`.
 
 ---
 
@@ -311,7 +311,7 @@ unavailable, the first question is whether the data is reachable another way —
 |---|---|
 | No edge device on site | Take the edge-device hardware branch first; it is a prerequisite, not part of the integration |
 | Medium or small device planned | Not approved — large device, or low-frequency collection |
-| **PLC program unavailable** | [`fallbacks.md`](fallbacks.md) — check the non-PLC routes before declaring it blocked |
+| **PLC program unavailable** | `fallbacks.md` — check the non-PLC routes before declaring it blocked |
 | PLC program available, **nobody can modify it** | Blocked at step 5. This is a resourcing escalation, not an engineering one |
 | No cabinet space or no 24 V | Low-frequency collection, or reach the PLC via the aggregation server and bridge it back with `DTQ-OPCUA-Connector` — the edge device is still needed, just not at the machine |
 | Legacy PLC, **no protocol** in the connector set | *Integration of Other PLCs* — connector development, long OT/IT cyber-security lead times. Name the dependent use cases |

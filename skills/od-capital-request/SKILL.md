@@ -7,6 +7,7 @@ description: >-
   for the funded phase, and record the dependency and the outcome. Drafts only: submission and approval are human.
   Use when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector
   needs funding before demand is handed to IT, or when a saving is waiting on ECR CREATION or ECR APPROVAL.
+  Not for calculating the value (od-benefit-calculation) or the investment input pack (od-investment-input).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -17,6 +18,8 @@ metadata:
   new_state_step: "Capital request if investment is needed; Business case, prioritization, capital request"
   department_names: ["bc-capital-request", "ecr-builder", "capital-request-builder", "eCR"]
   owner_role: human:jakob.gabriel
+  author: human:jakob.gabriel
+  tags: [use-case-support-service, practice, new-state, draft]
   authority_level: draft the request; submission and approval are human
   status: draft
   sources_read: 2026-11-10
@@ -49,6 +52,15 @@ metadata:
 
 Read `od-context` first.
 
+## Purpose
+
+Packages a use case's value and cost into a draft capital request (eCR) so the human approvers can decide. Use it when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector needs funding, or when a saving waits on `ECR CREATION` or `ECR APPROVAL`.
+
+## Inputs and output
+
+- **Inputs**: the use case record, the saving rows from `od-benefit-calculation`, the cost side from `od-investment-input`, the validation record from `od-prototype-poc`, the solution-evaluation verdict, and the Plant ME agreement on priority.
+- **Output**: the package [`assets/capital-request-package.md`](assets/capital-request-package.md) and the management summary deck from the builder, closed with the open items and one maturity verdict. A human reviews and submits.
+
 This is the department's `od-capital-request` (its package `ecr-builder`), the last link of
 its business-case chain: value from `od-benefit-calculation`, cost from `od-investment-input`, assessment
 verdict, then this package for the approval route. It does not recalculate value, set thresholds or approve.
@@ -77,6 +89,15 @@ type). Still not in the sources: the system the eCR is filed in, who files it, h
 | [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
 | [`assets/capital-request-package.md`](assets/capital-request-package.md) | The package this skill produces and the human submits |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Management-summary shape, decisions with risk of not doing, pilot and scope-limiting patterns, mandatory sensitivity, the offer-eCR-contract consistency check, and what an agent may draft |
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/build_ecr.py` | Render the eCR management summary as a neuwerk-branded pptx from the `CASE` dict inside the file | None on the command line; edit the `CASE` dict, then run `python build_ecr.py` (writes `eCR_<slug>_neuwerk.pptx`) |
+| `scripts/render_qa.sh` | Render a pptx to one jpeg per slide so the result can be looked at | `deck.pptx [dpi]` (dpi defaults to 100) |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output. If a build fails, check that `python-pptx` is installed and that the template is in `assets/`.
 
 ## Where it sits
 
@@ -130,6 +151,26 @@ type). Still not in the sources: the system the eCR is filed in, who files it, h
 
 Close every package with the open items and conflicts and one verdict: **Ready to sign**, **Sign the
 floor** (approve the grounded part only) or **Not ready**. Recommendation only.
+
+## Human gate and AI-agent notes
+
+- **An agent may**: check whether a request is needed, read the amount against the approval matrix, collect the inputs, draft the package and the deck, list open items, and propose the maturity verdict.
+- **Stays with roles**: the OD lead confirms the route when the ladder is ambiguous; the approvers named in the approval matrix (by role, tier and case type) decide; Finance confirms rates and whether the matrix still applies; a human submits. The agent never submits, signs or approves.
+
+## Example
+
+Fictional example (invented numbers, not a company figure):
+
+```text
+Input : ask = 100 (fictional units) for a pilot phase; value rows = 2 (tracked, none proven);
+        cost = one-time hardware 40, recurring licence 10 per year; verdict = Sign the floor
+Output: route = tier by amount and case type, approvers listed by role
+        value: tracked 80 | proven 0   (shown separately, never summed)
+        dependency on both rows: ECR CREATION -> ECR APPROVAL once filed
+        last slide: Open items and conflicts; verdict: Sign the floor
+```
+
+If it fails: when the value backbone, the estimate or the verdict is missing, the refusal gate returns the de-risk questions, not a package. An invalid or unsourced figure is marked ⟨to be collected⟩ with the role who supplies it.
 
 ## Definition of done
 

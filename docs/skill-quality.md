@@ -29,52 +29,52 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 82.8)
+## Scores of the core skills (mean 96.0)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
-| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | B | 89.0 | 80.0 | 90.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-context`](../skills/od-context/SKILL.md) | B | 88.5 | 85.0 | 95.0 | 95.0 | 75.0 | Large skill (5013 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | B | 87.8 | 80.0 | 85.0 | 100.0 | 90.0 | Deeply nested references in blockers-and-waves.md (-10) |
-| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | B | 86.5 | 80.0 | 90.0 | 90.0 | 90.0 | Deeply nested references in acceptance-by-route.md (-10) |
-| [`catalog-systems`](../skills/catalog-systems/SKILL.md) | B | 85.2 | 80.0 | 90.0 | 85.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | B | 85.2 | 80.0 | 90.0 | 85.0 | 90.0 | Deeply nested references in dashboard-families-catalogue.md (-10) |
-| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | B | 85.2 | 80.0 | 85.0 | 90.0 | 90.0 | Deeply nested references in gemba-app-pilot.md (-10) |
-| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | B | 84.5 | 80.0 | 90.0 | 85.0 | 85.0 | Deeply nested references in index.md (-10) |
-| [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | B | 84.0 | 80.0 | 85.0 | 85.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | B | 84.0 | 80.0 | 90.0 | 80.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | B | 83.8 | 65.0 | 90.0 | 100.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | B | 82.8 | 80.0 | 90.0 | 75.0 | 90.0 | Deeply nested references in app-manifest-and-release-gate.md (-10) |
-| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | B | 82.8 | 80.0 | 85.0 | 80.0 | 90.0 | Deeply nested references in deployment-reality.md (-10) |
-| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | B | 81.8 | 70.0 | 90.0 | 85.0 | 90.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | B | 81.8 | 70.0 | 85.0 | 90.0 | 90.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | B | 81.5 | 80.0 | 75.0 | 85.0 | 90.0 | Description contains vague words (-15) |
-| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | B | 80.5 | 70.0 | 90.0 | 80.0 | 90.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | B | 80.2 | 80.0 | 70.0 | 85.0 | 90.0 | Description contains vague words (-15) |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | B | 80.0 | 65.0 | 85.0 | 90.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | C | 79.5 | 60.0 | 90.0 | 90.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | C | 79.5 | 60.0 | 90.0 | 90.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`od-capital-request`](../skills/od-capital-request/SKILL.md) | C | 79.5 | 60.0 | 90.0 | 90.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | C | 78.8 | 65.0 | 85.0 | 85.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | C | 78.8 | 65.0 | 90.0 | 80.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
-| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | C | 78.2 | 60.0 | 90.0 | 85.0 | 90.0 | Instructions don't mention 'run_script' (-10) |
+| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (721 chars, recommend 50-150) (-5) |
+| [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (625 chars, recommend 50-150) (-5) |
+| [`catalog-systems`](../skills/catalog-systems/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (583 chars, recommend 50-150) (-5) |
+| [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (831 chars, recommend 50-150) (-5) |
+| [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (798 chars, recommend 50-150) (-5) |
+| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (591 chars, recommend 50-150) (-5) |
+| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (696 chars, recommend 50-150) (-5) |
+| [`od-capital-request`](../skills/od-capital-request/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (751 chars, recommend 50-150) (-5) |
+| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (655 chars, recommend 50-150) (-5) |
+| [`od-context`](../skills/od-context/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (486 chars, recommend 50-150) (-5) |
+| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (638 chars, recommend 50-150) (-5) |
+| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (806 chars, recommend 50-150) (-5) |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (999 chars, recommend 50-150) (-5) |
+| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (843 chars, recommend 50-150) (-5) |
+| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (733 chars, recommend 50-150) (-5) |
+| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | A | 95.8 | 95.0 | 90.0 | 100.0 | 100.0 | Broad description without negative triggers may cause over-triggering (-5) |
+| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 95.8 | 95.0 | 90.0 | 100.0 | 100.0 | Broad description without negative triggers may cause over-triggering (-5) |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 95.5 | 95.0 | 95.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
+| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 95.5 | 95.0 | 95.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 94.8 | 95.0 | 95.0 | 100.0 | 85.0 | Large skill (5615 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
+| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | A | 94.2 | 95.0 | 90.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
+| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 94.2 | 95.0 | 90.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
+| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | A | 93.5 | 85.0 | 95.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
+| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 93.5 | 85.0 | 95.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
+| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | A | 92.2 | 85.0 | 90.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
 
 ## Where the points go
 
 | Finding | Skills affected | Points each |
 |---|---|---|
-| SKILL_SPEC recommended field missing: 'metadata.author' | 25 of 25 | 5 |
-| SKILL_SPEC recommended field missing: 'metadata.tags' | 25 of 25 | 5 |
 | SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
-| No '## Purpose' section | 21 of 25 | 5 |
-| No examples provided | 20 of 25 | 5 |
-| No human gate or agent notes documented | 17 of 25 | 5 |
-| No inputs, outputs or purpose documented | 16 of 25 | 5 |
-| Deeply nested references in index.md | 13 of 25 | 10 |
-| No definition of done or handoff documented | 12 of 25 | 5 |
-| Broad description without negative triggers may cause over-triggering | 11 of 25 | 5 |
-| Instructions don't mention 'run_script' | 8 of 25 | 10 |
-| No documented scripts in table format | 8 of 25 | 10 |
+| Broad description without negative triggers may cause over-triggering | 5 of 25 | 5 |
+| Deeply nested references in index.md | 4 of 25 | 10 |
+| Resource-based skill lacks documentation of available resources | 3 of 25 | 10 |
+| Description very long (1002 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (1013 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (486 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (556 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (583 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (591 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (625 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (638 chars, recommend 50-150) | 1 of 25 | 5 |
 
 ## Sources
 

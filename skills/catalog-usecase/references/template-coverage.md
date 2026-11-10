@@ -29,7 +29,7 @@ Calculation, Cycle Time, Downtime Reporting, Recipe Values.
   variants of plant names before counting plants.
 - Reference solutions and dashboard families per template come from the template pages (a dashboard family that carries
   several templates counts under each). The CSP split counts library entries only (see
-  [library-and-csp-state.md](library-and-csp-state.md)).
+  `library-and-csp-state.md`).
 - Documentation is uneven across templates: for each plant-and-template pair with a delivered use case, note whether it is
   described by a reference solution and a dashboard family, or only by the use case note. A thinly documented template is a
   weak match source however many plants run it.

@@ -2,17 +2,15 @@
 name: od-signal-standardization
 description: >-
   Analyse a machine's signals and standardize them so a second plant can consume them
-  without asking a question. Reads the machine context - PLC program, tag export, sequence or
-  flow chart, layout, handbook, HMI, or the machine itself - to establish how the machine
+  without asking a question. Reads the machine context (PLC program, tag export, sequence chart, handbook, HMI) to establish how it
   works, inventories the data points an edge platform exposes, checks
   them against the canonical vocabulary and against what a capability actually requires,
   finds the name collisions, raw PLC tags and coverage gaps that stop a use case being
   built, and takes the result through the data-model decision. Use when a machine is newly
   connected and its signals need naming, when a use case cannot be built because a signal
   is missing or ambiguous, when two plants' versions of the same signal will not compare,
-  or before publishing any derived data point. Covers the public data models — OPC UA for
-  Machinery, EUROMAP, PackML — so a standard is adopted rather than re-invented, and produces
-  a defined signal analysis report as its output.
+  or before publishing any derived data point. Adopts public data models (OPC UA for Machinery, EUROMAP, PackML) instead of re-inventing them; output is a signal analysis report.
+  Not for connecting the machine (od-equipment-integration) or building flows (od-node-red-flow-builder).
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
@@ -24,6 +22,8 @@ metadata:
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
+  author: IIoT Interface & Automation Engineer (IIAE)
+  tags: [information-integration-service, od, technical]
   authority_level: recommend on standards; configure the offload
   status: stable
   sources_read: 2026-11-05
@@ -48,6 +48,10 @@ metadata:
 
 # Signal analysis and standardization
 
+## Purpose
+
+Analyses a machine's signals and standardizes them so a second plant can consume them without asking a question. Use it when a machine is newly connected, when a use case cannot be built because a signal is missing or ambiguous, when two plants' versions of a signal do not compare, or before publishing a derived data point.
+
 Read `od-context` first. Connecting a machine gets you a signal; **standardizing it is what makes it comparable to the same
 signal at other plants**, the only reason a cross-plant capability template means anything. Serves process steps **3b4**
 (connector and pipeline), **22** (signal selection for a use case) and **1a2** (a template works only on standardized signals).
@@ -66,6 +70,23 @@ python3 scripts/analyze_signals.py points.json --capability oee --report > repor
 ```
 
 The report fills what is derivable; context sections stay `⟨…⟩` placeholders on purpose.
+
+Fictional example (invented tags, not a real machine):
+
+```text
+points.json : [{"uuid": "u1", "label": "MachineStatus"}, {"uuid": "u2", "label": "DB12.DBX0.1"}]
+Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical, no finding
+```
+
+If it fails: a points file that cannot be read, or lacking `uuid` and `label`, is invalid input; fix the export and run again.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/analyze_signals.py` | Check a data-point list for standardization problems, cluster by functional area, write the structured report | `POINTS.json` or `POINTS.csv`; `--capability <name>`, `--cluster`, `--report`, `--json` |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output. Exit code 2 means blockers, 1 warnings, 0 clean.
 
 ## Procedure
 

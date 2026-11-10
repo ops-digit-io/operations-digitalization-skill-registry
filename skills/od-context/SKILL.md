@@ -5,7 +5,7 @@ description: >-
   new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill
   inherits. Load before any OD work, before quoting any OD number, before routing a request,
   and whenever terms like use case, asset, MSB, MES, ODEC, COP, DBVE, IIAE, CSP, eCR or SPRINT
-  must resolve to one meaning.
+  must resolve to one meaning. Not for deciding a specific request (od-decision-routing).
 license: MIT
 metadata:
   id: od-context
@@ -15,6 +15,8 @@ metadata:
   new_state_step: "Supporting spine"
   department_names: ["dept-os"]
   owner_role: OD lead
+  author: OD lead
+  tags: [all, foundation]
   authority_level: read-only
   status: stable
   sources_read: 2026-11-10
@@ -88,18 +90,12 @@ and hands over to IT or external delivery only once the demand is clear (`it-dem
 | Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`od-equipment-integration`) |
 | Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (`it-demand-package`) |
 
-**Step ids and route options.** Process step ids (`3a4`, `3a5`, `3a6`, `3b4` …) number the steps of a
-branch; route options are written with a dot (`3a.1` reuse, `3a.2` self-develop, `3a.3` external build,
-`3a.4` integrate a foreign app). Step `3a4` ("build or integrate") serves all four route options.
+Step ids, route options and department skill names: `references/process-chain-practice.md`, "Step ids and skill names".
 
 **Lane 2 order.** Prototype comes before the business case: requirements → features and data check →
 prototype → business case → capital request. This follows the department's Lane 2 file; the naming
 convention's chain `od-benefit-calculation → od-prototype-poc` describes how its packaged skills hand over, not the
 process order. A prototype that changes the value picture updates the business case.
-
-**Department skill names.** The department's naming convention (`<family>-<object>`, 2026-09-21) names
-the same capabilities differently; each skill lists its department names in `metadata.department_names`,
-so a request using either name finds the skill.
 
 **Ownership tiers.** Self-service (plant executes inside pre-approved guardrails) · OD-led · OD +
 external (OD scopes, externals deliver) · IT, Cyber Security gated (OD does not control the gate).
@@ -141,24 +137,8 @@ Lane cut rule: **one lane = one trigger + one definition of done + one autonomy 
 | Process First-Aid Kit | Rapid diagnostic offering for a one-off plant process issue; routes to Lane 1, Lane 2 or external support | A standing analytics lane (retired) |
 | CMO | Container Management and Orchestration: the Kubernetes-based platform (registry, source host, GitOps catalog) apps deploy to; the preferred route for platform-level Cyber Security approval | The IIoT Edge runtime |
 | Key user | The plant role that runs catalogued, self-service work inside OD's guardrails | The OD builder |
-| SMART statement | The test a request passes to be admitted: purpose, objective, real problem, timeframe and a named stakeholder; a target with no baseline fails (`od-use-case-intake-triage`) | A wish |
-| Daily Gemba | One of the business processes a use case can serve: the regular shopfloor review of deviations and problems. Digital Gemba boards are a use case several locations requested (OD initiative deck on use-case marketing, slide 7) | — |
-| QFPR | Quality Feedback App: a lightweight MES on the quality side, collecting failure labels, measurements and checks at part, box and batch level (`od-system-fit-check/references/tool-boundaries.md`) | MES |
-| MIL / EMS | Manufacturing Image Library / Energy Management System | "Equipment Management System" (wrong) |
-| OPEX / CBS | Operational Excellence / Continental Business System: the methods community OD's use cases support | OD |
-| Baseline | The measured starting level a saving is judged against; a saving without a baseline is a claim, not a result | A target |
-| Lever | A mechanism that creates value ("fewer hours spent reconstructing last shift"), not a benefit ("better visibility") | A benefit |
-| Expected / minimum / potential | The business-case headline: expected is the grounded, bankable value; minimum is the hard floor; potential adds levers that are not banked yet | A forecast |
-| Bankable / assumption-dependent | Bankable value is direct and grounded; assumption-dependent value rests on assumptions and is kept apart (OD x IT, 2026-09-11) | — |
-| De-banked (not banked) | A high-impact lever resting on a crucial unknown gets no number; it becomes the top open question | Zero value |
-| Investment envelope | The one-time spend that still pays back within the department's payback horizon, stated while the cost is unknown | The cost estimate |
-| Tracked / proven | Tracked: recorded on the savings ledger, whatever its firmness. Proven: passed the SPRINT portfolio review and confirmed by finance. The two are never added together | — |
 
-Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment Engineering (expansion: see open
-points) · OESL = Original Equipment Solutions (confirmed, named on every ODEC/CoP deck title slide) · OPEX/CBS =
-Operational Excellence / Continental Business System · MIL = Manufacturing Image Library and EMS = Energy Management
-System, **not** "Equipment Management System" (both confirmed 2026-10-22, `od-system-fit-check/references/tool-boundaries.md`)
-· ME = Manufacturing Engineering.
+Business-case terms (SMART statement to Tracked / proven) and the acronym list: `references/process-chain-practice.md`, "Vocabulary, second part".
 
 ## Where the truth lives
 
@@ -201,6 +181,14 @@ and do not build a cross-plant view on a local one.
 **Shop-floor tools.** The MSB family (rollout backbone), MDA/PDA, MES, MIL, QFPR, Energy Management, RuleEngine, the
 Data Science Factory and the three machine-integration concepts. A **tool** is a system a plant uses; a **connector**
 reaches a machine; never the same row.
+
+## Procedure
+
+1. Load this skill before any OD work; take terms only from the vocabulary table or its reference.
+2. Resolve each term, lane and gate to one meaning; if two sources disagree, the SharePoint list wins.
+3. Find the source in "Where the truth lives" and read the figure live from the list (cite list and export date).
+4. Route a gate through "Who decides" (`od-decision-routing`); a decision stays with the named role.
+5. If a figure has no source or a term does not resolve, mark it `⟨… — to confirm⟩` and stop; do not fill the gap.
 
 ## Who decides
 

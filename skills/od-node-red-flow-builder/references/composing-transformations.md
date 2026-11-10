@@ -107,7 +107,7 @@ return msg;
 
 ### One input plus a static table
 
-The lookup shape — P6/P7 in [`transformation-patterns.md`](transformation-patterns.md).
+The lookup shape — P6/P7 in `transformation-patterns.md`.
 The table is loaded once at startup into flow context, not per message.
 
 ---
@@ -251,7 +251,7 @@ packed convention — check the topic family first.
 ## Before you build: the pre-flight
 
 1. **The four questions**, written down.
-2. **Does an artefact already exist for this?** → [`artefacts.md`](artefacts.md). At another
+2. **Does an artefact already exist for this?** → `artefacts.md`. At another
    plant, almost certainly.
 3. **Do all input data points exist and publish?** Subscribe and watch before building —
    `od-data-availability-check`.

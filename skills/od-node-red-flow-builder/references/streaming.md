@@ -40,7 +40,7 @@ is a local instance per plant.
 ## The message
 
 Each MQTT message is one protobuf `PLCPacketList` containing a repeated `plc_packets`
-array. See [`plc-packet.md`](plc-packet.md) for the schema.
+array. See `plc-packet.md` for the schema.
 
 **Set `mqtt in` datatype to `buffer`** for protobuf topics — the decode node needs the raw
 bytes. Both `auto` and `buffer` appear in the estate; `auto` works because the payload is

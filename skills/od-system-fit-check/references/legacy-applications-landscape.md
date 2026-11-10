@@ -107,4 +107,4 @@ supply it: the owner of the Legacy Application List.⟩
 - Vault `Slide Index` (deck `OD Initiative - CS Legacy Application As_Is_Analysis`).
 - Vault `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified).
 - Vault `Graph/Tools/MES 1.0` archive-evidence block (AI-drafted from archive slides).
-- Registry reference [`non-bets.md`](non-bets.md).
+- Registry reference `non-bets.md`.

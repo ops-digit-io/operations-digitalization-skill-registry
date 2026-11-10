@@ -127,13 +127,13 @@ Every PLC route carries the same gate, and people negotiate with it, so quote it
 
 Raise it at the first conversation, not at the integration date. Requesting a program from a machine supplier takes weeks and is
 sometimes a commercial negotiation. Before declaring a machine blocked on it, work the seven non-PLC rungs in
-[`fallbacks.md`](fallbacks.md) section 1; many "no program" machines are file-drop, vendor-interface or already-on-OPC-UA machines
+`fallbacks.md` section 1; many "no program" machines are file-drop, vendor-interface or already-on-OPC-UA machines
 nobody checked.
 
 ## Before naming a connector, check it exists
 
 Some are `Idea · NOT AVAILABLE`, in development, or `Productive · DO NOT USE`. Naming one costs a site visit. Catalogue:
-[`connectors.md`](connectors.md). The three that come up most:
+`connectors.md`. The three that come up most:
 
 - **`DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` do not exist.** Both `Idea`, both noted "Development to be started with
   Rollout in Dolne Vestenice". Machines of both families are integrated anyway, mostly over OPC UA through the Central

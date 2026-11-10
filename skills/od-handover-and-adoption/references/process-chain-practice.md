@@ -11,8 +11,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Process-chain practice
 
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
-marks a synthesis; `<...>` is unknown. It adds to [`adkar-diagnostic.md`](adkar-diagnostic.md) and
-[`evidence-of-adoption.md`](evidence-of-adoption.md).
+marks a synthesis; `<...>` is unknown. It adds to `adkar-diagnostic.md` and
+`evidence-of-adoption.md`.
 
 ## 1. Method in practice
 

@@ -32,9 +32,9 @@ name at creation, and the argument for standardizing before a flow is built.
 
 **A - the tag list**: the data-point list from the edge platform or a tag/symbol export, in whatever language the PLC programmer
 thinks in (Chinese, German, Spanish already in the corpus, six more plant languages in scope) -
-[`multilingual-tags.md`](multilingual-tags.md). **B - the machine context**: a PLC program, sequence or flow chart, layout,
+`multilingual-tags.md`. **B - the machine context**: a PLC program, sequence or flow chart, layout,
 handbook, HMI, electrical schematic, a proven instance at another plant, or ten minutes with the setter -
-[`machine-context.md`](machine-context.md).
+`machine-context.md`.
 
 > A tag list without context gives names without meanings. `CycleTime` from two plants is not comparable unless somebody knows
 > where each machine's cycle starts, and no tag list carries that.
@@ -102,13 +102,13 @@ before acceptance.
 
 Adopting a companion specification buys a vendor-neutral name, a defined meaning and machines that arrive speaking it. The
 cheapest moment to require it is at purchase (requirement spec, not integration plan): no PLC program change, no tag export.
-Detail: [`public-data-models.md`](public-data-models.md).
+Detail: `public-data-models.md`.
 
 ## Step 4 - cluster and rank
 
 `--cluster` groups signals into functional areas (identification, machine state, cycle and timing, counting, quality and limits,
 alerting, energy, process values), marks setpoints separately from actuals, and ranks areas by capability coverage x consumer
-demand, both derived from the use-case portfolio. Scoring model and patterns: [`clustering-signals.md`](clustering-signals.md).
+demand, both derived from the use-case portfolio. Scoring model and patterns: `clustering-signals.md`.
 
 | Signal family | Feeds |
 |---|---|
@@ -138,13 +138,13 @@ Most of the long tail is legitimate (a braider has a braid speed, an extruder do
 
 **The PLC does not expose it** -> machine and engineering; may need a PLC program change (program plus someone able to change it;
 `od-equipment-integration` guidance route). **It exists but is not configured** on the edge platform -> integration, cheap. Read
-the capability's checklist in [`standards.md`](standards.md) before deciding the signal set: an OEE without an agreed ideal cycle
+the capability's checklist in `standards.md` before deciding the signal set: an OEE without an agreed ideal cycle
 time and a documented micro-stop threshold cannot be compared whatever the signals are called.
 
 ## Step 7 - the four things
 
 A signal is standardized when a second plant can consume it without asking a question: (1) canonical name
-([`signal-catalogue.md`](signal-catalogue.md)), (2) defined meaning ([`standards.md`](standards.md)), (3) stated unit and scale,
+(`signal-catalogue.md`), (2) defined meaning (`standards.md`), (3) stated unit and scale,
 (4) stated collection method (transition or sample, at what interval). Two plants publishing `CycleTime`, one load-to-load, the
 other start-to-start, have standardized the name and nothing else - invisible from the data.
 
@@ -166,4 +166,4 @@ The canonical name is English; the local name is an alias, not a replacement - a
 vocabulary. The data-point contract has one label field, so the label carries the canonical name and the local name lives in the
 report and the Machine CV. **Never machine-translate a signal name and use the result directly**: Chinese `设定值` renders as "set
 value", which reads like a command rather than a setpoint. Get a native reading from the plant. Term table and normalization:
-[`multilingual-tags.md`](multilingual-tags.md).
+`multilingual-tags.md`.

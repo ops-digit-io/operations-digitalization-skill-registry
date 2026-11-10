@@ -81,3 +81,40 @@ Who is the named person for this section and when is it reviewed? Which source h
 - **Must cite:** field and source, owner role, review date.
 - **Hands over:** outputs with gaps left as `<...>`, never filled by guess.
 - **Reference pipeline for a template-bound deliverable (7 steps):** read context by relevance; read the template and layouts; human gate on the underivable; map fields to elements with a source each; apply the honesty rules; build, render, inspect and fix (overflow, invisible text, contrast); deliver editable with a validation and placeholder-leak check (`od-template-resolution`).
+
+## Vocabulary, second part
+
+Moved from the SKILL.md vocabulary table without change. Rows continue the table there (term, meaning, not to be confused with).
+
+| Term | Means here | Not to be confused with |
+|---|---|---|
+| SMART statement | The test a request passes to be admitted: purpose, objective, real problem, timeframe and a named stakeholder; a target with no baseline fails (`od-use-case-intake-triage`) | A wish |
+| Daily Gemba | One of the business processes a use case can serve: the regular shopfloor review of deviations and problems. Digital Gemba boards are a use case several locations requested (OD initiative deck on use-case marketing, slide 7) | — |
+| QFPR | Quality Feedback App: a lightweight MES on the quality side, collecting failure labels, measurements and checks at part, box and batch level (`od-system-fit-check/references/tool-boundaries.md`) | MES |
+| MIL / EMS | Manufacturing Image Library / Energy Management System | "Equipment Management System" (wrong) |
+| OPEX / CBS | Operational Excellence / Continental Business System: the methods community OD's use cases support | OD |
+| Baseline | The measured starting level a saving is judged against; a saving without a baseline is a claim, not a result | A target |
+| Lever | A mechanism that creates value ("fewer hours spent reconstructing last shift"), not a benefit ("better visibility") | A benefit |
+| Expected / minimum / potential | The business-case headline: expected is the grounded, bankable value; minimum is the hard floor; potential adds levers that are not banked yet | A forecast |
+| Bankable / assumption-dependent | Bankable value is direct and grounded; assumption-dependent value rests on assumptions and is kept apart (OD x IT, 2026-09-11) | — |
+| De-banked (not banked) | A high-impact lever resting on a crucial unknown gets no number; it becomes the top open question | Zero value |
+| Investment envelope | The one-time spend that still pays back within the department's payback horizon, stated while the cost is unknown | The cost estimate |
+| Tracked / proven | Tracked: recorded on the savings ledger, whatever its firmness. Proven: passed the SPRINT portfolio review and confirmed by finance. The two are never added together | — |
+
+Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment Engineering (expansion: see open
+points) · OESL = Original Equipment Solutions (confirmed, named on every ODEC/CoP deck title slide) · OPEX/CBS =
+Operational Excellence / Continental Business System · MIL = Manufacturing Image Library and EMS = Energy Management
+System, **not** "Equipment Management System" (both confirmed 2026-10-22, `od-system-fit-check/references/tool-boundaries.md`)
+· ME = Manufacturing Engineering.
+
+## Step ids and skill names
+
+Moved from SKILL.md without change.
+
+**Step ids and route options.** Process step ids (`3a4`, `3a5`, `3a6`, `3b4` …) number the steps of a
+branch; route options are written with a dot (`3a.1` reuse, `3a.2` self-develop, `3a.3` external build,
+`3a.4` integrate a foreign app). Step `3a4` ("build or integrate") serves all four route options.
+
+**Department skill names.** The department's naming convention (`<family>-<object>`, 2026-09-21) names
+the same capabilities differently; each skill lists its department names in `metadata.department_names`,
+so a request using either name finds the skill.

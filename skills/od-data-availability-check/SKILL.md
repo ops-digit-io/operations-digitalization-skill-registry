@@ -19,6 +19,8 @@ metadata:
   new_state_lane: "Lane 2 (22)"
   new_state_step: "Requirements, features and data check"
   owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
+  author: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
+  tags: [analytical-support-service, practice, use-case-support-service]
   authority_level: read-only
   status: stable
   sources_read: 2026-11-05
@@ -49,6 +51,23 @@ answer the data cannot support.
 request dies at*, because the shortfalls at steps 2, 4 and 5 look identical from a dashboard
 and are three different problems with three different owners and costs between an afternoon
 and two quarters.
+
+## Purpose
+
+Finds out which of the six availability steps a data request dies at, before anyone promises an answer the data cannot support. Use it at step 2 of the Analytical lane, before a use-case scope is agreed.
+
+## Inputs and output
+
+- **In:** the request (plant, machine, signals or data needed), the Machine List, the Connector Overview and the flow corpus.
+- **Out:** the filled [`assets/data-availability-verdict.md`](assets/data-availability-verdict.md) naming the step where the request stops, and, for a gap, [`assets/data-gap-request.md`](assets/data-gap-request.md).
+
+## Procedure
+
+1. Translate the request into objects, events and time; list missing signals up front.
+2. Run the script (section "Run it before you reason about it").
+3. Walk the six steps in order (section "Walk the path, in this order"), watching the traps listed after it.
+4. Check freshness against the pipeline cadence.
+5. Fill the verdict; route a shortfall as described in "What to do with a shortfall".
 
 ## The references
 
@@ -150,6 +169,33 @@ Analytical lane. Concretely:
 - Tell the requester what *can* be answered with what exists, and what cannot. A partial
   answer that is labelled is useful; an unlabelled one is not.
 
+## Human gate and AI-agent notes
+
+- **Agent may:** run the script, read the sources, fill the verdict and draft the data-gap request, label what is unproven.
+- **Roles decide:** the Information Integration lane accepts or rejects a routed request; the plant key user confirms what a machine really produces; the requester's lead decides whether a partial answer is enough. The agent promises no turnaround.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/check_availability.py` | Walk the six steps against the Machine List, Connector Overview and flow corpus and say which step blocks. Exit 2 blocked, 1 unproven, 0 answered | `--plant <name>` (required), `--machine <name>`, `--signals <comma list>`, `--kg <path>` (default `../ops-knowledge-graph`), `--report`, `--json`, `-h` |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+
+## Example
+
+Fictional example; plant, signal and output are made up for illustration.
+
+```text
+$ python3 scripts/check_availability.py --plant ExamplePlant --signals PartCounter
+step 1 machine produces signal   OK
+step 2 machine integrated        BLOCKED (status NOT INTEGRATED)
+step 5 fit for use               UNPROVEN (no source records it)
+exit 2   -> verdict: dies at step 2; route to od-equipment-integration
+```
+
+If the script cannot read a source, it reports the step as unproven, not absent; check the `--kg` path first.
+
 ## Do not
 
 - Do not substitute a proxy signal without saying so in the deliverable.
@@ -162,3 +208,7 @@ Analytical lane. Concretely:
 - Do not skip step 6. Several existing cycle-time use cases at one plant is a normal result, and
   rebuilding one of them is the failure the whole standardization effort exists to prevent.
 - Do not promise a turnaround before step 5 has been answered.
+
+## Definition of done
+
+The verdict names the step where the request stops, with the evidence and the owner; each shortfall is routed or recorded as a dependency on the use case; the requester knows what can and cannot be answered now.

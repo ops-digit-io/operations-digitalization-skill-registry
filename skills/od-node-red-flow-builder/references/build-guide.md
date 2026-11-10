@@ -52,12 +52,12 @@ The commonest wiring pairs in the corpus are `change → function`, `switch → 
 does not look like that, have a reason.
 
 Full annotated walkthrough of an illustrative flow:
-[`references/architecture.md`](architecture.md).
+`references/architecture.md` (`architecture.md`).
 
 ## The message: PLCPacket over protobuf
 
 Every `datatroniq/*` message is a protobuf `PLCPacketList`. Full schema and field
-semantics: [`references/plc-packet.md`](plc-packet.md).
+semantics: `references/plc-packet.md` (`plc-packet.md`).
 
 ```protobuf
 message PLCPacket {
@@ -121,7 +121,7 @@ the flows that fetch it do so under a *get variable config from iiot edge platfo
 ## Topics
 
 Two families. Full grammar and segment vocabulary:
-[`references/topic-conventions.md`](topic-conventions.md).
+`references/topic-conventions.md` (`topic-conventions.md`).
 
 **`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`** — the dominant family, protobuf
 `PLCPacketList`. The `<driver>` segment names the connector family: `dqcdc`, `cifx`, `tia`,
@@ -140,7 +140,7 @@ encoding — it does not reuse the input packet's identity.
 ## The transformation itself
 
 Thirteen patterns cover almost every flow in the estate. Full implementations and failure
-modes: [`references/transformation-patterns.md`](transformation-patterns.md).
+modes: `references/transformation-patterns.md` (`transformation-patterns.md`).
 
 | # | Pattern | Shape |
 |---|---|---|
@@ -162,7 +162,7 @@ modes: [`references/transformation-patterns.md`](transformation-patterns.md).
 flows that carry data-point config read **two or more** data points — every tolerance check,
 quality event and composite KPI is multi-input. That shape (build a filter array, latch each
 input into flow context, evaluate on the triggering one) is in
-[`composing-transformations.md`](composing-transformations.md), along with
+`composing-transformations.md`, along with
 windowing, timer-driven emit and the cold-start guard the latch needs.
 
 ### When none of them fits
@@ -171,7 +171,7 @@ Do not force the nearest pattern. Classify the transformation with four question
 many inputs · does it need history · what drives the output · what is the output** — then
 compose it from the primitives. That method, the composition order, and the pre-flight
 checklist are in
-[`composing-transformations.md`](composing-transformations.md).
+`composing-transformations.md`.
 
 Two prerequisites people discover late, both of which stop a flow dead:
 
@@ -204,7 +204,7 @@ Three layers travel together, and confusing them causes most transformation bugs
 **1 · The protobuf packet** — what the wire carries. `plcPackets[]`, each with `uuid`,
 `sysTime` (packed), `sequenceNumber`, `plcTime`, `isDelta`, and exactly one of
 `valueInteger` / `valueString` / `valueDouble` / `valueBool` / `valueBytes`. Full schema:
-[`plc-packet.md`](plc-packet.md).
+`plc-packet.md`.
 
 **2 · The Node-RED message envelope** — what the flow manipulates:
 

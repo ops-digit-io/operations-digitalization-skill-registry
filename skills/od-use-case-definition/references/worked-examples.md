@@ -63,7 +63,7 @@ template; this instance only had to say which lines.
 
 ## 4 · A complete fictional example, in words: from idea to next step
 
-**Fictional.** Every plant, number and role below is invented to show how the ten questions of [`assets/idea-check.md`](../assets/idea-check.md) are answered and what the one-page summary looks like. None of it is a record of a real use case or a company figure. Do not copy any figure into a ledger, a business case or a deck.
+**Fictional.** Every plant, number and role below is invented to show how the ten questions of `assets/idea-check.md` (`../assets/idea-check.md`) are answered and what the one-page summary looks like. None of it is a record of a real use case or a company figure. Do not copy any figure into a ledger, a business case or a deck.
 
 A shift lead at fictional Plant F thinks the hourly part counts on line 3 should not be written on paper.
 

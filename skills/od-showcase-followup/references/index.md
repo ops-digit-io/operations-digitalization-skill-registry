@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Feedback routing](feedback-routing.md) | Skill Reference | How a reaction to a published use-case story is routed into Lane 1, Lane 2 or Lane 3, how to answer without promising delivery, and when to refresh or retire a story. Open it when a plant reacts to a story or a story is due for review. |
+| Feedback routing (`feedback-routing.md`) | Skill Reference | How a reaction to a published use-case story is routed into Lane 1, Lane 2 or Lane 3, how to answer without promising delivery, and when to refresh or retire a story. Open it when a plant reacts to a story or a story is due for review. |

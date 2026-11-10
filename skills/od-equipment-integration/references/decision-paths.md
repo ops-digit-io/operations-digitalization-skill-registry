@@ -17,11 +17,11 @@ and where a path genuinely dead-ends. Source: the Equipment integration guide's
 
 Read this first, then the pattern file for the route you land on:
 
-- **Central Aggregation Server** → [`softing-datafeed.md`](softing-datafeed.md), with
-  [`softing-tag-syntax.md`](softing-tag-syntax.md) for tag identifiers and
-  [`softing-data-targets.md`](softing-data-targets.md) for how the data leaves
-- **IIoT Edge Platform** → [`iiot-edge-platform.md`](iiot-edge-platform.md)
-- **Blocked** → [`fallbacks.md`](fallbacks.md)
+- **Central Aggregation Server** → `softing-datafeed.md`, with
+  `softing-tag-syntax.md` for tag identifiers and
+  `softing-data-targets.md` for how the data leaves
+- **IIoT Edge Platform** → `iiot-edge-platform.md`
+- **Blocked** → `fallbacks.md`
 
 Canonical names for the three variants, and their aliases, are in the skill's *Terminology*
 section. In short: **Central Aggregation Server** is the guide's name for the route that the
@@ -31,7 +31,7 @@ OPC Suite**.
 > **Two rows below correct the OESL guidance against the product manual.** dataFEED OPC
 > Suite V5.70 has **no Beckhoff data source**, and the **NetLink protocol was discontinued
 > in V5.38** — both are still in the OESL recommendation text. See
-> [`softing-datafeed.md`](softing-datafeed.md) § *Where the OESL guidance does not match the
+> `softing-datafeed.md` § *Where the OESL guidance does not match the
 > product*.
 
 ---
@@ -152,7 +152,7 @@ machine; a **tool** is a system a plant uses; they are never the same row.
 ### Edge platform — DATATRONiQ connectors
 
 Full catalogue, with availability and container images, in
-[`connectors.md`](connectors.md). Seven of the twenty-six cannot be used, so check
+`connectors.md`. Seven of the twenty-six cannot be used, so check
 availability before naming one.
 
 `DTQ-OPCUA-Connector` (Productive · USE) is not like the other connectors. Every other
@@ -324,7 +324,7 @@ connected at all. So the PLC branch it is.
 S7-1200/1500 only. Not NetLink: discontinued in V5.38.)
 
 **Gate 3, and it stops here.** No PLC program → the breakpoint. Before recording the
-machine as blocked, work [`fallbacks.md`](fallbacks.md) §1:
+machine as blocked, work `fallbacks.md` §1:
 
 1. Already on an OPC UA server? No.
 2. Vendor-specific connector? Not applicable to a generic S7.

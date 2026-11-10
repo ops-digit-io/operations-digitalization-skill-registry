@@ -63,7 +63,7 @@ monitoring dashboard with overview, machine detail, a downtime-logging modal and
 - **Quality checklist:** all screens reachable, buttons have feedback, forms show validation, empty states designed,
   text readable. Success is stated as "understandable without explanation".
 
-[`assets/click-dummy-brief.md`](../assets/click-dummy-brief.md) is the distilled version of that structure, written
+`assets/click-dummy-brief.md` (`../assets/click-dummy-brief.md`) is the distilled version of that structure, written
 so it also works with a tool other than the one in the export.
 
 ## What the sources do not show
@@ -87,4 +87,4 @@ so it also works with a tool other than the one in the export.
 
 ## What to add
 
-The pilot record has no pass criterion. Add one before the build ([`validation-patterns.md`](validation-patterns.md)).
+The pilot record has no pass criterion. Add one before the build (`validation-patterns.md`).

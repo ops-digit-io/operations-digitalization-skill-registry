@@ -8,6 +8,7 @@ description: >-
   apart so a prototype is never reported as proven value. Use when a defined, data-checked Lane 2 use
   case needs its value or usability confirmed before it is costed, when a plant asks for a mock-up, when
   a requirement is to be turned into a clickable mock-up, or when someone calls a pilot proven.
+  Not for costing the value (od-benefit-calculation) or building a dashboard (od-analytics-asset-build).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -18,6 +19,8 @@ metadata:
   new_state_step: "Prototype / click-dummy, validated with the recipient"
   department_names: ["funnel-prototype", "prototype-builder", "click-dummy"]
   owner_role: human:jakob.gabriel
+  author: human:jakob.gabriel
+  tags: [use-case-support-service, practice, new-state, draft]
   authority_level: draft the prototype and the validation record; the plant confirms the value
   status: draft
   sources_read: 2026-11-05
@@ -51,6 +54,32 @@ proof-of-concept content (`docs/new-state-conformance.md`). This skill is ground
 holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a
 validation plan, and the dashboard specs. It is **not** a validated OD method: nothing in the sources says
 OD has run this step to a stated standard.
+
+## Purpose
+
+Use this skill when a defined Lane 2 use case has an open question about usability or about whether the data or
+model works, and that question is cheaper to answer with a mock-up or a narrow proof of concept than with a
+build. It returns a validation record that feeds the business case, never a claim of proven value.
+
+## Inputs and output
+
+- **In:** a defined use case, requirements with acceptance criteria, a data verdict that is not "dies at step N".
+- **Out:** a filled [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) and, for a
+  click-dummy, the mock-up and its handover note.
+
+Short example of the record's shape (fictional example; the use case and the values are invented):
+
+```text
+Question:   Will the shift supervisor read the downtime view at the Gemba? (usability)
+Type:       click-dummy
+Criterion:  written before the build; 3 of 4 supervisors finish the task unaided within one shift check
+Validator:  plant ME (role)
+Result:     passed | failed | inconclusive
+Label:      mock-up (not PoC, not pilot, not "proven")
+Open items: data for the second view not yet checked
+```
+
+If the inputs are missing or the criterion is not written first, treat the result as invalid and return to step 1 of the procedure.
 
 ## Pilot, PoC and rollout are three different claims
 
@@ -122,6 +151,13 @@ whether it shows what they need.
    replace the methodology field) and to `od-capital-request` if money is needed. Failed: back to
    `od-use-case-definition` or close the use case. Acceptance of a later build stays with
    `od-acceptance-test`.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** check the inputs, propose the open question and the prototype type, draft the brief, the
+  mock-up and the validation record, and quote labels with deck and date.
+- **Only roles decide:** the plant representative confirms or declines the value; the OD lead decides any time box,
+  budget or sign-off rule; the responsible human releases a mock-up outside the department.
 
 ## Definition of done
 

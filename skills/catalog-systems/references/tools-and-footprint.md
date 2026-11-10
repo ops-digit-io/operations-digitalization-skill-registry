@@ -25,7 +25,7 @@ which carries its own verification and validity dates: re-read it, and check its
 | Concept 3 - IIoT Edge Computing Platform | the terminus of every ingress variant; offloads through Databricks to an Azure storage account | Tool note: plants with rollout status `Available`, also `Ongoing` and planned records |
 
 Use `Available` as "the plant has the platform". A use case naming a concept does not prove the machine is on it.
-The Machine List (see [validated-routes.md](validated-routes.md)) can show machines integrated through a concept at plants
+The Machine List (see `validated-routes.md`) can show machines integrated through a concept at plants
 whose tool note does not record it as `Available`. Treat that mismatch as a question for the IIAE (integration before the
 rollout was recorded, or rollout records not updated), not as a fact either way.
 

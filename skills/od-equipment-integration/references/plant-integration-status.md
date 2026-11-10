@@ -38,16 +38,16 @@ before quoting any figure in a decision, and give the export date next to it.
    C2 = Concept 2 container-based machine integration, C3 = Concept 3 IIoT edge computing
    platform, each with its rollout status (`AVAILABLE` or other).
 6. Per plant count rows with free text in `integration_blockers` and classify the text with
-   [`blockers-and-waves.md`](blockers-and-waves.md).
+   `blockers-and-waves.md`.
 7. Per plant count Legacy Application List entries located there
-   ([`od-system-fit-check`](../../od-system-fit-check/references/legacy-applications-landscape.md)).
+   (`od-system-fit-check` (`../../od-system-fit-check/references/legacy-applications-landscape.md`)).
    An application can be located at several plants, so the plant column does not add up to the
    application count.
 
 ## How to read a column
 
 - **Status columns.** Blank is not "not integrated" (see
-  [`od-data-availability-check`](../../../skills/od-data-availability-check/SKILL.md)). A plant with a
+  `od-data-availability-check` (`../../../skills/od-data-availability-check/SKILL.md`)). A plant with a
   blank status on most rows is a plant where the record has not been kept, not a plant with a
   zero result.
 - **Route recorded.** Blank means the field was not filled, not that there is no route. A plant
@@ -98,11 +98,11 @@ an Energy Management rollout).
 - **Large plant with a low-cost wave.** The `integration_approach` field records low-cost shapes
   ("Low Cost - Direct Connection", "Low Cost - Helmholz", plain "Edge", "Edge (together with
   camera)", Beckhoff clamps). A Helmholz gateway addresses a PLC without Ethernet; see
-  [`decision-paths.md`](decision-paths.md). The blocker "TIA V16 Upgrade necessary for TIA V17"
+  `decision-paths.md`. The blocker "TIA V16 Upgrade necessary for TIA V17"
   clusters on S7-1500 and S7-1200 rows that are `NOT INTEGRATED`.
 - **Mixed-vendor plant with routes under evaluation.** Vendors such as Bachmann and Philips
   appear next to Siemens; Philips rows tend to be `NOT INTEGRATED` (see
-  [`vendor-protocol-routes.md`](vendor-protocol-routes.md)). "Preferred integration with Softing
+  `vendor-protocol-routes.md`). "Preferred integration with Softing
   OPC-UA DataFeed Suite" text can appear in the approach field.
 - **Rockwell-dominated plant.** Edge-routed with many `NOT INTEGRATED` rows, or all rows with
   blank status and routes under evaluation. A blank-status plant is at the start of the
@@ -112,7 +112,7 @@ an Energy Management rollout).
 - **Plant integrated but undocumented.** Rows are `INTEGRATED` but PLC model, network protocol and
   route are blank, and the vendor mix is mixed (Engel, Bachmann OPC, Siemens). It is integrated
   and undocumented at the level a second engineer would need
-  ([`od-data-availability-check`](../../../skills/od-data-availability-check/references/machine-list-completeness.md)).
+  (`od-data-availability-check` (`../../../skills/od-data-availability-check/references/machine-list-completeness.md`)).
 - **Plant with blank status and method on most rows.** Concept approval can be dated in the
   Tool Overview comment (an eSign) while the Machine List is still empty.
 - **Edge devices shared across cells.** Rows such as "Edge Device [Same as BMnn device] via
@@ -121,7 +121,7 @@ an Energy Management rollout).
   Module n needed", camera hardware, or "PLC Program missing, was wrong"; or the data-model
   standardization class ("Data model Standardization (CT Base)") recorded on rows whose
   controllers differ and that are often already `INTEGRATED`. See
-  [`blockers-and-waves.md`](blockers-and-waves.md).
+  `blockers-and-waves.md`.
 - **Plant with all tools `AVAILABLE` in the Tool Overview but machines not connected.** The tools
   are there; the machines are not. Do not read the tool rollout as machine integration.
 - **Plant with a roadmap project reference and planned integration dates.** Planned dates that are
@@ -136,7 +136,7 @@ an Energy Management rollout).
 1. For a plant conversation, open the plant's row first, then the machine rows behind it.
 2. Treat every flag as a question for the Plant ME / Plant IT, not as a finding.
 3. When the plant is in a wave, the project reference in `integration_status`'s neighbour field
-   names it; see [`blockers-and-waves.md`](blockers-and-waves.md).
+   names it; see `blockers-and-waves.md`.
 4. Quote counts only after re-counting, with the export date of the list you used.
 
 ## Not in the records

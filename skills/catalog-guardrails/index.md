@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Catalog guardrails](SKILL.md) | Agent Skill | Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails): run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform boundary, lean footprint, no invented figures, a named owner, handover, Cyber Security - plus the screen-level and IT technology guardrails (stack, CMO, approved interfaces, observability, growth boundaries). Use at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed. |
+| [Catalog guardrails](SKILL.md) | Agent Skill | Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails): run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform boundary, lean footprint, no invented figures, a named owner, handover, Cyber Security - plus the screen-level and IT technology guardrails (stack, CMO, approved interfaces, observability, growth boundaries). Use at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed. Not for deciding go-live (the plant decides) or for checking data availability (od-data-availability-check). |
 
 | Folder | Holds |
 |---|---|

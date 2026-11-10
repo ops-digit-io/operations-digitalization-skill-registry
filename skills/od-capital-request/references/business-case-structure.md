@@ -89,7 +89,7 @@ today, count the filled fields in the live folder (look up: the Business Cases n
 ## Structure proposed for the capital request package
 
 This maps the fields above onto what `od-benefit-calculation` and the routing add. It is a **proposal**, because no
-eCR form is in the sources ([`../assets/capital-request-package.md`](../assets/capital-request-package.md) implements it).
+eCR form is in the sources (`../assets/capital-request-package.md` implements it).
 
 | Package section | Fills from |
 |---|---|

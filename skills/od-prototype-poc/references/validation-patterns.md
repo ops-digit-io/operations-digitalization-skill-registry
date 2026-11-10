@@ -65,7 +65,7 @@ Every plan names, in one to three bullets: **where** (one plant, one line, one m
 ## Writing the criterion for a Lane 2 prototype
 
 Fill four lines before any build and copy them into the validation record
-([`../assets/prototype-validation-record.md`](../assets/prototype-validation-record.md)):
+(`../assets/prototype-validation-record.md`):
 
 1. Scope: ⟨one plant, one line or machine family⟩ and a time box.
 2. Measure and threshold, with a baseline to compare against.

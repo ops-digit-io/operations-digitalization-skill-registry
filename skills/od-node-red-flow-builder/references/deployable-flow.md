@@ -93,7 +93,7 @@ Every `mqtt in` / `mqtt out` node references it by `"broker": "<that id>"`.
 
 > **`clientid` must be unique on the broker.** If two instances or a cloned configuration
 > share one, the broker disconnects one and **the client cannot tell** — see
-> [`streaming.md`](streaming.md). Name it after the instance and the flow, not the machine.
+> `streaming.md`. Name it after the instance and the flow, not the machine.
 
 **Credentials are not in the flow file.** Username and password live in
 `flows_cred.json`, encrypted. Exporting a flow does not carry them, and importing one does

@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Machine vendor and connector landscape
 
 The machine notes carry **no signal names** - the data-point list lives on the edge platform and
-in the flows (see [`field-signal-vocabulary.md`](field-signal-vocabulary.md)). What they do carry
+in the flows (see `field-signal-vocabulary.md`). What they do carry
 is the controller, the field network and the integration route, which decide what a tag export
 will look like and which skill route applies. Source: `Work-OpsDigit-Knowledge/Graph/Machines`
 front matter and `Graph/Connectors` profile blocks. "Not recorded" means the field is absent on

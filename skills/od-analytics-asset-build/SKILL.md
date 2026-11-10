@@ -7,7 +7,7 @@ description: >-
   ritual that consumes it, the Grafana and Power BI reality, recording the asset and its
   utilization expectation, and knowing when not to build. Use whenever a delivery asset is
   being designed or built, when an existing one is being reworked, or when choosing
-  between a dashboard, a report and an app.
+  between a dashboard, a report and an app. Not for the Grafana JSON build itself (build-grafana-ops-dashboard) or for deciding whether data exists (od-data-availability-check).
 license: MIT
 metadata:
   id: od-analytics-asset-build
@@ -17,6 +17,8 @@ metadata:
   new_state_step: "Apply the standard template (self-service); Standardized deployment, go live, confirm adoption; Prototype / click-dummy, validated with the recipient; Implement, evaluate impact, ensure adoption, catalogue"
   department_names: ["ops-dashboard-datatron (self-service mode, external engine)"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
+  author: Digital-Business-Value-Engineer (DBVE)
+  tags: [analytical-support-service, practice, use-case-support-service]
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
   sources_read: 2026-11-10
@@ -43,6 +45,14 @@ metadata:
 ---
 
 # Analytics asset build
+
+## Purpose
+
+Build the asset the plant actually opens (dashboard, report, analytics workflow, app or agent) so that it is used inside a real ritual, can be diagnosed by the plant and is counted in the portfolio. Use it when a delivery asset is designed, reworked, or when choosing between a dashboard, a report and an app.
+
+## Inputs and output
+
+Inputs: a data-availability verdict, the use case with its ritual, decision and action owner, and the catalog entry or template if one exists. Output: the built and validated asset, handed off with a filled [`assets/asset-build-protocol.md`](assets/asset-build-protocol.md) (output asset, utilization expectation, named plant owner, data path).
 
 Read `od-context` first. Run `od-data-availability-check` before building anything.
 
@@ -190,3 +200,24 @@ as a calculated datapoint (`od-node-red-flow-builder`, rule engine).
 - Do not add a tool to build it. The strategy is a deliberately small operational footprint.
 
 **Open points:** none recorded; chain detail (handoff contract, generative-AI process, paper reconciliation, sprint practice, agent notes) is in `references/process-chain-practice.md`.
+
+## Human gate and AI-agent notes
+
+An agent may draft the requirements, pick the asset type with a reason, prepare the build and run the validation checklist. The plant owner role decides daily use (`PRODUCTIVE`); the requester role confirms the paper reconciliation; the responsible human role approves any external publication; the DBVE role signs off acceptance. An agent never marks an asset accepted before the paper reconciliation is signed.
+
+## Example
+
+Fictional example (all values invented for illustration):
+
+```text
+Input : request for a "line status dashboard", Plant X, data verdict fit
+Check : ritual = daily Gemba; decision = which line to visit first; action owner = shift supervisor role
+Output: asset type Dashboard (justified); handed to build-grafana-ops-dashboard with ritual, tier, data model;
+        validated against the checklist; protocol filled; utilization expectation: daily
+```
+
+If it fails: when validation fails or the smell checks in step 3 fail, do not call the asset built; fix it or close it as "dashboard without an action owner". Rendering is not the same as correct.
+
+## Definition of done
+
+The asset passed the validation checklist, was reconciled with the paper record, was delivered and explained to the requester, and the protocol records output asset, utilization expectation, plant owner role and data path.

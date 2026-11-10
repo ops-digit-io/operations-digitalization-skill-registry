@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 
 Walkthrough of an illustrative flow, `<asset> - Part Counter Trigger` on `ct-oesl-<site>-nodered-<prod|test>`,
 representative of the house pattern. Values are placeholders, not real identifiers. Read alongside
-[`standard-functions.js`](standard-functions.js) and [`plc-packet.md`](plc-packet.md).
+[`standard-functions.js`](standard-functions.js) and `plc-packet.md`.
 
 ## What it does
 
