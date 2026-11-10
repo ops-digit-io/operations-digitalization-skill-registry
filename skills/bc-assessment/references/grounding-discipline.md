@@ -48,7 +48,7 @@ If a lever is a big mover but rests on a crucial **[unknown]** input:
   that would move it.
 - Record, per lever, *why* its confidence is high/mid/low.
 
-In the Gemba example this is lever **O1** (reaction-time idle hours): shown as `~EUR 5–56k`
+In the Gemba example this is lever **O1** (reaction-time idle hours): shown as `~EUR ⟨low⟩–⟨high⟩k`
 sensitivity, not banked, because the crucial idle-hours-per-machine input is `[unknown]`.
 
 ## Factual-language rule (E1)
@@ -61,11 +61,11 @@ sensitivity, not banked, because the crucial idle-hours-per-machine input is `[u
 
 ## Tilde convention (E2)
 
-- **Estimated** euro figures carry a leading `~EUR` with **no space**: `~EUR 25k`, `~EUR 5-56k`.
+- **Estimated** euro figures carry a leading `~EUR` with **no space**: `~EUR ⟨X⟩k`, `~EUR ⟨low⟩-⟨high⟩k`.
 - **Defined rates** stay literal: `EUR 40/h`, `EUR 250/machine-h`.
 - **Discrete options** stay literal: `EUR 100 / 250 / 500`.
 - **Exact zero** stays literal: `EUR 0`.
-- **Positive adds** use `+~EUR X`: `+~EUR 37k`.
+- **Positive adds** use `+~EUR X`: `+~EUR ⟨X⟩k`.
 - **Table register cells** stay bare numbers under a `EUR k / yr` unit header (e.g. `22|25|27`).
 - **No "yet" fragments.** Write "not quantified", "not in the equation" — never "not yet
   quantified" ("yet" fragments the read without adding meaning).

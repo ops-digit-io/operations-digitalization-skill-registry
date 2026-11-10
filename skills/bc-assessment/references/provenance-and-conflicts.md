@@ -53,7 +53,7 @@ Encode these when rendering the Gemba backup slide; regenerate for other cases.
   events/yr × p_avoidable`. Final backbone O1 = `machines × avoidable idle h/machine ×
   EUR 250/machine-h` — a machine-based, more sourceable driver. *Resolution:* adopted the
   machine-based form (SMART/sourceable rule); the crucial idle-hours input stays `[unknown]`,
-  so O1 is de-banked as a `~EUR 5–56k` sensitivity.
+  so O1 is de-banked as a `~EUR ⟨low⟩–⟨high⟩k` sensitivity.
 
 - **"4 min" throwaway not enshrined.** An earlier session floated "4 min" per entry; it appears
   in **neither** the transcript nor the mockup. *Resolution:* deliberately **not** used; the admin

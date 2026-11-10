@@ -56,10 +56,10 @@ material, which source(s) feed it, and which conditional rules fire (below).
 
 ```
 ### 3) Investment data
-- Spiral-crimping machine | 145 kEUR [input] — supplier quote Q-2025-118.pdf
-- Tooling & fixtures       | 44 kEUR [a]   — our estimate, no quote yet
-- Total capital request    | 398 kEUR [input] — sum of quotes + [a]
-Conditional: GPA/non-GPA split present → yes (GPA 332 / non-GPA 66)
+- Spiral-crimping machine | ⟨amount⟩ kEUR [input] — supplier quote ⟨file⟩
+- Tooling & fixtures       | ⟨amount⟩ kEUR [a]   — our estimate, no quote yet
+- Total capital request    | ⟨total⟩ kEUR [input] — sum of quotes + [a]
+Conditional: GPA/non-GPA split present → yes (GPA ⟨amount⟩ / non-GPA ⟨amount⟩)
 ```
 
 Tags: `[input]` grounded · `[a]` assumption · `[m]` market/standard · `[?]`

@@ -41,7 +41,7 @@ contained zero quantities. One short quantitative round at a paper/whiteboard pl
 |---|---|---|---|
 | C1 Value-only separation | pass | backbone header + `investment-estimate.md` | Cost kept out of the headline. |
 | C2 Grounding tags on every figure | pass | §3, §6; slide-1 legend | `[input]/[assumption]/[market]/[unknown]` throughout. |
-| C3 Expected vs potential apart | pass | headline `~EXPECTED 25k (min 22 / potential ~83)` | Potential never summed in. |
+| C3 Expected vs potential apart | pass | headline `~EXPECTED ⟨X⟩k (min ⟨min⟩ / potential ~⟨max⟩)` | Potential never summed in. |
 | C4 De-banking applied | pass | O1 `⟨€⟩`, not banked | Rests on `[unknown]` idle-hours; = top open question. |
 | C5 Auditable arithmetic | pass | slide-3 callout: `9.4 min × 6 × 3 × 220 = 618 h × ⟨€⟩` | Re-derivable by hand. |
 | D1 Lever register | pass | §3 H1–H3 / O1–O4 | H1/H2/H3 split labelled illustrative. |

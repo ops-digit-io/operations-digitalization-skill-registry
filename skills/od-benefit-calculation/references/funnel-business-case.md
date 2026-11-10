@@ -86,14 +86,14 @@ knows; the right is what the user is choosing to believe. Anyone can then attack
 the assumption without attacking the measurement, which is exactly the argument
 you want to have.
 
-**Give assumptions ranges, not points.** "Close 30% of the gap (range 15–50%)"
-invites a conversation; "saves 30%" invites disbelief. Compute the headline at
+**Give assumptions ranges, not points.** "Close ⟨x⟩% of the gap (range ⟨low⟩–⟨high⟩%)"
+invites a conversation; "saves ⟨x⟩%" invites disbelief. Compute the headline at
 the middle of the range and note what the low end yields — a case that still
 works at its pessimistic end is far more persuasive than one that only works at
 its optimistic one.
 
-**Show the arithmetic inline.** `1,200 runs × 4.2 h × 0.30 = 1,512 h/yr ×
-€85/h`. If a reader cannot follow it across the page, it is not auditable, and
+**Show the arithmetic inline.** `⟨runs⟩ runs × ⟨h⟩ h × ⟨share⟩ = ⟨hours⟩ h/yr ×
+€⟨rate⟩/h`. If a reader cannot follow it across the page, it is not auditable, and
 unauditable numbers get discounted to zero by anyone senior.
 
 **Payback:** build and rollout effort ÷ (annual value ÷ 52) = weeks. State the
@@ -165,7 +165,7 @@ even when the numbers were right.
 |---------|---------|
 | "I'll use a typical industry hourly rate" | Then every number below it is fiction. Ask. |
 | "Bigger number, better case" | A number nobody can recompute gets discounted to zero. Auditable beats large. |
-| "Throughput up 20% = 20% more revenue" | Only if the extra output sells. Ask whether capacity is the constraint. |
+| "Throughput up ⟨x⟩% = ⟨x⟩% more revenue" | Only if the extra output sells. Ask whether capacity is the constraint. |
 | "One value figure is cleaner than a range" | A point estimate invites disbelief; a range invites a conversation. |
 | "Six levers show more value than three" | Six levers read as padding and move the discussion to line items. |
 | "I'll show the totals, not the arithmetic" | Then it cannot be checked, so it will not be trusted. |

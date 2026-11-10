@@ -31,9 +31,9 @@ one; the split just makes each part referenceable. Add the split as an open/prox
 
 Gemba example register:
 - H1 Hourly KPI entry → one-tap/MES capture · H2 shift-end board → Excel transcription ·
-  H3 issue write-up → auto-recorded once. Hard subtotal ≈ `~EUR 25k` (min 22 / max 27), split
-  illustratively H1 ~60% / H2 ~32% / H3 ~8%.
-- O1 reaction-time idle hours (de-banked, `~EUR 5–56k`, not banked) · O2 availability/repeat
+  H3 issue write-up → auto-recorded once. Hard subtotal ≈ `~EUR ⟨X⟩k` (min ⟨min⟩ / max ⟨max⟩), split
+  by share across H1 / H2 / H3 (⟨share⟩ each, from the inputs).
+- O1 reaction-time idle hours (de-banked, `~EUR ⟨low⟩–⟨high⟩k`, not banked) · O2 availability/repeat
   stops · O3 quality/scrap · O4 management reporting / KPI consolidation (input-grounded but
   uncounted — a candidate second hard lever).
 
@@ -63,8 +63,8 @@ entries per shift, shifts/day, operating days/yr, loaded labour rate. Avoid abst
 (a lump "downtime cost/hour"). The hard floor must be reproducible by hand, e.g.:
 
 ```
-9.4 min saved × 6 lines × 3 shifts × 220 days = 618 h/yr × EUR 40/h ≈ ~EUR 25k
-O1 range = machines × avoidable idle h/machine × EUR 250/machine-h
+⟨min saved⟩ min saved × ⟨lines⟩ lines × ⟨shifts⟩ shifts × ⟨days⟩ days = ⟨h⟩ h/yr × EUR ⟨rate⟩/h ≈ ~EUR ⟨X⟩k
+O1 range = machines × avoidable idle h/machine × EUR ⟨rate⟩/machine-h
 ```
 
 ## Cost envelope (scenarios)

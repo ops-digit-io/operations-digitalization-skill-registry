@@ -84,7 +84,7 @@ that were answered "later".
 disagreed with each other, on Melon. Each: the conflict, the *Sources* it spans, and
 *Resolved:* — which version the deck adopted, why, and the residual tag in brackets.
 Typical conflicts to hunt for:
-- two different values for the same figure across two files (e.g. capex 398k vs 362k);
+- two different values for the same figure across two files (e.g. capex ⟨amount A⟩ vs ⟨amount B⟩);
 - a baseline or formula that changed between an early draft and the final;
 - a number in one document not carried into another;
 - a leading/throwaway figure deliberately *not* enshrined;
@@ -97,4 +97,4 @@ If there were genuinely no conflicts, say so in one card rather than inventing t
 
 The one-line honesty summary you lead the delivery with is the written twin of this
 slide: e.g. *"14 of 19 figures grounded; capex and volume are assumptions to
-confirm; top open question: verify the 4.5% duty rate with Trade Compliance."*
+confirm; top open question: verify the ⟨x⟩% duty rate with Trade Compliance."*

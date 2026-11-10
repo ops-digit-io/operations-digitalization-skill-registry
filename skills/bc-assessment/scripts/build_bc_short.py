@@ -15,7 +15,7 @@ SRC = '/sessions/awesome-vigilant-hopper/mnt/outputs/_nw_template.pptx'
 OUT = '/sessions/awesome-vigilant-hopper/mnt/outputs/bc-gemba-onepager-neuwerk.pptx'
 
 # Neuwerk brand-exact palette. Blue ramp = the sanctioned graded-card device.
-NAVY, DEEP, BLUE, PERI = '1B1E52', '273892', '4E66AE', '8793CA'
+NAVY, DEEP, BLUE, PERI = '1B1E52', '⟨n⟩', '4E66AE', '8793CA'
 # Secondary bases (brand-exact): Mint / Melon / Azure / Levander
 GREEN, PEACH, TEAL, PINK, W = '1EB78B', 'F9B09A', '48C3CB', 'EEC1DB', 'FFFFFF'
 MELONL = 'F6CFC6'   # Melon light - problem/caution tint
@@ -134,24 +134,24 @@ ph_fill(s, 13, [('Working / engineering review', 11)])
 s = content('The business case on one page',
             'First implementation = one plant; drivers are averages for the initial area. Every figure carries a grounding tag.')
 band = box(s, 0.50, 1.82, 12.33, 1.48, NAVY, ml=0.24, mt=0.14)
-lines(band, [('EXPECTED ~EUR 25k / plant / yr   (min ~EUR 22k floor  /  potential ~EUR 83k)', 21, W, True, False, 3),
+lines(band, [('EXPECTED EUR ⟨amount⟩ / plant / yr   (min EUR ⟨amount⟩ floor  /  potential EUR ⟨amount⟩)', 21, W, True, False, 3),
              ('Expected = grounded hard admin saving. Potential adds reaction upside - NOT banked, one input still missing.', 12.5, PEACH, True, False, 4),
              ('Verdict: sign on the expected floor now - effect certain, size to confirm. Reaction upside is not banked until one input is measured. Value only; cost in the investment file.', 10, PERI, False, False, 0)])
 CW, XS = cols(3)
 panel(s, XS[0], 3.44, CW, 2.53, PERI, 'Key assumptions (area averages)', NAVY,
-      ['6 lines, 3 shifts, 220 days / yr  [market]',
-       'Loaded labour EUR 40 / h  [market]',
-       '~12 min/line/shift admin; ~78% removed  [assumption]',
-       'EUR 250 / machine-h  [market];  idle h/machine  [unknown]'], NAVY)
+      ['⟨n⟩ lines, ⟨n⟩ shifts, ⟨n⟩ days / yr  [market]',
+       'Loaded labour EUR ⟨amount⟩ / h  [market]',
+       '~⟨n⟩ min/line/shift admin; ~⟨x⟩% removed  [assumption]',
+       'EUR ⟨amount⟩ / machine-h  [market];  idle h/machine  [unknown]'], NAVY)
 panel(s, XS[1], 3.44, CW, 2.53, GREEN, 'Savings - the actual case / plant / yr', NAVY,
-      ['**EXPECTED   ~EUR 25k**',
-       '**Min   ~EUR 22k**  - hard floor, banked',
-       '**Max   ~EUR 83k**  - if reaction validated',
+      ['**EXPECTED   EUR ⟨amount⟩**',
+       '**Min   EUR ⟨amount⟩**  - hard floor, banked',
+       '**Max   EUR ⟨amount⟩**  - if reaction validated',
        'Hard admin saving: effect [input], size [assumption].'], NAVY)
 panel(s, XS[2], 3.44, CW, 2.53, PEACH, 'Further & soft potential (unevaluated)', NAVY,
       ['Reaction: little extra IF waits are already short;',
-       'up to ~EUR 56k / plant IF reaction lag is large',
-       'Rollout across floor plants ~EUR 0.7-0.9m / yr',
+       'up to EUR ⟨amount⟩ / plant IF reaction lag is large',
+       'Rollout across floor plants EUR ⟨amount⟩ / yr',
        'Soft: quality/scrap, availability, handover, audit, safety'], NAVY)
 caption(s, 0.50, 6.12, 12.33, 0.5,
         'Grounding tags:  [input] from interview/mockup  ·  [assumption] our estimate  ·  [market] standard value where none was given  ·  [unknown] the crucial missing input.',
@@ -166,11 +166,11 @@ HW = [3.85, 2.60, 2.35, 3.53]
 for x, w, h in zip(HX, HW, ['Sub-business case', 'Value / plant / yr', 'Status', 'Effort & key dependency to realize']):
     caption(s, x, 1.92, w, 0.30, h, 9.5, italic=False, color=PERI, bold=True)
 rows = [
-    ('F', GREEN, 'F  Admin floor', 'Manual KPI entry + board removed', '~EUR 22-27k', NAVY, '', 'Banked', GREEN, NAVY,
+    ('F', GREEN, 'F  Admin floor', 'Manual KPI entry + board removed', 'EUR ⟨amount⟩', NAVY, '', 'Banked', GREEN, NAVY,
      'LOW', GREEN, NAVY, 'Go-live: retire the board. One system decision.'),
-    ('R', PEACH, 'R  Reaction', 'Faster reaction to stoppages', '~EUR 5-56k', MELOND, 'wide range: near-zero to substantial', 'Not banked', PEACH, NAVY,
+    ('R', PEACH, 'R  Reaction', 'Faster reaction to stoppages', 'EUR ⟨amount⟩', MELOND, 'wide range: near-zero to substantial', 'Not banked', PEACH, NAVY,
      'MEDIUM', PERI, NAVY, 'Behaviour change: Andon watched + acted on daily.'),
-    ('S', TEAL, 'S  Rollout / cross-plant', 'Same process, other plants', '~EUR 0.7-0.9m', NAVY, '', 'Potential', TEAL, NAVY,
+    ('S', TEAL, 'S  Rollout / cross-plant', 'Same process, other plants', 'EUR ⟨amount⟩', NAVY, '', 'Potential', TEAL, NAVY,
      'HIGH', DEEP, W, 'Many sites; transferability + local baselines.'),
     ('X', PERI, 'Soft / strategic', 'Quality, safety, audit, learning', 'not quantified', NAVY, '', 'Optional', PERI, NAVY,
      'VARIES', GRY, NAVY, 'Depends which clusters the plant confirms.'),
@@ -253,7 +253,7 @@ for lid, name, c, b, o, conf, barc, counted, potlab, potfill, pottc in regs:
 box(s, CID, y + 0.02, 12.33, 0.02, PERI, ml=0, mt=0, shape=MSO_SHAPE.RECTANGLE, adj=0)
 y += 0.06
 rcell(CNM, CNMW, y, ROWH, 'Hard subtotal - the bankable ROI floor', 9.5, NAVY, True)
-rcell(CRNG, CRNGW, y, ROWH, '22|25|27', 9, NAVY, True)
+rcell(CRNG, CRNGW, y, ROWH, '⟨min⟩|⟨x⟩|⟨max⟩', 9, NAVY, True)
 rcell(CCONF, CCONFW, y, ROWH, 'Medium', 9, NAVY, True)
 chip(s, CPOT, y + 0.07, CPOTW, 'BANKED', GREEN, NAVY, size=8)
 y += ROWH + 0.06
@@ -286,7 +286,7 @@ for lid, name, c, b, o, conf, barc, potlab, potfill, pottc in uncts:
 
 # arithmetic callout folded in (kills the separate numbers slide)
 cb = box(s, 0.50, y + 0.08, 12.33, 0.56, NAVY, ml=0.18, mt=0.06)
-lines(cb, [('Hard floor derivation:  9.4 min saved  x  6 lines  x  3 shifts  x  220 days  =  618 h/yr  x  EUR 40/h  =  ~EUR 25k.   O1 range = machines x avoidable idle h/machine x EUR 250/machine-h.', 9.5, W, True, False, 0)],
+lines(cb, [('Hard floor derivation:  ⟨n⟩ min saved  x  ⟨n⟩ lines  x  ⟨n⟩ shifts  x  ⟨n⟩ days  =  ⟨n⟩ h/yr  x  EUR ⟨amount⟩/h  =  EUR ⟨amount⟩.   O1 range = machines x avoidable idle h/machine x EUR ⟨amount⟩/machine-h.', 9.5, W, True, False, 0)],
       anchor=MSO_ANCHOR.MIDDLE, align=PP_ALIGN.CENTER)
 caption(s, 0.50, y + 0.70, 12.33, 0.4,
         'Counted = summed into the floor. O1 is a ring-fenced sensitivity (never summed). O2-O4 are unsized potential - a HIGH chip flags the biggest next case (management reporting).',
@@ -347,7 +347,7 @@ for i, st in enumerate(STEPS):
 # lane labels
 caption(s, 0.50, 2.28, 12.33, 0.3, 'TODAY - paper / whiteboard baseline', 11.5, italic=False, color=PEACH, bold=True)
 today = ['Operator writes KPI on the board by hand',
-         'Supervisor sweep every 1-2 h finds the problem',
+         'Supervisor sweep every ⟨n⟩ h finds the problem',
          'Transcribe to Excel; escalate at the L2 meeting']
 for i, tx in enumerate(today):
     b = box(s, LX[i], 2.58, LWID, 1.02, PEACH, ml=0.14, mt=0.10)
@@ -382,8 +382,8 @@ mw = (12.33 - 4 * 0.22) / 5
 mx = [0.50 + i * (mw + 0.22) for i in range(5)]
 mile = [
     (PERI, NAVY, 'M0  Baseline & integrate', 'MES link + escalation rules set; baseline measured.', 'T + ⟨..⟩ wks', PERI, NAVY, 'Enabling - no value', False),
-    (GREEN, NAVY, 'M1  Go-live, board retired', '100% hourly entries digital; paper board removed.', 'T + ⟨..⟩ wks', NAVY, GREEN, 'HARD value ON ~EUR 22-27k', True),
-    (PEACH, NAVY, 'M2  Reaction routine embedded', 'Andon acted on < ⟨..⟩ min; cause codes on most events.', 'T + ⟨..⟩ wks', NAVY, GREEN, 'REACTION value ON ~EUR 37k', True),
+    (GREEN, NAVY, 'M1  Go-live, board retired', '⟨x⟩% hourly entries digital; paper board removed.', 'T + ⟨..⟩ wks', NAVY, GREEN, 'HARD value ON EUR ⟨amount⟩', True),
+    (PEACH, NAVY, 'M2  Reaction routine embedded', 'Andon acted on < ⟨..⟩ min; cause codes on most events.', 'T + ⟨..⟩ wks', NAVY, GREEN, 'REACTION value ON EUR ⟨amount⟩', True),
     (BLUE, W, 'M3  Proven on dashboard', 'Before->after confirmed on the OPEX dashboard.', 'T + ⟨..⟩ wks', PERI, NAVY, 'Value confirmed', False),
     (TEAL, NAVY, 'M4  Scaled to ⟨N⟩ sites', 'Repeat M1-M3 per site across the footprint.', 'T + ⟨..⟩', PERI, NAVY, 'Program ceiling', False),
 ]
@@ -441,20 +441,20 @@ def refblock(l, t, w, h, fill, header, example, qs):
 
 
 refblock(XS[0], 1.92, CW, 2.02, PEACH, 'R - Reaction    moves the case most',
-         '~25 idle h/machine/yr recovered -> +~EUR 37k; only ~3 h -> +~EUR 5k.',
+         '~⟨n⟩ idle h/machine/yr recovered -> EUR ⟨amount⟩; only ~⟨n⟩ h -> EUR ⟨amount⟩.',
          ['Q5. Hours/yr a machine waits for a reaction? (crucial)',
           'Q6. Time to help today - minutes, or an hour+?',
-          'Q4. Cost of one idle machine-hour? (EUR 100 / 250 / 500)'])
+          'Q4. Cost of one idle machine-hour? (EUR ⟨amount⟩ / ⟨b⟩ / ⟨c⟩)'])
 refblock(XS[0], 4.08, CW, 1.78, GREEN, 'F - Admin floor    already banked',
-         'each +1 min of admin per line/shift -> +~EUR 2k/yr.',
+         'each +⟨n⟩ min of admin per line/shift -> EUR ⟨amount⟩/yr.',
          ['Q1. Minutes/hour on the board + shift-end Excel?',
           'Q2. After the app: writing left, or fully replaced?'])
 refblock(XS[1], 1.92, CW, 1.78, TEAL, 'S - Rollout    the big multiplier',
-         'each added paper plant -> +~EUR 22-27k/yr on the floor.',
+         'each added paper plant -> EUR ⟨amount⟩/yr on the floor.',
          ['Q3. Machines / lines in the first area?',
           'Q10 / Q11. Which plant starts; how many still on paper?'])
 refblock(XS[1], 3.92, CW, 1.94, PERI, 'G - Go-live gate    make-or-break',
-         'board kept in parallel -> no admin saving -> EUR 0.',
+         'board kept in parallel -> no admin saving -> EUR ⟨amount⟩.',
          ['Q7. Board off at go-live, or run in parallel?',
           'Q9. Who watches the live screen and can act?'])
 caption(s, 0.50, 6.02, 12.33, 0.5,
@@ -492,9 +492,9 @@ confs = [
     ('Hard-lever count: REFERENCE H1-H4 vs final H1-H3',
      'H4 Gemba-walk doc de-scoped from the banked floor to soft clusters (slide 7).', 'not banked'),
     ('Reaction O1 formula changed (latency x events  vs  machines x idle-h)',
-     'Adopted the machine-based, sourceable form; crucial idle-h stays [unknown] -> O1 de-banked as ~EUR 5-56k.', 'de-banked'),
-    ('"4 min" per entry - floated earlier, in no source',
-     'Deliberately not enshrined; admin time derived from the 1-2 h sweep cadence.', 'assumption'),
+     'Adopted the machine-based, sourceable form; crucial idle-h stays [unknown] -> O1 de-banked as EUR ⟨amount⟩.', 'de-banked'),
+    ('"⟨n⟩ min" per entry - floated earlier, in no source',
+     'Deliberately not enshrined; admin time derived from the ⟨n⟩ h sweep cadence.', 'assumption'),
     ('Baseline asked in interview (13:31) but left unanswered',
      'Analyst-set to a representative paper/whiteboard plant; carried as the top open question.', 'assumption'),
     ('Interview holds zero quantities; single source + leading Qs',

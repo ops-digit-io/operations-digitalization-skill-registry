@@ -55,7 +55,7 @@ Common lever shapes:
 Throughput gains are the most commonly overstated line in any business case.
 
 Extra capacity is worth money **only if the extra units can be sold**. If the
-line is not capacity-constrained, a 20% throughput gain produces zero revenue —
+line is not capacity-constrained, a ⟨x⟩% throughput gain produces zero revenue —
 it produces idle time. Ask directly: *is this line sold out?*
 
 If it is not, count the value as hours released and label it that way. A
@@ -66,7 +66,7 @@ slide, and they will be right to.
 
 Every assumption gets a range and a chosen midpoint:
 
-> Close 30% of the gap (range 15–50%)
+> Close ⟨x⟩% of the gap (range ⟨low⟩–⟨high⟩%)
 
 Compute the headline at the midpoint, and state what the low end still yields. A
 case that works at its pessimistic end is far more persuasive than one that only
@@ -78,10 +78,10 @@ the range rather than the whole model.
 Write the calculation in the cell:
 
 ```
-1,200 runs/yr × 4.2 h × 0.30 = 1,512 h/yr × €85/h = €128,520
+⟨runs⟩ runs/yr × ⟨h per run⟩ h × ⟨share⟩ = ⟨hours⟩ h/yr × €⟨rate⟩/h = €⟨amount⟩
 ```
 
-Not `€128,520`. The reader must be able to follow it across the page and
+Not `€⟨amount⟩`. The reader must be able to follow it across the page and
 substitute their own rate. That substitutability is what turns a slide into a
 working conversation.
 
@@ -98,18 +98,18 @@ honest number to use — not the effort for the full v3 vision.
 ## Worked example
 
 **Solution:** cell layout tool. **Baseline** from the as-is map: 20 relayouts a
-year, 74 hours each, 1 in 4 revised after installation.
-**Inputs supplied by the user:** engineer loaded rate €85/h; rework costs 30 h
+year, ⟨h⟩ hours each, ⟨share⟩ revised after installation.
+**Inputs supplied by the user:** engineer loaded rate €⟨rate⟩/h; rework costs ⟨h⟩ h
 per occurrence; line not capacity-constrained.
 
 | Lever | Measured by the solution | Scenario assumption | Annual value |
 |-------|--------------------------|--------------------|--------------|
-| Layout iteration time | Hours per relayout, as-is baseline 74 h vs tool-assisted | Cut concept phase by 40% (range 20–60%) | 20 × 74 × 0.40 = 592 h/yr × €85 = **€50,320** |
-| Rework avoided | Relayouts revised post-install, baseline 1 in 4 | Evidence-based selection halves revisions (range 25–60%) | 5 × 30 × 0.50 = 75 h/yr × €85 = **€6,375** |
-| Space released | Footprint per concept, computed | 10% floor area released, re-used not sold | **Not priced** — hours and m² only |
+| Layout iteration time | Hours per relayout, as-is baseline ⟨h⟩ h vs tool-assisted | Cut concept phase by ⟨share⟩ (range ⟨low⟩–⟨high⟩) | ⟨n⟩ × ⟨h⟩ × ⟨share⟩ = ⟨hours⟩ h/yr × €⟨rate⟩ = **€⟨amount⟩** |
+| Rework avoided | Relayouts revised post-install, baseline ⟨share⟩ | Evidence-based selection cuts revisions by ⟨share⟩ (range ⟨low⟩–⟨high⟩) | ⟨n⟩ × ⟨h⟩ × ⟨share⟩ = ⟨hours⟩ h/yr × €⟨rate⟩ = **€⟨amount⟩** |
+| Space released | Footprint per concept, computed | ⟨share⟩ floor area released, re-used not sold | **Not priced** — hours and m² only |
 
-**Total: ~€56,700/yr at midpoint; ~€28,000 at the pessimistic end.**
-**Payback:** 25 days build ÷ (€56,700 ÷ 52) ≈ 23 days of value ≈ 3.5 weeks.
+**Total: ~€⟨midpoint⟩/yr at midpoint; ~€⟨pessimistic⟩ at the pessimistic end.**
+**Payback:** ⟨build days⟩ days build ÷ (€⟨annual⟩ ÷ 52) ≈ ⟨days⟩ days of value ≈ ⟨weeks⟩ weeks.
 
 Note what the third lever does. Floor space is real, the user could not price
 it, and it is reported unpriced rather than given an invented €/m². That row

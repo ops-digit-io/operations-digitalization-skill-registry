@@ -65,7 +65,7 @@ a weak eCR before a reviewer does:
    current-state cost is itself estimated, the saving inherits `[a]`.
 4. **Single-source risk.** If one file is the only source for a big number, say so;
    don't launder a single estimate into a fact by restating it.
-5. **Does it survive a sensitivity?** For any big value driver, ask what a 25% miss
+5. **Does it survive a sensitivity?** For any big value driver, ask what a ⟨x⟩% miss
    does to payback/NPV. If the case dies, the driver belongs in the sensitivity, not
    the headline.
 6. **Rate/standard values** (duty %, WACC, FX, depreciation life) — if not given,
