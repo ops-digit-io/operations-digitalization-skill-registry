@@ -35,7 +35,7 @@ consumes / publishes / api description / version / identity / health and metrics
 Container, image and registry rules, resource limits:   ⟨to be supplied⟩ (OD lead, IT platform)
 
 DEPENDENCIES
-Systems outside the lean footprint?  no / yes -> invest-screen
+Systems outside the lean footprint?  no / yes -> od-system-fit-check
 Legacy applications touched (legacy-application-position in catalog-usecase):
 
 ROLLBACK

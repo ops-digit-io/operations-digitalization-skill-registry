@@ -17,7 +17,7 @@ collected, see `gate-rules.md`). `PROPOSAL` = synthesis not stated in a deck; `<
 ## Where it sits in the chain
 
 1b3 order and connect, 3a5 deploy to the platform and Cyber Security, 3b6 acceptance and Cyber Security. Read it also as a
-**parallel track of the integration wave** (see `mi-connector`, practice file): the sign-off is decoupled, runs alongside
+**parallel track of the integration wave** (see `od-equipment-integration`, practice file): the sign-off is decoupled, runs alongside
 planning and build, and blocks only go-live. Start the package early so the scope is known when the wave is ready to go live.
 
 ## 1 Method in practice
@@ -103,12 +103,12 @@ local notification form and the works-council categories are `<...>` (not in the
 
 | Direction | Skill | Content |
 |---|---|---|
-| Receive | `mi-connector` | Data path, integration concept, what leaves the machine, connector and route |
-| Receive | `deploy-appstore` / `invest-screen` | App package, component list, source-ownership scenario, operations concept |
-| Receive | `bc-capital-request` | Cost line for fixes and the security decision in the capital request checklist |
+| Receive | `od-equipment-integration` | Data path, integration concept, what leaves the machine, connector and route |
+| Receive | `deploy-appstore` / `od-system-fit-check` | App package, component list, source-ownership scenario, operations concept |
+| Receive | `od-capital-request` | Cost line for fixes and the security decision in the capital request checklist |
 | Hand on | `od-decision-routing` | Decision request; open conditions |
 | Hand on | `od-acceptance-test` | The recorded answer as evidence |
-| Hand on | `mi-connector` | A refusal as a barrier class with owner |
+| Hand on | `od-equipment-integration` | A refusal as a barrier class with owner |
 
 ## 5 Pitfalls and lessons
 

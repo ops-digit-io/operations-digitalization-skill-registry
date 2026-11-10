@@ -48,7 +48,7 @@ Use with `od-acceptance-test`, `od-cybersec-gate` and `od-decision-routing`. A b
 
 | # | Gate | Evidence | Owner role | Human-only? |
 |---|---|---|---|---|
-| R1 | Front-end done: requirement (`funnel-requirements`), tool decision (`invest-screen`), business case (`bc-build`), capital approved where needed | links | OD lead / DBVE | the approvals are |
+| R1 | Front-end done: requirement (`od-requirements-breakdown`), tool decision (`od-system-fit-check`), business case (`od-benefit-calculation`), capital approved where needed | links | OD lead / DBVE | the approvals are |
 | R2 | Target named as the requester names it, both layers recorded (edge runtime and app store / CMO), and the sourcing route 3a.1 to 3a.4 | package fields 1 and 2 | DBVE | no |
 | R3 | Manifest complete; `writes_to_machines` stated | manifest | app owner | no |
 | R4 | Interfaces described (OpenAPI, AsyncAPI) and versioned | documents | app owner | no |

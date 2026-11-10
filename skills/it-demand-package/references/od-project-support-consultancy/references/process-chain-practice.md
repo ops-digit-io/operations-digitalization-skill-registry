@@ -62,9 +62,9 @@ Colours: red = out of plan, result endangered, steering decision required; yello
 
 | Receives | From |
 |---|---|
-| decided use case, business case and capital status | `bc-build`, `bc-capital-request` |
-| requirements and tool decision | `funnel-requirements`, `invest-screen` |
-| machine list, controller facts | `mi-connector` |
+| decided use case, business case and capital status | `od-benefit-calculation`, `od-capital-request` |
+| requirements and tool decision | `od-requirements-breakdown`, `od-system-fit-check` |
+| machine list, controller facts | `od-equipment-integration` |
 
 | Hands on | To |
 |---|---|

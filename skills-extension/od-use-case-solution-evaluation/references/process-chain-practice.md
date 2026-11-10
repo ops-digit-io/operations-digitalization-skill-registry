@@ -18,7 +18,7 @@ change that method. `PROPOSAL` marks synthesis that no deck states.
 ## Where it sits
 
 Lane 2 step **22** (features and data check), after `od-use-case-definition` and before the business case
-(`bc-build`, step 24). In Lane 3 the same tests feed `invest-screen` at step 32. Receives the
+(`od-benefit-calculation`, step 24). In Lane 3 the same tests feed `od-system-fit-check` at step 32. Receives the
 defined use case and the demand row; hands the verdict and score to prioritization and the business case.
 
 ## 1 · Method in practice
@@ -75,11 +75,11 @@ the solution is first named. Each one can turn "ready to build" into "needs a na
 ## 3 · Handoff contract
 
 **Receives:** demand row from `od-use-case-definition`, objects / events and data shape from
-`funnel-requirements`, tool-availability table, plant capability levels with evidence.
+`od-requirements-breakdown`, tool-availability table, plant capability levels with evidence.
 **Hands on:** the pasted script output and total score; verdict (ready / capability first / over-engineered /
 platform investment); for each gap an owner and sequence position; tool boundary sentences relied on; cost class;
-operations-concept status. To `bc-build` (scope and cost of gaps), `od-portfolio-and-savings-analysis`
-(dependency column), `invest-screen` and `od-decision-routing` (escalations).
+operations-concept status. To `od-benefit-calculation` (scope and cost of gaps), `od-portfolio-and-savings-analysis`
+(dependency column), `od-system-fit-check` and `od-decision-routing` (escalations).
 
 ## 4 · Pitfalls and lessons
 

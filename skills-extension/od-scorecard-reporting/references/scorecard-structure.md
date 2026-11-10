@@ -23,12 +23,12 @@ Reading this registry's own metrics against that chain:
 | **Build capacity** (learning & growth) | Integrated Equipment per month/year | Leading — the earliest signal |
 | **Delivery** (internal process) | Integrated Use Cases per month/year | Leading, one step downstream of capacity |
 | **Adoption** (customer — the plant is the customer here) | Use-case utilization rate; readiness RAG | Leading on value, lagging on delivery |
-| **Value** (financial) | Tracked and proven savings (`bc-build`) | Lagging — the last thing to move, and the easiest to overstate early |
+| **Value** (financial) | Tracked and proven savings (`od-benefit-calculation`) | Lagging — the last thing to move, and the easiest to overstate early |
 
 **The practical use of this ordering:** when a leading metric (equipment, use cases built)
 is on target but a lagging one (utilization, proven savings) is not, the finding is an
 adoption or value-realization problem, not a delivery problem — see
-`od-handover-and-adoption` and `bc-build` before re-litigating the build. The
+`od-handover-and-adoption` and `od-benefit-calculation` before re-litigating the build. The
 reverse — a lagging metric look fine while a leading one is red — does not happen in a
 healthy portfolio; if it does, the lagging number is stale, not the leading one.
 

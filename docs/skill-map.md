@@ -67,7 +67,7 @@ readiness, counts. `od-scorecard-reporting` collects those into one place so tha
 figure does not get reported three ways.
 
 **Three lanes carry a Cyber Security gate.** It is a constraint, not a task, which is why it
-lives in `dept-os` and is inherited rather than restated per skill.
+lives in `od-context` and is inherited rather than restated per skill.
 
 ## Capability bottlenecks and skill gaps
 
@@ -86,6 +86,6 @@ Global staffing: open positions planned in Asia and the Americas; Europe partly 
 
 These are the entries a registry cannot fix. A skill makes a procedure repeatable; it does
 not add an IIAE. Where a skill sits on top of a named bottleneck — `od-signal-standardization`
-on the data-platform / MSB operations-concept gap, `mi-connector` on IIAE
+on the data-platform / MSB operations-concept gap, `od-equipment-integration` on IIAE
 capacity — it says so in the body, so the reader knows the constraint is real and not a
 process failure.

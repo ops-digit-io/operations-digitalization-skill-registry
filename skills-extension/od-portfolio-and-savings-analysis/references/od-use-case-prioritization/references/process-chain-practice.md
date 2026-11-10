@@ -18,7 +18,7 @@ Adds to `SKILL.md` and `ranking-criteria.md`; weighted-score mechanics stay in `
 ## Where it sits
 
 Lane 2 step **24 Business case and rank** (proposed skill on that step), after `od-use-case-solution-evaluation`
-and with `bc-build`; feeds step 25 (`od-decision-routing`, `bc-cost`). It receives
+and with `od-benefit-calculation`; feeds step 25 (`od-decision-routing`, `od-investment-input`). It receives
 defined, evaluated candidates and hands a ranked list with an unscored bucket.
 
 ## 1 · Method in practice
@@ -84,13 +84,13 @@ defined, evaluated candidates and hands a ranked list with an unscored bucket.
 ## 3 · Handoff contract
 
 **Receives:** from `od-use-case-definition` the demand rows; from `od-use-case-solution-evaluation` the verdict
-and score; from `bc-build` the savings rows with basis label and reliability; from
+and score; from `od-benefit-calculation` the savings rows with basis label and reliability; from
 `od-data-availability-check` the readiness verdict.
 
 **Hands on:** the ranking table with columns cluster, use case, bucket, scaling estimate (recorded, as demand),
 prototype state, dependency (with owner), evidence per cell, planning state and trigger, plant tier, weights used;
-the **unscored bucket** next to it; disagreement recorded. To `bc-build` for uncosted top items; to
-`od-decision-routing` / `bc-cost` for money; to `od-use-case-standardization` for standard
+the **unscored bucket** next to it; disagreement recorded. To `od-benefit-calculation` for uncosted top items; to
+`od-decision-routing` / `od-investment-input` for money; to `od-use-case-standardization` for standard
 candidates; to `od-portfolio-and-savings-analysis` for portfolio review.
 
 ## 4 · Pitfalls and lessons

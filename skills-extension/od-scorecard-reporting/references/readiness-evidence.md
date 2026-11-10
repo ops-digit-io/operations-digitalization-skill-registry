@@ -17,7 +17,7 @@ witnessed by a named human on the plant side, and the result was recorded.** Not
 machine was connected, not because a dashboard was built, and never because someone
 declared it so ahead of the pass. `od-acceptance-test`'s own definition of done states it
 directly: "on the Information Integration side, the readiness dimension moved with
-evidence." `mi-connector` enforces the same rule from its side ("never mark a
+evidence." `od-equipment-integration` enforces the same rule from its side ("never mark a
 machine `INTEGRATED` before its acceptance test passes, and never claim a readiness
 dimension 'Available' without evidence").
 

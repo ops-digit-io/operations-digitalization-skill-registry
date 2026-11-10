@@ -69,7 +69,7 @@ Do not merge tracked and proven euros in any column.
 | Plant ME agrees? | ⟨yes / yes with change / no⟩ |
 | Changes requested by the Plant ME and why | ⟨⟩ |
 | Evidence-collection items passed to `od-handover-and-adoption` | ⟨delivered use cases without a recorded saving⟩ |
-| Money questions passed to `bc-cost` | ⟨⟩ |
+| Money questions passed to `od-investment-input` | ⟨⟩ |
 | Escalation to OD lead needed? | ⟨blocked use case: missing system or operations concept, no business case, failed acceptance⟩ |
 
 ## 7 · Open points

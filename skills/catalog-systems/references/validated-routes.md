@@ -23,7 +23,7 @@ standard system. Rank routes by evidence.
 - **Machine List** (SharePoint list, mirrored in vault `Graph/Machines`; fields `plc_vendor`, `plc_model`,
   `network_protocol`, `integration_status`, `integration_method`). Export it with `od-sharepoint-list-export`, group by
   controller vendor and model, method and status, and count machines and distinct plants per group.
-- **Route status**: skill `mi-connector`, `references/decision-paths.md` (the live tree and the "next" tree).
+- **Route status**: skill `od-equipment-integration`, `references/decision-paths.md` (the live tree and the "next" tree).
 - **Connector status**: vault `Graph/Connectors` and `references/connectors.md` of the same skill (status such as
   Productive, Idea, Development; utilization such as USE, NOT AVAILABLE, DO NOT USE).
 - **Method names in the list**: `IIoT Edge Computing Platform` = Concept 3 (edge route, topologies 1 and 2 of the guide);
@@ -80,7 +80,7 @@ Not a candidate.
   anything not in the tree is "Integration of Other PLCs": connector development, long lead times (decision-paths). This is
   Lane 3b, not 1b.
 - Camera systems cannot go through the aggregation server; edge only (rules-next).
-- A machine **without the PLC program** cannot be connected; see `mi-connector`, `references/fallbacks.md`.
+- A machine **without the PLC program** cannot be connected; see `od-equipment-integration`, `references/fallbacks.md`.
 - **Vendor not recorded** on a machine: do not place it in a class until its controller is known.
 
 ## How to read a machine against this classification
@@ -89,8 +89,8 @@ Not a candidate.
 2. Find the family. Class A: continue on branch 1b with that route; cost, lead time and kit are still ⟨to be supplied⟩ (see
    [standard-system-entry.md](../assets/standard-system-entry.md)).
 3. Class B or C: say plainly "this has been done at other plants but the procedure is not written"; hand to the IIAE and
-   `mi-connector` / Lane 3b. Do not offer it as a standard system.
-4. Class D or no row: no standard system; hand to `invest-screen` and Lane 3b.
+   `od-equipment-integration` / Lane 3b. Do not offer it as a standard system.
+4. Class D or no row: no standard system; hand to `od-system-fit-check` and Lane 3b.
 
 Re-derive the class of each family on the live list and live guide before relying on the typical members above: routes move
 between classes when procedures are written or more plants prove them.

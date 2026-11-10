@@ -54,7 +54,7 @@ A need raised once, as an incident, with no recurrence is a first-aid case: log 
 
 OD's rule: every saving is linked to a concrete use case in the plant's list; compiled per use case;
 a first realistic estimate is allowed if labelled; calculation follows with OD's calculator
-(`bc-build`). Categories on OD's template: productivity, quality, maintenance.
+(`od-benefit-calculation`). Categories on OD's template: productivity, quality, maintenance.
 
 | Use case # | Mechanism (loss that disappears) | Category | Inputs named (for example machines, shifts, minutes per entry, days) | First figure and period | Basis (`CALCULATION` / `ESTIMATION` / ⟨none⟩) | Baseline exists? who measures | Dependency |
 |---|---|---|---|---|---|---|---|

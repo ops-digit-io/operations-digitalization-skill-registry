@@ -30,7 +30,7 @@ At the end of the project we will have <result>.
 - Budget: <estimate> covering internal effort <> external support <> consultancy <> · basis <>
 
 ## 4 Benefit
-<rows from bc-build, with firmness and read date>
+<rows from od-benefit-calculation, with firmness and read date>
 
 ## 5 Sub-targets and success criteria
 | Sub-target | Work packages (at least 3) | Success criterion (measure, baseline, how read) |

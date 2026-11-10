@@ -53,12 +53,12 @@ The OD check runs these in strict mode: a handover package passes only with no w
 
 | Artefact | Section | Filled from |
 |---|---|---|
-| proposal.md | Why | Problem and bankable value: `bc-build`; objective: `funnel-requirements` |
-| | What Changes | Requirement scope and growth boundaries: `funnel-requirements` |
-| | Capabilities | The epic's durable behaviours: `funnel-requirements` |
-| | Impact | Plants, systems, interfaces, data: `od-data-availability-check`, `invest-screen` |
-| specs/ | Requirements and scenarios | User stories and acceptance criteria: `funnel-requirements`, `od-acceptance-test`; data contract: `od-signal-standardization` |
-| design.md | Decisions | Route and sourcing: `invest-screen` (tool-decision gate); platform and manifests: `deploy-appstore`; Cyber Security: `od-cybersec-gate`; legacy: `funnel-requirements` (legacy assessment) |
+| proposal.md | Why | Problem and bankable value: `od-benefit-calculation`; objective: `od-requirements-breakdown` |
+| | What Changes | Requirement scope and growth boundaries: `od-requirements-breakdown` |
+| | Capabilities | The epic's durable behaviours: `od-requirements-breakdown` |
+| | Impact | Plants, systems, interfaces, data: `od-data-availability-check`, `od-system-fit-check` |
+| specs/ | Requirements and scenarios | User stories and acceptance criteria: `od-requirements-breakdown`, `od-acceptance-test`; data contract: `od-signal-standardization` |
+| design.md | Decisions | Route and sourcing: `od-system-fit-check` (tool-decision gate); platform and manifests: `deploy-appstore`; Cyber Security: `od-cybersec-gate`; legacy: `od-requirements-breakdown` (legacy assessment) |
 | | Non-Goals | Growth boundaries |
 | tasks.md | — | Build tasks, plus logging, observability, manifests, acceptance test, Cyber Security sign-off, handover checklist |
 | handover.md | all | `references/it-expected-inputs.md` |

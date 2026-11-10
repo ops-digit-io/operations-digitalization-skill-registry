@@ -14,7 +14,7 @@ metadata:
   authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
   status: draft
   sources_read: 2026-11-10
-  requires: [dept-os]
+  requires: [od-context]
   derived_from:
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (skills table, gap), read 2026-11-10"
     - "Split from catalog-usecase (formerly od-catalog), 2026-11-10"
@@ -27,7 +27,7 @@ metadata:
 ---
 # Catalog guardrails
 
-Read `dept-os` first. The department's `catalog-guardrails`: the boundaries inside which a plant runs a catalogued use case itself, and the go-live self-check (steps 1a3 and 1b4). Self-service stays inside pre-approved guardrails; anything outside them is not self-service.
+Read `od-context` first. The department's `catalog-guardrails`: the boundaries inside which a plant runs a catalogued use case itself, and the go-live self-check (steps 1a3 and 1b4). Self-service stays inside pre-approved guardrails; anything outside them is not self-service.
 
 ## Go-live guardrails (step 1a3, and 1b4)
 
@@ -41,8 +41,8 @@ The guardrails are **seeded from rules the registry and the knowledge bundle alr
 |---|---|---|---|
 | G1 | The signals the template reads exist and are fresh | `od-data-availability-check` verdict | Stop. Back to the data check; Lane 2 or Lane 3 if the data cannot be had |
 | G2 | **Platform boundary:** a plant's manufacturing dashboards run on that plant's local Grafana; the global layer (Databricks, Azure Storage Account) is not wired into it, and no cross-plant view is built on a local instance | `registry.yaml`, open gaps | Stop. Undo the wiring, or ask OD for a cross-plant view |
-| G3 | The solution stays inside the lean footprint, no system outside it | `invest-screen` | Stop. Escalate as an exception through `od-decision-routing` |
-| G4 | **No invented figures:** no savings or impact number unless a source and a capture date are named | `dept-os` honesty rules; lane agent brief | Remove the number, or mark it as to be collected |
+| G3 | The solution stays inside the lean footprint, no system outside it | `od-system-fit-check` | Stop. Escalate as an exception through `od-decision-routing` |
+| G4 | **No invented figures:** no savings or impact number unless a source and a capture date are named | `od-context` honesty rules; lane agent brief | Remove the number, or mark it as to be collected |
 | G5 | A **named plant owner** exists, and the plant, not OD, decides daily use | Knowledge bundle, `Decision rights` | Stop. Name the owner first |
 | G6 | The **three-question handover test** is answerable by the receiving side from the handover record alone, and the record names **who uses the screen, in which meeting, and which action follows** | `od-handover-and-adoption`; deck practice | Not done. Close the gap before go-live |
 | G7 | An **external connection** has a Cyber Security sign-off. Human-only | Knowledge bundle, decision rights | Hold at the wait state. Do not go live |
@@ -56,9 +56,9 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 ## Procedure - go-live check
 
 1. Take the Part A match record and, on branch 1b, the system match record.
-2. The **plant** answers G1 to G7, each with evidence (a verdict, a source, a name). Do one deep dive against the paper process before declaring the screen live ([`references/process-chain-practice.md`](../catalog-usecase/references/process-chain-practice.md) Part C).
+2. The **plant** answers G1 to G7, each with evidence (a verdict, a source, a name). Do one deep dive against the paper process before declaring the screen live ([`references/process-chain-practice.md`](../catalog-usecase/references/process-chain-practice.md)) Part C).
 3. Write the **go-live check record** ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)): per guardrail the result (passed / failed / not checked), evidence, date, who answered; at the top the use case, plant, plant owner, and the final line "go-live decision: the plant's". Write the utilization expectation into the record before go-live.
-4. Any failed guardrail - **no go-live**; route back as the table says (data to `od-data-availability-check`, footprint to `invest-screen`, handover to `od-handover-and-adoption`, security to `od-cybersec-gate`; say which).
+4. Any failed guardrail - **no go-live**; route back as the table says (data to `od-data-availability-check`, footprint to `od-system-fit-check`, handover to `od-handover-and-adoption`, security to `od-cybersec-gate`; say which).
 5. All passed - report it. **The plant decides to go live** (`PRODUCTIVE`); this skill never does.
 6. After go-live, adoption is checked as `od-handover-and-adoption` describes.
 

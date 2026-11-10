@@ -23,7 +23,7 @@ to scope, timing or budget. The approved order lists real names; an agent draft 
 
 Before a system goes to productive use it also needs a business owner, an IT owner, a service concept,
 roles and responsibilities, requirements, a change-management process and a risk-management process
-(see `invest-screen`). Name them in the organisation chapter or list them as open.
+(see `od-system-fit-check`). Name them in the organisation chapter or list them as open.
 
 ## Opportunities and risks
 
@@ -53,12 +53,12 @@ Order of milestones; each is a date in the plan and a line the project manager r
 3. Supplier Q&A and selection.
 4. Quotation updated from the Q&A.
 5. Second-round quotation (where the approval policy asks for a second quotation).
-6. Capital request (eCR) launched and approved. The package is `bc-capital-request`; the approval is human.
+6. Capital request (eCR) launched and approved. The package is `od-capital-request`; the approval is human.
 7. Sourcing complete. Before ordering, offer = eCR = contract (check).
 8. Go-live within a fixed window after the purchase order (`<window>` set per project).
 
 For machine connection, the equipment request is the first milestone of each integration wave
-(`mi-connector`). The offer is obtained first (a second quotation where the policy asks), then the eCR is raised; offer, eCR
+(`od-equipment-integration`). The offer is obtained first (a second quotation where the policy asks), then the eCR is raised; offer, eCR
 and contract must agree before the order is placed.
 
 ## Pitfalls

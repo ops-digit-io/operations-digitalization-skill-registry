@@ -22,7 +22,6 @@ jobs:
           python3 scripts/build_okf_index.py --check
           python3 scripts/build_skill_map.py --check
           python3 scripts/build_process_overview.py --check
-          python3 scripts/build_process_flow.py --check
           python3 scripts/build_new_state_skill_map.py --check
       - name: Skills against the open Agent Skills specification (strict export must be valid)
         run: python3 scripts/agent_skills_spec.py --export dist/skills

@@ -46,7 +46,7 @@ not recorded, standard procedure not recorded, capability link not recorded). Th
 - whether the entry describes the screen and purpose only, or also a procedure (an entry that only says "add more lines" as
   the next step does not hold a procedure);
 - the savings-estimate field: it can be filled in with no currency stated. Treat it as an unaudited entry, never as a saving
-  (`bc-build`).
+  (`od-benefit-calculation`).
 
 ## Do the entries meet the four conditions of "catalogued"?
 
@@ -69,7 +69,7 @@ branch 1a/1b, not a finished catalog hit.
   deployable artefact per entry.
 - For a match, open the library note, then the dashboard family note it links (screenshots, panels), then the template page
   in `Graph/Use Case Views` (see [template-coverage.md](template-coverage.md)).
-- For the dashboard build itself the registry has `ops-dashboard-engine` and `od-analytics-asset-build`.
+- For the dashboard build itself the registry has `build-grafana-ops-dashboard` and `od-analytics-asset-build`.
 
 ## Pre-screen signals that are not a CSP decision
 

@@ -20,8 +20,8 @@ metadata:
   authority_level: read-only
   status: stable
   sources_read: 2026-10-22
-  requires: [dept-os]
-  composes: [od-sharepoint-list-export, bc-build, od-use-case-standardization, od-scorecard-reporting, od-decision-routing]
+  requires: [od-context]
+  composes: [od-sharepoint-list-export, od-benefit-calculation, od-use-case-standardization, od-scorecard-reporting, od-decision-routing]
   derived_from:
     - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
@@ -39,7 +39,7 @@ metadata:
 
 # Portfolio and savings analysis
 
-Read `dept-os` first.
+Read `od-context` first.
 
 ## The references are the substance
 
@@ -53,7 +53,7 @@ Read `dept-os` first.
 
 Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) — one
 document per review round, built from `od-sharepoint-list-export`'s capture and
-`bc-build`'s ledger, feeding `od-scorecard-reporting`'s round prep.
+`od-benefit-calculation`'s ledger, feeding `od-scorecard-reporting`'s round prep.
 
 ## The shape of the portfolio: how to read it, not what it is
 
@@ -99,7 +99,7 @@ reliability (`CALCULATION`, `ESTIMATION`, not recorded), automated versus manual
 the number of use cases that carry a saving figure of any kind. Quote each with its capture
 date. Pattern to expect: the tracker was actively maintained for a period and then largely
 abandoned, so the reliability field is mostly empty and few use cases carry a figure. Treat
-the total as a **floor on what has been captured**. See `bc-build` for how a
+the total as a **floor on what has been captured**. See `od-benefit-calculation` for how a
 row is built and what may be added to what.
 
 ## The three ways this data misleads

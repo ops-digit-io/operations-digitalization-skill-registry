@@ -39,12 +39,12 @@ Date:
    Signals present and fresh:                        Verdict step reached: 1-6
 
 5  FOOTPRINT
-   Systems needed:                                   Inside lean footprint?  yes / no -> invest-screen
+   Systems needed:                                   Inside lean footprint?  yes / no -> od-system-fit-check
 
 6  BRANCH AND NEXT SKILL
-   1a connected  -> od-analytics-asset-build (dashboard) / ops-dashboard-engine
+   1a connected  -> od-analytics-asset-build (dashboard) / build-grafana-ops-dashboard
    1b not connected -> catalog-usecase (system match)
-   falls through -> Lane 2 (od-use-case-definition) or Lane 3 (invest-screen)
+   falls through -> Lane 2 (od-use-case-definition) or Lane 3 (od-system-fit-check)
    Reason for the branch:
 
 7  OPEN POINTS (each with an owner role)

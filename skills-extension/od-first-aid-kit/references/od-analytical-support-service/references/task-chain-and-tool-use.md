@@ -67,4 +67,4 @@ That single log makes the two "not captured" lane metrics (turnaround, promotion
 - **Evidence to cite:** data source, period, read date, verdict.
 - **Human gate:** committing a use case to industrialization, publishing externally, presenting unvalidated insight as fact are
   human decisions.
-- **Hands over to:** `od-use-case-definition` (promotion), `mi-connector` (data gap).
+- **Hands over to:** `od-use-case-definition` (promotion), `od-equipment-integration` (data gap).

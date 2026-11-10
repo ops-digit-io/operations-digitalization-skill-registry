@@ -63,7 +63,7 @@ recurring question belongs.
 | Daily | Gemba walk | none | plant owner |
 | Weekly to sprint | Sprint working session | use-case sprint | `references/sprint-runbook.md` |
 | Monthly | Utilization review, portfolio review | scorecard update, retrospective | `od-scorecard-reporting`, `od-retro` |
-| Quarterly | Roadmap check | context-layer review, SWOT and strategy check, freshness sweep | `od-context-freshness`, `dept-os` |
+| Quarterly | Roadmap check | context-layer review, SWOT and strategy check, freshness sweep | `od-context-freshness`, `od-context` |
 | Round | Regional community call | CoP; ODEC only as a historical source | `references/forums-and-roadmap.md` |
 
 `PROPOSAL`: when a plant raises a recurring complaint that spans rungs (a board that is correct but ignored), route it to the lowest

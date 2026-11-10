@@ -53,7 +53,7 @@ status. The decks give examples, not a catalogue.
 Routes to the platform: native or OPC-UA machine, aggregation server, or edge device; standardized and
 non-standardized transactional and time-series each have their own interface choice. An edge device is needed for
 vision or robots, full-traceability expectations (data loss means rejecting parts), high-resolution data from
-process-critical sensors, inline measurement, or advanced analytics (see `mi-connector`).
+process-critical sensors, inline measurement, or advanced analytics (see `od-equipment-integration`).
 
 ## Transformation pipeline split
 

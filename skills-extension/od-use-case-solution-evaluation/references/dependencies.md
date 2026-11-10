@@ -27,7 +27,7 @@ real-time data; hybrid control needs predictive analytics or combined storage/pr
 
 **Consequence:** treat the table below as where to start a sequence, not as an authority to
 plan a roadmap against mechanically. Validate it against this registry's own architecture —
-`mi-connector` and `od-signal-standardization` are the skills that know what is
+`od-equipment-integration` and `od-signal-standardization` are the skills that know what is
 actually true for this estate's connectors and data model — before committing to an order.
 
 ## Full table (best-fit reading)

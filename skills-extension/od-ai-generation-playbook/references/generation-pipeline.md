@@ -16,7 +16,7 @@ the process chain.
 
 ## 1 The pipeline for a template-bound deliverable (any step that produces a document or deck)
 
-1. **Read the context by relevance** (`dept-os`; stale sections stop the run, `od-context-freshness`).
+1. **Read the context by relevance** (`od-context`; stale sections stop the run, `od-context-freshness`).
 2. **Read the template and its layouts** from the approved master (`od-template-resolution`).
 3. **Human gate on what cannot be derived:** lane, depth, language, audience. The agent asks; it does not guess.
 4. **Map fields to template elements, one source per element.** An element without a source stays empty.
@@ -76,7 +76,7 @@ With AI:
 
 | Recipe | Step | Input | Output | Gate / rule |
 |---|---|---|---|---|
-| Click-dummy | 23 | refined requirements (atomic, testable, one vocabulary, assumptions parked as open issues) | clickable mock-up and a product video, not a wireframe picture | Plant users review it; it answers "do they understand and want it" only (`funnel-prototype`) |
+| Click-dummy | 23 | refined requirements (atomic, testable, one vocabulary, assumptions parked as open issues) | clickable mock-up and a product video, not a wireframe picture | Plant users review it; it answers "do they understand and want it" only (`od-prototype-poc`) |
 | Guided ML analyser (cycle time, downtime) | 23 | raw signals plus business context (machine, grouping such as part or recipe or tool, plausibility range) | signal proposals for start and stop, model, cycle time and ranked influencers | Human interaction is mandatory at tuning and deployment; abnormal values go to notification; a rule-based per-machine solution does not generalise, ML only where generalisation and influencers are the value |
 | Deployment set | 3a4 | source and deployment files, or image and deployment files, plus the sourcing route | deployment, service, config map, namespace, probes, resources | Agent drafts from a template because the structure is fixed; Cyber Security sign-off and deployment into the shared platform stay human (`deploy-appstore`, `od-cybersec-gate`) |
 | Flow documentation | 3b4 | flow configuration file | purpose, flow functionality, node functionality | Owner confirms; entry goes to the flow library |
@@ -101,4 +101,4 @@ not claim the check was done.
   delivery.
 - Approximated signal in place of a missing one: the missing-signal table is empty although the
   requirements mention signals not in the export.
-- Generated artefact reported as proven value: see `funnel-prototype` status labels.
+- Generated artefact reported as proven value: see `od-prototype-poc` status labels.

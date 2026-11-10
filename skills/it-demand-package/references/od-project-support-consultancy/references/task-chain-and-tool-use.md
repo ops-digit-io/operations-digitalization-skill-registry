@@ -42,7 +42,7 @@ are owned by the project manager; the steering committee owns the order and the 
 ## 3. The business-case shape used for organisation-level initiatives
 
 An organisation-level analysis structures each initiative as one business case with a fixed chain. Use it as a reading frame for
-a business case this lane is asked to support (the investment inputs themselves are `bc-cost`).
+a business case this lane is asked to support (the investment inputs themselves are `od-investment-input`).
 
 | Block | Content |
 |---|---|
@@ -58,7 +58,7 @@ Keep the anchor tag: it tells you whether this lane's shop-floor protocols apply
 assistant skills (B).
 
 **Caution.** The analysis is a top-down desk exercise. Its impact ranges and any staffing effects are **not** plant commitments and
-are not carried in skills; a project this lane supports gets its numbers from the saving basis (`bc-build`).
+are not carried in skills; a project this lane supports gets its numbers from the saving basis (`od-benefit-calculation`).
 
 ## 4. Metric hooks
 

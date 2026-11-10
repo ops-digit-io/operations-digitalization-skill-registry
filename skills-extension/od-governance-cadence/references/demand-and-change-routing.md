@@ -19,7 +19,7 @@ Decision rights and forums stay in `od-decision-routing`. This file sorts the re
 | Effort | a few days at most `<to confirm threshold>` | larger |
 | Budget | already available | needs central budget |
 | Interface | standard | non-standard |
-| Route | local key user requests it in the ticket tool; approved in the change process | governance board with the product owner; project order; `bc-capital-request` where money is needed |
+| Route | local key user requests it in the ticket tool; approved in the change process | governance board with the product owner; project order; `od-capital-request` where money is needed |
 
 Flow of a ticketed demand: request (key user), backlog (product owner), evaluation, work order, development
 system, test system, user acceptance, transport to production, post-implementation review with the requester,

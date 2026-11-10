@@ -4,18 +4,17 @@
 
 | Folder | Holds |
 |---|---|
-| [od-acceptance-test/](od-acceptance-test/index.md) | 9 concept(s) |
+| [build-grafana-ops-dashboard/](build-grafana-ops-dashboard/index.md) | 13 concept(s) |
+| [funnel-features/](funnel-features/index.md) | 4 concept(s) |
 | [od-ai-generation-playbook/](od-ai-generation-playbook/index.md) | 7 concept(s) |
-| [od-analytics-asset-build/](od-analytics-asset-build/index.md) | 13 concept(s) |
+| [od-context/](od-context/index.md) | 5 concept(s) |
 | [od-context-freshness/](od-context-freshness/index.md) | 6 concept(s) |
 | [od-cross-plant-compatibility/](od-cross-plant-compatibility/index.md) | 5 concept(s) |
 | [od-cybersec-gate/](od-cybersec-gate/index.md) | 6 concept(s) |
-| [od-data-availability-check/](od-data-availability-check/index.md) | 11 concept(s) |
-| [od-decision-routing/](od-decision-routing/index.md) | 5 concept(s) |
 | [od-event-object-modelling/](od-event-object-modelling/index.md) | 6 concept(s) |
 | [od-first-aid-kit/](od-first-aid-kit/index.md) | 8 concept(s) |
 | [od-governance-cadence/](od-governance-cadence/index.md) | 8 concept(s) |
-| [od-handover-and-adoption/](od-handover-and-adoption/index.md) | 16 concept(s) |
+| [od-investment-input/](od-investment-input/index.md) | 6 concept(s) |
 | [od-migration-cutover/](od-migration-cutover/index.md) | 6 concept(s) |
 | [od-plant-diagnosis/](od-plant-diagnosis/index.md) | 7 concept(s) |
 | [od-plant-onboarding/](od-plant-onboarding/index.md) | 4 concept(s) |
@@ -26,10 +25,8 @@
 | [od-rollout-training/](od-rollout-training/index.md) | 7 concept(s) |
 | [od-scorecard-reporting/](od-scorecard-reporting/index.md) | 7 concept(s) |
 | [od-sharepoint-list-export/](od-sharepoint-list-export/index.md) | 4 concept(s) |
-| [od-signal-standardization/](od-signal-standardization/index.md) | 14 concept(s) |
 | [od-template-resolution/](od-template-resolution/index.md) | 4 concept(s) |
-| [od-use-case-definition/](od-use-case-definition/index.md) | 12 concept(s) |
-| [od-use-case-intake-triage/](od-use-case-intake-triage/index.md) | 3 concept(s) |
 | [od-use-case-solution-evaluation/](od-use-case-solution-evaluation/index.md) | 14 concept(s) |
 | [od-use-case-standardization/](od-use-case-standardization/index.md) | 10 concept(s) |
 | [od-workshop-facilitation/](od-workshop-facilitation/index.md) | 6 concept(s) |
+| [ops-dashboard-datatron/](ops-dashboard-datatron/index.md) | 1 concept(s) |

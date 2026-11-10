@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # External build and foreign app inputs
 
-Sources, read 2026-11-05: vault `Graph/Legacy Applications` (notes with the columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `funnel-requirements` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, vault `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
+Sources, read 2026-11-05: vault `Graph/Legacy Applications` (notes with the columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `od-requirements-breakdown` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, vault `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
 The IT demand form is not in any source. This note therefore gives OD's side: what OD can describe about the demand, in the vocabulary the legacy list already uses, so that IT's own fields can be added later without rework.
 
 ## Describe the foreign app (3a.4) in the list's own columns
@@ -29,7 +29,7 @@ The legacy application list is the only place the vault records third-party and 
 | Interfaced machines | free text (for example "<n> machines" or "all <n> machines of <vendor>") | what the app reads or writes on the floor |
 | Status | in use, etc. | |
 
-Aggregates and what they imply are in [catalog-usecase legacy-application-position](../../../../catalog-usecase/references/legacy-application-position.md). Add to the list of questions:
+Aggregates and what they imply are in [catalog-usecase legacy-application-position](../../../../catalog-usecase/references/legacy-application-position.md)). Add to the list of questions:
 
 1. Divisional standard or local application? (the operations concept separates global IT support from local-only support; interfaces between the two need governance-board approval - see [it-touchpoints.md](it-touchpoints.md))
 2. What does it read and write, from which system, in which direction, and does it write to a machine? (a write to a machine goes to the segmentation review and is not a plain IT demand)
@@ -38,7 +38,7 @@ Aggregates and what they imply are in [catalog-usecase legacy-application-positi
 
 ## The four assessment questions (from the requirement skill)
 
-Before specifying anything, `funnel-requirements` asks: does something already do this; is it supported; what does the licence cost; does it fit the footprint. Carry the answers into the package:
+Before specifying anything, `od-requirements-breakdown` asks: does something already do this; is it supported; what does the licence cost; does it fit the footprint. Carry the answers into the package:
 
 | Finding | What the package says |
 |---|---|
@@ -53,13 +53,13 @@ From OD's own skills, not from a vendor rule:
 
 | Part | Source in the registry |
 |---|---|
-| The requirement in the standard ten-section form | `funnel-requirements`, `assets/requirement-template.md` |
+| The requirement in the standard ten-section form | `od-requirements-breakdown`, `assets/requirement-template.md` |
 | The epic with its user stories and the acceptance criteria | same, `assets/epic-and-stories.md`; `od-acceptance-test` for the protocol |
 | The legacy and footprint assessment (section 8 of the requirement) | `references/legacy-system-assessment.md` |
 | Data read and written, against the systems of record | `deploy-appstore`, deployment package |
 | Interface and versioning expectations | `deploy-appstore`, `references/app-manifest-and-release-gate.md` (proposal) |
 | Source ownership: the department keeps the source, or the app is a closed box | the three onboarding scenarios in `deploy-appstore`, `references/platform-and-pilot-status.md` |
-| Business case with sources and capture dates | `bc-build` |
+| Business case with sources and capture dates | `od-benefit-calculation` |
 
 The security terms, environment access, spec format accepted by IT and any contract clauses are **not recorded**: ⟨what an external developer must receive⟩ - OD lead, IT demand management, Cyber Security.
 

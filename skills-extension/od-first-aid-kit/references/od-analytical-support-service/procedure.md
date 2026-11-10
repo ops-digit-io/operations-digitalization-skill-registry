@@ -19,7 +19,7 @@ generated:
 
 > **Absorbed.** This was the skill `od-analytical-support-service`. It now runs as a mode of [`od-first-aid-kit`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on data sources; draft on assets and summaries; recommend on promotion.
 
-Read `dept-os` first.
+Read `od-context` first.
 
 **Trigger.** An analytical request or an ad-hoc process-insight need.
 **Definition of done.** Process diagnostics / analytical insight delivered.
@@ -40,7 +40,7 @@ solution — and knowing which of the two is being asked for is step one.
 
 | # | Step | Who | Control point |
 |---|---|---|---|
-| 1 | Analytical / ad-hoc request received (Process First-Aid Kit) | Plant / OPEX + DBVE | Request scoped — see `funnel-requirements` |
+| 1 | Analytical / ad-hoc request received (Process First-Aid Kit) | Plant / OPEX + DBVE | Request scoped — see `od-requirements-breakdown` |
 | 2 | Check data availability on the data platform | both | Data present and fit for use |
 | 3 | Process diagnostics and analytical process insight | DBVE | Insight validated |
 | 4 | Build the asset — dashboard / report / analytics / app | both | Asset produced |

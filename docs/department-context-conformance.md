@@ -41,10 +41,10 @@ are agenda numbers, not figures.
 
 | # | Rule in the department files | The skills | Severity |
 |---|---|---|---|
-| 1 | Lane 3 step 2: the tool-decision / IT-footprint gate `investment-screening` (`invest-screen`) is **mandatory** and routes 3a.1-3a.4 or 3b | No skill names it. `od-system-fit-check` (placed on step 32) gives fits / redesign / escalate against the lean footprint; it does not route make, buy, integrate or connect and has no IT-footprint hard gate. The department already has the gate packaged (`30-skills/investment-checking.zip`) | High |
+| 1 | Lane 3 step 2: the tool-decision / IT-footprint gate `investment-screening` (`od-system-fit-check`) is **mandatory** and routes 3a.1-3a.4 or 3b | No skill names it. `od-system-fit-check` (placed on step 32) gives fits / redesign / escalate against the lean footprint; it does not route make, buy, integrate or connect and has no IT-footprint hard gate. The department already has the gate packaged (`30-skills/investment-checking.zip`) | High |
 | 2 | Intake classifies each demand into exactly one of Lane 1, 2 or 3 | `od-use-case-intake-triage` SKILL.md step 3 still routes into the four old service lines; its own `references/process-chain-practice.md` routes to Lane 1/2/3. The skill contradicts itself. `od-context` also frames "the four service lines" | High (pending adoption of the new state) |
 | 3 | Old lanes resolved: Analytical Support retired; Project Support becomes the Lane 3 front-end; Information Integration becomes 3b | The three lane orchestrators ship in the extension library and `docs/new-state-flow.md` calls their future open. The department draft answers it | Medium |
-| 4 | Business case (OD x IT, 2026-09-11): separate bankable impact from assumption-dependent benefit; state investment envelope, minimum viable rollout, maximum scale-out, TCO. Cost kept apart from value (`bc-cost` feeds `bc-assess`) | None of these terms in `od-benefit-calculation` or `od-capital-request`. `od-benefit-calculation` has no cost side; `od-capital-request` notes it. `od-capital-request` says nothing packages the eCR, but the department holds `ecr-builder` (`bc-capital-request`) and `bc-assessment` | High |
+| 4 | Business case (OD x IT, 2026-09-11): separate bankable impact from assumption-dependent benefit; state investment envelope, minimum viable rollout, maximum scale-out, TCO. Cost kept apart from value (`od-investment-input` feeds `bc-assessment`) | None of these terms in `od-benefit-calculation` or `od-capital-request`. `od-benefit-calculation` has no cost side; `od-capital-request` notes it. `od-capital-request` says nothing packages the eCR, but the department holds `ecr-builder` (`od-capital-request`) and `bc-assessment` | High |
 | 5 | Application ownership (OD x IT): build-and-run; ownership moves only on formal acceptance; handover checklist (legacy status, backlog, version currency, architecture, business logic, logging, observability) | Absent from `od-handover-and-adoption`, `it-demand-package`, `deploy-appstore` | High |
 | 6 | Technology guardrails (OD x IT): Python/FastAPI/SQL, k8s/CMO deployment, approved OT interfaces (MQTT/Edge), observability; self-assessment every 6-12 months; requirements fix objective, scope, interfaces and growth boundaries (mission creep) | Not in `od-catalog` guardrails or `od-requirements-breakdown`. The IT side still owns publishing them (action item 6), so the skills can only point to them | Medium |
 | 7 | Lane 1a: the plant applies the standard dashboard in self-service mode | `od-analytics-asset-build` and `build-grafana-ops-dashboard` still describe OD building it. No DATATRON-specific skill (`ops-dashboard-datatron`) in the registry | Medium |
@@ -62,7 +62,7 @@ Fix these in the department folder, not in the skills.
   platform and ContiTech as counterpart. The owner retired both (`docs/derivation.md`: Databricks to Azure Storage Account,
   no ContiTech). The registry follows the owner.
 - **Lane 2 order.** The lane 2 file puts prototype before the business case; `OD_Skill_Naming_Convention.md` §4 chains
-  `bc-build` before `funnel-prototype`. The registry follows the lane file.
+  `od-benefit-calculation` before `od-prototype-poc`. The registry follows the lane file.
 - **Cyber Security in 3b.** The lane 3 file puts sign-off before procurement; the owner decided "Cyber Security in parallel",
   sign-off blocking go-live (`log.md`, 2026-11-06). The registry follows the owner.
 - **"3a.4".** In the department it is an option (integrate a foreign app); in `process.yaml` `3a4` is a step ("Package or
@@ -85,7 +85,7 @@ Fix these in the department folder, not in the skills.
 | 9 | Cyber Security pre-evaluation | `od-cybersec-gate` section on pre-evaluation, platform-level approval and the CMO route |
 | 10 | App-Store procedure | `deploy-appstore` records the department's GitOps / ArgoCD deployment shape (`references/gitops-deployment-shape.md`) |
 | 11 | Lane metadata | Every skill's `lane`, `new_state_lane` and `new_state_step` regenerated from `process.yaml` |
-| 12 | Naming convention | Not changed: renaming every skill is a separate decision; the department names are recorded as aliases in the skills (`bc-build`, `bc-cost`, `bc-capital-request`, `invest-screen`, `ops-dashboard-engine`) |
+| 12 | Naming convention | Not changed: renaming every skill is a separate decision; the department names are recorded as aliases in the skills (`od-benefit-calculation`, `od-investment-input`, `od-capital-request`, `od-system-fit-check`, `build-grafana-ops-dashboard`) |
 
 **Duplicates.** Twelve skills were merged into the skill that owns the same capability (table in the README).
 53 skills became 42 (27 core, 15 extension). **Flow.** `OD_NewState_Flow.mermaid` was redrawn to the lane

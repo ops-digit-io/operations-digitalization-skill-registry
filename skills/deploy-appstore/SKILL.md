@@ -23,8 +23,8 @@ metadata:
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
   sources_read: 2026-11-10
-  requires: [dept-os]
-  composes: [invest-screen, od-decision-routing, od-acceptance-test, od-handover-and-adoption, it-demand-package, od-cybersec-gate]
+  requires: [od-context]
+  composes: [od-system-fit-check, od-decision-routing, od-acceptance-test, od-handover-and-adoption, it-demand-package, od-cybersec-gate]
   derived_from:
     - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 3a step "Deploy to platform + CS", the four 3a options and the gap register entry, read 2026-11-05
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
@@ -33,7 +33,7 @@ metadata:
     - Department deck AI_Where_We_Apply_Today.pptx (one slide; the line "Manufacturing App Store - GitOps deployment (pilot)"), text extracted and read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Keynote Initiatives notes Manufacturing App Store (CMO), AI-Coding Assimilation, Cybersec Backlog Closure and AI Requirements Eng. Pipeline, read 2026-11-05
     - Work vault, Microservice Apps (WIP), the notes Microservice Landscape, Platform Extensibility and Onboarding, Cross-Cutting Platform Concerns, Platform Services (Shared Kernel), Recipe Values Service, User Interfaces and Interaction Layer and Extension Services, AI-drafted and not reviewed, read 2026-11-05
-    - Work vault, Graph/Tools (Concept 3, IIoT Edge Computing Platform) and the skill mi-connector reference iiot-edge-platform.md, read 2026-11-05
+    - Work vault, Graph/Tools (Concept 3, IIoT Edge Computing Platform) and the skill od-equipment-integration reference iiot-edge-platform.md, read 2026-11-05
     - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
@@ -46,7 +46,7 @@ metadata:
 
 # App deployment to the platform
 
-Read `dept-os` first.
+Read `od-context` first.
 
 **Status: draft.** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
 GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance); its shape and the
@@ -97,8 +97,8 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 
 ## Procedure
 
-1. **Precondition.** The front-end is done: requirement (`funnel-requirements`), tool decision (`invest-screen`,
-   `od-decision-routing`), business case (`bc-build`), capital approved where needed.
+1. **Precondition.** The front-end is done: requirement (`od-requirements-breakdown`), tool decision (`od-system-fit-check`,
+   `od-decision-routing`), business case (`od-benefit-calculation`), capital approved where needed.
 2. **Confirm the target and the route** (above). Record both.
 3. **Assemble the deployment package** (ask for source ownership in the supplier contract; otherwise the highest-effort scenario applies, see `references/process-chain-practice.md`): what the app is and who owns it; the plant sponsor; the target; the sourcing route;
    the data it reads and writes (against `systems-of-record`); the dependencies; the rollback owner; the acceptance protocol.

@@ -24,8 +24,8 @@ metadata:
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
   status: draft
   sources_read: 2026-11-10
-  requires: [dept-os]
-  composes: [funnel-requirements, invest-screen, bc-build, bc-cost, bc-capital-request, od-decision-routing, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, deploy-appstore, od-data-availability-check, od-signal-standardization]
+  requires: [od-context]
+  composes: [od-requirements-breakdown, od-system-fit-check, od-benefit-calculation, od-investment-input, od-capital-request, od-decision-routing, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, deploy-appstore, od-data-availability-check, od-signal-standardization]
   derived_from:
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt and INDEX.md (OD x IT alignment: artefacts IT expects, catalogs, Cyber Security pre-evaluation, ownership and handover, guardrails, sourcing, business cases, legacy, Gemba lessons), read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-3-new-system-or-connector.md (front-end step 5 handover once the demand is clear; it-demand-package named as gap; error path: do not push an under-specified demand), read 2026-11-10"
@@ -41,7 +41,7 @@ metadata:
 ---
 # IT handover
 
-Read `dept-os` first.
+Read `od-context` first.
 
 OD's value in Lane 3 sits in the span **requirements → decision gate → clear demand**; execution after
 handover is IT's or the external developer's (department Lane 3 file). This skill is the last link of that
@@ -85,9 +85,9 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 
 ## Procedure
 
-1. **Check the front-end is complete.** Requirement with growth boundaries (`funnel-requirements`),
-   gate verdict and route (`invest-screen`, verdict Go or PoC-first), business case and investment
-   estimate (`bc-build`, `bc-cost`), approval route (`bc-capital-request`,
+1. **Check the front-end is complete.** Requirement with growth boundaries (`od-requirements-breakdown`),
+   gate verdict and route (`od-system-fit-check`, verdict Go or PoC-first), business case and investment
+   estimate (`od-benefit-calculation`, `od-investment-input`), approval route (`od-capital-request`,
    `od-decision-routing`). If a part is missing, name it and stop.
 2. **Scaffold** the change: `python3 scripts/new_handover.py <out-dir> <change-id>`. The change id is
    kebab-case and names the change (`add-downtime-reason-capture`), not the project.

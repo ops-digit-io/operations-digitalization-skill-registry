@@ -27,7 +27,7 @@ Deck-derived practice for the spine. The script finds old dates; this file tells
 | Tool status and recommendation (one scale: recommended / recommended if <condition> / not recommended / not available; with date and source) | strategy decks change direction between years; some stop what others continue; plant summaries lag the strategy | tool overview list, with its date |
 | Plant tier (first mover, fast follower) and which plants are on a wave | follows value, capacity and a staffed key user | plant roadmap, key-user register |
 | Forum status and agenda (ODEC is historical, no longer held; technical call) | ODEC met monthly only until 2025-12; no fixed replacement forum; a later deck reused an earlier agenda unchanged | current invitation, not a deck |
-| The dashboard standard and the BI standard | one strategy keeps the open dashboard tool, another plans a BI tool and lists the first as needing an upgrade | `dept-os`, register |
+| The dashboard standard and the BI standard | one strategy keeps the open dashboard tool, another plans a BI tool and lists the first as needing an upgrade | `od-context`, register |
 | Training format (hands-on in the plant, small groups, real plant data; central material is support only) | plans change | training plan |
 | Master-data leader and which local masters remain | stated rule, reconciliation unstated | architecture owner |
 | KPI definitions that depend on the system landscape (for example a use-case count against a threshold) | platform centralization changes counts | KPI definition with its date |
@@ -39,7 +39,7 @@ Deck-derived practice for the spine. The script finds old dates; this file tells
 - **A decision that depends on a time-bound fact is blocked until the fact is looked up live.** Say so in the report.
 - **Prefer the later dated source** when decks contradict, say that you did, and mark `<to confirm>`.
 - **An early deck marked "not in use" defines intent, not practice.** Use it for cadence and structure only.
-- **A statement with no owner and no review date is stale by definition** (the currency rules in `dept-os`: one named role per section, auto-flagging review date, fields not prose, open values marked).
+- **A statement with no owner and no review date is stale by definition** (the currency rules in `od-context`: one named role per section, auto-flagging review date, fields not prose, open values marked).
 - **Do not clear a finding by editing a date.** The existing rules stand.
 - **Clean-up beats addition.** The decks record the pattern "an insufficient system is replaced by another insufficient system; we forget to clean up". A finding may recommend retiring the old artefact rather than refreshing it.
 
@@ -51,7 +51,7 @@ Deck-derived practice for the spine. The script finds old dates; this file tells
 - **Hidden versus deleted.** Not-applicable template pages are hidden or moved to the back, not deleted; a "deleted" section may have been silently dropped.
 - **Tracker proliferation.** Several trackers for one purpose; ask which is the system of record.
 - **Realized versus estimated wording** that has not been updated after a baseline was captured.
-- **Version history carries text the current record does not** (`dept-os` honesty rule 5).
+- **Version history carries text the current record does not** (`od-context` honesty rule 5).
 
 ## 5. Questions to ask and definition of done
 
@@ -62,7 +62,7 @@ Which statement in this skill would be wrong if the strategy changed last quarte
 ## 6. AI agent operating notes
 
 - **Can do:** run the script; list skills that state a time-bound fact (tool status, plant tier, cadence, vocabulary, KPI basis) and their source dates; detect identical placeholder values across records; list empty owner or review-date fields; compare the bundle's open gaps with the registry's; draft the report.
-- **Needs:** script output, registry marks, the live lists named in `dept-os`.
+- **Needs:** script output, registry marks, the live lists named in `od-context`.
 - **Human gate:** the owner (OD lead for the bundle, registry owner for skills) decides every action; nothing is marked verified, expired or stable on the agent's say-so.
 - **Must cite:** file and field, date found, live source consulted.
 - **Hands over:** the dated hygiene report; each finding names its owner role.

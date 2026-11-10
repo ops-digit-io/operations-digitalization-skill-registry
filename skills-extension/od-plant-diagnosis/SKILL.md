@@ -22,8 +22,8 @@ metadata:
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-plant-onboarding, od-cross-plant-compatibility, od-portfolio-and-savings-analysis, od-scorecard-reporting, mi-connector, od-decision-routing, od-risk-watch]
+  requires: [od-context]
+  composes: [od-plant-onboarding, od-cross-plant-compatibility, od-portfolio-and-savings-analysis, od-scorecard-reporting, od-equipment-integration, od-decision-routing, od-risk-watch]
   derived_from:
     - Operations Digitalization slide decks (plant-to-plant gap analysis, plant tiering, roadmap and call-for-action formats, interview-based evidence updates), abstracted into process guidance; no figures.
   okf:
@@ -36,7 +36,7 @@ metadata:
 
 # Plant gap diagnosis, tiering and roadmap
 
-Read `dept-os` first. This skill holds **no figures** about plants or savings. It is a method; the numbers
+Read `od-context` first. This skill holds **no figures** about plants or savings. It is a method; the numbers
 come live from the lists and the scorecard (`od-portfolio-and-savings-analysis`, `od-scorecard-reporting`).
 Statements marked `PROPOSAL` are this skill's own synthesis, not a decision of the department.
 
@@ -77,7 +77,7 @@ Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
 Not repeated here: starting profiles and the onboarding path (`od-plant-onboarding`), whether a standard is
 consumable at a plant (`od-cross-plant-compatibility`), rollup rules and the three misleading readings of the
 data (`od-portfolio-and-savings-analysis`), ranking of use cases (`od-portfolio-and-savings-analysis`), classifying a
-machine that will not connect (`mi-connector`).
+machine that will not connect (`od-equipment-integration`).
 
 ## Procedure
 
@@ -114,7 +114,7 @@ machine that will not connect (`mi-connector`).
 |---|---|
 | Plant placed by starting profile, machine and use-case lists read on the day | `od-plant-onboarding`, `od-sharepoint-list-export` |
 | Savings by plant with tracked and proven kept apart, and the use-case status cut | `od-portfolio-and-savings-analysis` |
-| Barrier log for machines that will not connect | `mi-connector` |
+| Barrier log for machines that will not connect | `od-equipment-integration` |
 | Compatibility verdict per plant for a standard | `od-cross-plant-compatibility` |
 
 | Hands on | To |

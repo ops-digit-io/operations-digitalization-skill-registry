@@ -25,4 +25,4 @@ Derived from the event definition canvas of <date>. Draft; nothing here connects
 | Retention (if claims traceability applies) | <rule> |
 | Handoff files | signal list, mapping tables, start/stop signals, first datasets |
 | Open gaps | <gap, owner role, route: od-data-availability-check / Information Integration lane> |
-| Next skill | <funnel-requirements / od-signal-standardization / od-analytics-asset-build> |
+| Next skill | <od-requirements-breakdown / od-signal-standardization / od-analytics-asset-build> |

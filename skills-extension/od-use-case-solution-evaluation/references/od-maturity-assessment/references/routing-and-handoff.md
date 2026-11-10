@@ -20,9 +20,9 @@ quote the rule with the signal.
 
 | Profile | Signal | Hand to |
 |---|---|---|
-| F9 at least cable, F10 at least proprietary with a known connector, F1 for assets at least 3 | A standard system can be matched; proceed to the kit pick | `catalog-usecase`, then `mi-connector` |
-| F9 not networked or no usable drop | The kit cannot be fitted yet; a connection prerequisite is missing | `mi-connector` (legacy hardware or information class) |
-| F10 level 1 or 2 with no connector on the fallback ladder | No route; substitution or roadmap question | `mi-connector` |
+| F9 at least cable, F10 at least proprietary with a known connector, F1 for assets at least 3 | A standard system can be matched; proceed to the kit pick | `catalog-usecase`, then `od-equipment-integration` |
+| F9 not networked or no usable drop | The kit cannot be fitted yet; a connection prerequisite is missing | `od-equipment-integration` (legacy hardware or information class) |
+| F10 level 1 or 2 with no connector on the fallback ladder | No route; substitution or roadmap question | `od-equipment-integration` |
 | Many `unknown` on F9, F10, F2 | Information gap; do not match a kit on assumptions | the plant ME to fill the Machine List fields |
 
 ### 22 Features and data check (new use case on a connected machine)
@@ -41,22 +41,22 @@ Rate the requested or existing system on the areas that describe it (F2, F10, F1
 
 | Profile | Signal | Hand to |
 |---|---|---|
-| The asked function is order or recipe execution, sequencing, genealogy, material validation (F15 central control territory) | MES-shaped need, whatever the request calls it | `invest-screen` (escalate unless a lighter tool covers it) |
-| An existing plant-local application with F10 proprietary and F16 level 1 | Integration costs a mapping per interface; compare with replace | `invest-screen` (integrate, keep or replace) |
-| An existing application with F12 central only and a traceability or high-rate demand | Data lost on outage; edge needed in front of it | `invest-screen` (data path) |
-| Application with F10 open standard, F16 at least 2, a named owner and support level | Cheap to integrate; reuse or integrate foreign app is plausible | `invest-screen` (build path) |
-| Application with no named business owner, IT owner and support level | Service gap, not a profile question | `invest-screen` (operations-concept precondition), `od-decision-routing` |
+| The asked function is order or recipe execution, sequencing, genealogy, material validation (F15 central control territory) | MES-shaped need, whatever the request calls it | `od-system-fit-check` (escalate unless a lighter tool covers it) |
+| An existing plant-local application with F10 proprietary and F16 level 1 | Integration costs a mapping per interface; compare with replace | `od-system-fit-check` (integrate, keep or replace) |
+| An existing application with F12 central only and a traceability or high-rate demand | Data lost on outage; edge needed in front of it | `od-system-fit-check` (data path) |
+| Application with F10 open standard, F16 at least 2, a named owner and support level | Cheap to integrate; reuse or integrate foreign app is plausible | `od-system-fit-check` (build path) |
+| Application with no named business owner, IT owner and support level | Service gap, not a profile question | `od-system-fit-check` (operations-concept precondition), `od-decision-routing` |
 
 ### 3b4 Connector and pipeline (new machine)
 
 | Profile | Signal | Hand to |
 |---|---|---|
-| F10 standard protocol, F2 at least active | OPC UA or equivalent route; configure, do not build | `mi-connector` |
-| F10 proprietary, F2 passive | Vendor connector or file drop; a gateway turns polling into events; name its owner | `mi-connector`, `mi-connector` |
-| F12 central only on a machine with high-rate or traceability signals | Edge device rather than plain client | `mi-connector` (edge versus plain connection rule in `invest-screen`) |
+| F10 standard protocol, F2 at least active | OPC UA or equivalent route; configure, do not build | `od-equipment-integration` |
+| F10 proprietary, F2 passive | Vendor connector or file drop; a gateway turns polling into events; name its owner | `od-equipment-integration`, `od-equipment-integration` |
+| F12 central only on a machine with high-rate or traceability signals | Edge device rather than plain client | `od-equipment-integration` (edge versus plain connection rule in `od-system-fit-check`) |
 | F16 level 1 | Signal standard before pipeline | `od-signal-standardization` |
-| Several machines of one type with the same profile | One connector and one standard for the type | `mi-connector` (scale known types) |
-| Ordering a new machine | Write F10 standard protocol and F2 active into the specification | `funnel-requirements`, procurement route of `mi-connector` |
+| Several machines of one type with the same profile | One connector and one standard for the type | `od-equipment-integration` (scale known types) |
+| Ordering a new machine | Write F10 standard protocol and F2 active into the specification | `od-requirements-breakdown`, procurement route of `od-equipment-integration` |
 
 ## 2 Decision rules
 
@@ -73,10 +73,10 @@ Rate the requested or existing system on the areas that describe it (F2, F10, F1
 
 | Receive | From | Must contain |
 |---|---|---|
-| Object and question | `od-use-case-intake-triage`, `funnel-requirements`, `mi-connector`, `invest-screen` | The object (machine, system or application), the plant, the question the profile serves, the use case or request behind it, the Machine List, tool or legacy-list row |
-| Hand on: profile | `od-use-case-solution-evaluation`, `od-data-availability-check`, `invest-screen`, `invest-screen`, `mi-connector`, `mi-connector` | Per area: level or `unknown` or `n/a`, evidence grade, source and date, owner role; the open unknowns |
-| Hand on: drivers and gaps | `od-use-case-solution-evaluation` (targets and verdict), `mi-connector` (sequence) | Driver ratings with both raters, candidate areas, gap chain with prerequisites and named need |
-| Hand on: stalled route | `mi-connector` | The unmet prerequisite on the backbone and the evidence for it, so the class is not re-derived |
+| Object and question | `od-use-case-intake-triage`, `od-requirements-breakdown`, `od-equipment-integration`, `od-system-fit-check` | The object (machine, system or application), the plant, the question the profile serves, the use case or request behind it, the Machine List, tool or legacy-list row |
+| Hand on: profile | `od-use-case-solution-evaluation`, `od-data-availability-check`, `od-system-fit-check`, `od-system-fit-check`, `od-equipment-integration`, `od-equipment-integration` | Per area: level or `unknown` or `n/a`, evidence grade, source and date, owner role; the open unknowns |
+| Hand on: drivers and gaps | `od-use-case-solution-evaluation` (targets and verdict), `od-equipment-integration` (sequence) | Driver ratings with both raters, candidate areas, gap chain with prerequisites and named need |
+| Hand on: stalled route | `od-equipment-integration` | The unmet prerequisite on the backbone and the evidence for it, so the class is not re-derived |
 
 The record is filed with the object. Anyone who needs the same object later reads it first, checks the date and refreshes only the areas that
 changed.

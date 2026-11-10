@@ -20,8 +20,8 @@ metadata:
   authority_level: recommend - the Cyber Security sign-off itself is human-only
   status: draft
   sources_read: 2026-11-10
-  requires: [dept-os]
-  composes: [mi-connector, od-decision-routing, od-acceptance-test, deploy-appstore]
+  requires: [od-context]
+  composes: [od-equipment-integration, od-decision-routing, od-acceptance-test, deploy-appstore]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/agent-brief.md
@@ -32,7 +32,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/09-risks.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
-    - Skills od-information-integration-service (guardrails), od-decision-routing (escalation triggers and the cybersecurity worked example), mi-connector (SKILL.md, references barrier-classes, fallbacks, iiot-edge-platform, decision-paths) and deploy-appstore, read 2026-11-05
+    - Skills od-information-integration-service (guardrails), od-decision-routing (escalation triggers and the cybersecurity worked example), od-equipment-integration (SKILL.md, references barrier-classes, fallbacks, iiot-edge-platform, decision-paths) and deploy-appstore, read 2026-11-05
     - Registry docs/new-state-flow.md and the Mermaid and skill-map diagrams in docs/new-state, the Cyber Security steps of Lanes 1b and 3, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Tools and Systems (Groot2B, QFPR), Plant - Auburn, Plant - Monterrey and Other (AI news session disclaimer, Shopfloor Applications List); Graph/Tools QFPR and Concept 3; Graph/Legacy Applications (268 notes, aggregate counts); Graph/Registers Blocker Register; Graph/Connectors and Graph/Tools for the connected platforms, read 2026-11-05
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
@@ -46,7 +46,7 @@ metadata:
 
 # Cyber Security sign-off gate
 
-Read `dept-os` first.
+Read `od-context` first.
 
 **Status: draft.** The department's own sources fix *that* the gate exists and *who* may not pass it, but
 the sign-off standard itself is not collected (`15-resources.md` lists it as `⟨standard doc - to collect, with
@@ -74,7 +74,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 ## The rule
 
 **A missing sign-off holds the case. There is no expedited path and no authority level that shortens it.**
-(`mi-connector` guardrail; `mi-connector` error paths.) An agent never
+(`od-equipment-integration` guardrail; `od-equipment-integration` error paths.) An agent never
 connects, never approves an external connection, and never records "signed off" on its own say-so.
 
 The gate is **decoupled and runs in parallel**: start the package alongside planning and build. It blocks only go-live
@@ -90,17 +90,17 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
    when in doubt, treat the case as needing the gate and let Cyber Security say otherwise.
 3. **Look for an existing cover first.** The department's own strategy bet is to bundle the sign-off with the
    wave or with the MSB rollout at strategic plants rather than ask per machine
-   (`mi-connector` `references/fallbacks.md` section 4; `09-risks.md`). Check whether a
+   (`od-equipment-integration` `references/fallbacks.md` section 4; `09-risks.md`). Check whether a
    wave-level sign-off exists for this plant and whether this machine or app falls inside its scope.
    ⟨Where wave-level sign-offs are recorded⟩ is not known.
    For a pilot, keep the scope small enough to stay off the heavy OT path and list what is
    deferred (`references/process-chain-practice.md`).
 4. **Fill the package** from existing outputs, not from memory: the data path and the integration concept from
-   `mi-connector` (assessment or guidance protocol), the app package from `deploy-appstore`, the
+   `od-equipment-integration` (assessment or guidance protocol), the app package from `deploy-appstore`, the
    acceptance protocol from `od-acceptance-test`. Use `references/package-contents.md` as the checklist. Leave
    credentials, addresses, certificates and tokens **out of the package**: list that they exist and who holds
    them, never their values.
-5. **Route it.** Open a decision request ([`od-decision-routing`](../od-decision-routing/assets/decision-request.md))
+5. **Route it.** Open a decision request ([`od-decision-routing`](../../skills/od-decision-routing/assets/decision-request.md))
    on the row "Equipment integration go-ahead" (Tandem IIAE with Plant ME / Plant IT, approval yes,
    `execute-with-approval`). Record the sign-off as a **dependency** on the use case or the machine record.
    Where the case involves personal data, worker-performance measurement or a new platform
@@ -118,7 +118,7 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
    validity. Three outcomes:
    - *Granted* - attach it to the acceptance protocol evidence (`od-acceptance-test`), then proceed.
    - *Granted with conditions* - the conditions become open items on the case; re-check before go-live.
-   - *Refused* - route the barrier (`mi-connector` `references/barrier-classes.md`); the
+   - *Refused* - route the barrier (`od-equipment-integration` `references/barrier-classes.md`); the
      two-path model is "substitute the solution" or "approve and manage it externally" (see precedents).
 10. **After go-live** the risk register's early indicator is "non-compliant connection detected". Anything
     found later is escalated, not quietly patched.
@@ -139,7 +139,7 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
 
 | Situation | Action | Source |
 |---|---|---|
-| External connection planned, no sign-off | Hold. No expedited path | `mi-connector` SKILL.md |
+| External connection planned, no sign-off | Hold. No expedited path | `od-equipment-integration` SKILL.md |
 | Sign-off requested at wave level | Check the covered scope, then proceed machine by machine inside it | fallbacks.md section 4 |
 | Firmware patch required for security | Barrier class; patch before integration | barrier-classes.md |
 | Controller cannot do security-compliant communication | A security position, not a preference; the conversation ends | decision-paths.md (S7-300/400) |

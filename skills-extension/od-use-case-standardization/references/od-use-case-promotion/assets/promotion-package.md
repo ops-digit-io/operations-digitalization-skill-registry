@@ -35,7 +35,7 @@ Threshold used: ⟨to confirm with the DBVE lead⟩. Judgement: ⟨recurring · 
 |---|---|---|
 | Utilization recorded | ⟨daily · weekly · ... · NEVER · not recorded⟩ | ⟨Scorecard, Use Case Utilization⟩ |
 | Ritual or decision it serves | ⟨Daily Gemba · troubleshooting · ...⟩ | ⟨⟩ |
-| Saving rows (amount, year, category, methodology, reliability, proven) | ⟨or "to be collected"⟩ | ⟨bc-build⟩ |
+| Saving rows (amount, year, category, methodology, reliability, proven) | ⟨or "to be collected"⟩ | ⟨od-benefit-calculation⟩ |
 | Tracked EUR · proven EUR | ⟨shown separately⟩ | ⟨⟩ |
 
 ## 3 Reproducibility

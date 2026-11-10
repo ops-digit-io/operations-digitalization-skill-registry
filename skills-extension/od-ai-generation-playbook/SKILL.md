@@ -22,8 +22,8 @@ metadata:
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-context-freshness, od-analytics-asset-build, od-signal-standardization, funnel-prototype, od-cybersec-gate, deploy-appstore, od-data-availability-check, invest-screen, od-template-resolution, od-handover-and-adoption]
+  requires: [od-context]
+  composes: [od-context-freshness, od-analytics-asset-build, od-signal-standardization, od-prototype-poc, od-cybersec-gate, deploy-appstore, od-data-availability-check, od-system-fit-check, od-template-resolution, od-handover-and-adoption]
   derived_from:
     - Operations Digitalization slide decks (AI usage and department context, dashboard generation, GenAI and agentic pilots, AI-built apps, assistants), abstracted into process guidance; no figures.
   okf:
@@ -36,7 +36,7 @@ metadata:
 
 # AI generation playbook
 
-Read `dept-os` first. This skill adds no new service. It is the one rulebook for the places in the
+Read `od-context` first. This skill adds no new service. It is the one rulebook for the places in the
 chain where an AI agent drafts, classifies, generates or checks something, so that every step uses the
 same safe pattern: **fixed-structure inputs, an importable or reviewable output, a named evidence trail,
 a human gate before anything leaves the team.**
@@ -71,7 +71,7 @@ does not fill the gap from memory. Read the context by relevance, not all of it.
 
 **R2 - Honesty rule for generated output (all steps).** Every element of a generated artefact traces to a
 source field. Open items ("to confirm") stay out of the artefact and go on a separate open-item list.
-The `dept-os` honesty rules apply to every figure: tracked is not proven, absence is not zero, no
+The `od-context` honesty rules apply to every figure: tracked is not proven, absence is not zero, no
 figure without a nameable source.
 
 **R3 - Fixed-structure inputs, importable output (steps 22, 23, 1a2, 3b4).** Generation is safest when the
@@ -105,7 +105,7 @@ is a draft and is labelled so.
 **R8 - Fit check for AI platforms and tools (31, 32).** Criteria seen in the decks are governed model
 operations with audit trails, no company data used for model training, alignment with the single-sourcing
 rule of purchasing, the cyber-security baseline. A tool failing one is not scaled until the gap is closed;
-the verdict is `invest-screen`'s and human.
+the verdict is `od-system-fit-check`'s and human.
 
 **R9 - Time-boxed pilots and a named owner (31, 32, 23).** GenAI proofs of concept and agentic workflows
 run time-boxed, with a named process owner, a named data source and a named review point; with any of the
@@ -148,8 +148,8 @@ promotion to the catalog; confirming a savings status.
 
 ## Neighbours (not repeated here)
 
-`dept-os` (honesty rules), `od-context-freshness` (stale sources), `od-analytics-asset-build` (what to
-build, ritual of use), `od-signal-standardization` (naming and data model), `funnel-prototype` (four stages: PoC for
+`od-context` (honesty rules), `od-context-freshness` (stale sources), `od-analytics-asset-build` (what to
+build, ritual of use), `od-signal-standardization` (naming and data model), `od-prototype-poc` (four stages: PoC for
 feasibility, prototype for benefit with real users, pilot, rollout; each is its own claim), `od-cybersec-gate` (sign-off package), `deploy-appstore` (deployment
 package and release gate).
 

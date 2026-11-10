@@ -174,7 +174,7 @@
 
   <!-- ============ INTAKE CLASSIFIER ============ -->
   <div class="intake">
-    <div class="ihead">Intake classification <span class="sub">&mdash; one lane per demand; branch decided inside the lane</span><span class="pwr">powered by <code style="background:#2c3f9e;color:#dfe6ff">od-use-case-intake-triage</code> + <code style="background:#2c3f9e;color:#dfe6ff">invest-screen</code> &middot; both Built</span></div>
+    <div class="ihead">Intake classification <span class="sub">&mdash; one lane per demand; branch decided inside the lane</span><span class="pwr">powered by <code style="background:#2c3f9e;color:#dfe6ff">od-use-case-intake-triage</code> + <code style="background:#2c3f9e;color:#dfe6ff">od-system-fit-check</code> &middot; both Built</span></div>
     <div class="tree">
       <div class="q">Is the use case already known (in the catalog)?</div>
       <div class="branch">
@@ -218,7 +218,7 @@
           <tr><td class="stepno">2</td>
             <td><span class="stepname">Apply standardized template</span> <span class="who">&middot; plant</span><div class="stepdesc">Configure the known dashboard/report/app against the connected machine.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&mdash;&#10217;</span></td>
-            <td><code>od-analytics-asset-build</code> <code>ops-dashboard-engine</code> <span class="stepdesc">(self-service mode)</span></td>
+            <td><code>od-analytics-asset-build</code> <code>build-grafana-ops-dashboard</code> <span class="stepdesc">(self-service mode)</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">3</td>
             <td><span class="stepname">Validate &amp; go live</span> <span class="who">&middot; plant</span><div class="stepdesc">Self-check against guardrails; adopt into daily use.</div></td>
@@ -244,7 +244,7 @@
           <tr><td class="stepno">3</td>
             <td><span class="stepname">Order &amp; connect standardized system</span> <span class="who">&middot; both</span><div class="stepdesc">Procure the standard kit; connect the machine; Cyber Security sign-off.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;wks&#10217;</span><span class="extn">procurement + CS (standard &rarr; short)</span></td>
-            <td><code>mi-connector</code> <span class="stepdesc">(connect step)</span><span class="fix"><b>Corrected:</b> connection is Built, not a gap &mdash; the wait is procurement/CS, not a missing skill</span></td>
+            <td><code>od-equipment-integration</code> <span class="stepdesc">(connect step)</span><span class="fix"><b>Corrected:</b> connection is Built, not a gap &mdash; the wait is procurement/CS, not a missing skill</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">4</td>
             <td><span class="stepname">Apply known-UC template &amp; go live</span> <span class="who">&middot; plant</span><div class="stepdesc">Same as branch 1a once connected.</div></td>
@@ -289,7 +289,7 @@
           <tr><td class="stepno">2</td>
             <td><span class="stepname">Feature breakdown &amp; data/system check</span> <span class="who">&middot; human</span><div class="stepdesc">Break into features; confirm signals exist and fit the footprint.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;d&#10217;</span></td>
-            <td><code>funnel-requirements</code> <code>od-data-availability-check</code> <code>od-use-case-solution-evaluation</code></td>
+            <td><code>od-requirements-breakdown</code> <code>od-data-availability-check</code> <code>od-use-case-solution-evaluation</code></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">3</td>
             <td><span class="stepname">Prototype / validate</span> <span class="who">&middot; both</span><div class="stepdesc">Click-dummy or PoC to confirm value before build.</div></td>
@@ -299,7 +299,7 @@
           <tr><td class="stepno">4</td>
             <td><span class="stepname">Business case &amp; prioritize</span> <span class="who">&middot; human</span><div class="stepdesc">Value model, cost side, portfolio ranking.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;d&#10217;</span><span class="extn">portfolio decision</span></td>
-            <td><code>bc-build</code> <code>od-portfolio-and-savings-analysis</code> <code class="part">bc-assessment</code> <span class="stepdesc">(assessment rubric lives outside the od-registry)</span></td>
+            <td><code>od-benefit-calculation</code> <code>od-portfolio-and-savings-analysis</code> <code class="part">bc-assessment</code> <span class="stepdesc">(assessment rubric lives outside the od-registry)</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">5</td>
             <td><span class="stepname">Capital request (if invest needed)</span> <span class="who">&middot; human</span><div class="stepdesc">Package value + cost for approval.</div></td>
@@ -345,17 +345,17 @@
           <tr><td class="stepno">1</td>
             <td><span class="stepname">Requirements engineering</span> <span class="who">&middot; human</span><div class="stepdesc">Break down the demand; frame the need.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;d&#10217;</span></td>
-            <td><code>funnel-requirements</code></td>
+            <td><code>od-requirements-breakdown</code></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">2</td>
             <td><span class="stepname">Tool-decision / IT-footprint gate</span> <span class="who">&middot; human</span><div class="stepdesc">Make, buy, integrate, or connect? Screen IT / software footprint; route the branch.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;d&#10217;</span></td>
-            <td><code>invest-screen</code> <code>od-decision-routing</code> <span class="stepdesc">(routes 3a / 3b)</span></td>
+            <td><code>od-system-fit-check</code> <code>od-decision-routing</code> <span class="stepdesc">(routes 3a / 3b)</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">3</td>
             <td><span class="stepname">Business case &amp; capital request</span> <span class="who">&middot; human</span><div class="stepdesc">Value + cost; capital request if needed; hand off once demand is clear.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;wks&#10217;</span><span class="extn">IT commitment + MPEE approval</span></td>
-            <td><code>bc-build</code> <code class="part">bc-assessment</code> <code class="part">od-decision-routing</code> <span class="stepdesc">(capital-request packaging still thin)</span></td>
+            <td><code>od-benefit-calculation</code> <code class="part">bc-assessment</code> <code class="part">od-decision-routing</code> <span class="stepdesc">(capital-request packaging still thin)</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
         </tbody>
       </table>
@@ -388,12 +388,12 @@
           <tr><td class="stepno" style="width:3%">4b</td>
             <td style="width:30%"><span class="stepname">Connector design + pipeline to MDL</span> <span class="who">&middot; human</span><div class="stepdesc">Design the integration; normalize signals; build the Edge&rarr;ETL&rarr;MDL pipeline.</div></td>
             <td class="num" style="width:8%"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num" style="width:9%"><span class="wait">&#10216;&hellip;d&#10217;</span></td>
-            <td style="width:32%"><code>mi-connector</code> <code>od-signal-standardization</code> <code>od-node-red-flow-builder</code><span class="fix"><b>Corrected:</b> draft said gap (mi-connector / ops-pipeline) &mdash; all three are Built</span></td>
+            <td style="width:32%"><code>od-equipment-integration</code> <code>od-signal-standardization</code> <code>od-node-red-flow-builder</code><span class="fix"><b>Corrected:</b> draft said gap (od-equipment-integration / od-node-red-flow-builder) &mdash; all three are Built</span></td>
             <td class="num" style="width:9%"><span class="badge built">Built</span></td><td class="num" style="width:9%"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">5b</td>
             <td><span class="stepname">Procure &amp; connect machine</span> <span class="who">&middot; both</span><div class="stepdesc">Order hardware; connect edge components; integration execution.</div></td>
             <td class="num"><span class="ph">&#10216;&hellip;h&#10217;</span></td><td class="num"><span class="wait">&#10216;&hellip;wks&#10217;</span><span class="extn">procurement / hardware; supplier</span></td>
-            <td><code>mi-connector</code> <code class="part">od-node-red-flow-troubleshooting</code> <span class="stepdesc">(App-Store-Ops supplier feature still in talks)</span></td>
+            <td><code>od-equipment-integration</code> <code class="part">od-node-red-flow-troubleshooting</code> <span class="stepdesc">(App-Store-Ops supplier feature still in talks)</span></td>
             <td class="num"><span class="badge built">Built</span></td><td class="num"><span class="future">&#10216;&hellip;h&#10217;</span></td></tr>
           <tr><td class="stepno">6b</td>
             <td><span class="stepname">Acceptance + CS sign-off; live on MDL</span> <span class="who">&middot; both</span><div class="stepdesc">Acceptance test; clear Cyber Security; machine live on MDL.</div></td>
@@ -438,10 +438,10 @@
       </tbody>
     </table>
     <div class="note">
-      <b>What the correction changes.</b> The draft VSM painted Lane&nbsp;3&rsquo;s branches almost entirely as gaps. Against the real registry, the connector branch <b>3b is Built end-to-end</b> (<code style="background:none;color:#156e4e;padding:0">mi-connector</code>, <code style="background:none;color:#156e4e;padding:0">od-signal-standardization</code>, <code style="background:none;color:#156e4e;padding:0">od-node-red-flow-builder</code>, <code style="background:none;color:#156e4e;padding:0">od-acceptance-test</code>), and rollout (<code style="background:none;color:#156e4e;padding:0">od-handover-and-adoption</code>) is Built too. The genuine net-new work collapses to <b>five skills</b> — three of them the Lane&nbsp;1 self-service catalog layer, which is exactly what makes retiring the standing Analytics lane safe.
+      <b>What the correction changes.</b> The draft VSM painted Lane&nbsp;3&rsquo;s branches almost entirely as gaps. Against the real registry, the connector branch <b>3b is Built end-to-end</b> (<code style="background:none;color:#156e4e;padding:0">od-equipment-integration</code>, <code style="background:none;color:#156e4e;padding:0">od-signal-standardization</code>, <code style="background:none;color:#156e4e;padding:0">od-node-red-flow-builder</code>, <code style="background:none;color:#156e4e;padding:0">od-acceptance-test</code>), and rollout (<code style="background:none;color:#156e4e;padding:0">od-handover-and-adoption</code>) is Built too. The genuine net-new work collapses to <b>five skills</b> — three of them the Lane&nbsp;1 self-service catalog layer, which is exactly what makes retiring the standing Analytics lane safe.
     </div>
     <div class="spine">
-      <b>Supporting spine (used across all lanes, not drawn as steps):</b> <code>dept-os</code> (load-first vocabulary &amp; honesty rules), <code>od-portfolio-and-savings-analysis</code> and <code>od-scorecard-reporting</code> (the savings/graduation loop and ODEC/COP reporting), <code>od-sharepoint-list-export</code> (pulling the source list). &nbsp;<b>One open decision:</b> <code>od-analytical-support-service</code> is the lane-orchestrator for the Analytics lane this new state <b>dissolves</b> — it needs re-homing into Lane&nbsp;1 self-service / Lane&nbsp;2, or retiring, so the library stops encoding a service line the target model no longer has.
+      <b>Supporting spine (used across all lanes, not drawn as steps):</b> <code>od-context</code> (load-first vocabulary &amp; honesty rules), <code>od-portfolio-and-savings-analysis</code> and <code>od-scorecard-reporting</code> (the savings/graduation loop and ODEC/COP reporting), <code>od-sharepoint-list-export</code> (pulling the source list). &nbsp;<b>One open decision:</b> <code>od-analytical-support-service</code> is the lane-orchestrator for the Analytics lane this new state <b>dissolves</b> — it needs re-homing into Lane&nbsp;1 self-service / Lane&nbsp;2, or retiring, so the library stops encoding a service line the target model no longer has.
     </div>
   </div>
 

@@ -61,7 +61,7 @@ list of who can support local IT. Options analysed with their consequences, incl
 
 | Receives (from) | Hands on (to) |
 |---|---|
-| Metrics with read dates (`od-scorecard-reporting`), forecast-gap list (`od-handover-and-adoption`), barrier log (`mi-connector`) | Dated risk reading with status per risk |
+| Metrics with read dates (`od-scorecard-reporting`), forecast-gap list (`od-handover-and-adoption`), barrier log (`od-equipment-integration`) | Dated risk reading with status per risk |
 | Operations-concept gaps (`od-decision-routing`, `od-handover-and-adoption`) | Triggered items to the deciding role (current approval policy, look up) or COP with the register's owner role |
 | Triggered two months running | Candidate for the retro's one adjustment (`od-retro`) |
 

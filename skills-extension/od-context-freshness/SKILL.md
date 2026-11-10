@@ -20,7 +20,7 @@ metadata:
   authority_level: read-only on the registry; draft the hygiene report
   status: draft
   sources_read: 2026-11-05
-  requires: [dept-os]
+  requires: [od-context]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/README.md
@@ -39,7 +39,7 @@ metadata:
 
 # Context freshness
 
-Read `dept-os` first.
+Read `od-context` first.
 
 The skill map names this skill "the skill that keeps every other skill honest": a skill repository whose context
 layer has silently expired gives confident wrong answers. Every other skill copies facts from the Department OS
@@ -75,7 +75,7 @@ the sources it names (`--cross`).
 
 1. **Run the script, read-only.** From the registry folder:
    ```
-   python skills/od-context-freshness/scripts/context_freshness.py \
+   python skills-extension/od-context-freshness/scripts/context_freshness.py \
      --skills skills --registry registry.yaml \
      --bundle <path to>/ops-knowledge-graph/_knowledge/OperationsDigitalization-Department \
      --cross <folder that holds ops-knowledge-graph>

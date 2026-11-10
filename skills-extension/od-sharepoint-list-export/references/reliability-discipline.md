@@ -57,7 +57,7 @@ export to report both the item-count delta and whether the checkpoint actually a
 ## Schema drift — a renamed or removed column breaks downstream silently
 
 Nothing in the export procedure fails if a column `od-portfolio-and-savings-analysis` or
-`bc-build` reads is renamed or removed in SharePoint — the JSON simply stops
+`od-benefit-calculation` reads is renamed or removed in SharePoint — the JSON simply stops
 carrying that key, and every downstream read of it reads as an absent field rather than an
 error. That is exactly the failure mode `od-portfolio-and-savings-analysis` already warns
 about generally ("absence read as a zero") — a schema change makes it happen at the source,

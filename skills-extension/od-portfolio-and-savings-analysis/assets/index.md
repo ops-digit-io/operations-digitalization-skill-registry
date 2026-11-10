@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Portfolio review protocol](portfolio-review-protocol.md) | Skill Asset | The defined output of a portfolio review - snapshot, rollup, ranking and regional read, built from od-sharepoint-list-export's export and bc-build's ledger, so the result is a reusable record rather than prose. |
+| [Portfolio review protocol](portfolio-review-protocol.md) | Skill Asset | The defined output of a portfolio review - snapshot, rollup, ranking and regional read, built from od-sharepoint-list-export's export and od-benefit-calculation's ledger, so the result is a reusable record rather than prose. |

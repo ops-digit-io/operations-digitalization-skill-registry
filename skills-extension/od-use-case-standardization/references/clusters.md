@@ -165,7 +165,7 @@ reduction.
 - A prediction has to reach a maintenance plan to be worth anything; a model that is right
   and changes nobody's schedule has produced no value.
 - This cluster is gated on machine integration more directly than any other — it needs
-  condition data over time, so check `mi-connector` before promising a
+  condition data over time, so check `od-equipment-integration` before promising a
   timeline.
 **Sources.** ISO 17359:2018, condition monitoring and diagnostics of machines (verified,
 general guidelines only — no claim is made beyond that scope). Pech, Vrchota, Bednář
@@ -268,7 +268,7 @@ KPI set until a use case reaches pilot.
 **Sources.** General MES "modern trends" literature (AI/ML in MES, low-code platforms)
 and SPC-for-model-monitoring practice — carried over, not independently re-verified this
 round. The human-gated-decision rule is this registry's own governance principle (see
-`dept-os`), not a cited external source.
+`od-context`), not a cited external source.
 
 ## C11 · Digital twin and simulation — reserved cluster
 

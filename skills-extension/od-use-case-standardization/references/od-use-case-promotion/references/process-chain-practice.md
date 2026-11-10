@@ -47,7 +47,7 @@ Deck-derived practice for step 26 (graduate) and the analytical lane's step 6. `
 | insight delivered and used, request history, utilization records | `od-first-aid-kit`, `od-first-aid-kit` |
 | validated asset, flow documentation, signal list | `od-analytics-asset-build`, `od-signal-standardization` |
 | handover record with plant owner | `od-handover-and-adoption` |
-| savings rows with basis | `bc-build` |
+| savings rows with basis | `od-benefit-calculation` |
 
 | Hands on | To |
 |---|---|

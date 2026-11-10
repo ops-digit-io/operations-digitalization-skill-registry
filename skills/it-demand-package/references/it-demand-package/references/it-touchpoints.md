@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # IT touchpoints
 
-Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and `Roles and organization` (`_knowledge/10-Department`); `00-core/08-decision-rights.md`; the department deck `AI_Initiatives_IT_Contact_Points.pptx` (one slide, text extracted); vault `Graph/Keynote Initiatives`; vault `Graph/Tools`, note "Concept 3 - IIoT Edge Computing Platform" (archive section on the platform operations concept); skills `od-decision-routing`, `funnel-requirements`. Roles only; no names.
+Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and `Roles and organization` (`_knowledge/10-Department`); `00-core/08-decision-rights.md`; the department deck `AI_Initiatives_IT_Contact_Points.pptx` (one slide, text extracted); vault `Graph/Keynote Initiatives`; vault `Graph/Tools`, note "Concept 3 - IIoT Edge Computing Platform" (archive section on the platform operations concept); skills `od-decision-routing`, `od-requirements-breakdown`. Roles only; no names.
 
 ## When a demand belongs here
 
@@ -71,8 +71,8 @@ If a demand is a camera, quality, SCADA or custom MES application in the legacy 
 ## Where a demand typically waits (recurring patterns)
 
 - Platform access: machines stay unintegrated while access to the aggregation server is open; this works as a technical follow-up with Central IT, never a governance-forum item (`od-decision-routing`, escalation worked examples). Lesson: name Central IT or Plant IT as the unblocking role in the package.
-- Unknown licence: many legacy applications have an unknown licence status (see [../../catalog-usecase/references/legacy-application-position.md](../../../../catalog-usecase/references/legacy-application-position.md)); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
-- MES: a rollout that is on hold or ERP-dependent blocks a demand that depends on it; the demand is blocked, not planned (`funnel-requirements`).
+- Unknown licence: many legacy applications have an unknown licence status (see [../../catalog-usecase/references/legacy-application-position.md](../../../../catalog-usecase/references/legacy-application-position.md))); a demand that rests on one has a licence dependency with a lead time. Count the unknowns live before quoting.
+- MES: a rollout that is on hold or ERP-dependent blocks a demand that depends on it; the demand is blocked, not planned (`od-requirements-breakdown`).
 
 ## Open
 

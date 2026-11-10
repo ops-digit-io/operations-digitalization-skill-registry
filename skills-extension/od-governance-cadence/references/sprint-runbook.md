@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Sprint runbook
 
-Lane flow lives in `od-use-case-definition`; build in `od-analytics-asset-build`; prototype in `funnel-prototype`.
+Lane flow lives in `od-use-case-definition`; build in `od-analytics-asset-build`; prototype in `od-prototype-poc`.
 
 ## Preconditions (all before day one)
 
@@ -33,7 +33,7 @@ update, a sprint-end review with a Q&A link. Keep an IT-issue log from day one.
 Generic process-value dashboard for all machines; andon board (status plus history); operations dashboard
 (output, cycle time, alerts per time group or shift); machine availability by mode; one process-specific
 dashboard as blueprint; alert dashboard; SPC for inline measurement; data-transformation flows (one or more
-per PLC) with documentation. Check the dashboard tool in `dept-os`.
+per PLC) with documentation. Check the dashboard tool in `od-context`.
 
 Quality dashboards that do not depend on machine connectivity (lab tests) run on a different path, owned by
 the local quality team; do not put them into the integration sequence.

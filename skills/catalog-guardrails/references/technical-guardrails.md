@@ -63,7 +63,7 @@ or self-developed app against the agreed direction and mark the rule ⟨to confi
 | Observability | Logging and health visible before go-live |
 | Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item, Ignacio) |
 | Self-assessment | The production owner reassesses every six or twelve months (`od-handover-and-adoption`) |
-| Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`funnel-requirements`) |
+| Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`od-requirements-breakdown`) |
 
 ## Open
 

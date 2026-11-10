@@ -55,7 +55,7 @@ def main(argv: list[str]) -> int:
         print(f"Columns removed: {', '.join(sorted(removed))}")
         problems.append(f"{len(removed)} column(s) disappeared — anything reading them now "
                          "reads an absent field, not an error; check od-portfolio-and-savings-analysis "
-                         "and bc-build for a dependency on " + ", ".join(sorted(removed)))
+                         "and od-benefit-calculation for a dependency on " + ", ".join(sorted(removed)))
     if not added and not removed:
         print("Columns: unchanged")
 

@@ -23,8 +23,8 @@ metadata:
   status: stable
   origin: derived
   sources_read: 2026-10-22
-  requires: [dept-os]
-  composes: [bc-build, od-decision-routing, od-data-availability-check, mi-connector, od-signal-standardization]
+  requires: [od-context]
+  composes: [od-benefit-calculation, od-decision-routing, od-data-availability-check, od-equipment-integration, od-signal-standardization]
   derived_from:
     - Schott, P., Lederer, M., Eigner, I., Bodendorf, F. (2020). Case-based reasoning for complexity management in Industry 4.0. Journal of Manufacturing Technology Management, 31(5). DOI 10.1108/JMTM-08-2018-0262. Tables 4, 5, 7, 10, 11 — the driver set, the focus-area levels, the 70-case literature base and the realization-dependency table.
     - Schott, P., Schaft, T., Thomas, S., Bodendorf, F. (2017). Making IoT Run — Opportunities and Challenges for Manufacturing Companies. International Journal of Hyperconnectivity and the Internet of Things, 1(2), 25-44. DOI 10.4018/IJHIoT.2017070103.
@@ -45,11 +45,11 @@ Answers the question `od-use-case-definition` does not: does the envisioned solu
 problem needs, or does it quietly require more capability than anyone named? It serves Lane 2 step **22** (features
 and data check), before the business case (step 24), and feeds the Lane 3 fit test. Key user: DBVE; an AI agent can
 run the script and draft the protocol. It always ends in a visualized ranking and one evaluation score, never prose
-alone. Read `dept-os` first.
+alone. Read `od-context` first.
 
 ## Inputs and output
 
-- **Inputs:** the scoped use case from `od-use-case-definition`; the requirement and signal verdicts (`funnel-requirements`, `od-data-availability-check`); a rough as-is or target sketch for step 0.
+- **Inputs:** the scoped use case from `od-use-case-definition`; the requirement and signal verdicts (`od-requirements-breakdown`, `od-data-availability-check`); a rough as-is or target sketch for step 0.
 - **Output:** a filled [`assets/evaluation-protocol.md`](assets/evaluation-protocol.md) with the script output pasted in (one document per use case, written as the work happens), the total score and one of four verdicts. Input template for the script: [`assets/example-use-case.json`](assets/example-use-case.json).
 
 ## Procedure
@@ -57,7 +57,7 @@ alone. Read `dept-os` first.
 0. **Pre-evaluate by case ranking.** Run what you know through `scripts/evaluate_fit.py` (top-5 of the 70-case library by configuration similarity). Triage, not a verdict: a close match (about 80% or more) means move faster through steps 1-4; no close match means a genuinely novel case, budget the full method. Always continue to step 1 ([`case-library.md`](references/case-library.md)).
 1. **Profile the problem, not the solution.** Rate the 27 complexity drivers ([`complexity-drivers.md`](references/complexity-drivers.md)): none, little, medium, high, dominant. Requester and DBVE/IIAE rate independently, then reconcile. Only high or dominant drivers count for step 2; seven drivers are organizational or market factors with no IT/OT lever.
 2. **Find the capability areas the solution depends on.** Each high/dominant driver maps to one or more of 16 focus areas ([`focus-areas.md`](references/focus-areas.md)). Most use cases touch three to six; if every area is a candidate, redo step 1.
-3. **Assess as-is with evidence, set the target from need, per candidate area only.** A target above as-is needs a named driver or business need; "the platform supports it" is no reason. Gap = target minus as-is. No gap: ready, go to `bc-build`.
+3. **Assess as-is with evidence, set the target from need, per candidate area only.** A target above as-is needs a named driver or business need; "the platform supports it" is no reason. Gap = target minus as-is. No gap: ready, go to `od-benefit-calculation`.
 4. **Sequence and classify any gap** using [`dependencies.md`](references/dependencies.md) (a target can be planned only once its prerequisites exist), then pick the verdict below.
 
 ```bash
@@ -72,18 +72,18 @@ The script mechanizes steps 0 and 2-4 and prints, in order: candidate areas with
 
 | Verdict | When | Next |
 |---|---|---|
-| **Ready to build** | No gap in any candidate area | `bc-build` |
+| **Ready to build** | No gap in any candidate area | `od-benefit-calculation` |
 | **Needs a capability raised first** | One or two gaps, each closeable inside this use case's scope and timeline | Name the gap, sequence position and owner; hand the work to the owning skill (below), return here before the business case |
 | **Over-engineered** | A target exceeds every driver rated high or dominant | Lower the target to what the drivers justify, or name the previously unrated business need; never leave an unjustified target standing |
 | **Escalate as platform investment** | The gap spans several areas, several use cases share it, or a dependency chain has no closeable end here | `od-decision-routing`; a roadmap decision, not one use case's business case |
 
-**Gap owner:** F9 (interfaces), F10 (protocols) go to `mi-connector`; F11 (data collection) and F2 (communication, push/poll half) to `od-data-availability-check`; F16 (information-model continuity) to `od-signal-standardization`; F1, F3, F6-F8, F12-F15 and anything unowned stay with the use case: name it in the protocol and carry it into the scope and cost of `bc-build`.
+**Gap owner:** F9 (interfaces), F10 (protocols) go to `od-equipment-integration`; F11 (data collection) and F2 (communication, push/poll half) to `od-data-availability-check`; F16 (information-model continuity) to `od-signal-standardization`; F1, F3, F6-F8, F12-F15 and anything unowned stay with the use case: name it in the protocol and carry it into the scope and cost of `od-benefit-calculation`.
 
 **Operations-concept gate:** a tool without an operations concept (owner, service level, support level) is never "ready to build" whatever the levels say; the verdict is escalate. Put the tool boundary sentence and the concept status next to the verdict ([`process-chain-practice.md`](references/process-chain-practice.md)).
 
 ## Handoff
 
-Verdict, score and protocol go to `bc-build` (ready), to the owning skill (capability first), back to the definition (over-engineered) or to `od-decision-routing` (escalate). The receiver needs: per candidate area the as-is level with evidence, the target with its driver, the sequenced gaps with owner, the score. Done when step 0 is pasted, every candidate area has evidenced as-is and reasoned target, every gap is sequenced and classified with an owner and next skill, and the score is recorded.
+Verdict, score and protocol go to `od-benefit-calculation` (ready), to the owning skill (capability first), back to the definition (over-engineered) or to `od-decision-routing` (escalate). The receiver needs: per candidate area the as-is level with evidence, the target with its driver, the sequenced gaps with owner, the score. Done when step 0 is pasted, every candidate area has evidenced as-is and reasoned target, every gap is sequenced and classified with an owner and next skill, and the score is recorded.
 
 ## Human gate and AI-agent notes
 

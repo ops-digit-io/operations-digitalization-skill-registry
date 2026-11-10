@@ -20,14 +20,14 @@ metadata:
   authority_level: read-only; points to the approved master
   status: draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-decision-routing, funnel-requirements, bc-build, od-scorecard-reporting, od-handover-and-adoption]
+  requires: [od-context]
+  composes: [od-decision-routing, od-requirements-breakdown, od-benefit-calculation, od-scorecard-reporting, od-handover-and-adoption]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
     - Work vault (Work-OpsDigit-Knowledge), folder Master-Slide-Templates (one pptx file name only, not opened), read 2026-11-05
-    - Skills bc-build, funnel-requirements, od-scorecard-reporting, od-handover-and-adoption, od-acceptance-test and od-signal-standardization, their assets folders listed 2026-11-05
+    - Skills od-benefit-calculation, od-requirements-breakdown, od-scorecard-reporting, od-handover-and-adoption, od-acceptance-test and od-signal-standardization, their assets folders listed 2026-11-05
   okf:
     type: Agent Skill
     title: Template resolution
@@ -38,7 +38,7 @@ metadata:
 
 # Template resolution
 
-Read `dept-os` first.
+Read `od-context` first.
 
 Plan item P-06 of the department's skill map: **every deliverable starts from the approved master
 listed in the resource register, never from an ad-hoc copy.** The register (`15-resources.md`) says
@@ -122,7 +122,7 @@ the skill is read-only, and the record is evidence that the master was looked up
 These are patterns, not a status report. Whether a gap is open today is read from the register on the day.
 
 - The use-case one-pager and business-case template has been a gap row (`to confirm or create`, owner role DBVE).
-  While it is a gap, `bc-build` and `od-use-case-definition` carry their own protocols and those are the
+  While it is a gap, `od-benefit-calculation` and `od-use-case-definition` carry their own protocols and those are the
   best available, not the approved master.
 - Locations of Power BI reports, the data platform portal and the IIoT Edge / MSB portal are often `to confirm` or
   `to collect`. Owner: IIAE for the platforms, DBVE / OD lead for the reports.

@@ -120,7 +120,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
    - service bus: carries and routes signals; it does not calculate or interpret them; edge platform: not a substitute for data acquisition or an execution system.
 3. **Heavy request disguised as a dashboard.** Order or recipe execution, labels, batch genealogy, material validation are execution-system territory. Map the asked functions onto the shop-floor function list
    (data acquisition, scheduling, equipment, materials, information, performance analysis, energy) before choosing a system. Where performance analysis overlaps with an execution system (MES), choose the lighter solution and name the overlap explicitly; do not build in parallel what the execution system already does.
-4. **Pick the route by data class** (feeds `mi-connector`, `od-signal-standardization`):
+4. **Pick the route by data class** (feeds `od-equipment-integration`, `od-signal-standardization`):
 
    | Data class | Examples | Default hub | Note |
    |---|---|---|---|
@@ -157,8 +157,8 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
 | Hands on | To |
 |---|---|
 | system match record; cost-template inputs marked given or `<missing>`; security-relevance answer | `od-decision-routing` (1b2) |
-| route, tag-list intent per data class, machine "CV" (program, version history, vendor) | `mi-connector` (1b3) |
-| no standard system: reason and missing item | `invest-screen`, Lane 3 front-end |
+| route, tag-list intent per data class, machine "CV" (program, version history, vendor) | `od-equipment-integration` (1b3) |
+| no standard system: reason and missing item | `od-system-fit-check`, Lane 3 front-end |
 
 ### 4. Pitfalls and lessons
 
@@ -218,7 +218,7 @@ and **savings forecast and registered project present** (a use case implemented 
 - **Go-live = all G1 to G7 passed, evidence cited.** "Yes" without evidence counts as not checked.
 - **Requirements still moving?** A first delivery is not fully right. Plan the requirements-iteration loop after first delivery; it is not a reason to withhold go-live and not a reason to let scope grow silently.
 - **Change of look is not a guardrail topic.** Requests about fonts, colours and headlines are capacity burners: route by cost-saving impact and time-box them.
-- **Failed guardrail routes back:** data to `od-data-availability-check`; footprint to `invest-screen`; handover to `od-handover-and-adoption`; security to `od-cybersec-gate`. Say which.
+- **Failed guardrail routes back:** data to `od-data-availability-check`; footprint to `od-system-fit-check`; handover to `od-handover-and-adoption`; security to `od-cybersec-gate`. Say which.
 - **Human-dependent automation caps what a screen can show** (for example a machine that works one item at a time without fast-forward during breaks). Check for organizational loss before proposing technology.
 
 ### 4. Handoff contract

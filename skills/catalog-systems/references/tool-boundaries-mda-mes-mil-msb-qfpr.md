@@ -77,7 +77,7 @@ The test for every entry, from `process-chain-practice.md` section 1: what the t
 
 | Request says | First test | Likely route |
 |---|---|---|
-| "We need process data on this machine" | Is the machine integrated? Which acquisition family does the plant run? | MDA/PDA family or edge route per `mi-connector` |
+| "We need process data on this machine" | Is the machine integrated? Which acquisition family does the plant run? | MDA/PDA family or edge route per `od-equipment-integration` |
 | "Quality sheet to digital" | Typed by a person? | QFPR if the plant is on its list; else a form app (Manual Quality Data) |
 | "Images per part" | Is the image path (connection, transfer, storage) ready? | MIL-dependent: park behind the platform, or a local interim with an explicit end date |
 | "Batch, order, label, genealogy" | Execution-system territory | MES discussion with the OD lead; not a kit |

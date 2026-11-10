@@ -69,7 +69,7 @@ and plan it along the work; get a quote before the cost risk is accepted.
   testing between sprints; strong location support is needed.
 - Round two with each shortlisted supplier uses the same agenda: demo, feature-solution session on one or two requirement stories,
   advantages and disadvantages for the pilot and for scale-out, Q and A on a question sheet. Detail in
-  `invest-screen` (practice file).
+  `od-system-fit-check` (practice file).
 - Ask for source ownership in the contract (see `deploy-appstore` scenarios).
 
 ### Commercial consistency check (add before the package is called ready)
@@ -96,10 +96,10 @@ the cost calculator for the connectivity scenario before the project starts.
 
 | Direction | Skill | Content |
 |---|---|---|
-| Receive | `funnel-requirements` | Epic and stories, acceptance criteria |
-| Receive | `invest-screen` | Verdict and boundary quoted, operations-concept status |
-| Receive | `bc-build` / `bc-capital-request` | Tagged figures, firmness, alternatives |
-| Receive | `invest-screen` | Route 3a.3 or 3a.4, source ownership, run owner |
+| Receive | `od-requirements-breakdown` | Epic and stories, acceptance criteria |
+| Receive | `od-system-fit-check` | Verdict and boundary quoted, operations-concept status |
+| Receive | `od-benefit-calculation` / `od-capital-request` | Tagged figures, firmness, alternatives |
+| Receive | `od-system-fit-check` | Route 3a.3 or 3a.4, source ownership, run owner |
 | Hand on | IT demand management (human) | The package, open items with owners, "submitted by a human on `<date>` - not yet" |
 | Hand on | `deploy-appstore` | Decision, scenario, owners |
 | Hand on | `od-cybersec-gate` | Components, data path, open points |

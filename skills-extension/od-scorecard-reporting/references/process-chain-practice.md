@@ -48,8 +48,8 @@ Every format lists *input* (plant side and central side), *content* and *trigger
 |---|---|
 | adoption / utilization findings per use case | `od-handover-and-adoption` |
 | savings roll-up with tracked / proven split | `od-portfolio-and-savings-analysis` |
-| integration status per plant and wave | `mi-connector`, project tracker |
-| risks, blocked items, ticket age | `od-risk-watch` (planned), `mi-connector` |
+| integration status per plant and wave | `od-equipment-integration`, project tracker |
+| risks, blocked items, ticket age | `od-risk-watch` (planned), `od-equipment-integration` |
 | open homework from the last round | the previous output record |
 
 | Hands on | To |

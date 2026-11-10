@@ -21,7 +21,7 @@ generated:
 
 > **Absorbed.** This was the skill `od-maturity-assessment`. It now runs as a mode of [`od-use-case-solution-evaluation`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
-Read `dept-os` first.
+Read `od-context` first.
 
 `od-use-case-solution-evaluation` asks "does this **use case's solution** need more capability than anyone
 has named?" and ends in a case ranking, a score and a verdict. This skill asks the question one level
@@ -34,10 +34,10 @@ It never sets a target on its own and never approves anything (`draft`).
 
 | Step | What the profile feeds |
 |---|---|
-| **1b1** pick the use case and the standard system (lane 1b, machine not connected) | Does the machine reach the connection prerequisites at all (networked, protocol, identity)? Matches or stalls the kit pick; a stall goes to `mi-connector` |
+| **1b1** pick the use case and the standard system (lane 1b, machine not connected) | Does the machine reach the connection prerequisites at all (networked, protocol, identity)? Matches or stalls the kit pick; a stall goes to `od-equipment-integration` |
 | **22** features and data check (lane 2) | The as-is levels of the data source (collection, storage, identity, information model) for `od-data-availability-check`, and the as-is input to `od-use-case-solution-evaluation` |
-| **32** tool decision and IT gate (lane 3 front-end) | Object profile of the requested or existing system or app for `invest-screen` and `invest-screen` (integrate, keep, replace; edge or plain connection) |
-| **3b4** connector and pipeline (lane 3b) | Protocol, communication style and information-model level of the machine for `mi-connector`, `od-signal-standardization`, `mi-connector` |
+| **32** tool decision and IT gate (lane 3 front-end) | Object profile of the requested or existing system or app for `od-system-fit-check` and `od-system-fit-check` (integrate, keep, replace; edge or plain connection) |
+| **3b4** connector and pipeline (lane 3b) | Protocol, communication style and information-model level of the machine for `od-equipment-integration`, `od-signal-standardization`, `od-equipment-integration` |
 
 It is not a step of its own; it runs inside these steps, once per object, and the record travels with the
 object so nobody re-asks.
@@ -104,12 +104,12 @@ object or per group of identical objects.
   `od-decision-routing` where a forum is involved. The agent never rates a level it did not find evidence
   for, never sets a target "because the platform allows it", and never connects, configures or approves.
 - **Handover**: the record and the sheet to the next skill of the step, open unknowns as a list with an
-  owner role each, and the gap chain to `od-use-case-solution-evaluation` or `mi-connector`.
+  owner role each, and the gap chain to `od-use-case-solution-evaluation` or `od-equipment-integration`.
 
 ## Still open
 
 - `⟨Whether the profile is kept per machine type or per machine⟩`: per type is cheaper and matches the
-  one-unknown-type-per-deployment practice of `mi-connector`; per machine is needed where
+  one-unknown-type-per-deployment practice of `od-equipment-integration`; per machine is needed where
   firmware or retrofit state differs. PROPOSAL: per type, with exceptions listed.
 - `⟨Where the records are stored⟩`: no register is named in the sources; PROPOSAL: next to the Machine
   List row or the tool record.

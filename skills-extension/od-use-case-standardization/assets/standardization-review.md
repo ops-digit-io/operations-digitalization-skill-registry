@@ -67,4 +67,4 @@ record it as a failure.
 |---|---|
 | **Standardization verdict** | ⟨take the library entry as-is · adapted with named deltas · genuinely new, candidate for the library once delivered⟩ |
 | **CSP gate recorded as a dependency** | ⟨on the use case / the saving row — per `od-decision-routing`'s "standard enough to roll out" gate⟩ |
-| **Next skill** | `bc-build` (value), `od-portfolio-and-savings-analysis` (adoption tracking), or `od-decision-routing` if the CSP outcome needs escalation |
+| **Next skill** | `od-benefit-calculation` (value), `od-portfolio-and-savings-analysis` (adoption tracking), or `od-decision-routing` if the CSP outcome needs escalation |

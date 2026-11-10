@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Failure cases and routing
 
-A guardrail earns its place only if a failure has been recorded that it would have caught. The list below is the failure patterns the sources hold, without the counts (they move; read the cited source for the current ones). Guardrails G1 to G7 are in `SKILL.md`; G8 to G18 are the candidates in [technical-guardrails.md](../../catalog-guardrails/references/technical-guardrails.md).
+A guardrail earns its place only if a failure has been recorded that it would have caught. The list below is the failure patterns the sources hold, without the counts (they move; read the cited source for the current ones). Guardrails G1 to G7 are in `SKILL.md`; G8 to G18 are the candidates in [technical-guardrails.md](../../catalog-guardrails/references/technical-guardrails.md)).
 
 ## Recorded failure patterns
 
@@ -19,10 +19,10 @@ A guardrail earns its place only if a failure has been recorded that it would ha
 | An empty panel looks the same whether the machine is not connected, the point is not standardized, or the data is not fit for use; the worst of the three is the one that renders a number and is wrong (a shift-level figure read as hourly, a gauge that stops updating, a counter that resets on restart) | `od-data-availability-check`, `references/failure-modes.md` | G1 (name the step it dies at), G15 |
 | A blank status is read as "not integrated": many machines carry no status at all | `od-data-availability-check` | G1 |
 | A connector that exists is not a connector one may use: connectors differ in status and utilization (`Productive` and `USE`, not available, `DO NOT USE`) | `od-data-availability-check` | G1, G3 |
-| An aggregation server with no edge platform behind it delivers nothing onward | `mi-connector`, `decision-paths.md` | G1, G3 |
+| An aggregation server with no edge platform behind it delivers nothing onward | `od-equipment-integration`, `decision-paths.md` | G1, G3 |
 | No PLC program, no connection ("we can not connect the PLC"); asking the machine supplier has a lead time of weeks | same | G1 |
 | A plant wave stalled on access to the platform: no machine connected while the access issue to the aggregation server was open | `od-decision-routing`, `references/escalation-worked-examples.md` | G1 (platform access is a precondition), G7 |
-| Cyber Security / OT sign-off: "the machine waits. There is no expedited path" | `mi-connector`, Gate 3 | G7 |
+| Cyber Security / OT sign-off: "the machine waits. There is no expedited path" | `od-equipment-integration`, Gate 3 | G7 |
 | Built is not handed over, and handed over is not in use: handover status, implemented versus productive, and a utilization recorded as `NEVER` all diverge from "built" | `od-handover-and-adoption` | G5, G6 |
 | Savings booked but not real: the spend gate (eCR) is the most common recorded reason; only a small part of the saving rows is proven through the review | `od-decision-routing` | G4 |
 | A good state shown red, "no data" shown as 0, a dashboard saved with a fixed absolute time range, refresh off, trend lines ending well before now | plant requirements note (reverse-engineered review, `Dashboard Exports/specs`) | G14, G15, G16 |

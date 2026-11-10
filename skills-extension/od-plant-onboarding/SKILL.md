@@ -20,8 +20,8 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-use-case-intake-triage, invest-screen, od-sharepoint-list-export, mi-connector, od-data-availability-check, od-template-resolution, od-cross-plant-compatibility, catalog-usecase, od-decision-routing, od-handover-and-adoption, od-rollout-training, od-scorecard-reporting, od-risk-watch, od-retro]
+  requires: [od-context]
+  composes: [od-use-case-intake-triage, od-system-fit-check, od-sharepoint-list-export, od-equipment-integration, od-data-availability-check, od-template-resolution, od-cross-plant-compatibility, catalog-usecase, od-decision-routing, od-handover-and-adoption, od-rollout-training, od-scorecard-reporting, od-risk-watch, od-retro]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
@@ -43,7 +43,7 @@ metadata:
 
 # Plant onboarding
 
-Read `dept-os` first.
+Read `od-context` first.
 
 Plan item O-09 of the department's skill map. Its source column reads "- (new)": **no Department OS document describes
 plant onboarding**, so this skill is assembled from the playbooks, the new-state lanes and the plant records. It is a
@@ -83,12 +83,12 @@ what comes next, which skill, what artefact, who decides.*
 
 | Stage | What happens | Skill (in order) | Artefact | Lane in new-state flow | Decided by |
 |---|---|---|---|---|---|
-| 1. Record the plant | Plant, machines, tools, use cases and legacy applications are in the lists the department reads; refresh the vault view | `od-sharepoint-list-export`; ground rule `dept-os` | Plant record complete; run log | Spine | Plant ME / Plant IT for content; OD for the lists' structure |
-| 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `mi-connector` (assessment route); `od-data-availability-check` for what the platform already receives; `mi-connector` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `mi-connector`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
-| 3. Take in demands | Each plant demand is classified: known use case, new use case, new system or connector | `od-use-case-intake-triage`, `invest-screen`, `od-template-resolution` (start from the approved master) | Intake decision with written reason; fit check | Intake, then Lane 1, 2 or 3 | DBVE with Plant ME (prioritization: recommend) |
-| 4. First wins from the catalog | Machines already connected: pick a catalogued use case and apply its template | `catalog-usecase`, `od-cross-plant-compatibility` (is the standard consumable here?), `od-analytics-asset-build`, `ops-dashboard-engine`, `catalog-usecase` | Asset live on the plant's local Grafana; compatibility check | Lane 1 (1a) | The plant decides what it runs |
-| 5. Connect what is not connected | Requirements, cost and approval, Cyber Security sign-off in parallel (blocks only go-live), build the connection, standardize signals, accept | `funnel-requirements`, `bc-cost` and `od-decision-routing` (spend via eCR), `od-cybersec-gate` (planned), `mi-connector` (guidance route), `ops-pipeline`, `od-signal-standardization`, `od-acceptance-test` | Requirement spec; decision request; guidance protocol per machine; signal analysis report; acceptance protocol | Lane 1 (1b), Lane 3b | IIAE: equipment go-ahead is execute-with-approval; investment by the OD lead with BA Operations (recommend); Cyber Security sign-off for external connection |
-| 6. Develop a new use case where no catalog entry fits | Define, check data, prove, business case, capital request, implement | `od-use-case-definition`, `od-use-case-solution-evaluation`, `funnel-prototype`, `bc-build`, `bc-capital-request` (planned), `od-use-case-standardization` for graduation | Definition one-pager; evaluation; prototype record; benefit calculation | Lane 2 | DBVE with Plant ME; spend and rollout route via `od-decision-routing` |
+| 1. Record the plant | Plant, machines, tools, use cases and legacy applications are in the lists the department reads; refresh the vault view | `od-sharepoint-list-export`; ground rule `od-context` | Plant record complete; run log | Spine | Plant ME / Plant IT for content; OD for the lists' structure |
+| 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `od-equipment-integration` (assessment route); `od-data-availability-check` for what the platform already receives; `od-equipment-integration` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `od-equipment-integration`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
+| 3. Take in demands | Each plant demand is classified: known use case, new use case, new system or connector | `od-use-case-intake-triage`, `od-system-fit-check`, `od-template-resolution` (start from the approved master) | Intake decision with written reason; fit check | Intake, then Lane 1, 2 or 3 | DBVE with Plant ME (prioritization: recommend) |
+| 4. First wins from the catalog | Machines already connected: pick a catalogued use case and apply its template | `catalog-usecase`, `od-cross-plant-compatibility` (is the standard consumable here?), `od-analytics-asset-build`, `build-grafana-ops-dashboard`, `catalog-usecase` | Asset live on the plant's local Grafana; compatibility check | Lane 1 (1a) | The plant decides what it runs |
+| 5. Connect what is not connected | Requirements, cost and approval, Cyber Security sign-off in parallel (blocks only go-live), build the connection, standardize signals, accept | `od-requirements-breakdown`, `od-investment-input` and `od-decision-routing` (spend via eCR), `od-cybersec-gate` (planned), `od-equipment-integration` (guidance route), `od-node-red-flow-builder`, `od-signal-standardization`, `od-acceptance-test` | Requirement spec; decision request; guidance protocol per machine; signal analysis report; acceptance protocol | Lane 1 (1b), Lane 3b | IIAE: equipment go-ahead is execute-with-approval; investment by the OD lead with BA Operations (recommend); Cyber Security sign-off for external connection |
+| 6. Develop a new use case where no catalog entry fits | Define, check data, prove, business case, capital request, implement | `od-use-case-definition`, `od-use-case-solution-evaluation`, `od-prototype-poc`, `od-benefit-calculation`, `od-capital-request` (planned), `od-use-case-standardization` for graduation | Definition one-pager; evaluation; prototype record; benefit calculation | Lane 2 | DBVE with Plant ME; spend and rollout route via `od-decision-routing` |
 | 7. Hand over and train | Solution accepted, then adopted by the plant | `od-handover-and-adoption`, `od-rollout-training` (planned) | Handover protocol; adoption evidence | Lane 2 and 3 end steps | The plant owns "into daily use" |
 | 8. Join the routines | Plant numbers in the Scorecard; plant issues in the COP or with the OD lead (ODEC is historical); plant risks and learnings | `od-scorecard-reporting`, `od-portfolio-and-savings-analysis`, `od-risk-watch`, `od-retro`, `od-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
 
@@ -112,7 +112,7 @@ a need no connector can meet: `it-demand-package`, `deploy-appstore`.
 - **Definition of "enters scope"** and the full strategic-plant list.
 - **Whether onboarding has a defined end** in the department: the done-criteria above are a proposal.
 - **Training package** (`od-rollout-training`) is planned, not built; stage 7 has no training artefact yet.
-- Three of the stage-5 skills are planned (`od-cybersec-gate`) or only drafted (`bc-cost`, `funnel-prototype`
+- Three of the stage-5 skills are planned (`od-cybersec-gate`) or only drafted (`od-investment-input`, `od-prototype-poc`
   exist as drafts in the registry); the Cyber Security sign-off standard is `to collect` in the resource register.
 
 ## Do not

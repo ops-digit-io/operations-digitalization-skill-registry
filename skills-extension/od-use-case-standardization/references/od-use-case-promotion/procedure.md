@@ -31,7 +31,7 @@ generated:
 
 > **Absorbed.** This was the skill `od-use-case-promotion`. It now runs as a mode of [`od-use-case-standardization`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
-Read `dept-os` first.
+Read `od-context` first.
 
 **Plan row AS-04** (`OD_Skill_Map.md`, named `od-as-industrialize` there): trigger "recurring value in an
 ad-hoc asset"; output "promotion package into a standard use case (feeds UC-02)"; runs regionally;
@@ -77,7 +77,7 @@ industrialization without the responsible human").
    requests. The sources give no threshold for "recurring": write the evidence, mark the threshold
    `⟨to confirm with the DBVE lead⟩`, and do not invent one.
 3. **Collect value evidence.** Utilization of the asset (Scorecard, Use Case Utilization; `NEVER` is a
-   recorded value), saving rows with reliability and proven status (`bc-build`: tracked and
+   recorded value), saving rows with reliability and proven status (`od-benefit-calculation`: tracked and
    proven never added), and the decision the asset supports. No evidence yet: write "to be collected".
 4. **Check it can be reproduced.** The data path is written down to the machine and signal; data fitness was
    confirmed (`od-data-availability-check`); signals are standardized so a second plant can consume them

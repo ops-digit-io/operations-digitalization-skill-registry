@@ -61,7 +61,7 @@ aggregation server, platform) differs by route. Test the standard on **each** ro
 
 Read from `Graph/Tools` (rollout records per plant: Available, Ongoing, Not Available). Versions of the same tool coexist
 (MSB 1.0 / 2.0 / 4.0; MDA/PDA 1.0 / 2.0 / 3.0; Energy Management 1.0 / 2.0), so a standard that depends on a tool feature is
-not automatically available everywhere. A plant with no row for a tool is unknown, not "not available". `invest-screen`
+not automatically available everywhere. A plant with no row for a tool is unknown, not "not available". `od-system-fit-check`
 holds the tool boundaries.
 
 ## 6. Capability-instance spread (the eleven templates)

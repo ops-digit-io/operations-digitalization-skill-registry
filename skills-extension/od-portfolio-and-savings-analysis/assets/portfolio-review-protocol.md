@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Portfolio review protocol
-description: The defined output of a portfolio review - snapshot, rollup, ranking and regional read, built from od-sharepoint-list-export's export and bc-build's ledger, so the result is a reusable record rather than prose.
+description: The defined output of a portfolio review - snapshot, rollup, ranking and regional read, built from od-sharepoint-list-export's export and od-benefit-calculation's ledger, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
 owner: human:jakob.gabriel
@@ -14,7 +14,7 @@ Copy once per review round (on request / on the department's own schedule / ad h
 
 | | |
 |---|---|
-| **Inputs** | `od-sharepoint-list-export`'s `assets/export-run-log.md` (list(s), capture date, row count, checkpoint) · `bc-build` ledger as of ⟨date⟩ |
+| **Inputs** | `od-sharepoint-list-export`'s `assets/export-run-log.md` (list(s), capture date, row count, checkpoint) · `od-benefit-calculation` ledger as of ⟨date⟩ |
 | **Reviewer / date** | ⟨name⟩ · ⟨date⟩ |
 | **Surface read** | ⟨knowledge-graph rebuilt view / SharePoint write surface — state which⟩ |
 
@@ -78,4 +78,4 @@ it does not replace the Scorecard/Power BI figures `od-scorecard-reporting` read
 from their own authoritative sources; name which of the two a number in a deck came from.
 
 **Next:** ⟨`od-scorecard-reporting` round prep · `od-decision-routing` for a ranked item
-that needs a gate · back to `bc-build` for a ledger gap found during review⟩
+that needs a gate · back to `od-benefit-calculation` for a ledger gap found during review⟩

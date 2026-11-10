@@ -21,8 +21,8 @@ metadata:
   authority_level: recommend
   status: draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-signal-standardization, od-use-case-standardization, mi-connector, od-data-availability-check, invest-screen, od-decision-routing, catalog-usecase]
+  requires: [od-context]
+  composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, catalog-usecase]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -43,7 +43,7 @@ metadata:
 
 # Cross-plant compatibility check
 
-Read `dept-os` first.
+Read `od-context` first.
 
 Plan item P-08 of the department's skill map. The decision-rights table gives the rule in one line: data-model and
 signal standardization (IIAE, consultation, no approval, reversible) carries the threshold **"must stay

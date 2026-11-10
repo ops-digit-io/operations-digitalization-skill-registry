@@ -16,8 +16,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
    tool-status line) and the **read date**. No source, no statement.
 2. Missing input is written `<...>` and listed; it is never replaced by a plausible value.
 3. An output with open items or missing citations is labelled **draft**; only a human removes the label.
-4. Label what kind of claim it is: tracked versus proven (`dept-os`), input versus assumption versus
-   unknown (business-case figures), prototype versus pilot versus proven (`funnel-prototype`).
+4. Label what kind of claim it is: tracked versus proven (`od-context`), input versus assumption versus
+   unknown (business-case figures), prototype versus pilot versus proven (`od-prototype-poc`).
 5. Say which rule or check was used for a classification (for example the label-suffix rule for a signal
    match, the bucket rule for a triage label).
 6. If a check could not be run (no render, no data access), say that; never imply it was done.

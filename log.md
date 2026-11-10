@@ -3,6 +3,12 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-10 — Core = the owner's process flow
+
+- `OD_NewState_ProcessFlow.html` restored to the owner's version (skills & gaps) and made the reference; the generated variant and `scripts/build_process_flow.py` are removed. Gap chips that are now built show as drafts; PoC skill = `od-prototype-poc`, capital request = `od-capital-request`.
+- Skill names follow that page: `funnel-requirements` → `od-requirements-breakdown`, `bc-build` → `od-benefit-calculation`, `invest-screen` → `od-system-fit-check`, `mi-connector` → `od-equipment-integration`, `ops-pipeline` → `od-node-red-flow-builder`, `bc-assess` → `bc-assessment`, `funnel-prototype` → `od-prototype-poc`, `bc-capital-request` → `od-capital-request`, `dept-os` → `od-context`, `bc-cost` → `od-investment-input`, `ops-dashboard-engine` → `build-grafana-ops-dashboard`. Department names stay as aliases (`department_names`).
+- Core (21) = the skills on the page's steps; moved to core: intake triage, analytics asset build, decision routing, use-case definition, data availability check, handover and adoption, signal standardization, acceptance test. Moved to extension: `od-context`, `od-investment-input`, `build-grafana-ops-dashboard`, `funnel-features`, `ops-dashboard-datatron`.
+
 ## 2026-11-10
 
 - **Core = department skills, registry 2.0.0, 47 skills (core 18, extension 29).** The core library is now exactly the

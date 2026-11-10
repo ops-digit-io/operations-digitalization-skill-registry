@@ -20,7 +20,7 @@ a round; the weighted score is what the ranking actually rests on.
 
 **Value** — from fields this estate already records, never invented for the exercise:
 
-- Tracked savings amount (`bc-build`), weighted down if `ESTIMATION` or
+- Tracked savings amount (`od-benefit-calculation`), weighted down if `ESTIMATION` or
   unrecorded rather than `CALCULATION` — an unreliable number should rank below a smaller
   reliable one, not above it on face value alone.
 - Strategic-plant alignment and roadmap link (`od-use-case-intake-triage`'s own admission
@@ -31,7 +31,7 @@ a round; the weighted score is what the ranking actually rests on.
 
 **Effort** — from fields this estate already records:
 
-- Named dependencies and their owner (`bc-build`'s dependency field — `ECR
+- Named dependencies and their owner (`od-benefit-calculation`'s dependency field — `ECR
   APPROVAL`, `MACHINE INTEGRATION` and the rest are effort, stated plainly).
 - Known blockers logged against the use case or its machine.
 - Category: `non-standard, unique to one plant` carries more effort by definition than a

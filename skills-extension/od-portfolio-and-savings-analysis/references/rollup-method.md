@@ -24,7 +24,7 @@ A rollup is a sum over one **(dimension × reliability-class)** cell, never acro
 that differ in what the number is allowed to claim. The boundaries that matter here, in
 the order they must be applied:
 
-1. **Tracked vs. proven** — `bc-build`'s own boundary. A tracked total and a
+1. **Tracked vs. proven** — `od-benefit-calculation`'s own boundary. A tracked total and a
    proven total are two different categories by definition (OD's own assertion vs.
    finance-confirmed through SPRINT); summing them produces a figure that is neither.
 2. **Reliability class** — `CALCULATION` (a stated formula), `ESTIMATION` (no formula),

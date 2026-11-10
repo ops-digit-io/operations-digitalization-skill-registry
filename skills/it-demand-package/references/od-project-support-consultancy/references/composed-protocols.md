@@ -16,14 +16,14 @@ own summary of it.
 
 | Step | What it needs | Real protocol |
 |---|---|---|
-| 2 — Kick-off; scope and requirements | A requirement spec | `funnel-requirements`'s [`assets/requirement-template.md`](../../../../funnel-requirements/assets/requirement-template.md) |
-| 5 — Acceptance testing | A signed acceptance protocol | `od-acceptance-test`'s [`assets/acceptance-test-protocol.md`](../../../../../skills-extension/od-acceptance-test/assets/acceptance-test-protocol.md) — six sections, §6 (handover readiness) is what step 6 reads next |
-| 6 — Ensure use cases are integrated into daily processes | Adoption evidence, not a delivery date | `od-handover-and-adoption`'s [`references/evidence-of-adoption.md`](../../../../../skills-extension/od-handover-and-adoption/references/evidence-of-adoption.md) (three tiers, strongest first) and its [`assets/handover-protocol.md`](../../../../../skills-extension/od-handover-and-adoption/assets/handover-protocol.md) |
-| 7 — Report progress and impact | A decision record if anything is gated | `od-decision-routing`'s [`assets/decision-request.md`](../../../../../skills-extension/od-decision-routing/assets/decision-request.md) |
+| 2 — Kick-off; scope and requirements | A requirement spec | `od-requirements-breakdown`'s [`assets/requirement-template.md`](../../../../od-requirements-breakdown/assets/requirement-template.md)) |
+| 5 — Acceptance testing | A signed acceptance protocol | `od-acceptance-test`'s [`assets/acceptance-test-protocol.md`](../../../../../skills/od-acceptance-test/assets/acceptance-test-protocol.md) — six sections, §6 (handover readiness) is what step 6 reads next |
+| 6 — Ensure use cases are integrated into daily processes | Adoption evidence, not a delivery date | `od-handover-and-adoption`'s [`references/evidence-of-adoption.md`](../../../../../skills/od-handover-and-adoption/references/evidence-of-adoption.md) (three tiers, strongest first) and its [`assets/handover-protocol.md`](../../../../../skills/od-handover-and-adoption/assets/handover-protocol.md) |
+| 7 — Report progress and impact | A decision record if anything is gated | `od-decision-routing`'s [`assets/decision-request.md`](../../../../../skills/od-decision-routing/assets/decision-request.md) |
 
 **Why this lane does not duplicate any of the four.** A protocol copied into a second
 skill drifts from the original the first time either one is updated — exactly the failure
-mode `mi-connector`'s Route A/B merge was built to avoid. Point at the file,
+mode `od-equipment-integration`'s Route A/B merge was built to avoid. Point at the file,
 not at a summary of it.
 
 ## What is still genuinely open, not answered by any of the four

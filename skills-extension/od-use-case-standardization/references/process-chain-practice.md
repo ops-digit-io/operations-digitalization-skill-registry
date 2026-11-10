@@ -48,9 +48,9 @@ A use case is **ready to use** when its methods have run and their outputs exist
 | Receives | From |
 |---|---|
 | use-case class, archetype guess, object / event decomposition | `od-use-case-intake-triage`, `od-first-aid-kit` |
-| validated prototype, flows documentation, deltas | `od-analytics-asset-build`, `funnel-prototype` |
+| validated prototype, flows documentation, deltas | `od-analytics-asset-build`, `od-prototype-poc` |
 | standard signal set verified for a second plant | `od-signal-standardization`, `od-cross-plant-compatibility` |
-| savings rows with source and basis label | `bc-build` |
+| savings rows with source and basis label | `od-benefit-calculation` |
 
 | Hands on | To |
 |---|---|

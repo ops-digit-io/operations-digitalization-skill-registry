@@ -20,8 +20,8 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [dept-os]
-  composes: [od-use-case-intake-triage, od-use-case-definition, funnel-requirements, od-signal-standardization, od-data-availability-check, od-analytics-asset-build, od-use-case-standardization, od-cross-plant-compatibility]
+  requires: [od-context]
+  composes: [od-use-case-intake-triage, od-use-case-definition, od-requirements-breakdown, od-signal-standardization, od-data-availability-check, od-analytics-asset-build, od-use-case-standardization, od-cross-plant-compatibility]
   derived_from:
     - Operations Digitalization slide decks (object-driven event mining, library to archetypes, data-type architecture, downtime-app requirements), abstracted into process guidance; no figures.
   okf:
@@ -34,7 +34,7 @@ metadata:
 
 # Object and event modelling
 
-Read `dept-os` first.
+Read `od-context` first.
 
 ## Purpose and definition of done
 
@@ -62,7 +62,7 @@ Done when:
 |---|---|
 | `i1` Classify the demand | Optional first cut: object/event/time pre-classification of intake text, archetype guess (`od-use-case-intake-triage` owns the lane routing) |
 | `21` Define and diagnose | Reduce the statement; fill the canvas fields for data (`od-use-case-definition`) |
-| `22` Features and data check | Main home: runs between `funnel-requirements` and `od-data-availability-check`; names the missing relation before the data check walks the path |
+| `22` Features and data check | Main home: runs between `od-requirements-breakdown` and `od-data-availability-check`; names the missing relation before the data check walks the path |
 | `26` Standardize | Category, method, ETL job layer that makes an archetype executable (`od-use-case-standardization`) |
 | `3b4` Connector and pipeline | Data-class hub choice and identifier signals when a new machine is connected (`od-signal-standardization`, `od-cross-plant-compatibility`) |
 
@@ -108,14 +108,14 @@ named skill at step `22`.
 | Receives | From |
 |---|---|
 | Accepted demand in the plant's words, owner role, the decision that follows from the number | `od-use-case-intake-triage` / `od-use-case-definition` |
-| Tag list, PLC metadata, machine connected or not | `od-data-availability-check`, `mi-connector` |
+| Tag list, PLC metadata, machine connected or not | `od-data-availability-check`, `od-equipment-integration` |
 
 | Hands on | To |
 |---|---|
 | Canvas plus archetype class and category | `od-use-case-definition` (canvas data box), `od-use-case-standardization` |
-| Event, identifier and relation requirements per signal | `funnel-requirements` (requirement and acceptance criteria), `od-signal-standardization` |
+| Event, identifier and relation requirements per signal | `od-requirements-breakdown` (requirement and acceptance criteria), `od-signal-standardization` |
 | Missing relation or identifier named as a data gap | `od-data-availability-check`, then the Information Integration lane |
-| Method and ETL list, asset type hint | `od-analytics-asset-build`, `ops-pipeline` |
+| Method and ETL list, asset type hint | `od-analytics-asset-build`, `od-node-red-flow-builder` |
 
 ## AI agent operating notes
 

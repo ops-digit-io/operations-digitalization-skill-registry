@@ -21,7 +21,7 @@ metadata:
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
-  requires: [dept-os]
+  requires: [od-context]
   composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-definition, od-rollout-training, od-plant-onboarding, it-demand-package, od-portfolio-and-savings-analysis]
   derived_from:
     - Operations Digitalization slide decks (community and strategy rounds, roadmap templates, demand management, use-case sprint reviews, training programme), abstracted into process guidance; no figures.
@@ -35,7 +35,7 @@ metadata:
 
 # Governance cadence
 
-Read `dept-os` first.
+Read `od-context` first.
 
 The chain (intake, lanes 1 to 3, spine) decides *what* happens to a demand. This skill holds the *routines*
 that keep it moving: which forums exist or existed, what each asks, what it needs on the table and what it must leave
@@ -107,7 +107,7 @@ the lane flow of a use case (`od-use-case-definition`). It names them at the han
 
 ## Still open
 
-- `<Current standard dashboard tool>` for the sprint deliverables: check `dept-os`.
+- `<Current standard dashboard tool>` for the sprint deliverables: check `od-context`.
 - `<Ticket tool, backlog owner, governance board membership>` for demand routing.
 
 ## Do not

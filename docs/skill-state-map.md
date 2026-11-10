@@ -23,25 +23,25 @@ flowchart TD
     subgraph UC["Use Case Support"]
     direction TB
         od_use_case_intake_triage["Intake triage<br/>7 inbound"]
-        invest_screen["System fit check<br/>15 inbound"]
-        funnel_requirements["Requirements breakdown<br/>10 inbound"]
+        od_system_fit_check["System fit check<br/>15 inbound"]
+        od_requirements_breakdown["Requirements breakdown<br/>10 inbound"]
         od_use_case_definition["Use Case Support<br/>7 inbound"]
         od_use_case_solution_evaluation["Solution evaluation<br/>3 inbound"]
         od_use_case_standardization["Use-case standardization<br/>9 inbound"]
-        bc_build["Benefit calculation<br/>14 inbound"]
+        od_benefit_calculation["Benefit calculation<br/>14 inbound"]
     end
     subgraph II["Information Integration"]
     direction TB
         od_data_availability_check["Data availability check<br/>15 inbound"]
-        mi_connector["Equipment integration<br/>15 inbound"]
+        od_equipment_integration["Equipment integration<br/>15 inbound"]
         od_signal_standardization["Signal standardization<br/>9 inbound"]
-        ops_pipeline["Node-RED troubleshooting<br/>2 inbound"]
-        ops_pipeline["Node-RED troubleshooting<br/>2 inbound"]
+        od_node_red_flow_builder["Node-RED troubleshooting<br/>2 inbound"]
+        od_node_red_flow_builder["Node-RED troubleshooting<br/>2 inbound"]
     end
     subgraph AS["Analytical Support"]
     direction TB
         od_analytics_asset_build["Analytics asset build<br/>4 inbound"]
-        ops_dashboard_engine["Grafana dashboards<br/>2 inbound"]
+        build_grafana_ops_dashboard["Grafana dashboards<br/>2 inbound"]
         od_portfolio_and_savings_analysis["Portfolio and savings<br/>9 inbound"]
         od_sharepoint_list_export["SharePoint export<br/>2 inbound"]
     end
@@ -52,25 +52,25 @@ flowchart TD
         od_scorecard_reporting["Scorecard reporting<br/>9 inbound"]
         od_decision_routing["Decision routing<br/>23 inbound"]
     end
-    od_use_case_intake_triage -->|fit risk| invest_screen
-    od_use_case_intake_triage -->|accepted| funnel_requirements
-    funnel_requirements -->|scoped| od_use_case_definition
-    funnel_requirements -->|signals named| od_data_availability_check
+    od_use_case_intake_triage -->|fit risk| od_system_fit_check
+    od_use_case_intake_triage -->|accepted| od_requirements_breakdown
+    od_requirements_breakdown -->|scoped| od_use_case_definition
+    od_requirements_breakdown -->|signals named| od_data_availability_check
     od_use_case_definition -->|library check| od_use_case_standardization
     od_use_case_definition -->|scoped| od_use_case_solution_evaluation
-    od_use_case_solution_evaluation -->|fits as scoped| bc_build
-    od_data_availability_check -->|not integrated| mi_connector
+    od_use_case_solution_evaluation -->|fits as scoped| od_benefit_calculation
+    od_data_availability_check -->|not integrated| od_equipment_integration
     od_data_availability_check -->|not standardized| od_signal_standardization
-    mi_connector -->|connected| od_signal_standardization
-    od_signal_standardization -->|named signals| ops_pipeline
-    ops_pipeline -->|when it breaks| ops_pipeline
-    ops_pipeline -->|data flowing| od_analytics_asset_build
-    od_analytics_asset_build -->|dashboards| ops_dashboard_engine
+    od_equipment_integration -->|connected| od_signal_standardization
+    od_signal_standardization -->|named signals| od_node_red_flow_builder
+    od_node_red_flow_builder -->|when it breaks| od_node_red_flow_builder
+    od_node_red_flow_builder -->|data flowing| od_analytics_asset_build
+    od_analytics_asset_build -->|dashboards| build_grafana_ops_dashboard
     od_analytics_asset_build -->|built| od_acceptance_test
-    ops_pipeline -->|built| od_acceptance_test
+    od_node_red_flow_builder -->|built| od_acceptance_test
     od_acceptance_test -->|accepted| od_handover_and_adoption
     od_handover_and_adoption -->|in use| od_scorecard_reporting
-    bc_build -->|value| od_portfolio_and_savings_analysis
+    od_benefit_calculation -->|value| od_portfolio_and_savings_analysis
     od_sharepoint_list_export -->|the list| od_portfolio_and_savings_analysis
     od_portfolio_and_savings_analysis -->|the numbers| od_scorecard_reporting
     od_use_case_standardization -->|adopt or build| od_decision_routing
@@ -81,8 +81,8 @@ flowchart TD
     classDef stub fill:#e8e8e8,stroke:#9a9a9a,color:#333333,stroke-dasharray:4 3;
     classDef nxt stroke:#1f6feb,stroke-width:4px;
     classDef ctx fill:#4b3fa8,stroke:#332a80,color:#ffffff,stroke-width:2px;
-    class funnel_requirements,od_use_case_solution_evaluation,od_data_availability_check,od_sharepoint_list_export,od_signal_standardization,ops_pipeline deep;
-    class od_use_case_intake_triage,invest_screen,od_use_case_definition,bc_build,od_use_case_standardization,mi_connector,od_acceptance_test,od_handover_and_adoption,od_analytics_asset_build,od_scorecard_reporting,od_portfolio_and_savings_analysis,od_decision_routing,ops_dashboard_engine documented;
+    class od_requirements_breakdown,od_use_case_solution_evaluation,od_data_availability_check,od_sharepoint_list_export,od_signal_standardization,od_node_red_flow_builder deep;
+    class od_use_case_intake_triage,od_system_fit_check,od_use_case_definition,od_benefit_calculation,od_use_case_standardization,od_equipment_integration,od_acceptance_test,od_handover_and_adoption,od_analytics_asset_build,od_scorecard_reporting,od_portfolio_and_savings_analysis,od_decision_routing,build_grafana_ops_dashboard documented;
     class od_acceptance_test,od_use_case_standardization,od_handover_and_adoption nxt;
     class ctx ctx;
 ```
@@ -98,62 +98,62 @@ flowchart TD
 
 | Skill | Lane | State | Refs | Scripts | Inbound |
 |---|---|---|--:|--:|--:|
-| [`funnel-requirements`](../skills/funnel-requirements/SKILL.md) | Use Case Support | 🟩 deep | 5 | 1 | 10 |
+| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | Use Case Support | 🟩 deep | 5 | 1 | 10 |
 | [`od-use-case-solution-evaluation`](../skills-extension/od-use-case-solution-evaluation/SKILL.md) | Use Case Support | 🟩 deep | 6 | 1 | 3 |
-| [`od-data-availability-check`](../skills-extension/od-data-availability-check/SKILL.md) | Information Integration | 🟩 deep | 9 | 1 | 15 |
-| [`od-signal-standardization`](../skills-extension/od-signal-standardization/SKILL.md) | Information Integration | 🟩 deep | 12 | 1 | 9 |
-| [`ops-pipeline`](../skills/ops-pipeline/SKILL.md) | Information Integration | 🟩 deep | 15 | 1 | 2 |
+| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | Information Integration | 🟩 deep | 9 | 1 | 15 |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | Information Integration | 🟩 deep | 12 | 1 | 9 |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | Information Integration | 🟩 deep | 15 | 1 | 2 |
 | [`od-sharepoint-list-export`](../skills-extension/od-sharepoint-list-export/SKILL.md) | Analytical Support | 🟩 deep | 3 | 1 | 2 |
-| [`funnel-features`](../skills/funnel-features/SKILL.md) | — | 🟩 deep | 2 | 1 | 1 |
+| [`funnel-features`](../skills-extension/funnel-features/SKILL.md) | — | 🟩 deep | 2 | 1 | 1 |
 | [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟩 deep | 3 | 2 | 9 |
 | [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) | — | 🟩 deep | 5 | 1 | 2 |
-| [`od-use-case-intake-triage`](../skills-extension/od-use-case-intake-triage/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 7 |
-| [`invest-screen`](../skills/invest-screen/SKILL.md) | Use Case Support | 🟨 documented | 9 | 0 | 15 |
-| [`od-use-case-definition`](../skills-extension/od-use-case-definition/SKILL.md) | Use Case Support | 🟨 documented | 10 | 0 | 7 |
+| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | Use Case Support | 🟨 documented | 3 | 0 | 7 |
+| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | Use Case Support | 🟨 documented | 9 | 0 | 15 |
+| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | Use Case Support | 🟨 documented | 10 | 0 | 7 |
 | [`od-use-case-standardization`](../skills-extension/od-use-case-standardization/SKILL.md) | Use Case Support | 🟨 documented | 4 | 0 | 9 |
-| [`bc-build`](../skills/bc-build/SKILL.md) | Use Case Support | 🟨 documented | 4 | 0 | 14 |
-| [`mi-connector`](../skills/mi-connector/SKILL.md) | Information Integration | 🟨 documented | 15 | 0 | 15 |
-| [`od-analytics-asset-build`](../skills-extension/od-analytics-asset-build/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 4 |
-| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 2 |
+| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | Use Case Support | 🟨 documented | 4 | 0 | 14 |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | Information Integration | 🟨 documented | 15 | 0 | 15 |
+| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 4 |
+| [`build-grafana-ops-dashboard`](../skills-extension/build-grafana-ops-dashboard/SKILL.md) | Analytical Support | 🟨 documented | 10 | 0 | 2 |
 | [`od-portfolio-and-savings-analysis`](../skills-extension/od-portfolio-and-savings-analysis/SKILL.md) | Analytical Support | 🟨 documented | 6 | 0 | 9 |
-| [`od-acceptance-test`](../skills-extension/od-acceptance-test/SKILL.md) | Project Support and closing out | 🟨 documented | 7 | 0 | 12 |
-| [`od-handover-and-adoption`](../skills-extension/od-handover-and-adoption/SKILL.md) | Project Support and closing out | 🟨 documented | 5 | 0 | 15 |
+| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | Project Support and closing out | 🟨 documented | 7 | 0 | 12 |
+| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | Project Support and closing out | 🟨 documented | 5 | 0 | 15 |
 | [`od-scorecard-reporting`](../skills-extension/od-scorecard-reporting/SKILL.md) | Project Support and closing out | 🟨 documented | 6 | 0 | 9 |
-| [`od-decision-routing`](../skills-extension/od-decision-routing/SKILL.md) | Project Support and closing out | 🟨 documented | 4 | 0 | 23 |
-| [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) | — | 🟨 documented | 5 | 0 | 6 |
-| [`bc-cost`](../skills/bc-cost/SKILL.md) | — | 🟨 documented | 4 | 0 | 6 |
+| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | Project Support and closing out | 🟨 documented | 4 | 0 | 23 |
 | [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | — | 🟨 documented | 2 | 0 | 2 |
 | [`catalog-systems`](../skills/catalog-systems/SKILL.md) | — | 🟨 documented | 4 | 0 | 1 |
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | — | 🟨 documented | 8 | 0 | 7 |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | — | 🟨 documented | 6 | 0 | 5 |
-| [`dept-os`](../skills/dept-os/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`funnel-prototype`](../skills/funnel-prototype/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
 | [`od-ai-generation-playbook`](../skills-extension/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟨 documented | 5 | 0 | 6 |
+| [`od-context`](../skills-extension/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
 | [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 9 |
 | [`od-event-object-modelling`](../skills-extension/od-event-object-modelling/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
 | [`od-first-aid-kit`](../skills-extension/od-first-aid-kit/SKILL.md) | — | 🟨 documented | 3 | 0 | 2 |
 | [`od-governance-cadence`](../skills-extension/od-governance-cadence/SKILL.md) | — | 🟨 documented | 6 | 0 | 0 |
+| [`od-investment-input`](../skills-extension/od-investment-input/SKILL.md) | — | 🟨 documented | 4 | 0 | 6 |
 | [`od-migration-cutover`](../skills-extension/od-migration-cutover/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
 | [`od-plant-diagnosis`](../skills-extension/od-plant-diagnosis/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-plant-onboarding`](../skills-extension/od-plant-onboarding/SKILL.md) | — | 🟨 documented | 3 | 0 | 3 |
 | [`od-project-order`](../skills-extension/od-project-order/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |
+| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | — | 🟨 documented | 5 | 0 | 4 |
 | [`od-retro`](../skills-extension/od-retro/SKILL.md) | — | 🟨 documented | 4 | 0 | 4 |
 | [`od-risk-watch`](../skills-extension/od-risk-watch/SKILL.md) | — | 🟨 documented | 3 | 0 | 6 |
 | [`od-rollout-training`](../skills-extension/od-rollout-training/SKILL.md) | — | 🟨 documented | 5 | 0 | 2 |
 | [`od-template-resolution`](../skills-extension/od-template-resolution/SKILL.md) | — | 🟨 documented | 3 | 0 | 2 |
 | [`od-workshop-facilitation`](../skills-extension/od-workshop-facilitation/SKILL.md) | — | 🟨 documented | 3 | 0 | 1 |
-| [`bc-assess`](../skills/bc-assess/SKILL.md) | — | ⬜ stub | 0 | 0 | 0 |
-| [`ops-dashboard-datatron`](../skills/ops-dashboard-datatron/SKILL.md) | — | ⬜ stub | 0 | 0 | 0 |
+| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | — | ⬜ stub | 0 | 0 | 0 |
+| [`ops-dashboard-datatron`](../skills-extension/ops-dashboard-datatron/SKILL.md) | — | ⬜ stub | 0 | 0 | 0 |
 
 ## What is next, and why
 
-- **[`od-acceptance-test`](../skills-extension/od-acceptance-test/SKILL.md)** — **8 inbound — the most-composed skill in the registry, and the thinnest at 468 words.** It is the gate between *delivered* and *accepted*, which every lane's definition of done turns on
+- **[`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md)** — **8 inbound — the most-composed skill in the registry, and the thinnest at 468 words.** It is the gate between *delivered* and *accepted*, which every lane's definition of done turns on
 - **[`od-use-case-standardization`](../skills-extension/od-use-case-standardization/SKILL.md)** — 5 inbound · adoption is the shortfall the department names itself, and 100 library use cases already exist to check against
-- **[`od-handover-and-adoption`](../skills-extension/od-handover-and-adoption/SKILL.md)** — 5 inbound · the IMPLEMENTED-vs-PRODUCTIVE gap lives here, and 129 use cases sit on the wrong side of it
+- **[`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md)** — 5 inbound · the IMPLEMENTED-vs-PRODUCTIVE gap lives here, and 129 use cases sit on the wrong side of it
 
 *Inbound* counts how many other skills name this one in `composes`. It is the cheapest proxy for what the rest of the registry is leaning on, and it is what picked the last two skills built.
 
 ## Not on the map
 
-The four lane skills and `deploy-appstore`, `bc-capital-request`, `od-context-freshness`, `od-cross-plant-compatibility`, `od-cybersec-gate`, `od-first-aid-kit`, `bc-cost`, `od-plant-onboarding`, `funnel-prototype`, `od-retro`, `od-risk-watch`, `od-rollout-training`, `od-template-resolution`, `od-workshop-facilitation`, `od-ai-generation-playbook`, `od-event-object-modelling`, `od-governance-cadence`, `od-migration-cutover`, `od-plant-diagnosis`, `od-project-order`, `catalog-usecase`, `it-demand-package`, `funnel-features`, `bc-assess`, `catalog-guardrails`, `catalog-systems`, `ops-dashboard-datatron` are entry points rather than steps, so they carry no position in the delivery order.
+The four lane skills and `deploy-appstore`, `od-capital-request`, `od-context-freshness`, `od-cross-plant-compatibility`, `od-cybersec-gate`, `od-first-aid-kit`, `od-investment-input`, `od-plant-onboarding`, `od-prototype-poc`, `od-retro`, `od-risk-watch`, `od-rollout-training`, `od-template-resolution`, `od-workshop-facilitation`, `od-ai-generation-playbook`, `od-event-object-modelling`, `od-governance-cadence`, `od-migration-cutover`, `od-plant-diagnosis`, `od-project-order`, `catalog-usecase`, `it-demand-package`, `funnel-features`, `bc-assessment`, `catalog-guardrails`, `catalog-systems`, `ops-dashboard-datatron` are entry points rather than steps, so they carry no position in the delivery order.

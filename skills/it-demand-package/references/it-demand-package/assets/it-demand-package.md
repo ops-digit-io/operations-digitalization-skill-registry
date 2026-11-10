@@ -24,14 +24,14 @@ Draft. A human submits it. The evaluation board decides. This package does neith
    Spend gate (eCR) needed in parallel?  yes / no       Threshold step: ____ (od-decision-routing)
    Tool or system rollout decision involved?  yes / no  (OD lead decides, in tandem with the IT-responsible role of the business side)
 
-2  REQUIREMENT                       (funnel-requirements)
+2  REQUIREMENT                       (od-requirements-breakdown)
    Requirement link (ten sections) / epic and stories link:
 
-3  FIT-CHECK VERDICT                 (invest-screen)
+3  FIT-CHECK VERDICT                 (od-system-fit-check)
    Verdict:      inside lean footprint / outside -> tool-rollout decision / substitute available ____
    Four assessment questions answered (existing app? supported? licence? footprint?):  yes / which not
 
-4  BUSINESS CASE                     (bc-build)
+4  BUSINESS CASE                     (od-benefit-calculation)
    Every figure: value ____ source ____ capture date ____ ; none without; "to be collected" otherwise
 
 5  APPROVAL ROUTE                    (od-decision-routing)

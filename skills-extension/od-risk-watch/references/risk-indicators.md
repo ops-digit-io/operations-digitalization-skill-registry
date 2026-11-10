@@ -82,7 +82,7 @@ below, with its read date. Status wording per [`../SKILL.md`](../SKILL.md).
 | Early indicator | Use-case impact below plan |
 | Owner | DBVE |
 | Trigger | Impact < target for the quarter |
-| Where to read | Scorecard (utilization rate, integrated use cases), the savings roll-up in `od-portfolio-and-savings-analysis`, `bc-build` for the basis of a saving |
+| Where to read | Scorecard (utilization rate, integrated use cases), the savings roll-up in `od-portfolio-and-savings-analysis`, `od-benefit-calculation` for the basis of a saving |
 | How to read it live | Read tracked and proven savings separately from the saving rows (proven = SPRINT-reviewed) and the integrated use cases and machines against target from the Scorecard; the two savings figures are never added. Compare any older strategy-recap figure only as a dated reference, never as the current reading |
 | Unreadable part | The quarter's impact target is not defined: utilization has "no fixed target - trend only", and the value delivery cycle is not captured in any system |
 | Status test | *Unreadable* on target; the savings gap (tracked vs proven) is context, not the trigger. Do not turn tracked savings into a reading of impact |

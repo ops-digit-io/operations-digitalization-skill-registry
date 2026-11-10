@@ -21,8 +21,8 @@ metadata:
   status: stable
   sources_read: 2026-10-22
   valid_until: 2026-11-10
-  requires: [dept-os]
-  composes: [bc-build]
+  requires: [od-context]
+  composes: [od-benefit-calculation]
   derived_from:
     - ops-knowledge-graph/.../00-core/07-metrics.md
     - ops-knowledge-graph/.../00-core/06-operating-rhythm.md
@@ -40,7 +40,7 @@ metadata:
 
 # Scorecard and round reporting
 
-Read `dept-os` first.
+Read `od-context` first.
 
 A metric without a nameable source is not measured but felt. Every figure below carries
 its source, its target and the value at which somebody intervenes.

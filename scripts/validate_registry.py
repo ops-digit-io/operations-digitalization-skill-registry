@@ -128,9 +128,9 @@ def main() -> int:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.scope '{scope}' is not 'od' or 'portable'")
         # OD-scoped skills inherit the department's vocabulary and honesty rules. A
         # portable skill is domain-generic and must instead say how it plugs in.
-        if scope == "od" and name != "dept-os":
-            if "dept-os" not in (meta.get("requires") or []):
-                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: every od-scoped skill must require dept-os")
+        if scope == "od" and name != "od-context":
+            if "od-context" not in (meta.get("requires") or []):
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: every od-scoped skill must require od-context")
         if scope == "portable":
             note = meta.get("od_integration")
             if not note:

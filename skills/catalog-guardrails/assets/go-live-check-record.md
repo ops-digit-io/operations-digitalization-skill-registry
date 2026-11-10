@@ -24,7 +24,7 @@ Rules for filling: a result is `passed`, `failed` or `not checked`. "Yes" withou
 |---|---|---|---|---|
 | G1 | Signals exist and are fresh; verdict names the step reached (1 to 6 of `od-data-availability-check`) | | | |
 | G2 | Platform boundary: local Grafana only; global layer not wired in; no cross-plant view on a local instance | | | |
-| G3 | Inside the lean footprint (`invest-screen`) | | | |
+| G3 | Inside the lean footprint (`od-system-fit-check`) | | | |
 | G4 | No figure without source and capture date | | | |
 | G5 | Named plant owner; the plant decides daily use | | | |
 | G6 | Three-question handover test answerable from the record alone | | | |

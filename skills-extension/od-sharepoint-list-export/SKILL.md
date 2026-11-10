@@ -21,7 +21,7 @@ metadata:
   status: stable
   delivered: 2026-08
   sources_read: 2026-10-22
-  requires: [dept-os]
+  requires: [od-context]
   composes: [od-portfolio-and-savings-analysis]
   derived_from:
     - ops-knowledge-graph/_knowledge/20-Done/SharePoint list export procedure.md
@@ -39,7 +39,7 @@ metadata:
 
 # SharePoint list export
 
-Read `dept-os` first.
+Read `od-context` first.
 
 A repeatable way to export a SharePoint Online list in full — current items, complete item
 version history, attachment metadata and attachment binaries — from the browser console,

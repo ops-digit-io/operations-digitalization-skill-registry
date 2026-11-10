@@ -14,7 +14,7 @@ This file holds **no counts**. Source to read live: vault `Graph/Legacy Applicat
 `LegacyApplication-List`; fields and "Support and licensing" lines). Export it with `od-sharepoint-list-export` and
 aggregate; use it as an aggregate, not note by note. The list holds the applications plants run beside the standard tools
 (mostly programming, laboratory, configuration and camera software), not a catalog of recommended systems. Basic
-aggregation by category, licence and support concept is also described in `funnel-requirements`,
+aggregation by category, licence and support concept is also described in `od-requirements-breakdown`,
 `references/legacy-system-assessment.md`.
 
 ## Fields to read
@@ -35,14 +35,14 @@ cyber-security `Not started` by network status (IT and OT/IT entries that are `N
 
 1. A kit that lands on a machine usually meets **PLC programming software** or **equipment configuration**. The kit cannot
    assume the plant holds a licence: in the PLC programming category the licence position is often `unknown`. Ask before
-   ordering (`mi-connector`: no PLC program, no connection).
+   ordering (`od-equipment-integration`: no PLC program, no connection).
 2. A kit that replaces a plant application can touch **critical** software; never propose replacement without the support
    concept and cyber-security status of that application. Where the field is empty, the answer is "unknown", and an unknown
    stays in the entry as ⟨missing⟩.
 3. Cyber-security status is often "Not started"; a connection that routes through such an application meets the
    external-connection sign-off, which is human-only (`catalog-usecase` G7, `od-cybersec-gate`).
 4. Custom MES and custom SCADA applications overlap with what the footprint rule excludes (MES rollout on hold). Treat them as
-   `invest-screen` cases, never as ordinary kits.
+   `od-system-fit-check` cases, never as ordinary kits.
 
 ## Open
 

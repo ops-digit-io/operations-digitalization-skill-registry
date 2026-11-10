@@ -82,7 +82,7 @@ the verdict rests on, not a restatement of it.**
 
 ## 7 · Verdict and next step
 
-⟨Ready to build → `bc-build` · Needs a capability raised first → name the gap
+⟨Ready to build → `od-benefit-calculation` · Needs a capability raised first → name the gap
 owner and hand off per §5 · Over-engineered → lower the target or name the missing
 justification · Escalate → `od-decision-routing`⟩
 

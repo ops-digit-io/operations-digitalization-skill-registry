@@ -17,7 +17,7 @@ architecture, data economy. AI is useful from the third level up. Use it as a go
 do not rank an AI use case above basic data-model and reporting work in a plant that has not reached
 reporting; in the interim choose less demanding use cases. Quick triage grid for AI ideas: low barrier
 and high potential, mid barrier and high potential, high barrier and mid potential. Value / risk rule
-(`funnel-prototype`): build low-risk, high-value; run a cheap test where risk and value are both high;
+(`od-prototype-poc`): build low-risk, high-value; run a cheap test where risk and value are both high;
 do not build low value.
 
 ## 2 AI idea collection (i1, 21)
@@ -37,7 +37,7 @@ the data foundation is missing.
 - **Time-box** the pilot and the understanding-building; success targets are stated up front
   (`<time-box>`, `<accuracy threshold>`: not in the sources).
 - Train the users before the pilot, record lessons for the rollout.
-- PoC (feasibility), prototype (benefit with real users), pilot and rollout stay four different claims (`funnel-prototype`); a pilot result is never
+- PoC (feasibility), prototype (benefit with real users), pilot and rollout stay four different claims (`od-prototype-poc`); a pilot result is never
   reported as proven value.
 - The Lead-change label is a human call; an agent may propose it and cite the facts used.
 
@@ -59,12 +59,12 @@ the data foundation is missing.
 
 ## 5 AI-built app intake path (between Lane 2 step 23 and Lane 3a, steps 3a4-3a6)
 
-1. **Prompt-to-prototype is a demo of value, not a delivery.** Record it as a prototype (`funnel-prototype`).
+1. **Prompt-to-prototype is a demo of value, not a delivery.** Record it as a prototype (`od-prototype-poc`).
 2. **Choose the sourcing route** (`deploy-appstore`): internal; external with source owned (treated as
    internal); external without source (image and deployment files only, highest effort).
 3. **Assume supplier code is partly AI-generated** and ask the supplier to say which parts.
 4. **IT takeover:** a business owner, an IT owner, a service concept, roles, requirements, a change
-   process and a risk process exist before productive use (`invest-screen`).
+   process and a risk process exist before productive use (`od-system-fit-check`).
 5. **Cyber Security approval** through `od-cybersec-gate`, planned as work (explanation of the app,
    network and components, scans, tests, documentation). It is human-only and has no fast path.
 6. **Deploy** through `deploy-appstore`; the deployment set may be drafted by an assistant.

@@ -19,16 +19,16 @@ adds. Items Cyber Security adds are entered as `⟨…⟩` rows in the package.
 
 | Item | What to write | Where it already exists |
 |---|---|---|
-| Plant, machine, owner | Plant, machine name and EQ id, vendor, PLC model; Plant ME and Plant IT roles | Machine List; `mi-connector` guidance protocol header |
-| Route chosen | One of three: edge device in or beside the cabinet; connector with no device; via the Softing dataFEED aggregation server bridged with the OPC UA connector | `mi-connector` `references/decision-paths.md`, guidance protocol Gate 1 |
-| Connector | The driver and its status (some connectors cannot be used, for example status Idea or "DO NOT USE"; check the connector list) | `mi-connector` `references/connectors.md` |
+| Plant, machine, owner | Plant, machine name and EQ id, vendor, PLC model; Plant ME and Plant IT roles | Machine List; `od-equipment-integration` guidance protocol header |
+| Route chosen | One of three: edge device in or beside the cabinet; connector with no device; via the Softing dataFEED aggregation server bridged with the OPC UA connector | `od-equipment-integration` `references/decision-paths.md`, guidance protocol Gate 1 |
+| Connector | The driver and its status (some connectors cannot be used, for example status Idea or "DO NOT USE"; check the connector list) | `od-equipment-integration` `references/connectors.md` |
 | Data path, end to end | machine, connector, edge, platform, offload to Databricks and the Azure Storage Account (Parquet, global layer) | `references/iiot-edge-platform.md`; `15-resources.md` |
 | What is read, what is written | Signals in scope; read-only versus any write to the controller | acceptance protocol section 1 (`od-acceptance-test`) |
 | Network position | Where the edge device or server sits and how it reaches the platform | Phase 2 of `references/iiot-edge-platform.md`; ⟨network diagram - Plant IT⟩ |
 | Credentials and certificates | **Only** that endpoint credentials and certificates exist and which role holds them. Never the values | `iiot-edge-platform.md` bridge task 3 |
 | Known security barriers | Firmware patch needed; no security-compliant communication; flat network | `references/barrier-classes.md`, `fallbacks.md` section 4 |
 | Cover | Wave-level sign-off in force? reference and scope | ⟨where recorded⟩ |
-| Investment status | Approved or not (a precondition of the go-ahead) | `mi-connector` Route A step 6 |
+| Investment status | Approved or not (a precondition of the go-ahead) | `od-equipment-integration` Route A step 6 |
 | Acceptance protocol | Drafted before the build | `od-acceptance-test` `assets/acceptance-test-protocol.md` |
 
 ## B. App deployment (Lane 3a)

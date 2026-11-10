@@ -85,7 +85,7 @@ Use one of these words in every table instead of a blank or an invented number.
 | Integration projects to acceptance | Projects that passed acceptance, against the active ones | Not captured in a tracker. The acceptance evidence is the protocol (`od-acceptance-test`), so the count can be built from protocols `<to confirm>` |
 | Equipment integration progress | Reported progress against plan in the department report (formerly the ODEC report) | Compare with the equipment report of the integration lane; the two should agree |
 | Applications progress | Reported progress against plan | Same |
-| Use-case impact | Realised impact of delivered use cases in the department report (formerly the ODEC report) | Impact is only as good as the saving basis behind it (`bc-build`) |
+| Use-case impact | Realised impact of delivered use cases in the department report (formerly the ODEC report) | Impact is only as good as the saving basis behind it (`od-benefit-calculation`) |
 | On-time delivery | Projects delivered on schedule | Not captured. Define "schedule" as the milestone agreed at kick-off, not the last re-plan |
 
 ### Information Integration Service
@@ -112,7 +112,7 @@ Never show one half alone.
 
 When a metric compares a digital measurement with an earlier manual one, state how each was captured. Manually recorded performance
 figures tend to read more favourably than automatic ones, so a first automatic reading can look worse without any real
-decline. Report the change of method before reporting the change of value (see `dept-os/references/provenance-and-source-catalogue.md`).
+decline. Report the change of method before reporting the change of value (see `od-context/references/provenance-and-source-catalogue.md`).
 
 ## AI agent operating notes
 

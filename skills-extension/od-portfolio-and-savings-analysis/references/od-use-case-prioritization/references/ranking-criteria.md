@@ -30,7 +30,7 @@ A candidate that fails a gate is not ranked low; it is out of this exercise (`od
 
 | Criterion | What to read | Source | Limit |
 |---|---|---|---|
-| Saving potential | Tracked saving rows and their reliability label | `00-core/05-intake.md` ("savings, lead-time reduction, cost avoidance"); `bc-build` | Many use cases carry no saving figure (count them in the ledger); blank is "not assessed", not zero |
+| Saving potential | Tracked saving rows and their reliability label | `00-core/05-intake.md` ("savings, lead-time reduction, cost avoidance"); `od-benefit-calculation` | Many use cases carry no saving figure (count them in the ledger); blank is "not assessed", not zero |
 | Generalization potential | Is this a standard use case that other plants can take over? | Workshop slide "Collection of Smart Factory Use Case demand": classification and priority currently by highest generalization potential, then highest saving potential | The slide is a workshop deck, not a rule document |
 | Roadmap fit | Does it sit in the plant's machine integration wave or project (for example MSB rollout, QFPR rollout)? | A definition workshop's stated purpose, for example "Use Case Prioritization for the next Machine Integration Wave" | Plant specific |
 | Lead-time or cost avoidance | Named separately in the intake rule | `05-intake.md` | No metric or unit given: ⟨how lead time is valued⟩ |
@@ -39,7 +39,7 @@ A candidate that fails a gate is not ranked low; it is out of this exercise (`od
 
 | Criterion | What to read | Source |
 |---|---|---|
-| Dependencies | `ECR APPROVAL`, `ECR CREATION`, `PLANT`, `MACHINE INTEGRATION`, `OTHERS`, `NO DEPENDENCY` and who owns each | `bc-build` |
+| Dependencies | `ECR APPROVAL`, `ECR CREATION`, `PLANT`, `MACHINE INTEGRATION`, `OTHERS`, `NO DEPENDENCY` and who owns each | `od-benefit-calculation` |
 | Data readiness | Machines connected, signals available | `od-data-availability-check` |
 | Category | A standard use case with an existing library entry costs less to repeat than a non-standard one | `od-use-case-definition`, `od-use-case-standardization` |
 | Fit of the solution | Does the idea quietly need MES/EMS or a capability nobody has? | `od-use-case-solution-evaluation` |

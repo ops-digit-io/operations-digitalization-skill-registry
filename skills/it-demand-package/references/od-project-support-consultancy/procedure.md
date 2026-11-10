@@ -19,7 +19,7 @@ generated:
 
 > **Absorbed.** This was the skill `od-project-support-consultancy`. It now runs as a mode of [`it-demand-package`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on systems; draft on project artefacts; recommend on sequencing.
 
-Read `dept-os` first.
+Read `od-context` first.
 
 ## The references are the substance
 
@@ -39,7 +39,7 @@ consulted and accepted. **Customer.** Plant / project teams. **Scope:** regional
 | # | Step | Who | Control point |
 |---|---|---|---|
 | 1 | Digital investment project initiated per plant roadmap | Plant + OD | Project in plan |
-| 2 | Kick-off with the MPEE OD team; scope and requirements | IIAE/DBVE + Plant | Scope agreed — see `funnel-requirements` |
+| 2 | Kick-off with the MPEE OD team; scope and requirements | IIAE/DBVE + Plant | Scope agreed — see `od-requirements-breakdown` |
 | 3 | Equipment and solution integration project management | IIAE | Milestones tracked |
 | 4 | Application consultancy (Manufacturing Software Suite, apps) | Human | Solution design accepted |
 | 5 | Acceptance testing | IIAE | Acceptance passed |
@@ -70,7 +70,7 @@ licensing decision ⟨owner to confirm⟩ · awaiting Cyber Security sign-off be
 | Task | Trigger | Template |
 |---|---|---|
 | Project kick-off with OD team | Digital investment project initiated | ⟨approved kick-off agenda — to confirm⟩; the structure the decks show is in `references/process-chain-practice.md` |
-| Requirements breakdown | Kick-off done | `funnel-requirements`'s `assets/requirement-template.md` |
+| Requirements breakdown | Kick-off done | `od-requirements-breakdown`'s `assets/requirement-template.md` |
 | Integration project status | Weekly / milestone | Project tracker |
 | Application consultancy session | Solution design needed | ⟨template — to confirm; PS-04 application consulting was never built as its own skill⟩ |
 | Acceptance test | Solution ready | `od-acceptance-test`'s `assets/acceptance-test-protocol.md` |

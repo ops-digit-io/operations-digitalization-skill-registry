@@ -51,13 +51,13 @@ PLC program in hand?   yes / no (no = cannot connect; fallbacks.md)
 OPC UA server already in front of the machine?   yes / no / not known   (cheapest path in the tree)
 Plant platforms (tools-and-footprint.md):   edge platform Available? ____  aggregation server Available? ____
 Route found:   entry ____  class A / B / C / D
-Candidate kit:   ____ | "no standard system" -> Lane 3b via invest-screen
-Footprint:   inside / outside (outside -> invest-screen, tool-rollout decision)
+Candidate kit:   ____ | "no standard system" -> Lane 3b via od-system-fit-check
+Footprint:   inside / outside (outside -> od-system-fit-check, tool-rollout decision)
 Legacy application touched (legacy-application-position.md):   ____ licence ____ support ____ criticality ____
 Cost-template inputs:   given: ____   ⟨missing⟩: ____
 Approval route (od-decision-routing):   ____
 Cyber Security status:   ⟨not requested / requested on ____ / granted by ____⟩    (human-only)
-Next step:   1b order and connect (mi-connector) -> od-acceptance-test -> apply template and go live (catalog-usecase, go-live)
+Next step:   1b order and connect (od-equipment-integration) -> od-acceptance-test -> apply template and go live (catalog-usecase, go-live)
 ```
 
 Every ⟨…⟩ is closed by the person named in the SKILL.md "Open" section, not by the agent.

@@ -15,7 +15,7 @@ derived_from:
 - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 3a step "Package / build app", the options 3a.3 and 3a.4 and the gap register entry, read 2026-11-05
 - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
 - Skill od-decision-routing, which routes IT demand through demand management and does not package it
-- Skill funnel-requirements, the requirement and the epic with its stories
+- Skill od-requirements-breakdown, the requirement and the epic with its stories
 - Department deck AI_Initiatives_IT_Contact_Points.pptx (one slide, the asks to IT per initiative, roles only), text extracted and read 2026-11-05
 - Work vault (Work-OpsDigit-Knowledge), Graph/Legacy Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
 - Knowledge bundle, 00-core decision rights (08-decision-rights.md) and the 10-Department notes Operating model and Roles and organization, read 2026-11-05
@@ -27,7 +27,7 @@ generated:
 
 > **Absorbed.** This was the skill `it-demand-package`. It now runs as a mode of [`it-demand-package`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft the package; submission and the evaluation board's decision are human.
 
-Read `dept-os` first.
+Read `od-context` first.
 
 **Status: draft scaffold.** The registry already **routes** an IT demand (`od-decision-routing`: IT demand goes through
 demand management). The new-state flow lists the **packaging** of that demand as a net-new build. The sources read hold
@@ -63,9 +63,9 @@ What stays open after mining the vault: IT's own demand form, the board's criter
 
 | Part | Where it comes from |
 |---|---|
-| The requirement, and the epic with its stories | `funnel-requirements` |
-| The fit-check verdict | `invest-screen` |
-| The business case, with sources and capture dates, no invented figures | `bc-build` |
+| The requirement, and the epic with its stories | `od-requirements-breakdown` |
+| The fit-check verdict | `od-system-fit-check` |
+| The business case, with sources and capture dates, no invented figures | `od-benefit-calculation` |
 | The approval route and the owner of each decision | `od-decision-routing` |
 | The plant sponsor and the plant owner | the demand itself |
 | The acceptance criteria the delivery will be tested against | `od-acceptance-test`, drafted |

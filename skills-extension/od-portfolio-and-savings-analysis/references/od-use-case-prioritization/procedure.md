@@ -32,11 +32,11 @@ generated:
 
 > **Absorbed.** This was the skill `od-use-case-prioritization`. It now runs as a mode of [`od-portfolio-and-savings-analysis`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
-Read `dept-os` first. This skill turns "several use cases want the same capacity" into a
+Read `od-context` first. This skill turns "several use cases want the same capacity" into a
 **recommended order with reasons**. It does not decide: prioritization and selection is a
 *recommend* decision of the DBVE together with the Plant ME (Tandem, no approval, reversible,
 "within plant roadmap scope" — `08-decision-rights.md`). Money is a different decision
-(`od-decision-routing`, `bc-cost`).
+(`od-decision-routing`, `od-investment-input`).
 
 ## When it applies
 
@@ -78,7 +78,7 @@ inputs that skill's method scores, and the plant-facing record around it.
 3. **Collect the minimum per candidate** from the use case record, not from memory: plant,
    capability and process group (`od-use-case-definition`), category (standard cross process,
    standard per process, non-standard, AI), stated objective, tracked savings with reliability
-   label (`bc-build`), dependencies with owner, machines and data readiness
+   label (`od-benefit-calculation`), dependencies with owner, machines and data readiness
    (`od-data-availability-check`).
 4. **Look up the baseline** in [`references/evidence-baselines.md`](references/evidence-baselines.md):
    which case group the candidate belongs to, which plants already run it (read the group's rollout map), and how strong the
@@ -100,9 +100,9 @@ inputs that skill's method scores, and the plant-facing record around it.
 8. **Write the recommendation and walk the Plant ME through it** (Tandem: both must agree on the
    plant-level order). Record agreement, and any use case the Plant ME wants moved, with the
    reason. Disagreement is recorded, not smoothed.
-9. **Hand over**: agreed top candidates go to `bc-build` (if not yet costed) and then
-   to integration (`mi-connector`); standard candidates are checked against
-   `od-use-case-standardization`. Money needs go to `bc-cost`.
+9. **Hand over**: agreed top candidates go to `od-benefit-calculation` (if not yet costed) and then
+   to integration (`od-equipment-integration`); standard candidates are checked against
+   `od-use-case-standardization`. Money needs go to `od-investment-input`.
 
 ## Output
 
@@ -123,7 +123,7 @@ the planning inputs the department collects (ODEC decks are a historical source 
 
 - Do not rank a use case that fails intake; return it with the written reason.
 - Do not read a blank value field as low value, and do not default it to a midpoint.
-- Do not add or compare tracked and proven euros as one number (`bc-build`).
+- Do not add or compare tracked and proven euros as one number (`od-benefit-calculation`).
 - Do not invent weights, scores or savings; mark them ⟨to be collected⟩ and name who collects.
 - Do not commit investment, equipment integration or an external connection; those are other
   decisions with other authority levels (`08-decision-rights.md`).

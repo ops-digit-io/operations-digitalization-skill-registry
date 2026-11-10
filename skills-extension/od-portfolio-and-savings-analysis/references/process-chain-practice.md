@@ -23,7 +23,7 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
    each state's baseline file named. The state number and trigger belong on the record.
 3. **Read scale as three lists per top use case:** where it saved, where it was deployed without savings, where it still has
    potential. A visual of "where first, where saved, where it went, where deployable, where not" helps.
-4. **Split the estate by the variable that drives the economics before averaging** (`bc-build`); compare
+4. **Split the estate by the variable that drives the economics before averaging** (`od-benefit-calculation`); compare
    regions and segments, never blend them.
 5. **State the staffing assumption** next to every projection. The same portfolio projects differently under central-only
    staffing and central-plus-dedicated plant key users; most of the difference is scaling through machine connectivity.
@@ -60,7 +60,7 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
 
 | Receives (from) | Hands on (to) |
 |---|---|
-| Tagged benefit rows (`bc-build`) | Ranked list with criteria order, planning-state number, unscored bucket, dependency column -> `bc-capital-request`, plant roadmap |
+| Tagged benefit rows (`od-benefit-calculation`) | Ranked list with criteria order, planning-state number, unscored bucket, dependency column -> `od-capital-request`, plant roadmap |
 | Use-case list and savings ledger, read with date (`od-sharepoint-list-export`) | Portfolio review protocol -> `od-scorecard-reporting` round prep |
 | Utilisation evidence (`od-handover-and-adoption`) | Where-saved matrix and kill/hold register -> `od-retro`, `od-risk-watch` |
 
@@ -90,4 +90,4 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
 - **Required inputs:** list and ledger exports with read dates, plant priority input, prototype status.
 - **Human gate:** ranking sign-off and the order of criteria; *lead change* assignment; kill or hold.
 - **Evidence to cite:** list row id, ledger row id, read date, planning-state baseline file.
-- **Hands over:** the review protocol to `od-scorecard-reporting`; the ranked list to `bc-capital-request`.
+- **Hands over:** the review protocol to `od-scorecard-reporting`; the ranked list to `od-capital-request`.

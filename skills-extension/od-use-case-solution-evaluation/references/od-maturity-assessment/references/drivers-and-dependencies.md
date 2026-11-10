@@ -90,7 +90,7 @@ A machine at "predictive" with "historical" collection is not impossible (traini
    object.
 3. Items with no open prerequisite go into step 1; the rest follow their prerequisites. Parallel steps are allowed where the object allows.
 4. Attach each step to a use case, an owner role and a business case. Maturity without one is not planned.
-5. Name the owning skill per gap (as in `od-use-case-solution-evaluation`): F9 and F10 to `mi-connector`; F11 and the push half
+5. Name the owning skill per gap (as in `od-use-case-solution-evaluation`): F9 and F10 to `od-equipment-integration`; F11 and the push half
    of F2 to `od-data-availability-check`; F16 to `od-signal-standardization`; the rest stays with the use case or tool request.
 
 ## 6 Target setting in one line per area family (the source's own guidance)

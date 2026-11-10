@@ -20,7 +20,7 @@ is given in the sources** and none is invented here.
 | # | Test | Question | Evidence that answers it | Source of the rule |
 |---|---|---|---|---|
 | 1 | **Recurrence** | Did the same need come back, from the same or another plant? | Request log with dates, plants, requesters, what differed; the asset's reuse | Playbook step 6; trigger "recurring value in an ad-hoc asset". Threshold `⟨to confirm⟩` |
-| 2 | **Value** | Is the asset used, and does it move a decision or a loss? | Utilization record (daily / weekly / ... / `NEVER`) from the Scorecard; saving rows with reliability and proven flag; the named ritual it serves | Metrics: utilization rate; `bc-build`; `od-handover-and-adoption` question 1 |
+| 2 | **Value** | Is the asset used, and does it move a decision or a loss? | Utilization record (daily / weekly / ... / `NEVER`) from the Scorecard; saving rows with reliability and proven flag; the named ritual it serves | Metrics: utilization rate; `od-benefit-calculation`; `od-handover-and-adoption` question 1 |
 | 3 | **Reproducibility** | Can a second plant take it without the builder? | Data path written to machine and signal; data-fitness verdict; standardized signals; validation checklist passed; plant-specific parts separable | `od-data-availability-check`, `od-signal-standardization`, `od-analytics-asset-build` (validate before calling it built) |
 | 4 | **Placement** | Is there already a library entry, and where would a new one sit? | Library search result; capability template, process group, cluster tag assigned by the classifier; deltas against the cluster baseline | `od-use-case-standardization`, procedure steps 1 to 4 |
 | 5 | **Handover** | Does the plant own it and use it in real shifts? | Named plant owner; the three-question test answered without the builder; handover state | `od-handover-and-adoption` |
@@ -66,6 +66,6 @@ Escalation for low utilization or unclear value: OD lead via COP (analytical lan
 
 Output assets recorded across the portfolio are dashboards, reports, apps, analytics workflows and agents (count the mix
 live). Most candidates will be dashboards; `od-analytics-asset-build`
-and `ops-dashboard-engine` hold the standard layouts the promoted version should follow.
+and `build-grafana-ops-dashboard` hold the standard layouts the promoted version should follow.
 An "app disguised as a dashboard" (the user types something back) is a different asset type and a
 different promotion: check the type first (`od-analytics-asset-build`, asset type and tier).

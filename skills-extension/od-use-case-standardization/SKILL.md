@@ -22,8 +22,8 @@ metadata:
   authority_level: recommend
   status: stable
   sources_read: 2026-10-22
-  requires: [dept-os]
-  composes: [od-decision-routing, od-portfolio-and-savings-analysis, bc-build]
+  requires: [od-context]
+  composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-benefit-calculation]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/20-Done/AI cluster classification.md
@@ -40,7 +40,7 @@ metadata:
 
 # Use-case standardization
 
-Read `dept-os` first.
+Read `od-context` first.
 
 ## The references are the substance
 
@@ -143,7 +143,7 @@ The procedure does not end in prose. Fill
 happens — one document per use case: template placement, library check, cluster baseline
 and delta, and the CSP-readiness verdict, written so it hands off directly into
 `od-decision-routing`'s "standard enough to roll out" gate and into
-`bc-build`'s business case, instead of needing to be re-asked from scratch.
+`od-benefit-calculation`'s business case, instead of needing to be re-asked from scratch.
 
 ## Absorbed: Promote a recurring ad-hoc asset into a standard use case (formerly od-use-case-promotion)
 
