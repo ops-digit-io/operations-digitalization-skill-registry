@@ -30,7 +30,7 @@ generated:
 ---
 # Application consulting
 
-> **Absorbed.** This was the skill `od-system-fit-check`. It now runs as a mode of [`od-system-fit-check`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
+> **Absorbed.** This was the skill `od-application-consulting`. It now runs as a mode of [`od-system-fit-check`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
 Read `od-context` first.
 

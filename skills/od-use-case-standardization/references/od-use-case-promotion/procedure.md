@@ -29,7 +29,7 @@ generated:
 ---
 # Use-case promotion
 
-> **Absorbed.** This was the skill `od-use-case-standardization`. It now runs as a mode of [`od-use-case-standardization`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
+> **Absorbed.** This was the skill `od-use-case-promotion`. It now runs as a mode of [`od-use-case-standardization`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
 Read `od-context` first.
 

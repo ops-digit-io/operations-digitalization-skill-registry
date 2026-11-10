@@ -19,7 +19,7 @@ generated:
 ---
 # Machine integration plan
 
-> **Absorbed.** This was the skill `od-equipment-integration`. It now runs as a mode of [`od-equipment-integration`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
+> **Absorbed.** This was the skill `od-machine-integration-plan`. It now runs as a mode of [`od-equipment-integration`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `od-context` first. This skill turns a **machine list** into an **integration wave plan** that can
 be sized, funded, run and handed over. It plans; it does not assess a single machine

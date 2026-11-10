@@ -30,7 +30,7 @@ generated:
 ---
 # Impact evaluation
 
-> **Absorbed.** This was the skill `od-handover-and-adoption`. It now runs as a mode of [`od-handover-and-adoption`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft the evaluation; the plant confirms adoption.
+> **Absorbed.** This was the skill `od-impact-evaluation`. It now runs as a mode of [`od-handover-and-adoption`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft the evaluation; the plant confirms adoption.
 
 Read `od-context` first. Playbook step 7: "Evaluate use-case impact; ensure adoption into daily
 process" — control point "Impact evaluated; recipient confirms adoption". After go-live the plant

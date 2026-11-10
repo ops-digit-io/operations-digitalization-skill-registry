@@ -22,7 +22,7 @@ generated:
 ---
 # Information Integration Service
 
-> **Absorbed.** This was the skill `od-equipment-integration`. It now runs as a mode of [`od-equipment-integration`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing.
+> **Absorbed.** This was the skill `od-information-integration-service`. It now runs as a mode of [`od-equipment-integration`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing.
 
 Read `od-context` first.
 

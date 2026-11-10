@@ -30,7 +30,7 @@ generated:
 ---
 # Use case prioritization
 
-> **Absorbed.** This was the skill `od-portfolio-and-savings-analysis`. It now runs as a mode of [`od-portfolio-and-savings-analysis`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
+> **Absorbed.** This was the skill `od-use-case-prioritization`. It now runs as a mode of [`od-portfolio-and-savings-analysis`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
 Read `od-context` first. This skill turns "several use cases want the same capacity" into a
 **recommended order with reasons**. It does not decide: prioritization and selection is a

@@ -19,7 +19,7 @@ generated:
 ---
 # Maturity assessment
 
-> **Absorbed.** This was the skill `od-use-case-solution-evaluation`. It now runs as a mode of [`od-use-case-solution-evaluation`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
+> **Absorbed.** This was the skill `od-maturity-assessment`. It now runs as a mode of [`od-use-case-solution-evaluation`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `od-context` first.
 

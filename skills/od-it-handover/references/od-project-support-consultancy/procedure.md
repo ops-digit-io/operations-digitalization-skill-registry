@@ -17,7 +17,7 @@ generated:
 ---
 # Project Support & Application Consultancy
 
-> **Absorbed.** This was the skill `od-it-handover`. It now runs as a mode of [`od-it-handover`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on systems; draft on project artefacts; recommend on sequencing.
+> **Absorbed.** This was the skill `od-project-support-consultancy`. It now runs as a mode of [`od-it-handover`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on systems; draft on project artefacts; recommend on sequencing.
 
 Read `od-context` first.
 

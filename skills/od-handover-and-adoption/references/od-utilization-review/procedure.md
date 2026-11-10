@@ -20,7 +20,7 @@ generated:
 ---
 # Utilization review
 
-> **Absorbed.** This was the skill `od-handover-and-adoption`. It now runs as a mode of [`od-handover-and-adoption`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
+> **Absorbed.** This was the skill `od-utilization-review`. It now runs as a mode of [`od-handover-and-adoption`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `od-context` first.
 

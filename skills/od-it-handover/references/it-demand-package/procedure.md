@@ -25,7 +25,7 @@ generated:
 ---
 # IT demand package
 
-> **Absorbed.** This was the skill `od-it-handover`. It now runs as a mode of [`od-it-handover`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft the package; submission and the evaluation board's decision are human.
+> **Absorbed.** This was the skill `it-demand-package`. It now runs as a mode of [`od-it-handover`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft the package; submission and the evaluation board's decision are human.
 
 Read `od-context` first.
 

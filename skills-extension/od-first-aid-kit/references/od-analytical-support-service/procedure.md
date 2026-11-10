@@ -17,7 +17,7 @@ generated:
 ---
 # Analytical Support Service
 
-> **Absorbed.** This was the skill `od-first-aid-kit`. It now runs as a mode of [`od-first-aid-kit`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on data sources; draft on assets and summaries; recommend on promotion.
+> **Absorbed.** This was the skill `od-analytical-support-service`. It now runs as a mode of [`od-first-aid-kit`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on data sources; draft on assets and summaries; recommend on promotion.
 
 Read `od-context` first.
 
