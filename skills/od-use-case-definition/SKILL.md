@@ -42,6 +42,12 @@ metadata:
 
 Read `od-context` first. Provenance: merged from the lane's playbook and the use-case vault pages.
 
+## Start here: understand your own use case idea
+
+You do not need to be a DBVE. If you have an idea for a use case, fill in the [`assets/idea-check.md`](assets/idea-check.md) sheet first: ten plain questions, the first being **"has someone already done this?"**, because a catalogued use case needs no definition at all (Lane 1). It ends in a one-page summary and a next step: ask for the catalogued use case (Lane 1), hand a new recurring need to OD (Lane 2), or learn that it needs new software or a connection first (Lane 3). "Don't know" is a valid answer, and a number without a source stays "unknown". Terms are explained in the vocabulary of `od-context`. A complete worked example, in words and clearly fictional, is in [`references/worked-examples.md`](references/worked-examples.md) section 4.
+
+The rest of this skill is the DBVE's full method for the same idea once it goes ahead.
+
 ## Purpose and where it sits
 
 Serves **step 21, define and diagnose**, and holds the service flow of the lane around it

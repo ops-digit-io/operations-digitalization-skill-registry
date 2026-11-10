@@ -45,6 +45,18 @@ metadata:
 
 Read `od-context` first.
 
+## First estimate in five steps (for anybody with an idea)
+
+You can make a rough estimate of what an idea might be worth before OD is involved. It is a **labelled range for your own understanding**, not a figure to publish, and it never goes on the savings ledger by itself. Terms (lever, baseline, bankable, tracked, proven) are explained in the vocabulary of `od-context`.
+
+1. **Name the loss, not the benefit.** Which operational loss would disappear (time, scrap, stops, rework), at which plant and in which process? A lever is a mechanism: "fewer hours spent reconstructing last shift" is one, "better visibility" is not. Common shapes: time recovered, earlier reaction, defects contained, output gained (only worth money if the extra units sell), a purchase avoided ([`references/savings-model.md`](references/savings-model.md)).
+2. **Write it as value × driver.** For example: minutes saved per event × events per shift × shifts × working days × cost per hour. Name every factor.
+3. **Source every factor, and tag it.** Ask the area owner for volumes and times, plant Controlling for the cost per hour, the machine list for machine counts; measure a few cycles yourself if nobody knows. Tag each factor `[input]` (from a source), `[assumption]` (your estimate: say why), `[market]` (a standard value used because none was given) or `[unknown]` (a crucial missing input: do not fill it with a guess).
+4. **Give a range, not a point.** A conservative, a base and an optimistic value. A lever that rests on an `[unknown]` gets no number ("not banked") and becomes your first open question.
+5. **Keep cost apart and ask for it.** Do not net a cost against the value. Ask OD for the cost side (`od-investment-input`), and IT for the cost of running it: a project starts only with both. Then take your range to the DBVE; the ledger rules below apply only once saving rows are recorded.
+
+**Fictional illustration of the arithmetic.** *This shows the method; the numbers are invented and are not a company figure. Never copy them into a ledger or a deck.* Fictional line F: 12 minutes saved per shift `[assumption]` × 3 shifts `[input]` × 220 working days `[assumption]` = 7,920 minutes = 132 hours a year; × a cost of 40 per hour `[market]` = 5,280 per year. Conservative (half the minutes): 2,640. Optimistic (one and a half times): 7,920. Cost to build and run: `[unknown]`, so no payback can be stated yet.
+
 ## The references are the substance
 
 | File | Use it for |

@@ -82,7 +82,7 @@ optimistic ceiling, shown as future potential.
   *and* of the cost to build and to operate it (`od-investment-input`).
 - **Rollout scenarios.** State a **minimum viable rollout** and a **maximum scale-out** scenario, the
   resources needed, cloud consumption and the longer-term **total cost of ownership**. Defining min and
-  max deployment per use case is an open action item (Thomas, Ignacio): mark ⟨to confirm⟩ until it is.
+  max deployment per use case is an open action item (OD lead and IT): mark ⟨to confirm⟩ until it is.
 - **Cost transparency is IT's to give first.** IT carries cloud and run cost centrally today; ask IT for
   the cost drivers rather than estimating them silently, and keep infrastructure contracts central (no
   internal invoicing).

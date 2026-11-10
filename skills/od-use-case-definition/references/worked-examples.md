@@ -60,3 +60,39 @@ Standard, cross-process. Delivered: `IMPLEMENTED` → `PRODUCTIVE`, daily utiliz
 See `references/patterns.md` § *Match effort to category* — the objective is one line
 because OEE Calculation's objective, KPI set and requirements are already fixed by the
 template; this instance only had to say which lines.
+
+## 4 · A complete fictional example, in words: from idea to next step
+
+**Fictional.** Every plant, number and role below is invented to show how the ten questions of [`assets/idea-check.md`](../assets/idea-check.md) are answered and what the one-page summary looks like. None of it is a record of a real use case or a company figure. Do not copy any figure into a ledger, a business case or a deck.
+
+A shift lead at fictional Plant F thinks the hourly part counts on line 3 should not be written on paper.
+
+| Question | Answer in the shift lead's words |
+|---|---|
+| 1. Done already? | "I asked the key user at the neighbouring plant and looked in the library: a counting screen exists there, but nobody has recorded a decision to share it. So I cannot just take it." (Not catalogued: this goes on to Lane 2, with the neighbouring plant's screen as the closest precedent.) |
+| 2. One need? | "Line 3's hourly counts are only known after the shift." (One sentence, no "and".) |
+| 3. When and how often? | "At the hourly check and at shift handover, every shift." |
+| 4. Today / instead | "Today the count is written on a board and typed into a spreadsheet at shift end, so a slow hour is seen the next day. It should be visible during the hour." |
+| 5. Where, when, who | "Line 3 and not line 4, which has a counter on its machine. Every shift. The line operators and I." |
+| 6. Why? | "Why on paper? The machine does not publish counts. Why not? Nobody asked for the signal when it was installed. Why not now? The controller is not connected." (Stops at something actionable.) |
+| 7. Who acts differently | "I, as shift lead, would react within the hour; the area owner would confirm in the daily review that I did." |
+| 8. Data and machine | "The count comes from the line 3 controller. It is not connected today." (So the first step is a connection: Lane 3, branch 3b, before any screen.) |
+| 9. Tried and alternatives | "A bigger paper board did not help. Alternatives: do nothing; or only measure the slowest machine." |
+| 10. Size | "Twelve minutes per shift is spent on the paper count (fictional estimate, my own watch, not measured). Three shifts. Unknown: the cost per hour: I will ask plant Controlling." |
+
+**One-page summary (fictional).**
+
+| | |
+|---|---|
+| Idea | Show line 3's hourly part count during the hour, without paper. |
+| Plant and line | Plant F, line 3 |
+| Moment and frequency | Hourly check and shift handover, every shift |
+| Today / should be | Counted on paper, seen next day / visible during the hour |
+| Who acts, who confirms | Shift lead / area owner in the daily review |
+| Data and machine | Line 3 controller; **not connected** |
+| Already exists? | A similar screen at a neighbouring plant; no recorded decision to share it |
+| Size and source | 12 minutes per shift, three shifts (fictional, estimate, own watch); cost per hour unknown, ask plant Controlling |
+| Next step | Lane 2 (a new recurring need) with a connection request (Lane 3, branch 3b) as the first dependency |
+
+What happens next: the DBVE runs the full questionnaire with the shift lead, the data check confirms the signal, and a business case is built (`od-benefit-calculation`, "First estimate in five steps" gives the rough range the shift lead can already make).
+

@@ -27,5 +27,5 @@
 | [od-showcase-selection/](od-showcase-selection/index.md) | 3 concept(s) |
 | [od-signal-standardization/](od-signal-standardization/index.md) | 15 concept(s) |
 | [od-system-fit-check/](od-system-fit-check/index.md) | 24 concept(s) |
-| [od-use-case-definition/](od-use-case-definition/index.md) | 12 concept(s) |
+| [od-use-case-definition/](od-use-case-definition/index.md) | 13 concept(s) |
 | [od-use-case-intake-triage/](od-use-case-intake-triage/index.md) | 3 concept(s) |

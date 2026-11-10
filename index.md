@@ -14,5 +14,5 @@ okf_version: 0.2
 | Folder | Holds |
 |---|---|
 | [docs/](docs/index.md) | 11 concept(s) |
-| [skills/](skills/index.md) | 264 concept(s) |
+| [skills/](skills/index.md) | 265 concept(s) |
 | [skills-extension/](skills-extension/index.md) | 167 concept(s) |
