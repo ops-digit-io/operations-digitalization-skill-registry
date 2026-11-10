@@ -4,29 +4,28 @@
 
 | Folder | Holds |
 |---|---|
-| [od-analytical-support-service/](od-analytical-support-service/index.md) | 4 concept(s) |
-| [od-application-consulting/](od-application-consulting/index.md) | 7 concept(s) |
-| [od-barrier-triage/](od-barrier-triage/index.md) | 5 concept(s) |
+| [build-grafana-ops-dashboard/](build-grafana-ops-dashboard/index.md) | 13 concept(s) |
+| [funnel-features/](funnel-features/index.md) | 4 concept(s) |
+| [od-ai-generation-playbook/](od-ai-generation-playbook/index.md) | 7 concept(s) |
 | [od-context-freshness/](od-context-freshness/index.md) | 6 concept(s) |
 | [od-cross-plant-compatibility/](od-cross-plant-compatibility/index.md) | 5 concept(s) |
+| [od-cybersec-gate/](od-cybersec-gate/index.md) | 6 concept(s) |
 | [od-event-object-modelling/](od-event-object-modelling/index.md) | 6 concept(s) |
-| [od-first-aid-kit/](od-first-aid-kit/index.md) | 4 concept(s) |
+| [od-first-aid-kit/](od-first-aid-kit/index.md) | 8 concept(s) |
 | [od-governance-cadence/](od-governance-cadence/index.md) | 8 concept(s) |
-| [od-impact-evaluation/](od-impact-evaluation/index.md) | 5 concept(s) |
-| [od-information-integration-service/](od-information-integration-service/index.md) | 8 concept(s) |
-| [od-investment-input/](od-investment-input/index.md) | 5 concept(s) |
-| [od-machine-integration-plan/](od-machine-integration-plan/index.md) | 6 concept(s) |
-| [od-maturity-assessment/](od-maturity-assessment/index.md) | 7 concept(s) |
+| [od-investment-input/](od-investment-input/index.md) | 6 concept(s) |
 | [od-migration-cutover/](od-migration-cutover/index.md) | 6 concept(s) |
 | [od-plant-diagnosis/](od-plant-diagnosis/index.md) | 7 concept(s) |
 | [od-plant-onboarding/](od-plant-onboarding/index.md) | 4 concept(s) |
+| [od-portfolio-and-savings-analysis/](od-portfolio-and-savings-analysis/index.md) | 13 concept(s) |
 | [od-project-order/](od-project-order/index.md) | 6 concept(s) |
-| [od-project-support-consultancy/](od-project-support-consultancy/index.md) | 4 concept(s) |
 | [od-retro/](od-retro/index.md) | 5 concept(s) |
 | [od-risk-watch/](od-risk-watch/index.md) | 4 concept(s) |
 | [od-rollout-training/](od-rollout-training/index.md) | 7 concept(s) |
+| [od-scorecard-reporting/](od-scorecard-reporting/index.md) | 7 concept(s) |
+| [od-sharepoint-list-export/](od-sharepoint-list-export/index.md) | 4 concept(s) |
 | [od-template-resolution/](od-template-resolution/index.md) | 4 concept(s) |
-| [od-use-case-prioritization/](od-use-case-prioritization/index.md) | 6 concept(s) |
-| [od-use-case-promotion/](od-use-case-promotion/index.md) | 5 concept(s) |
-| [od-utilization-review/](od-utilization-review/index.md) | 5 concept(s) |
+| [od-use-case-solution-evaluation/](od-use-case-solution-evaluation/index.md) | 14 concept(s) |
+| [od-use-case-standardization/](od-use-case-standardization/index.md) | 10 concept(s) |
 | [od-workshop-facilitation/](od-workshop-facilitation/index.md) | 6 concept(s) |
+| [ops-dashboard-datatron/](ops-dashboard-datatron/index.md) | 1 concept(s) |

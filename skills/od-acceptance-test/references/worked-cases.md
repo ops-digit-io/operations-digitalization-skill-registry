@@ -106,7 +106,7 @@ acceptance protocols from the department: none exists in the vault (see the open
 1. Every case turns on a **condition outside the build**: a security approval, a patch window, a
    firewall change, a Machine List write-back, a baseline.
 2. In none of them does the record show who accepted what. The acceptance/rework rate is
-   "not captured in any system" ([`od-information-integration-service`](../../../skills-extension/od-information-integration-service/SKILL.md)).
+   "not captured in any system" ([`od-equipment-integration`](../../../skills/od-equipment-integration/references/od-information-integration-service/procedure.md)).
    Start capturing it with the next protocol.
 
 ## Sources

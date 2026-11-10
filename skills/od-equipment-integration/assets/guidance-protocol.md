@@ -82,7 +82,7 @@ it blocked —
 
 ## Hand-off
 
-→ `od-signal-standardization`, then `od-node-red-flows`, then `od-acceptance-test`.
+→ `od-signal-standardization`, then `od-node-red-flow-builder`, then `od-acceptance-test`.
 
 ## Sign-off
 

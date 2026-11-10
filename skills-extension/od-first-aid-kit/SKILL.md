@@ -2,20 +2,21 @@
 name: od-first-aid-kit
 description: >-
   Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data scenarios applies, who benefits - and route it either to Analytical Support (a one-off insight) or to use case intake (a recurring need), or back as a data gap. Drafts the request; does not install devices or commit cost. Use when a plant raises a process issue and there is no use case yet, when someone asks for the Process First-Aid Kit, or when a one-off analytical request must be scoped before analysis starts.
+  Also absorbs the retired Analytical Support Service lane: ad-hoc analytics now routes to Lane 1 self-service, Lane 2 or external support.
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: od-first-aid-kit
   tier: practice
-  lane: use-case-support-service
-  new_state_lane: Intake and Lane 2 (step 1)
-  new_state_step: "Define and diagnose: first aid"
+  lane: all
+  new_state_lane: "Extension, deepens Intake (i1), Lane 2 (21)"
+  new_state_step: "Classify the demand into exactly one lane; Capture the idea, process diagnostics"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-use-case-intake-triage, od-use-case-definition, od-analytical-support-service, od-data-availability-check, od-requirements-breakdown, od-cybersec-gate, od-equipment-integration, od-decision-routing, od-system-fit-check]
+  composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, od-requirements-breakdown, od-cybersec-gate, od-equipment-integration, od-decision-routing, od-system-fit-check]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
@@ -43,7 +44,7 @@ Read `od-context` first. The service catalogue lists the Smart Factory Use Case 
 "(incl. Process First-Aid Kit)"; the glossary calls it a "rapid diagnostic offering within Use Case
 Support Service", next to Ad-Hoc Analytics in the Analytical Support Service. The lane's recurring
 tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with the template marked
-"to confirm", and two registry pages (`od-analytical-support-service`, `od-use-case-definition`)
+"to confirm", and two registry pages (`od-first-aid-kit`, `od-use-case-definition`)
 record that no dedicated template exists. This skill supplies the **working version of that
 template** and the routing rule. It is a draft for the DBVE to adopt or replace.
 
@@ -104,10 +105,10 @@ split, diagnosis patterns, handoff contract, agent notes): [`references/process-
 
 | Finding | Route | Why / source |
 |---|---|---|
-| One-off question, data readable, insight is the answer | `od-analytical-support-service` (step 1 scoping, then `od-data-availability-check`) | "Insight, not an industrialized solution"; refusing to industrialize is valid |
+| One-off question, data readable, insight is the answer | `od-first-aid-kit` (step 1 scoping, then `od-data-availability-check`) | "Insight, not an industrialized solution"; refusing to industrialize is valid |
 | One-off question, data not readable on the data platform | Information Integration lane, mark a **data gap**; do not approximate missing data | Analytical Support error path |
 | Same need raised by several shifts, lines or plants, or recurring | `od-use-case-intake-triage` then `od-use-case-definition` | Questionnaire: a need that surfaces once is first aid; recurring is a use case |
-| Insight delivered and used repeatedly, with recurring value | Promotion to a standard use case via `od-use-case-standardization` (planned `od-use-case-promotion`) | Analytical Support step 6 |
+| Insight delivered and used repeatedly, with recurring value | Promotion to a standard use case via `od-use-case-standardization` (planned `od-use-case-standardization`) | Analytical Support step 6 |
 | Needs a system outside the lean standardized footprint | Refuse and say why | `05-intake.md` |
 | Needs new connectivity or a Cyber Security decision | `od-cybersec-gate`, Information Integration lane | Wait state in the lane playbook |
 | Plant cannot name a question or an owner | Back to requester with the missing items | |
@@ -128,10 +129,14 @@ requester has been told; no cost or connection has been promised.
 - ⟨Lead time and capacity for first-aid requests⟩ — all lane lead times are "to confirm". Supplier:
   OD lead.
 - ⟨Who pays⟩ — which budget carries devices and templates is not stated. Supplier: OD lead.
-- ⟨Turnaround and promotion-rate trackers⟩ — named as missing in `od-analytical-support-service`.
+- ⟨Turnaround and promotion-rate trackers⟩ — named as missing in `od-first-aid-kit`.
 - ⟨Closing rule⟩ — when a first-aid case counts as done (insight delivered, or insight understood).
   The lane's definition of done for analytical support is "process diagnostics / analytical insight
   delivered".
+
+## Absorbed: Ad-hoc analytics delivery (formerly the Analytical Support Service lane, retired in the new state)
+
+Run [`references/od-analytical-support-service/procedure.md`](references/od-analytical-support-service/procedure.md) when an ad-hoc analytical request needs the old lane's composed artefacts and task chain; route recurring needs to Lane 2 and catalogued ones to Lane 1 self-service. It keeps its own references and assets under that folder and the authority it had.
 
 ## Do not
 

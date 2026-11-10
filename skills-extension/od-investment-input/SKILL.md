@@ -1,8 +1,10 @@
 ---
 name: od-investment-input
 description: >-
-  Prepare the investment planning input pack once an integration roadmap or a use-case plan is agreed
-  and budget is needed - cost lines per machine or system, the benefit side taken from the benefit
+  The cost side of an OD business case (the department's od-investment-input, kept apart from the value side)
+  and the investment planning input pack once an integration roadmap or a use-case plan is agreed
+  and budget is needed - one-time build, licences and hardware, recurring run cost and multi-year TCO
+  for the minimum viable rollout and the maximum scale-out, cost lines per machine or system, the benefit side taken from the benefit
   case, the gates the spend must pass, and the open figures - so the OD lead and BA Operations can
   decide. Covers the cost template for a standardized system (Lane 1b), the wave pack after an
   equipment assessment, and the cost side handed to a capital request (Lane 2 step 5, Lane 3 step 3).
@@ -14,15 +16,16 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-investment-input
   tier: practice
-  lane: information-integration-service
-  new_state_lane: Lane 1b (cost template), Lane 2 step 5, Lane 3 step 3
-  new_state_step: "Investment input: cost and approval"
+  lane: all
+  new_state_lane: "Lane 1b (1b2), Lane 2 (24), Lane 3 front-end (33)"
+  new_state_step: "Cost template, approved by the plant budget owner; Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
+  department_names: ["bc-cost", "cost-template"]
   owner_role: human:jakob.gabriel
   authority_level: recommend
   status: draft
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-equipment-integration, od-decision-routing, od-benefit-calculation, od-system-fit-check, od-cybersec-gate, od-capital-request, od-catalog, od-information-integration-service]
+  composes: [od-equipment-integration, od-decision-routing, od-benefit-calculation, od-system-fit-check, od-cybersec-gate, od-capital-request, catalog-usecase, it-demand-package]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -33,6 +36,9 @@ metadata:
     - Skills od-decision-routing and od-benefit-calculation (the spend ladder, the dependency values), od-equipment-integration (assessment protocol section 3, edge-device hardware constraint) and od-system-fit-check (tool boundaries with their recorded cost references), read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases notes Sensor-Upgrade Decision Frame and PLC Evergreening, and Case Groups - Overview, read 2026-11-05
     - Work vault bundle file kg_nodes.csv, Machine records read as an aggregate (integration status, priority, method), 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Investment input pack
@@ -64,7 +70,7 @@ request. It is never "done" by approval: approval is not this skill's.
 | Where | Plan step | What the pack is |
 |---|---|---|
 | **Integration lane, step 2** | "Integration investment planning", IIAE with OD lead, control point "Investment approved" (`information-integration-service/playbook.md`) | The wave pack after an equipment assessment (Route A of `od-equipment-integration`, its protocol section 3 "Investment") |
-| **Lane 1b** | Fill cost template and lightweight approval: "standardized, pre-priced spend, template, not a full business case" (VSM skill map) | The cost template for a standardized system from `od-catalog` |
+| **Lane 1b** | Fill cost template and lightweight approval: "standardized, pre-priced spend, template, not a full business case" (VSM skill map) | The cost template for a standardized system from `catalog-usecase` |
 | **Lane 2 step 5, Lane 3 step 3** | Capital request, business case and capital request | The cost side that `od-capital-request` packages together with the value side |
 
 The recurring-task table of the lane still lists the investment plan template as "⟨to confirm⟩"
@@ -79,12 +85,30 @@ proposed form until the OD lead confirms it.
 | [`references/cost-lines.md`](references/cost-lines.md) | The cost lines an integration or system pack can carry, where each line's figure must come from, where the reference figures live, and how to size a wave from the live machine records |
 | [`references/approval-route.md`](references/approval-route.md) | Who decides what, how to find the current spend ladder, the open threshold and the overlap in the ladder as written, and the dependencies to record |
 | [`assets/investment-input-pack.md`](assets/investment-input-pack.md) | The pack itself |
+| [`assets/investment-estimate.md`](assets/investment-estimate.md) | The department's investment estimate template: the cost side of one business case, never netted into the value headline |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Planning workflow and cost build-up, cost calculator before the project, staged scope, wave-decision checks, and what an agent may draft |
+
+## The cost side of the business case
+
+The department splits a business case into a value backbone (`od-benefit-calculation`) and a separate
+**investment estimate** (its `od-investment-input`), which feeds the assessment and the capital request
+(`references` of `od-benefit-calculation`: `house-business-case-standard.md`). For a single use case or
+system, fill [`assets/investment-estimate.md`](assets/investment-estimate.md):
+
+- one-time build effort, licences and hardware, recurring run cost, multi-year **TCO**;
+- for the **minimum viable rollout** and the **maximum scale-out** (OD x IT, 2026-09-11);
+- every figure tagged `[quote]`, `[assumption]` or `[market]`; floor and upside from named drivers;
+- run cost written for the stated operating model and for who runs it (build-and-run, `it-demand-package`);
+- cloud and run-cost drivers asked from IT, which carries them centrally today.
+
+**Lane 1b cost template.** For a standardized system from `catalog-usecase`, the estimate is the predictable,
+pre-priced cost template, not a full business case. It is **approved by the plant budget owner**
+(department Lane 1 file, control point of step 3b); route it with `od-decision-routing`.
 
 ## Procedure
 
 1. **Confirm the plan is agreed.** Wave pack: the roadmap is agreed with Plant ME / Plant IT (control
-   point of step 1). Template pack: the match record of `od-catalog` exists. Cost
+   point of step 1). Template pack: the match record of `catalog-usecase` exists. Cost
    cannot be planned for a scope that is still moving; if scope is open, stop and say which part.
 2. **Run the demand filter.** Keep only machines or systems that an accepted or planned use case needs
    (`od-equipment-integration`, assessment step 2). A `NOT INTEGRATED` machine nobody waits for is not a
@@ -123,8 +147,8 @@ traceability.
   leaves it open. Supplier: OD lead.
 - `⟨Unit costs for edge devices, OT hardware, licences, connector development⟩` - none are recorded in
   the sources read. Supplier: IIAE, from supplier quotes.
-- `⟨The "lightweight approval" limit for a Lane 1b standardized system⟩` - the new-state flow says
-  "small budget approval"; no amount or approver is named.
+- `⟨The "lightweight approval" limit for a Lane 1b standardized system⟩` - the department's Lane 1 file
+  names the approver (the plant budget owner) but no amount.
 - `⟨Confirmed template⟩` for the investment plan.
 
 ## Do not

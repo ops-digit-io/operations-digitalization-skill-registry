@@ -59,7 +59,7 @@ trainings (ticketing, advanced dashboard, data transformation), appear as extra 
 |---|---|
 | Acceptance protocol, data path to the machine (`od-acceptance-test`), cyber status (`od-cybersec-gate`) | Training package and competence checklist, confirmed by the plant owner |
 | Requirements funnel and iterated tag list (`od-analytics-asset-build`) | Key-user hand-down plan; training-need list entries with requester and status |
-| Utilisation read (`od-impact-evaluation`) | Targeted refresher only after the adoption diagnostic names Knowledge or Ability as the barrier |
+| Utilisation read (`od-handover-and-adoption`) | Targeted refresher only after the adoption diagnostic names Knowledge or Ability as the barrier |
 
 Completed checklist -> `od-handover-and-adoption` (Knowledge and Ability elements). Single points of failure -> OD lead via
 the community call (`od-risk-watch`).

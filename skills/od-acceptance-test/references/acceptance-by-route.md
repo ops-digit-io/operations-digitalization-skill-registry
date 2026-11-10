@@ -38,7 +38,7 @@ Acceptance is human-only; this file helps draft the protocol
 | 5 | Tags follow the agreed data model, not the PLC's layout | Rule | `od-equipment-integration` guardrails ("CT Base"); missing data-model alignment is the commonest recorded blocker class |
 | 6 | Cyber Security / OT sign-off exists for any external connection **before go-live**; a test that needs the live connection waits for it | Rule | `od-equipment-integration`; `od-cybersec-gate` |
 | 7 | An integration date is written; the status moves to `INTEGRATED` only after the pass | Rule | `SKILL.md`; record pattern: rows `INTEGRATED` without a date |
-| 8 | Any blocker text on the row is closed or restated before the pass | Suggested check | Record pattern: blocker texts that sit on machines already `INTEGRATED` ([`blockers-and-waves.md`](../../od-equipment-integration/references/blockers-and-waves.md)) |
+| 8 | Any blocker text on the row is closed or restated before the pass | Suggested check | Record pattern: blocker texts that sit on machines already `INTEGRATED` ([`blockers-and-waves.md`](../../../skills/od-equipment-integration/references/blockers-and-waves.md)) |
 
 ## 2. Edge route (variant 1): PLC, edge device, connector
 
@@ -50,7 +50,7 @@ Acceptance is human-only; this file helps draft the protocol
 | S7-300/400 uses `DTQ-S7-Connector`; S7-1200/1500 uses `DTQ-TIA-Connector`; the Softing edge connector is **not** used | Rule + Record | `connectors.md`; `SFT-SIMATIC S7-Connector` is `DO NOT USE` |
 | TIA project version is compatible | Suggested check | Record pattern: "TIA V16 upgrade necessary for TIA V17" style rows, typically `NOT INTEGRATED` |
 | Firmware or vulnerability patch state confirmed | Suggested check | Record pattern: firmware patching or vulnerability blockers, some on rows already marked integrated |
-| CNC (Sinumerik): the PLC program carries the custom function block and the NCU carries the custom G-code; signal count and rate stay within the connector limits (Sinumerik connector: 30 signals at 2 ms; Sinuvars connector: 100 signals at about 10 ms) | Suggested check | Technical limits per [`connector-fact-sheets.md`](../../od-equipment-integration/references/connector-fact-sheets.md) |
+| CNC (Sinumerik): the PLC program carries the custom function block and the NCU carries the custom G-code; signal count and rate stay within the connector limits (Sinumerik connector: 30 signals at 2 ms; Sinuvars connector: 100 signals at about 10 ms) | Suggested check | Technical limits per [`connector-fact-sheets.md`](../../../skills/od-equipment-integration/references/connector-fact-sheets.md) |
 | Beckhoff clamps: daisy-chained clamps behave as separate machines | Suggested check | Record pattern: "Beckhoff Clamps (+Daisy Chain with other ...)" |
 | Camera sharing the device: image flow tested **as well as** the signals | Suggested check | Record pattern: "Edge (together with camera)"; "Camera Hardware and Integration" blocker |
 | Machines needing a PLC program: the program is the one running on the machine | Suggested check | Record pattern: "PLC program missing, was wrong"; "multiple sub PLC programs" |
@@ -62,7 +62,7 @@ Acceptance is human-only; this file helps draft the protocol
 | The data source's driver exists and its licence is in place | Rule | `od-equipment-integration` (each PLC family needs its own licence unless Suite Extended; at most 50 concurrent configurations) |
 | Edge platform is present behind the server | Rule | A Softing server with no edge platform delivers nothing to the data platform |
 | Both hops tested: server to edge (OPC UA address space), and edge onward | Suggested check | The Machine List row names both connectors |
-| For a protocol whose route field is blank, how the data reaches the platform is written into the protocol | Suggested check | Record pattern: Modbus / TCP rows frequently have no route recorded ([`vendor-protocol-routes.md`](../../od-equipment-integration/references/vendor-protocol-routes.md)) |
+| For a protocol whose route field is blank, how the data reaches the platform is written into the protocol | Suggested check | Record pattern: Modbus / TCP rows frequently have no route recorded ([`vendor-protocol-routes.md`](../../../skills/od-equipment-integration/references/vendor-protocol-routes.md)) |
 | Beckhoff on the aggregation server is **not** accepted as "ADS" | Rule | The server has no Beckhoff driver |
 | Mitsubishi: driver and licence confirmed | Suggested check | Record pattern: the route is often still "under evaluation" |
 | Rockwell via RSLinx OPC-UA: gateway versus direct path written down | Suggested check | Record pattern: "RSLinx OPC-UA TCP/IP" rows; Rockwell routes are often still under evaluation |
@@ -103,14 +103,14 @@ These are what the acceptance should look for first. They are not a ranking of c
 
 Filter the Machine List export by the blocker text, by status `INTEGRATED` with a blank route,
 model or protocol, and by integration date; count per plant; quote the export date with any
-figure. See [`plant-integration-status.md`](../../od-equipment-integration/references/plant-integration-status.md).
+figure. See [`plant-integration-status.md`](../../../skills/od-equipment-integration/references/plant-integration-status.md).
 
 ⟨Acceptance results of past integrations. The vault carries no acceptance protocol, no pass or
 fail record per machine, and the lane's acceptance/rework rate is "not captured in any system"
-([`od-information-integration-service`](../../../skills-extension/od-information-integration-service/SKILL.md)).
+([`od-equipment-integration`](../../../skills/od-equipment-integration/references/od-information-integration-service/procedure.md)).
 Who could supply it: the IIAEs, from their own files.⟩
 
 ## Sources
 
 - Vault `Graph/Machines`, `Graph/Connectors`, `Graph/Tools`, read 2026-11-05.
-- Registry references [`connectors.md`](../../od-equipment-integration/references/connectors.md) and the guardrails in [`od-equipment-integration`](../../od-equipment-integration/SKILL.md).
+- Registry references [`connectors.md`](../../../skills/od-equipment-integration/references/connectors.md) and the guardrails in [`od-equipment-integration`](../../../skills/od-equipment-integration/SKILL.md).

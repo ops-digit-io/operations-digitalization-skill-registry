@@ -68,7 +68,7 @@ Authority: draft. Nothing here commits cost, installation or a connection.
 | Does it need a system outside the lean standardized footprint? | ⟨⟩ |
 | Is more than one line, shift or plant asking? | ⟨⟩ |
 
-**Route chosen** (one): ⟨Analytical Support (`od-analytical-support-service`) · Information Integration lane as data gap · Intake (`od-use-case-intake-triage`) · refused with reason · returned to requester with missing items⟩
+**Route chosen** (one): ⟨Analytical Support (`od-first-aid-kit`) · Information Integration lane as data gap · Intake (`od-use-case-intake-triage`) · refused with reason · returned to requester with missing items⟩
 
 **Reason, in one or two sentences:** ⟨⟩
 

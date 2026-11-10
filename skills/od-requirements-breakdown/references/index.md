@@ -5,7 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Elicitation](elicitation.md) | Skill Reference | The question rounds that get the real problem out, and the five judgement calls the department names as the hard part. |
-| [Epic and user stories](epic-and-user-stories.md) | Skill Reference | The background description, which epic axis to use, how to cut stories that stand alone, and what makes acceptance testable. |
+| [Handoff schema](handoff-schema.md) | Skill Reference | The handoff file the requirements stage writes and the feature stage reads: frame, riskiest assumption, problems, candidates, with the rules the consumer relies on and a minimal valid example. |
 | [Legacy system assessment](legacy-system-assessment.md) | Skill Reference | Guidance, no figures. The other half of the requirement: checking the legacy applications a demand touches and whether it fits the lean footprint. |
 | [Process chain practice](process-chain-practice.md) | Skill Reference | How requirements are broken down in steps 22 and 31 of the AI-driven chain - category to method to data job, object and event checks, signal list handoff, AI-assisted signal selection, refinement rules, legacy-application and OT application assessment, key-user collaboration and agent operating notes. |
 | [Requirement template](requirement-template.md) | Skill Reference | The ten core sections and the four lane variants, what each is for, and how each one fails in practice. |
+| [Requirements funnel](requirements-funnel.md) | Skill Reference | The department's requirements funnel (funnel-requirements): from a vague idea to framed problems and candidate requirements, with a human gate and a handoff file. |

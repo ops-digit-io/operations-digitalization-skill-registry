@@ -34,7 +34,7 @@ The manifest is a design proposal. ⟨Whether the pilot uses a manifest, and its
 - **Versions.** Every topic and API carries a version (`.v1`). Changes inside a version are additive only. An incompatible change ships as `.v2` beside `.v1` until every consumer has moved, then `.v1` is deprecated with notice - never replaced in place.
 - **Operation.** A standard health endpoint and a standard metrics endpoint per app. Which log and metric pipeline the edge clusters ship to "is not recorded in the vault notes read" - ⟨logging and metrics pipeline⟩, IIAE.
 - **Edge resilience.** A plant-local app buffers its bus consumption locally and replays after a network outage. Locale is a per-plant configuration value, not a fork of the app per language.
-- **Free text.** An app with a free-text field must not summarise, enrich or forward the text by an automated pipeline without filtering (the vault's rule on names; one recorded case). See guardrail G17 in `od-catalog`.
+- **Free text.** An app with a free-text field must not summarise, enrich or forward the text by an automated pipeline without filtering (the vault's rule on names; one recorded case). See guardrail G17 in `catalog-usecase`.
 - **No new path.** Onboarding goes through one of the three scenarios in [platform-and-pilot-status.md](platform-and-pilot-status.md); the WIP note holds that a fourth, ad hoc path would defeat the purpose of the catalog.
 - **Where a new thing belongs.** Apply the placement rules (R1 to R11) first; a use case that fits a template is a new plant instance of an existing service, not a new app. A one-off goes to the store as an individually catalogued container. A new service is justified only when a second unrelated use case needs the same function.
 
@@ -58,7 +58,7 @@ Use with `od-acceptance-test`, `od-cybersec-gate` and `od-decision-routing`. A b
 | R8 | Approval for deployment to a shared platform named (`od-decision-routing`): who approves, when | decision record | OD lead | **yes** |
 | R9 | Rollback owner and rollback step named | package | app owner | no |
 | R10 | Plant sponsor and plant owner named; handover planned (`od-handover-and-adoption`) | package | plant | the plant decides daily use |
-| R11 | Free-text and name check (G17); no credentials or sessions in the package (G19 in `od-catalog`) | check | DBVE | no |
+| R11 | Free-text and name check (G17); no credentials or sessions in the package (G19 in `catalog-usecase`) | check | DBVE | no |
 
 The wait for R7 is "weeks" in the flow; the vault gives no figure. Do not quote one. For a foreign app (3a.4) the planned IEC 62443-4-2 conformance gate of initiative X4 would apply once it exists; today it is a plan, not a gate.
 

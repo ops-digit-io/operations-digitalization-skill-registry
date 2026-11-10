@@ -3,6 +3,51 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-10 — Department packages transcribed into ten core skills
+
+- The department's skill packages in `OD-instance/30-skills/` are now readable and are the master where transcribed:
+  `bc-assessment.zip` → `bc-assessment` (full rubric C1-C5 / D1-D9 / E1-E6, lever model, grounding, provenance, deck spec, renderer; plus the intake questionnaire and the Gemba assessment as worked example, money masked);
+  `ecr-builder.zip` → `od-capital-request` (workflow, refusal gate and de-risk questions, honesty layer, renderer) plus the eCR approval matrix by role and tier → also `od-decision-routing`;
+  `investment-checking.zip` → `od-system-fit-check` (8-point footprint gate, six criteria, whole-list screen, region-grouped review);
+  `product-funnel-skills.zip` → `od-requirements-breakdown` (requirements funnel, handoff schema), `od-prototype-poc` (click-dummy stages, build patterns), `od-benefit-calculation` (business-case stage, savings model, deck);
+  `ops-rule-engine.skill` → `od-node-red-flow-builder` (calculated datapoints: workflow, patterns, standard flow, 13 production examples with the API host scrubbed, generator and tests) and `od-signal-standardization` (normalization-in-flows);
+  `ops-grafana-dashboards.zip` → `od-analytics-asset-build`.
+- Not stored: the neuwerk `_nw_template.pptx` the renderers need (in the packages / `neuwerkbrand.zip`). The unnamed files `zi0XqsQv` and `ziwJsyMF` are older copies of `investment-checking` and `product-funnel-skills`.
+
+## 2026-11-10 — Core = the owner's process flow
+
+- `OD_NewState_ProcessFlow.html` restored to the owner's version (skills & gaps) and made the reference; the generated variant and `scripts/build_process_flow.py` are removed. Gap chips that are now built show as drafts; PoC skill = `od-prototype-poc`, capital request = `od-capital-request`.
+- Skill names follow that page: `funnel-requirements` → `od-requirements-breakdown`, `bc-build` → `od-benefit-calculation`, `invest-screen` → `od-system-fit-check`, `mi-connector` → `od-equipment-integration`, `ops-pipeline` → `od-node-red-flow-builder`, `bc-assess` → `bc-assessment`, `funnel-prototype` → `od-prototype-poc`, `bc-capital-request` → `od-capital-request`, `dept-os` → `od-context`, `bc-cost` → `od-investment-input`, `ops-dashboard-engine` → `build-grafana-ops-dashboard`. Department names stay as aliases (`department_names`).
+- Core (21) = the skills on the page's steps; moved to core: intake triage, analytics asset build, decision routing, use-case definition, data availability check, handover and adoption, signal standardization, acceptance test. Moved to extension: `od-context`, `od-investment-input`, `build-grafana-ops-dashboard`, `funnel-features`, `ops-dashboard-datatron`.
+
+## 2026-11-10
+
+- **Core = department skills, registry 2.0.0, 47 skills (core 18, extension 29).** The core library is now exactly the
+  department's skills from its process map and naming convention: `dept-os`, `catalog-usecase`, `catalog-systems`,
+  `catalog-guardrails`, `bc-cost`, `ops-dashboard-datatron`, `ops-dashboard-engine`, `funnel-requirements`,
+  `funnel-features`, `funnel-prototype`, `bc-build`, `bc-assess`, `bc-capital-request`, `invest-screen`,
+  `it-demand-package`, `deploy-appstore`, `mi-connector`, `ops-pipeline`. Twelve registry skills were renamed into
+  them (table in the README), four split out, `ops-dashboard-datatron` new; all other skills moved to extension and
+  sit on the steps they deepen. Every skill now requires `dept-os`. `process.yaml` and the Mermaid name only
+  department skills on the steps.
+- **Department context applied, registry 1.13.0, 42 skills (core 27, extension 15).** Fixed every finding of
+  `docs/department-context-conformance.md` from the vault folder `OD Department Knowledge/OD-instance` and the OD x IT
+  meeting notes of 2026-09-11. Merged twelve duplicate or retired-lane skills into their owners, each kept as
+  `references/<old-name>/procedure.md`: `od-analytical-support-service` → `od-first-aid-kit`;
+  `od-project-support-consultancy`, `it-demand-package` → `od-it-handover`; `od-information-integration-service`,
+  `od-machine-integration-plan`, `od-barrier-triage` → `od-equipment-integration`; `od-application-consulting` →
+  `od-system-fit-check`; `od-impact-evaluation`, `od-utilization-review` → `od-handover-and-adoption`;
+  `od-use-case-promotion` → `od-use-case-standardization`; `od-use-case-prioritization` →
+  `od-portfolio-and-savings-analysis`; `od-maturity-assessment` → `od-use-case-solution-evaluation`. New core skill
+  `od-it-handover`: the Lane 3 handover as an OpenSpec change package, with scaffold and check scripts (the example
+  passes OpenSpec's own validator in strict mode). `od-investment-input` moved to core, `od-sharepoint-list-export` to
+  extension. `process.yaml` and `OD_NewState_Flow.mermaid` redrawn to the department lanes (step 34 added, step ids
+  kept); `validate_registry.py` now fails when core and flow disagree.
+- **Department context conformance.** Checked all 53 skills against the vault folder `OD Department Knowledge/OD-instance`
+  (new-state lane drafts, decision rights, intake, OD x IT alignment of 2026-09-11, naming convention); result in
+  `docs/department-context-conformance.md`. Added `new_state_lane` / `new_state_step` to the 23 skills that only carried the
+  old `lane:` value, from `docs/new-state/process.yaml`. No other skill content changed.
+
 ## 2026-11-06
 
 - **Core library merged, registry 1.12.0, 53 skills (core 27, extension 26).** Related core skills that the process does not keep apart were merged:

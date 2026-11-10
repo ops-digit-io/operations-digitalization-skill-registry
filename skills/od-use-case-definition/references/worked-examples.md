@@ -37,7 +37,7 @@ Non-standard, unique. Status: `IDEA`, `PRIO<n>`.
 
 | Phase | On record |
 |---|---|
-| Collect | Targets: Quality Losses. Service line: Analytical Support Service. |
+| Collect | Targets: Quality Losses. Origin: ad-hoc analytics (the retired Analytical Support Service), now Lane 2 once it recurs. |
 | Analyse | *"Parts are processed on different stations; destructive testing is done at <process step>; <process step> might be the root cause for leaking parts in the downstream test."* |
 | Assess | Blockers: *"Tag list for process values needs to be analysed \| available tags are not sufficient, further process know-how needed."* Machine Blockers: *"<Process> postponed >> no machines planned to be integrated."* |
 | Control | Did not proceed. |

@@ -1,0 +1,12 @@
+syntax = "proto3";
+message PLCPacket {
+  string uuid = 1;
+  uint64 sysTime = 2;
+  uint64 plcTime = 3;
+  bool isDelta = 4;
+  int64 valueInteger = 5;
+  double valueDouble = 6;
+  bool valueBool = 7;
+  string valueString = 8;
+}
+message PLCPacketList { repeated PLCPacket plcPackets = 1; }

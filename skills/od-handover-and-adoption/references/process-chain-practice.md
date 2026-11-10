@@ -35,7 +35,7 @@ work", anchored on an example the plant already runs.
 **Integration to use-case support.** After an integration workshop, hand the machines over with the known process flow, the
 signal list and the first datasets, so use-case support does not re-ask.
 
-**Dashboard-to-paper reconciliation** before acceptance (see `od-impact-evaluation`).
+**Dashboard-to-paper reconciliation** before acceptance (see `od-handover-and-adoption`).
 
 ## 2. Decision rules
 
@@ -79,7 +79,7 @@ acquisition was unstructured, nobody owns the run.
 |---|---|
 | Acceptance protocol (`od-acceptance-test`), training checklist (`od-rollout-training`) | Handover protocol with ritual, data path to the machine, named plant owner, tier of evidence |
 | Iterated tag list, process description, refined requirements, reference dashboard (`od-analytics-asset-build`) | Utilisation expectation and requirements funnel to the plant; utilisation read-back to `od-scorecard-reporting` |
-| Sprint close inputs: baseline, forecast, project id | `od-impact-evaluation` (savings-forecast gate) |
+| Sprint close inputs: baseline, forecast, project id | `od-handover-and-adoption` (savings-forecast gate) |
 | Service concept and operations owner (`od-decision-routing`) | Run description and escalation route |
 
 ## 4. Pitfalls and lessons

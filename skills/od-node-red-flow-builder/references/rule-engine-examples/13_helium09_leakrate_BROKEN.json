@@ -1,0 +1,582 @@
+[
+    {
+        "id": "4dc5ef247d78d792",
+        "type": "tab",
+        "label": "Helium09",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c1bbb26608d8af48",
+        "type": "group",
+        "z": "4dc5ef247d78d792",
+        "name": "mqtt connection and message decoding",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "5e44b5769c875ce9",
+            "75025c2366fc1328",
+            "cd4b55d41721aaa0",
+            "fb534b95876c4a03",
+            "3dc94ecda054f2d5",
+            "66fb15b2b079257e",
+            "147603a4fe129c40",
+            "965a1efb81b3b976",
+            "28b436242d895cce",
+            "253dac7a5fdbecbc"
+        ],
+        "x": 74,
+        "y": 99,
+        "w": 1812,
+        "h": 202
+    },
+    {
+        "id": "198163ce609bbf58",
+        "type": "group",
+        "z": "4dc5ef247d78d792",
+        "name": "prepare and convert payload",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f13a53866420998c",
+            "8da5d1da08186834",
+            "4117a33927ae9a78",
+            "0e90db95e68b9371",
+            "5183ee78e0627cfe"
+        ],
+        "x": 154,
+        "y": 399,
+        "w": 1112,
+        "h": 122
+    },
+    {
+        "id": "aab706e7b2d2f12f",
+        "type": "group",
+        "z": "4dc5ef247d78d792",
+        "name": "message encoding and connection",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "34eda3a320f29f99",
+            "547fb8aae489af82",
+            "f840ecb94652d77a"
+        ],
+        "x": 174,
+        "y": 579,
+        "w": 732,
+        "h": 122
+    },
+    {
+        "id": "5e44b5769c875ce9",
+        "type": "comment",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "connect to MQTT and decode messages",
+        "info": "",
+        "x": 260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "75025c2366fc1328",
+        "type": "function",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "Convert sysTime (UTC timestamp)",
+        "func": "var sysTime = msg.payload.sysTime\n\nconst seconds_epoch = Number(BigInt(sysTime) >> 32n) // keep only first four bytes (seconds since epoch = 1.1.1970)\nconst nanos = Number(BigInt(sysTime) & 0xFFFFFFFFn)  // keep only last four bytes\nconst millis = Math.round(nanos / 1e6)\nconst millis_epoch = seconds_epoch * 1000 + millis //this is UTC\n//const timestamp = new Date(millis_epoch) // this is most likely in UTC!\n\n\nmsg.payload.sysTime = millis_epoch\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd4b55d41721aaa0",
+        "type": "comment",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "DISCONNECTED HERE",
+        "info": "",
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fb534b95876c4a03",
+        "type": "decode",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "DecodeProto",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "66fb15b2b079257e"
+            ]
+        ]
+    },
+    {
+        "id": "3dc94ecda054f2d5",
+        "type": "mqtt in",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/ofms007x/opcua/18",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "877128a3121fd6c2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "fb534b95876c4a03"
+            ]
+        ]
+    },
+    {
+        "id": "301dcdd7e9602428",
+        "type": "function",
+        "z": "4dc5ef247d78d792",
+        "name": "filter uuids",
+        "func": "// Get flow variables\nconst datapoint1 = flow.get('datapointMachineState');\nconst datapoint2 = flow.get('datapointmachinefault');\nconst datapoint3 = flow.get('datapointqualityfault');\nconst datapoint4 = flow.get('datapointotherfault');\nconst datapoint5 = flow.get('datapointsetup');\nconst datapoint6 = flow.get('datapointMachineStatus');\nconst datapoint7 = flow.get('datapointProductName');\n\n// get flow variable\nconst uuids = [datapoint1, datapoint2, datapoint3, datapoint4, datapoint5, datapoint6, datapoint7];\n\n// filter for uuid\nconst results = msg.payload.plcPackets.filter(plcPacket => uuids.includes(plcPacket.uuid))\n\n\n// publish results\nmsg.payload = results\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "info": "1. loop over msg.payload.plcPackets each\n2. skip if uuid (or other filters) does not match\n3. emit entire plcPackets if uuid matches"
+    },
+    {
+        "id": "66fb15b2b079257e",
+        "type": "split",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "flatten PLCPacket Array",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 810,
+        "y": 200,
+        "wires": [
+            [
+                "28b436242d895cce",
+                "147603a4fe129c40"
+            ]
+        ]
+    },
+    {
+        "id": "f13a53866420998c",
+        "type": "comment",
+        "z": "4dc5ef247d78d792",
+        "g": "198163ce609bbf58",
+        "name": "prepare and convert payload",
+        "info": "",
+        "x": 300,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8da5d1da08186834",
+        "type": "change",
+        "z": "4dc5ef247d78d792",
+        "g": "198163ce609bbf58",
+        "name": "Set leakage rate UUID",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.uuid",
+                "pt": "msg",
+                "to": "datapointLeakRate",
+                "tot": "flow",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "5183ee78e0627cfe"
+            ]
+        ]
+    },
+    {
+        "id": "4117a33927ae9a78",
+        "type": "trigger",
+        "z": "4dc5ef247d78d792",
+        "g": "198163ce609bbf58",
+        "name": "intervaltime",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 810,
+        "y": 480,
+        "wires": [
+            [
+                "0e90db95e68b9371"
+            ]
+        ]
+    },
+    {
+        "id": "0e90db95e68b9371",
+        "type": "function",
+        "z": "4dc5ef247d78d792",
+        "g": "198163ce609bbf58",
+        "name": "Convert sysTime back (UTC timestamp)",
+        "func": "//var sysTime = msg.payload.plcPackets[0].sysTime\nconst dt_new = new Date( )\nconst dt = dt_new.getTime()\n\n\nconst in_left = Math.round(dt/1000)\nconst nanos = BigInt(in_left) << 32n | BigInt(dt_new.getMilliseconds() * 1e6)\n\nconst nanos_c = Number(nanos)\n\nmsg.payload.plcPackets[0].sysTime = nanos_c\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 480,
+        "wires": [
+            [
+                "547fb8aae489af82"
+            ]
+        ]
+    },
+    {
+        "id": "5183ee78e0627cfe",
+        "type": "change",
+        "z": "4dc5ef247d78d792",
+        "g": "198163ce609bbf58",
+        "name": "prepare for protob encoding",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "parts",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "protobufType",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.valueInteger",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.valueBool",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.plcPackets[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_msgid",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "4117a33927ae9a78"
+            ]
+        ]
+    },
+    {
+        "id": "34eda3a320f29f99",
+        "type": "comment",
+        "z": "4dc5ef247d78d792",
+        "g": "aab706e7b2d2f12f",
+        "name": "publish to MQTT",
+        "info": "",
+        "x": 280,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "547fb8aae489af82",
+        "type": "encode",
+        "z": "4dc5ef247d78d792",
+        "g": "aab706e7b2d2f12f",
+        "name": "DecodeProto",
+        "protofile": "9c53fd687f954aef",
+        "protoType": "PLCPacketList",
+        "x": 270,
+        "y": 660,
+        "wires": [
+            [
+                "bbac664faa249cbb"
+            ]
+        ]
+    },
+    {
+        "id": "28b436242d895cce",
+        "type": "function",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "leak rate_now",
+        "func": "// ------------------------------------\n// 0. 从 flow config 读取配置\n// ------------------------------------\nconst UUID_BASE = flow.get(\"datapointLeakBase\");\nconst UUID_INDEX = flow.get(\"datapointLeakIndex\");\nconst machineName = flow.get(\"machineName\");\n\nif (!UUID_BASE || !UUID_INDEX || !machineName) {\n    node.warn(\"Leak Rate flow config is missing\");\n    return null;\n}\n\n\n// ------------------------------------\n// 1. 输入是 PLCPacket Array\n// ------------------------------------\nconst packets = msg.payload;\n\nif (!Array.isArray(packets)) {\n    return null;\n}\n\n\n// ------------------------------------\n// 2. 找到 basenum 和 index\n// ------------------------------------\nlet basePacket = null;\nlet indexPacket = null;\n\nfor (const p of packets) {\n\n    if (p.uuid === UUID_BASE) {\n        basePacket = p;\n    }\n\n    if (p.uuid === UUID_INDEX) {\n        indexPacket = p;\n    }\n}\n\n\n// ------------------------------------\n// 3. 同一批必须两个点都有\n// ------------------------------------\nif (!basePacket || !indexPacket) {\n    return null;\n}\n\n\n// ------------------------------------\n// 4. 读取原始值\n// ------------------------------------\nconst baseRaw = Number(basePacket.valueInteger);\nconst index = Number(indexPacket.valueInteger);\n\nif (!Number.isFinite(baseRaw) ||\n    !Number.isFinite(index)) {\n    return null;\n}\n\n\n// ------------------------------------\n// 5. 实际底数 = 原始值 / 100\n// ------------------------------------\nconst baseReal = baseRaw / 100;\n\n\n// ------------------------------------\n// 6. Leakage Rate\n// ------------------------------------\nconst leakageRateRaw =\n    baseReal * Math.pow(10, index);\n\n// 尾数按2位处理，同时保持 Number 类型\nconst leakageRate =\n    Number(leakageRateRaw.toExponential(2));\n\n\n// ------------------------------------\n// 7. DATATRON sysTime → Unix ms\n// ------------------------------------\nlet sysTime = basePacket.sysTime;\n\nif (sysTime !== undefined && sysTime !== null) {\n\n    const t = BigInt(sysTime);\n\n    const seconds =\n        Number(t >> 32n);\n\n    const nanos =\n        Number(t & 0xFFFFFFFFn);\n\n    sysTime =\n        seconds * 1000 +\n        Math.round(nanos / 1e6);\n}\n\n\n// ------------------------------------\n// 8. 输出\n// ------------------------------------\nmsg.payload = {\n    machine: machineName,\n    basenum_raw: baseRaw,\n    basenum_real: baseReal,\n    index_now: index,\n    leakage_rate: leakageRate,\n    sysTime: sysTime\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 260,
+        "wires": [
+            [
+                "253dac7a5fdbecbc",
+                "8da5d1da08186834"
+            ]
+        ]
+    },
+    {
+        "id": "f840ecb94652d77a",
+        "type": "mqtt out",
+        "z": "4dc5ef247d78d792",
+        "g": "aab706e7b2d2f12f",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/ofms007x/opcua/18",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "877128a3121fd6c2",
+        "x": 700,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "56824d4395efa669",
+        "type": "change",
+        "z": "4dc5ef247d78d792",
+        "name": "Set flow config",
+        "rules": [
+            {
+                "t": "set",
+                "p": "machineName",
+                "pt": "flow",
+                "to": "Helium09",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointLeakBase",
+                "pt": "flow",
+                "to": "f8303000-7998-4013-bfbe-bc2ec26ad736",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointLeakIndex",
+                "pt": "flow",
+                "to": "8c8fbe8d-606f-4177-98a0-5e5e37237382",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointLeakRate",
+                "pt": "flow",
+                "to": "4d181446-c32b-493c-aefb-b058353d1b82",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8557d597cbcf773",
+        "type": "inject",
+        "z": "4dc5ef247d78d792",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 60,
+        "wires": [
+            [
+                "56824d4395efa669"
+            ]
+        ]
+    },
+    {
+        "id": "253dac7a5fdbecbc",
+        "type": "debug",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "debug 1783",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "147603a4fe129c40",
+        "type": "function",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "function 2",
+        "func": "const UUID_BASE = flow.get(\"datapointLeakBase\");\nconst UUID_INDEX = flow.get(\"datapointLeakIndex\");\n\nconst packets = msg.payload;\n\nif (!Array.isArray(packets)) {\n    return null;\n}\n\nlet baseFound = null;\nlet indexFound = null;\n\nfor (const p of packets) {\n\n    if (p.uuid === UUID_BASE) {\n        baseFound = p;\n    }\n\n    if (p.uuid === UUID_INDEX) {\n        indexFound = p;\n    }\n}\n\nif (!baseFound && !indexFound) {\n    return null;\n}\n\nmsg.payload = {\n    baseFound: baseFound,\n    indexFound: indexFound\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 140,
+        "wires": [
+            [
+                "965a1efb81b3b976"
+            ]
+        ]
+    },
+    {
+        "id": "965a1efb81b3b976",
+        "type": "debug",
+        "z": "4dc5ef247d78d792",
+        "g": "c1bbb26608d8af48",
+        "name": "debug 1784",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bbac664faa249cbb",
+        "type": "debug",
+        "z": "4dc5ef247d78d792",
+        "name": "debug 1792",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "7a49aef9.46452",
+        "type": "protobuf-file",
+        "protopath": "/data/plcschema.proto",
+        "watchFile": true,
+        "keepCase": false
+    },
+    {
+        "id": "877128a3121fd6c2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "emqx.mqtt.svc",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9c53fd687f954aef",
+        "type": "protobuf-file",
+        "protopath": "/data/plcschema.proto",
+        "watchFile": true,
+        "keepCase": false
+    }
+]

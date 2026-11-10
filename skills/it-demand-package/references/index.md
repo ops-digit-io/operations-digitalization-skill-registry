@@ -4,6 +4,10 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [External build and foreign app inputs](external-build-and-foreign-app-inputs.md) | Skill Reference | What to collect for route 3a.3 (external development) and 3a.4 (foreign app) - the record fields the legacy application list already uses, the four assessment questions, the requirement parts an external developer can be handed, and the typical foreign-app cases in the legacy list. Open it when you assemble the specification or the foreign-app description. |
-| [IT touchpoints](it-touchpoints.md) | Skill Reference | What the vault records about where OD meets IT - the rule for which demands go through demand management, the asks OD has put to IT per initiative (by role), the IT roles of the platform operations concept, and what stays unknown. Open it before you write the IT-facing part of a package. |
-| [Process chain practice](process-chain-practice.md) | Skill Reference | How the IT demand package is assembled at chain step 3a4 - the demand-management question list, the request flow, small change versus project routing, the supplier-built app and selection practice, commercial consistency check, decision phrasing, handoffs and agent notes. |
+| [It expected inputs](it-expected-inputs.md) | Skill Reference | What IT asked OD to deliver with a demand in the OD x IT alignment of 2026-09-11, item by item, where each lands in the handover package, which items block a handover, and the open IT action items that will firm them. |
+| [Openspec format](openspec-format.md) | Skill Reference | The OpenSpec rules an OD handover package must meet (structure, proposal sections, delta spec format, validation thresholds) and which OD skill fills which artefact. |
+
+| Folder | Holds |
+|---|---|
+| [it-demand-package/](it-demand-package/index.md) | 5 concept(s) |
+| [od-project-support-consultancy/](od-project-support-consultancy/index.md) | 4 concept(s) |

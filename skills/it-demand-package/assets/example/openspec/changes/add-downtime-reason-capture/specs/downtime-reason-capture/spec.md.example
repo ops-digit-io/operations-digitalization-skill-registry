@@ -1,0 +1,31 @@
+## Purpose
+
+Let operators record why a machine stopped, at the moment it stops, so that stop reasons are complete, linked to the stop event and usable in the shift review.
+
+## ADDED Requirements
+
+### Requirement: Prompt for a stop reason
+The system SHALL ask the operator for a stop reason on the line-side screen whenever a machine stop event is received for that line.
+
+#### Scenario: Machine stops during a shift
+- **WHEN** a machine stop event for a machine of the line is received
+- **THEN** the line-side screen shows the open stop with the plant's stop reason catalogue
+
+### Requirement: Link the reason to the stop event
+The system SHALL store each selected reason with the machine, the stop event identifier, the shift and the time of selection.
+
+#### Scenario: Operator selects a reason
+- **WHEN** the operator selects a reason for an open stop
+- **THEN** the stop is closed and the reason is stored with its machine, stop event, shift and time
+
+#### Scenario: Stop without a reason at shift end
+- **GIVEN** a stop that is still open at shift end
+- **WHEN** the shift ends
+- **THEN** the stop is stored with the reason "not recorded" and shown in the shift review
+
+### Requirement: Publish reasons to the data platform
+The system MUST publish every stored stop reason to the data platform in the agreed data model.
+
+#### Scenario: Reason stored
+- **WHEN** a reason is stored
+- **THEN** it is available on the data platform in the agreed data model for the shift review dashboard

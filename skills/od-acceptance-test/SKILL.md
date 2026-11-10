@@ -11,7 +11,9 @@ license: MIT
 metadata:
   id: od-acceptance-test
   tier: practice
-  lane: [information-integration-service, project-support-consultancy]
+  lane: lane-3
+  new_state_lane: "Lane 3a (3a5), Lane 3b (3b6)"
+  new_state_step: "Deploy to the platform, acceptance, Cyber Security sign-off; Acceptance test, live on the data platform"
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft the protocol; report the result; sign-off is human-only
   status: stable

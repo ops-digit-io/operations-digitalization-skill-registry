@@ -41,7 +41,7 @@ monitoring.
    is usually networked. The records give no export interface for it; ask per application.
 3. **PLC programming and configuration software** is where the PLC programs live. The
    integration guide stops every PLC route at "if you do not have the PLC program, we cannot
-   connect the PLC" ([`od-equipment-integration`](../../od-equipment-integration/SKILL.md)).
+   connect the PLC" ([`od-equipment-integration`](../../../skills/od-equipment-integration/SKILL.md)).
    Check the licence status of the program software and that the program can be opened before
    treating a machine as "program available".
 4. **Camera system configuration** is often standalone. Image data from such systems needs the

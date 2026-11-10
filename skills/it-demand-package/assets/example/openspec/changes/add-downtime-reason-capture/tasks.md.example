@@ -1,0 +1,19 @@
+# Tasks
+
+## 1. Build
+
+- [ ] 1.1 Implement the stop prompt on the line-side screen
+- [ ] 1.2 Store reasons linked to the stop event
+- [ ] 1.3 Publish stored reasons to the data platform
+
+## 2. Operability
+
+- [ ] 2.1 Add logging and observability (health, alerts) before go-live
+- [ ] 2.2 Provide the standard deployment manifests for CMO
+
+## 3. Acceptance and gates
+
+- [ ] 3.1 Run the acceptance test against the spec scenarios with the plant witness
+- [ ] 3.2 Obtain the Cyber Security sign-off
+- [ ] 3.3 Complete the handover checklist
+- [ ] 3.4 Record formal acceptance by the receiving team

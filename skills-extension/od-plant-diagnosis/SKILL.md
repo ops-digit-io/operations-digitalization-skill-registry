@@ -15,15 +15,15 @@ metadata:
   id: od-plant-diagnosis
   tier: practice
   lane: all
-  new_state_lane: Spine, Lane 2 (step 24)
-  new_state_step: Plant gap diagnosis, tiering and roadmap
+  new_state_lane: "Extension, deepens Lane 2 (24), Spine"
+  new_state_step: "Business case (value and cost), assessment, ranking; Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: draft the diagnosis, tiering proposal and roadmap; recommend on sequencing and tier; tier assignment and roadmap approval are human
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-plant-onboarding, od-cross-plant-compatibility, od-portfolio-and-savings-analysis, od-use-case-prioritization, od-scorecard-reporting, od-barrier-triage, od-decision-routing, od-risk-watch]
+  composes: [od-plant-onboarding, od-cross-plant-compatibility, od-portfolio-and-savings-analysis, od-scorecard-reporting, od-equipment-integration, od-decision-routing, od-risk-watch]
   derived_from:
     - Operations Digitalization slide decks (plant-to-plant gap analysis, plant tiering, roadmap and call-for-action formats, interview-based evidence updates), abstracted into process guidance; no figures.
   okf:
@@ -57,7 +57,7 @@ criterion answered; (4) the plant roadmap has one row per workstream with status
 | Step id | Role of this skill |
 |---|---|
 | Spine, plant onboarding (`od-plant-onboarding`, stages 1-3 and 8) | Tiers the plant when it enters scope and again at the rhythm review; writes its roadmap |
-| 24 Business case and rank (`od-portfolio-and-savings-analysis`, `od-use-case-prioritization`) | Explains a zero or low saving by plant before a use case is judged "no potential"; supplies the tier as a capacity input to ranking |
+| 24 Business case and rank (`od-portfolio-and-savings-analysis`, `od-portfolio-and-savings-analysis`) | Explains a zero or low saving by plant before a use case is judged "no potential"; supplies the tier as a capacity input to ranking |
 | Spine, rhythm (`od-scorecard-reporting`) | Feeds the status and call-for-action cells of the plant status table in the community-of-practice call and the regional roadmap in the strategy round |
 | Lane 3b step 3b4 (`od-cross-plant-compatibility`) | Receives its verdict when a gap is technical (a plant cannot consume a standard) |
 
@@ -76,8 +76,8 @@ Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
 
 Not repeated here: starting profiles and the onboarding path (`od-plant-onboarding`), whether a standard is
 consumable at a plant (`od-cross-plant-compatibility`), rollup rules and the three misleading readings of the
-data (`od-portfolio-and-savings-analysis`), ranking of use cases (`od-use-case-prioritization`), classifying a
-machine that will not connect (`od-barrier-triage`).
+data (`od-portfolio-and-savings-analysis`), ranking of use cases (`od-portfolio-and-savings-analysis`), classifying a
+machine that will not connect (`od-equipment-integration`).
 
 ## Procedure
 
@@ -114,12 +114,12 @@ machine that will not connect (`od-barrier-triage`).
 |---|---|
 | Plant placed by starting profile, machine and use-case lists read on the day | `od-plant-onboarding`, `od-sharepoint-list-export` |
 | Savings by plant with tracked and proven kept apart, and the use-case status cut | `od-portfolio-and-savings-analysis` |
-| Barrier log for machines that will not connect | `od-barrier-triage` |
+| Barrier log for machines that will not connect | `od-equipment-integration` |
 | Compatibility verdict per plant for a standard | `od-cross-plant-compatibility` |
 
 | Hands on | To |
 |---|---|
-| Tier per plant as a capacity input; gap reasons for a use case judged low | `od-use-case-prioritization`, `od-portfolio-and-savings-analysis` |
+| Tier per plant as a capacity input; gap reasons for a use case judged low | `od-portfolio-and-savings-analysis`, `od-portfolio-and-savings-analysis` |
 | Roadmap rows with status and call-for-action text; regional roll-up | `od-scorecard-reporting` (call and strategy-round inputs) |
 | A technical gap on a standard | `od-cross-plant-compatibility` |
 | A rollout or tier exception, a resource request, an escalation with a deadline | `od-decision-routing` |

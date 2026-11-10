@@ -100,7 +100,7 @@ turns the verdict into "escalate" via `od-decision-routing`'s tool or system rol
 | Receive | From | Must contain |
 |---|---|---|
 | Stated need, canvas draft | `od-use-case-intake-triage` / `od-requirements-breakdown` | Need in plain terms; object, event, time; is the machine connected; is the service bus present; personal data or worker-performance measurement yes or no |
-| Hand on: verdict | `od-use-case-intake-triage` (lane), `od-decision-routing` (exception), `od-application-consulting` (design) | Verdict; the boundary sentence crossed (quoted); the tool and the plant checked with date; cost class; operations-concept status; the use case behind any tool recommendation |
+| Hand on: verdict | `od-use-case-intake-triage` (lane), `od-decision-routing` (exception), `od-system-fit-check` (design) | Verdict; the boundary sentence crossed (quoted); the tool and the plant checked with date; cost class; operations-concept status; the use case behind any tool recommendation |
 
 If the verdict is *redesign onto a lighter tool*, the redesigned need goes back to requirements breakdown, not forward.
 

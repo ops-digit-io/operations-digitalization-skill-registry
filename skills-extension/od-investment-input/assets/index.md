@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| [Investment estimate](investment-estimate.md) | Skill Asset | The department's investment and effort estimate template (the cost side of a business case, od-investment-input): one-time build, licences and hardware, recurring run cost, cost summary against bankable value, payback. Never netted into the value headline. |
 | [Investment input pack](investment-input-pack.md) | Skill Asset | The pack handed to the OD lead and BA Operations - scope, cost lines with sources, benefit side, gates, dependencies and open items; a proposed form until the lane confirms its investment plan template. |

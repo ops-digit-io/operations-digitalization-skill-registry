@@ -152,7 +152,7 @@ other start-to-start, have standardized the name and nothing else - invisible fr
 
 A flow that derives a signal publishes it under a **new UUID**, registered on the edge platform's data-point config first; until it
 exists, everything downstream ignores the packet. Name from the same vocabulary and make raw/derived explicit: `MachineMode` is the
-raw integer, `MachineModeNormalized` the mapped string. See `od-node-red-flows`.
+raw integer, `MachineModeNormalized` the mapped string. See `od-node-red-flow-builder`.
 
 ## Step 9 - context situation
 

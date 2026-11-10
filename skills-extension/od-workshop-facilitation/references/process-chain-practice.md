@@ -111,7 +111,7 @@ list of what must be preserved; aim at parallel functionality, not a one-to-one 
 
 **Hands on, per demand row:** plant, process group, capability, moment of use, owner role, savings-basis label,
 tool dependency, machine dependency. Routing: use case to `od-use-case-definition`; machine need to
-`od-equipment-integration`; savings to `od-benefit-calculation`; ranking to `od-use-case-prioritization`;
+`od-equipment-integration`; savings to `od-benefit-calculation`; ranking to `od-portfolio-and-savings-analysis`;
 standard candidates to `od-use-case-standardization`; IT demand to `it-demand-package`; ad-hoc issue to
 `od-first-aid-kit`. Output set: use-case list by production area, process, use case (split per step and purpose,
 naming convention plant-material-process-use case); tool availability with recommendation; savings pre-evaluation

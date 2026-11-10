@@ -29,6 +29,7 @@ SECTIONS = {
     "standard":            (r"^#+\s*(§?4\b|standard baseline)", True, "Standard baseline"),
     "signals":             (r"^#+\s*(§?5\b|tags of interest|signal)", True, "Tags of Interest"),
     "acceptance":          (r"^#+\s*(§?6\b|acceptance criteria)", True, "Acceptance criteria"),
+    "boundaries":          (r"^#+\s*(§?6a\b|boundaries)", True,  "Boundaries"),
     "blocking":            (r"^#+\s*(§?7\b|blocking points)", False, "Blocking points"),
     "systemfit":           (r"^#+\s*(§?8\b|system fit)", False, "System fit"),
     "value":               (r"^#+\s*(§?9\b|value)", False, "Value"),
@@ -36,7 +37,7 @@ SECTIONS = {
 }
 
 LANE_EXTRA = {
-    "use-case":   (r"handover packet",       "Handover packet to Information Integration"),
+    "use-case":   (r"handover packet",       "Handover packet to Lane 3"),
     "integration":(r"equipment requirement", "Equipment requirement"),
     "project":    (r"project scope baseline","Project scope baseline"),
     "analytical": (r"request scope",         "Request scope"),
@@ -87,7 +88,7 @@ def analyze(path: str, lane: str | None):
         if key not in sec:
             add("BLOCKER" if required else "WARN", "missing-section",
                 f"§ {label} is absent.",
-                fix="A requirement missing sections 1-6 or 10 is not ready to hand over.")
+                fix="A requirement missing sections 1-6, 6a or 10 is not ready to hand over.")
         elif not body or body in {"-", "tbd", "TBD"}:
             add("BLOCKER" if required else "WARN", "empty-section",
                 f"§ {label} has a heading and no content.")
@@ -102,6 +103,25 @@ def analyze(path: str, lane: str | None):
                 + ", ".join(sorted(set(ph))[:4]),
                 fix="⟨…⟩ is legitimate for a genuine unknown, but not in the sections a "
                     "receiving lane has to act on.")
+
+    # boundaries: objective, scope, interfaces and a growth limit (OD x IT 2026-09-11, mission creep)
+    bnd = sec.get("boundaries", "")
+    if bnd.strip():
+        for label, pat in (("Objective", r"objective"), ("Scope", r"in scope"),
+                           ("Interfaces", r"interface"), ("Growth boundary", r"growth"),
+                           ("Change rule", r"change rule")):
+            line = next((l for l in bnd.splitlines() if re.search(pat, l, re.I)), "")
+            body = re.sub(r"^[\s\-*]*\**[^:]*:\**", "", line).strip()
+            if not line or not body or PLACEHOLDER.fullmatch(body):
+                add("BLOCKER" if label in ("Growth boundary", "Scope") else "WARN", "boundary-missing",
+                    f"§ Boundaries has no {label.lower()} statement.",
+                    fix="Fix objective, scope, interfaces and the growth limit up front; "
+                        "anything past the limit is a new requirement through intake.")
+        gb = next((l for l in bnd.splitlines() if re.search(r"growth", l, re.I)), "")
+        if re.search(r"scalab|flexible|future[- ]proof|later all|any plant", gb, re.I):
+            add("WARN", "growth-boundary-is-a-wish",
+                "The growth boundary reads as a wish, not a limit.",
+                fix="State the largest plants, machines, users or data volume this requirement covers.")
 
     # the problem statement must not name a technology
     prob = sec.get("problem", "")

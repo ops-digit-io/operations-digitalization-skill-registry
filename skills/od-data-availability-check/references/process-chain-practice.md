@@ -30,9 +30,9 @@ standardization, data integration, dashboard creation, use-case utilization.
 | Hands on | To | What it carries |
 |---|---|---|
 | Verdict (which step the request dies at) plus the **missing-signal table** | `od-prototype-poc`, `od-analytics-asset-build` | Nothing is built on a step that failed |
-| Named data gap | Information Integration lane (`od-information-integration-service`, `od-equipment-integration`) | Machines, signals, plant, the use case waiting; recorded as a dependency on the use case |
+| Named data gap | Information Integration lane (`od-equipment-integration`, `od-equipment-integration`) | Machines, signals, plant, the use case waiting; recorded as a dependency on the use case |
 | Standardization request | `od-signal-standardization` | Signals present but not comparable |
-| Barrier | `od-barrier-triage` | A machine that will not connect |
+| Barrier | `od-equipment-integration` | A machine that will not connect |
 | "Not a machine request" | The owner of the other source (quality, laboratory, legacy application) | See `non-machine-data-sources.md` |
 
 Nobody downstream should have to re-ask "is the machine connected", "which signal", "which object is it keyed on".

@@ -1,0 +1,26 @@
+# Design
+
+## Context
+
+Stop reasons are written on paper and typed in later, if at all. The machines of the first implementation area already publish stop events through the IIoT Edge Platform; the data availability check found the stop event present and the reason missing.
+
+## Goals / Non-Goals
+
+**Goals:**
+- Complete, event-linked stop reasons for the shift review.
+
+**Non-Goals (growth boundaries):**
+- No maintenance work orders, no OEE calculation, no production planning. Growth beyond this is a new demand.
+
+## Decisions
+
+- **Route and sourcing:** 3a.3 external build under IT architecture guidelines (guided buy); no existing product covered the event link; the code stays with the company.
+- **Hosting:** CMO with the standard manifests, deployed through GitOps.
+- **Interfaces:** consumes machine stop events over MQTT from the edge platform; publishes to the data platform; no new proprietary interface.
+- **Data model:** stop events and reasons in the agreed signal data model.
+- **Cyber Security:** reuses the approved CMO platform pattern; pre-evaluation package attached.
+- **Who runs it:** the building team runs it until IT formally accepts it.
+
+## Risks / Trade-offs
+
+- Operators skip the prompt under time pressure → the shift-end rule makes missing reasons visible instead of silent.

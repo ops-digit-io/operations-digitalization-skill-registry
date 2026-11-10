@@ -43,7 +43,7 @@ Portfolio sizes per cluster are not kept here. Look them up on the live cluster 
 | **C07 Recipe and traceability** | Which parameters a product was made with, and follow-back **one up, one down at minimum**. Parameter changes are logged; parameters and traceability fail together | A recipe change in the test is logged. A test unit is traced one step up and one step down. The recipe value shown equals the value on the machine |
 | **C08 Energy management** | Consumption is **attributed** to a line, machine or product; a plant-level meter identifies no action. The baseline matters most | The attribution target is named. The baseline period and its source are written down before the saving is claimed |
 | **C09 Analytics and cross-cutting reporting** | The report answers a question **no single-process dashboard can**. Much of what lands here is better as an addition to an existing dashboard | The question is stated; the plant owner confirms no existing dashboard answers it |
-| **C10 Generative and agentic AI** | The data the model needs has to exist and be reachable | The data availability verdict ([`od-data-availability-check`](../../od-data-availability-check/SKILL.md)) is attached and shows no unproven step |
+| **C10 Generative and agentic AI** | The data the model needs has to exist and be reachable | The data availability verdict ([`od-data-availability-check`](../../od-data-availability-check/SKILL.md))) is attached and shows no unproven step |
 | C12 Other and plant-specific | A catch-all; its size is a documentation signal | Name the nearest cluster and apply its items; if none fits, the acceptance items come from the requirement itself |
 | C11 Digital twin and simulation | Reserved; check whether any use case is tagged | |
 

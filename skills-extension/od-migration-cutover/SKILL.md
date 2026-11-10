@@ -13,16 +13,16 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-migration-cutover
   tier: practice
-  lane: all
-  new_state_lane: Lane 3a (after the tool decision) and Spine
-  new_state_step: "Migrate and cut over: assessment, staged plan, per-location cutover, decommissioning"
+  lane: lane-3
+  new_state_lane: "Extension, deepens Lane 3 front-end (32), Lane 3a (3a5, 3a6)"
+  new_state_step: "Tool-decision / IT-footprint gate (make, buy, integrate or connect); Deploy to the platform, acceptance, Cyber Security sign-off; Rollout and adoption; ownership on formal acceptance"
   owner_role: human:jakob.gabriel
   authority_level: draft the assessment, the migration plan, the checklists and the back-out plan; recommend sequencing; the cutover, the back-out decision, Cyber Security sign-off and decommissioning are human
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-application-consulting, od-system-fit-check, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, od-requirements-breakdown, od-decision-routing, od-risk-watch, od-plant-onboarding, deploy-appstore]
+  composes: [od-system-fit-check, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, od-requirements-breakdown, od-decision-routing, od-risk-watch, od-plant-onboarding, deploy-appstore]
   derived_from:
     - Operations Digitalization slide decks (legacy-application assessment and migration workshops, platform and server migration across plants, middleware retirement, back-out plan diagrams), abstracted into process guidance; no figures.
   okf:
@@ -37,7 +37,7 @@ metadata:
 
 Read `od-context` first.
 
-No existing skill owns the move itself. `od-application-consulting` and `od-system-fit-check` decide
+No existing skill owns the move itself. `od-system-fit-check` and `od-system-fit-check` decide
 *whether* to replace, integrate or keep an application; `od-cybersec-gate` decides whether the target may go
 live; `od-acceptance-test` proves it works; `od-handover-and-adoption` hands it to the operating model. This
 skill sits between them: it turns "replace it" into an inventory, a risk-rated plan, a staged cutover
@@ -80,7 +80,7 @@ Done when, for one migration:
 
 ## Procedure
 
-1. **Frame and decide the scenario.** Take the decision from `od-application-consulting` / `od-system-fit-check` (replace, integrate, keep). Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support). `PROPOSAL`: no decision package without that baseline.
+1. **Frame and decide the scenario.** Take the decision from `od-system-fit-check` / `od-system-fit-check` (replace, integrate, keep). Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support). `PROPOSAL`: no decision package without that baseline.
 2. **Assess.** Run the assessment workshop or desk assessment (reference 1): use cases of the old system, component inventory focused on interfaces, impact per use case, as-is/to-be status of security, bus, recipe management and MES where relevant. For an application estate, fill the OT application inventory and rate it.
 3. **Rate risk and recovery impact** per component; map each as-is component to its to-be component.
 4. **Stage the migration.** Start with the lowest-risk machine or location; replicate the existing reporting on the new platform as the requirement baseline; move the high-impact component last and with minimal downtime. Aim at parallel functionality, not a one-to-one copy; "low barrier, high impact" first.
@@ -103,8 +103,8 @@ Done when, for one migration:
 
 | Receives | From |
 |---|---|
-| Replace / integrate / keep decision, use-case list of the old system | `od-application-consulting`, `od-system-fit-check`, `od-requirements-breakdown` |
-| Target architecture and security status | `od-application-consulting`, `od-cybersec-gate` |
+| Replace / integrate / keep decision, use-case list of the old system | `od-system-fit-check`, `od-system-fit-check`, `od-requirements-breakdown` |
+| Target architecture and security status | `od-system-fit-check`, `od-cybersec-gate` |
 | Application and interface lists, machines concerned | plant ME, local owner, application list |
 
 | Hands on | To |

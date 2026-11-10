@@ -14,8 +14,8 @@ metadata:
   id: od-context-freshness
   tier: practice
   lane: all
-  new_state_lane: Spine
-  new_state_step: Context freshness (quarterly hygiene)
+  new_state_lane: "Extension, deepens Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: read-only on the registry; draft the hygiene report
   status: draft
@@ -75,7 +75,7 @@ the sources it names (`--cross`).
 
 1. **Run the script, read-only.** From the registry folder:
    ```
-   python skills/od-context-freshness/scripts/context_freshness.py \
+   python skills-extension/od-context-freshness/scripts/context_freshness.py \
      --skills skills --registry registry.yaml \
      --bundle <path to>/ops-knowledge-graph/_knowledge/OperationsDigitalization-Department \
      --cross <folder that holds ops-knowledge-graph>

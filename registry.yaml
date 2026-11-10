@@ -4,7 +4,7 @@
 
 registry:
   name: operations-digitalization-skill-registry
-  version: 1.12.0
+  version: 2.0.0
   department: MPEE Operations Digitalization (OD)
   business: neuwerk
   owner: Jakob Gabriel
@@ -64,33 +64,6 @@ skills:
     authority_level: read-only
     summary: Vocabulary, service lines, systems of record, decision gates and the honesty rules.
 
-  - id: od-information-integration-service
-    library: extension
-    tier: lane
-    lane: information-integration-service
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing
-    trigger: Equipment integration or data-model harmonization need per roadmap.
-    definition_of_done: Machine or equipment integrated, signals standardized, data landing on the data platform.
-
-  - id: od-project-support-consultancy
-    library: extension
-    tier: lane
-    lane: project-support-consultancy
-    owner_role: IIoT Interface & Automation Engineer (IIAE)
-    authority_level: read-only on systems; draft on project artefacts; recommend on sequencing
-    trigger: Digital investment project kick-off.
-    definition_of_done: Integration project managed to acceptance test; application consulted and accepted.
-
-  - id: od-analytical-support-service
-    library: extension
-    tier: lane
-    lane: analytical-support-service
-    owner_role: Digital-Business-Value-Engineer (DBVE)
-    authority_level: read-only on data sources; draft on assets and summaries; recommend on promotion
-    trigger: Analytical request or ad-hoc process-insight need.
-    definition_of_done: Process diagnostics / analytical insight delivered.
-
   - id: od-use-case-intake-triage
     library: core
     tier: practice
@@ -100,6 +73,7 @@ skills:
     summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
 
   - id: od-system-fit-check
+    absorbed: [od-application-consulting]   # merged 2026-11-10, see log.md
     library: core
     tier: practice
     lane: all
@@ -110,7 +84,7 @@ skills:
   - id: od-requirements-breakdown
     library: core
     tier: practice
-    lane: all
+    lane: [lane-2, lane-3]
     owner_role: DBVE or IIAE, per lane
     authority_level: draft the requirement; accept or refuse per intake; approvals are human
     summary: Turns an accepted demand into a requirement another lane can act on - problem, standard baseline, verified signal list, testable acceptance, legacy-system assessment, the lane handover packet, and a standardized epic carrying a background description and at least two user stories. Covers all four service lines.
@@ -118,15 +92,16 @@ skills:
   - id: od-use-case-definition
     library: core
     tier: technical
-    lane: use-case-support-service
+    lane: lane-2
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft
     summary: Scope one plant's instance of one need through four phases to a benefit case ready for od-benefit-calculation — a proven library, the abstract patterns behind them, and the Benefits Dependency Network linking the build to the change that makes it land.
 
   - id: od-use-case-solution-evaluation
-    library: core
+    absorbed: [od-maturity-assessment]   # merged 2026-11-10, see log.md
+    library: extension
     tier: practice
-    lane: use-case-support-service
+    lane: lane-2
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft on the evaluation and target levels; recommend on sequencing; never approve an investment
     summary: Rank a scoped use case against a case library as a fast pre-check, then profile its complexity drivers, find which IT/OT capability areas its solution depends on, and sequence any as-is/target gap — a visualized ranking and a total evaluation score resolving to ready/raise-capability/over-engineered/escalate.
@@ -134,23 +109,25 @@ skills:
   - id: od-benefit-calculation
     library: core
     tier: practice
-    lane: use-case-support-service
+    lane: [lane-2, lane-3]
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft on the business case; recommend on prioritization; never assert proven
     summary: Build the OD business case and write saving rows; keep tracked and proven apart.
 
   - id: od-use-case-standardization
-    library: core
+    absorbed: [od-use-case-promotion]   # merged 2026-11-10, see log.md
+    library: extension
     tier: practice
-    lane: use-case-support-service
+    lane: lane-2
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: recommend
     summary: Capability templates, the reference library, the CSP gate and the twelve cluster tags.
 
   - id: od-equipment-integration
+    absorbed: [od-barrier-triage, od-information-integration-service, od-machine-integration-plan]   # merged 2026-11-10, see log.md
     library: core
     tier: technical
-    lane: information-integration-service
+    lane: [lane-1, lane-3]
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
     summary: Two entry routes to one protocol — assess a plant/wave and build its integration roadmap, or route and configure a single machine already in scope. Merger of the former assessment and guidance skills, 2026-09-17.
@@ -159,12 +136,13 @@ skills:
   - id: od-acceptance-test
     library: core
     tier: practice
-    lane: [information-integration-service, project-support-consultancy]
+    lane: lane-3
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: draft the protocol; report the result; sign-off is human-only
     summary: Define pass before the build, verify along the whole data path, route failures into the right rework loop.
 
   - id: od-handover-and-adoption
+    absorbed: [od-impact-evaluation, od-utilization-review]   # merged 2026-11-10, see log.md
     library: core
     tier: practice
     lane: all
@@ -175,7 +153,7 @@ skills:
   - id: od-data-availability-check
     library: core
     tier: practice
-    lane: [analytical-support-service, use-case-support-service]
+    lane: lane-2
     owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE
     authority_level: read-only
     summary: Walks the six availability steps against the Machine List, the Connector Overview and the deployed flow corpus, names which step a request dies at, and writes a defined verdict. Distinguishes not-integrated from not-standardized from not-fit-for-use - three shortfalls that look identical from a dashboard.
@@ -183,13 +161,13 @@ skills:
   - id: od-analytics-asset-build
     library: core
     tier: practice
-    lane: [analytical-support-service, use-case-support-service]
+    lane: [lane-1, lane-2]
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: draft/author the asset; publishing externally is human-approved
     summary: Choose the asset type and design it for the ritual that consumes it.
 
   - id: od-scorecard-reporting
-    library: core
+    library: extension
     tier: practice
     lane: all
     owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
@@ -197,9 +175,10 @@ skills:
     summary: Fetch, assess and report OD's numbers against targets and thresholds; prepare and follow up ODEC and COP.
 
   - id: od-portfolio-and-savings-analysis
-    library: core
+    absorbed: [od-use-case-prioritization]   # merged 2026-11-10, see log.md
+    library: extension
     tier: practice
-    lane: [analytical-support-service, use-case-support-service]
+    lane: lane-2
     owner_role: Digital-Business-Value-Engineer (DBVE)
     authority_level: read-only
     summary: Cut the use-case portfolio and the savings ledger without the three standard misreadings.
@@ -213,7 +192,7 @@ skills:
     summary: Owner, mode, threshold and authority level per decision; the five gates; escalation triggers.
 
   - id: od-sharepoint-list-export
-    library: core
+    library: extension
     tier: practice
     lane: all
     owner_role: human:jakob.gabriel
@@ -221,20 +200,20 @@ skills:
     summary: Full list export including version history, from the browser console, with its stated limits.
 
   - id: build-grafana-ops-dashboard
-    library: core
+    library: extension
     tier: technical
-    lane: [analytical-support-service, use-case-support-service]
+    lane: lane-1
     scope: portable
     origin: vendored
     owner_role: human:jakob.gabriel
     authority_level: author the dashboard; publishing to a shared Grafana is human-approved
     summary: Grafana JSON dashboards over SQL for operations data — relational and timeseries archetypes, ECharts panels, audience tiers.
-    od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
+    od_integration: skills-extension/build-grafana-ops-dashboard/OD-INTEGRATION.md
 
   - id: od-signal-standardization
     library: core
     tier: technical
-    lane: information-integration-service
+    lane: lane-3
     scope: od
     origin: derived
     owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -244,7 +223,7 @@ skills:
   - id: deploy-appstore
     library: core
     tier: practice
-    lane: project-support-consultancy
+    lane: lane-3
     scope: od
     origin: new-state
     status: draft
@@ -252,43 +231,10 @@ skills:
     authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
     summary: "Lane 3a: the deployment package and the release gate for a manufacturing app, with Cyber Security sign-off. DRAFT scaffold - the platform procedure is not recorded."
 
-  - id: it-demand-package
-    library: core
-    tier: practice
-    lane: all
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft the package; submission and the evaluation board's decision are human
-    summary: "Lane 3a (3a.3, 3a.4): package a demand for IT demand management or an external developer. DRAFT scaffold - IT's own demand form is not recorded."
-
-  - id: od-application-consulting
-    library: extension
-    tier: practice
-    lane: project-support-consultancy
-    scope: od
-    origin: plan-draft
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: recommend
-    summary: "Give a solution design recommendation for an application question inside the lean footprint - which existing tool or app covers the need, whether to reuse, build, buy externally or integrate a foreign app, how the data reaches it, which gat DRAFT."
-
-  - id: od-barrier-triage
-    library: extension
-    tier: practice
-    lane: information-integration-service
-    scope: od
-    origin: plan-draft
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft
-    summary: "Classify why a machine will not connect (legacy hardware, protocol with no route, missing PLC program, platform not installed, Cyber Security wait, data model) and route it to one of three exits - the integration roadmap, strategy, or a sub DRAFT."
-
   - id: od-capital-request
     library: core
     tier: practice
-    lane: use-case-support-service
+    lane: [lane-2, lane-3]
     scope: od
     origin: new-state
     status: draft
@@ -310,7 +256,7 @@ skills:
   - id: od-cross-plant-compatibility
     library: extension
     tier: practice
-    lane: information-integration-service
+    lane: lane-3
     scope: od
     origin: plan-draft
     status: draft
@@ -319,9 +265,9 @@ skills:
     summary: "Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of t DRAFT."
 
   - id: od-cybersec-gate
-    library: core
+    library: extension
     tier: practice
-    lane: information-integration-service
+    lane: [lane-1, lane-3]
     scope: od
     origin: plan-draft
     status: draft
@@ -330,9 +276,10 @@ skills:
     summary: "Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the ne DRAFT."
 
   - id: od-first-aid-kit
+    absorbed: [od-analytical-support-service]   # merged 2026-11-10, see log.md
     library: extension
     tier: practice
-    lane: use-case-support-service
+    lane: all
     scope: od
     origin: plan-draft
     status: draft
@@ -340,21 +287,10 @@ skills:
     authority_level: draft
     summary: "Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data s DRAFT."
 
-  - id: od-impact-evaluation
-    library: extension
-    tier: practice
-    lane: use-case-support-service
-    scope: od
-    origin: plan-draft
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft the evaluation; the plant confirms adoption
-    summary: "Evaluate the impact of a use case that is live in a plant and prepare the adoption confirmation record - what the use case is used for, how often, what changed in the process, what saving can be shown and at what firmness (calculated, estim DRAFT."
-
   - id: od-investment-input
     library: extension
     tier: practice
-    lane: information-integration-service
+    lane: all
     scope: od
     origin: plan-draft
     status: draft
@@ -376,7 +312,7 @@ skills:
   - id: od-prototype-poc
     library: core
     tier: practice
-    lane: use-case-support-service
+    lane: lane-2
     scope: od
     origin: new-state
     status: draft
@@ -409,7 +345,7 @@ skills:
   - id: od-rollout-training
     library: extension
     tier: practice
-    lane: project-support-consultancy
+    lane: all
     scope: od
     origin: plan-draft
     status: draft
@@ -428,32 +364,10 @@ skills:
     authority_level: read-only; points to the approved master
     summary: "Resolve which approved master template or standard a deliverable must start from, before anyone writes it - look the artefact up in the department's resource register, name its owner, location and verification state, and say plainly when th DRAFT."
 
-  - id: od-use-case-prioritization
-    library: extension
-    tier: practice
-    lane: use-case-support-service
-    scope: od
-    origin: plan-draft
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: recommend
-    summary: "Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. DRAFT."
-
-  - id: od-use-case-promotion
-    library: extension
-    tier: practice
-    lane: analytical-support-service
-    scope: od
-    origin: plan-draft
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: recommend
-    summary: "Decide whether a recurring ad-hoc asset (a dashboard, report, analytics workflow or app first built for one request) should become a standard use case, and if so assemble the promotion package - the recurrence and value evidence, the reprod DRAFT."
-
   - id: od-workshop-facilitation
     library: extension
     tier: practice
-    lane: use-case-support-service
+    lane: [lane-2, lane-3]
     scope: od
     origin: plan-draft
     status: draft
@@ -462,7 +376,7 @@ skills:
     summary: "Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua DRAFT."
 
   - id: od-ai-generation-playbook
-    library: core
+    library: extension
     tier: practice
     lane: all
     scope: od
@@ -494,21 +408,10 @@ skills:
     authority_level: draft
     summary: "The governance rhythm around the chain: CoP rounds and the historical ODEC record, call for action and status, change routing, sprint runbook and training programme. DRAFT."
 
-  - id: od-machine-integration-plan
-    library: extension
-    tier: practice
-    lane: information-integration-service
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft
-    summary: "Plans a machine-integration wave from machine list to flow design: known types first, route per machine type, readiness criteria, barrier log. DRAFT."
-
   - id: od-migration-cutover
     library: extension
     tier: practice
-    lane: all
+    lane: lane-3
     scope: od
     origin: new-state
     status: draft
@@ -530,7 +433,7 @@ skills:
   - id: od-project-order
     library: extension
     tier: practice
-    lane: project-support-consultancy
+    lane: [lane-2, lane-3]
     scope: od
     origin: new-state
     status: draft
@@ -538,32 +441,10 @@ skills:
     authority_level: draft
     summary: "Drafts the project order (PREQ) and runs kick-off, milestone reports and closure for a use case or system project; sponsor approval and budget stay with humans. DRAFT."
 
-  - id: od-utilization-review
-    library: extension
-    tier: practice
-    lane: use-case-support-service
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: human:jakob.gabriel
-    authority_level: draft
-    summary: "Reviews whether a deployed use case is actually used and delivers value, and routes the no-saving cases to a human decision. DRAFT."
-
-  - id: od-maturity-assessment
-    library: extension
-    tier: practice
-    lane: all
-    scope: od
-    origin: new-state
-    status: draft
-    owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the object came through
-    authority_level: draft
-    summary: "As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas, with drivers, prerequisite chain and a route signal. DRAFT."
-
-  - id: od-catalog
+  - id: catalog-usecase
     library: core
     tier: practice
-    lane: all
+    lane: [lane-1, lane-2]
     scope: od
     origin: new-state
     status: draft
@@ -571,15 +452,71 @@ skills:
     authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
     summary: "The catalog of known use cases and standard systems with its go-live guardrails: pick a catalogued use case or standard system (lane 1), graduate a proven use case into the catalog (lane 2). DRAFT."
 
-  - id: od-node-red-flows
+  - id: od-node-red-flow-builder
     library: core
     tier: technical
-    lane: information-integration-service
+    lane: lane-3
     scope: od
     status: stable
     owner_role: IIoT Interface & Automation Engineer (IIAE)
     authority_level: author flows and fixes on a test instance; read and diagnose only elsewhere; prod deploys are human-approved
     summary: "Build a Node-RED flow to the house patterns on a test instance (step 3b4) and troubleshoot or diagnose a flow, connector or pipeline (3b5): one skill, build guide and analyser script."
+
+  - id: it-demand-package
+    absorbed: [od-project-support-consultancy]   # merged 2026-11-10, see log.md
+    library: core
+    tier: practice
+    lane: lane-3
+    owner_role: OD lead (Thomas Zipf) for the Lane 3 front-end; IIAE for connector demands
+    authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
+    summary: Hand a clear Lane 3 demand to IT or an external developer as an OpenSpec change package (proposal, delta specs, design, tasks) with the OD handover annex of the OD x IT alignment; checked against OpenSpec's validation rules.
+    trigger: A Lane 3 demand has passed requirements, the tool-decision gate and the business case, or IT asks what it needs from OD.
+    definition_of_done: Package checks READY, blocking annex fields filled, sent by a human, demand recorded as handed over awaiting formal acceptance.
+
+  - id: funnel-features
+    origin: new-state
+    library: extension
+    tier: practice
+    lane: [lane-2, lane-3]
+    owner_role: Digital-Business-Value-Engineer (DBVE)
+    authority_level: draft the epic and stories; run the check; the receiver accepts
+    summary: Turn an accepted requirement into its feature definition - one epic with a background and at least two user stories that stand alone, each with testable acceptance and a use-in-a-real-shift criterion - the department's f
+
+  - id: bc-assessment
+    origin: new-state
+    library: core
+    tier: practice
+    lane: [lane-2, lane-3]
+    owner_role: OD lead (separation of duties - not the person who built the case)
+    authority_level: recommend - scores and gives a verdict; the approvers decide
+    summary: Score a business case against the OD house rubric and give its maturity-gate verdict - the department's bc-assessment, the governance step between od-benefit-calculation (value) plus the cost estimate and od-capital-request. Checks that ever
+
+  - id: catalog-guardrails
+    origin: new-state
+    library: core
+    tier: practice
+    lane: lane-1
+    owner_role: Digital-Business-Value-Engineer (DBVE); the plant runs the check
+    authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
+    summary: Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails) - run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform bounda
+
+  - id: catalog-systems
+    origin: new-state
+    library: core
+    tier: practice
+    lane: lane-1
+    owner_role: Digital-Business-Value-Engineer (DBVE); the plant self-serves
+    authority_level: draft the match record; recommend only - ordering, connecting and the spend approval stay human
+    summary: Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems) - check the plant's machine against the validated routes and tool bound
+
+  - id: ops-dashboard-datatron
+    origin: new-state
+    library: extension
+    tier: technical
+    lane: [lane-1, lane-2]
+    owner_role: Digital-Business-Value-Engineer (DBVE); the plant key user in self-service mode
+    authority_level: author the dashboard; publishing to a shared Grafana is human-approved
+    summary: Build or apply a Grafana dashboard on the DATATRON telemetry schema (PostgreSQL / TimescaleDB) for cooling (KKA), press centres and utilities - the department's ops-dashboard-datatron, the engine of Lane 1a self-service.
 
 open_gaps:
   - No flow owner is named for the end-to-end value chain; the Project Support requirement variant asks for one and 12-portfolio.md marks it to-confirm.
@@ -642,20 +579,20 @@ open_gaps:
   - business_process and targets are populated on only part of the use cases, so any demand ranking derived from them sees a fraction of the portfolio.
   - Two timestamp envelopes coexist: packed sysTime/plcTime on protobuf topics, and a formatted local-time string on JSON topics. No stated rule on which to use where.
   - How a derived output data point gets registered on the IIoT edge platform is not documented; flows cannot publish to an unregistered UUID.
-  - "od-catalog (draft): where the self-service catalog lives, who maintains it and whether a recorded CSP Yes is the right entry threshold are not decided; the entries with a CSP Yes are not named in the sources read."
-  - "od-catalog (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
-  - "od-catalog (draft): the guardrail set is seeded from seven recorded rules; further technical guardrails and which of them block go-live are not decided."
+  - "catalog-usecase (draft): where the self-service catalog lives, who maintains it and whether a recorded CSP Yes is the right entry threshold are not decided; the entries with a CSP Yes are not named in the sources read."
+  - "catalog-usecase (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
+  - "catalog-usecase (draft): the guardrail set is seeded from seven recorded rules; further technical guardrails and which of them block go-live are not decided."
   - "deploy-appstore (draft): whether the flow's Container Orchestration Platform is the IIoT Edge plant runtime, the deployment procedure and the Cyber Security requirements for an app are not recorded."
-  - "it-demand-package (draft): IT's own demand form and the demand evaluation board's criteria and rhythm are not recorded."
+  - "it-demand-package (absorbed it-demand-package; draft): IT's own demand form and the demand evaluation board's criteria and rhythm are not recorded."
   - "New-state flow (docs/new-state-flow.md): 13 registry skills are not on the three diagrams. Two are in none of the four files (od-information-integration-service, od-project-support-consultancy) and need a decision to be re-homed or retired; od-analytical-support-service orchestrates the Analytics lane that the flow dissolves; eleven are named only in the skill-map table and not drawn on the diagrams."
-  - "od-application-consulting (draft), open: What the Manufacturing Software Suite comprises (undefined in glossary); Application consultancy session template and lane lead time; Counterpart for tool rollout decisions"
-  - "od-barrier-triage (draft), open: Whether roadmap means plant roadmap or lane integration roadmap; Form and location of the barrier log (landscape module has only a facility table); Lead times for connector development and OT/IT cyber-security approvals"
+  - "od-system-fit-check (absorbed od-application-consulting; draft), open: What the Manufacturing Software Suite comprises (undefined in glossary); Application consultancy session template and lane lead time; Counterpart for tool rollout decisions"
+  - "od-equipment-integration (absorbed od-barrier-triage; draft), open: Whether roadmap means plant roadmap or lane integration roadmap; Form and location of the barrier log (landscape module has only a facility table); Lead times for connector development and OT/IT cyber-security approvals"
   - "od-capital-request (draft), open: eCR form, fields, system, who files; Approval lead time; Spend-route boundaries in the recorded approval ladder overlap and need to be clarified"
   - "od-context-freshness (draft), open: Who re-verifies bundle files when the OD lead is away; Right staleness threshold for skills (90 days is a default); No verified field exists on any skill"
   - "od-cross-plant-compatibility (draft), open: Decision counterpart for signal standardization; Tag language per plant not recorded; Consumer inventory per capability"
   - "od-cybersec-gate (draft), open: Sign-off standard document (15-resources.md gap); Definition of external connection; Lead time and validity of a sign-off"
   - "od-first-aid-kit (draft), open: Official first-aid template; Lead time and capacity; Who pays for devices and templates"
-  - "od-impact-evaluation (draft), open: n weeks live before evaluation (plan UC-06); Official impact evaluation template; SPRINT acceptance criteria"
+  - "od-handover-and-adoption (absorbed od-impact-evaluation; draft), open: n weeks live before evaluation (plan UC-06); Official impact evaluation template; SPRINT acceptance criteria"
   - "od-investment-input (draft), open: Budget threshold of the digitalization investment planning decision; Which spend route applies at the boundary between approval tiers (ladder as recorded overlaps); Counterpart of OD lead for tool rollout decisions"
   - "od-plant-onboarding (draft), open: Definition of enters scope; full strategic-plant list; Plant-side owner per lane; Lead times per lane"
   - "od-prototype-poc (draft), open: Standard prototype time box, budget, sign-off rule; Outcome of the Gemba App pilot (no result recorded); Definition and evidence of PoC proven (decks disagree)"
@@ -663,12 +600,13 @@ open_gaps:
   - "od-risk-watch (draft), open: Parameter n for open-role trigger; No source for open roles, support tickets, single points of failure; Owner of external-tooling risk"
   - "od-rollout-training (draft), open: Titles and content of the 8 standard training formats; Who may train whom (hand-down model is a proposal); Competence standard/certification"
   - "od-template-resolution (draft), open: Use-case one-pager / business-case master does not exist (to confirm or create, DBVE); Cyber Security sign-off standard to collect; Report and platform links to confirm"
-  - "od-use-case-prioritization (draft), open: Formal prioritisation rule (05-intake marks it to confirm); Weights between value, generalization and effort; How lane capacity is counted per use case"
-  - "od-use-case-promotion (draft), open: Recurrence threshold for an ad-hoc asset; Whether an ad-hoc asset must pass full UC-02 definition before catalog assessment; Who may propose / add a catalog entry and where the catalog lives"
+  - "od-portfolio-and-savings-analysis (absorbed od-use-case-prioritization; draft), open: Formal prioritisation rule (05-intake marks it to confirm); Weights between value, generalization and effort; How lane capacity is counted per use case"
+  - "od-use-case-standardization (absorbed od-use-case-promotion; draft), open: Recurrence threshold for an ad-hoc asset; Whether an ad-hoc asset must pass full UC-02 definition before catalog assessment; Who may propose / add a catalog entry and where the catalog lives"
   - "od-workshop-facilitation (draft), open: Official SharePoint agenda templates (definition and integration); Scheduling, pre-read and summary lead times; Per-item attendance matrix (slide 2 table, empty cells lost in extraction) and meaning of CBS"
   - "od-migration-cutover (draft), open: Back-out plan content is a proposal because the decks only hold diagrams; RAG meanings are a proposal"
-  - "od-utilization-review (draft), open: Settling period before the first review; where utilization rows come from; which role records the human decision on no potential"
+  - "od-handover-and-adoption (absorbed od-utilization-review; draft), open: Settling period before the first review; where utilization rows come from; which role records the human decision on no potential"
   - "od-project-order (draft), open: Where the order is stored; customer-mandated programme intake branch (proposal only)"
   - "od-governance-cadence (draft), open: No fixed forum replaces ODEC (met monthly until 2025-12); decision routes follow the current approval policy"
-  - "od-machine-integration-plan (draft), open: Where the barrier log lives; who convenes the rapid decision board; budget-class limits"
-  - "od-maturity-assessment (draft), open: Level definitions for two focus areas are undefined in the source model; the dependency table does not reproduce the papers' development paths"
+  - "od-equipment-integration (absorbed od-machine-integration-plan; draft), open: Where the barrier log lives; who convenes the rapid decision board; budget-class limits"
+  - "od-use-case-solution-evaluation (absorbed od-maturity-assessment; draft), open: Level definitions for two focus areas are undefined in the source model; the dependency table does not reproduce the papers' development paths"
+

@@ -1,26 +1,30 @@
 ---
 name: od-equipment-integration
 description: >-
-  Two entry routes to one protocol. Assessment — inventory a plant's or wave's machines,
-  decide per machine which integration concept and connector applies, size and sequence the
-  wave. Guidance — for one machine already assessed, route it to the IIoT Edge Platform or
-  the Softing dataFEED Central OPC-UA Aggregation Server, walk the configuration pattern,
-  clear the preparation gates, and take the right fallback when blocked. Use when a plant or
-  wave starts, a machine's route is unclear, a use case is blocked for want of machine data,
-  or someone asks how to connect a Siemens / Rockwell / Beckhoff / B&R / Omron / Mitsubishi /
-  Modbus / OPC-UA device, configure a Softing dataFEED data source, or what to specify when
-  ordering a new machine.
+  Two entry routes to one protocol for connecting machines (Lane 1b order and connect, Lane 3b new
+  connector - the former Information Integration Service lane). Assessment: inventory a plant's or
+  wave's machines, decide per machine the integration concept and connector, plan, size and sequence
+  the wave (formerly od-machine-integration-plan). Guidance: route one assessed machine to the IIoT Edge
+  Platform or the Softing dataFEED Central OPC-UA Aggregation Server, walk the configuration, clear the
+  preparation gates, take the right fallback, and triage a machine that will not connect (formerly
+  od-barrier-triage). Use when a plant or wave starts, a machine's route is unclear, a use case is blocked
+  for want of machine data, a machine is silent or blocked, or someone asks how to connect a Siemens /
+  Rockwell / Beckhoff / B&R / Omron / Mitsubishi / Modbus / OPC-UA device, configure a dataFEED data
+  source, or what to specify when ordering a new machine.
 license: MIT
 metadata:
   id: od-equipment-integration
   tier: technical
-  lane: information-integration-service
+  lane: [lane-1, lane-3]
+  new_state_lane: "Lane 1b (1b3), Lane 3b (3b4, 3b5)"
+  new_state_step: "Order and connect; Cyber Security sign-off in parallel; Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
+  department_names: ["mi-connector", "mi-roadmap", "mi-readiness", "connector-design"]
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
   status: stable
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flows]
+  composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flow-builder]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
@@ -32,6 +36,7 @@ metadata:
     - interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation)
     - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Equipment integration — assessment and guidance
@@ -96,9 +101,24 @@ Targets: look up the current integration target and actual in the department KPI
 - **Approved edge device sizes**: re-confirm with the IIAE before sizing a wave (small/medium may not exist).
 - Overlapping ladders: apply the stricter route.
 
+## Lane 3b order and the absorbed modes
+
+The department's Lane 3b runs: connector design → data-pipeline design (edge to the data platform) →
+Cyber Security sign-off → procurement and hardware → integration execution → acceptance test, live on the
+data platform. Cyber Security runs **in parallel** with planning and build and blocks go-live, not the
+start (owner decision, 2026-11-06; `references/process-chain-practice.md`). **Integration execution is
+supplier-dependent and not covered by any OD skill**: the department records it as a gap waiting on a
+supplier decision (the App-Store-Ops feature request). Record the wait, do not plan around it.
+
+| Mode | Absorbed procedure | Use when |
+|---|---|---|
+| Wave plan | [`references/od-machine-integration-plan/procedure.md`](references/od-machine-integration-plan/procedure.md) | A wave goes from the machine list to flow design: known types first, route per machine type, readiness, barrier log, workshop preparation |
+| Barrier triage | [`references/od-barrier-triage/procedure.md`](references/od-barrier-triage/procedure.md) | A machine will not connect: classify the barrier and route it to the roadmap, strategy or a substitution path |
+| Former lane | [`references/od-information-integration-service/procedure.md`](references/od-information-integration-service/procedure.md) | You need the old Information Integration lane's tool fact sheets, roles and support model, finding decks or lane handoffs |
+
 ## Handoff
 
-Route A -> Route B per machine in the wave. Route B -> `od-signal-standardization` (tag list, PLC program version, Machine CV), then `od-acceptance-test`; `od-node-red-flows` for the pipeline; `od-decision-routing` for investment approval. Receiver needs: concept, connector, sequence position, logged barriers, Cyber Security status.
+Route A -> Route B per machine in the wave. Route B -> `od-signal-standardization` (tag list, PLC program version, Machine CV), then `od-acceptance-test`; `od-node-red-flow-builder` for the pipeline; `od-decision-routing` for investment approval. Receiver needs: concept, connector, sequence position, logged barriers, Cyber Security status.
 
 ## Human gate and AI-agent notes
 

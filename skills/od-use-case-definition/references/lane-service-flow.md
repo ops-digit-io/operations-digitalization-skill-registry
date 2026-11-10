@@ -15,9 +15,9 @@ use-case half of Lane 1.
 
 ## Handover / rework rule
 
-The use case goes to Information Integration Service **with** its business case and
-requirement breakdown. It returns for rework if integration fails acceptance testing, or if
-the use case is not adopted into the daily process.
+A use case that needs a new system or a new machine connection goes to Lane 3 (3a or 3b)
+**with** its business case and requirement breakdown. It returns for rework if integration fails
+acceptance testing, or if the use case is not adopted into the daily process.
 
 ## Error paths
 
@@ -27,7 +27,7 @@ the use case is not adopted into the daily process.
 - **Savings with no registered plant savings project or no baseline** -> the saving is a claim,
   not a result; register the project and fix the baseline before the next sprint review.
 - **Machine not connected** -> no use case yet; open an integration request and record the dependency.
-- **Integration fails acceptance** -> rework loop back to step 5.
+- **Integration fails acceptance** -> rework loop back to the Lane 3 hand-off ("Chaining out of Lane 2" in `../SKILL.md`).
 
 ## Wait states
 

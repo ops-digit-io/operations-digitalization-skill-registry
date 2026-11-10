@@ -8,11 +8,11 @@ okf_version: 0.2
 
 | Concept | Type | Description |
 |---|---|---|
-| [PHASE1-ELICITATION](PHASE1-ELICITATION.md) | — |  |
-| [Operations Digitalization skill registry](README.md) | Map of Content | What this registry is, the four lanes it serves, the tiers a skill can hold, and the index of all 53 skills. |
+| [Phase1 elicitation](PHASE1-ELICITATION.md) | Design Record | Working file for the tacit-knowledge elicitation of phase 1: the questions put to the owner and the answers that resolved them; kept for traceability, not a skill. |
+| [Operations Digitalization skill registry](README.md) | Map of Content | What this registry is, the three new-state lanes it serves, the tiers a skill can hold, and the index of all 47 skills. |
 
 | Folder | Holds |
 |---|---|
-| [docs/](docs/index.md) | 9 concept(s) |
-| [skills/](skills/index.md) | 228 concept(s) |
-| [skills-extension/](skills-extension/index.md) | 145 concept(s) |
+| [docs/](docs/index.md) | 10 concept(s) |
+| [skills/](skills/index.md) | 253 concept(s) |
+| [skills-extension/](skills-extension/index.md) | 167 concept(s) |

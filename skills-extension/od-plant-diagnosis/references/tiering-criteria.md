@@ -52,7 +52,7 @@ savings projection.
 3. Propose the tier; the OD lead decides. Record the reason in `assets/plant-gap-diagnosis-record.md`.
 4. A fast follower can promote itself by closing the gap: name a staffed key user, secure central IT support, show an
    estimated value. Put those as roadmap rows.
-5. Use the tier as an input to ranking (`od-use-case-prioritization`), not as a filter on eligibility.
+5. Use the tier as an input to ranking (`od-portfolio-and-savings-analysis`), not as a filter on eligibility.
 
 ## Wave allocation
 

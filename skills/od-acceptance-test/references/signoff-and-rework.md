@@ -46,7 +46,7 @@ which did not; do not average them into a verdict.
 ## The acceptance / rework rate
 
 This registry already names this as a lane metric with no source system in place yet
-(`od-information-integration-service`'s metrics table) — the fix is procedural, not
+(`od-equipment-integration`'s metrics table) — the fix is procedural, not
 technical: every protocol filled from [`assets/acceptance-test-protocol.md`](../assets/acceptance-test-protocol.md)
 already records pass/fail per item and the loop a failure routed into. Counting protocols
 by outcome, once enough exist, **is** the source system — nothing further needs building

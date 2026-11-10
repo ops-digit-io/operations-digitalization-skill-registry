@@ -7,15 +7,15 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-workshop-facilitation
   tier: practice
-  lane: use-case-support-service
-  new_state_lane: Lane 2 (definition), Lane 3 front-end
-  new_state_step: "Define and diagnose: run the workshop"
+  lane: [lane-2, lane-3]
+  new_state_lane: "Extension, deepens Lane 2 (21), Lane 3 front-end (31)"
+  new_state_step: "Capture the idea, process diagnostics; Requirements engineering"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-use-case-definition, od-use-case-intake-triage, od-use-case-prioritization, od-benefit-calculation, od-requirements-breakdown, od-data-availability-check, od-system-fit-check, od-use-case-standardization, od-equipment-integration, od-cybersec-gate, od-first-aid-kit]
+  composes: [od-use-case-definition, od-use-case-intake-triage, od-portfolio-and-savings-analysis, od-benefit-calculation, od-requirements-breakdown, od-data-availability-check, od-system-fit-check, od-use-case-standardization, od-equipment-integration, od-cybersec-gate, od-first-aid-kit]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/tasks.md
@@ -77,7 +77,7 @@ other decisions).
    per-item matrix. Add the Plant ME, the plant owner of any use case already on the list, OPEX and
    Engineering for utilization sessions.
 4. **Prepare the plant file.** Existing use case list for the plant, case groups where the plant is
-   white space or has Delivered use cases (`od-use-case-prioritization`, evidence baselines), tool
+   white space or has Delivered use cases (`od-portfolio-and-savings-analysis`, evidence baselines), tool
    availability table for the plant (which of IIoT Edge, MSB/MQTT broker, rule engine, MES, QFPR,
    recipe management, image library, Data Science Factory are deployed), machine list and
    connectivity status. The tool-availability check matters: a tool demoed at a plant is not the
@@ -111,7 +111,7 @@ other decisions).
    follow-up with OD's calculator and fix the date in the room.
 10. **Rank lightly.** Classification and priority in the standard agenda: highest generalization
     potential, highest saving potential; custom use cases per plant may need extra budget. Leave the
-    full ranking to `od-use-case-prioritization`.
+    full ranking to `od-portfolio-and-savings-analysis`.
 11. **Record disagreement.** If participants describe the same need differently, that is several use
     cases (`od-use-case-definition`); log them separately.
 
@@ -123,7 +123,7 @@ other decisions).
     [`assets/workshop-follow-up-list.md`](assets/workshop-follow-up-list.md).
 13. **Route every item**: use case to definition or `od-use-case-intake-triage`; machine need to
     `od-equipment-integration` or the Information Integration lane; savings to
-    `od-benefit-calculation`; ranking to `od-use-case-prioritization`; standard candidates to
+    `od-benefit-calculation`; ranking to `od-portfolio-and-savings-analysis`; standard candidates to
     `od-use-case-standardization`; ad-hoc issues to `od-first-aid-kit`.
 14. **Give each follow-up an owner role and a date, or mark it open.** The sources show open items
     without dates; an item with no owner is not a follow-up.

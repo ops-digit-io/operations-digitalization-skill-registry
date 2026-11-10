@@ -21,13 +21,13 @@ is marked `PROPOSAL`; unknowns are `<...>`.
 |---|---|---|---|---|---|
 | Use Case Definition Workshop | Plant onboarding, or a new demand wave | Plant file, ritual candidates, library match | Use-case library (SharePoint), standard agenda | Defined use cases with problem, user, ritual | Prioritization, benefit calculation |
 | Benefit / savings calculation | A use case is prioritized | Baseline, expected change, basis | Benefit-calculation method | Saving basis row | Business case, tracked savings |
-| Use Case Integration Workshop | A use case is ready for integration | Business case, requirement breakdown, data availability verdict | Integration workshop agenda; data platform (read) | Integration plan, roles, utilization table started | Hand-off to Information Integration |
+| Use Case Integration Workshop | A use case is ready for integration | Business case, requirement breakdown, data availability verdict | Integration workshop agenda; data platform (read) | Integration plan, roles, utilization table started | Hand-off to Lane 3b (`od-equipment-integration`) |
 | Use-case impact evaluation | The use case is live | Utilization evidence, saving basis | Scorecard utilization view; `od-handover-and-adoption` test | Impact statement, adoption record | Utilization metric, retro |
 | Scorecard update | On request or on the department's own schedule | Current lists and reports | Scorecard (Power BI) | Updated figures with read date | Reporting on request |
 | Process First-Aid Kit request | Ad-hoc plant process issue | Plant question, data status | `<template to confirm>` | Quick answer or a routed definition | Analytical lane, or definition |
 
 **Chain rule.** Each task's output is the next task's required input. A task started without its input produces a placeholder;
-route back instead (`od-barrier-triage`).
+route back instead (`od-equipment-integration`).
 
 `PROPOSAL`: when an agent opens a ticket for one of these tasks, it pre-fills **Starts when**, **Needs** (with the source of each
 item and its read date) and **Leaves behind** as the definition of done, and names the next task as the follow-up.
@@ -71,4 +71,4 @@ How to read each metric: `od-scorecard-reporting/references/metric-reading-guide
   statement, list use cases whose next task has no owner.
 - **Evidence to cite:** list names with read date; template name.
 - **Human gate:** commitments (investment, connection approval) stay with the OD lead and Cyber Security.
-- **Hands over to:** `od-information-integration-service` with the business case and requirement breakdown.
+- **Hands over to:** `od-equipment-integration` with the business case and requirement breakdown.

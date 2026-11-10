@@ -64,7 +64,7 @@ A proxy signal is never substituted without being said in the deliverable.
 |---|---|
 | `od-equipment-integration` (assessment route) | Machine not integrated, route undecided |
 | `od-signal-standardization` | Connected, point not published or not named canonically |
-| `od-barrier-triage` | No route exists (legacy, unsupported protocol) |
+| `od-equipment-integration` | No route exists (legacy, unsupported protocol) |
 | `od-cybersec-gate` | External connection needs sign-off first |
 | Capital request / `od-capital-request` | Measurement gap: no sensor exists |
 | Plant ME (Machine List update) | The list cannot answer; the plant must fill the field |

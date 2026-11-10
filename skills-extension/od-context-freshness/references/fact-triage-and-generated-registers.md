@@ -115,5 +115,5 @@ visible name appears in a generated note, report it to the owner of the masking 
 - **Inputs:** the staging file, the destination notes, the register header and sources section.
 - **Evidence to cite:** staging file and slide or row, destination note, generation date.
 - **Human gate:** the owner decides scope questions, any fact that changes a plant note, and any change to the masking rule.
-- **Hands over to:** `triage-and-actions.md` for owners, `od-context` (corrections go to the source list), `od-information-integration-service`
+- **Hands over to:** `triage-and-actions.md` for owners, `od-context` (corrections go to the source list), `od-equipment-integration`
   for tool and readiness records.

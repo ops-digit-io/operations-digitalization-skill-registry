@@ -92,4 +92,4 @@ match the last control point actually met, per `00-core/12-portfolio.md`.
 
 ## Hand-off
 
-→ `od-requirements-breakdown` (integration-ready spec) → Information Integration Service.
+→ `od-requirements-breakdown` (integration-ready spec) → Lane 3b (`od-equipment-integration`) or Lane 3a (`od-system-fit-check`).

@@ -31,7 +31,7 @@ fraction of its use cases.** The job is to make that the default, not to introdu
 
 ## The core — every lane, every requirement
 
-Ten sections. A requirement missing any of §1–§6 is not ready to hand over.
+Eleven sections (§6a is the boundaries block). A requirement missing any of §1–§6, §6a or §10 is not ready to hand over.
 
 ### §1 · Identity
 
@@ -115,6 +115,10 @@ AC-3  ⟨named plant role⟩ has used it in a real shift, not a demonstration.
 without it "delivered" and "in use" get conflated — the gap between `IMPLEMENTED` and
 `PRODUCTIVE` is what that conflation costs.
 
+### §6a · Boundaries
+
+Objective, in scope, out of scope, interfaces, **growth boundary** and change rule. Source: the OD x IT alignment of 2026-09-11 (technology guardrails): a requirement must fix objective, scope, interfaces and growth boundaries, because AI makes uncontrolled expansion (mission creep) easy. How it fails: "and later all plants" written into the target; an interface named after the fact; a growth boundary that is a wish ("scalable") instead of a limit. A request that grows past the line is a new requirement through intake, not an edit to this one.
+
 ### §7 · Blocking points
 
 Split as the estate already splits them:
@@ -175,9 +179,9 @@ The section a few use cases already write. Without a roadmap link the request fa
 
 The core is shared. Each lane adds the section its own definition of done needs.
 
-### Use Case Support — the integration-ready spec (UC-03)
+### `use-case` — the Lane 3 hand-off spec (UC-03; from the retired Use Case Support Service)
 
-**Adds §11 · Handover packet to Information Integration.** This is the artefact that crosses
+**Adds §11 · Handover packet to Lane 3.** This is the artefact that crosses
 the lane boundary, and the reason this whole skill exists:
 
 ```text
@@ -193,7 +197,7 @@ Business case reference (§9)
 **Nothing crosses the boundary without this.** An integration request without a signal list
 and an acceptance criterion is a conversation, not a work item.
 
-### Information Integration — the machine requirement
+### `integration` — the machine requirement (Lane 3b, Lane 1b; from the retired Information Integration Service)
 
 **Adds §11 · Equipment requirement**, aligned to the **PRS — Requirement Specification for
 Machines & Equipment** (Doc ID 215534) where the machine is being purchased or modified:
@@ -213,7 +217,7 @@ Signal standard to apply, and the data model
 **Ask for the companion specification at purchase.** A machine shipping one needs no PLC
 program and no tag export — the single largest cost difference available.
 
-### Project Support & Application Consultancy — the scope baseline
+### `project` — the scope baseline (Lane 3 front-end; from the retired Project Support & Application Consultancy)
 
 **Adds §11 · Project scope baseline** (PS-01's output):
 
@@ -230,7 +234,7 @@ Flow owner:        ⟨named — the end-to-end chain has none today⟩
 **The training line is not optional here.** Adoption is what this lane is accountable for,
 and a solution nobody was trained on is the `IMPLEMENTED`-but-not-`PRODUCTIVE` gap.
 
-### Analytical Support — the scoped request
+### `analytical` — the scoped request (ad-hoc request; from the retired Analytical Support Service)
 
 **Adds §11 · Request scope** (AS-01's output), and it is deliberately the lightest:
 
@@ -251,5 +255,5 @@ either direction is this lane's characteristic failure.
 ## What a finished requirement is not
 
 - **Not a solution design.** It says what must be true, not which nodes to wire.
-- **Not a project plan.** Milestones belong to the Project Support variant only.
+- **Not a project plan.** Milestones belong to the `project` variant only.
 - **Not a place for invented figures.** `⟨to confirm⟩` is a legitimate value everywhere.

@@ -18,3 +18,9 @@
 | [Softing dataFEED](softing-datafeed.md) | Skill Reference | The aggregation pattern: a Softing dataFEED OPC Suite server holding the driver connections and exposing them as one OPC UA server. |
 | [Softing tag syntax](softing-tag-syntax.md) | Skill Reference | The identifier written when a tag is defined by hand, per driver family, and what a symbol import produces instead. |
 | [Vendor protocol routes](vendor-protocol-routes.md) | Skill Reference | Guidance per controller vendor, PLC model and network protocol - how to read the Machine List for each family, which connector the Connector Overview names, and what the records do and do not say about how each family is reached. Guidance only, no company figures. |
+
+| Folder | Holds |
+|---|---|
+| [od-barrier-triage/](od-barrier-triage/index.md) | 5 concept(s) |
+| [od-information-integration-service/](od-information-integration-service/index.md) | 8 concept(s) |
+| [od-machine-integration-plan/](od-machine-integration-plan/index.md) | 6 concept(s) |

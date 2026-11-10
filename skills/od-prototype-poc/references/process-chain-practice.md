@@ -32,7 +32,7 @@ IT takeover, Cyber Security approval) runs between lane 2 and lane 3a (`it-deman
 | Validation record with the stage label | `od-benefit-calculation`, `od-capital-request` | Evidence, never "proven" |
 | Passed dashboard-type prototype | `od-analytics-asset-build` | Inputs, tag-to-panel table |
 | Failed or inconclusive | `od-use-case-definition` or close | Recorded reason (kill or cancel with reason so it is not re-raised) |
-| Pilot that shows benefit | `od-handover-and-adoption`, `od-use-case-promotion` | Reference plant, maturity, next call to action |
+| Pilot that shows benefit | `od-handover-and-adoption`, `od-use-case-standardization` | Reference plant, maturity, next call to action |
 
 ## The maturity stages: PoC, prototype, pilot, rollout
 

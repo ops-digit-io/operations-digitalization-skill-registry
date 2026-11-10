@@ -47,7 +47,7 @@ before quoting any figure in a decision, and give the export date next to it.
 ## How to read a column
 
 - **Status columns.** Blank is not "not integrated" (see
-  [`od-data-availability-check`](../../od-data-availability-check/SKILL.md)). A plant with a
+  [`od-data-availability-check`](../../../skills/od-data-availability-check/SKILL.md)). A plant with a
   blank status on most rows is a plant where the record has not been kept, not a plant with a
   zero result.
 - **Route recorded.** Blank means the field was not filled, not that there is no route. A plant
@@ -112,7 +112,7 @@ an Energy Management rollout).
 - **Plant integrated but undocumented.** Rows are `INTEGRATED` but PLC model, network protocol and
   route are blank, and the vendor mix is mixed (Engel, Bachmann OPC, Siemens). It is integrated
   and undocumented at the level a second engineer would need
-  ([`od-data-availability-check`](../../od-data-availability-check/references/machine-list-completeness.md)).
+  ([`od-data-availability-check`](../../../skills/od-data-availability-check/references/machine-list-completeness.md)).
 - **Plant with blank status and method on most rows.** Concept approval can be dated in the
   Tool Overview comment (an eSign) while the Machine List is still empty.
 - **Edge devices shared across cells.** Rows such as "Edge Device [Same as BMnn device] via

@@ -18,7 +18,9 @@ allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
   id: od-signal-standardization
   tier: technical
-  lane: information-integration-service
+  lane: lane-3
+  new_state_lane: "Lane 3b (3b4)"
+  new_state_step: "Connector design and data pipeline (edge to data platform)"
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -26,8 +28,9 @@ metadata:
   status: stable
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-equipment-integration, od-data-availability-check, od-node-red-flows, od-acceptance-test]
+  composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
@@ -84,18 +87,21 @@ The report fills what is derivable; context sections stay `⟨…⟩` placeholde
 - Local-language name -> map to canonical, keep the original as alias in report and Machine CV. Never machine-translate a name into the label; get a native reading from the plant.
 - Public model covers it -> adopt it. Genuinely machine-specific -> keep, name by concept, record why.
 - Missing signal needing a PLC change -> route to `od-equipment-integration` (guidance route).
-- Machine-specific barrier -> `od-barrier-triage` (class, owner).
+- Machine-specific barrier -> `od-equipment-integration` (class, owner).
 - Data-model or signal-standard change: **Consultation**, IIAE decides (tool or system rollout in tandem with the IT-responsible role of the business side). Machine standards for digital connection: OD lead in Consultation with Manufacturing Engineering, aligned with M+E standards.
 - Data class decides the route: transactional -> service bus with OPC-UA; time-series -> MQTT stream; master data -> ERP leads ([`process-chain-practice.md`](references/process-chain-practice.md)).
 
 ## Handoff
 
+Where the machine does not deliver the standard signal directly, hand the derivation to `od-node-red-flow-builder` as a rule-engine spec (pattern, inputs, output name and unit, priority order for states) - see [`normalization-in-flows.md`](references/normalization-in-flows.md).
+
+
 | To | Carries |
 |---|---|
-| `od-node-red-flows` (flow config contract) | Canonical names, units, collection method, derived outputs to register; also feeds `od-requirements-breakdown` section 5 (Tags of Interest) |
+| `od-node-red-flow-builder` (flow config contract) | Canonical names, units, collection method, derived outputs to register; also feeds `od-requirements-breakdown` section 5 (Tags of Interest) |
 | `od-acceptance-test`, `od-cross-plant-compatibility` | Report and binding sheet; a second plant can consume it without asking |
 | `od-equipment-integration` (guidance), Machine CV | Signals the PLC must expose |
-| `od-barrier-triage` | Machine-specific barrier with class and owner |
+| `od-equipment-integration` | Machine-specific barrier with class and owner |
 | IIAE (consultation) | Proposed standard change |
 
 ## Human gate and AI-agent notes
@@ -121,6 +127,7 @@ How the machine works written down; sources used and confidence recorded; signal
 
 | File | Open when |
 |---|---|
+| [`references/normalization-in-flows.md`](references/normalization-in-flows.md) | Which rule-engine pattern turns a standardization decision into a calculated datapoint, with the department's production examples |
 | [`procedure-detail.md`](references/procedure-detail.md) | Analyser checks, contract, classes, the four things, step detail |
 | [`signal-catalogue.md`](references/signal-catalogue.md) | Canonical vocabulary, naming rules, what must never be a signal name |
 | [`standards.md`](references/standards.md) | KPI definitions (ISO 22400-2, VDI 3423, ISA-95, ISO 22005) and capability checklists |

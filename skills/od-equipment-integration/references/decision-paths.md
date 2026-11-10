@@ -286,7 +286,7 @@ Same for every route:
 4. **Inform MPEE Operations Digitalization.**
 5. Integration status moves to `INTEGRATED` **only after the acceptance test passes** —
    `od-acceptance-test`.
-6. Then `od-signal-standardization`, then `od-node-red-flows`.
+6. Then `od-signal-standardization`, then `od-node-red-flow-builder`.
 
 ---
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Build the static documentation site: the interactive process map, one page per skill, the spec page and the downloads.
+"""Build the static documentation site for the CORE skills: the interactive process map, one page per core skill, the spec page and the downloads.
+
+Extension skills (skills-extension/) are not documented on the site; the build fails if one is named on a docs page.
 
     python scripts/build_site.py [--out site] [--repo-url https://github.com/<org>/<repo>]
 
@@ -108,10 +110,8 @@ def md_to_html(text: str, from_dir: Path, site_root: Path) -> str:
 def page(title: str, body: str, depth: int, active: str = "", extra_head: str = "") -> str:
     up = "../" * depth
     nav = (f'<a href="{up}index.html">Process map</a><a href="{up}spec/index.html">Specification</a>'
-           f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a><a href="{up}docs/new-state-flow.html">Flow notes</a>'
-           f'<a href="{up}downloads/core-library.zip">Core library</a> '
-           f'<a href="{up}downloads/extension-library.zip">Extension library</a> '
-           f'<a href="{up}downloads/all-skills.zip">Download all</a>')
+           f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a>'
+           f'<a href="{up}downloads/core-library.zip">Download the core library</a>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{esc(title)}</title><style>{CSS}</style>{extra_head}</head><body>'
             f'<header class="top"><nav>{nav}</nav><h1>{esc(title)}</h1></header><main>{body}</main>'
@@ -124,7 +124,7 @@ def build(out: Path, repo_url: str) -> None:
     out.mkdir(parents=True)
     reg = yaml.safe_load((ROOT / "registry.yaml").read_text(encoding="utf-8"))
     proc = yaml.safe_load((ROOT / "docs/new-state/process.yaml").read_text(encoding="utf-8"))
-    ids = skp.all_ids()
+    ids = [n for n in skp.all_ids() if skp.library_of(n) == "core"]   # core only: the extension library is not documented here
 
     # ---- spec-strict export + zips
     export = out / "_export"
@@ -147,11 +147,7 @@ def build(out: Path, repo_url: str) -> None:
 
     for n in ids:
         zip_skills([n], dl / "skills" / f"{n}.zip")
-    zip_skills(ids, dl / "all-skills.zip")
-    core_ids = [n for n in ids if skp.library_of(n) == "core"]
-    ext_ids = [n for n in ids if skp.library_of(n) == "extension"]
-    zip_skills(core_ids, dl / "core-library.zip")
-    zip_skills(ext_ids, dl / "extension-library.zip")
+    zip_skills(ids, dl / "core-library.zip")
 
     # ---- skill facts
     info = {}
@@ -173,8 +169,6 @@ def build(out: Path, repo_url: str) -> None:
     def add_steps(lane_id, lane_title, branch_title, step, proposed_flag_skills):
         for s in step.get("skills", []):
             info[s]["steps"].append({"lane": lane_id, "laneTitle": lane_title, "branch": branch_title, "step": step["title"], "proposed": False})
-        for s in step.get("proposed", []):
-            info[s]["steps"].append({"lane": lane_id, "laneTitle": lane_title, "branch": branch_title, "step": step["title"], "proposed": True})
 
     intake = proc["intake"]
     lanes.append({"id": "intake", "title": intake["title"], "who": intake["who"], "summary": intake["summary"],
@@ -182,17 +176,19 @@ def build(out: Path, repo_url: str) -> None:
     for l in proc["lanes"]:
         lanes.append({"id": l["id"], "title": l["title"], "who": l["who"], "summary": l["summary"], "branches": l["branches"]})
     sp = proc["spine"]
-    lanes.append({"id": "spine", "title": sp["title"], "who": "Across all lanes", "summary": sp["summary"],
-                  "branches": [{"id": "spine", "title": "", "steps": [{"id": "sp", "title": "Applies across the lanes", "text": "", "skills": sp["skills"], "proposed": sp["proposed"]}]}]})
-    un = proc["unplaced"]
-    lanes.append({"id": "unplaced", "title": un["title"], "who": "Decision open", "summary": un["summary"],
-                  "branches": [{"id": "unplaced", "title": "", "steps": [{"id": "un", "title": "Not on the flow", "text": "", "skills": un["skills"], "proposed": []}]}]})
+    if sp.get("skills"):
+        lanes.append({"id": "spine", "title": sp["title"], "who": "Across all lanes", "summary": sp["summary"],
+                      "branches": [{"id": "spine", "title": "", "steps": [{"id": "sp", "title": "Read first, applies to every step", "text": "", "skills": sp["skills"], "proposed": []}]}]})
+    for l in lanes:                       # the extension lists of the data file are not published
+        for b in l["branches"]:
+            for st in b["steps"]:
+                st.pop("proposed", None)
     for l in lanes:
         members = []
         for b in l["branches"]:
             for st in b["steps"]:
                 add_steps(l["id"], l["title"], b["title"], st, None)
-                members += st.get("skills", []) + st.get("proposed", [])
+                members += st.get("skills", [])
         zips[l["id"]] = sorted(set(members))
         zip_skills(zips[l["id"]], dl / f"{l['id']}.zip")
         l["zip"] = f"downloads/{l['id']}.zip"
@@ -206,11 +202,11 @@ def build(out: Path, repo_url: str) -> None:
     data = json.dumps({"lanes": lanes, "skills": info}, ensure_ascii=False).replace("</", "<\\/")
     n_built = sum(1 for v in info.values() if v["state"] == "built")
     body = f"""
-<p>{len(ids)} skills ordered along the new-state process flow: pick a lane, a step, then a skill. {n_built} are in use, {len(ids) - n_built} are drafts.
-A dashed outline marks a skill this registry <em>proposes</em> for a step; the New-State files do not name it there.</p>
-<div class="bar"><input id="q" type="search" placeholder="Search a skill, a step or a word (e.g. cyber, template, rollout)" aria-label="Search"><label><input type="checkbox" id="prop" checked> show extension skills (second library)</label></div>
+<p>{len(ids)} core skills ordered along the new-state process flow: pick a lane, a step, then a skill. {n_built} are in use, {len(ids) - n_built} are drafts.
+</p>
+<div class="bar"><input id="q" type="search" placeholder="Search a skill, a step or a word (e.g. cyber, template, rollout)" aria-label="Search"></div>
 <div class="tabs" role="tablist" id="tabs"></div>
-<div class="legend"><span class="chip"><i></i>in use</span><span class="chip draft"><i></i>draft</span><span class="chip proposed"><i></i>extension library (optional)</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
+<div class="legend"><span class="chip"><i></i>in use</span><span class="chip draft"><i></i>draft</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
 <div id="lanes"></div><aside id="panel" aria-live="polite"></aside>
 <script id="data" type="application/json">{data}</script>
 <script>
@@ -219,7 +215,7 @@ const esc=t=>String(t).replace(/[&<>"]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;'
 let cur='all';
 function chip(id,prop){{const s=D.skills[id];return `<button class="chip ${{s.state==='draft'?'draft':''}} ${{prop?'proposed':''}}" data-skill="${{id}}" data-prop="${{prop?1:0}}" title="${{esc(s.short)}}"><i></i>${{esc(id)}}</button>`}}
 function render(){{
-  const q=$('#q').value.trim().toLowerCase();const showProp=$('#prop').checked;
+  const q=$('#q').value.trim().toLowerCase();const showProp=false;
   $('#tabs').innerHTML=[['all','All lanes']].concat(D.lanes.map(l=>[l.id,l.title])).map(([id,t])=>`<button role="tab" aria-selected="${{cur===id}}" data-tab="${{id}}">${{esc(t)}}</button>`).join('');
   $('#lanes').innerHTML=D.lanes.filter(l=>cur==='all'||cur===l.id).map(l=>{{
     const br=l.branches.map(b=>{{
@@ -242,7 +238,7 @@ function open_(id){{const s=D.skills[id];if(!s)return;history.replaceState(null,
 document.addEventListener('click',e=>{{const c=e.target.closest('[data-skill]');if(c){{open_(c.dataset.skill);return}}
   const t=e.target.closest('[data-tab]');if(t){{cur=t.dataset.tab;render();if(t.tagName==='A')setTimeout(()=>document.getElementById(cur)&&document.getElementById(cur).scrollIntoView(),0);return}}
   if(e.target.closest('.x')){{$('#panel').classList.remove('open');history.replaceState(null,'',location.pathname)}}}});
-$('#q').addEventListener('input',render);$('#prop').addEventListener('change',render);
+$('#q').addEventListener('input',render);
 document.addEventListener('keydown',e=>{{if(e.key==='Escape')$('#panel').classList.remove('open')}});
 const h=location.hash.slice(1);if(h.startsWith('skill='))setTimeout(()=>open_(h.slice(6)),0);else if(D.lanes.some(l=>l.id===h))cur=h;
 render();
@@ -273,11 +269,14 @@ render();
     # ---- docs
     dd = out / "docs"
     dd.mkdir()
-    shutil.copytree(ROOT / "docs/new-state", dd / "new-state")
-    shutil.copy2(ROOT / "docs/process-overview.html", dd / "process-overview.html")
-    for f in sorted((ROOT / "docs").glob("*.md")):
-        if f.name == "index.md":
-            continue
+    # Only documents about the core process and the specification are published. The design records, the derivation and the
+    # conformance notes describe the whole registry (extension skills included) and stay in the repository.
+    SITE_DOCS = ("new-state-skill-map.md", "agent-skills-spec.md", "okf-conventions.md")
+    (dd / "new-state").mkdir()
+    for name in ("OD_NewState_ProcessFlow.html", "OD_NewState_BPMN.html", "OD_NewState_Flow.mermaid"):
+        shutil.copy2(ROOT / "docs/new-state" / name, dd / "new-state" / name)
+    for name in SITE_DOCS:
+        f = ROOT / "docs" / name
         fm, t = spec.split(f.read_text(encoding="utf-8"))
         title = (fm or {}).get("title", f.stem)
         (dd / (f.stem + ".html")).write_text(page(str(title), '<div class="card md">' + md_to_html(t, dd, out) + "</div>", 1), encoding="utf-8")
@@ -317,6 +316,16 @@ The download packages are therefore <b>exported</b>: lists become comma-separate
     (out / "spec").mkdir()
     (out / "spec" / "index.html").write_text(page("Agent Skills specification: conformance", sbody, 1), encoding="utf-8")
     shutil.rmtree(export)
+    ext_names = sorted(p.name for p in (ROOT / "skills-extension").iterdir() if p.is_dir())
+    pat = re.compile(r"(?<![\w-])(" + "|".join(map(re.escape, ext_names)) + r")(?![\w-])")
+    leaks = {}
+    for f in list(out.glob("*.html")) + list((out / "docs").rglob("*")) + list((out / "spec").rglob("*.html")):
+        if f.is_file() and f.suffix in (".html", ".mermaid", ".yaml"):
+            hit = sorted(set(pat.findall(f.read_text(encoding="utf-8", errors="ignore"))))
+            if hit:
+                leaks[f.relative_to(out).as_posix()] = hit
+    if leaks:
+        raise SystemExit("extension skills named on docs pages: " + json.dumps(leaks))
     (out / ".nojekyll").write_text("", encoding="utf-8")
     print(f"site built in {out}: {len(ids)} skills, {len(lanes)} lanes/sections, {sum(1 for _ in out.rglob('*.html'))} html pages; spec-valid exports {nex}/{len(ids)}")
     return nex, nsrc, len(ids)

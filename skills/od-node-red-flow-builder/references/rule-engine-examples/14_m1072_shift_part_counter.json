@@ -1,0 +1,933 @@
+[
+    {
+        "id": "ab4d501dbb926dc1",
+        "type": "tab",
+        "label": "(OK) Rosenberger Double Head (with Robot) - M1072 (EQ40015929) - Shift Part Counter",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0210fb9d46fa9429",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "name": "config flow ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "acae61bfcfe65c46",
+            "96958e1a15d3baf2",
+            "c4706fbca4aef496",
+            "85e09c89c8671e33",
+            "99483519d0dca68b"
+        ],
+        "x": 34,
+        "y": 33,
+        "w": 912,
+        "h": 174
+    },
+    {
+        "id": "03ee78d48f8ae9a9",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "name": "functional flow",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "672a6e1c7de25c97",
+            "cc8dfb8a7cbf5cf4",
+            "d2f86e1c9829a168",
+            "b387b50b1b6a4b7b",
+            "4fc1d9c1269e9317",
+            "48926a5ac9d6c689"
+        ],
+        "x": 34,
+        "y": 479,
+        "w": 1768,
+        "h": 548
+    },
+    {
+        "id": "f4a8184268580f8c",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4e95b61e84b74323",
+            "4314c63e23a98fe7",
+            "de87ace2c0a42dc8",
+            "8c90fe3128cf8345",
+            "6a62bc9631176e1b",
+            "0d82734d8b32906b"
+        ],
+        "x": 34,
+        "y": 239,
+        "w": 692,
+        "h": 202
+    },
+    {
+        "id": "c4706fbca4aef496",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "0210fb9d46fa9429",
+        "name": "set inputs for config flow",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7f3594505a348aeb",
+            "5c080bd72034d4b5"
+        ],
+        "x": 254,
+        "y": 59,
+        "w": 232,
+        "h": 122
+    },
+    {
+        "id": "cc8dfb8a7cbf5cf4",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "mqtt connection and message decoding",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "51a96c06764c2ebf",
+            "b683a44f2d3dd348",
+            "d4f70d5a853a797a",
+            "424a86c4544bb70e",
+            "b86ff3f98ffe038f",
+            "380d69b6831128a1",
+            "4f7255bbe3c5dc1d"
+        ],
+        "x": 74,
+        "y": 559,
+        "w": 1702,
+        "h": 122
+    },
+    {
+        "id": "d2f86e1c9829a168",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "set message filters",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "bba8a8a60e5bc598",
+            "7195f9b800fe55ae",
+            "e33bd4a488fc5ac3"
+        ],
+        "x": 74,
+        "y": 719,
+        "w": 332,
+        "h": 122
+    },
+    {
+        "id": "b387b50b1b6a4b7b",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "lookup uuid to label, including postprocessing",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "637f0712a58a01d7",
+            "c59864e69f9854ab",
+            "beb6b668f913949a"
+        ],
+        "x": 594,
+        "y": 719,
+        "w": 482,
+        "h": 122
+    },
+    {
+        "id": "4fc1d9c1269e9317",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "prepare and convert payload",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "42e62445aa5bcbed",
+            "3e7eaa22be53912f",
+            "063da9be8ecd3c49",
+            "cfa71a0580de5e0d",
+            "2bbf5723e2c52942"
+        ],
+        "x": 74,
+        "y": 879,
+        "w": 1012,
+        "h": 122
+    },
+    {
+        "id": "48926a5ac9d6c689",
+        "type": "group",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "message encoding and connection",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "5f4ced77b2b8e54f",
+            "cb0242eccbbb0e12",
+            "155f9ed6c90a2d6e"
+        ],
+        "x": 1194,
+        "y": 879,
+        "w": 572,
+        "h": 122
+    },
+    {
+        "id": "acae61bfcfe65c46",
+        "type": "inject",
+        "z": "ab4d501dbb926dc1",
+        "g": "0210fb9d46fa9429",
+        "name": "Trigger once",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "5c080bd72034d4b5"
+            ]
+        ]
+    },
+    {
+        "id": "96958e1a15d3baf2",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "0210fb9d46fa9429",
+        "name": "config flow",
+        "info": "# Configuration Flow\nConfiguration flow for settings and debugging of entered config.\n\n---\n\n## Information Input\nThe following information set needs to be set as flow variables to be available within the complete workflow:\n\n**Get Variable Configuration:**\n1. `datatronName`: String that defines the `datatronName` for the variable query (shall contain one datatron name)\n3. `plcName`: String that defines the `plcName` (if multiple plcs of one edge device necessary, please enter a string that matches all `plcNames`)\n4. `alertVariableName`: String that can be used to query the available tag list per datatron\n5. `url`: String that defines base url to query the necessary variables (e.g. http://<datatron-api-host>/api/datatrons) [hint: see swagger documentation if necessary]\n6. `headers`: JSON that defines the necessary headers, in this case the Bearer Token is necessary\n8. `datapointConfig`: Array with objects where `uuid` and `label` per variable are defined (query based on `datatronName`, `plcName` and `alertVariableName`)\n\n**Set Error Message Mapping:**\n1. `alertmessageConfig`: Array with objects where `error_number` and `error_message` are defined\n\n---\n\n## Debug Flow Config\nGeneral function to get a debug notification, how the configuration flow is set up and which information set was entered there.",
+        "x": 120,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7f3594505a348aeb",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "c4706fbca4aef496",
+        "name": "set necessary input",
+        "info": "",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5c080bd72034d4b5",
+        "type": "change",
+        "z": "ab4d501dbb926dc1",
+        "g": "c4706fbca4aef496",
+        "name": "Set flow config",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datatronName",
+                "pt": "flow",
+                "to": "eq40015929",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointTotalPartCounter",
+                "pt": "flow",
+                "to": "24e12279-e257-4834-8be6-40c830fc1e9a",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointShiftPartProduced",
+                "pt": "flow",
+                "to": "d0e670fd-93bc-4c29-a1a3-57e4f75c5c5d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "85e09c89c8671e33"
+            ]
+        ]
+    },
+    {
+        "id": "85e09c89c8671e33",
+        "type": "function",
+        "z": "ab4d501dbb926dc1",
+        "g": "0210fb9d46fa9429",
+        "name": "Debug flow config",
+        "func": "var flowKeys = { };\n\n\nvar payload = {\n    datatronName: flow.get('datatronName'),\n    datapointTotalPartCounter: flow.get('datapointTotalPartCounter'),\n    datapointShiftPartProduced: flow.get('datapointShiftPartProduced')\n};\n\nreturn { \n    payload: payload,\n    debugInfo: \"Added flow configuration\"\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "99483519d0dca68b"
+            ]
+        ]
+    },
+    {
+        "id": "99483519d0dca68b",
+        "type": "debug",
+        "z": "ab4d501dbb926dc1",
+        "g": "0210fb9d46fa9429",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "672a6e1c7de25c97",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "03ee78d48f8ae9a9",
+        "name": "functional flow",
+        "info": "# Configuration Flow\nConfiguration flow for settings and debugging of entered config.\n\n## Information Input\nThe following information set needs to be set as \"flow\" variables to be available within the complete workflow.\n\n1. UUID for serialnumber for later message filter\n2. Machine ID from QFPR, to address right API endpoint\n3. URL from QFPR, to address right URL and API\n\n## Debug Flow Config\nGeneral function to get a debug notification, how the configuration flow is set up and which information set was entered there.",
+        "x": 130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "51a96c06764c2ebf",
+        "type": "mqtt in",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/datatron-eq40015929/cifx/#",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "a5b9953ab68b73bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 640,
+        "wires": [
+            [
+                "b683a44f2d3dd348"
+            ]
+        ]
+    },
+    {
+        "id": "b683a44f2d3dd348",
+        "type": "decode",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "DecodeProto",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 590,
+        "y": 640,
+        "wires": [
+            [
+                "4f7255bbe3c5dc1d"
+            ]
+        ]
+    },
+    {
+        "id": "d4f70d5a853a797a",
+        "type": "split",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "flatten PLCPacket Array",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1070,
+        "y": 640,
+        "wires": [
+            [
+                "b86ff3f98ffe038f"
+            ]
+        ]
+    },
+    {
+        "id": "424a86c4544bb70e",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "connect to MQTT and decode messages",
+        "info": "",
+        "x": 260,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b86ff3f98ffe038f",
+        "type": "function",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "Convert sysTime (UTC timestamp)",
+        "func": "var sysTime = msg.payload.sysTime\n\nconst seconds_epoch = Number(BigInt(sysTime) >> 32n) // keep only first four bytes (seconds since epoch = 1.1.1970)\nconst nanos = Number(BigInt(sysTime) & 0xFFFFFFFFn)  // keep only last four bytes\nconst millis = Math.round(nanos / 1e6)\nconst millis_epoch = seconds_epoch * 1000 + millis //this is UTC\n//const timestamp = new Date(millis_epoch) // this is most likely in UTC!\n\n\nmsg.payload.sysTime = millis_epoch\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 640,
+        "wires": [
+            [
+                "380d69b6831128a1"
+            ]
+        ]
+    },
+    {
+        "id": "380d69b6831128a1",
+        "type": "link out",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "7195f9b800fe55ae"
+        ],
+        "x": 1735,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4f7255bbe3c5dc1d",
+        "type": "function",
+        "z": "ab4d501dbb926dc1",
+        "g": "cc8dfb8a7cbf5cf4",
+        "name": "filter uuids",
+        "func": "// get flow variable\nconst uuids = [flow.get('datapointTotalPartCounter')]\n\n// filter for uuid\nconst results = msg.payload.plcPackets.filter(plcPacket => uuids.includes(plcPacket.uuid))\n\n\n// publish results\nmsg.payload = results\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 640,
+        "wires": [
+            [
+                "d4f70d5a853a797a"
+            ]
+        ],
+        "info": "1. loop over msg.payload.plcPackets each\n2. skip if uuid (or other filters) does not match\n3. emit entire plcPackets if uuid matches"
+    },
+    {
+        "id": "bba8a8a60e5bc598",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "d2f86e1c9829a168",
+        "name": "set filters",
+        "info": "",
+        "x": 160,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "7195f9b800fe55ae",
+        "type": "link in",
+        "z": "ab4d501dbb926dc1",
+        "g": "d2f86e1c9829a168",
+        "name": "",
+        "links": [
+            "380d69b6831128a1"
+        ],
+        "x": 125,
+        "y": 800,
+        "wires": [
+            [
+                "e33bd4a488fc5ac3"
+            ]
+        ]
+    },
+    {
+        "id": "e33bd4a488fc5ac3",
+        "type": "switch",
+        "z": "ab4d501dbb926dc1",
+        "g": "d2f86e1c9829a168",
+        "name": "is delta true >> 1",
+        "property": "payload.isDelta",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 800,
+        "wires": [
+            [
+                "beb6b668f913949a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "637f0712a58a01d7",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "b387b50b1b6a4b7b",
+        "name": "Shift Part Counter",
+        "info": "",
+        "x": 710,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c59864e69f9854ab",
+        "type": "link out",
+        "z": "ab4d501dbb926dc1",
+        "g": "b387b50b1b6a4b7b",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "cccfa56e4b30d884",
+            "319ef13622aebaf7",
+            "2bbf5723e2c52942"
+        ],
+        "x": 1035,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "beb6b668f913949a",
+        "type": "function",
+        "z": "ab4d501dbb926dc1",
+        "g": "b387b50b1b6a4b7b",
+        "name": "",
+        "func": "// get flow variable\n// -\n\n//set the variables \nvar trigger = msg.payload.isDelta\nvar ShiftCounter = flow.get(\"ShiftPartProduced\") || 0\n\n//Get the time for resetting the Counter\nvar d=new Date();//gives the UTC time\n\n// Update the counter when triggered\nif (trigger === true)\n{\n    ShiftCounter++\n}\n\nflow.set(\"ShiftPartProduced\", ShiftCounter)\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 800,
+        "wires": [
+            [
+                "c59864e69f9854ab"
+            ]
+        ]
+    },
+    {
+        "id": "42e62445aa5bcbed",
+        "type": "function",
+        "z": "ab4d501dbb926dc1",
+        "g": "4fc1d9c1269e9317",
+        "name": "Convert sysTime back (UTC timestamp)",
+        "func": "//var sysTime = msg.payload.plcPackets[0].sysTime\nconst dt_new = new Date( )\nconst dt = dt_new.getTime()\n\n\nconst in_left = Math.round(dt/1000)\nconst nanos = BigInt(in_left) << 32n | BigInt(dt_new.getMilliseconds() * 1e6)\n\nconst nanos_c = Number(nanos)\n\nmsg.payload.plcPackets[0].sysTime = nanos_c\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 960,
+        "wires": [
+            [
+                "cb0242eccbbb0e12"
+            ]
+        ]
+    },
+    {
+        "id": "3e7eaa22be53912f",
+        "type": "change",
+        "z": "ab4d501dbb926dc1",
+        "g": "4fc1d9c1269e9317",
+        "name": "prepare for protob encoding",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "parts",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "protobufType",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.valueDouble",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.plcPackets[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_msgid",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 960,
+        "wires": [
+            [
+                "42e62445aa5bcbed"
+            ]
+        ]
+    },
+    {
+        "id": "063da9be8ecd3c49",
+        "type": "change",
+        "z": "ab4d501dbb926dc1",
+        "g": "4fc1d9c1269e9317",
+        "name": "format msg.payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.isDelta",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload.valueInteger",
+                "pt": "msg",
+                "to": "ShiftPartProduced",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.uuid",
+                "pt": "msg",
+                "to": "datapointShiftPartProduced",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.plcTime",
+                "pt": "msg",
+                "to": "$number(msg.payload.plcTime)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 960,
+        "wires": [
+            [
+                "3e7eaa22be53912f"
+            ]
+        ]
+    },
+    {
+        "id": "cfa71a0580de5e0d",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "4fc1d9c1269e9317",
+        "name": "prepare and convert payload",
+        "info": "",
+        "x": 220,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "2bbf5723e2c52942",
+        "type": "link in",
+        "z": "ab4d501dbb926dc1",
+        "g": "4fc1d9c1269e9317",
+        "name": "",
+        "links": [
+            "c59864e69f9854ab"
+        ],
+        "x": 115,
+        "y": 960,
+        "wires": [
+            [
+                "063da9be8ecd3c49"
+            ]
+        ]
+    },
+    {
+        "id": "5f4ced77b2b8e54f",
+        "type": "mqtt out",
+        "z": "ab4d501dbb926dc1",
+        "g": "48926a5ac9d6c689",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/eq40015929/cifx",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a5b9953ab68b73bb",
+        "x": 1570,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "cb0242eccbbb0e12",
+        "type": "encode",
+        "z": "ab4d501dbb926dc1",
+        "g": "48926a5ac9d6c689",
+        "name": "EncodeProto",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 1290,
+        "y": 960,
+        "wires": [
+            [
+                "5f4ced77b2b8e54f"
+            ]
+        ]
+    },
+    {
+        "id": "155f9ed6c90a2d6e",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "48926a5ac9d6c689",
+        "name": "encode and publish to MQTT",
+        "info": "",
+        "x": 1340,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "4e95b61e84b74323",
+        "type": "inject",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 04 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "4314c63e23a98fe7"
+            ]
+        ]
+    },
+    {
+        "id": "4314c63e23a98fe7",
+        "type": "change",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ShiftPartProduced",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "de87ace2c0a42dc8"
+            ]
+        ]
+    },
+    {
+        "id": "de87ace2c0a42dc8",
+        "type": "debug",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8c90fe3128cf8345",
+        "type": "inject",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 12 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "4314c63e23a98fe7"
+            ]
+        ]
+    },
+    {
+        "id": "6a62bc9631176e1b",
+        "type": "comment",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "static shift reset of counter",
+        "info": "",
+        "x": 170,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "0d82734d8b32906b",
+        "type": "inject",
+        "z": "ab4d501dbb926dc1",
+        "g": "f4a8184268580f8c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 20 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "4314c63e23a98fe7"
+            ]
+        ]
+    },
+    {
+        "id": "a5b9953ab68b73bb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "emqx.mqtt.svc",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7a49aef9.46452",
+        "type": "protobuf-file",
+        "protopath": "/data/plcschema.proto",
+        "watchFile": true,
+        "keepCase": false
+    }
+]

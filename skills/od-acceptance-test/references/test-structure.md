@@ -29,7 +29,7 @@ standard itself — treat the standard as the citable source if it is ever read 
    isolation.
 
 **This registry's gate sits at SAT/SIT, never FAT.** `od-equipment-integration` and
-`od-node-red-flows` build and test on a `test` instance first (their own FAT-
+`od-node-red-flow-builder` build and test on a `test` instance first (their own FAT-
 equivalent); this skill's protocol is the SAT/SIT step — real field devices, the real
 network, the full path end to end, because that is the only version of "it works" the
 plant can act on. A test that only proves the logic correct against simulated signals has

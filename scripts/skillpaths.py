@@ -1,6 +1,6 @@
 """Where the skills live: two libraries side by side (stdlib, no side effects).
 
-  skills/            core library: the skills the four New-State process files name (docs/new-state/process.yaml, `skills` fields)
+  skills/            core library: the skills drawn on the process flow (docs/new-state/process.yaml `skills` fields and OD_NewState_Flow.mermaid)
   skills-extension/  extension library: every other skill; optional add-ons that deepen a step or cover a neighbouring process
 
 registry.yaml carries `library: core|extension` per skill; validate_registry.py checks that it matches the folder.

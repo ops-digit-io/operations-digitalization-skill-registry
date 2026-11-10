@@ -4,9 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [IT demand package](SKILL.md) | Agent Skill | Package a demand for IT demand management and its evaluation board, or for an external developer (new-state Lane 3a, routes 3a.3 external development and 3a.4 foreign-app integration) - one hand-off that carries the requirement, the fit-check verdict, the business case, the approval route, the plant sponsor and the open Cyber Security points. Drafts the package; submitting it and the board's decision stay human. Use when a demand touches a platform OD does not own, when a foreign app must be integrated, when an app is to be built externally, or when someone asks what IT needs from OD. Draft scaffold: IT's own demand form is not recorded in the sources. |
+| [IT handover](SKILL.md) | Agent Skill | Hand a clear demand over to IT or an external developer as an OpenSpec change package they can work with directly - proposal, delta specs with SHALL requirements and WHEN/THEN scenarios, design, tasks - plus an OD handover annex with every artefact IT asked for in the OD x IT alignment (requirements, source-code ownership, deployment assumptions, Cyber Security inputs, access rights, data models, data and interface catalog entries), the business case with bankable value, investment envelope, rollout scenarios and TCO, the approval status, and the ownership terms (build-and-run, formal acceptance, handover checklist). The last step of the Lane 3 front-end and the route for 3a.3 external build and 3a.4 foreign-app integration; also packages an IT demand for the evaluation board (formerly it-demand-package). Use when a Lane 3 demand has passed requirements, the tool-decision gate and the business case, when IT or an external developer must take over a build, or when someone asks what IT needs from OD. |
 
 | Folder | Holds |
 |---|---|
-| [assets/](assets/index.md) | 1 concept(s) |
-| [references/](references/index.md) | 3 concept(s) |
+| [references/](references/index.md) | 11 concept(s) |

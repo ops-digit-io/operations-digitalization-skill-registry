@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case definition](SKILL.md) | Agent Skill | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. Define a plant use case so it can be built, standardized, handed over and measured: scope it, break down the requirement, assess the (legacy) MF IT systems, place it on its capability template and process group, record the fields that make it evaluable. Also prepares and runs Use Case Definition and Integration workshops, and answers what happens to a use case between demand and daily use (roles, control points, error paths, autonomy, metrics, Process First-Aid Kit, prioritizing a use case or business case). Use when an accepted plant demand needs a definition, a use-case record is too thin to act on, or a workshop is being prepared. |
+| [Use-case definition](SKILL.md) | Agent Skill | Run step 21 (define and diagnose) and the Lane 2 funnel around it (the former Use Case Support Service). Define a plant use case so it can be built, standardized, handed over and measured: scope it, break down the requirement, assess the (legacy) MF IT systems, place it on its capability template and process group, record the fields that make it evaluable. Also prepares and runs Use Case Definition and Integration workshops, and answers what happens to a use case between demand and daily use (roles, control points, error paths, autonomy, metrics, Process First-Aid Kit, prioritizing a use case or business case). Use when an accepted plant demand needs a definition, a use-case record is too thin to act on, or a workshop is being prepared. |
 
 | Folder | Holds |
 |---|---|

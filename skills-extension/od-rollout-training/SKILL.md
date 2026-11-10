@@ -13,9 +13,9 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-rollout-training
   tier: practice
-  lane: project-support-consultancy
-  new_state_lane: Lane 3a (rollout), Lane 1 go-live, Lane 2 step 6
-  new_state_step: "Rollout and adopt: training package and competence checklist"
+  lane: all
+  new_state_lane: "Extension, deepens Lane 1a (1a3), Lane 1b (1b4), Lane 2 (26), Lane 3a (3a6)"
+  new_state_step: "Guardrails, go live, confirm adoption; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue; Rollout and adoption; ownership on formal acceptance"
   owner_role: human:jakob.gabriel
   authority_level: draft the training package and competence checklist; the plant confirms competence
   status: draft

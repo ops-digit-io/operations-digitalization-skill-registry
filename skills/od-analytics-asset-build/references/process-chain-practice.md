@@ -27,13 +27,13 @@ Steps **23** (prototype and validate), **26** (implement and graduate), **1a2** 
 | Signal analysis report, binding sheet | `od-signal-standardization` | Canonical names, units, scaling |
 | Requirements (atomic, testable), the named ritual and the decision | `od-requirements-breakdown`, `od-use-case-definition` | Who opens it, when, what follows |
 | Validation record (if a mock-up or PoC ran) | `od-prototype-poc` | Pass criterion and result |
-| Reference solution | `od-use-case-standardization`, `od-catalog` | Adopt before building |
+| Reference solution | `od-use-case-standardization`, `catalog-usecase` | Adopt before building |
 
 | Hands on | To | What it carries |
 |---|---|---|
 | Iterated tag list, documented process-domain knowledge, refined requirements, the ready dashboard, tag-to-panel table | `od-acceptance-test`, `od-handover-and-adoption` | The ritual of use, the utilization expectation, the named plant owner |
 | Dashboard tier, ritual, data model | `build-grafana-ops-dashboard` | Build mechanics start there |
-| Proven blueprint | `od-use-case-standardization` / `od-use-case-promotion` | Candidate for the library |
+| Proven blueprint | `od-use-case-standardization` / `od-use-case-standardization` | Candidate for the library |
 
 ## The smell: a dashboard without an action owner
 

@@ -86,7 +86,7 @@ only; for what a connector publishes, read the edge platform's data-point list.
 ### Topic driver segment to connector
 
 The flows' topic `.../<edge-device>/<driver>/<id>` names the driver (`corpus-census.md`
-in `od-node-red-flows`). The Connector notes give container image names that match
+in `od-node-red-flow-builder`). The Connector notes give container image names that match
 several of them: `tia`, `ads` (Beckhoff), `abrock` (Allen-Bradley), `cifx` (S7), `omron`. This
 is a naming match, not a stated mapping - ⟨confirm with the IIAE⟩ before it is used to tell a
 key user which connector a topic belongs to.

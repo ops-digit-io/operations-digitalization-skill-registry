@@ -77,5 +77,5 @@ and must be re-run on the live Machine List before they go into a decision.
 ## 5. Hand-off
 
 Machines in scope go to Route B ([`guidance-protocol.md`](guidance-protocol.md)), one document
-per machine. Barriers with no route go to `od-barrier-triage` and the landscape module.
+per machine. Barriers with no route go to `od-equipment-integration` and the landscape module.
 Investment input goes to `od-investment-input`. Open items stay here with a named role.

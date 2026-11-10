@@ -1,8 +1,9 @@
 ---
 name: od-use-case-intake-triage
 description: >-
-  Decide what OD does with an incoming request — accept it into one of the four service
-  lines, refuse it, or route it to the function that actually owns it. Applies OD's
+  Decide what OD does with an incoming request — accept it into exactly one of the three
+  new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it,
+  or route it to the function that actually owns it. Applies OD's
   intake channels, its prioritization rule and its explicit refusal list, and names the
   lane, the owner role and the trigger the request satisfies. Use whenever a request,
   demand, idea or "can you just…" arrives and it is not yet clear whether it is OD work,
@@ -13,17 +14,20 @@ metadata:
   id: od-use-case-intake-triage
   tier: practice
   lane: all
+  new_state_lane: "Intake (i1)"
+  new_state_step: "Classify the demand into exactly one lane"
   owner_role: OD lead
   authority_level: recommend
   status: stable
-  sources_read: 2026-10-22
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-system-fit-check]
+  composes: [od-system-fit-check, catalog-usecase, od-use-case-definition, od-requirements-breakdown, od-first-aid-kit]
   derived_from:
     - ops-knowledge-graph/.../00-core/05-intake.md
     - ops-knowledge-graph/.../00-core/04-service-catalog.md
     - ops-knowledge-graph/.../00-core/01-charter.md
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Use-case intake triage
@@ -89,18 +93,26 @@ with no baseline fails) and has been reduced to object, event and time. Then set
 three-way bucket (just do, go forward, lead change). Detail in
 [`references/process-chain-practice.md`](references/process-chain-practice.md).
 
-**3 — Match the trigger to exactly one lane.**
+**3 — Classify into exactly one new-state lane.** Each demand goes to one lane at intake;
+branches chain later, but intake decides once (department new-state draft, open design question 2,
+working assumption).
 
-| If the request is… | Lane | Owner |
-|---|---|---|
-| Plant use-case demand, or a definition/integration workshop request | Use Case Support Service | DBVE |
-| An equipment-integration or data-model-harmonization need per roadmap | Information Integration Service | IIAE |
-| A digital investment project kick-off | Project Support & Application Consultancy | IIAE |
-| An analytical or ad-hoc process-insight need | Analytical Support Service | DBVE |
+| If the request is… | Lane | Ownership | Next |
+|---|---|---|---|
+| A **catalogued** use case; the target machine is connected | **Lane 1a** run a known use case | Plant self-service; OD supplies catalog and guardrails | `catalog-usecase` |
+| A catalogued use case; machine not connected, a **standardized system** fits | **Lane 1b** standardized onboarding | Plant self-service; cost template | `catalog-usecase` |
+| A **genuinely new** recurring need on connected equipment, including ad-hoc analytics that turns out to recur | **Lane 2** develop a new use case | OD-led (DBVE) | `od-use-case-definition` |
+| Something needed does **not exist yet**: a new system or app, and/or a new machine connection | **Lane 3** new system or connector | OD-led front-end; build OD + external; integrate IT, Cyber Security gated | `od-requirements-breakdown`, then `od-system-fit-check` (tool-decision gate) |
+| A one-off process question that needs an answer now | First-aid request | DBVE; ad-hoc analytics is read-only on the sources | `od-first-aid-kit`, which routes it to Lane 1, Lane 2 or external support |
 
-If two lanes seem to fit, the **definition of done** decides — one lane, one trigger, one
-DoD, one autonomy profile. A request that needs both an answer now and a solution later
-is admitted to Analytical Support first and promoted afterwards, not run as one item.
+**Fall-through is not a second intake.** A Lane 1 case that is not truly catalogued moves to Lane 2;
+one that needs a non-standard system or a new machine moves to Lane 3. A Lane 2 use case that needs new
+software chains into 3a, one that needs a new connection into 3b. Record the move on the same demand.
+
+**Old service lines.** The four functional lines are retired in the new state: Use Case Support splits
+into Lane 1 and Lane 2, Analytical Support is no longer a standing lane, Information Integration becomes
+Lane 3b, and Project Support & Application Consultancy becomes the Lane 3 front-end. When a requester
+names an old line, translate it with this crosswalk (`od-context`).
 
 **4 — Prioritize.** By measurable value against the plant or central engineering roadmap
 — savings, lead-time reduction, cost avoidance — aligned with strategic-plant scope.

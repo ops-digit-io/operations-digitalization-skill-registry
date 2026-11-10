@@ -4,6 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Epic and stories example](epic-and-stories.example.md) | Skill Asset | An illustrative filled epic for OEE at an invented plant that passes every check in check_epic.py; read it before the blank. All names, counts and values are placeholders, not company data. |
-| [Epic and stories](epic-and-stories.md) | Skill Asset | The blank epic to copy: background, epic statement, both epic axes, and the user story shape. |
 | [Requirement template](requirement-template.md) | Skill Asset | The blank requirement to copy, carrying the ten core sections and all four lane variants. |

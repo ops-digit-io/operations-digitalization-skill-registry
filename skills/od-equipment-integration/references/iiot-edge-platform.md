@@ -40,7 +40,7 @@ looks, from the cabinet, entirely healthy.
 topic the platform publishes on — `datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`,
 with `<driver>` observed across the estate as `dqcdc`, `cifx`, `tia`, `ads`, `abrock`. The
 connector chosen here is visible in every Node-RED flow downstream, and the edge device name
-chosen at registration is the `<edge-device>` segment. See `od-node-red-flows`.
+chosen at registration is the `<edge-device>` segment. See `od-node-red-flow-builder`.
 
 ---
 

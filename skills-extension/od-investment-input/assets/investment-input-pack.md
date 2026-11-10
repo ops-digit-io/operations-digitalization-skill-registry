@@ -60,7 +60,7 @@ Tracked and proven are never added. Where no row exists: "to be collected", no p
 | Option | Cost | Why not chosen or chosen |
 |---|---|---|
 | Cheaper route per the decision paths (OPC-UA server already present; vendor connector; file drop) | ⟨⟩ | ⟨⟩ |
-| Substitution or retrofit (see `od-barrier-triage`) | ⟨⟩ | ⟨⟩ |
+| Substitution or retrofit (see `od-equipment-integration`) | ⟨⟩ | ⟨⟩ |
 | Do nothing | | ⟨use case stays blocked: which⟩ |
 
 ## 5 Gates

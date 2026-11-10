@@ -12,14 +12,18 @@ license: MIT
 metadata:
   id: od-analytics-asset-build
   tier: practice
-  lane: [analytical-support-service, use-case-support-service]
+  lane: [lane-1, lane-2]
+  new_state_lane: "Lane 1a (1a2), Lane 1b (1b4), Lane 2 (23, 26)"
+  new_state_step: "Apply the standard template (self-service); Standardized deployment, go live, confirm adoption; Prototype / click-dummy, validated with the recipient; Implement, evaluate impact, ensure adoption, catalogue"
+  department_names: ["ops-dashboard-datatron (self-service mode, external engine)"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
+  composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-grafana-dashboards.zip (SKILL.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
@@ -28,6 +32,8 @@ metadata:
     - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
     - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Analytics asset build
@@ -44,6 +50,7 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 
 | File | Use it for |
 |---|---|
+| [`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md) | **Building a DATATRON dashboard**: the department package (master) - families, drill-down, schema, queries, variables, panel recipes, ECharts, andon, datapoint enablement, equipment context |
 | [`references/lifecycle-and-validation.md`](references/lifecycle-and-validation.md) | The build lifecycle mapped onto this registry's own upstream/downstream skills, and the validation checklist that separates "it renders" from "it is correct" |
 | [`references/asset-type-and-tier.md`](references/asset-type-and-tier.md) | The asset-type decision worked through, and exactly where this skill's job ends and `build-grafana-ops-dashboard`'s begins once "Dashboard" is chosen |
 | [`references/dashboard-estate-baseline.md`](references/dashboard-estate-baseline.md) | **How to read and measure the plant Grafana estate** (no figures). What to look up per plant, which data-source and query patterns to expect, lifecycle and churn - and the answer to the data-source question left open in the vendored skill's OD note |
@@ -118,6 +125,30 @@ InfluxDB, and signals are mostly bound by literal UUID. Those are patterns, not 
 them on the current export (`references/dashboard-estate-baseline.md`); the specs they come from
 are drafts, unreviewed. Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
 configuration.
+
+## Lane 1a self-service mode
+
+In the new state a plant runs a **catalogued** use case itself (Lane 1a): the key user applies the
+standard template or dashboard; OD supplies the catalog entry, the template and the guardrails
+(`catalog-usecase`). In that mode this skill is used by the key user, not by OD:
+
+1. Start from the catalog entry's template (`catalog-usecase`, `od-template-resolution`), never from a blank
+   dashboard or an ad-hoc copy.
+2. Apply it to this plant's signals; anything the template does not cover is a deviation, not a local
+   extension: stop and route it (a recurring need is Lane 2).
+3. Pass the guardrails (`catalog-usecase`, `references/technical-guardrails.md`) and its go-live check;
+   passing the checklist is the approval gate.
+4. The plant confirms adoption (`od-handover-and-adoption`).
+
+The department's DATATRON dashboard package `ops-grafana-dashboards` (master) is transcribed in
+[`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md): the four dashboard families and the
+L1 to L3 drill-down, the telemetry and ConfigRepo schema, value extraction and `is_delta`, the two time-filter
+dialects, the cascading variable chain, reusable panel recipes (machine state, state durations per shift, downtime with
+flicker protection, cycle count from a sawtooth counter, SPC, andon board), ECharts conventions, layout and naming,
+**datapoint enablement** (the "UUIDs to enable" list) and the equipment context (KKA, press centres, utilities). Use it
+for any DATATRON dashboard in Lane 1a, 1b4 and Lane 2; the extension skills `ops-dashboard-datatron` and
+`build-grafana-ops-dashboard` hold the deeper builder. A value the machine does not deliver directly is derived first
+as a calculated datapoint (`od-node-red-flow-builder`, rule engine).
 
 ## Procedure
 

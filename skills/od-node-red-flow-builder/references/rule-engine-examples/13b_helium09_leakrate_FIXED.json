@@ -1,0 +1,647 @@
+[
+  {
+    "id": "1f7d89a0b1ed0599",
+    "type": "tab",
+    "label": "Helium09_Leakage Rate",
+    "disabled": false,
+    "info": "Leakage rate = (LeakBase/100) * 10^LeakIndex, published as virtual datapoint datapointLeakRate.\nStructure follows the standard AC402 Machine Status flow."
+  },
+  {
+    "id": "359d44e3327d854e",
+    "type": "group",
+    "z": "1f7d89a0b1ed0599",
+    "name": "config flow",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "141105bdf30e92d2",
+      "967118571e53b80b",
+      "0eeb81530e364030",
+      "46d919a6d0227966"
+    ],
+    "x": 10,
+    "y": 30,
+    "w": 850,
+    "h": 90
+  },
+  {
+    "id": "fea253907493e55b",
+    "type": "group",
+    "z": "1f7d89a0b1ed0599",
+    "name": "mqtt connection and message decoding",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "a74fc5a5211834a0",
+      "220619845bdcf409",
+      "1a1509612bc5b575",
+      "1cebec42d077ba64",
+      "8bf8ea3c815a04a7",
+      "4c8e317e41ea38c3",
+      "7fb804f36a9c2847",
+      "03b6a461e11e604b"
+    ],
+    "x": 50,
+    "y": 190,
+    "w": 1590,
+    "h": 150
+  },
+  {
+    "id": "20b896cf40b93707",
+    "type": "group",
+    "z": "1f7d89a0b1ed0599",
+    "name": "mapping to LeakageRate",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "c7b1e4c776ebb7c1",
+      "e9eff0cf1f22c26a"
+    ],
+    "x": 240,
+    "y": 370,
+    "w": 500,
+    "h": 150
+  },
+  {
+    "id": "0a9cca3209ecf84e",
+    "type": "group",
+    "z": "1f7d89a0b1ed0599",
+    "name": "prepare, encode and publish",
+    "style": {
+      "label": true
+    },
+    "nodes": [
+      "2a091daf8b0f7455",
+      "e50432ebf7ee6b8e",
+      "9d5a9965f7a4817c",
+      "58d52b02dde11f15",
+      "cb7e1eda18e0e59b",
+      "ddbf4415a298cd8a",
+      "f8ac276d2cd50485"
+    ],
+    "x": 200,
+    "y": 510,
+    "w": 1380,
+    "h": 150
+  },
+  {
+    "type": "debug",
+    "name": "flow config",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "wires": [],
+    "id": "46d919a6d0227966",
+    "z": "1f7d89a0b1ed0599",
+    "x": 720,
+    "y": 80,
+    "g": "359d44e3327d854e"
+  },
+  {
+    "type": "function",
+    "name": "Debug flow config",
+    "func": "msg.payload = {\n    machineName: flow.get('machineName'),\n    datapointLeakBase: flow.get('datapointLeakBase'),\n    datapointLeakIndex: flow.get('datapointLeakIndex'),\n    datapointLeakRate: flow.get('datapointLeakRate')\n};\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "wires": [
+      [
+        "46d919a6d0227966"
+      ]
+    ],
+    "id": "0eeb81530e364030",
+    "z": "1f7d89a0b1ed0599",
+    "x": 520,
+    "y": 80,
+    "g": "359d44e3327d854e"
+  },
+  {
+    "type": "change",
+    "name": "Set flow config",
+    "rules": [
+      {
+        "t": "set",
+        "p": "machineName",
+        "pt": "flow",
+        "to": "Helium09",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "datapointLeakBase",
+        "pt": "flow",
+        "to": "f8303000-7998-4013-bfbe-bc2ec26ad736",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "datapointLeakIndex",
+        "pt": "flow",
+        "to": "8c8fbe8d-606f-4177-98a0-5e5e37237382",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "datapointLeakRate",
+        "pt": "flow",
+        "to": "4d181446-c32b-493c-aefb-b058353d1b82",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "wires": [
+      [
+        "0eeb81530e364030"
+      ]
+    ],
+    "id": "967118571e53b80b",
+    "z": "1f7d89a0b1ed0599",
+    "x": 320,
+    "y": 80,
+    "g": "359d44e3327d854e"
+  },
+  {
+    "type": "inject",
+    "name": "Trigger once",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "0",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "wires": [
+      [
+        "967118571e53b80b"
+      ]
+    ],
+    "id": "141105bdf30e92d2",
+    "z": "1f7d89a0b1ed0599",
+    "x": 130,
+    "y": 80,
+    "g": "359d44e3327d854e"
+  },
+  {
+    "type": "change",
+    "name": "value for LeakIndex",
+    "rules": [
+      {
+        "t": "set",
+        "p": "valueLeakIndex",
+        "pt": "flow",
+        "to": "payload.valueInteger",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "wires": [
+      [
+        "c7b1e4c776ebb7c1"
+      ]
+    ],
+    "id": "03b6a461e11e604b",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1500,
+    "y": 300,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "change",
+    "name": "value for LeakBase",
+    "rules": [
+      {
+        "t": "set",
+        "p": "valueLeakBase",
+        "pt": "flow",
+        "to": "payload.valueInteger",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "wires": [
+      [
+        "c7b1e4c776ebb7c1"
+      ]
+    ],
+    "id": "7fb804f36a9c2847",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1500,
+    "y": 240,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "switch",
+    "name": "uuid filter base / index",
+    "property": "payload.uuid",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "datapointLeakBase",
+        "vt": "flow"
+      },
+      {
+        "t": "eq",
+        "v": "datapointLeakIndex",
+        "vt": "flow"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "wires": [
+      [
+        "7fb804f36a9c2847"
+      ],
+      [
+        "03b6a461e11e604b"
+      ]
+    ],
+    "id": "4c8e317e41ea38c3",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1270,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "function",
+    "name": "Convert sysTime (UTC timestamp)",
+    "func": "var sysTime = msg.payload.sysTime\n\nconst seconds_epoch = Number(BigInt(sysTime) >> 32n) // keep only first four bytes (seconds since epoch = 1.1.1970)\nconst nanos = Number(BigInt(sysTime) & 0xFFFFFFFFn)  // keep only last four bytes\nconst millis = Math.round(nanos / 1e6)\nconst millis_epoch = seconds_epoch * 1000 + millis //this is UTC\n\nmsg.payload.sysTime = millis_epoch\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "wires": [
+      [
+        "4c8e317e41ea38c3"
+      ]
+    ],
+    "id": "8bf8ea3c815a04a7",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1030,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "split",
+    "name": "flatten PLCPacket Array",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "wires": [
+      [
+        "8bf8ea3c815a04a7"
+      ]
+    ],
+    "id": "1cebec42d077ba64",
+    "z": "1f7d89a0b1ed0599",
+    "x": 800,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "function",
+    "name": "filter uuids",
+    "func": "// Get flow variables\nconst uuids = [\n    flow.get('datapointLeakBase'),\n    flow.get('datapointLeakIndex')\n];\n\n// filter for uuid\nconst results = msg.payload.plcPackets.filter(plcPacket => uuids.includes(plcPacket.uuid));\n\n// nothing relevant in this batch -> stop here\nif (results.length === 0) {\n    return null;\n}\n\nmsg.payload = results;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "wires": [
+      [
+        "1cebec42d077ba64"
+      ]
+    ],
+    "info": "1. loop over msg.payload.plcPackets\n2. keep only leak base / leak index packets\n3. emit array of matching plcPackets",
+    "id": "1a1509612bc5b575",
+    "z": "1f7d89a0b1ed0599",
+    "x": 600,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "decode",
+    "name": "DecodeProto",
+    "protofile": "7a49aef9.46452",
+    "protoType": "PLCPacketList",
+    "wires": [
+      [
+        "1a1509612bc5b575"
+      ]
+    ],
+    "id": "220619845bdcf409",
+    "z": "1f7d89a0b1ed0599",
+    "x": 410,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "mqtt in",
+    "name": "",
+    "topic": "datatroniq/data/protob/plc/ofms007x/opcua/18",
+    "qos": "2",
+    "datatype": "auto-detect",
+    "broker": "877128a3121fd6c2",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "wires": [
+      [
+        "220619845bdcf409"
+      ]
+    ],
+    "id": "a74fc5a5211834a0",
+    "z": "1f7d89a0b1ed0599",
+    "x": 170,
+    "y": 270,
+    "g": "fea253907493e55b"
+  },
+  {
+    "type": "debug",
+    "name": "leak rate",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "payload.valueDouble",
+    "statusType": "msg",
+    "wires": [],
+    "id": "e9eff0cf1f22c26a",
+    "z": "1f7d89a0b1ed0599",
+    "x": 600,
+    "y": 480,
+    "g": "20b896cf40b93707"
+  },
+  {
+    "type": "function",
+    "name": "calculate leakage rate",
+    "func": "// last known raw values, stored by the switch/change nodes above\nconst baseRaw = Number(flow.get('valueLeakBase'));\nconst index   = Number(flow.get('valueLeakIndex'));\n\n// wait until both datapoints have been seen at least once\nif (!Number.isFinite(baseRaw) || !Number.isFinite(index)) {\n    return null;\n}\n\n// real base = raw / 100 ; rate = base * 10^index\nconst baseReal = baseRaw / 100;\nconst leakageRate = Number((baseReal * Math.pow(10, index)).toExponential(2));\n\n// only publish when the value actually changes\nif (flow.get('lastLeakRate') === leakageRate) {\n    return null;\n}\nflow.set('lastLeakRate', leakageRate);\n\n// build a clean PLCPacket (uuid is set by the next node, sysTime is set on encode)\nmsg.payload = {\n    valueDouble: leakageRate   // <-- must match the float/double field name in plcschema.proto\n};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "wires": [
+      [
+        "2a091daf8b0f7455",
+        "e9eff0cf1f22c26a"
+      ]
+    ],
+    "id": "c7b1e4c776ebb7c1",
+    "z": "1f7d89a0b1ed0599",
+    "x": 360,
+    "y": 420,
+    "g": "20b896cf40b93707"
+  },
+  {
+    "type": "mqtt out",
+    "name": "",
+    "topic": "datatroniq/data/protob/plc/ofms007x/opcua/18",
+    "qos": "2",
+    "retain": "",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "877128a3121fd6c2",
+    "wires": [],
+    "id": "ddbf4415a298cd8a",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1440,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "debug",
+    "name": "encoded",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "wires": [],
+    "id": "f8ac276d2cd50485",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1440,
+    "y": 620,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "encode",
+    "name": "EncodeProto",
+    "protofile": "9c53fd687f954aef",
+    "protoType": "PLCPacketList",
+    "wires": [
+      [
+        "ddbf4415a298cd8a",
+        "f8ac276d2cd50485"
+      ]
+    ],
+    "id": "cb7e1eda18e0e59b",
+    "z": "1f7d89a0b1ed0599",
+    "x": 1230,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "function",
+    "name": "Convert sysTime back (UTC timestamp)",
+    "func": "const dt_new = new Date()\nconst dt = dt_new.getTime()\n\nconst in_left = Math.floor(dt/1000)\nconst nanos = BigInt(in_left) << 32n | BigInt(dt_new.getMilliseconds() * 1e6)\n\nmsg.payload.plcPackets[0].sysTime = Number(nanos)\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "wires": [
+      [
+        "cb7e1eda18e0e59b"
+      ]
+    ],
+    "id": "58d52b02dde11f15",
+    "z": "1f7d89a0b1ed0599",
+    "x": 990,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "trigger",
+    "name": "intervaltime",
+    "op1": "",
+    "op2": "0",
+    "op1type": "pay",
+    "op2type": "str",
+    "duration": "-1",
+    "extend": false,
+    "overrideDelay": false,
+    "units": "min",
+    "reset": "",
+    "bytopic": "all",
+    "topic": "topic",
+    "outputs": 1,
+    "wires": [
+      [
+        "58d52b02dde11f15"
+      ]
+    ],
+    "id": "9d5a9965f7a4817c",
+    "z": "1f7d89a0b1ed0599",
+    "x": 760,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "change",
+    "name": "prepare for protob encoding",
+    "rules": [
+      {
+        "t": "delete",
+        "p": "parts",
+        "pt": "msg"
+      },
+      {
+        "t": "delete",
+        "p": "protobufType",
+        "pt": "msg"
+      },
+      {
+        "t": "move",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.plcPackets[0]",
+        "tot": "msg"
+      },
+      {
+        "t": "delete",
+        "p": "_msgid",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "wires": [
+      [
+        "9d5a9965f7a4817c"
+      ]
+    ],
+    "id": "e50432ebf7ee6b8e",
+    "z": "1f7d89a0b1ed0599",
+    "x": 540,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "type": "change",
+    "name": "Set leakage rate UUID",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.uuid",
+        "pt": "msg",
+        "to": "datapointLeakRate",
+        "tot": "flow",
+        "dc": true
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "wires": [
+      [
+        "e50432ebf7ee6b8e"
+      ]
+    ],
+    "id": "2a091daf8b0f7455",
+    "z": "1f7d89a0b1ed0599",
+    "x": 320,
+    "y": 560,
+    "g": "0a9cca3209ecf84e"
+  },
+  {
+    "id": "7a49aef9.46452",
+    "type": "protobuf-file",
+    "protopath": "/data/plcschema.proto",
+    "watchFile": true,
+    "keepCase": false
+  },
+  {
+    "id": "9c53fd687f954aef",
+    "type": "protobuf-file",
+    "protopath": "/data/plcschema.proto",
+    "watchFile": true,
+    "keepCase": false
+  },
+  {
+    "id": "877128a3121fd6c2",
+    "type": "mqtt-broker",
+    "name": "",
+    "broker": "emqx.mqtt.svc",
+    "port": "1883",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  }
+]
