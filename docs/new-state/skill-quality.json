@@ -590,7 +590,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "b2928dae5fded5f4",
+   "folder_hash": "1fd02c5f020e144e",
    "findings": [
     {
      "dimension": "correctness",
@@ -1193,7 +1193,7 @@
    "score": 95.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ca120f93f9ce9e91",
+   "folder_hash": "c602b0963c0911c8",
    "findings": [
     {
      "dimension": "efficiency",
@@ -2151,7 +2151,7 @@
    "score": 93.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "cde97b46a44100eb",
+   "folder_hash": "e7c795295dd1a589",
    "findings": [
     {
      "dimension": "correctness",

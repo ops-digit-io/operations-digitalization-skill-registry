@@ -11,6 +11,7 @@ import re
 import sys
 
 SECTIONS = {
+    "objective": (r"^#+\s*objective", False),
     "message": (r"^#+\s*message", True),
     "audience": (r"^#+\s*audience", True),
     "proof": (r"^#+\s*proof points", True),
