@@ -1,0 +1,792 @@
+[
+    {
+        "id": "c19915f1efdb5ff1",
+        "type": "tab",
+        "label": "Assembly Line 15 - Final Gauge - Tool ID to Partnumber",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4d2e3f179d3e3414",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4bc0e8a8d2f2b3e1",
+            "763abd64c2ef86d9",
+            "fec1be6ce89c6a05",
+            "3f164641d1d1ebba",
+            "2a513eabd8f11114",
+            "6179e4e50fa7c06e",
+            "073b34765aeda0af",
+            "c9aa47c5343e3fee"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 1052,
+        "h": 182
+    },
+    {
+        "id": "20868ada57e5e069",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7bf27640b532d022",
+            "c698892e9e68834d",
+            "6b1a583ca2c2aa3c",
+            "63430cfad1dbbe34",
+            "cbd354d6a5282854"
+        ],
+        "x": 54,
+        "y": 239,
+        "w": 1318,
+        "h": 548
+    },
+    {
+        "id": "7bf27640b532d022",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "g": "20868ada57e5e069",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "23ee2caf08c6ec85",
+            "6f8f6392f0cd7c1b",
+            "9f817920c606aeb8",
+            "2eb7eb55abf6890e",
+            "bb66d46f47cc4f41",
+            "627a395e81c5f1e9"
+        ],
+        "x": 94,
+        "y": 319,
+        "w": 1072,
+        "h": 122
+    },
+    {
+        "id": "c698892e9e68834d",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "g": "20868ada57e5e069",
+        "name": "set message filters",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2513babb37863bf5",
+            "f39025620ca466f3",
+            "b0f9544cb9a04605"
+        ],
+        "x": 94,
+        "y": 479,
+        "w": 372,
+        "h": 122
+    },
+    {
+        "id": "6b1a583ca2c2aa3c",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "g": "20868ada57e5e069",
+        "name": "lookup toolid to partnumber, including postprocessing",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4b0c19dcd39c4fb2",
+            "d106afa4ecdcc28c",
+            "5153a905caaf9b68"
+        ],
+        "x": 514,
+        "y": 479,
+        "w": 652,
+        "h": 122
+    },
+    {
+        "id": "63430cfad1dbbe34",
+        "type": "group",
+        "z": "c19915f1efdb5ff1",
+        "g": "20868ada57e5e069",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f17235fa2ef59195",
+            "db5e11f3e15b9702",
+            "25a0f1d91a81c483",
+            "effb7a8b236817a9",
+            "a64237deb272579e"
+        ],
+        "x": 94,
+        "y": 639,
+        "w": 1252,
+        "h": 122
+    },
+    {
+        "id": "4bc0e8a8d2f2b3e1",
+        "type": "inject",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "Trigger config flow",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "763abd64c2ef86d9",
+                "3f164641d1d1ebba"
+            ]
+        ]
+    },
+    {
+        "id": "763abd64c2ef86d9",
+        "type": "change",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "define configuration",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datatronName",
+                "pt": "flow",
+                "to": "PU3 Final Gauge",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointToolId",
+                "pt": "flow",
+                "to": "a0efb826-7b9a-4f40-b2bb-dcb3ad71acff",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointPartnumber",
+                "pt": "flow",
+                "to": "d229b420-d7aa-408c-8dd6-2a17b262fa89",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "073b34765aeda0af"
+            ]
+        ]
+    },
+    {
+        "id": "fec1be6ce89c6a05",
+        "type": "csv",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "",
+        "sep": "\\t",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "tool_id,internal_partnumber",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 730,
+        "y": 180,
+        "wires": [
+            [
+                "2a513eabd8f11114"
+            ]
+        ]
+    },
+    {
+        "id": "3f164641d1d1ebba",
+        "type": "template",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "mapping table for toolid to partnumber",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "text",
+        "syntax": "plain",
+        "template": "0\tLera Deconectata --> Conectati Mufa\n1\t<No value>\n2\tSistem Poka-Yoke: Lera Camera Vision\n3\tSistem Poka-Yoke: Lere 4 senzori\n4\t<No value>\n5\tSistem Poka-Yoke: Lere 5 Senzori\n6\tSistem Poka-Yoke: Lere 6 Senzori\n7\tSistem Poka-Yoke: Lere 7 Senzori\n8\tSistem Poka-Yoke: Lere 8 Senzori\n9\tSistem Poka-Yoke: Lere 9 Senzori\n10\tSistem Poka-Yoke: Lere 10 Senzori\n11\tAC.W40-0000-0519\n12\tAC.W40-0000-0520\n13\tAC.W40-0000-3602\n14\tAC.W40-0000-3603\n15\tAC.W40-0000-0637\n16\tAC.W40-0000-0638\n17\tAC.W40--0000-0530\n18\tAC.W40-0000-0534\n19\tAC.W40-0000-0531\n20\tAC.W40-0000-0529\n21\tAC.W40-0000-2037\n22\tAC.W40-0000-2052\n23\tAC.W40-0000-0533\n24\tAC.W40-0000-2105\n25\tAC.W40-0000-0641\n26\tAC.W40-0000-0642\n27\tAC.W40-0000-0639\n28\tAC.W40-0000-0640\n29\tAC.W40-0000-0703\n30\tAC.W40-0000-0704\n31\tAC.W40-0000-0738\n32\tAC.W40-0000-0728\n33\tAC.W40-0000-0741\n34\tAC.W40-0000-0705\n36\tAC.W40-0000-3402\n37\tAC.W40-0000-6417\n38\tAC.W10-0798-0800T\n39\tAC.W10-0806-0700T\n40\tAC.W10-0860-0500T\n41\tAC.W40-0000-3403\n42\tAC.W40-0000-0526\n43\tAC.W40-0000-0525\n44\tAC.W40-0000-2105-07\n45\tAC.W40-0000-3431\n46\tAC.W40-0000-0523\n47\tAC.W40-0000-0524\n48\tAC.W40-0000-4349\n49\tAC.W40-0000-4696\n50\tAC.W40-0000-8405\n51\tAC.W020-0596.0300T\n53\tAC.W40-0000-2228\n52\tAC.W020-0597.0300T",
+        "output": "str",
+        "x": 490,
+        "y": 180,
+        "wires": [
+            [
+                "fec1be6ce89c6a05"
+            ]
+        ]
+    },
+    {
+        "id": "2a513eabd8f11114",
+        "type": "change",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "move to flow variable",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tableConfig",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6179e4e50fa7c06e",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "config flow",
+        "info": "",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "23ee2caf08c6ec85",
+        "type": "mqtt in",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/datatron-pink/tia/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a5b9953ab68b73bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "9f817920c606aeb8"
+            ]
+        ]
+    },
+    {
+        "id": "6f8f6392f0cd7c1b",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "connect to mqtt and filter for toolId signal",
+        "info": "",
+        "x": 280,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9f817920c606aeb8",
+        "type": "decode",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "Decode Protobuf",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "2eb7eb55abf6890e"
+            ]
+        ]
+    },
+    {
+        "id": "2dbdd9b4a1b61dd8",
+        "type": "catch",
+        "z": "c19915f1efdb5ff1",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "126cb883d477449a"
+            ]
+        ]
+    },
+    {
+        "id": "618f10a8147d9d50",
+        "type": "debug",
+        "z": "c19915f1efdb5ff1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "901c5b893d37e0f7",
+        "type": "template",
+        "z": "c19915f1efdb5ff1",
+        "name": "create error message",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "[error] flow_id: {{flow_id}}, flow_name: {{flow_name}}, node_id: {{error.source.id}}, node_name: {{error.source.name}},  {{error.message}}",
+        "output": "str",
+        "x": 620,
+        "y": 860,
+        "wires": [
+            [
+                "618f10a8147d9d50"
+            ]
+        ]
+    },
+    {
+        "id": "126cb883d477449a",
+        "type": "change",
+        "z": "c19915f1efdb5ff1",
+        "name": "get env variables of flow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "flow_id",
+                "pt": "msg",
+                "to": "$env('NR_FLOW_ID')",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "flow_name",
+                "pt": "msg",
+                "to": "$env('NR_FLOW_NAME')",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 860,
+        "wires": [
+            [
+                "901c5b893d37e0f7"
+            ]
+        ]
+    },
+    {
+        "id": "2eb7eb55abf6890e",
+        "type": "function",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "filter uuids",
+        "func": "uuids = flow.get('datapointToolId')\n\n// filter for uuid\nconst results = msg.payload.plcPackets.filter(plcPacket => uuids.includes(plcPacket.uuid))\n\n// publish results\nmsg.payload = results\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "bb66d46f47cc4f41"
+            ]
+        ]
+    },
+    {
+        "id": "bb66d46f47cc4f41",
+        "type": "split",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "flatten array",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 990,
+        "y": 400,
+        "wires": [
+            [
+                "627a395e81c5f1e9"
+            ]
+        ]
+    },
+    {
+        "id": "627a395e81c5f1e9",
+        "type": "link out",
+        "z": "c19915f1efdb5ff1",
+        "g": "7bf27640b532d022",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "b0f9544cb9a04605"
+        ],
+        "x": 1125,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b0f9544cb9a04605",
+        "type": "link in",
+        "z": "c19915f1efdb5ff1",
+        "g": "c698892e9e68834d",
+        "name": "link in 1",
+        "links": [
+            "627a395e81c5f1e9"
+        ],
+        "x": 145,
+        "y": 560,
+        "wires": [
+            [
+                "f39025620ca466f3"
+            ]
+        ]
+    },
+    {
+        "id": "2513babb37863bf5",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "c698892e9e68834d",
+        "name": "set filters",
+        "info": "",
+        "x": 180,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f39025620ca466f3",
+        "type": "change",
+        "z": "c19915f1efdb5ff1",
+        "g": "c698892e9e68834d",
+        "name": "convert string to number",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.valueInteger",
+                "pt": "msg",
+                "to": "$number(payload.valueInteger)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "4b0c19dcd39c4fb2"
+            ]
+        ]
+    },
+    {
+        "id": "4b0c19dcd39c4fb2",
+        "type": "function",
+        "z": "c19915f1efdb5ff1",
+        "g": "6b1a583ca2c2aa3c",
+        "name": "lookup toolId to partnumber",
+        "func": "const lookup = flow.get(\"tableConfig\")\n\nconst match = msg.payload.valueInteger\n\nconst check = lookup.filter(e => e.tool_id == match)\n\nif (check.length > 0) {\n    msg.payload.valueString = check[0].internal_partnumber\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 560,
+        "wires": [
+            [
+                "5153a905caaf9b68"
+            ]
+        ]
+    },
+    {
+        "id": "d106afa4ecdcc28c",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "6b1a583ca2c2aa3c",
+        "name": "lookup toolid to partnumber",
+        "info": "",
+        "x": 650,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5153a905caaf9b68",
+        "type": "link out",
+        "z": "c19915f1efdb5ff1",
+        "g": "6b1a583ca2c2aa3c",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "cccfa56e4b30d884",
+            "319ef13622aebaf7",
+            "f17235fa2ef59195"
+        ],
+        "x": 1125,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "073b34765aeda0af",
+        "type": "function",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "Debug flow config",
+        "func": "var flowKeys = { };\n\n\nvar payload = {\n    datatronName: flow.get('datatronName'),\n    datapointToolId: flow.get('datapointToolId'),\n    datapointPartnumber: flow.get('datapointPartnumber'),\n    tableConfig: flow.get('tableConfig')\n};\n\nreturn { \n    payload: payload,\n    debugInfo: \"Added flow configuration\"\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "c9aa47c5343e3fee"
+            ]
+        ]
+    },
+    {
+        "id": "c9aa47c5343e3fee",
+        "type": "debug",
+        "z": "c19915f1efdb5ff1",
+        "g": "4d2e3f179d3e3414",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f17235fa2ef59195",
+        "type": "link in",
+        "z": "c19915f1efdb5ff1",
+        "g": "63430cfad1dbbe34",
+        "name": "link in 2",
+        "links": [
+            "5153a905caaf9b68"
+        ],
+        "x": 145,
+        "y": 720,
+        "wires": [
+            [
+                "db5e11f3e15b9702"
+            ]
+        ]
+    },
+    {
+        "id": "db5e11f3e15b9702",
+        "type": "change",
+        "z": "c19915f1efdb5ff1",
+        "g": "63430cfad1dbbe34",
+        "name": "delete valueInteger | replace uuid | move to array",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.valueInteger",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.uuid",
+                "pt": "msg",
+                "to": "datapointPartnumber",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload.sysTime",
+                "pt": "msg",
+                "to": "$number(payload.sysTime)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.plcPackets[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 720,
+        "wires": [
+            [
+                "25a0f1d91a81c483"
+            ]
+        ]
+    },
+    {
+        "id": "25a0f1d91a81c483",
+        "type": "encode",
+        "z": "c19915f1efdb5ff1",
+        "g": "63430cfad1dbbe34",
+        "name": "Encode Protobuf",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 790,
+        "y": 720,
+        "wires": [
+            [
+                "a64237deb272579e"
+            ]
+        ]
+    },
+    {
+        "id": "effb7a8b236817a9",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "63430cfad1dbbe34",
+        "name": "transform final message",
+        "info": "",
+        "x": 220,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "a64237deb272579e",
+        "type": "mqtt out",
+        "z": "c19915f1efdb5ff1",
+        "g": "63430cfad1dbbe34",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/datatron-pink/tia/10",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a5b9953ab68b73bb",
+        "x": 1150,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "cbd354d6a5282854",
+        "type": "comment",
+        "z": "c19915f1efdb5ff1",
+        "g": "20868ada57e5e069",
+        "name": "functional flow",
+        "info": "",
+        "x": 150,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a5b9953ab68b73bb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "emqx.mqtt.svc",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7a49aef9.46452",
+        "type": "protobuf-file",
+        "protopath": "/data/plcschema.proto",
+        "watchFile": true,
+        "keepCase": false
+    }
+]

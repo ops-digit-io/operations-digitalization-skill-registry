@@ -30,6 +30,7 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
@@ -92,6 +93,9 @@ The report fills what is derivable; context sections stay `⟨…⟩` placeholde
 
 ## Handoff
 
+Where the machine does not deliver the standard signal directly, hand the derivation to `od-node-red-flow-builder` as a rule-engine spec (pattern, inputs, output name and unit, priority order for states) - see [`normalization-in-flows.md`](references/normalization-in-flows.md).
+
+
 | To | Carries |
 |---|---|
 | `od-node-red-flow-builder` (flow config contract) | Canonical names, units, collection method, derived outputs to register; also feeds `od-requirements-breakdown` section 5 (Tags of Interest) |
@@ -123,6 +127,7 @@ How the machine works written down; sources used and confidence recorded; signal
 
 | File | Open when |
 |---|---|
+| [`references/normalization-in-flows.md`](references/normalization-in-flows.md) | Which rule-engine pattern turns a standardization decision into a calculated datapoint, with the department's production examples |
 | [`procedure-detail.md`](references/procedure-detail.md) | Analyser checks, contract, classes, the four things, step detail |
 | [`signal-catalogue.md`](references/signal-catalogue.md) | Canonical vocabulary, naming rules, what must never be a signal name |
 | [`standards.md`](references/standards.md) | KPI definitions (ISO 22400-2, VDI 3423, ISA-95, ISO 22005) and capability checklists |

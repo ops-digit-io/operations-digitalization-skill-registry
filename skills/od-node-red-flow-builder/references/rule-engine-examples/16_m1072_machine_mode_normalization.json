@@ -1,0 +1,1069 @@
+[
+    {
+        "id": "11fae8b8a00c2c6f",
+        "type": "tab",
+        "label": "(OK) Rosenberger Double Head (with Robot) - M1072 (EQ40015929) - Machine Mode Normalization",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ae69c8b28cea9a1b",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "name": "config flow ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "fdc3c43e7f23f4a2",
+            "f3db340b4eee8c2b",
+            "706efb7d26fca023",
+            "426c1630254a3ece",
+            "b941fbc073afeab1"
+        ],
+        "x": 34,
+        "y": 33,
+        "w": 912,
+        "h": 174
+    },
+    {
+        "id": "05d2a9e9bc619939",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "bf055185c0d54860",
+            "24d036df14512be5",
+            "f2a962792ec65110",
+            "a5f7233d54a3d29a",
+            "59df061e3fd79b7d",
+            "aadb84551e1b5d87",
+            "1e69dbb8e5015c77"
+        ],
+        "x": 34,
+        "y": 259,
+        "w": 1698,
+        "h": 848
+    },
+    {
+        "id": "b941fbc073afeab1",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "ae69c8b28cea9a1b",
+        "name": "set inputs for config flow",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "306db626bff47e87",
+            "96dc62a67e95baa4"
+        ],
+        "x": 254,
+        "y": 59,
+        "w": 232,
+        "h": 122
+    },
+    {
+        "id": "24d036df14512be5",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "name": "mqtt connection and message decoding",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "87217f67c01e9654",
+            "c1bce8f3a2acf7e3",
+            "446c3280171c0e58",
+            "6fa778da4b99575a",
+            "366516aac3b8541a",
+            "a7022619b9cae90a",
+            "2bdb7133fb9fa0b6"
+        ],
+        "x": 74,
+        "y": 339,
+        "w": 1632,
+        "h": 122
+    },
+    {
+        "id": "f2a962792ec65110",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "name": "prepare and convert payload",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "64c48dcc4203b176",
+            "d765a528b26c6772",
+            "a66aa99c6510a8e8",
+            "40c8c0751b3129f9",
+            "ec312e358d3e802a"
+        ],
+        "x": 74,
+        "y": 959,
+        "w": 1012,
+        "h": 122
+    },
+    {
+        "id": "a5f7233d54a3d29a",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "name": "message encoding and connection",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "560d7cced8d5a5d6",
+            "dc779504d4f704c7",
+            "b3e8d1971ae1ef4e"
+        ],
+        "x": 1114,
+        "y": 959,
+        "w": 592,
+        "h": 122
+    },
+    {
+        "id": "aadb84551e1b5d87",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8ea103d165410187",
+            "c7f29adf56444182",
+            "a3c49c296df1aca7",
+            "d1bd08c5c5c3ae2a",
+            "e5b17f2ff58a9882",
+            "c41877ad9cd70bd6",
+            "cf13b4106b62e709",
+            "37dd7339da850777",
+            "35c24e13cb4385c7",
+            "6003a1505c0a82fe",
+            "5e56255acdc84821",
+            "d48d7438d461157e"
+        ],
+        "x": 74,
+        "y": 479,
+        "w": 1292,
+        "h": 282
+    },
+    {
+        "id": "1e69dbb8e5015c77",
+        "type": "group",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "25ce2ecbd8d9e174",
+            "7a91228a2e249401",
+            "bea5f998ee1f5ccb"
+        ],
+        "x": 574,
+        "y": 779,
+        "w": 652,
+        "h": 122
+    },
+    {
+        "id": "fdc3c43e7f23f4a2",
+        "type": "inject",
+        "z": "11fae8b8a00c2c6f",
+        "g": "ae69c8b28cea9a1b",
+        "name": "Trigger once",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "96dc62a67e95baa4"
+            ]
+        ]
+    },
+    {
+        "id": "f3db340b4eee8c2b",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "ae69c8b28cea9a1b",
+        "name": "config flow",
+        "info": "# Configuration Flow\nConfiguration flow for settings and debugging of entered config.\n\n---\n\n## Information Input\nThe following information set needs to be set as flow variables to be available within the complete workflow:\n\n**Get Variable Configuration:**\n1. `datatronName`: String that defines the `datatronName` for the variable query (shall contain one datatron name)\n3. `plcName`: String that defines the `plcName` (if multiple plcs of one edge device necessary, please enter a string that matches all `plcNames`)\n4. `alertVariableName`: String that can be used to query the available tag list per datatron\n5. `url`: String that defines base url to query the necessary variables (e.g. http://<datatron-api-host>/api/datatrons) [hint: see swagger documentation if necessary]\n6. `headers`: JSON that defines the necessary headers, in this case the Bearer Token is necessary\n8. `datapointConfig`: Array with objects where `uuid` and `label` per variable are defined (query based on `datatronName`, `plcName` and `alertVariableName`)\n\n**Set Error Message Mapping:**\n1. `alertmessageConfig`: Array with objects where `error_number` and `error_message` are defined\n\n---\n\n## Debug Flow Config\nGeneral function to get a debug notification, how the configuration flow is set up and which information set was entered there.",
+        "x": 120,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "706efb7d26fca023",
+        "type": "function",
+        "z": "11fae8b8a00c2c6f",
+        "g": "ae69c8b28cea9a1b",
+        "name": "Debug flow config",
+        "func": "var flowKeys = { };\n\n\nvar payload = {\n    datatronName: flow.get('datatronName'),\n    datapointMachineModeAutomatic: flow.get('datapointMachineModeAutomatic'),\n    datapointMachineModeManual: flow.get('datapointMachineModeManual'),\n    datapointMachineModeSingleStep: flow.get('datapointMachineModeSingleStep'),\n    datapointMachineModeDiagnostic: flow.get('datapointMachineModeDiagnostic'),\n    datapointMachineModeNormalized: flow.get('datapointMachineModeNormalized'),\n    datapointMachineModeFault: flow.get('datapointMachineModeFault')\n};\n\nreturn { \n    payload: payload,\n    debugInfo: \"Added flow configuration\"\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "426c1630254a3ece"
+            ]
+        ]
+    },
+    {
+        "id": "426c1630254a3ece",
+        "type": "debug",
+        "z": "11fae8b8a00c2c6f",
+        "g": "ae69c8b28cea9a1b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "306db626bff47e87",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "b941fbc073afeab1",
+        "name": "set necessary input",
+        "info": "",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "96dc62a67e95baa4",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "b941fbc073afeab1",
+        "name": "Set flow config",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datatronName",
+                "pt": "flow",
+                "to": "eq40015929",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeAutomatic",
+                "pt": "flow",
+                "to": "ccf2f877-afbf-4f68-935d-0d916b8935be",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeManual",
+                "pt": "flow",
+                "to": "60622a55-8ee7-4c97-8098-229eb199d04f",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeSingleStep",
+                "pt": "flow",
+                "to": "9a4e52ee-cb81-471d-beb7-5bde245f5322",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeDiagnostic",
+                "pt": "flow",
+                "to": "d243695f-cdd7-402d-b33b-eb46c918bcb4",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeFault",
+                "pt": "flow",
+                "to": "5b62b694-645e-4755-8f3a-698ee2560e2e",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "datapointMachineModeNormalized",
+                "pt": "flow",
+                "to": "3f6e799d-f255-46d9-b248-ca127ae915fc",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "706efb7d26fca023"
+            ]
+        ]
+    },
+    {
+        "id": "bf055185c0d54860",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "name": "functional flow",
+        "info": "# Configuration Flow\nConfiguration flow for settings and debugging of entered config.\n\n## Information Input\nThe following information set needs to be set as \"flow\" variables to be available within the complete workflow.\n\n1. UUID for serialnumber for later message filter\n2. Machine ID from QFPR, to address right API endpoint\n3. URL from QFPR, to address right URL and API\n\n## Debug Flow Config\nGeneral function to get a debug notification, how the configuration flow is set up and which information set was entered there.",
+        "x": 130,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "87217f67c01e9654",
+        "type": "mqtt in",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/datatron-eq40015929/cifx/#",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "a5b9953ab68b73bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "c1bce8f3a2acf7e3"
+            ]
+        ]
+    },
+    {
+        "id": "c1bce8f3a2acf7e3",
+        "type": "decode",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "DecodeProto",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "a7022619b9cae90a"
+            ]
+        ]
+    },
+    {
+        "id": "446c3280171c0e58",
+        "type": "split",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "flatten PLCPacket Array",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 950,
+        "y": 420,
+        "wires": [
+            [
+                "2bdb7133fb9fa0b6"
+            ]
+        ]
+    },
+    {
+        "id": "6fa778da4b99575a",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "connect to MQTT and decode messages",
+        "info": "",
+        "x": 260,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "366516aac3b8541a",
+        "type": "link out",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "c7f29adf56444182"
+        ],
+        "x": 1665,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a7022619b9cae90a",
+        "type": "function",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "filter uuids",
+        "func": "// get flow variable\nconst uuids =   [flow.get('datapointMachineModeAutomatic'),flow.get('datapointMachineModeDiagnostic'),flow.get('datapointMachineModeManual'),\n                 flow.get('datapointMachineModeNormalized'),flow.get('datapointMachineModeSingleStep'),flow.get('datapointMachineModeFault')]\n\n// filter for uuid\nconst results = msg.payload.plcPackets.filter(plcPacket => uuids.includes(plcPacket.uuid))\n\n// publish results\nmsg.payload = results\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 420,
+        "wires": [
+            [
+                "446c3280171c0e58"
+            ]
+        ],
+        "info": "1. loop over msg.payload.plcPackets each\n2. skip if uuid (or other filters) does not match\n3. emit entire plcPackets if uuid matches"
+    },
+    {
+        "id": "2bdb7133fb9fa0b6",
+        "type": "function",
+        "z": "11fae8b8a00c2c6f",
+        "g": "24d036df14512be5",
+        "name": "Convert sysTime (UTC timestamp)",
+        "func": "var sysTime = msg.payload.sysTime\n\nconst seconds_epoch = Number(BigInt(sysTime) >> 32n) // keep only first four bytes (seconds since epoch = 1.1.1970)\nconst nanos = Number(BigInt(sysTime) & 0xFFFFFFFFn)  // keep only last four bytes\nconst millis = Math.round(nanos / 1e6)\nconst millis_epoch = seconds_epoch * 1000 + millis //this is UTC\n//const timestamp = new Date(millis_epoch) // this is most likely in UTC!\n\n\nmsg.payload.sysTime = millis_epoch\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 420,
+        "wires": [
+            [
+                "366516aac3b8541a"
+            ]
+        ]
+    },
+    {
+        "id": "64c48dcc4203b176",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "f2a962792ec65110",
+        "name": "prepare for protob encoding",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "parts",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "protobufType",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.plcPackets[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_msgid",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "ec312e358d3e802a"
+            ]
+        ]
+    },
+    {
+        "id": "d765a528b26c6772",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "f2a962792ec65110",
+        "name": "format msg.payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.isDelta",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "payload.plcTime",
+                "pt": "msg",
+                "to": "$number(msg.payload.plcTime)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.uuid",
+                "pt": "msg",
+                "to": "datapointMachineModeNormalized",
+                "tot": "flow"
+            },
+            {
+                "t": "delete",
+                "p": "payload.valueBool",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 1040,
+        "wires": [
+            [
+                "64c48dcc4203b176"
+            ]
+        ]
+    },
+    {
+        "id": "a66aa99c6510a8e8",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "f2a962792ec65110",
+        "name": "prepare and convert payload",
+        "info": "",
+        "x": 220,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "40c8c0751b3129f9",
+        "type": "link in",
+        "z": "11fae8b8a00c2c6f",
+        "g": "f2a962792ec65110",
+        "name": "",
+        "links": [
+            "bf5301cb2ff8d5f0",
+            "ca946915ccca1c35",
+            "59df061e3fd79b7d"
+        ],
+        "x": 115,
+        "y": 1040,
+        "wires": [
+            [
+                "d765a528b26c6772"
+            ]
+        ]
+    },
+    {
+        "id": "ec312e358d3e802a",
+        "type": "function",
+        "z": "11fae8b8a00c2c6f",
+        "g": "f2a962792ec65110",
+        "name": "Convert sysTime back (UTC timestamp)",
+        "func": "//var sysTime = msg.payload.plcPackets[0].sysTime\nconst dt_new = new Date( )\nconst dt = dt_new.getTime()\n\n\nconst in_left = Math.round(dt/1000)\nconst nanos = BigInt(in_left) << 32n | BigInt(dt_new.getMilliseconds() * 1e6)\n\nconst nanos_c = Number(nanos)\n\nmsg.payload.plcPackets[0].sysTime = nanos_c\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1040,
+        "wires": [
+            [
+                "b3e8d1971ae1ef4e"
+            ]
+        ]
+    },
+    {
+        "id": "560d7cced8d5a5d6",
+        "type": "mqtt out",
+        "z": "11fae8b8a00c2c6f",
+        "g": "a5f7233d54a3d29a",
+        "name": "",
+        "topic": "datatroniq/data/protob/plc/eq40015929/cifx",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a5b9953ab68b73bb",
+        "x": 1510,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "dc779504d4f704c7",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "a5f7233d54a3d29a",
+        "name": "encode and publish to MQTT",
+        "info": "",
+        "x": 1260,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "b3e8d1971ae1ef4e",
+        "type": "encode",
+        "z": "11fae8b8a00c2c6f",
+        "g": "a5f7233d54a3d29a",
+        "name": "EncodeProto",
+        "protofile": "7a49aef9.46452",
+        "protoType": "PLCPacketList",
+        "x": 1210,
+        "y": 1040,
+        "wires": [
+            [
+                "560d7cced8d5a5d6"
+            ]
+        ]
+    },
+    {
+        "id": "59df061e3fd79b7d",
+        "type": "link out",
+        "z": "11fae8b8a00c2c6f",
+        "g": "05d2a9e9bc619939",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "40c8c0751b3129f9"
+        ],
+        "x": 1675,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "25ce2ecbd8d9e174",
+        "type": "function",
+        "z": "11fae8b8a00c2c6f",
+        "g": "1e69dbb8e5015c77",
+        "name": "get current machine mode (as string)",
+        "func": "var datapointMachineModeAutomaticValue = flow.get('datapointMachineModeAutomaticValue')\nvar datapointMachineModeDiagnosticValue = flow.get('datapointMachineModeDiagnosticValue')\nvar datapointMachineModeManualValue = flow.get('datapointMachineModeManualValue')\nvar datapointMachineModeSingleStepValue = flow.get('datapointMachineModeSingleStepValue')\nvar datapointMachineModeFaultValue = flow.get('datapointMachineModeFaultValue')\n\nif(datapointMachineModeAutomaticValue == true && datapointMachineModeManualValue == false && datapointMachineModeDiagnosticValue == false && datapointMachineModeSingleStepValue == false && datapointMachineModeFaultValue\t== false){\n    msg.payload.valueString = \"Automatic Mode\"    \n    return msg\n}\nif(datapointMachineModeAutomaticValue == false && datapointMachineModeManualValue == true && datapointMachineModeDiagnosticValue == false && datapointMachineModeSingleStepValue == false && datapointMachineModeFaultValue\t== false){\n    msg.payload.valueString = \"Manual Mode\"    \n    return msg\n}\nif(datapointMachineModeAutomaticValue == false && datapointMachineModeManualValue == false && datapointMachineModeDiagnosticValue == true && datapointMachineModeSingleStepValue == false && datapointMachineModeFaultValue\t== false){\n    msg.payload.valueString = \"Diagnostic Mode\"    \n    return msg\n}\nif(datapointMachineModeAutomaticValue == false && datapointMachineModeManualValue == false && datapointMachineModeDiagnosticValue == false && datapointMachineModeSingleStepValue == true && datapointMachineModeFaultValue\t== false){\n    msg.payload.valueString = \"Single Step Mode\"    \n    return msg\n}\nif(datapointMachineModeAutomaticValue == false && datapointMachineModeManualValue == false && datapointMachineModeDiagnosticValue == false && datapointMachineModeSingleStepValue == false && datapointMachineModeFaultValue == true){\n    msg.payload.valueString = \"Fault Mode\"    \n    return msg\n}\nelse{\n    msg.payload.valueString = \"undefined\"\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
+                "bea5f998ee1f5ccb"
+            ]
+        ]
+    },
+    {
+        "id": "8ea103d165410187",
+        "type": "switch",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "datapointMachineModeAutomatic",
+        "property": "payload.uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "datapointMachineModeAutomatic",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 560,
+        "wires": [
+            [
+                "cf13b4106b62e709"
+            ]
+        ]
+    },
+    {
+        "id": "c7f29adf56444182",
+        "type": "link in",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "links": [
+            "366516aac3b8541a"
+        ],
+        "x": 115,
+        "y": 560,
+        "wires": [
+            [
+                "8ea103d165410187",
+                "a3c49c296df1aca7",
+                "d1bd08c5c5c3ae2a",
+                "e5b17f2ff58a9882",
+                "5e56255acdc84821",
+                "25ce2ecbd8d9e174"
+            ]
+        ]
+    },
+    {
+        "id": "a3c49c296df1aca7",
+        "type": "switch",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "datapointMachineModeDiagnostic",
+        "property": "payload.uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "datapointMachineModeDiagnostic",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "37dd7339da850777"
+            ]
+        ]
+    },
+    {
+        "id": "d1bd08c5c5c3ae2a",
+        "type": "switch",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "datapointMachineModeManual",
+        "property": "payload.uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "datapointMachineModeManual",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 640,
+        "wires": [
+            [
+                "35c24e13cb4385c7"
+            ]
+        ]
+    },
+    {
+        "id": "e5b17f2ff58a9882",
+        "type": "switch",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "datapointMachineModeSingleStep",
+        "property": "payload.uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "datapointMachineModeSingleStep",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 680,
+        "wires": [
+            [
+                "6003a1505c0a82fe"
+            ]
+        ]
+    },
+    {
+        "id": "c41877ad9cd70bd6",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "filter machine modes and store temporary",
+        "info": "",
+        "x": 260,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cf13b4106b62e709",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datapointMachineModeAutomaticValue",
+                "pt": "flow",
+                "to": "payload.valueBool",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37dd7339da850777",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datapointMachineModeDiagnosticValue",
+                "pt": "flow",
+                "to": "payload.valueBool",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35c24e13cb4385c7",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datapointMachineModeManualValue",
+                "pt": "flow",
+                "to": "payload.valueBool",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6003a1505c0a82fe",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datapointMachineModeSingleStepValue",
+                "pt": "flow",
+                "to": "payload.valueBool",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e56255acdc84821",
+        "type": "switch",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "datapointMachineModeFault",
+        "property": "payload.uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "datapointMachineModeFault",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 720,
+        "wires": [
+            [
+                "d48d7438d461157e"
+            ]
+        ]
+    },
+    {
+        "id": "d48d7438d461157e",
+        "type": "change",
+        "z": "11fae8b8a00c2c6f",
+        "g": "aadb84551e1b5d87",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datapointMachineModeFaultValue",
+                "pt": "flow",
+                "to": "payload.valueBool",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a91228a2e249401",
+        "type": "comment",
+        "z": "11fae8b8a00c2c6f",
+        "g": "1e69dbb8e5015c77",
+        "name": "function to determine machine mode",
+        "info": "",
+        "x": 740,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "bea5f998ee1f5ccb",
+        "type": "rbe",
+        "z": "11fae8b8a00c2c6f",
+        "g": "1e69dbb8e5015c77",
+        "name": "filter on change",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "msg.payload.valueString",
+        "topi": "topic",
+        "x": 1120,
+        "y": 860,
+        "wires": [
+            [
+                "59df061e3fd79b7d"
+            ]
+        ]
+    },
+    {
+        "id": "a5b9953ab68b73bb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "emqx.mqtt.svc",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7a49aef9.46452",
+        "type": "protobuf-file",
+        "protopath": "/data/plcschema.proto",
+        "watchFile": true,
+        "keepCase": false
+    }
+]

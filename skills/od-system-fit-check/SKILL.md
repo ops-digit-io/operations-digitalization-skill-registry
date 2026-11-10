@@ -27,6 +27,7 @@ metadata:
   requires: [od-context]
   composes: [od-decision-routing, od-use-case-solution-evaluation, it-demand-package, deploy-appstore, od-equipment-integration, od-prototype-poc]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/investment-checking.zip (SKILL.md, reference/*; newer than the unnamed copy zi0XqsQv), read 2026-11-10"
     - personal vault, Work-OpsDigit-Knowledge/_knowledge/OperationsDigitalization-Department/00-core/02-strategy.md (the non-bets, bets and kill criteria, verbatim), read 2026-10-23.
     - personal vault, Work-OpsDigit-Knowledge/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (P-02's own scope statement and deployment-reality framing), read 2026-10-23.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-12-1.1-OnePager-System_Overview*.pptx (the per-tool is/is-not boundary cards, integration-recommended-if criteria, real cost estimates), read 2026-10-22.
@@ -59,6 +60,8 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 | File | Use it for |
 |---|---|
 | [`references/tool-decision-gate.md`](references/tool-decision-gate.md) | The Lane 3 gate: IT-footprint hard gate, route to 3a.1-3a.4 or 3b, OD x IT sourcing principles, verdict words |
+| [`references/software-footprint-gate.md`](references/software-footprint-gate.md), [`decision-criteria.md`](references/decision-criteria.md) | The department package's 8-point footprint gate, six scored criteria and verdict taxonomy |
+| [`references/investment-checking-workflow.md`](references/investment-checking-workflow.md), [`screening-method.md`](references/screening-method.md), [`department-questions.md`](references/department-questions.md), [`review-template.md`](references/review-template.md) | The whole-list investment screen of the department package `investment-checking` (the master) |
 | [`references/od-application-consulting/procedure.md`](references/od-application-consulting/procedure.md) | Absorbed: the solution design recommendation for an application question (formerly `od-application-consulting`) |
 | [`references/non-bets.md`](references/non-bets.md) | The department's own choice architecture — what is deliberately not pursued, the trade-offs behind it, and the kill criteria attached to what *is* pursued |
 | [`references/tool-boundaries.md`](references/tool-boundaries.md) | What each lightweight tool (QFPR, MDA/PDA, MIL, Camline, WiriTec) is and is not for, in the department's own words — the actual tell, per tool |
@@ -120,14 +123,23 @@ In Lane 3 this skill is the department's mandatory **tool-decision / IT-footprin
 (`investment-screening`). No demand leaves the front-end without it. Run the intake check above first,
 then [`references/tool-decision-gate.md`](references/tool-decision-gate.md):
 
-1. **Software and IT-footprint hard gate.** Shipped PC or controller, framework, exposed endpoints,
-   licence owner, hosting, data ownership, standard interface, Cyber Security status. Any open point
-   blocks.
+1. **Software and IT-footprint hard gate** - the department's 8-point checklist in
+   [`software-footprint-gate.md`](references/software-footprint-gate.md). Any open point blocks.
 2. **Route** to 3a.1 reuse, 3a.2 self-develop, 3a.3 external build (guided buy), 3a.4 integrate a
    foreign app, or 3b new connector, using the OD x IT sourcing principles (solution-design stage
    first; build in-house only where the know-how is manufacturing's own; prefer cloud services, open
    source and the CMO deployment path; judge external builds on multi-year TCO).
-3. **Verdict** in the department's words: Go, PoC-first, Reduce-complexity, Hold, Blocked, Engage.
+3. **Score** the six decision criteria ([`decision-criteria.md`](references/decision-criteria.md)) with the sub-scores
+   visible, then give the **verdict** in the department's words: Go, PoC-first, Reduce-complexity, Hold, Reject,
+   Blocked (Engage where OD should join an equipment invest), with one decisive reason.
+
+**Whole-list investment screen.** When the input is the MPEE Invest and Cost Planning list rather than one demand,
+run the department's `investment-checking` workflow ([`investment-checking-workflow.md`](references/investment-checking-workflow.md)):
+classify every row OD-owned / touching / interlock / not with the involvement lexicon and de-noise rule
+([`screening-method.md`](references/screening-method.md)), run the footprint gate and the scored gate per relevant row,
+put the open points to the department ([`department-questions.md`](references/department-questions.md)), and write the
+review grouped by region, one controlling cycle per region ([`review-template.md`](references/review-template.md)).
+Read-only: recommend, never decide.
 
 For an application question that needs a full solution design recommendation (which existing tool or
 app covers it, how the data reaches it, who runs it afterwards), run the absorbed procedure in

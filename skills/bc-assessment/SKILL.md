@@ -27,6 +27,9 @@ metadata:
     - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/Business-Cases (README house standard, _template), read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/bc-assessment.zip (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/BC-Assessment-Skill/use-case-input-questionnaire.md, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Business case assessment
@@ -38,44 +41,52 @@ metadata:
 
 Read `od-context` first. The department's `bc-assessment`: it scores a case, it does not build one. **Governance stays
 separate from build** (department naming convention): the person who built the case in `od-benefit-calculation` does not
-assess it. The full house rubric (core gates C1 to C5 and the D and E criteria) is in the department's
-`bc-assessment` package, which is the master; this skill runs the checks the department documents name and
-marks the rubric items it cannot see as ⟨to transcribe from the package⟩.
+assess it. The rubric below is the department package's own (`30-skills/bc-assessment.zip`, transcribed into
+[`references/`](references/)); the package stays the master.
 
 ## Inputs and output
 
-- **Inputs:** the value backbone (`od-benefit-calculation`, `business-case-backbone.md`), the investment estimate (`od-investment-input`).
-- **Output:** a scored assessment (pass / partial / gap per criterion, with the reason visible), a ranked open-question
-  list, and a maturity-gate verdict. The department renders it as its standard one-pager deck plus a provenance and
-  conflict backup slide.
+- **Inputs:** the value backbone `business-case.md` (`od-benefit-calculation`, `business-case-backbone.md`), the
+  investment estimate (`od-investment-input`), the raw inputs of the case (transcripts, mockups, reference drafts,
+  cross-checks), and if present the intake questionnaire [`assets/use-case-input-questionnaire.md`](assets/use-case-input-questionnaire.md) (sections A-L).
+- **Output:** `bc-assessment-report.md` next to the case: the scorecard (criterion, verdict, evidence, note), the
+  conflict register, the maturity-gate verdict and the ranked open questions; optionally the standard one-pager deck
+  (9 slides plus the provenance backup slide). All generated files in English.
 
-## The checks (from the department's house standard)
+## The rubric ([`references/criteria-checklist.md`](references/criteria-checklist.md))
 
-| Check | Pass when |
+Score every criterion **pass / partial / gap** with evidence (file and section). A gap on any C criterion blocks signing.
+
+| Group | Criteria |
 |---|---|
-| Grounding | Every figure carries `[input]`, `[assumption]`, `[market]` or `[unknown]` |
-| Value and cost apart | Cost lives in the investment estimate; nothing netted into the value headline |
-| Headline | `~ EXPECTED / plant / yr (min / potential)`; expected is the grounded, bankable value |
-| Lever register | Every euro has a lever ID (H1…, O1…) with formula and driver; no lump sums |
-| De-banking | No banked number on a high-impact lever resting on an `[unknown]`; it is a ring-fenced sensitivity and the top open question |
-| Hard and optional apart | Never summed into one headline |
-| Bankable vs assumption-dependent | Stated apart, with the investment envelope, minimum viable rollout, maximum scale-out and TCO (OD x IT, 2026-09-11) |
-| Milestones | SMART, gated, with the gate at which each lever's value unlocks; dates after approval |
-| Provenance and conflicts | Every source listed; every conflict between sources visible with an owner |
-| Core gates C1-C5, criteria D and E | ⟨to transcribe from the bc-assessment package⟩ |
+| **C - core integrity** | C1 value-only separation (cost in the investment estimate, never netted) · C2 grounding tag on every figure · C3 expected and potential kept apart (`~ EXPECTED (min / potential)`) · C4 de-banking of big movers resting on an `[unknown]` · C5 auditable arithmetic (`value x driver`, hard floor derivable by hand) |
+| **D - deck-renderable structure** | D1 lever register (H hard, O optional IDs) · D2 contribution matrix min / expected / max with confidence · D3 sub-cases with effort to realize · D4 value vs. dependencies · D5 abstracted before / after · D6 SMART gated milestones M0-M4, dates after approval · D7 soft / strategic clusters kept qualitative · D8 ranked refinement questions with worked examples · D9 overall picture slide |
+| **E - discipline** | E1 factual language · E2 tilde convention for estimated euros · E3 market value tagged `[market]` where input is missing · E4 baseline honesty (representative plant) · E5 per-plant value and rollout scope on separate axes · E6 neuwerk brand |
+
+Substance behind the criteria: [`grounding-discipline.md`](references/grounding-discipline.md),
+[`lever-model.md`](references/lever-model.md). OD x IT (2026-09-11) adds one check to C1: bankable vs.
+assumption-dependent stated apart, with investment envelope, minimum viable rollout, maximum scale-out and TCO.
 
 ## Procedure
 
-1. Confirm the case was built by someone else; if not, name a different assessor.
-2. Run every check above against the backbone and the estimate; record pass / partial / gap with the reason.
-3. Rank the open questions by normalized influence (0 to 100, the biggest swing = 100) and group them into blocks one
-   conversation can close.
-4. Give the verdict: **signable** (all core gates pass), **sign the floor** (the grounded part only), or **not ready**
-   (a core gate fails). Recommendation only.
-5. Hand a signable case to `od-capital-request` if money is needed.
+1. **Assessor.** Confirm the case was built by someone else; if not, name a different assessor.
+2. **Read everything** - backbone, every input file, the questionnaire. Map which fact came from which file.
+3. **Score** every criterion of the rubric with evidence.
+4. **Provenance and conflicts** ([`provenance-and-conflicts.md`](references/provenance-and-conflicts.md)): list every
+   input, what the case drew from it, and every conflict between sources with how it was resolved and why.
+5. **Verdict** (maturity gate): **Ready to sign** (all C pass, expected floor grounded) · **Sign the floor, validate the
+   upside** (C pass, a de-banked lever awaits its input) · **Not ready** (any C gap; name the missing input and its owner).
+   Recommendation only; the approvers decide.
+6. **Report** `bc-assessment-report.md`: scorecard, conflict register, verdict, ranked open questions (normalized
+   influence 0-100, grouped into blocks one conversation can close). Pattern: [`worked-example-gemba.md`](references/worked-example-gemba.md).
+7. **Deck (optional)** with [`scripts/build_bc_short.py`](scripts/build_bc_short.py) - slide sequence in
+   [`deck-spec.md`](references/deck-spec.md), run and QA loop in [`build-engine.md`](references/build-engine.md). The
+   script needs the neuwerk template `_nw_template.pptx` beside it (department package `bc-assessment.zip` or
+   `neuwerkbrand.zip`; not stored here).
+8. Hand a signable case to `od-capital-request` if money is needed.
 
 ## Do not
 
 - Do not fix the case while assessing it; return it to `od-benefit-calculation` with the findings.
 - Do not pass a figure without a grounding tag, or a headline that sums hard and optional levers.
-- Do not present the transcribed checks as the complete department rubric.
+- Do not let the builder assess their own case.

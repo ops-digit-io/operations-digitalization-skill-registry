@@ -3,6 +3,17 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-10 — Department packages transcribed into ten core skills
+
+- The department's skill packages in `OD-instance/30-skills/` are now readable and are the master where transcribed:
+  `bc-assessment.zip` → `bc-assessment` (full rubric C1-C5 / D1-D9 / E1-E6, lever model, grounding, provenance, deck spec, renderer; plus the intake questionnaire and the Gemba assessment as worked example, money masked);
+  `ecr-builder.zip` → `od-capital-request` (workflow, refusal gate and de-risk questions, honesty layer, renderer) plus the eCR approval matrix by role and tier → also `od-decision-routing`;
+  `investment-checking.zip` → `od-system-fit-check` (8-point footprint gate, six criteria, whole-list screen, region-grouped review);
+  `product-funnel-skills.zip` → `od-requirements-breakdown` (requirements funnel, handoff schema), `od-prototype-poc` (click-dummy stages, build patterns), `od-benefit-calculation` (business-case stage, savings model, deck);
+  `ops-rule-engine.skill` → `od-node-red-flow-builder` (calculated datapoints: workflow, patterns, standard flow, 13 production examples with the API host scrubbed, generator and tests) and `od-signal-standardization` (normalization-in-flows);
+  `ops-grafana-dashboards.zip` → `od-analytics-asset-build`.
+- Not stored: the neuwerk `_nw_template.pptx` the renderers need (in the packages / `neuwerkbrand.zip`). The unnamed files `zi0XqsQv` and `ziwJsyMF` are older copies of `investment-checking` and `product-funnel-skills`.
+
 ## 2026-11-10 — Core = the owner's process flow
 
 - `OD_NewState_ProcessFlow.html` restored to the owner's version (skills & gaps) and made the reference; the generated variant and `scripts/build_process_flow.py` are removed. Gap chips that are now built show as drafts; PoC skill = `od-prototype-poc`, capital request = `od-capital-request`.

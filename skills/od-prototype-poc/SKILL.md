@@ -24,6 +24,7 @@ metadata:
   requires: [od-context]
   composes: [od-use-case-definition, od-requirements-breakdown, od-data-availability-check, od-analytics-asset-build, od-benefit-calculation, od-capital-request, od-acceptance-test, od-decision-routing, od-handover-and-adoption]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/click-dummy/SKILL.md, references/build-patterns.md), read 2026-11-10"
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Where_We_Apply_Today.pptx
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Board_TwoPager.pptx
@@ -76,6 +77,7 @@ on the same items; quote the label with its deck and date.
 | [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | The Gemba App requirements-to-mockup pilot as a method: process, click-dummy prompt system, what to copy, what the sources do not show |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: the PoC, prototype, pilot, rollout stages, scope-limiting as a gate strategy, AI-assisted mock-ups, handoff contract, AI agent operating notes |
 | [`references/validation-patterns.md`](references/validation-patterns.md) | How the AI business cases define a validation plan and pass criterion; wording patterns to copy (placeholder thresholds) |
+| [`references/click-dummy.md`](references/click-dummy.md), [`references/build-patterns.md`](references/build-patterns.md) | The department package's click-dummy stage (`funnel-prototype`, master): eight stages, verification, fidelity ledger, handover; layout, navigation, states and data-stub patterns |
 | [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) | The brief to write before anyone builds a mock-up |
 | [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) | The record this skill produces; `od-benefit-calculation` and `od-capital-request` read it next |
 
@@ -102,7 +104,12 @@ whether it shows what they need.
 5. **Write the pass criterion before building**, with a number, a scope, a time box and a named validator
    ([`references/validation-patterns.md`](references/validation-patterns.md)). Without a criterion there is no
    validation, only a demo.
-6. **Brief and build.** For a click-dummy fill [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md); the
+6. **Brief and build.** For a click-dummy run the department's click-dummy stage
+   ([`references/click-dummy.md`](references/click-dummy.md), the master): scope from the feature book, pick the
+   shape, define done before building, state and data first, shell first then sections, verify in a real browser
+   (can the user do the job, does the demo make the case), keep a fidelity ledger, write the handover document.
+   Build patterns in [`references/build-patterns.md`](references/build-patterns.md). Fill
+   [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) first; the
    Gemba App pilot generated mock-ups from a written brief with an AI model, and a human reviewed them
    ([`references/gemba-app-pilot.md`](references/gemba-app-pilot.md)). For a dashboard-type asset, the build
    mechanics stay in `od-analytics-asset-build` and `build-grafana-ops-dashboard`: do not rebuild them here.

@@ -26,6 +26,7 @@ metadata:
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-investment-input, od-capital-request]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/business-case/SKILL.md, references/savings-model.md, deck-structure.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
@@ -51,6 +52,7 @@ Read `od-context` first.
 | [`references/review-checklist.md`](references/review-checklist.md) | Why the methodology field is usually the one missing, the three fixes tried before the current one, and the smell test that follows from it |
 | [`references/house-business-case-standard.md`](references/house-business-case-standard.md) | The department's own standard (od-benefit-calculation, bc-assessment, the shared value model): value-only backbone, grounding tags, expected / min / potential headline, lever register, de-banking, cost envelope, gated realization, and the OD x IT rules (bankable vs assumption-dependent, investment envelope, min viable rollout, max scale-out, TCO) |
 | [`assets/business-case-backbone.md`](assets/business-case-backbone.md) | The backbone to fill, one per case |
+| [`references/funnel-business-case.md`](references/funnel-business-case.md), [`references/savings-model.md`](references/savings-model.md), [`references/deck-structure.md`](references/deck-structure.md) | The department package's business-case stage of the product funnel (`bc-build`, master): building the value case from the requirement, feature book and prototype; the savings model (lever types, formulas, drivers, ranges); the deck order |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Segment before averaging, banked floor / potential / de-banked value, grounding tags, baseline first, the handoff to ranking and the capital request, and what an agent may draft |
 
 A use case's value is recorded as **individual saving rows**, not as one number on the
@@ -128,7 +130,11 @@ gated, **record the gate on the row** rather than quietly dropping the number â€
 1. Establish the **business rationale** â€” which operational loss disappears, at which
    plant, in which process.
 2. Quantify it as one or more **rows**, each with amount, year and category. One row per
-   distinct saving mechanism; do not net effects together.
+   distinct saving mechanism; do not net effects together. Use the lever types and formulas of the
+   department's savings model ([`savings-model.md`](references/savings-model.md)): `value x driver`, every driver
+   sourced. When the case comes out of the product funnel, follow its business-case stage
+   ([`funnel-business-case.md`](references/funnel-business-case.md)) and read the handoff files of the
+   requirement and prototype stages rather than re-asking.
 3. Write the **calculation methodology** for each row. If you cannot, the row is an
    `ESTIMATION` â€” label it as such rather than upgrading it.
 4. Record the **dependency**, if any, and who owns it.
@@ -141,7 +147,7 @@ gated, **record the gate on the row** rather than quietly dropping the number â€
 8. **Separate bankable from assumption-dependent** and state the investment envelope, the minimum
    viable rollout and the maximum scale-out (OD x IT, 2026-09-11). No project starts without the
    value side here *and* the build and run cost from `od-investment-input`.
-9. **Assess before it goes on** (the department's `bc-assessment` step): grounded expected value, value
+9. **Assess before it goes on** (`bc-assessment`, its rubric C1-C5 / D / E): grounded expected value, value
    and cost apart, every figure tagged, every de-banked lever an open question with an owner, gated
    milestones. Give the maturity verdict as a recommendation; the person who built the case does not
    sign it. Then `od-capital-request` if money is needed.

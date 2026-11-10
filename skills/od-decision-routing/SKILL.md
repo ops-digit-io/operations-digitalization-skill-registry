@@ -22,6 +22,7 @@ metadata:
   requires: [od-context]
   composes: [od-investment-input, it-demand-package]
   derived_from:
+    - "Work vault, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
@@ -60,7 +61,7 @@ engineering.**
 |---|---|---|---|---|---|---|---|
 | Use-case prioritization & selection | DBVE | Plant ME | Tandem | no | yes | within plant roadmap scope | `recommend` |
 | Equipment integration go-ahead | IIAE | Plant ME / Plant IT | Tandem | **yes** | partially | per investment plan; Cyber Security sign-off for external connection | `execute-with-approval` |
-| Digitalization investment planning | OD lead | BA Operations | Consultation | **yes** | no | ⟨budget threshold — to confirm⟩ | `recommend` |
+| Digitalization investment planning | OD lead | BA Operations | Consultation | **yes** | no | the eCR amount tiers ([approval matrix](../od-capital-request/references/ecr-approval-matrix.md)) | `recommend` |
 | Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | IT-responsible role of the business side | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
 | Data-model / signal standardization | IIAE | Plant ME / Plant IT | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
@@ -86,7 +87,7 @@ decide; the level and the threshold together are what make "is this allowed?" an
 
 | Gate | Route | Threshold / state |
 |---|---|---|
-| **Spend** | eCR (electronic capital request) | Approval ladder per the current approval policy (look up: Controlling / eCR process owner) — a ladder, not alternatives |
+| **Spend** | eCR (electronic capital request) | The recorded approval matrix: three amount tiers, approvers by role and by case type (IT invest adds IT Controller and, from the middle tier, CIO) - [`ecr-approval-matrix.md`](../od-capital-request/references/ecr-approval-matrix.md); a ladder, not alternatives. Confirm it still applies under neuwerk (Finance) |
 | **Demand on IT platforms** | IT demand management + demand evaluation board | anything touching a platform OD does not own |
 | **Standard enough to roll out** | CSP decision, per reference-library entry | decision recorded per library entry (`Yes` / `No` / not yet decided) |
 | **Into daily use** | The plant | OD can deliver and hand over; only the plant makes it `PRODUCTIVE` |

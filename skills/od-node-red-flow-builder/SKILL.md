@@ -31,6 +31,7 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-data-availability-check]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (exported flow JSON and generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
@@ -154,6 +155,27 @@ Review of someone else's flow: eight questions and standards table in
 [`references/build-guide.md`](references/build-guide.md#reviewing-someone-elses-flow). Wire and topic detail (`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`, ISA-95 `CT/<BA>/...`):
 [`plc-packet.md`](references/plc-packet.md), [`topic-conventions.md`](references/topic-conventions.md); corpus census (read live): [`corpus-census.md`](references/corpus-census.md).
 
+## Calculated datapoints - the rule engine (steps 1a2, 1b4, 3b4)
+
+A new value derived from existing DATATRON datapoints (parts per shift, machine mode, cycle time, status text,
+downtime, OK + NOK totals, tool-to-part lookup) is built as a **rule-engine flow**, the department's
+`ops-rule-engine` package (master; transcribed in [`references/rule-engine.md`](references/rule-engine.md)):
+
+1. **Collect the requirement** per input datapoint (PascalCase name, UUID, value field), the output datapoint (it must
+   already exist in DATATRON; never invent a UUID), the logic, the MQTT input topic (the user gives it) and output topic.
+2. **Pick the pattern** ([`rule-engine-patterns.md`](references/rule-engine-patterns.md)): arithmetic, status mapping,
+   lookup, event trigger, counter with cron reset, duration, sawtooth peak, scaled value. Core rule: store each
+   input's latest value in flow context and calculate from the stored values - DATATRON publishes on change.
+3. **Write the spec and generate** with [`scripts/build_flow.py`](scripts/build_flow.py); never hand-write the flow JSON.
+   Anatomy, PLCPacket fields, topics, timestamps and naming: [`rule-engine-standard-flow.md`](references/rule-engine-standard-flow.md).
+4. **Test before delivering**: offline dry-run with [`scripts/simulate.js`](scripts/simulate.js), optionally the full run
+   in Node-RED with a local broker ([`scripts/e2e_test.sh`](scripts/e2e_test.sh)).
+5. **Deliver** the importable flow plus the spec; then the shared rules and the analyser below apply as to any flow.
+
+Thirteen production flows are the reference cases ([`references/rule-engine-examples/`](references/rule-engine-examples/));
+`13_helium09_leakrate_BROKEN.json` and `13b_..._FIXED.json` show the classic wait-for-all-inputs bug and its fix.
+Signal naming and normalization rules for the output stay with `od-signal-standardization`.
+
 ## Troubleshoot (step 3b5)
 
 **Start from the flow JSON** (`node-red-auto-docs/docs/<instance>/<Flow_Name>.json` or an editor
@@ -235,3 +257,5 @@ fix tested on `test`; triage record filled; plant key user confirmed correct val
 | `references/process-chain-practice.md` | Chain role, handoffs, agent notes (sections: Build, Troubleshoot) |
 | `assets/flow-config-contract.md`, `protobuf-schema-bootstrap.flow.json`, `triage-record.md` | Config form, importable schema flow, triage record |
 | `scripts/analyze_flow.py` | Static analyser |
+| `references/rule-engine.md`, `rule-engine-patterns.md`, `rule-engine-standard-flow.md`, `rule-engine-examples/` | Calculated datapoints: the department's rule-engine workflow, patterns, standard flow, production examples |
+| `scripts/build_flow.py`, `simulate.js`, `e2e_runner.js`, `e2e_test.sh`, `test_plcschema.proto` | Rule-engine generator and tests |

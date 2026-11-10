@@ -23,6 +23,7 @@ metadata:
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-grafana-dashboards.zip (SKILL.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
@@ -49,6 +50,7 @@ Read `od-context` first. Run `od-data-availability-check` before building anythi
 
 | File | Use it for |
 |---|---|
+| [`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md) | **Building a DATATRON dashboard**: the department package (master) - families, drill-down, schema, queries, variables, panel recipes, ECharts, andon, datapoint enablement, equipment context |
 | [`references/lifecycle-and-validation.md`](references/lifecycle-and-validation.md) | The build lifecycle mapped onto this registry's own upstream/downstream skills, and the validation checklist that separates "it renders" from "it is correct" |
 | [`references/asset-type-and-tier.md`](references/asset-type-and-tier.md) | The asset-type decision worked through, and exactly where this skill's job ends and `build-grafana-ops-dashboard`'s begins once "Dashboard" is chosen |
 | [`references/dashboard-estate-baseline.md`](references/dashboard-estate-baseline.md) | **How to read and measure the plant Grafana estate** (no figures). What to look up per plant, which data-source and query patterns to expect, lifecycle and churn - and the answer to the data-source question left open in the vendored skill's OD note |
@@ -138,9 +140,15 @@ standard template or dashboard; OD supplies the catalog entry, the template and 
    passing the checklist is the approval gate.
 4. The plant confirms adoption (`od-handover-and-adoption`).
 
-The department's DATATRON dashboard skill (`ops-dashboard-datatron`, its "UUIDs to enable" output) is
-the engine it plans to open to key users; it is not in this registry. `build-grafana-ops-dashboard` is
-the generic engine.
+The department's DATATRON dashboard package `ops-grafana-dashboards` (master) is transcribed in
+[`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md): the four dashboard families and the
+L1 to L3 drill-down, the telemetry and ConfigRepo schema, value extraction and `is_delta`, the two time-filter
+dialects, the cascading variable chain, reusable panel recipes (machine state, state durations per shift, downtime with
+flicker protection, cycle count from a sawtooth counter, SPC, andon board), ECharts conventions, layout and naming,
+**datapoint enablement** (the "UUIDs to enable" list) and the equipment context (KKA, press centres, utilities). Use it
+for any DATATRON dashboard in Lane 1a, 1b4 and Lane 2; the extension skills `ops-dashboard-datatron` and
+`build-grafana-ops-dashboard` hold the deeper builder. A value the machine does not deliver directly is derived first
+as a calculated datapoint (`od-node-red-flow-builder`, rule engine).
 
 ## Procedure
 

@@ -28,6 +28,7 @@ metadata:
   requires: [od-context]
   composes: [funnel-features, od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption, it-demand-package]
   derived_from:
+    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/requirements-funnel/SKILL.md, references/handoff-schema.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
     - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (use case field population, target_text and blockers grammar; legacy applications)
@@ -60,7 +61,8 @@ first. The template is not new: its headings already appear in the estate's `tar
 
 ## Procedure
 
-1. **Elicit the problem, not the solution.** Five rounds in [`elicitation.md`](references/elicitation.md). A stated problem that names a technology is a solution: ask again.
+0. **Pick the entry and frame it** - the department's requirements funnel ([`requirements-funnel.md`](references/requirements-funnel.md)): idea mode or as-is mode; in as-is mode map the current process, find where the time actually goes, propose the to-be and derive requirements from the delta. Frame the need and name the **riskiest assumption** first.
+1. **Elicit the problem, not the solution.** Five rounds in [`elicitation.md`](references/elicitation.md), then decompose and converge (funnel stages 2-4). A stated problem that names a technology is a solution: ask again.
 2. **Check the library.** If another plant built it, the requirement is an adoption, not a build: `od-use-case-standardization`.
 3. **Set the standard baseline.** Take the cluster's KPI set and checklist; record only this plant's deltas; check for a public data model (`od-signal-standardization`).
 4. **Name and verify the signals.** Canonical name, direction in/out, existence verdict per signal from `od-data-availability-check` (verified, not assumed). An `out` signal is registered on the edge platform before anything publishes. A sensor value is not an event: state how each event is derived and whether production metadata (order, part, batch) is needed; a missing relation is a data gap, not approximated. Missing signals go into a `signal id | label | why needed` table for the information-integration lane.
@@ -73,7 +75,7 @@ first. The template is not new: its headings already appear in the estate's `tar
 
 ```bash
 python3 scripts/check_requirement.py MyRequirement.md --lane use-case
-python3 ../funnel-features/scripts/check_epic.py MyEpic.md
+python3 ../../skills-extension/funnel-features/scripts/check_epic.py MyEpic.md
 ```
 
 Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a placeholder role, a generic "so that", an epic with one story, a story without a use-in-a-real-shift criterion.
@@ -103,7 +105,7 @@ The epic and its user stories are the department's next funnel stage, **`funnel-
 
 ## Handoff
 
-The lane variant goes to the receiving lane (integration, `od-system-fit-check` at step 32, project, analytics); the epic goes into the backlog. Done when sections 1-6 and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done, both checks report zero blockers, and the receiver accepts.
+Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-schema.md): `frame`, `riskiest_assumption`, `problems`, `candidates`, with the rules the next stage relies on) so `funnel-features` and `od-prototype-poc` resume without re-asking. The lane variant goes to the receiving lane (integration, `od-system-fit-check` at step 32, project, analytics); the epic goes into the backlog. Done when sections 1-6 and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done, both checks report zero blockers, and the receiver accepts.
 
 ## Human gate and AI-agent notes
 
@@ -129,6 +131,8 @@ The lane variant goes to the receiving lane (integration, `od-system-fit-check` 
 | [`references/requirement-template.md`](references/requirement-template.md) | Writing the ten core sections or a lane variant, and how each fails |
 | [`references/elicitation.md`](references/elicitation.md) | Running the question rounds; the five judgement calls; refusal |
 | [`references/legacy-system-assessment.md`](references/legacy-system-assessment.md) | Checking legacy applications and the lean-footprint fit |
+| [`references/requirements-funnel.md`](references/requirements-funnel.md) | The department package's requirements funnel (master): entry, as-is mapping, frame / elicit / decompose / converge, red flags, chaining |
+| [`references/handoff-schema.md`](references/handoff-schema.md) | The handoff file between funnel stages, with a minimal valid example |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Steps 22 and 31 chain practice, signal handoff, agent notes |
 | [`assets/requirement-template.md`](assets/requirement-template.md) | The blank requirement |
 | [`scripts/check_requirement.py`](scripts/check_requirement.py) | Completeness check before handover (the epic check is in `funnel-features`) |

@@ -5,3 +5,8 @@
 | Concept | Type | Description |
 |---|---|---|
 | [Business case assessment](SKILL.md) | Agent Skill | Score a business case against the OD house rubric and give its maturity-gate verdict - the department's bc-assessment, the governance step between od-benefit-calculation (value) plus od-investment-input (cost) and od-capital-request. Checks that every figure carries a grounding tag, value and cost stay apart, the headline is the grounded expected value, high-impact low-confidence levers are de-banked, the milestones are gated and SMART, and sources do not conflict; returns pass / partial / gap per criterion, a ranked list of open questions and a verdict. Use when a business case is drafted and before a capital request, when a reviewer asks whether a case is signable, or when two cases must be compared on the same rubric. |
+
+| Folder | Holds |
+|---|---|
+| [assets/](assets/index.md) | 1 concept(s) |
+| [references/](references/index.md) | 7 concept(s) |
