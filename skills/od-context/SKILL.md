@@ -141,6 +141,18 @@ Lane cut rule: **one lane = one trigger + one definition of done + one autonomy 
 | Process First-Aid Kit | Rapid diagnostic offering for a one-off plant process issue; routes to Lane 1, Lane 2 or external support | A standing analytics lane (retired) |
 | CMO | Container Management and Orchestration: the Kubernetes-based platform (registry, source host, GitOps catalog) apps deploy to; the preferred route for platform-level Cyber Security approval | The IIoT Edge runtime |
 | Key user | The plant role that runs catalogued, self-service work inside OD's guardrails | The OD builder |
+| SMART statement | The test a request passes to be admitted: purpose, objective, real problem, timeframe and a named stakeholder; a target with no baseline fails (`od-use-case-intake-triage`) | A wish |
+| Daily Gemba | One of the business processes a use case can serve: the regular shopfloor review of deviations and problems. Digital Gemba boards are a use case several locations requested (OD initiative deck on use-case marketing, slide 7) | — |
+| QFPR | Quality Feedback App: a lightweight MES on the quality side, collecting failure labels, measurements and checks at part, box and batch level (`od-system-fit-check/references/tool-boundaries.md`) | MES |
+| MIL / EMS | Manufacturing Image Library / Energy Management System | "Equipment Management System" (wrong) |
+| OPEX / CBS | Operational Excellence / Continental Business System: the methods community OD's use cases support | OD |
+| Baseline | The measured starting level a saving is judged against; a saving without a baseline is a claim, not a result | A target |
+| Lever | A mechanism that creates value ("fewer hours spent reconstructing last shift"), not a benefit ("better visibility") | A benefit |
+| Expected / minimum / potential | The business-case headline: expected is the grounded, bankable value; minimum is the hard floor; potential adds levers that are not banked yet | A forecast |
+| Bankable / assumption-dependent | Bankable value is direct and grounded; assumption-dependent value rests on assumptions and is kept apart (OD x IT, 2026-09-11) | — |
+| De-banked (not banked) | A high-impact lever resting on a crucial unknown gets no number; it becomes the top open question | Zero value |
+| Investment envelope | The one-time spend that still pays back within the department's payback horizon, stated while the cost is unknown | The cost estimate |
+| Tracked / proven | Tracked: recorded on the savings ledger, whatever its firmness. Proven: passed the SPRINT portfolio review and confirmed by finance. The two are never added together | — |
 
 Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment Engineering (expansion: see open
 points) · OESL = Original Equipment Solutions (confirmed, named on every ODEC/CoP deck title slide) · OPEX/CBS =
