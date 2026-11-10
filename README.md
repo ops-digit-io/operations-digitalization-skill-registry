@@ -58,7 +58,7 @@ concept-by-concept trace.
 | Lane 3 · 3a · Package / build | [`it-demand-package`](skills/it-demand-package/SKILL.md) |
 | Lane 3 · 3a · Deploy to platform + CS | [`deploy-appstore`](skills/deploy-appstore/SKILL.md) |
 | Lane 3 · 3a · Rollout & adopt | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) |
-| Lane 3 · 3b · Connector + pipeline to the data platform | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) |
+| Lane 3 · 3b · Connector + pipeline to MDL | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) |
 | Lane 3 · 3b · Procure & connect machine | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) |
 | Lane 3 · 3b · Acceptance + CS → live | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) |
 | Foundation · read first, not a step | [`od-context`](skills/od-context/SKILL.md) |
