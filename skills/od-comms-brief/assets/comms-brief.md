@@ -10,6 +10,10 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Brief: ⟨use case⟩ at ⟨plant⟩
 
+## Objective
+
+⟨One line: what the audience should know or do afterwards, and how OD would see it (a request, a question, a use case running elsewhere). No target figures.⟩
+
 ## Message
 
 ⟨One sentence, present tense: what changed, where, for whom.⟩
@@ -20,6 +24,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 - BA Operations leadership: ⟨variant⟩
 - All employees: ⟨variant⟩
 - OPEX and PPI/ME community: ⟨variant⟩
+- Line and shift supervisors (only where the change touches how a line is run; Internal Communications confirms): ⟨what changes for me, what do I do⟩
 
 ## Proof points
 
@@ -52,5 +57,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 | Channel, form, date, publication | Internal Communications | ⟨pending / given⟩ | ⟨date⟩ |
 
 ## Drafts
+
+Shape of a draft: the problem the plant had; what was done; the measured result with its evidence class; one quote with consent, or a role-based statement.
 
 ⟨Article, one-pager, slide, short post: list the files, or "none requested".⟩

@@ -33,6 +33,13 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 |---|---|---|
 | ⟨date⟩ | ⟨change⟩ | ⟨yes / date⟩ |
 
+## Outcome and impact (fill at the review date)
+
+| Measure | Value | Source |
+|---|---|---|
+| Requests from this story (outcome) | ⟨count⟩ | ⟨log rows⟩ |
+| Use cases running at another plant because of it (impact) | ⟨count and use case ids, or "none yet"⟩ | ⟨handover record⟩ |
+
 ## Lesson for the retro
 
 ⟨One line: what worked, what did not, one change.⟩

@@ -32,6 +32,16 @@ def checks(text):
 
 
 class CommsBriefChecks(unittest.TestCase):
+    def test_missing_objective_only_warns(self):
+        findings = [f for f in c.analyze(GOOD) if f[1] == "missing-section" and "objective" in f[2]]
+        self.assertTrue(findings)
+        self.assertEqual(findings[0][0], "WARN")
+
+    def test_objective_present_clears_the_warning(self):
+        objective = "## Objective" + chr(10) + "Other plants ask for the use case through the catalogue." + chr(10) + "## Message"
+        text = GOOD.replace("## Message", objective)
+        self.assertNotIn("objective", " ".join(f[2] for f in c.analyze(text)))
+
     def test_good_brief_has_no_blocker(self):
         self.assertFalse([f for f in c.analyze(GOOD) if f[0] == "BLOCKER"])
 

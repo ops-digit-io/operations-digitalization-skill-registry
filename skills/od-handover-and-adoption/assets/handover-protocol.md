@@ -30,6 +30,7 @@ Revisit section 5 on the Scorecard cadence; it is the one section meant to be re
 | Utilization expectation | ⟨the moment in the day it belongs to⟩ |
 | Data path, to the machine | ⟨…⟩ |
 | Plant owner (named) | ⟨…⟩ |
+| Affected people told before go-live (who, when, how) | ⟨…⟩ |
 | Open dependency, if any | ⟨…⟩ |
 
 ## 2 · The three-question test

@@ -34,6 +34,7 @@ metadata:
     - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
     - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10; Vault note Agentic-OS/30_Knowledge/Internal Communication and Marketing Research"
   okf:
     type: Agent Skill
     title: Handover and adoption
@@ -59,11 +60,12 @@ Closes a use case properly: it runs the handover to the plant against the defini
 
 1. Pull the acceptance result from `od-acceptance-test`; do not re-ask it.
 2. Run the three-question test (section below) with the receiving side.
-3. Check the definition of done (section below): data path to the machine, named plant owner, use in a real shift, dependencies on the record.
-4. Record the adoption tier with the strongest evidence available ([`references/evidence-of-adoption.md`](references/evidence-of-adoption.md)).
-5. If utilization is low or `NEVER`, follow the section "When utilization is low or `NEVER`".
-6. For an application or a function changing owner, use the two handing-over sections below.
-7. Fill the protocol and hand it to the plant owner; reopen it on every scorecard cadence.
+3. Check that the people the change affects (the shift, the line, their supervisors) were told **before** go-live what changes for them and what they do, not after it took effect. Record who told them, when and how; if nobody did, that is the first action and the Awareness barrier in the ADKAR diagnostic. (A public vendor survey of 1,000 U.S. frontline manufacturing workers found 79% learned of updates only after they went into effect; it is directional, not a department figure.)
+4. Check the definition of done (section below): data path to the machine, named plant owner, use in a real shift, dependencies on the record.
+5. Record the adoption tier with the strongest evidence available ([`references/evidence-of-adoption.md`](references/evidence-of-adoption.md)).
+6. If utilization is low or `NEVER`, follow the section "When utilization is low or `NEVER`".
+7. For an application or a function changing owner, use the two handing-over sections below.
+8. Fill the protocol and hand it to the plant owner; reopen it on every scorecard cadence.
 
 ## The references are the substance
 
@@ -108,6 +110,7 @@ person who built it**:
   **utilization expectation** — not just a title.
 - The **data path is written down to the machine**.
 - The **plant owner is named** and has used it **in a real shift, not a demonstration**.
+- The people affected were **told before go-live** what changes for them, and the record says by whom and when.
 - Anything the use case is still waiting on is recorded as a **dependency on the record
   itself**, so it stays visible after the builder has moved on.
 
