@@ -24,6 +24,7 @@
 | [od-rollout-training/](od-rollout-training/index.md) | 7 concept(s) |
 | [od-scorecard-reporting/](od-scorecard-reporting/index.md) | 7 concept(s) |
 | [od-sharepoint-list-export/](od-sharepoint-list-export/index.md) | 4 concept(s) |
+| [od-skill-authoring/](od-skill-authoring/index.md) | 6 concept(s) |
 | [od-template-resolution/](od-template-resolution/index.md) | 4 concept(s) |
 | [od-use-case-solution-evaluation/](od-use-case-solution-evaluation/index.md) | 14 concept(s) |
 | [od-use-case-standardization/](od-use-case-standardization/index.md) | 10 concept(s) |

@@ -1,0 +1,28 @@
+{
+  "skill_name": "od-example-check",
+  "note": "Template. Replace every value. The fields id, prompt, expected_output, files and skill_name follow the Agent Skills evaluation guide (agentskills.io/skill-creation/evaluating-skills); the name of the evals array and keeping trigger_queries in the same file are this registry's proposal. Prompts are realistic requests with names and figures masked. Add assertions after the first run.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A request in the words a plant person would use, with masked names.",
+      "expected_output": "A one-sentence description of what a good result contains.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The same need with different phrasing and less detail.",
+      "expected_output": "What a good result contains.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "An edge case or a near-miss that belongs to a neighbouring skill.",
+      "expected_output": "The skill declines or hands over to the neighbouring skill.",
+      "files": []
+    }
+  ],
+  "trigger_queries": [
+    { "query": "A request that should load this skill.", "should_trigger": true },
+    { "query": "A near-miss that shares words but needs another skill.", "should_trigger": false }
+  ]
+}

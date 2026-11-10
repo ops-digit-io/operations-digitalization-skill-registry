@@ -386,6 +386,17 @@ skills:
     authority_level: recommend - drafts and checks only; every gate named here is a human gate
     summary: "Cross-cutting rulebook for safe AI-agent use along the process chain: pipeline with human gate, generation rules, governance, citation and human-only decisions. DRAFT."
 
+  - id: od-skill-authoring
+    library: extension
+    tier: practice
+    lane: all
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft the brief, the skill and the checks; the owner reviews and decides; never marks a skill reviewed or verified
+    summary: "Standard method for building or reworking an OD skill: one-page brief, registry anatomy, gates in order (registry checks, specification export, OKF, no invented figures, quality rating), tests with and without the skill, owner review. DRAFT."
+
   - id: od-event-object-modelling
     library: extension
     tier: practice

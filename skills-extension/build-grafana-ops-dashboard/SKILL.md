@@ -15,7 +15,7 @@ description: >
   when the deliverable is a Grafana .json file.
 allowed-tools: Read Grep Glob Write Edit
 metadata:
-  argument_hint: "<domain> <schema or signal list>"
+  argument_hint: "[domain] [schema or signal list]"
   id: build-grafana-ops-dashboard
   tier: technical
   lane: lane-1

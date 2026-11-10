@@ -26,7 +26,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 ## What the score does not measure
 
 - It rates **documentation quality**: structure, wording, size and completeness. It does **not** measure whether a skill helps an agent do the task; that is the tool's tier 3 (live runs with and without the skill) and the evaluation method of the Agent Skills guides, neither of which has been run.
-- Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`, which this registry does not use, so differences between skills come from the other findings.
+- Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
 ## Scores of the core skills (mean 82.8)
