@@ -41,7 +41,7 @@ expert-bound and not repeatable by key users.
   (`od-cybersec-gate`) instead of reviewing every similar app.
 - **Keep the capability in house**: CMO knowledge is worth retaining given distributed plants and central
   governance. The CMO target blueprint (scope across plants, hybrid scenarios) is an open IT item
-  (Ignacio).
+  (IT).
 
 ## Department roadmap items that build on it
 

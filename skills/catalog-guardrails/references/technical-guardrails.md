@@ -52,7 +52,7 @@ The scripts named in the specs (lint per rule id and plant; periodic re-run of t
 ## IT technology guardrails (OD x IT, 2026-09-11)
 
 Distributed development and AI-enabled self-service need enforceable guardrails beyond the dashboard
-rules above. IT owns publishing them (action item: Ignacio, Jose, Rami); until then check a self-served
+rules above. IT owns publishing them (action item: IT and OD); until then check a self-served
 or self-developed app against the agreed direction and mark the rule ⟨to confirm⟩:
 
 | Area | Agreed direction |
@@ -61,7 +61,7 @@ or self-developed app against the agreed direction and mark the rule ⟨to confi
 | Deployment | Kubernetes / CMO with the standard manifests |
 | Interfaces | Approved OT interfaces (MQTT to the edge platform where applicable); reuse existing infrastructure and central data stores across locations |
 | Observability | Logging and health visible before go-live |
-| Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item, Ignacio) |
+| Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item) |
 | Self-assessment | The production owner reassesses every six or twelve months (`od-handover-and-adoption`) |
 | Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`od-requirements-breakdown`) |
 

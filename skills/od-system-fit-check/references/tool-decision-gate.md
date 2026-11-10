@@ -72,7 +72,7 @@ them.
 - **Prefer the CMO deployment path.** An app that fits the CMO (Kubernetes) structure and its standard
   manifests is the preferred route, because Cyber Security can treat it at platform level.
 
-The formal sourcing criteria and TCO rules are an open IT action item (Ignacio, Jose, Thomas). Record
+The formal sourcing criteria and TCO rules are an open IT action item (IT and the OD lead). Record
 the route as `recommend`, cite these principles, and mark the criteria ⟨to confirm⟩ until published.
 
 ## 3 · Verdict

@@ -20,7 +20,7 @@ metadata:
   new_state_lane: "Lane 3a (3a.3, 3a.4); hand-off at the end of the Lane 3 front-end (step 3)"
   new_state_step: "3a.3 New codebase (external dev); 3a.4 Integrate a foreign app; front-end step 3 hand off once demand is clear"
   department_names: ["it-demand-package"]
-  owner_role: OD lead (Thomas Zipf) for the Lane 3 front-end; IIAE for connector demands
+  owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
   status: draft
   sources_read: 2026-11-10
@@ -50,7 +50,7 @@ code, and attaches the OD handover annex with the inputs IT named on 2026-09-11.
 Project Support & Application Consultancy lane's "handover" and the earlier `it-demand-package`.
 
 **Why OpenSpec.** IT asked for one consolidated set of artefacts from the requirements funnel and a place
-to store and exchange them (action item 2, Ignacio). OpenSpec is a public, plain-markdown format for
+to store and exchange them (action item 2, IT). OpenSpec is a public, plain-markdown format for
 exactly that: a change folder with `proposal.md`, delta `specs/`, `design.md` and `tasks.md`, versioned
 in Git and reviewed in a pull request, checked by `openspec validate`. A package IT can open with its own
 tooling is a cleaner handover than a slide deck.
@@ -137,7 +137,7 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 ## Open - what only the OD lead and IT can supply
 
 - ⟨The receiving repository or store for OpenSpec changes on the IT side⟩ - the meeting asked IT to define
-  where each artefact is stored and exchanged (Ignacio).
+  where each artefact is stored and exchanged (IT).
 - ⟨Published technology guardrails, sourcing criteria, ownership gates, platform-level Cyber Security
   model, data and interface catalog structure⟩ - open IT action items; the annex marks each.
 - ⟨Whether IT adopts OpenSpec itself⟩ - proposed here; if IT keeps its own demand form, the absorbed IT
