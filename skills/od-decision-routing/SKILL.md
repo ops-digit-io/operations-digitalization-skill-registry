@@ -71,7 +71,9 @@ engineering.**
 
 The three rows above the last are from the department's new-state lane files (Lane 1 step 3b, Lane 3
 step 2) and the OD x IT alignment of 2026-09-11; `08-decision-rights.md` does not carry them yet.
-That file's `valid-until` was 2026-11-10: re-verify it with the OD lead before quoting a row as current.
+That file's `valid-until` was 2026-11-10. **Until the OD lead re-verifies it, every row is used at most at
+`recommend`**: route the decision to its owner, never act on a row's `execute-with-approval` or
+`execute-autonomously` alone, and note "decision rights pending re-verification" on the decision request.
 
 **Modes.** *Tandem* — both must agree. *Consultation* — hear, then decide alone.
 *Information* — tell, do not ask.

@@ -18,6 +18,7 @@ metadata:
   lane: all
   new_state_lane: "Intake (i1), Lane 3 front-end (32)"
   new_state_step: "Classify the demand into exactly one lane; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
+  department_names: ["invest-screen", "investment-screening", "investment-checking"]
   owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
   authority_level: recommend — flags the fit risk and proposes a redesign or an escalation; never approves a system change or a rollout exception itself
   status: stable

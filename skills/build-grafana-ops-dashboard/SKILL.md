@@ -21,6 +21,7 @@ metadata:
   lane: lane-1
   new_state_lane: "Lane 1a (1a2)"
   new_state_step: "Apply the standard template (self-service)"
+  department_names: ["ops-dashboard-engine"]
   scope: portable            # domain-generic; not derived from the OD knowledge graph
   origin: vendored           # body and references are the author's, unmodified
   owner_role: human:jakob.gabriel

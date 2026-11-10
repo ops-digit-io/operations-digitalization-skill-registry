@@ -19,6 +19,7 @@ metadata:
   lane: all
   new_state_lane: "Lane 1b (1b2), Lane 2 (24), Lane 3 front-end (33)"
   new_state_step: "Cost template, approved by the plant budget owner; Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
+  department_names: ["bc-cost", "cost-template"]
   owner_role: human:jakob.gabriel
   authority_level: recommend
   status: draft

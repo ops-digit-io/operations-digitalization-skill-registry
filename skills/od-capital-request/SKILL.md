@@ -15,6 +15,7 @@ metadata:
   lane: [lane-2, lane-3]
   new_state_lane: "Lane 2 (25), Lane 3 front-end (33)"
   new_state_step: "Capital request if investment is needed; Business case, prioritization, capital request"
+  department_names: ["bc-capital-request", "ecr-builder", "capital-request-builder", "eCR"]
   owner_role: human:jakob.gabriel
   authority_level: draft the request; submission and approval are human
   status: draft

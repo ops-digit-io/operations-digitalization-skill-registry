@@ -18,6 +18,7 @@ metadata:
   lane: [lane-1, lane-3]
   new_state_lane: "Lane 1b (1b3), Lane 3b (3b4, 3b5)"
   new_state_step: "Order and connect; Cyber Security sign-off in parallel; Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
+  department_names: ["mi-connector", "mi-roadmap", "mi-readiness", "connector-design"]
   owner_role: IIoT Interface & Automation Engineer (IIAE)
   authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
   status: stable

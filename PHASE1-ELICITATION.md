@@ -1,3 +1,12 @@
+---
+type: Design Record
+title: Phase1 elicitation
+description: "Working file for the tacit-knowledge elicitation of phase 1: the questions put to the owner and the answers that resolved them; kept for traceability, not a skill."
+status: draft
+owner: human:jakob.gabriel
+tags: [elicitation, working-file]
+generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
+---
 # Phase 1 — tacit knowledge elicitation
 
 Working file, not part of the registry — outside `skills/` and `docs/` on purpose, same

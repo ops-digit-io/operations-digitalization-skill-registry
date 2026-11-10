@@ -17,6 +17,7 @@ metadata:
   lane: lane-2
   new_state_lane: "Lane 2 (26)"
   new_state_step: "Implement, evaluate impact, ensure adoption, catalogue"
+  department_names: ["catalog-synergy"]
   owner_role: Digital-Business-Value-Engineer (DBVE); CSP decision outside OD
   authority_level: recommend
   status: stable

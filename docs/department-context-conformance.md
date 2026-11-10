@@ -91,11 +91,15 @@ Fix these in the department folder, not in the skills.
 53 skills became 42 (27 core, 15 extension). **Flow.** `OD_NewState_Flow.mermaid` was redrawn to the lane
 files; core equals the flow and the validator enforces it.
 
-## Still to decide
+## Remaining points, resolved in the skills (2026-11-10)
 
-- The department-side contradictions above (MDL and ContiTech in the lane drafts and decision rights, Lane 2
-  order in the naming convention, Cyber Security ordering in the lane 3 file, the "3a.4" label) are fixed in
-  the department folder, not here.
-- Whether to adopt the department's family-prefix names (`funnel-`, `bc-`, `catalog-` ...).
-- Re-verify `08-decision-rights.md` (valid-until 2026-11-10) and add the three new rows there.
-- Whether IT adopts OpenSpec as its intake format (`od-it-handover`, open points).
+| Point | Resolution |
+|---|---|
+| MDL and ContiTech in the department files | `od-context` vocabulary: both read as retired names (data platform; the IT-responsible role of the business side) |
+| Lane 2 order | `od-context`: prototype before business case, as the Lane 2 file says; the naming convention's chain is packaging order |
+| Cyber Security in 3b | In parallel with planning and build, blocking go-live (`od-cybersec-gate`, `od-equipment-integration`, the flow) |
+| "3a.4" label | `od-context`: step ids without a dot, route options with a dot; step `3a4` serves all four options |
+| Department naming convention | Every affected skill carries `metadata.department_names` (e.g. `bc-build`, `bc-cost`, `invest-screen`, `catalog-usecase`), so both names find it; folder names unchanged |
+| Decision rights past valid-until | `od-decision-routing`: until re-verified, every row is used at most at `recommend` |
+| IT adoption of OpenSpec | `od-it-handover` sends OpenSpec; where IT keeps its own form, the absorbed IT demand package carries the same content |
+| `PHASE1-ELICITATION.md` frontmatter | Added; the OKF check reports no problem |

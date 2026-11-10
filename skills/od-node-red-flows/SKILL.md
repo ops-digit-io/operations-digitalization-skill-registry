@@ -20,6 +20,7 @@ metadata:
   lane: lane-3
   new_state_lane: "Lane 3b (3b4, 3b5)"
   new_state_step: "Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
+  department_names: ["ops-pipeline", "data-pipeline-builder"]
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)

@@ -18,6 +18,7 @@ metadata:
   lane: [lane-2, lane-3]
   new_state_lane: "Lane 2 (24), Lane 3 front-end (33)"
   new_state_step: "Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
+  department_names: ["bc-build", "bc-assess", "bc-value-model", "business-case-builder", "business-case-assessor", "bc-assessment"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft on the business case; recommend on prioritization; never assert proven
   status: stable

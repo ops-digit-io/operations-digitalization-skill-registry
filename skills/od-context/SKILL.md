@@ -13,6 +13,7 @@ metadata:
   lane: all
   new_state_lane: "Spine"
   new_state_step: "Supporting spine"
+  department_names: ["dept-os"]
   owner_role: OD lead
   authority_level: read-only
   status: stable
@@ -87,6 +88,19 @@ and hands over to IT or external delivery only once the demand is clear (`od-it-
 | Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`od-equipment-integration`) |
 | Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (`od-it-handover`) |
 
+**Step ids and route options.** Process step ids (`3a4`, `3a5`, `3a6`, `3b4` …) number the steps of a
+branch; route options are written with a dot (`3a.1` reuse, `3a.2` self-develop, `3a.3` external build,
+`3a.4` integrate a foreign app). Step `3a4` ("build or integrate") serves all four route options.
+
+**Lane 2 order.** Prototype comes before the business case: requirements → features and data check →
+prototype → business case → capital request. This follows the department's Lane 2 file; the naming
+convention's chain `bc-build → funnel-prototype` describes how its packaged skills hand over, not the
+process order. A prototype that changes the value picture updates the business case.
+
+**Department skill names.** The department's naming convention (`<family>-<object>`, 2026-09-21) names
+the same capabilities differently; each skill lists its department names in `metadata.department_names`,
+so a request using either name finds the skill.
+
 **Ownership tiers.** Self-service (plant executes inside pre-approved guardrails) · OD-led · OD +
 external (OD scopes, externals deliver) · IT, Cyber Security gated (OD does not control the gate).
 
@@ -107,6 +121,7 @@ Lane cut rule: **one lane = one trigger + one definition of done + one autonomy 
 | Azure Storage Account | The offload target | Databricks, which writes it |
 | Parquet | The main file format on the storage account | — |
 | MDL | "OESL Manufacturing Data Lake" in older department files, including the new-state lane drafts. **Not used** (owner decision, `docs/derivation.md`): read every MDL in a source as the data platform above | A separate system |
+| ContiTech | Named in older department files (lane drafts, decision rights) as shared-service partner and counterpart. **Not used** (owner decision, `docs/derivation.md`): where a decision names ContiTech, the counterpart is the IT-responsible role of the business side | — |
 | MSB | Manufacturing Service Bus — use-case enabler / integration backbone | The data platform |
 | MES | Manufacturing Execution System — rollout on hold, ERP/S4HANA-dependent | MDA/PDA (acquisition, not execution) |
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |

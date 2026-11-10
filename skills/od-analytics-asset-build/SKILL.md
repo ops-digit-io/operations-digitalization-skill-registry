@@ -15,6 +15,7 @@ metadata:
   lane: [lane-1, lane-2]
   new_state_lane: "Lane 1a (1a2), Lane 1b (1b4), Lane 2 (23, 26)"
   new_state_step: "Apply the standard template (self-service); Standardized deployment, go live, confirm adoption; Prototype / click-dummy, validated with the recipient; Implement, evaluate impact, ensure adoption, catalogue"
+  department_names: ["ops-dashboard-datatron (self-service mode, external engine)"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable

@@ -16,6 +16,7 @@ metadata:
   lane: lane-2
   new_state_lane: "Lane 2 (23)"
   new_state_step: "Prototype / click-dummy, validated with the recipient"
+  department_names: ["funnel-prototype", "prototype-builder", "click-dummy"]
   owner_role: human:jakob.gabriel
   authority_level: draft the prototype and the validation record; the plant confirms the value
   status: draft

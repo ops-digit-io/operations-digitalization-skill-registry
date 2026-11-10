@@ -17,6 +17,7 @@ metadata:
   lane: [lane-2, lane-3]
   new_state_lane: "Lane 2 (22), Lane 3 front-end (31)"
   new_state_step: "Requirements, features and data check; Requirements engineering"
+  department_names: ["funnel-requirements", "funnel-features", "requirements-funnel", "feature-funnel"]
   scope: od
   origin: derived
   owner_role: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane

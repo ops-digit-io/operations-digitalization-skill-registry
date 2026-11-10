@@ -19,6 +19,7 @@ metadata:
   lane: lane-3
   new_state_lane: "Lane 3 front-end (34), Lane 3a (3a4)"
   new_state_step: "Handover once the demand is clear; Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app)"
+  department_names: ["it-demand-package"]
   owner_role: OD lead (Thomas Zipf) for the Lane 3 front-end; IIAE for connector demands
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
   status: draft

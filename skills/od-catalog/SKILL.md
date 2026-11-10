@@ -20,6 +20,7 @@ metadata:
   lane: [lane-1, lane-2]
   new_state_lane: "Lane 1a (1a1, 1a3), Lane 1b (1b1, 1b4), Lane 2 (26)"
   new_state_step: "Pick from the catalog; Guardrails, go live, confirm adoption; Pick the use case and the standard system; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue"
+  department_names: ["catalog-usecase", "catalog-guardrails", "catalog-systems", "use-case-catalog", "self-service-guardrails", "standardized-systems-list"]
   owner_role: human:jakob.gabriel
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
   status: draft

@@ -18,6 +18,7 @@ metadata:
   lane: lane-3
   new_state_lane: "Lane 3a (3a4, 3a5)"
   new_state_step: "Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app); Deploy to the platform, acceptance, Cyber Security sign-off"
+  department_names: ["deploy-appstore", "Manufacturing-App-Store-Ops", "container-deploy", "deploy-entrygate", "deploy-exitgate"]
   owner_role: human:jakob.gabriel
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
