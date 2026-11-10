@@ -31,7 +31,7 @@ signals). The same skill covers the signals of a machine that is already connect
 |---|---|---|
 | Signal analysis report, filled binding sheet | `od-node-red-flows` (flow config contract) | Canonical names, units, collection method, derived outputs to register |
 | Same report | `od-acceptance-test`, `od-cross-plant-compatibility` | A second plant can consume it without asking |
-| Machine-specific barrier | `od-barrier-triage` | Class, owner |
+| Machine-specific barrier | `od-equipment-integration` | Class, owner |
 | Proposed standard change | IIAE decision (consultation) | An agent proposes; it does not enact |
 
 ## Method in practice
@@ -137,4 +137,4 @@ the report states the context situation (full context, tag export only, and so o
 - **Human gate:** the domain expert validates the proposal on a running dashboard; the IIAE decides any standard or data-model
   change; a native speaker confirms translated tag names. The agent never translates a signal name and uses it directly.
 - **Hands over:** the report and binding sheet to `od-node-red-flows`; open gaps back to `od-data-availability-check`
-  or `od-barrier-triage`.
+  or `od-equipment-integration`.

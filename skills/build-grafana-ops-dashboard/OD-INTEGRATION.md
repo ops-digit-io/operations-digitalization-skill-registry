@@ -92,6 +92,13 @@ see `od-node-red-flows` for the full schema and the UUID→label lookup. When yo
 pick the timeseries patterns, that is the model you are matching, and the label dimension
 comes from the IIoT edge platform's data-point config, not from the payload.
 
+## Lane 1a self-service
+
+When a plant key user applies a catalogued dashboard template (Lane 1a), this skill is the engine and
+`od-analytics-asset-build` (self-service mode) with `od-catalog`'s guardrails is the frame: start from the
+catalog template, pass the go-live check, let the plant confirm adoption. The department names this
+generic engine `ops-dashboard-engine` under its naming convention.
+
 ## After building
 
 Run `od-handover-and-adoption`. A Grafana dashboard is handed over when the plant can

@@ -70,7 +70,7 @@ Until investigated the entry stays "to be evaluated". Only a human (the OD lead 
 |---|---|---|
 | `od-use-case-intake-triage` | object / event / time, archetype guess, machine-connected flag | - |
 | `od-data-availability-check` | verdict on signals, per plant | - |
-| `od-use-case-standardization` / `od-use-case-promotion` | template, cluster, CSP status, graduation checklist | - |
+| `od-use-case-standardization` / `od-use-case-standardization` | template, cluster, CSP status, graduation checklist | - |
 | to `od-analytics-asset-build` (1a) | match record, entry id, reference plant, deltas to record | the baseline to copy |
 | to the system part (1b) | match record, machine class, where the data should land | - |
 | to Lane 2 / Lane 3 | reason for fall-through, what was missing | - |

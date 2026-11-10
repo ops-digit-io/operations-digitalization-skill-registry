@@ -17,7 +17,7 @@ All rows are read from the department documents on 2026-11-05. Nothing here is a
 | # | Rule | Source |
 |---|---|---|
 | 1 | The assistant of the Information Integration lane **may not** connect machines or write to production systems, and **may not** approve external connections | `20-lanes/information-integration-service/agent-brief.md` ("May not") |
-| 2 | Guardrail: never connect externally without Cyber Security / OT sign-off | same file ("Guardrails"); repeated in `od-information-integration-service` |
+| 2 | Guardrail: never connect externally without Cyber Security / OT sign-off | same file ("Guardrails"); repeated in `od-equipment-integration` |
 | 3 | Physical integration and external connection are human-only, `execute-with-approval` | same file ("authority_level") |
 | 4 | The Project Support lane must "respect Cyber Security sign-off"; acceptance and deployment are human-only | `20-lanes/project-support-consultancy/agent-brief.md` |
 | 5 | Decision right: equipment integration go-ahead - IIAE together with Plant ME / Plant IT, Tandem, approval yes, reversible partially, threshold "per investment plan; Cyber Security sign-off for external connection", `execute-with-approval` | `00-core/08-decision-rights.md` |

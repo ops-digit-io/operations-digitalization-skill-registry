@@ -18,7 +18,9 @@ metadata:
   argument_hint: "<domain> <schema or signal list>"
   id: build-grafana-ops-dashboard
   tier: technical
-  lane: [analytical-support-service, use-case-support-service]
+  lane: lane-1
+  new_state_lane: "Lane 1a (1a2)"
+  new_state_step: "Apply the standard template (self-service)"
   scope: portable            # domain-generic; not derived from the OD knowledge graph
   origin: vendored           # body and references are the author's, unmodified
   owner_role: human:jakob.gabriel

@@ -4,9 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [System fit check](SKILL.md) | Agent Skill | Catch the request that sounds like a normal dashboard or integration ask but quietly needs a system outside the lean footprint — MES, EMS, or a heavier read on MIL, Recipe Management or the Data Science Factory than the lightweight tools (QFPR, MDA/PDA) cover. Checks a stated need against each tool's own "is / is not" boundary, checks this specific plant's actual tool availability (not the estate average), and resolves to one of three verdicts: fits the lean footprint, redesign onto a lighter tool, or escalate as an exception. Use during intake (`od-use-case-intake-triage`) or requirements breakdown (`od-requirements-breakdown`), whichever catches the request first — never after a use case has already been scoped around the heavier system. |
+| [System fit check](SKILL.md) | Agent Skill | Two gates in one skill. Intake fit: catch the request that sounds like a normal dashboard or integration ask but quietly needs a system outside the lean footprint (MES, EMS, a heavier MIL, Recipe Management or Data Science Factory) and resolve it to fits, redesign or escalate, checked against this plant's real tool availability. Lane 3 tool-decision gate (the department's mandatory investment-screening): run the software and IT-footprint hard gate, then route the demand to 3a.1 reuse, 3a.2 self-develop, 3a.3 external build (guided buy), 3a.4 integrate a foreign app, or 3b new connector, with a Go / PoC-first / Reduce-complexity / Hold / Blocked verdict; includes the solution design recommendation for application questions (formerly od-application-consulting). Use at intake, during requirements breakdown, at Lane 3 step 32, whenever someone asks make, buy, integrate or connect, or when a purchase ships a PC, software, licence or endpoint. |
 
 | Folder | Holds |
 |---|---|
 | [assets/](assets/index.md) | 2 concept(s) |
-| [references/](references/index.md) | 7 concept(s) |
+| [references/](references/index.md) | 15 concept(s) |

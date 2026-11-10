@@ -62,7 +62,7 @@ marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioriti
 |---|---|
 | Tagged benefit rows (`od-benefit-calculation`) | Ranked list with criteria order, planning-state number, unscored bucket, dependency column -> `od-capital-request`, plant roadmap |
 | Use-case list and savings ledger, read with date (`od-sharepoint-list-export`) | Portfolio review protocol -> `od-scorecard-reporting` round prep |
-| Utilisation evidence (`od-impact-evaluation`) | Where-saved matrix and kill/hold register -> `od-retro`, `od-risk-watch` |
+| Utilisation evidence (`od-handover-and-adoption`) | Where-saved matrix and kill/hold register -> `od-retro`, `od-risk-watch` |
 
 ## 4. Pitfalls and lessons
 

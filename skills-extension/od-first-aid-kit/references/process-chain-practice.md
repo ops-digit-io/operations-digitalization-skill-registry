@@ -54,7 +54,7 @@ Deck-derived practice for intake (i1) and step 21. `PROPOSAL` = registry synthes
 
 | Hands on | To |
 |---|---|
-| the filled request form (SMART statement, object / event, data verdict, scenario, route with reason, requester told) | `od-analytical-support-service` (one-off), `od-use-case-intake-triage` / `od-use-case-definition` (recurring), Information Integration (data gap) |
+| the filled request form (SMART statement, object / event, data verdict, scenario, route with reason, requester told) | `od-first-aid-kit` (one-off), `od-use-case-intake-triage` / `od-use-case-definition` (recurring), Information Integration (data gap) |
 | organizational-versus-technical finding | the plant owner |
 | missing-signal table (`signal id | label | why needed`) | `od-requirements-breakdown`, Information Integration |
 

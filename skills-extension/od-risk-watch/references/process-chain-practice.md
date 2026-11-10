@@ -25,7 +25,7 @@ a *supporting reading* under an existing risk, not as a new risk (new risks go t
 | Age of IT tickets, unclear counterpart, unknown security process for application approval, missing lifecycle management | Limited internal IT knowledge / Cyber Security exposure | Ticket age as a risk indicator; source system `<unknown>` |
 | Machine list or tag list not updated at a plant | Cyber Security / OT exposure | Speed of response to a vulnerability notice is bounded by machine-list completeness |
 | Controller patch or approval status on installed controllers | Cyber Security / OT exposure | Held up a second integration wave and the savings behind it; Cyber Security sign-off runs in parallel and blocks only go-live, so start the package early |
-| Use cases implemented with no savings forecast or no registered project | Value not materialising | Count and list per plant at sprint close (`od-impact-evaluation`) |
+| Use cases implemented with no savings forecast or no registered project | Value not materialising | Count and list per plant at sprint close (`od-handover-and-adoption`) |
 | Utilisation `never` on delivered use cases | Value not materialising | From the use-case list, with read date |
 | Only one technical key user, or an open key-user role | Key-person / staffing gaps | Dedicated, staffed key user is a first-mover criterion (central capacity goes first to staffed first-mover plants) |
 | Separation or migration plan not available where central data is needed | External tooling dependence | A precondition field on the initiative |
@@ -61,7 +61,7 @@ list of who can support local IT. Options analysed with their consequences, incl
 
 | Receives (from) | Hands on (to) |
 |---|---|
-| Metrics with read dates (`od-scorecard-reporting`), forecast-gap list (`od-impact-evaluation`), barrier log (`od-barrier-triage`) | Dated risk reading with status per risk |
+| Metrics with read dates (`od-scorecard-reporting`), forecast-gap list (`od-handover-and-adoption`), barrier log (`od-equipment-integration`) | Dated risk reading with status per risk |
 | Operations-concept gaps (`od-decision-routing`, `od-handover-and-adoption`) | Triggered items to the deciding role (current approval policy, look up) or COP with the register's owner role |
 | Triggered two months running | Candidate for the retro's one adjustment (`od-retro`) |
 

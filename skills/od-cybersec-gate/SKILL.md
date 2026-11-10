@@ -13,13 +13,13 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-cybersec-gate
   tier: practice
-  lane: information-integration-service
-  new_state_lane: Lane 1b, Lane 3 (3a deploy, 3b acceptance)
-  new_state_step: Cyber Security sign-off
+  lane: [lane-1, lane-3]
+  new_state_lane: "Lane 1b (1b3), Lane 3a (3a5), Lane 3b (3b5)"
+  new_state_step: "Order and connect; Cyber Security sign-off in parallel; Deploy to the platform, acceptance, Cyber Security sign-off; Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
   owner_role: human:jakob.gabriel
   authority_level: recommend - the Cyber Security sign-off itself is human-only
   status: draft
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-equipment-integration, od-decision-routing, od-acceptance-test, deploy-appstore]
   derived_from:
@@ -35,6 +35,7 @@ metadata:
     - Skills od-information-integration-service (guardrails), od-decision-routing (escalation triggers and the cybersecurity worked example), od-equipment-integration (SKILL.md, references barrier-classes, fallbacks, iiot-edge-platform, decision-paths) and deploy-appstore, read 2026-11-05
     - Registry docs/new-state-flow.md and the Mermaid and skill-map diagrams in docs/new-state, the Cyber Security steps of Lanes 1b and 3, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Tools and Systems (Groot2B, QFPR), Plant - Auburn, Plant - Monterrey and Other (AI news session disclaimer, Shopfloor Applications List); Graph/Tools QFPR and Concept 3; Graph/Legacy Applications (268 notes, aggregate counts); Graph/Registers Blocker Register; Graph/Connectors and Graph/Tools for the connected platforms, read 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Cyber Security sign-off gate
@@ -73,7 +74,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 ## The rule
 
 **A missing sign-off holds the case. There is no expedited path and no authority level that shortens it.**
-(`od-information-integration-service` guardrail; `od-equipment-integration` error paths.) An agent never
+(`od-equipment-integration` guardrail; `od-equipment-integration` error paths.) An agent never
 connects, never approves an external connection, and never records "signed off" on its own say-so.
 
 The gate is **decoupled and runs in parallel**: start the package alongside planning and build. It blocks only go-live
@@ -121,6 +122,18 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
      two-path model is "substitute the solution" or "approve and manage it externally" (see precedents).
 10. **After go-live** the risk register's early indicator is "non-compliant connection detected". Anything
     found later is escalated, not quietly patched.
+
+## Pre-evaluation and platform-level approval (OD x IT, 2026-09-11)
+
+- **Pre-evaluate before the formal review.** Run this skill's package as a repeatable pre-evaluation that
+  names every missing input before Cyber Security sees it: fewer round trips, a team that learns the
+  process, less load on Cyber Security. The approach is an open action item (Thomas, Ignacio, aligned with
+  Axel); until it is agreed, the package is the pre-evaluation.
+- **Approve at platform level where possible.** Once a platform or connectivity pattern (Grafana,
+  connectivity, the CMO deployment structure) is approved, an app using the same pattern should not need a
+  full review only because it runs on another machine or at another location. The model is an open IT item
+  (Ignacio): record which approved pattern a case reuses and ask, do not assume the shortcut.
+- **CMO compliance is the preferred route** for apps (`deploy-appstore`).
 
 ## Decision table - what blocks what
 

@@ -14,21 +14,24 @@ allowed-tools: Read Grep Glob Bash(python3 scripts/check_epic.py:*) Bash(python3
 metadata:
   id: od-requirements-breakdown
   tier: practice
-  lane: all
+  lane: [lane-2, lane-3]
+  new_state_lane: "Lane 2 (22), Lane 3 front-end (31)"
+  new_state_step: "Requirements, features and data check; Requirements engineering"
   scope: od
   origin: derived
   owner_role: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
   authority_level: draft the requirement; accept or refuse per intake; approvals are human
   status: stable
-  sources_read: 2026-08-25
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption]
+  composes: [od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption, od-it-handover]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
     - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (use case field population, target_text and blockers grammar; legacy applications)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/.../00-core/{05-intake,15-resources}.md
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Requirements breakdown

@@ -13,8 +13,8 @@ metadata:
   id: od-risk-watch
   tier: practice
   lane: all
-  new_state_lane: Spine
-  new_state_step: Risk watch
+  new_state_lane: "Extension, deepens Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: read-only on sources; draft the risk reading
   status: draft

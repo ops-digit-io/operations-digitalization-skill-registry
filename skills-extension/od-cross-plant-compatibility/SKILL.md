@@ -14,9 +14,9 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-cross-plant-compatibility
   tier: practice
-  lane: information-integration-service
-  new_state_lane: Lane 3b (step 4b), Lane 1 catalog
-  new_state_step: Cross-plant compatibility check
+  lane: lane-3
+  new_state_lane: "Extension, deepens Lane 3b (3b4)"
+  new_state_step: "Connector design and data pipeline (edge to data platform)"
   owner_role: human:jakob.gabriel
   authority_level: recommend
   status: draft

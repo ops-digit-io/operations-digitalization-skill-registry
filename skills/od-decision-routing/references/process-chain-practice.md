@@ -72,10 +72,10 @@ Settled rules:
 | Receives (from) | Hands on (to) |
 |---|---|
 | Decision request with owner role, amount or scope, risk of not doing (`od-capital-request`, `od-investment-input`, `od-system-fit-check`) | Decision record with row, mode, outcome, dependency set on the use case or saving row |
-| Barrier record (`od-barrier-triage`) | Strategy exit -> OD lead, deciding role or forum per the current approval policy (look up); technical exit -> COP |
+| Barrier record (`od-equipment-integration`) | Strategy exit -> OD lead, deciding role or forum per the current approval policy (look up); technical exit -> COP |
 | Small-change request from a key user | Ticket id and change decision; larger ones as a project to the board |
 
-Demand-management checklist (for `it-demand-package`): who can raise requests; who manages the backlog; who evaluates; who
+Demand-management checklist (for `od-it-handover`): who can raise requests; who manages the backlog; who evaluates; who
 decides yes or no; who estimates effort; who decides to start development; who develops; who does final testing; who decides
 and triggers implementation; which configuration items are affected; who is responsible for implementation; and for each
 step, which tool documents it. Unanswered items stay `<...>`.

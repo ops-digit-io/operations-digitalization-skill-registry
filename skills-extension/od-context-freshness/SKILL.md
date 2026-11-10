@@ -14,8 +14,8 @@ metadata:
   id: od-context-freshness
   tier: practice
   lane: all
-  new_state_lane: Spine
-  new_state_step: Context freshness (quarterly hygiene)
+  new_state_lane: "Extension, deepens Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: read-only on the registry; draft the hygiene report
   status: draft

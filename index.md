@@ -9,10 +9,10 @@ okf_version: 0.2
 | Concept | Type | Description |
 |---|---|---|
 | [PHASE1-ELICITATION](PHASE1-ELICITATION.md) | — |  |
-| [Operations Digitalization skill registry](README.md) | Map of Content | What this registry is, the four lanes it serves, the tiers a skill can hold, and the index of all 53 skills. |
+| [Operations Digitalization skill registry](README.md) | Map of Content | What this registry is, the three new-state lanes it serves, the tiers a skill can hold, and the index of all 42 skills. |
 
 | Folder | Holds |
 |---|---|
-| [docs/](docs/index.md) | 9 concept(s) |
-| [skills/](skills/index.md) | 228 concept(s) |
-| [skills-extension/](skills-extension/index.md) | 145 concept(s) |
+| [docs/](docs/index.md) | 10 concept(s) |
+| [skills/](skills/index.md) | 297 concept(s) |
+| [skills-extension/](skills-extension/index.md) | 86 concept(s) |

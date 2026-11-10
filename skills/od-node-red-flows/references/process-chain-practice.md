@@ -86,7 +86,7 @@ runtime licences bound to one machine before moving a virtual machine.
 ## Decision rules
 
 - `PROPOSAL:` classify a flow as standard if the logic repeats across a process family and a validated prototype exists,
-  plant-specific if it depends on a local system, new otherwise; promotion to standard goes through `od-use-case-promotion`.
+  plant-specific if it depends on a local system, new otherwise; promotion to standard goes through `od-use-case-standardization`.
 - No literal secret, no uuid in a function body, no change of the signal standard inside a flow (the skill's guardrails).
 - Where the data is a manual entry (lab, quality), the flow is not the right home; use a data model, storage, input interface and
   analytics in one standard, otherwise each plant builds its variant.
@@ -144,7 +144,7 @@ end-to-end test fails. Faults reach it also from step **23** or **26** as "the d
 |---|---|---|
 | Fix on a test instance, proposed prod change | the human approver | Analyser result, test evidence |
 | A signal or topic problem | `od-signal-standardization` | Raised as a data-model change, not patched |
-| A connection or machine problem | `od-equipment-integration`, `od-barrier-triage` | Class, owner |
+| A connection or machine problem | `od-equipment-integration`, `od-equipment-integration` | Class, owner |
 | An ownership gap | `od-decision-routing` | Named gap |
 | Triage record | the plant key user | Cheapest checks first, what was ruled out |
 

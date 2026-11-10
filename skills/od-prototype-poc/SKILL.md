@@ -13,15 +13,15 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-prototype-poc
   tier: practice
-  lane: use-case-support-service
-  new_state_lane: Lane 2 (step 3)
-  new_state_step: Prototype / validate
+  lane: lane-2
+  new_state_lane: "Lane 2 (23)"
+  new_state_step: "Prototype / click-dummy, validated with the recipient"
   owner_role: human:jakob.gabriel
   authority_level: draft the prototype and the validation record; the plant confirms the value
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-use-case-definition, od-requirements-breakdown, od-data-availability-check, od-analytics-asset-build, od-benefit-calculation, od-capital-request, od-acceptance-test, od-decision-routing, od-impact-evaluation]
+  composes: [od-use-case-definition, od-requirements-breakdown, od-data-availability-check, od-analytics-asset-build, od-benefit-calculation, od-capital-request, od-acceptance-test, od-decision-routing, od-handover-and-adoption]
   derived_from:
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Where_We_Apply_Today.pptx

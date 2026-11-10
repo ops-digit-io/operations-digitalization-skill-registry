@@ -42,7 +42,7 @@ Climbing a rung needs evidence of that rung, not a decision. Name the rung in ev
    example a label corpus) has a direct value and a separate enabling value; report them apart.
 6. An **agentic or GenAI PoC** carries a different benefit unit: time freed, decision quality, knowledge retention. State the
    measure and the baseline; do not convert hours into euros without a recorded baseline and owner.
-7. Before a PoC result is reported as a saving, hand it to `od-impact-evaluation` and `od-benefit-calculation`.
+7. Before a PoC result is reported as a saving, hand it to `od-handover-and-adoption` and `od-benefit-calculation`.
 
 ## What the pilot design looks like (pattern)
 

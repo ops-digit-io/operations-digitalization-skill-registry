@@ -14,15 +14,15 @@ metadata:
   id: od-governance-cadence
   tier: practice
   lane: all
-  new_state_lane: Spine (all lanes)
-  new_state_step: "Governance rhythm: rounds, roadmap, demand routing, sprints, training"
+  new_state_lane: "Extension, deepens Lane 2 (23), Spine"
+  new_state_step: "Prototype / click-dummy, validated with the recipient; Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-definition, od-rollout-training, od-plant-onboarding, it-demand-package, od-use-case-prioritization]
+  composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-definition, od-rollout-training, od-plant-onboarding, od-it-handover, od-portfolio-and-savings-analysis]
   derived_from:
     - Operations Digitalization slide decks (community and strategy rounds, roadmap templates, demand management, use-case sprint reviews, training programme), abstracted into process guidance; no figures.
   okf:
@@ -49,10 +49,10 @@ the lane flow of a use case (`od-use-case-definition`). It names them at the han
 | Part | Process steps (`docs/new-state/process.yaml`) | Neighbour |
 |---|---|---|
 | Forums as sources, rounds on request, call for action, status, roadmap | spine; feeds 1b3, 3b5, 3a5 (waves, Cyber Security waits) | `od-scorecard-reporting`, `od-risk-watch`, `od-retro` |
-| Demand and change routing | i1, 32, 3a4 | `od-decision-routing`, `it-demand-package` |
+| Demand and change routing | i1, 32, 3a4 | `od-decision-routing`, `od-it-handover` |
 | Use-case sprint runbook | 23, 1a2, 1a3 | `od-use-case-definition`, `od-analytics-asset-build` |
 | Training programme | 1a3, 3a6, 26 | `od-rollout-training` |
-| Community routine | spine, after 26 (library, best practice) | `od-use-case-promotion` |
+| Community routine | spine, after 26 (library, best practice) | `od-use-case-standardization` |
 
 ## References and assets
 

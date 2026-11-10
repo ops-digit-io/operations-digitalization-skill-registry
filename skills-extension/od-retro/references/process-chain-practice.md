@@ -60,7 +60,7 @@ Then apply the retro's own test (can OD change it alone, reversible, observable 
 |---|---|
 | Metrics and round outputs (`od-scorecard-reporting`) | The one adjustment with owner role, date and observable |
 | Risk reading with triggered items (`od-risk-watch`) | Escalations to `od-decision-routing` (deciding role / COP) |
-| Evaluation findings: promise versus outcome (`od-impact-evaluation`) | Adjustments to context files -> `od-context-freshness` |
+| Evaluation findings: promise versus outcome (`od-handover-and-adoption`) | Adjustments to context files -> `od-context-freshness` |
 | Closure and sprint lessons | Parking list with first-seen month |
 
 ## 4. Pitfalls and lessons

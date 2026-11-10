@@ -1,0 +1,65 @@
+# OD handover annex: add-downtime-reason-capture
+
+Not an OpenSpec artefact; travels with the change. Prepared by OD; drafted, not accepted. Unknown values stay Illustrative example - filled from the named OD skill in a real package with who supplies them. Sections marked (blocking) must be filled before the package is sent.
+
+## 0. Header (blocking)
+- Demand: Operators need to record why a machine stopped, at the line, linked to the stop event.
+- Plant sponsor · plant owner · OD owner (roles): Illustrative example - filled from the named OD skill in a real package
+- Receiving team: External developer under IT architecture guidelines (illustrative)
+- Version / date: 2026-11-10
+
+## 1. Requirements (blocking)
+- Requirement and epic: Illustrative example - filled from the named OD skill in a real package
+- Objective, scope, interfaces, growth boundaries: Illustrative example - filled from the named OD skill in a real package
+
+## 2. Source code (blocking)
+- Repository and code ownership: Illustrative example - filled from the named OD skill in a real package
+
+## 3. Deployment assumptions (blocking)
+- Platform and manifests: Illustrative example - filled from the named OD skill in a real package
+- Stack against the guardrails: Illustrative example - filled from the named OD skill in a real package
+- Observability: Illustrative example - filled from the named OD skill in a real package
+
+## 4. Cyber Security inputs (blocking)
+- Pre-evaluation done, missing inputs: Illustrative example - filled from the named OD skill in a real package
+- Approved platform pattern reused: Illustrative example - filled from the named OD skill in a real package
+
+## 5. Access rights (blocking)
+- Who reads and writes which data: Illustrative example - filled from the named OD skill in a real package
+
+## 6. Data models (blocking)
+- Data read and published, in the agreed model: Illustrative example - filled from the named OD skill in a real package
+
+## 7. Data and interface catalog entries
+- Dataset, master system, format, access: Illustrative example - filled from the named OD skill in a real package
+- Interfaces: Illustrative example - filled from the named OD skill in a real package
+
+## 8. Business case (blocking)
+- Bankable impact: Illustrative example - filled from the named OD skill in a real package
+- Assumption-dependent benefit: Illustrative example - filled from the named OD skill in a real package
+- Investment envelope · build cost · run cost · TCO: Illustrative example - filled from the named OD skill in a real package
+- Minimum viable rollout · maximum scale-out: Illustrative example - filled from the named OD skill in a real package
+- Approval status (eCR, IT demand board): Illustrative example - filled from the named OD skill in a real package
+
+## 9. Sourcing decision (blocking)
+- Tool-decision gate verdict and route: Illustrative example - filled from the named OD skill in a real package
+- Why build / buy / guided buy / integrate: Illustrative example - filled from the named OD skill in a real package
+
+## 10. Ownership terms (blocking)
+- Build-and-run owner: Illustrative example - filled from the named OD skill in a real package
+- Shared responsibility split (business data vs platform): Illustrative example - filled from the named OD skill in a real package
+- Criticality: Illustrative example - filled from the named OD skill in a real package
+- Ownership transfers on formal acceptance by: Illustrative example - filled from the named OD skill in a real package
+
+## 11. Collaboration and capacity
+- Specialist participation, reserved PI capacity: Illustrative example - filled from the named OD skill in a real package
+
+## 12. Legacy link
+- Legacy application replaced or touched: Illustrative example - filled from the named OD skill in a real package
+
+## 13. Commitment status (blocking)
+- Committed in sprint / PI: no. No delivery date is given to the plant before commitment. No delivery date is given to the plant before commitment.
+
+## 14. Open items
+| Item | Who supplies it |
+|---|---|

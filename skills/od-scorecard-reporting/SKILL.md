@@ -14,6 +14,8 @@ metadata:
   id: od-scorecard-reporting
   tier: practice
   lane: all
+  new_state_lane: "Spine"
+  new_state_step: "Supporting spine"
   owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
   authority_level: read-only on sources; draft on reports
   status: stable

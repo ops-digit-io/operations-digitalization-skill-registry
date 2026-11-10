@@ -4,9 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case solution evaluation](SKILL.md) | Agent Skill | Evaluate whether a use case's envisioned solution actually fits its need — rank it against a library of known configurations as a fast pre-evaluation, profile the underlying complexity (27 drivers), find which of 16 IT/OT capability areas the solution depends on, compare the required level against the plant's as-is level with evidence, and sequence any gap through its realization dependencies. Produces a visualized case ranking, a per-area gap chart and a total evaluation score (0-100) that together resolve to one of four verdicts: ready to build, needs a named capability raised first, over-engineered for what the drivers justify, or escalate as a platform investment. Use once a use case is scoped (`od-use-case-definition`) and before its business case is calculated, whenever a solution looks more complex than the stated need, or when a target keeps getting set to "as high as possible" instead of from a stated reason. |
+| [Use-case solution evaluation](SKILL.md) | Agent Skill | Evaluate whether a use case's envisioned solution fits its need (Lane 2 step 22) — rank it against a library of known configurations, profile its complexity (27 drivers), find which of 16 IT/OT capability areas it depends on, compare required against the plant's as-is level with evidence, and sequence any gap. Produces a case ranking, a per-area gap chart and a total score that resolve to one of four verdicts: ready to build, raise a named capability first, over-engineered, or escalate as a platform investment. Use once a use case is scoped and before its business case, whenever a solution looks more complex than the need, or when a target is set "as high as possible" without a reason. Also profiles the as-is maturity of one machine, system or application on the same 16 areas (formerly od-maturity-assessment). |
 
 | Folder | Holds |
 |---|---|
 | [assets/](assets/index.md) | 1 concept(s) |
-| [references/](references/index.md) | 5 concept(s) |
+| [references/](references/index.md) | 12 concept(s) |

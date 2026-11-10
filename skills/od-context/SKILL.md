@@ -1,8 +1,8 @@
 ---
 name: od-context
 description: >-
-  Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the four service
-  lines, who decides what, where the truth lives, and the honesty rules every OD skill
+  Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three
+  new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill
   inherits. Load before any OD work, before quoting any OD number, before routing a request,
   and whenever terms like use case, asset, MSB, MES, ODEC, COP, DBVE, IIAE, CSP, eCR or SPRINT
   must resolve to one meaning.
@@ -11,10 +11,12 @@ metadata:
   id: od-context
   tier: foundation
   lane: all
+  new_state_lane: "Spine"
+  new_state_step: "Supporting spine"
   owner_role: OD lead
   authority_level: read-only
   status: stable
-  sources_read: 2026-10-23
+  sources_read: 2026-11-10
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/01-charter.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
@@ -23,6 +25,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
     - ops-knowledge-graph/_knowledge/10-Department/Roles and organization.md
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: OD context
@@ -35,7 +38,7 @@ metadata:
 
 ## Purpose and where it sits
 
-The foundation every other OD skill assumes: one vocabulary, the four service lines, who decides what, where the
+The foundation every other OD skill assumes: one vocabulary, the three new-state lanes, who decides what, where the
 truth lives, and the honesty rules. Serves every process step as the precondition (it is not a step of its own);
 users are all roles and every AI agent, which loads it before any OD work.
 **Inputs:** none (read-only). **Output:** a resolved term, route or source, never a figure (numbers are read live from
@@ -56,14 +59,36 @@ scalable digital use cases.
 customer-project industrialization, RFQ and P-FMEA/process-parameter standards; energy/facility and green production;
 tool-center operations; ERP / S4HANA ownership. OD supports these digitally but does not own them.
 
-## The four service lines
+## The three lanes (new state)
 
-| Lane | Trigger | Definition of done | Owner | Skill |
-|---|---|---|---|---|
-| Smart Factory Use Case Support Service (incl. Process First-Aid Kit) | Plant use-case demand or definition-workshop request | Use case defined, prioritized, impact-evaluated, handed to integration with a business case | DBVE (2 roles) | `od-use-case-definition` |
-| Information Integration Service | Equipment integration or data-model harmonization need per roadmap | Machine/equipment integrated, signals standardized, data landing on the data platform | IIAE (3 roles) | `od-information-integration-service` |
-| Project Support & Application Consultancy | Digital investment project kick-off | Integration project managed to acceptance test; application consulted and accepted | IIAE | `od-project-support-consultancy` |
-| Analytical Support Service (incl. Ad-Hoc Analytics) | Analytical request or ad-hoc process-insight need | Process diagnostics / analytical insight delivered | DBVE | `od-analytical-support-service` |
+The department segments demand by effort, ownership and novelty into **three branched lanes**
+(`OD-instance/20-lanes-newstate-DRAFT/`, status DRAFT: the department is being transformed, the
+model is the plan of record for this registry but not yet locked). Each demand is classified into
+exactly one lane at intake (`od-use-case-intake-triage`); branches chain afterwards.
+
+| Lane | Branches | Trigger | Ownership | Money | Entry skill |
+|---|---|---|---|---|---|
+| **Lane 1** Run a known use case | 1a connected machine · 1b standardized-system onboarding | Reuse a catalogued use case | Plant self-service; OD supplies catalog, templates, guardrails | 1a none · 1b predictable (cost template) | `od-catalog` |
+| **Lane 2** Develop a new use case | funnel; chains to Lane 3, graduates to Lane 1 | A genuinely new recurring need on connected equipment | OD-led (DBVE) | Business-case driven | `od-use-case-definition` |
+| **Lane 3** New system or connector | front-end, then 3a new system (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 integrate a foreign app) or 3b new connector | Something needed does not exist yet | Front-end OD-led (OD lead); build OD + external; integrate and connect IT, Cyber Security gated | Variable (business case) | `od-requirements-breakdown` → `od-system-fit-check` |
+
+**How the branches connect.** Lane 1 falls through to Lane 2 (not truly catalogued) or Lane 3
+(non-standard system, new machine). Lane 2 chains to 3a (needs software) or 3b (needs a connection),
+and a proven, repeatable Lane 2 result is catalogued and becomes a Lane 1 case. Lane 3's front-end
+(requirements → tool-decision gate → business case → capital request → handover) routes to 3a or 3b
+and hands over to IT or external delivery only once the demand is clear (`od-it-handover`).
+
+**Old to new.** The four functional service lines are retired:
+
+| Old service line (owner) | New state |
+|---|---|
+| Smart Factory Use Case Support Service, incl. Process First-Aid Kit (DBVE) | Known use cases → Lane 1; genuinely new → Lane 2 |
+| Analytical Support Service, incl. Ad-Hoc Analytics (DBVE) | Retired as a standing lane; ad-hoc analytics routes to Lane 1 self-service, Lane 2, or external support (`od-first-aid-kit`) |
+| Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`od-equipment-integration`) |
+| Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (`od-it-handover`) |
+
+**Ownership tiers.** Self-service (plant executes inside pre-approved guardrails) · OD-led · OD +
+external (OD scopes, externals deliver) · IT, Cyber Security gated (OD does not control the gate).
 
 Lane cut rule: **one lane = one trigger + one definition of done + one autonomy profile.**
 
@@ -81,6 +106,7 @@ Lane cut rule: **one lane = one trigger + one definition of done + one autonomy 
 | Databricks | The data platform the edge offloads through | The storage account it writes to |
 | Azure Storage Account | The offload target | Databricks, which writes it |
 | Parquet | The main file format on the storage account | — |
+| MDL | "OESL Manufacturing Data Lake" in older department files, including the new-state lane drafts. **Not used** (owner decision, `docs/derivation.md`): read every MDL in a source as the data platform above | A separate system |
 | MSB | Manufacturing Service Bus — use-case enabler / integration backbone | The data platform |
 | MES | Manufacturing Execution System — rollout on hold, ERP/S4HANA-dependent | MDA/PDA (acquisition, not execution) |
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |
@@ -94,7 +120,9 @@ Lane cut rule: **one lane = one trigger + one definition of done + one autonomy 
 | CSP | Common Solution Portfolio decision — the gate that says a library entry is standard enough to roll out | — |
 | eCR | Electronic capital request — the spend route for a project or integration wave | — |
 | SPRINT | The portfolio review that turns a tracked saving into a proven one | — |
-| Process First-Aid Kit | Rapid diagnostic offering inside Use Case Support | Ad-Hoc Analytics (Analytical lane) |
+| Process First-Aid Kit | Rapid diagnostic offering for a one-off plant process issue; routes to Lane 1, Lane 2 or external support | A standing analytics lane (retired) |
+| CMO | Container Management and Orchestration: the Kubernetes-based platform (registry, source host, GitOps catalog) apps deploy to; the preferred route for platform-level Cyber Security approval | The IIoT Edge runtime |
+| Key user | The plant role that runs catalogued, self-service work inside OD's guardrails | The OD builder |
 
 Acronyms: OD = Operations Digitalization · MPEE = Manufacturing Process & Equipment Engineering (expansion: see open
 points) · OESL = Original Equipment Solutions (confirmed, named on every ODEC/CoP deck title slide) · OPEX/CBS =

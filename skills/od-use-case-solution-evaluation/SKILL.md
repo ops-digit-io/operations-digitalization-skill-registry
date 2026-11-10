@@ -1,23 +1,23 @@
 ---
 name: od-use-case-solution-evaluation
 description: >-
-  Evaluate whether a use case's envisioned solution actually fits its need — rank it against
-  a library of known configurations as a fast pre-evaluation, profile the underlying
-  complexity (27 drivers), find which of 16 IT/OT capability areas the solution depends on,
-  compare the required level against the plant's as-is level with evidence, and sequence any
-  gap through its realization dependencies. Produces a visualized case ranking, a per-area
-  gap chart and a total evaluation score (0-100) that together resolve to one of four
-  verdicts: ready to build, needs a named capability raised first, over-engineered for what
-  the drivers justify, or escalate as a platform investment. Use once a use case is scoped
-  (`od-use-case-definition`) and before its business case is calculated, whenever a solution
-  looks more complex than the stated need, or when a target keeps getting set to "as high as
-  possible" instead of from a stated reason.
+  Evaluate whether a use case's envisioned solution fits its need (Lane 2 step 22) — rank it against
+  a library of known configurations, profile its complexity (27 drivers), find which of 16 IT/OT
+  capability areas it depends on, compare required against the plant's as-is level with evidence, and
+  sequence any gap. Produces a case ranking, a per-area gap chart and a total score that resolve to one
+  of four verdicts: ready to build, raise a named capability first, over-engineered, or escalate as a
+  platform investment. Use once a use case is scoped and before its business case, whenever a solution
+  looks more complex than the need, or when a target is set "as high as possible" without a reason. Also
+  profiles the as-is maturity of one machine, system or application on the same 16 areas (formerly
+  od-maturity-assessment).
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/evaluate_fit.py:*)
 metadata:
   id: od-use-case-solution-evaluation
   tier: practice
-  lane: use-case-support-service
+  lane: lane-2
+  new_state_lane: "Lane 2 (22)"
+  new_state_step: "Requirements, features and data check"
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft on the evaluation and target levels; recommend on sequencing; never approve an investment
   status: stable
@@ -113,3 +113,7 @@ Verdict, score and protocol go to `od-benefit-calculation` (ready), to the ownin
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Quick fit tests, operations-concept gate, handoff, agent notes |
 | [`assets/evaluation-protocol.md`](assets/evaluation-protocol.md) | The protocol to fill |
 | [`assets/example-use-case.json`](assets/example-use-case.json) | Filled input for the script |
+
+## Absorbed: As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas (formerly od-maturity-assessment)
+
+Run [`references/od-maturity-assessment/procedure.md`](references/od-maturity-assessment/procedure.md) when you need the as-is profile of one machine, system or application rather than the fit of a use case's solution. It keeps its own references and assets under that folder and the authority it had.

@@ -32,7 +32,7 @@ participants. Authority: draft; nothing below commits money or a connection.
 | Low | ⟨⟩ | ⟨⟩ | | |
 
 Number of use cases collected: ⟨n⟩ (of which new ⟨n⟩, already logged ⟨n⟩). Full ranking, if wanted,
-is built with `od-use-case-prioritization`.
+is built with `od-portfolio-and-savings-analysis`.
 
 ## 4 · Follow-up list
 
@@ -50,7 +50,7 @@ summaries into local (plant) and central (OD or other function).
 | 7 | Central | Define a standard data model with the local team where a process family needs one | ⟨IIAE⟩ | ⟨⟩ | `od-signal-standardization` | |
 | 8 | Both | Send OD's calculated first savings number for each use case | ⟨DBVE⟩ | ⟨date from capture sheet⟩ | `od-benefit-calculation` | |
 | 9 | Both | Define each promising need to a definition protocol | ⟨DBVE with plant owner⟩ | ⟨⟩ | `od-use-case-definition` | |
-| 10 | Both | Schedule the utilization review for the use cases already live | ⟨DBVE with Plant ME⟩ | ⟨⟩ | `od-impact-evaluation` | |
+| 10 | Both | Schedule the utilization review for the use cases already live | ⟨DBVE with Plant ME⟩ | ⟨⟩ | `od-handover-and-adoption` | |
 | 11 | Both | Log ad-hoc issues raised as first-aid cases | ⟨DBVE⟩ | ⟨⟩ | `od-first-aid-kit` | |
 
 Rows 1 to 7 are the kinds of actions OD's past plant summaries listed; keep only those that apply and

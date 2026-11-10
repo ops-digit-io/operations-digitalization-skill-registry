@@ -14,8 +14,8 @@ metadata:
   id: od-plant-onboarding
   tier: practice
   lane: all
-  new_state_lane: Spine
-  new_state_step: Plant onboarding
+  new_state_lane: "Extension, deepens Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
@@ -84,7 +84,7 @@ what comes next, which skill, what artefact, who decides.*
 | Stage | What happens | Skill (in order) | Artefact | Lane in new-state flow | Decided by |
 |---|---|---|---|---|---|
 | 1. Record the plant | Plant, machines, tools, use cases and legacy applications are in the lists the department reads; refresh the vault view | `od-sharepoint-list-export`; ground rule `od-context` | Plant record complete; run log | Spine | Plant ME / Plant IT for content; OD for the lists' structure |
-| 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `od-equipment-integration` (assessment route); `od-data-availability-check` for what the platform already receives; `od-barrier-triage` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `od-equipment-integration`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
+| 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `od-equipment-integration` (assessment route); `od-data-availability-check` for what the platform already receives; `od-equipment-integration` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `od-equipment-integration`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
 | 3. Take in demands | Each plant demand is classified: known use case, new use case, new system or connector | `od-use-case-intake-triage`, `od-system-fit-check`, `od-template-resolution` (start from the approved master) | Intake decision with written reason; fit check | Intake, then Lane 1, 2 or 3 | DBVE with Plant ME (prioritization: recommend) |
 | 4. First wins from the catalog | Machines already connected: pick a catalogued use case and apply its template | `od-catalog`, `od-cross-plant-compatibility` (is the standard consumable here?), `od-analytics-asset-build`, `build-grafana-ops-dashboard`, `od-catalog` | Asset live on the plant's local Grafana; compatibility check | Lane 1 (1a) | The plant decides what it runs |
 | 5. Connect what is not connected | Requirements, cost and approval, Cyber Security sign-off in parallel (blocks only go-live), build the connection, standardize signals, accept | `od-requirements-breakdown`, `od-investment-input` and `od-decision-routing` (spend via eCR), `od-cybersec-gate` (planned), `od-equipment-integration` (guidance route), `od-node-red-flows`, `od-signal-standardization`, `od-acceptance-test` | Requirement spec; decision request; guidance protocol per machine; signal analysis report; acceptance protocol | Lane 1 (1b), Lane 3b | IIAE: equipment go-ahead is execute-with-approval; investment by the OD lead with BA Operations (recommend); Cyber Security sign-off for external connection |
@@ -93,7 +93,7 @@ what comes next, which skill, what artefact, who decides.*
 | 8. Join the routines | Plant numbers in the Scorecard; plant issues in the COP or with the OD lead (ODEC is historical); plant risks and learnings | `od-scorecard-reporting`, `od-portfolio-and-savings-analysis`, `od-risk-watch`, `od-retro`, `od-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
 
 A 3a path (new system, via IT demand) is not part of a normal plant onboarding; it is taken only when stage 3 or 5 finds
-a need no connector can meet: `it-demand-package`, `deploy-appstore`.
+a need no connector can meet: `od-it-handover`, `deploy-appstore`.
 
 ## What each profile skips or adds
 

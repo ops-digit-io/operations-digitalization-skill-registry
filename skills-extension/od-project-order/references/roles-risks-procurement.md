@@ -23,7 +23,7 @@ to scope, timing or budget. The approved order lists real names; an agent draft 
 
 Before a system goes to productive use it also needs a business owner, an IT owner, a service concept,
 roles and responsibilities, requirements, a change-management process and a risk-management process
-(see `od-application-consulting`). Name them in the organisation chapter or list them as open.
+(see `od-system-fit-check`). Name them in the organisation chapter or list them as open.
 
 ## Opportunities and risks
 

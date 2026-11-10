@@ -62,7 +62,7 @@ LANES = [
         "metrics": "Use cases per year 101 / 153 (behind plan). Per month: target 12, red bar below 12.",
     },
     {
-        "id": "ii", "name": "Information Integration Service", "skill": "od-information-integration-service",
+        "id": "ii", "name": "Information Integration Service", "skill": "od-equipment-integration",
         "owner": "IIAE · 3 roles", "customer": "Plant ME / plant IT",
         "trigger": "Equipment integration or data-model harmonization need per roadmap",
         "done": "Machine / equipment integrated, signals standardized, data flowing into the MDL",
@@ -88,15 +88,15 @@ LANES = [
         "metrics": "Equipment per year 338 / 331 (above target). Per month: target 25, red bar below 25. Readiness RAG by location.",
     },
     {
-        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "od-project-support-consultancy",
+        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "od-it-handover",
         "owner": "IIAE", "customer": "Plant / project teams",
         "trigger": "Digital investment project kick-off",
         "done": "Integration project managed to acceptance test; application consulted and accepted",
         "steps": [
             ("Initiate project", "Project initiated per plant roadmap", [("od-decision-routing", 1)]),
             ("Kick-off", "Kick-off with the MPEE OD team; scope and requirements", [("od-requirements-breakdown", 0)]),
-            ("Manage project", "Equipment and solution integration project management", [("od-project-support-consultancy", 0)]),
-            ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("od-project-support-consultancy", 1)]),
+            ("Manage project", "Equipment and solution integration project management", [("od-it-handover", 0)]),
+            ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("od-system-fit-check", 1)]),
             ("Acceptance test", "Acceptance testing", [("od-acceptance-test", 0)]),
             ("Embed in daily work", "Ensure use cases are integrated into daily processes", [("od-handover-and-adoption", 0)]),
             ("Report", "Report progress and impact (Equipment / Applications / Use Cases)", [("od-scorecard-reporting", 0)]),
@@ -113,14 +113,14 @@ LANES = [
         "metrics": "Projects to acceptance: passed / active (tracker to collect). Equipment and applications progress vs. plan.",
     },
     {
-        "id": "as", "name": "Analytical Support Service", "skill": "od-analytical-support-service",
+        "id": "as", "name": "Analytical Support Service", "skill": "od-first-aid-kit",
         "owner": "DBVE", "customer": "Plant / OPEX / operations",
         "trigger": "Analytical request or ad-hoc process-insight need",
         "done": "Process diagnostics / analytical insight delivered",
         "steps": [
             ("Receive request", "Analytical / ad-hoc request received (Process First-Aid Kit)", [("od-use-case-intake-triage", 0)]),
             ("Check data in MDL", "Check data availability in the MDL", [("od-data-availability-check", 0), ("od-sharepoint-list-export", 0)]),
-            ("Diagnose", "Process diagnostics and analytical insight — validated", [("od-portfolio-and-savings-analysis", 0), ("od-analytical-support-service", 0)]),
+            ("Diagnose", "Process diagnostics and analytical insight — validated", [("od-portfolio-and-savings-analysis", 0), ("od-first-aid-kit", 0)]),
             ("Build asset", "Build asset — dashboard / report / analytics / app", [("od-analytics-asset-build", 0), ("build-grafana-ops-dashboard", 0)]),
             ("Deliver", "Deliver insight and asset; explain to the requester", [("od-analytics-asset-build", 0)]),
             ("Track and promote", "Track utilization; promote recurring value to a standard use case", [("od-scorecard-reporting", 0), ("od-use-case-standardization", 0)]),
@@ -156,7 +156,9 @@ def skill_info() -> dict[str, dict]:
         # This page draws the four service lanes. A skill born in the new-state flow
         # (origin: new-state) or taken from the department's own skill plan after this page was drawn
         # (origin: plan-draft) belongs to docs/new-state-flow.md and is not placed here.
-        if s.get("origin") in ("new-state", "plan-draft"):
+        # Since the merge of 2026-11-10 a skill that absorbed an old lane skill is drawn in its place.
+        referenced = {lane["skill"] for lane in LANES} | {k for lane in LANES for _, _, sk in lane["steps"] for k, _ in sk}
+        if s.get("origin") in ("new-state", "plan-draft") and sid not in referenced:
             continue
         text = (sp.skill_dir(sid) / "SKILL.md").read_text(encoding="utf-8")
         fm = yaml.safe_load(text.split("---", 2)[1])
@@ -286,7 +288,7 @@ a{color:var(--accent)}
 <body>
 <header>
   <h1>Operations Digitalization — process and skills</h1>
-  <p class="sub">The four OD service lanes as a BPMN-style flow, taken from the department-on-a-page deck. Each step carries the registry skills that serve it. Click a step, a gateway or a skill; click a lane title for its trigger, decision rights and agent limits.</p>
+  <p class="sub">Historical view: the four OD service lanes the new state retires (see the new-state flow), as a BPMN-style flow taken from the department-on-a-page deck. Each step carries the registry skills that serve it. Click a step, a gateway or a skill; click a lane title for its trigger, decision rights and agent limits.</p>
   <div class="bar">
     <button data-st="all" class="on">All skills</button>
     <button data-st="deep"><span class="dot deep"></span>Deep</button>

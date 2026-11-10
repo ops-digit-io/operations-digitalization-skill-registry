@@ -173,6 +173,35 @@ def main() -> int:
                     "gap; in machine-readable metadata a consumer reads it as the value."
                 )
 
+    # Core library == the process flow: every skill named on a step or on the spine of
+    # docs/new-state/process.yaml is core and is drawn in OD_NewState_Flow.mermaid; every other
+    # skill lives in the extension library.
+    proc_file = ROOT / "docs" / "new-state" / "process.yaml"
+    mermaid_file = ROOT / "docs" / "new-state" / "OD_NewState_Flow.mermaid"
+    if proc_file.exists():
+        proc = yaml.safe_load(proc_file.read_text(encoding="utf-8"))
+        named: set[str] = set()
+        for step in (proc.get("intake") or {}).get("steps", []):
+            named |= set(step.get("skills") or [])
+        for lane in proc.get("lanes", []):
+            for branch in lane.get("branches", []):
+                for step in branch.get("steps", []):
+                    named |= set(step.get("skills") or [])
+        named |= set((proc.get("spine") or {}).get("skills") or [])
+        for name in sorted(named - on_disk):
+            fail(f"process.yaml names '{name}' but no such skill exists")
+        for name in sorted(named & on_disk):
+            if skillpaths.library_of(name) != "core":
+                fail(f"process.yaml names '{name}' on the flow, so it must be in the core library (skills/)")
+        for name in sorted(n for n in on_disk if skillpaths.library_of(n) == "core"):
+            if name not in named:
+                fail(f"core skill '{name}' is not on the process flow (process.yaml); move it to skills-extension/ or place it on a step")
+        if mermaid_file.exists():
+            mer = mermaid_file.read_text(encoding="utf-8")
+            for name in sorted(named):
+                if not re.search(r"(?<![\w-])" + re.escape(name) + r"(?![\w-])", mer):
+                    fail(f"OD_NewState_Flow.mermaid does not draw core skill '{name}'")
+
     if errors:
         print(f"FAIL — {len(errors)} problem(s):\n", file=sys.stderr)
         for err in errors:

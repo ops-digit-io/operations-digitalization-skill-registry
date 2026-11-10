@@ -33,7 +33,7 @@ Steps **23** (prototype and validate), **26** (implement and graduate), **1a2** 
 |---|---|---|
 | Iterated tag list, documented process-domain knowledge, refined requirements, the ready dashboard, tag-to-panel table | `od-acceptance-test`, `od-handover-and-adoption` | The ritual of use, the utilization expectation, the named plant owner |
 | Dashboard tier, ritual, data model | `build-grafana-ops-dashboard` | Build mechanics start there |
-| Proven blueprint | `od-use-case-standardization` / `od-use-case-promotion` | Candidate for the library |
+| Proven blueprint | `od-use-case-standardization` / `od-use-case-standardization` | Candidate for the library |
 
 ## The smell: a dashboard without an action owner
 

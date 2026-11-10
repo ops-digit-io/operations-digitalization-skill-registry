@@ -15,8 +15,8 @@ metadata:
   id: od-ai-generation-playbook
   tier: practice
   lane: all
-  new_state_lane: Spine; Lane 2 steps 21-26; Lane 3 steps 31-33, 3a4-3a6, 3b4-3b6; Lane 1 step 1a2; intake i1
-  new_state_step: AI-assisted generation and governance (cross-cutting)
+  new_state_lane: "Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: recommend - drafts and checks only; every gate named here is a human gate
   status: draft

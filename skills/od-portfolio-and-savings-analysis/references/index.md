@@ -9,3 +9,7 @@
 | [Regional handling](regional-handling.md) | Skill Reference | Why the three regions are never blended into one conversion figure, and what to report instead. Method only - read the regional figures live. |
 | [Rollup method](rollup-method.md) | Skill Reference | How individual savings rows become a portfolio-level number without crossing a boundary that changes what the number means. |
 | [Strategic initiatives and savings](strategic-initiatives-and-savings.md) | Skill Reference | How to read the strategic AI and operations business cases next to the plant savings portfolio without mixing them - addressable versus realistic value, author inputs versus recorded savings, enabling value booked once, and the checks to run on a value anchor. Pattern only, no values. |
+
+| Folder | Holds |
+|---|---|
+| [od-use-case-prioritization/](od-use-case-prioritization/index.md) | 6 concept(s) |

@@ -7,15 +7,15 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-project-order
   tier: practice
-  lane: project-support-consultancy
-  new_state_lane: Lane 2 (steps 25 to 26), Lane 3 front-end and branches (steps 33 to 3b6)
-  new_state_step: "Project order, kick-off, milestone and closure"
+  lane: [lane-2, lane-3]
+  new_state_lane: "Extension, deepens Lane 2 (25, 26), Lane 3 front-end (33), Lane 3a (3a4)"
+  new_state_step: "Capital request if investment is needed; Implement, evaluate impact, ensure adoption, catalogue; Business case, prioritization, capital request; Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app)"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
   requires: [od-context]
-  composes: [od-capital-request, od-decision-routing, od-investment-input, od-handover-and-adoption, od-retro, od-project-support-consultancy, od-risk-watch, od-workshop-facilitation, od-equipment-integration]
+  composes: [od-capital-request, od-decision-routing, od-investment-input, od-handover-and-adoption, od-retro, od-it-handover, od-risk-watch, od-workshop-facilitation, od-equipment-integration]
   derived_from:
     - Operations Digitalization slide decks (project orders, kick-off plans, milestone and closure forms, customer-mandated program), abstracted into process guidance; no figures.
   okf:
@@ -100,10 +100,10 @@ If the driver is a customer mandate rather than savings, use the intake variant 
 
 | Receives | From |
 |---|---|
-| Use case, scope, owner, demand | `od-use-case-definition`, `od-use-case-prioritization` |
+| Use case, scope, owner, demand | `od-use-case-definition`, `od-portfolio-and-savings-analysis` |
 | Benefit rows with firmness | `od-benefit-calculation` |
 | Cost, option, funding gate | `od-investment-input`, `od-capital-request`, `od-decision-routing` |
-| Tool or system decision, IT gate | `od-system-fit-check`, `od-application-consulting` |
+| Tool or system decision, IT gate | `od-system-fit-check`, `od-system-fit-check` |
 
 | Hands on | To |
 |---|---|

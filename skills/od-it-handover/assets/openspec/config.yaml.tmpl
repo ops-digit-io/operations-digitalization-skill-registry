@@ -1,0 +1,27 @@
+schema: spec-driven
+
+context: |
+  Domain: manufacturing operations digitalization (neuwerk, MPEE Operations Digitalization, OD).
+  Changes in this folder arrive from OD's Lane 3 front-end (requirements -> tool-decision gate ->
+  business case -> handover). OD owns the demand until this team formally accepts it.
+
+  Deployment: containerized apps go to CMO (Kubernetes) with the standard manifests via GitOps.
+  Shop-floor data: IIoT Edge Platform -> data platform (Databricks, Azure Storage Account, Parquet).
+  Approved OT interfaces: MQTT to the edge platform where applicable; reuse central systems and data
+  stores across locations; no new proprietary silo.
+  Stack guardrails: ⟨published technology guardrails - IT action item; e.g. Python, FastAPI, SQL⟩
+  Language: all artefacts in English.
+
+rules:
+  proposal:
+    - State bankable impact apart from assumption-dependent benefit
+    - Name the route (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 integrate, 3b connector)
+  specs:
+    - Describe observable behaviour for plant users and downstream systems, not implementation
+    - Every requirement that reads or publishes shop-floor data names the data contract it depends on
+    - Write growth boundaries as explicit non-goals in design.md, not as requirements
+  design:
+    - State hosting, interfaces, data model, Cyber Security pattern reused, and who runs it (build-and-run)
+  tasks:
+    - Include logging and observability, standard manifests, acceptance test, Cyber Security sign-off,
+      and the handover checklist before ownership transfers

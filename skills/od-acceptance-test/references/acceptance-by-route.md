@@ -107,7 +107,7 @@ figure. See [`plant-integration-status.md`](../../od-equipment-integration/refer
 
 ⟨Acceptance results of past integrations. The vault carries no acceptance protocol, no pass or
 fail record per machine, and the lane's acceptance/rework rate is "not captured in any system"
-([`od-information-integration-service`](../../../skills-extension/od-information-integration-service/SKILL.md)).
+([`od-equipment-integration`](../../od-equipment-integration/references/od-information-integration-service/procedure.md)).
 Who could supply it: the IIAEs, from their own files.⟩
 
 ## Sources

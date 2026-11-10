@@ -14,8 +14,8 @@ metadata:
   id: od-retro
   tier: practice
   lane: all
-  new_state_lane: Spine
-  new_state_step: Monthly retrospective
+  new_state_lane: "Extension, deepens Spine"
+  new_state_step: "Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft

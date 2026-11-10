@@ -17,7 +17,9 @@ allowed-tools: Read Grep Glob Write Edit Bash(python3 scripts/analyze_flow.py:*)
 metadata:
   id: od-node-red-flows
   tier: technical
-  lane: information-integration-service
+  lane: lane-3
+  new_state_lane: "Lane 3b (3b4, 3b5)"
+  new_state_step: "Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
@@ -211,7 +213,7 @@ The tables of silent corruptions (timestamps in the 23rd century, unpaired sysTi
 Fill [`assets/triage-record.md`](assets/triage-record.md) while diagnosing (cheapest checks first,
 analyser result, what the analyser cannot see, decision). Route outcomes: a signal or topic
 problem to `od-signal-standardization` as a data-model change, a connection or machine problem to
-`od-equipment-integration` / `od-barrier-triage`, an ownership gap to `od-decision-routing`.
+`od-equipment-integration` / `od-equipment-integration`, an ownership gap to `od-decision-routing`.
 
 ## Done when
 

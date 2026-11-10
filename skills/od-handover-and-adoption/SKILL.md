@@ -7,25 +7,33 @@ description: >-
   expectation, what to do about an asset nobody opens, and handing over the function
   itself rather than a single use case. Use when a use case is being handed to a plant,
   when someone asks whether something is actually in use, when utilization is low or
-  `NEVER`, or when a role or portfolio is changing hands.
+  `NEVER`, or when a role or portfolio is changing hands. Also covers the OD x IT ownership rules
+  (build-and-run, ownership moves only on formal acceptance, the handover checklist, recurring
+  self-assessment), the impact evaluation and adoption confirmation record of a live use case
+  (formerly od-impact-evaluation) and the utilization review "deployed is not used" per site
+  (formerly od-utilization-review).
 license: MIT
 metadata:
   id: od-handover-and-adoption
   tier: practice
   lane: all
+  new_state_lane: "Lane 1a (1a3), Lane 1b (1b4), Lane 2 (26), Lane 3a (3a6)"
+  new_state_step: "Guardrails, go live, confirm adoption; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue; Rollout and adoption; ownership on formal acceptance"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
   authority_level: draft and report; the plant decides PRODUCTIVE
   status: stable
   origin: derived
-  sources_read: 2026-10-22
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-acceptance-test, od-scorecard-reporting, od-use-case-standardization]
+  composes: [od-acceptance-test, od-scorecard-reporting, od-use-case-standardization, od-it-handover, od-catalog]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Handover.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - Prosci. The Prosci ADKAR Model. prosci.com/methodology/adkar. Retrieved 2026-10-22. Industry framework, not peer-reviewed — used for the individual-adoption diagnostic, not for the delivery-status facts above it.
     - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Handover and adoption
@@ -44,6 +52,9 @@ Read `od-context` first.
 |---|---|
 | [`references/adkar-diagnostic.md`](references/adkar-diagnostic.md) | Why a use case stalls between `IMPLEMENTED` and `PRODUCTIVE` — the ADKAR barrier-point diagnostic, mapped onto this function's own lifecycle, with a worked example |
 | [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | What counts as evidence of adoption, strongest first — confirmed 2026-10-22, closing "how is adoption confirmed and recorded" |
+| [`references/ownership-and-handover-gates.md`](references/ownership-and-handover-gates.md) | Who runs it and when ownership moves (OD x IT, 2026-09-11): build-and-run, formal acceptance, handover checklist, shared responsibility, criticality gates, self-assessment |
+| [`references/od-impact-evaluation/procedure.md`](references/od-impact-evaluation/procedure.md) | Absorbed: evaluate the impact of a live use case and prepare the adoption confirmation record, with the saving's firmness (formerly `od-impact-evaluation`) |
+| [`references/od-utilization-review/procedure.md`](references/od-utilization-review/procedure.md) | Absorbed: the utilization table per use case and site, the no-saving decision route (formerly `od-utilization-review`) |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Pre-go-live checklist from rollout lessons, the operations-concept gate, handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft |
 
 Handover is a **tracked state** in this function, not a courtesy at the end of a build.
@@ -106,6 +117,23 @@ named owner's dated statement, third-party observation) is confirmed — none of
    outcome and better than carrying it.
 4. If the same asset is used at another plant, the gap is adoption, not the asset →
    `od-use-case-standardization`.
+
+## Handing over an application to IT or another team
+
+When an application (not a use case to a plant) changes owner, the OD x IT rules apply
+([`references/ownership-and-handover-gates.md`](references/ownership-and-handover-gates.md)): the team that
+builds it runs it; ownership moves only on **formal acceptance**; until then the builder supports it; the
+builder closes missing logging or observability first; the receiving team checks legacy status, backlog,
+version currency, architecture, business logic, logging and observability. The OpenSpec package that
+carries this into IT is `od-it-handover`.
+
+## Impact and utilization after go-live
+
+Lane 2 step 7 and Lane 1 step 6 end with "adopted": run the absorbed
+[impact evaluation](references/od-impact-evaluation/procedure.md) for the adoption confirmation record and
+the saving's firmness, and the absorbed [utilization review](references/od-utilization-review/procedure.md)
+per site when something is deployed but not used. A proven, repeatable result then goes to
+`od-use-case-standardization` and `od-catalog` for cataloguing.
 
 ## Handing over the function, not a use case
 

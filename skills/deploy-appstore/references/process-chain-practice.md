@@ -17,7 +17,7 @@ no commands either. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unkno
 ## Where it sits in the chain
 
 3a5 deploy to the platform and Cyber Security (with `od-acceptance-test` and, proposed, `od-cybersec-gate`). Upstream:
-`it-demand-package` (3a.3, 3a.4) and `od-application-consulting`. Downstream: `od-handover-and-adoption`.
+`od-it-handover` (3a.3, 3a.4) and `od-system-fit-check`. Downstream: `od-handover-and-adoption`.
 
 ## 1 Method in practice
 
@@ -78,8 +78,8 @@ positioned as an enabler for simple measurement tasks and use the same channel.
 
 | Direction | Skill | Content |
 |---|---|---|
-| Receive | `it-demand-package` | Decision of the evaluation board, route, owners, open IT points |
-| Receive | `od-application-consulting` | Sourcing route and scenario, data path, run owner |
+| Receive | `od-it-handover` | Decision of the evaluation board, route, owners, open IT points |
+| Receive | `od-system-fit-check` | Sourcing route and scenario, data path, run owner |
 | Receive | `od-cybersec-gate` | Package inputs; recorded answer comes back as release evidence |
 | Hand on | `od-acceptance-test` | Deployment package and rollback owner |
 | Hand on | `od-handover-and-adoption` | Run owner, support level, release notes, training need |

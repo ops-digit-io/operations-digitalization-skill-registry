@@ -8,22 +8,22 @@ description: >-
   and the checklist; deploying to a shared platform is human-approved and the sign-off is
   human-only. Use when an app is ready to go to the manufacturing app store on the IIoT
   Edge platform or the container platform, when someone asks what must be true before a
-  deployment, or when the deploy step of a new system is planned. Draft scaffold: the
-  platform procedure is not recorded in the sources.
+  deployment, or when the deploy step of a new system is planned. Checks the package against
+  the department's GitOps / ArgoCD deployment shape (standard manifests on CMO, reference instance HDAS).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
   id: deploy-appstore
   tier: practice
-  lane: project-support-consultancy
-  new_state_lane: Lane 3 (3a)
-  new_state_step: Deploy to platform + Cyber Security
+  lane: lane-3
+  new_state_lane: "Lane 3a (3a4, 3a5)"
+  new_state_step: "Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app); Deploy to the platform, acceptance, Cyber Security sign-off"
   owner_role: human:jakob.gabriel
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-system-fit-check, od-decision-routing, od-acceptance-test, od-handover-and-adoption, it-demand-package]
+  composes: [od-system-fit-check, od-decision-routing, od-acceptance-test, od-handover-and-adoption, od-it-handover, od-cybersec-gate]
   derived_from:
     - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 3a step "Deploy to platform + CS", the four 3a options and the gap register entry, read 2026-11-05
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
@@ -33,6 +33,8 @@ metadata:
     - Work vault (Work-OpsDigit-Knowledge), Graph/Keynote Initiatives notes Manufacturing App Store (CMO), AI-Coding Assimilation, Cybersec Backlog Closure and AI Requirements Eng. Pipeline, read 2026-11-05
     - Work vault, Microservice Apps (WIP), the notes Microservice Landscape, Platform Extensibility and Onboarding, Cross-Cutting Platform Concerns, Platform Services (Shared Kernel), Recipe Values Service, User Interfaces and Interaction Layer and Extension Services, AI-drafted and not reviewed, read 2026-11-05
     - Work vault, Graph/Tools (Concept 3, IIoT Edge Computing Platform) and the skill od-equipment-integration reference iiot-edge-platform.md, read 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: App deployment to the platform
@@ -45,9 +47,12 @@ metadata:
 
 Read `od-context` first.
 
-**Status: draft scaffold.** The new-state flow names "containerize and deploy an app to the platform, with
-Cyber Security sign-off" as a net-new build for Lane 3a. The sources read do not record how a deployment is
-done. This skill defines the gates and the package. It contains **no deployment commands**.
+**Status: draft.** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
+GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance); its shape and the
+OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
+This skill defines the gates and the package and checks a package against that shape. It contains **no
+deployment commands**; the department's package is the master for those. Serves 3a.1 and 3a.2, and 3a.3
+once the external build is delivered (`od-it-handover`).
 
 ## Which platform
 
@@ -68,6 +73,8 @@ running, pilot, planned or design-only and look the current status up in the sou
 
 ## The references
 
+- [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md): the GitOps / ArgoCD deployment set the department's skill authors, the CMO standard-manifest rule, the roadmap gate agents.
+
 | File | Use it for |
 |---|---|
 | [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | How to classify maturity (running, pilot, planned, design-only) and where to look the current status up; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
@@ -84,8 +91,8 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 |---|---|---|
 | 3a.1 Reuse | Deploy an existing codebase or app | Package and gate |
 | 3a.2 Self-developed | Build in OD, then deploy | Package and gate; the build is not covered here |
-| 3a.3 External | Spec in-house, build externally | Starts with `it-demand-package`, then package and gate |
-| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with `it-demand-package`, then package and gate |
+| 3a.3 External | Spec in-house, build externally | Starts with `od-it-handover`, then package and gate |
+| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with `od-it-handover`, then package and gate |
 
 ## Procedure
 

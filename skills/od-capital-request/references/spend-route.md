@@ -77,7 +77,7 @@ because they are exports of different dates; this is a trap, not an error to fix
 
 | Gate | Skill | When |
 |---|---|---|
-| IT demand management and the demand evaluation board | `it-demand-package` | the request needs a platform OD does not own |
+| IT demand management and the demand evaluation board | `od-it-handover` | the request needs a platform OD does not own |
 | Cyber Security / OT sign-off | `od-cybersec-gate`, `od-equipment-integration` | external connection or new connector |
 | CSP decision | `od-use-case-standardization` | the solution is meant to roll out across plants |
 | Plant adoption | `od-handover-and-adoption` | daily use is the plant's decision |

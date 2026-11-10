@@ -12,15 +12,15 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-capital-request
   tier: practice
-  lane: use-case-support-service
-  new_state_lane: Lane 2 (step 5), Lane 3 (step 3)
-  new_state_step: Capital request
+  lane: [lane-2, lane-3]
+  new_state_lane: "Lane 2 (25), Lane 3 front-end (33)"
+  new_state_step: "Capital request if investment is needed; Business case, prioritization, capital request"
   owner_role: human:jakob.gabriel
   authority_level: draft the request; submission and approval are human
   status: draft
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [od-benefit-calculation, od-decision-routing, od-prototype-poc, od-portfolio-and-savings-analysis, od-use-case-solution-evaluation, od-system-fit-check, od-investment-input, od-cybersec-gate, it-demand-package, od-handover-and-adoption]
+  composes: [od-benefit-calculation, od-decision-routing, od-prototype-poc, od-portfolio-and-savings-analysis, od-use-case-solution-evaluation, od-system-fit-check, od-investment-input, od-cybersec-gate, od-it-handover, od-handover-and-adoption]
   derived_from:
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 5, Lane 3 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
@@ -32,6 +32,8 @@ metadata:
     - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), Graph/Registers Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
     - Skills od-decision-routing and od-benefit-calculation, read 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/eCR_Management_Summary_inventory.md, read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Capital request
@@ -44,20 +46,21 @@ metadata:
 
 Read `od-context` first.
 
-**Status: draft.** The new-state flow rates this step Partial: `od-decision-routing` routes the eCR but
-nothing packages it (`docs/new-state-conformance.md`). This skill packages the output of
-`od-benefit-calculation` for the approval route. It does not recalculate value, set thresholds or approve.
+**Status: draft.** This is the department's `bc-capital-request` (formerly `ecr-builder`), the last link of
+its business-case chain: value from `od-benefit-calculation`, cost from `od-investment-input`, assessment
+verdict, then this package for the approval route. It does not recalculate value, set thresholds or approve.
 
-**What the sources do not hold:** the eCR form itself. No source gives its fields, its system, who files it, how
-long approval takes or what comes back. Everything below that is about the form's content is therefore built from
-what an approver needs and from the business cases in the vault (`references/business-case-structure.md`), and is
-marked as a proposal. The investment planning template that the project-support lane lists as an asset is
+**The form.** The department's inventory of the eCR management summary (sections, enums, governance
+conditionals) and the house rules of its builder are in
+[`references/ecr-management-summary.md`](references/ecr-management-summary.md). Still not in the sources: the
+system the eCR is filed in, who files it, how long approval takes and what comes back. The investment planning template that the project-support lane lists as an asset is
 ⟨to confirm or create⟩ in the resources registry (`00-core/15-resources.md`).
 
 ## The references are the substance
 
 | File | Use it for |
 |---|---|
+| [`references/ecr-management-summary.md`](references/ecr-management-summary.md) | The eCR section map, enums and governance conditionals, and the builder's house rules (refusal gate, grounding, open items, maturity verdict) |
 | [`references/spend-route.md`](references/spend-route.md) | How to find the spend gate and approver for an amount, the ambiguity to resolve with the OD lead, how it sits in Lane 2 and Lane 3, what a booked saving waits on |
 | [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
 | [`assets/capital-request-package.md`](assets/capital-request-package.md) | The package this skill produces and the human submits |
@@ -79,13 +82,15 @@ marked as a proposal. The investment planning template that the project-support 
 
 1. **Confirm a request is needed.** Is there money to commit (hardware, licences, external work, headcount)? If
    the work is within the plant roadmap and spends nothing new, no capital request: record that and stop.
+1b. **Refusal / de-risk gate.** If the value backbone, the investment estimate or the assessment verdict is
+   missing or too thin to carry the amount, stop and return the de-risk questions, not a package.
 2. **Collect the inputs.** The use case record, the benefit rows (`od-benefit-calculation`), the validation
    record (`od-prototype-poc`), the solution-evaluation verdict, the Plant ME agreement on priority.
 3. **Route first** (`od-decision-routing`): read the amount against the current approval policy (look up: the OD lead and
    `od-decision-routing`) and name the approver and the decision row. If the recorded
    ladder is ambiguous for the amount, do not pick a side silently
    ([`references/spend-route.md`](references/spend-route.md)). Also name the other gates the spend touches: IT
-   demand (`it-demand-package`), Cyber Security (`od-cybersec-gate`, `od-equipment-integration`).
+   demand (`od-it-handover`), Cyber Security (`od-cybersec-gate`, `od-equipment-integration`).
 4. **State the ask** in one line: amount, what it buys, what phase it funds, by when it must be decided.
 5. **Pull the value in, do not rebuild it.** Take each saving row with amount, year, category, rationale,
    methodology, reliability and dependency. Show **tracked and proven separately, never summed**
@@ -104,6 +109,11 @@ marked as a proposal. The investment planning template that the project-support 
     drafting, `ECR APPROVAL` once filed), with the owner (`od-benefit-calculation` dependency list).
 11. **Hand the package to the human** to review and submit. Stop there. After the decision, record the outcome
     in the package and update the dependency.
+
+## Maturity verdict
+
+Close every package with the open items and conflicts and one verdict: **Ready to sign**, **Sign the
+floor** (approve the grounded part only) or **Not ready**. Recommendation only.
 
 ## Definition of done
 

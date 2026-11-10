@@ -13,17 +13,22 @@ metadata:
   id: od-decision-routing
   tier: practice
   lane: all
+  new_state_lane: "Lane 1b (1b2), Lane 2 (25), Lane 3 front-end (32)"
+  new_state_step: "Cost template, approved by the plant budget owner; Capital request if investment is needed; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
   owner_role: OD lead
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
-  sources_read: 2026-10-22
+  sources_read: 2026-11-10
   requires: [od-context]
+  composes: [od-investment-input, od-it-handover]
   derived_from:
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
     - Rogers, P. and Blenko, M. (2006). Who Has the D? How Clear Decision Roles Enhance Organizational Performance. Harvard Business Review, 84(1), 52-61. The RAPID decision-rights framework (Recommend/Agree/Input/Perform/Decide), verified via Bain & Company's own summary, 2026-10-22 — grounds this skill's Tandem/Consultation/Information modes.
     - personal vault, Work-OpsDigit-Knowledge/Split Slides/D-Operations Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Decision routing and escalation
@@ -59,7 +64,14 @@ engineering.**
 | Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | IT-responsible role of the business side | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
 | Data-model / signal standardization | IIAE | Plant ME / Plant IT | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
+| Lane 1b standardized-system cost (cost template) | Plant budget owner | DBVE (OD supplies the template) | — | **yes** | partially | pre-priced standardized spend only; anything non-standard goes to Lane 3 | `recommend` (OD prepares; the plant budget owner approves) |
+| Lane 3 tool decision / IT-footprint gate | OD lead | IT (solution design) | Tandem | **yes** | no | mandatory for every Lane 3 demand; routes 3a.1-3a.4 or 3b | `recommend` |
+| Application ownership transfer to IT or another team | Receiving team | Current owner (builder) | Tandem | **yes** | partially | only on formal acceptance; until then the builder runs it | `recommend` |
 | Ad-hoc analytics delivery | DBVE | — | — | no | yes | read-only on source systems | `execute-autonomously` |
+
+The three rows above the last are from the department's new-state lane files (Lane 1 step 3b, Lane 3
+step 2) and the OD x IT alignment of 2026-09-11; `08-decision-rights.md` does not carry them yet.
+That file's `valid-until` was 2026-11-10: re-verify it with the OD lead before quoting a row as current.
 
 **Modes.** *Tandem* — both must agree. *Consultation* — hear, then decide alone.
 *Information* — tell, do not ask.

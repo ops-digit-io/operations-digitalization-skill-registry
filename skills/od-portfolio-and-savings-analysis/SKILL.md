@@ -8,11 +8,14 @@ description: >-
   use). Use for any portfolio question, regional or plant comparison, standardization or
   conversion-rate analysis, savings roll-up, or when a number about the portfolio is going
   into a deck, a board paper or a business case.
+  Also ranks competing candidate use cases for a plant or region into a prioritization record (formerly od-use-case-prioritization).
 license: MIT
 metadata:
   id: od-portfolio-and-savings-analysis
   tier: practice
-  lane: [analytical-support-service, use-case-support-service]
+  lane: lane-2
+  new_state_lane: "Lane 2 (24)"
+  new_state_step: "Business case (value and cost), assessment, ranking"
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: read-only
   status: stable
@@ -137,6 +140,10 @@ Rationale, blockers and comments were written during active work and later tidie
    bucket visible rather than folding it into the bottom of a ranked list.
 7. Fill [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) as the
    review happens; it is the record a reader who was not in the room can act on.
+
+## Absorbed: Rank competing candidate use cases into a prioritization record (formerly od-use-case-prioritization)
+
+Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-case-prioritization/procedure.md) when several candidate use cases compete for a plant or region and need a recommended order (Lane 2 step 4). It keeps its own references and assets under that folder and the authority it had.
 
 ## Do not
 

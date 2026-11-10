@@ -12,13 +12,15 @@ license: MIT
 metadata:
   id: od-analytics-asset-build
   tier: practice
-  lane: [analytical-support-service, use-case-support-service]
+  lane: [lane-1, lane-2]
+  new_state_lane: "Lane 1a (1a2), Lane 1b (1b4), Lane 2 (23, 26)"
+  new_state_step: "Apply the standard template (self-service); Standardized deployment, go live, confirm adoption; Prototype / click-dummy, validated with the recipient; Implement, evaluate impact, ensure adoption, catalogue"
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
-  composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization]
+  composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, od-catalog]
   derived_from:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
@@ -28,6 +30,8 @@ metadata:
     - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
     - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Analytics asset build
@@ -118,6 +122,24 @@ InfluxDB, and signals are mostly bound by literal UUID. Those are patterns, not 
 them on the current export (`references/dashboard-estate-baseline.md`); the specs they come from
 are drafts, unreviewed. Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
 configuration.
+
+## Lane 1a self-service mode
+
+In the new state a plant runs a **catalogued** use case itself (Lane 1a): the key user applies the
+standard template or dashboard; OD supplies the catalog entry, the template and the guardrails
+(`od-catalog`). In that mode this skill is used by the key user, not by OD:
+
+1. Start from the catalog entry's template (`od-catalog`, `od-template-resolution`), never from a blank
+   dashboard or an ad-hoc copy.
+2. Apply it to this plant's signals; anything the template does not cover is a deviation, not a local
+   extension: stop and route it (a recurring need is Lane 2).
+3. Pass the guardrails (`od-catalog`, `references/technical-guardrails.md`) and its go-live check;
+   passing the checklist is the approval gate.
+4. The plant confirms adoption (`od-handover-and-adoption`).
+
+The department's DATATRON dashboard skill (`ops-dashboard-datatron`, its "UUIDs to enable" output) is
+the engine it plans to open to key users; it is not in this registry. `build-grafana-ops-dashboard` is
+the generic engine.
 
 ## Procedure
 

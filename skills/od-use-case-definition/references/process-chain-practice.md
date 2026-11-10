@@ -159,7 +159,7 @@ integration and knowledge sharing. Map to the chain:
 | Data collection and exploration; data-model integration | 22 / 3b4 | `od-data-availability-check`, `od-signal-standardization` |
 | Use case development | 23 | `od-prototype-poc`, `od-analytics-asset-build` |
 | Preconditions for deployment; deployment | 26 | `od-acceptance-test`, `od-handover-and-adoption` |
-| Documentation, knowledge sharing, lessons learned | 26 | `od-use-case-standardization`, `od-use-case-promotion` |
+| Documentation, knowledge sharing, lessons learned | 26 | `od-use-case-standardization`, `od-use-case-standardization` |
 | Benefits and savings tracking against the plant savings project | spine | `od-portfolio-and-savings-analysis`, `od-scorecard-reporting` |
 
 `<to confirm>`: the deck pages for this flow carry block titles only (the pictures were not extracted); the

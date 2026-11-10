@@ -49,6 +49,22 @@ SPEC-04 sorts the dashboard names present in several plants into classes: class 
 
 The scripts named in the specs (lint per rule id and plant; periodic re-run of the counts) are **not built yet** (SPEC-03 section 5, SPEC-02 D-10). Until they exist a plant answers G8 to G16 by reading the dashboard JSON or the panel list by hand. The key user can check G9, G10, G12 and G13 with the Grafana search and panel inspection; G8 and G11 need the data platform contact (IIAE). The exports carry no view counts, so usage is unknown; do not use "not opened" as evidence in a go-live check.
 
+## IT technology guardrails (OD x IT, 2026-09-11)
+
+Distributed development and AI-enabled self-service need enforceable guardrails beyond the dashboard
+rules above. IT owns publishing them (action item: Ignacio, Jose, Rami); until then check a self-served
+or self-developed app against the agreed direction and mark the rule ⟨to confirm⟩:
+
+| Area | Agreed direction |
+|---|---|
+| Stack | Supported stacks, for example Python, FastAPI, SQL; the boundary set for external contributors applies to internal business developers too |
+| Deployment | Kubernetes / CMO with the standard manifests |
+| Interfaces | Approved OT interfaces (MQTT to the edge platform where applicable); reuse existing infrastructure and central data stores across locations |
+| Observability | Logging and health visible before go-live |
+| Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item, Ignacio) |
+| Self-assessment | The production owner reassesses every six or twelve months (`od-handover-and-adoption`) |
+| Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`od-requirements-breakdown`) |
+
 ## Open
 
 - ⟨Whether the newer Grafana major version used at one plant is the target platform or an exception⟩ - SPEC-01 / SPEC-04 open question; affects G12 for plugin panels.

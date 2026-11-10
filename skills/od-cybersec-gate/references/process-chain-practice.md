@@ -104,11 +104,11 @@ local notification form and the works-council categories are `<...>` (not in the
 | Direction | Skill | Content |
 |---|---|---|
 | Receive | `od-equipment-integration` | Data path, integration concept, what leaves the machine, connector and route |
-| Receive | `deploy-appstore` / `od-application-consulting` | App package, component list, source-ownership scenario, operations concept |
+| Receive | `deploy-appstore` / `od-system-fit-check` | App package, component list, source-ownership scenario, operations concept |
 | Receive | `od-capital-request` | Cost line for fixes and the security decision in the capital request checklist |
 | Hand on | `od-decision-routing` | Decision request; open conditions |
 | Hand on | `od-acceptance-test` | The recorded answer as evidence |
-| Hand on | `od-barrier-triage` | A refusal as a barrier class with owner |
+| Hand on | `od-equipment-integration` | A refusal as a barrier class with owner |
 
 ## 5 Pitfalls and lessons
 

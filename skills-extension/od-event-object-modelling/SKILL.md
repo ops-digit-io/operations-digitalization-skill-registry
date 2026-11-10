@@ -14,8 +14,8 @@ metadata:
   id: od-event-object-modelling
   tier: practice
   lane: all
-  new_state_lane: Intake, Lane 2 (steps 21, 22, 26), Lane 3b (step 3b4)
-  new_state_step: "Object and event modelling: category, method, ETL"
+  new_state_lane: "Extension, deepens Intake (i1), Lane 2 (21, 22)"
+  new_state_step: "Classify the demand into exactly one lane; Capture the idea, process diagnostics; Requirements, features and data check"
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft

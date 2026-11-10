@@ -9,11 +9,14 @@ description: >-
   plant wants something a first plant already has, when a library entry is proposed for
   rollout, when a cluster tag needs assigning or checking, or when someone asks why the
   catalogue has not scaled.
+  Also decides whether a recurring ad-hoc asset becomes a standard use case and assembles the promotion package (formerly od-use-case-promotion).
 license: MIT
 metadata:
   id: od-use-case-standardization
   tier: practice
-  lane: use-case-support-service
+  lane: lane-2
+  new_state_lane: "Lane 2 (26)"
+  new_state_step: "Implement, evaluate impact, ensure adoption, catalogue"
   owner_role: Digital-Business-Value-Engineer (DBVE); CSP decision outside OD
   authority_level: recommend
   status: stable
@@ -140,6 +143,10 @@ happens — one document per use case: template placement, library check, cluste
 and delta, and the CSP-readiness verdict, written so it hands off directly into
 `od-decision-routing`'s "standard enough to roll out" gate and into
 `od-benefit-calculation`'s business case, instead of needing to be re-asked from scratch.
+
+## Absorbed: Promote a recurring ad-hoc asset into a standard use case (formerly od-use-case-promotion)
+
+Run [`references/od-use-case-promotion/procedure.md`](references/od-use-case-promotion/procedure.md) when a dashboard, report or app built for one request keeps being asked for and should become a standard use case. It keeps its own references and assets under that folder and the authority it had.
 
 ## Do not
 

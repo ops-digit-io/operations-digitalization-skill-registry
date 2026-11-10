@@ -1,0 +1,25 @@
+# Proposal: add-downtime-reason-capture
+
+## Why
+
+Operators at the first implementation plant record machine stop reasons on paper, so the reasons never reach the shift review and repeated stops are not acted on. Capturing the reason at the line, linked to the machine stop event, makes repeat stops visible and is the bankable lever of the business case.
+
+## What Changes
+
+- Operators select a stop reason on a line-side screen when a machine stop is detected.
+- Each reason is stored with the machine, the stop event and the shift, and published to the data platform.
+- Growth boundary: no maintenance work orders, no OEE calculation, no planning functions.
+
+## Capabilities
+
+### New Capabilities
+- `downtime-reason-capture`: Capturing, storing and publishing the reason for a machine stop at the line.
+
+### Modified Capabilities
+
+## Impact
+
+- Plants: one first implementation plant; rollout to other plants is future potential.
+- Systems and interfaces: IIoT Edge Platform (machine stop events over MQTT), data platform (published reasons).
+- Data: machine stop events (master: the machine's edge data); stop reason catalogue (master: plant ME).
+- Route: 3a.3 external build under IT guidelines (tool-decision gate verdict Go).

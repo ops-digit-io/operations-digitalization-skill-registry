@@ -1,69 +1,93 @@
 %% OD New-State Service Lanes - process flow
-%% Shapes: (( )) start/end event · { } gateway · [ ] task · [( )] catalog store
-%% Colour used ONLY to flag the 5 net-new skill gaps (dashed orange). Skills shown as secondary line.
+%% Aligned to the department's new-state lane files (OD-instance/20-lanes-newstate-DRAFT, lanes 1-3) and the
+%% OD x IT alignment of 2026-09-11; revised 2026-11-10. Drawn from docs/new-state/process.yaml: every core
+%% skill of the registry appears on a step or on the spine; extension skills are optional and not drawn.
+%% Shapes: (( )) start/end · { } gateway · [ ] task · [( )] catalog store · dashed = external wait or supplier gap
 flowchart TD
-    START((Request)) --> CLS{Classify<br/>demand}
-    CLS -->|Known use case| L1G{Machine<br/>connected?}
-    CLS -->|New UC, machine connected| C1
-    CLS -->|New system / connector| D1
+    START((Demand)) --> CLS{"Classify into one lane<br/><i>od-use-case-intake-triage, od-system-fit-check</i>"}
+    CLS -->|Refuse: no roadmap link or<br/>nameable business case| REF[Return to demand owner]
+    CLS -->|Known, catalogued| L1G{Machine<br/>connected?}
+    CLS -->|New recurring need| C1
+    CLS -->|New system or connector| D1
 
     %% ---------- LANE 1 : run a known use case (self-service) ----------
-    subgraph LANE1 [Lane 1 - Run a known use case · self-service]
+    subgraph LANE1 [Lane 1 - Run a known use case · plant self-service]
         direction TB
-        L1G -->|Yes · 1a| A1["Pick from catalog<br/><i>catalog-usecase</i>"]
-        A1 --> A2["Apply template<br/><i>od-analytics-asset-build</i>"]
-        A2 --> A3["Validate and go live<br/><i>catalog-guardrails</i>"]
+        L1G -->|Yes · 1a| A1["1a1 Pick from catalog<br/><i>od-catalog</i>"]
+        A1 --> A2["1a2 Apply standard template, self-service<br/><i>od-analytics-asset-build, build-grafana-ops-dashboard</i>"]
+        A2 --> A3["1a3 Guardrails, go live, confirm adoption<br/><i>od-catalog, od-handover-and-adoption</i>"]
         A3 --> L1END(((Live)))
 
-        L1G -->|No · 1b| B1["Pick UC + std system<br/><i>catalog-usecase, catalog-systems</i>"]
-        B1 --> B2["Cost + approval ~d<br/><i>od-decision-routing</i>"]
-        B2 --> B3["Order and connect ~wks<br/><i>od-equipment-integration</i>"]
-        B3 --> B4["Apply template and go live<br/><i>od-analytics-asset-build</i>"]
+        L1G -->|No · 1b| B1["1b1 Pick UC + standardized system<br/><i>od-catalog</i>"]
+        B1 --> L1F{Standardized<br/>system fits?}
+        L1F -->|Yes| B2["1b2 Cost template · plant budget owner approves<br/><i>od-investment-input, od-decision-routing</i>"]
+        B2 --> B3["1b3 Order and connect · CS sign-off in parallel<br/><i>od-equipment-integration, od-cybersec-gate</i>"]
+        B3 --> B4["1b4 Standardized deployment, go live, adoption<br/><i>od-analytics-asset-build, od-catalog, od-handover-and-adoption</i>"]
         B4 --> L1END
     end
+    L1F -->|No · non-standard system or new machine| D1
+    A1 -.->|Not truly catalogued| C1
 
     %% ---------- LANE 2 : develop a new use case (OD-led) ----------
     subgraph LANE2 [Lane 2 - Develop a new use case · OD-led]
         direction TB
-        C1["Define and diagnose<br/><i>od-use-case-definition</i>"] --> C2["Features + data check<br/><i>od-requirements-breakdown, od-data-availability-check</i>"]
-        C2 --> G1{Value<br/>proven?}
-        G1 -->|No| STOP1[Stop / rework]
-        G1 -->|Yes| C3["Prototype / validate<br/><i>od-analytics-asset-build + PoC</i>"]
-        C3 --> C4["Business case + rank<br/><i>od-benefit-calculation, bc-assessment</i>"]
-        C4 --> G2{BC<br/>nameable?}
-        G2 -->|No| STOP2[Refuse]
-        G2 -->|Yes| C5["Capital request ~wks<br/><i>od-decision-routing</i>"]
-        C5 --> C6["Implement and graduate<br/><i>od-handover-and-adoption</i>"]
-        C6 --> G3{Repeatable?}
+        C1["21 Capture idea, process diagnostics<br/><i>od-use-case-definition</i>"] --> C2["22 Requirements, features, data check<br/><i>od-requirements-breakdown, od-data-availability-check, od-use-case-solution-evaluation</i>"]
+        C2 --> C3["23 Prototype / click-dummy, validated<br/><i>od-prototype-poc, od-analytics-asset-build</i>"]
+        C3 --> C4["24 Business case: value, cost, assessment, rank<br/><i>od-benefit-calculation, od-investment-input, od-portfolio-and-savings-analysis</i>"]
+        C4 --> G2{Nameable<br/>business case?}
+        G2 -->|No| REF2[Refuse, return to demand owner]
+        G2 -->|Yes| G5{Invest<br/>needed?}
+        G5 -->|Yes| C5["25 Capital request ~wks<br/><i>od-capital-request, od-decision-routing</i>"]
+        G5 -->|No| G6
+        C5 --> G6{Needs new system<br/>or connection?}
+        G6 -->|No| C6["26 Implement, evaluate impact, adoption, catalogue<br/><i>od-analytics-asset-build, od-handover-and-adoption, od-use-case-standardization, od-catalog</i>"]
+        C6 --> G3{Proven and<br/>repeatable?}
         G3 -->|No| L2END(((Done)))
         G3 -->|Yes| CAT[(Catalog)]
     end
-    CAT -.->|graduates to| L1G
+    CAT -.->|becomes a Lane 1 case| L1G
+    G6 -->|Software · chains to 3a<br/>Machine connection · chains to 3b| D1
 
     %% ---------- LANE 3 : introduce a new system or connector ----------
-    subgraph LANE3 [Lane 3 - New system or connector · OD / Ext / IT·CS]
+    subgraph LANE3 [Lane 3 - New system or connector · front-end OD · build OD+external · IT / CS gated]
         direction TB
-        D1["Requirements<br/><i>od-requirements-breakdown</i>"] --> D2["Tool-decision / IT gate<br/><i>od-system-fit-check, od-decision-routing</i>"]
-        D2 --> D3["Business case + capital ~wks<br/><i>od-benefit-calculation</i>"]
-        D3 --> G4{System or<br/>connector?}
+        D1["31 Requirements engineering<br/><i>od-requirements-breakdown</i>"] --> D2{"32 Tool-decision / IT-footprint gate<br/><i>od-system-fit-check, od-decision-routing</i>"}
+        D2 -->|Blocked / Hold| D2H[Hold: re-scope or reject]
+        D2 -->|Go| D3["33 Business case, prioritization, capital request ~wks<br/><i>od-benefit-calculation, od-investment-input, od-capital-request</i>"]
+        D3 --> D4["34 Handover once the demand is clear<br/><i>od-it-handover</i> · OpenSpec package"]
+        D4 --> G4{Route}
 
-        G4 -->|3a · new system| E1["Package / build app<br/><i>it-demand-package</i>"]
-        E1 --> E2["Deploy to platform + CS ~wks<br/><i>deploy-appstore</i>"]
-        E2 --> E3["Rollout and adopt<br/><i>od-handover-and-adoption</i>"]
+        G4 -->|3a.1 reuse · 3a.2 self-develop| E1["3a4 Build or integrate<br/><i>od-it-handover, deploy-appstore</i>"]
+        G4 -->|3a.3 external build · 3a.4 foreign app| EXT[IT demand / external developer accepts]
+        EXT --> E1
+        E1 --> E2["3a5 Deploy to platform, acceptance, CS sign-off ~wks<br/><i>deploy-appstore, od-acceptance-test, od-cybersec-gate</i>"]
+        E2 --> E3["3a6 Rollout and adoption, ownership on formal acceptance<br/><i>od-handover-and-adoption</i>"]
         E3 --> L3AEND(((Live)))
 
-        G4 -->|3b · new connector| F1["Connector + pipeline to MDL<br/><i>od-equipment-integration, od-signal-standardization, od-node-red-flow-builder</i>"]
-        F1 --> F2["Procure and connect ~wks<br/><i>od-equipment-integration</i>"]
-        F2 --> F3["Acceptance + CS to live ~wks<br/><i>od-acceptance-test</i>"]
-        F3 --> L3BEND(((On MDL)))
+        G4 -->|3b new connector| F1["3b4 Connector design + pipeline to data platform<br/><i>od-equipment-integration, od-signal-standardization, od-node-red-flows</i>"]
+        F1 --> F2["3b5 Procure and connect · CS sign-off in parallel ~wks<br/><i>od-equipment-integration, od-node-red-flows, od-cybersec-gate</i>"]
+        F2 --> F2X[Integration execution · supplier-dependent]
+        F2X --> F3["3b6 Acceptance test, live on the data platform<br/><i>od-acceptance-test</i>"]
+        F3 --> L3BEND(((On data platform)))
     end
 
-    %% gap styling - the only net-new skills
+    %% ---------- Spine : applies to every step ----------
+    subgraph SPINE [Spine - every step]
+        direction LR
+        S1["<i>od-context</i><br/>vocabulary, lanes, decision rights"] ~~~ S2["<i>od-ai-generation-playbook</i><br/>rules for AI agents"] ~~~ S3["<i>od-scorecard-reporting</i><br/>metrics and reporting rounds"]
+    end
+    L3BEND ~~~ SPINE
+
+    %% external waits and the supplier gap
     classDef gap fill:#ffffff,stroke:#f37558,stroke-width:2px,stroke-dasharray:5 4,color:#1b1e52;
-    class A1,A3,B1,E1,E2 gap;
+    class EXT,F2X gap;
 
     %% event + gateway styling (minimal colour)
     classDef evt fill:#1b1e52,stroke:#1b1e52,color:#ffffff;
     class START,L1END,L2END,L3AEND,L3BEND evt;
     classDef gate fill:#fff7e6,stroke:#ffa500,color:#1b1e52;
-    class CLS,L1G,G1,G2,G3,G4 gate;
+    class CLS,L1G,L1F,G2,G3,G4,G5,G6,D2 gate;
+    classDef stop fill:#f4f4f4,stroke:#999999,color:#1b1e52;
+    class REF,REF2,D2H stop;
+    classDef spine fill:#eef1fb,stroke:#1b1e52,color:#1b1e52;
+    class S1,S2,S3 spine;

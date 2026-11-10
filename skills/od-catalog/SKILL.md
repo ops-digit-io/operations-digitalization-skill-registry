@@ -17,13 +17,13 @@ allowed-tools: Read Grep Glob
 metadata:
   id: od-catalog
   tier: practice
-  lane: all
-  new_state_lane: Lane 1 (1a, 1b) and the Lane 2 graduation target
-  new_state_step: Pick from catalog; Pick UC + standardized system; Validate and go live; Graduation
+  lane: [lane-1, lane-2]
+  new_state_lane: "Lane 1a (1a1, 1a3), Lane 1b (1b1, 1b4), Lane 2 (26)"
+  new_state_step: "Pick from the catalog; Guardrails, go live, confirm adoption; Pick the use case and the standard system; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue"
   owner_role: human:jakob.gabriel
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
   status: draft
-  sources_read: 2026-11-05
+  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-use-case-standardization, od-use-case-intake-triage, od-data-availability-check, od-system-fit-check, od-handover-and-adoption, od-equipment-integration, od-decision-routing, od-acceptance-test]
   derived_from:
@@ -46,6 +46,7 @@ metadata:
     - Work vault, Vault Gap Analysis - Working Items and Content Depth, _knowledge/20-Done and 10-Department (Decision rights, Handover, Use case standardization), read 2026-11-05
     - Work vault, Graph/Use Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
     - Skills od-data-availability-check (failure modes), od-handover-and-adoption, od-decision-routing (escalation worked examples), read 2026-11-05
+    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: od-catalog

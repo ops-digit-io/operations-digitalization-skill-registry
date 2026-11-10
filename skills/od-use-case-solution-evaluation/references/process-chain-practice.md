@@ -78,7 +78,7 @@ the solution is first named. Each one can turn "ready to build" into "needs a na
 `od-requirements-breakdown`, tool-availability table, plant capability levels with evidence.
 **Hands on:** the pasted script output and total score; verdict (ready / capability first / over-engineered /
 platform investment); for each gap an owner and sequence position; tool boundary sentences relied on; cost class;
-operations-concept status. To `od-benefit-calculation` (scope and cost of gaps), `od-use-case-prioritization`
+operations-concept status. To `od-benefit-calculation` (scope and cost of gaps), `od-portfolio-and-savings-analysis`
 (dependency column), `od-system-fit-check` and `od-decision-routing` (escalations).
 
 ## 4 · Pitfalls and lessons

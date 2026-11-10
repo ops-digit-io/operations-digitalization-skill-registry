@@ -11,3 +11,8 @@
 | [Plant tool availability](plant-tool-availability.md) | Skill Reference | Guidance, no figures. How to read the live Tool Overview for one plant (status codes, empty cells, rollout years), count the use cases that name a tool, and handle disagreement with workshop tables - for step 3 of the system fit check. |
 | [Process chain practice](process-chain-practice.md) | Skill Reference | How the fit check is run as a step in the AI-driven process chain (i1 classify the demand, 32 tool decision) - tool boundaries and "recommended if" triggers as classifiers, demand shapes, the operations-concept check, handoffs and agent notes. |
 | [Tool boundaries](tool-boundaries.md) | Skill Reference | What each lightweight Smart Factory tool is and is not for, in the department's own words, with the real cost estimates and recommended-if criteria the tell is built from. |
+| [Tool decision gate](tool-decision-gate.md) | Skill Reference | The Lane 3 tool-decision / IT-footprint gate (the department's investment-screening, invest-screen): the software and IT-footprint hard gate, the route to 3a.1-3a.4 or 3b, the sourcing criteria from the OD x IT alignment, and the verdict words the department already uses. |
+
+| Folder | Holds |
+|---|---|
+| [od-application-consulting/](od-application-consulting/index.md) | 7 concept(s) |

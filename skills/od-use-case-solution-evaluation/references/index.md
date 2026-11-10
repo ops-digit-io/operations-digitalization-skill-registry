@@ -9,3 +9,7 @@
 | [Dependencies](dependencies.md) | Skill Reference | Which focus-area levels require which others first, the source table's own reliability caveat, and the recommended backbone chain for sequencing a gap. |
 | [Focus areas](focus-areas.md) | Skill Reference | The 16 IT/OT capability areas a use case's solution can depend on — levels, what each level looks like, and where to set the target from need rather than from the top of the scale. |
 | [Process chain practice](process-chain-practice.md) | Skill Reference | How the fit check of an envisioned solution is run in step 22 of the AI-driven chain - fit tests the decks use besides the capability model (tool boundary, edge versus plain connection, PLC versus rule engine, cloud versus edge, make or buy), the operations-concept gate, handoff and agent operating notes. |
+
+| Folder | Holds |
+|---|---|
+| [od-maturity-assessment/](od-maturity-assessment/index.md) | 7 concept(s) |

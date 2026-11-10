@@ -47,7 +47,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 - Assumptions, baselines and factors of a benefit; whether a savings status is confirmed; "no potential".
 - Scope and scenario of a decision; anything that commits budget; submission of a request.
 - Any machine connection, PLC write or parameter change; Cyber Security sign-off (no expedited path).
-- Deployment into a shared platform; promotion to the catalog (`od-use-case-promotion`).
+- Deployment into a shared platform; promotion to the catalog (`od-use-case-standardization`).
 - Choice of facilitation format and the order of a workshop.
 - Escalation wording to a forum.
 

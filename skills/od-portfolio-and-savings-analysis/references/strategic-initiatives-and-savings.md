@@ -60,7 +60,7 @@ euros.
 |---|---|---|
 | Business-case range | Not in the portfolio | It stays in the strategic list as an estimate |
 | PoC or pilot effect | Tracked, labelled estimate or pilot | Test conditions stated; no extrapolation to the estate |
-| Productive deployment, no measurement | A delivered case without a saving | It is a candidate for evidence collection (`od-impact-evaluation`) |
+| Productive deployment, no measurement | A delivered case without a saving | It is a candidate for evidence collection (`od-handover-and-adoption`) |
 | Measured effect with baseline and owner | Proven, per row | Reliability class stated; period stated |
 
 ## Check list before you quote a strategic number

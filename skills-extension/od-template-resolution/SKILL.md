@@ -14,8 +14,8 @@ metadata:
   id: od-template-resolution
   tier: practice
   lane: all
-  new_state_lane: Spine; Lane 1 step 2
-  new_state_step: Template resolution
+  new_state_lane: "Extension, deepens Lane 1a (1a2), Spine"
+  new_state_step: "Apply the standard template (self-service); Supporting spine"
   owner_role: human:jakob.gabriel
   authority_level: read-only; points to the approved master
   status: draft

@@ -3,6 +3,26 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-10
+
+- **Department context applied, registry 1.13.0, 42 skills (core 27, extension 15).** Fixed every finding of
+  `docs/department-context-conformance.md` from the vault folder `OD Department Knowledge/OD-instance` and the OD x IT
+  meeting notes of 2026-09-11. Merged twelve duplicate or retired-lane skills into their owners, each kept as
+  `references/<old-name>/procedure.md`: `od-analytical-support-service` → `od-first-aid-kit`;
+  `od-project-support-consultancy`, `it-demand-package` → `od-it-handover`; `od-information-integration-service`,
+  `od-machine-integration-plan`, `od-barrier-triage` → `od-equipment-integration`; `od-application-consulting` →
+  `od-system-fit-check`; `od-impact-evaluation`, `od-utilization-review` → `od-handover-and-adoption`;
+  `od-use-case-promotion` → `od-use-case-standardization`; `od-use-case-prioritization` →
+  `od-portfolio-and-savings-analysis`; `od-maturity-assessment` → `od-use-case-solution-evaluation`. New core skill
+  `od-it-handover`: the Lane 3 handover as an OpenSpec change package, with scaffold and check scripts (the example
+  passes OpenSpec's own validator in strict mode). `od-investment-input` moved to core, `od-sharepoint-list-export` to
+  extension. `process.yaml` and `OD_NewState_Flow.mermaid` redrawn to the department lanes (step 34 added, step ids
+  kept); `validate_registry.py` now fails when core and flow disagree.
+- **Department context conformance.** Checked all 53 skills against the vault folder `OD Department Knowledge/OD-instance`
+  (new-state lane drafts, decision rights, intake, OD x IT alignment of 2026-09-11, naming convention); result in
+  `docs/department-context-conformance.md`. Added `new_state_lane` / `new_state_step` to the 23 skills that only carried the
+  old `lane:` value, from `docs/new-state/process.yaml`. No other skill content changed.
+
 ## 2026-11-06
 
 - **Core library merged, registry 1.12.0, 53 skills (core 27, extension 26).** Related core skills that the process does not keep apart were merged:

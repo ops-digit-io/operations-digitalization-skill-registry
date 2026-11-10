@@ -11,8 +11,12 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 The registry's skills are measured against this flow: each step of it names the skill that
 serves the step and whether that skill is built, partial or missing. Four files in
-[`new-state/`](new-state/) show it, copied unchanged from the files the owner supplied on
-2026-11-05.
+[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_Flow.mermaid` was redrawn on 2026-11-10** to fit
+the department context (lane files 1-3, OD x IT alignment): Lane 1 fall-through, Lane 2 chaining to 3a and
+3b, the mandatory tool-decision / IT-footprint gate with routes 3a.1-3a.4 and 3b, the handover once the
+demand is clear (step 34), Cyber Security in parallel, the supplier-dependent integration execution, the
+data platform instead of the MDL, and a spine band. It now draws exactly `process.yaml`, and every core
+skill appears on it (enforced by `validate_registry.py`). The three HTML files keep the 2026-11-05 state.
 
 | File | What it shows |
 |---|---|

@@ -82,7 +82,7 @@ Where decks disagree:
 | Use-case canvas with current state, objective, success criterion (`od-use-case-definition`) | Benefit rows with tier, grounding tag, basis label, dependency and owner role -> `od-portfolio-and-savings-analysis` (rank) |
 | Workshop savings pre-evaluation, capture sheet with plant, process, owner role (`od-workshop-facilitation`) | Cost-side request: which value rows depend on the spend -> `od-investment-input`, `od-capital-request` |
 | Validation record (`od-prototype-poc`) | Ranked open-question list with owners -> back to the requester, not forward |
-| Baseline from plant controlling | The row to SPRINT only when defensible (`od-impact-evaluation`) |
+| Baseline from plant controlling | The row to SPRINT only when defensible (`od-handover-and-adoption`) |
 
 ## 4. Pitfalls and lessons
 
@@ -90,7 +90,7 @@ Where decks disagree:
   fleet scale.
 - Counting delivery as value: scaling count and "recorded demand" are not savings; reusability is cheap, monetary impact is
   derived per site.
-- Savings missing because the baseline was never defined at sprint start (see `od-impact-evaluation`, forecast gate).
+- Savings missing because the baseline was never defined at sprint start (see `od-handover-and-adoption`, forecast gate).
 - Unreported versus unused: a missing saving may be unreported (the deployers do not report) or truly unused potential.
   Find out which before drawing a conclusion.
 - Stating the staffing assumption nowhere: the same portfolio gives different projections under central-only staffing and

@@ -15,7 +15,9 @@ allowed-tools: Read Grep Glob Bash(python3 scripts/check_availability.py:*)
 metadata:
   id: od-data-availability-check
   tier: practice
-  lane: [analytical-support-service, use-case-support-service]
+  lane: lane-2
+  new_state_lane: "Lane 2 (22)"
+  new_state_step: "Requirements, features and data check"
   owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
   authority_level: read-only
   status: stable

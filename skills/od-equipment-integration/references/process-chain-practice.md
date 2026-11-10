@@ -125,7 +125,7 @@ request, a short block to prepare the handover to use-case support.
 | Machine not connected, use case waiting | Integration wave first; use cases only after |
 | Old device signals incompatible with the bus or logger | Compatibility check before the cost line, not after |
 | Controller patch or sign-off open | Parallel track; hold go-live (the live connection) until signed off |
-| Barrier with no route | `od-barrier-triage`; log, never omit silently |
+| Barrier with no route | `od-equipment-integration`; log, never omit silently |
 | Lab or quality dashboard not tied to a machine | Not in the integration sequence; local quality team owns |
 
 ## 3 Handoff contract
@@ -137,7 +137,7 @@ request, a short block to prepare the handover to use-case support.
 | Hand on | `od-signal-standardization` | Machine CV with mandatory and optional tags, tag list, base-model flow design |
 | Hand on | `od-acceptance-test` | Data path, signal list, witness, expected values |
 | Hand on | use-case support (`od-use-case-definition`) | Machine list with connected status, remaining machines with blocker, integration-to-use-case handover note |
-| Hand on | `od-barrier-triage` | Machines with no route, class and dependent use cases |
+| Hand on | `od-equipment-integration` | Machines with no route, class and dependent use cases |
 | Hand on | `od-scorecard-reporting` | Wave status, traffic light, call-for-action |
 
 ## 4 Pitfalls and lessons

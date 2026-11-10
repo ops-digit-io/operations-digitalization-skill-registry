@@ -27,7 +27,7 @@ is marked `PROPOSAL`; unknowns are `<...>`.
 | Process First-Aid Kit request | Ad-hoc plant process issue | Plant question, data status | `<template to confirm>` | Quick answer or a routed definition | Analytical lane, or definition |
 
 **Chain rule.** Each task's output is the next task's required input. A task started without its input produces a placeholder;
-route back instead (`od-barrier-triage`).
+route back instead (`od-equipment-integration`).
 
 `PROPOSAL`: when an agent opens a ticket for one of these tasks, it pre-fills **Starts when**, **Needs** (with the source of each
 item and its read date) and **Leaves behind** as the definition of done, and names the next task as the follow-up.
@@ -71,4 +71,4 @@ How to read each metric: `od-scorecard-reporting/references/metric-reading-guide
   statement, list use cases whose next task has no owner.
 - **Evidence to cite:** list names with read date; template name.
 - **Human gate:** commitments (investment, connection approval) stay with the OD lead and Cyber Security.
-- **Hands over to:** `od-information-integration-service` with the business case and requirement breakdown.
+- **Hands over to:** `od-equipment-integration` with the business case and requirement breakdown.

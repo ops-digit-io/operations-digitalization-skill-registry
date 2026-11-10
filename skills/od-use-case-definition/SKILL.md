@@ -13,7 +13,9 @@ license: MIT
 metadata:
   id: od-use-case-definition
   tier: technical
-  lane: use-case-support-service
+  lane: lane-2
+  new_state_lane: "Lane 2 (21)"
+  new_state_step: "Capture the idea, process diagnostics"
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft
   capacity: per the current DBVE roster
@@ -67,7 +69,7 @@ prioritized, impact-evaluated and handed to integration **with a business case**
 | 2 | Plant- and process-specific definition; diagnostics | both | Use case scoped with a clear objective | this skill |
 | 3 | Break down requirement; assess (legacy) MF IT systems; system fit | DBVE | System assessment complete | `od-requirements-breakdown`, `od-system-fit-check` |
 | 4 | Plan benefit calculation and business case; prioritize | both | Business case and priority agreed with Plant ME | `od-benefit-calculation` |
-| 5 | Hand to Information Integration Service | DBVE | Integration request accepted | `od-information-integration-service` |
+| 5 | Hand to Information Integration Service | DBVE | Integration request accepted | `od-equipment-integration` |
 | 6 | System qualification, training, execution support | DBVE | Use case running on the shopfloor | |
 | 7 | Evaluate impact; ensure adoption | both | Impact evaluated; recipient confirms adoption | `od-handover-and-adoption` |
 
@@ -158,7 +160,7 @@ stated and classified, rejected options named, and the business/process change w
 
 ## Handoff
 
-To `od-information-integration-service` **with** business case and requirement breakdown (via `od-use-case-standardization` first);
+To `od-equipment-integration` **with** business case and requirement breakdown (via `od-use-case-standardization` first);
 to `od-handover-and-adoption` at step 7. Receiver needs the completed protocol, so a plant engineer who was not in the room can read what
 was decided, why, what is open. Block-to-block handoff table: `references/process-chain-practice.md`.
 
