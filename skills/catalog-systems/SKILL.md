@@ -1,7 +1,7 @@
 ---
 name: catalog-systems
 description: >-
-  Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the standard-system entry, and hand over to the cost template (od-investment-input) and to ordering and connecting (od-equipment-integration); anything non-standard falls through to Lane 3. Use when a plant wants a catalogued use case on a machine that is not connected yet.
+  Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the standard-system entry, and hand over to the cost template and to ordering and connecting (od-equipment-integration); anything non-standard falls through to Lane 3. Use when a plant wants a catalogued use case on a machine that is not connected yet.
 license: MIT
 metadata:
   id: catalog-systems
