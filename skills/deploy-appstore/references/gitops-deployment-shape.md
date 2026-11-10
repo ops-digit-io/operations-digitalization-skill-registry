@@ -7,9 +7,9 @@ status: draft
 owner: human:jakob.gabriel
 tags: [lane-3a, deployment, cmo, gitops]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (deploy-appstore: traditional process, features, Copilot portability), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md (Manufacturing-App-Store-Ops renamed deploy-appstore; GitOps / ArgoCD; reference instance HDAS), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (theme 2, CMO and standard manifests), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (deploy-appstore: traditional process, features, Copilot portability), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md (Manufacturing-App-Store-Ops renamed deploy-appstore; GitOps / ArgoCD; reference instance HDAS), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (theme 2, CMO and standard manifests), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # GitOps deployment shape

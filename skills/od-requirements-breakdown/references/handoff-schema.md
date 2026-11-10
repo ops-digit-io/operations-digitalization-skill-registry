@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [requirements, handoff, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip/skills/requirements-funnel/references/handoff-schema.md, read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip/skills/requirements-funnel/references/handoff-schema.md, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/requirements-funnel/references/handoff-schema.md` (the master).

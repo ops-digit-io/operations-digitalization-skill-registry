@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Library and CSP state
-description: Guidance, no figures - how to read the reference library and the CSP decision in the vault, how to find the entries with a recorded Yes live, and what that does and does not make self-servable. Open it before you tell a plant that something is catalogued.
+description: Guidance, no figures - how to read the reference library and the CSP decision in the knowledge base, how to find the entries with a recorded Yes live, and what that does and does not make self-servable. Open it before you tell a plant that something is catalogued.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Library and CSP state
 
 This file holds **no counts and names no entry**. The state of the library and of the CSP decisions changes; read it live
-from the frontmatter of the notes in the vault folder `Graph/Use Cases` (fields `use_case_level`, `csp_decision`,
+from the frontmatter of the notes in the knowledge base folder `Graph/Use Cases` (fields `use_case_level`, `csp_decision`,
 `csp_initiated`) and from the bundle statement in `_knowledge/10-Department/Decision rights.md` (check its date). Say which
 list and date a statement comes from.
 
@@ -31,7 +31,7 @@ Traps:
 - The CSP field exists **only on library entries**. Plant use cases and dashboard families do not carry it. So "catalogued"
   can only be read at the reference-solution level, and a dashboard family is never catalogued by itself.
 - "No decision recorded" is not the same as "decided No". Do not read blanks as refusals.
-- The vault speaks of "the library" with a round number of entries; the folder holds more reference-solution notes than that
+- The knowledge base speaks of "the library" with a round number of entries; the folder holds more reference-solution notes than that
   because of the archive-derived ones. Speak of the library entries only, and re-count.
 - The library entries are derived from the SharePoint list `UseCase-Library`; the export date matters, state it.
 
@@ -50,7 +50,7 @@ not recorded, standard procedure not recorded, capability link not recorded). Th
 
 ## Do the entries meet the four conditions of "catalogued"?
 
-The SKILL.md lists four conditions. Against what the vault records:
+The SKILL.md lists four conditions. Against what the knowledge base records:
 
 | Condition | Where to check |
 |---|---|
@@ -59,13 +59,13 @@ The SKILL.md lists four conditions. Against what the vault records:
 | 3 signals standardized (`od-signal-standardization`) | typically not recorded in the entry - ⟨whether the signals behind the entry are standardized⟩ (IIAE) |
 | 4 plant owner and a handover that passed the three-question test | typically not recorded in the library entry - ⟨plant owner and handover record per entry⟩ (plant, DBVE) |
 
-So the vault can name the entries that clear the first threshold. It does **not** show that a second plant can take any of
+So the knowledge base can name the entries that clear the first threshold. It does **not** show that a second plant can take any of
 them as they are. Until a plant owner and the signals are confirmed, a match to a `Yes` entry is a **strong candidate** for
 branch 1a/1b, not a finished catalog hit.
 
 ## What a plant can actually take
 
-- The reusable thing is the **pattern plus the dashboard family** it points to, not a package. The vault records no
+- The reusable thing is the **pattern plus the dashboard family** it points to, not a package. The knowledge base records no
   deployable artefact per entry.
 - For a match, open the library note, then the dashboard family note it links (screenshots, panels), then the template page
   in `Graph/Use Case Views` (see `template-coverage.md`).

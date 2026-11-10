@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 Read with `od-benefit-calculation`, which owns how a saving row is built. This file adds the
 *path* a row travels and how to evaluate where a given row stands. Sources are OD workshop decks
 (Use Case Creation Process; Workshop Summary), the department's saving
-ledger as described in `od-benefit-calculation`, and the vault's case groups.
+ledger as described in `od-benefit-calculation`, and the knowledge base's case groups.
 The decks are presentations, not rule documents; re-open them before quoting wording.
 
 ## The steps, as the decks describe them
@@ -47,7 +47,7 @@ Ask in order; the first "no" is where the row stands and what the next step is.
 | Is it linked to a SPRINT project? | Prepare it for the SPRINT review: row, rationale, methodology, baseline, evidence of use |
 | Has SPRINT confirmed it? | Only then say proven |
 
-## Where it stalls (observations from the vault, not rules)
+## Where it stalls (observations from the knowledge base, not rules)
 
 - **Delivered, no saving.** Many delivered use cases in the case groups have no recorded saving. The Case
   Groups overview calls recording savings for them the cheapest way to strengthen a business case. Count them

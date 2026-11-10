@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Standard system entry
-description: The blank entry for the standardized-system list and the system match record, each pre-filled with the facts the vault carries and with every missing field marked. Copy one per route or per request.
+description: The blank entry for the standardized-system list and the system match record, each pre-filled with the facts the knowledge base carries and with every missing field marked. Copy one per route or per request.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -19,9 +19,9 @@ Route:           edge (topology 1) / container (2) / aggregation server (3) / OP
 Connector(s):    ____ (Connector Overview status: Productive / Idea / Development; utilization USE / NOT AVAILABLE / DO NOT USE)
 Guide status:    written in full / TODO / stub / absent         Source: decision-paths.md, rules.json / rules-next.json
 Evidence:        machines INTEGRATED through this route ____ at ____ plants (count live on the Machine List, date ____)
-Kit contents:    hardware ____  software ____  licences ____                 [vault: not recorded]
-Indicative cost: ____                                                       [vault: not recorded]
-Lead time:       procurement ____  Cyber Security / OT sign-off ____       [vault: not recorded]
+Kit contents:    hardware ____  software ____  licences ____                 [knowledge base: not recorded]
+Indicative cost: ____                                                       [knowledge base: not recorded]
+Lead time:       procurement ____  Cyber Security / OT sign-off ____       [knowledge base: not recorded]
 Cyber Security:  status ____                                                [sign-off is human-only]
 Blockers known:  (barrier-classes.md; PLC program missing; no approved small edge device)
 Validated at:    plants ____

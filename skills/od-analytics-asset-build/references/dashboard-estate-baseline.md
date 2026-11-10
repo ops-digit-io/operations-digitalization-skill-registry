@@ -23,7 +23,7 @@ AI-drafted and were not reviewed by a human when read.
 ## 1. How to measure the estate (obtain, do not quote)
 
 Source: `Dashboard Exports/specs` (SPEC-00 to SPEC-04) and `specs/data/dashboard-inventory.jsonl`
-in the work vault; dashboard JSON under `Dashboard Exports/dashboards/`; change reports under
+in the department knowledge base; dashboard JSON under `Dashboard Exports/dashboards/`; change reports under
 `Dashboard Exports/reports/`. Counting rule of the source: for each (location, uid) only the newest
 run is used. Always state which export run a count comes from.
 
@@ -163,6 +163,6 @@ Person identifiers in those reports are not reproduced.
 
 ## Sources
 
-`Work-OpsDigit-Knowledge/Dashboard Exports/specs/` SPEC-00 to SPEC-04 and `specs/data/`;
-`Dashboard Exports/reports/`; `Vault Gap Analysis - SharePoint and Grafana Full Text.md`;
+`Dashboard Exports/specs/` SPEC-00 to SPEC-04 and `specs/data/`;
+`Dashboard Exports/reports/`; `Knowledge base Gap Analysis - SharePoint and Grafana Full Text.md`;
 `Graph/Use Case Views/Dashboard Use Cases - Overview.md`. Read 2026-11-05; used for patterns only.

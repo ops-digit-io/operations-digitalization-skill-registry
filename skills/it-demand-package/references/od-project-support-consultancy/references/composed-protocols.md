@@ -31,7 +31,7 @@ not at a summary of it.
 - **Kick-off agenda template** (step 2's own agenda, separate from the requirement spec
   it produces) — no dedicated template found anywhere in the registry.
 - **Application-consultancy session template** (step 4) — PS-04 "application consulting"
-  was never built as its own skill (`docs/vault-alignment.md` still lists it "not built");
+  was never built as its own skill (`docs/knowledge-base-alignment.md` still lists it "not built");
   this lane's own step 4 is as far as that work goes today.
 - **Tool/licensing decision owner** — `od-decision-routing`'s "Tool/system rollout" row
   names the IT-responsible role of the business side as the counterpart in the tandem; this lane's wait state

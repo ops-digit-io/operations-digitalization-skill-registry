@@ -16,7 +16,7 @@ be stale at once. It explains where the data lives, what each field means and ho
 
 ## Where the live data is
 
-- The plant notes of the work vault (`Graph/Plants`, plant-profile blocks), built from the SharePoint machine, use case and
+- The plant notes of the department knowledge base (`Graph/Plants`, plant-profile blocks), built from the SharePoint machine, use case and
   tool lists. Figures there are **as entered in the lists, not audited**.
 - The SharePoint Machine List, Use Case list and Tool list themselves (read them with `od-sharepoint-list-export`).
 - Always re-read the Machine List on the day you place a plant, and note the date in the onboarding tracker.
@@ -55,7 +55,7 @@ variants, tool versions available.
 
 Every use case is recorded against a plant, one of four material families (Rubber, Plastic, Metal, Assembly) and one of
 the capabilities listed in `od-context`. The plant notes list the process areas recorded per plant; use them to place the
-plant's machines on the process groups (process-group notes sit in the work vault under `Graph/Process Groups`).
+plant's machines on the process groups (process-group notes sit in the department knowledge base under `Graph/Process Groups`).
 
 ## Strategic plants
 

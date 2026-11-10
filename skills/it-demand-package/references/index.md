@@ -9,5 +9,5 @@
 
 | Folder | Holds |
 |---|---|
-| [it-demand-package/](it-demand-package/index.md) | 5 concept(s) |
-| [od-project-support-consultancy/](od-project-support-consultancy/index.md) | 4 concept(s) |
+| it-demand-package/ | 5 concept(s) |
+| od-project-support-consultancy/ | 4 concept(s) |

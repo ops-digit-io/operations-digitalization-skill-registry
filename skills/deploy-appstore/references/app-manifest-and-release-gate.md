@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # App manifest and release gate
 
-**Status of the source:** everything in the first three sections is a **proposal** from AI-drafted work-in-progress notes in the vault folder `Microservice Apps (WIP)` (generated 2026-09-27, "not reviewed by a human"): *Platform Extensibility and Onboarding*, *Cross-Cutting Platform Concerns*, *Platform Services (Shared Kernel)*, *Recipe Values Service*, *User Interfaces and Interaction Layer*, read 2026-11-05. They describe the design of a possible landscape. They are **not** the recorded deployment procedure of the pilot. Use them as the best available checklist of what a package should declare, and say so in the package.
+**Status of the source:** everything in the first three sections is a **proposal** from AI-drafted work-in-progress notes in the knowledge base folder `Microservice Apps (WIP)` (generated 2026-09-27, "not reviewed by a human"): *Platform Extensibility and Onboarding*, *Cross-Cutting Platform Concerns*, *Platform Services (Shared Kernel)*, *Recipe Values Service*, *User Interfaces and Interaction Layer*, read 2026-11-05. They describe the design of a possible landscape. They are **not** the recorded deployment procedure of the pilot. Use them as the best available checklist of what a package should declare, and say so in the package.
 
 ## The app manifest (proposed)
 
@@ -32,13 +32,13 @@ The manifest is a design proposal. ⟨Whether the pilot uses a manifest, and its
 
 - **Interfaces as documents.** Every app ships an OpenAPI 3.x description of its REST surface and an AsyncAPI 2.x description of the topics it publishes and consumes, in the same catalog entry as the image.
 - **Versions.** Every topic and API carries a version (`.v1`). Changes inside a version are additive only. An incompatible change ships as `.v2` beside `.v1` until every consumer has moved, then `.v1` is deprecated with notice - never replaced in place.
-- **Operation.** A standard health endpoint and a standard metrics endpoint per app. Which log and metric pipeline the edge clusters ship to "is not recorded in the vault notes read" - ⟨logging and metrics pipeline⟩, IIAE.
+- **Operation.** A standard health endpoint and a standard metrics endpoint per app. Which log and metric pipeline the edge clusters ship to "is not recorded in the knowledge base notes read" - ⟨logging and metrics pipeline⟩, IIAE.
 - **Edge resilience.** A plant-local app buffers its bus consumption locally and replays after a network outage. Locale is a per-plant configuration value, not a fork of the app per language.
-- **Free text.** An app with a free-text field must not summarise, enrich or forward the text by an automated pipeline without filtering (the vault's rule on names; one recorded case). See guardrail G17 in `catalog-usecase`.
+- **Free text.** An app with a free-text field must not summarise, enrich or forward the text by an automated pipeline without filtering (the knowledge base's rule on names; one recorded case). See guardrail G17 in `catalog-usecase`.
 - **No new path.** Onboarding goes through one of the three scenarios in `platform-and-pilot-status.md`; the WIP note holds that a fourth, ad hoc path would defeat the purpose of the catalog.
 - **Where a new thing belongs.** Apply the placement rules (R1 to R11) first; a use case that fits a template is a new plant instance of an existing service, not a new app. A one-off goes to the store as an individually catalogued container. A new service is justified only when a second unrelated use case needs the same function.
 
-## What is NOT in the vault
+## What is NOT in the knowledge base
 
 No containerization requirements, no image or registry rules, no resource limits, no deployment commands, no list of who holds deploy rights, no release calendar. The WIP notes say "container-based, one to two small containers per service, deployed on the existing edge Kubernetes runtime" and nothing finer. These stay ⟨to be supplied⟩ (OD lead, IIAE, IT platform team) and the skill still writes no command.
 
@@ -60,7 +60,7 @@ Use with `od-acceptance-test`, `od-cybersec-gate` and `od-decision-routing`. A b
 | R10 | Plant sponsor and plant owner named; handover planned (`od-handover-and-adoption`) | package | plant | the plant decides daily use |
 | R11 | Free-text and name check (G17); no credentials or sessions in the package (G19 in `catalog-usecase`) | check | DBVE | no |
 
-The wait for R7 is "weeks" in the flow; the vault gives no figure. Do not quote one. For a foreign app (3a.4) the planned IEC 62443-4-2 conformance gate of initiative X4 would apply once it exists; today it is a plan, not a gate.
+The wait for R7 is "weeks" in the flow; the knowledge base gives no figure. Do not quote one. For a foreign app (3a.4) the planned IEC 62443-4-2 conformance gate of initiative X4 would apply once it exists; today it is a plan, not a gate.
 
 ## Open
 

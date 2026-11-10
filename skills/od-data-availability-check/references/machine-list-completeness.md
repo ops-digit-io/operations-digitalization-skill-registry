@@ -60,7 +60,7 @@ current export and name the export date.
 - **Vendor spelling variants** (a company name, its short form, an abbreviation, upper and lower
   case). A single-string match undercounts: build the variant list from the data.
 - **Rows tidied to `-`.** The narrative may be in the version history: text was often written
-  during active work and then tidied back; the vault's `SharePoint record (full text)` block of
+  during active work and then tidied back; the knowledge base's `SharePoint record (full text)` block of
   the machine note shows earlier values when they exist.
 
 ## Procedure for a key user
@@ -87,7 +87,7 @@ owner per plant). Who could supply it: OD lead.⟩
 
 ## Sources
 
-- Vault `Graph/Machines` notes quoting the `Machine-List` export; take the export date from
+- Knowledge base `Graph/Machines` notes quoting the `Machine-List` export; take the export date from
   the note.
 - Department note *Systems of record* (`_knowledge/10-Department/Systems of record.md`):
   write surface, version history, absence is not a zero.

@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [capital-request, ecr, approval, decision-rights]
 derived_from:
-  - "Work vault, Work-OpsDigit-Knowledge/Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (verbatim copy of the xlsx in 90-Sources/du-overview/.../04-Governance/eCR (Pre-)Approval), read 2026-11-10"
+  - "Department knowledge base, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (verbatim copy of the xlsx in 90-Sources/du-overview/.../04-Governance/eCR (Pre-)Approval), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # eCR approval matrix

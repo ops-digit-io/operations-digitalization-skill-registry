@@ -30,13 +30,13 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills}.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes, Graph/Use Case Views (template views and template-standards), Graph/Machines (front matter) and Graph/Connectors, read 2026-11-05
+    - Department knowledge base, Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes, Graph/Use Case Views (template views and template-standards), Graph/Machines (front matter) and Graph/Connectors, read 2026-11-05
     - Node-RED auto-docs flow JSON, read 2026-11-05 for flow-config keys and CT topic leaves (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs)
   okf:
     type: Agent Skill

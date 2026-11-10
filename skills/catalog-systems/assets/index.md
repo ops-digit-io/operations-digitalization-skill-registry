@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Standard system entry](standard-system-entry.md) | Skill Asset | The blank entry for the standardized-system list and the system match record, each pre-filled with the facts the vault carries and with every missing field marked. Copy one per route or per request. |
+| [Standard system entry](standard-system-entry.md) | Skill Asset | The blank entry for the standardized-system list and the system match record, each pre-filled with the facts the knowledge base carries and with every missing field marked. Copy one per route or per request. |

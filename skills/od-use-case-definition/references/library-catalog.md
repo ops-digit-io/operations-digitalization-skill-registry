@@ -7,7 +7,7 @@ status: stable
 owner: human:jakob.gabriel
 tags: [use-case-support-service, library, elicited]
 derived_from:
-  - personal vault, Graph/Library Use Cases/*.md, read 2026-09-17 (structure and vocabulary only)
+  - Department knowledge base, Graph/Library Use Cases/*.md, read 2026-09-17 (structure and vocabulary only)
 generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
@@ -23,8 +23,8 @@ live content here instead:
 | Where | What you get |
 |---|---|
 | SharePoint list **UseCase Library** (write surface) | One row per reference solution: name, plant, capability link, description, method tag, CSP decision |
-| Vault `Graph/Library Use Cases/` (read surface, rebuilt from the list) | One note per entry, searchable by name and text |
-| Vault `Case Groups` notes | The same use cases grouped by template and process family, with a rollout map per plant |
+| Knowledge base `Graph/Library Use Cases/` (read surface, rebuilt from the list) | One note per entry, searchable by name and text |
+| Knowledge base `Case Groups` notes | The same use cases grouped by template and process family, with a rollout map per plant |
 
 ## How to search
 

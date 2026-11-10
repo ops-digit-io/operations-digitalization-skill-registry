@@ -23,9 +23,9 @@ metadata:
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, catalog-usecase, catalog-guardrails]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (ops-dashboard-datatron: traditional process, features; Use Case Development roadmap: open to key users, coverage, datapoint-enablement intake, checklist as go-live gate, publish to the library), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (ops-grafana-dashboards split into ops-dashboard-datatron and deck-stakeholder; value model coupled to the build), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (self-service mode, branch 1a), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (ops-dashboard-datatron: traditional process, features; Use Case Development roadmap: open to key users, coverage, datapoint-enablement intake, checklist as go-live gate, publish to the library), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (ops-grafana-dashboards split into ops-dashboard-datatron and deck-stakeholder; value model coupled to the build), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (self-service mode, branch 1a), read 2026-11-10"
   okf:
     type: Agent Skill
     title: DATATRON dashboards

@@ -26,7 +26,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
-    - Work vault (Work-OpsDigit-Knowledge), folder Master-Slide-Templates (one pptx file name only, not opened), read 2026-11-05
+    - Department knowledge base, folder Master-Slide-Templates (one pptx file name only, not opened), read 2026-11-05
     - Skills od-benefit-calculation, od-requirements-breakdown, od-scorecard-reporting, od-handover-and-adoption, od-acceptance-test and od-signal-standardization, their assets folders listed 2026-11-05
   okf:
     type: Agent Skill
@@ -66,7 +66,7 @@ stop and route**, or **no master exists: route to creation**.
 
 | File | Use it for |
 |---|---|
-| [`references/master-register.md`](references/master-register.md) | The lookup: every template, standard and tool the resource register lists, with owner, state and the exact gap marker it carries, plus the templates that live inside skills and the vault file not in the register |
+| [`references/master-register.md`](references/master-register.md) | The lookup: every template, standard and tool the resource register lists, with owner, state and the exact gap marker it carries, plus the templates that live inside skills and the knowledge base file not in the register |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Which template type each process step uses, the seven-step pipeline for a template-bound generated deliverable, residue and placeholder-leak checks, handoff contract, agent notes (types only, no locations) |
 | [`assets/template-resolution-record.md`](assets/template-resolution-record.md) | The one-page output that travels with the deliverable |
 
@@ -76,7 +76,7 @@ stop and route**, or **no master exists: route to creation**.
    If you cannot say, the work has not been scoped; hand back to `od-use-case-intake-triage` or
    `od-decision-routing`.
 2. **Look it up** in [`master-register.md`](references/master-register.md), section A (register rows) first,
-   then section B (templates produced inside skills), then section C (found in the vault, not registered).
+   then section B (templates produced inside skills), then section C (found in the knowledge base, not registered).
    Match on the register's own column *Applies to (lane / use case)*.
 3. **Read the state of the row**, not just its existence. A row can exist and still have no usable master:
    - `⟨... to confirm or create⟩` in the location column: **no master exists**. Do not improvise.
@@ -128,7 +128,7 @@ These are patterns, not a status report. Whether a gap is open today is read fro
   `to collect`. Owner: IIAE for the platforms, DBVE / OD lead for the reports.
 - The Cyber Security sign-off standard is a standard that belongs to another team; while it is `to collect`,
   `od-cybersec-gate` (planned) has no approved master to start from.
-- The vault can hold a master-slide file that the register does not list ([section C](references/master-register.md)):
+- The knowledge base can hold a master-slide file that the register does not list ([section C](references/master-register.md)):
   whether it is approved, and for which deliverable, is `to confirm` with the OD lead role.
 - Register freshness: check the register's own verification date against the quarterly review cadence. See
   `od-context-freshness` (planned).

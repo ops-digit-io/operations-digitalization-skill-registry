@@ -23,7 +23,7 @@ metadata:
   requires: [od-context]
   composes: [od-requirements-breakdown, od-benefit-calculation, od-prototype-poc]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-2-develop-new-use-case.md (step 2 od-requirements-breakdown -> funnel-features), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md (product-funnel chain: handoff files, human gates), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-2-develop-new-use-case.md (step 2 od-requirements-breakdown -> funnel-features), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md (product-funnel chain: handoff files, human gates), read 2026-11-10"
     - "Split from od-requirements-breakdown (formerly od-requirements-breakdown), 2026-11-10"
   okf:
     type: Agent Skill

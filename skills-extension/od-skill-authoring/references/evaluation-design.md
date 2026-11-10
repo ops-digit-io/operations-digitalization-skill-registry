@@ -34,5 +34,5 @@ Test-case template: [`assets/evals-template.json`](../assets/evals-template.json
 ## C. For OD skills (proposal)
 
 - Take should-not queries from the neighbours listed in the skill's `composes` and from its "Not for" boundary.
-- Keep eval prompts free of real names and figures (vault rules); mask them as the department record is masked.
+- Keep eval prompts free of real names and figures (knowledge base rules); mask them as the department record is masked.
 - Record the result in the skill's pull request: cases, pass rates with and without, trigger rates, what changed.

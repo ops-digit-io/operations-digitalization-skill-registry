@@ -69,5 +69,5 @@ A blank in "integration status" is not a "No": many machines carry no status (`o
 | Branch | decided by the machine: integrated and signals present - 1a; not integrated - 1b (`catalog-usecase`, system match); no matching signal - Lane 2 |
 | Open | c and d for the entry (IIAE, plant owner); who at the entry's plant can walk the requesting plant through the screen (DBVE) |
 
-Where the vault stops, the entry is a strong candidate at best: the two conditions that make it a catalog hit (standardized
+Where the knowledge base stops, the entry is a strong candidate at best: the two conditions that make it a catalog hit (standardized
 signals, plant owner and handover) are typically not on record.

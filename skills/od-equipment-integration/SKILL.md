@@ -36,9 +36,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf (Softing dataFEED OPC Suite V5.70 manual, 2026-02-16)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv
     - interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation)
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - Department knowledge base, Graph/Machines (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
+    - Department knowledge base, ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Equipment integration — assessment and guidance

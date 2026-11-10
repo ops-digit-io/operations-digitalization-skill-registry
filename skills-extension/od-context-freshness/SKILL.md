@@ -28,7 +28,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/14-glossary.md
     - Registry registry.yaml (data_as_of, graph_as_of, flows_as_of, status, open_gaps), docs/okf-conventions.md (sources_read, verified, statuses) and docs/derivation.md, read 2026-11-05
     - Front matter of the 38 files of the Department OS bundle (owner, review-cadence, last-verified, valid-until, verification-method, source-of-truth), read by the bundled script on 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), generated and enriched stamps and review_status lines of Graph notes, ODEC Facts and Registers, and Vault conventions in the bundle, read 2026-11-05
+    - Department knowledge base, generated and enriched stamps and review_status lines of Graph notes, ODEC Facts and Registers, and Knowledge base conventions in the bundle, read 2026-11-05
   okf:
     type: Agent Skill
     title: Context freshness
@@ -43,7 +43,7 @@ Read `od-context` first.
 
 The skill map names this skill "the skill that keeps every other skill honest": a skill repository whose context
 layer has silently expired gives confident wrong answers. Every other skill copies facts from the Department OS
-(decision rights, risks, targets) and from the vault. This skill checks, once a quarter, whether those sources
+(decision rights, risks, targets) and from the knowledge base. This skill checks, once a quarter, whether those sources
 and the skills' own dates are still current, and writes down what is not. It **repairs nothing**.
 
 ## Purpose, trigger, done
@@ -58,7 +58,7 @@ and the skills' own dates are still current, and writes down what is not. It **r
 
 | File | Use it for |
 |---|---|
-| [`references/staleness-signals.md`](references/staleness-signals.md) | How each layer marks freshness (bundle file, skill, registry, vault note) and what each mark does and does **not** prove |
+| [`references/staleness-signals.md`](references/staleness-signals.md) | How each layer marks freshness (bundle file, skill, registry, knowledge base note) and what each mark does and does **not** prove |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Which time-bound facts go stale fastest (tool status, plant tier, forum status, vocabulary, KPI basis), copy residue and orphaned ownership, handoff and agent notes |
 | [`references/triage-and-actions.md`](references/triage-and-actions.md) | Each flag type, who owns it, the action, and how to read a run (what to lead with, what the typical pattern is) |
 | [`references/fact-triage-and-generated-registers.md`](references/fact-triage-and-generated-registers.md) | Triage pattern for a staging pile of extracted facts (verdicts, plant buckets), limits of text extraction, honesty rules for generated registers, the masking review |
@@ -95,7 +95,7 @@ the sources it names (`--cross`).
 6. **Do the checks the script cannot.** (a) Run the figure finder (`scripts/check_no_figures.py`): skills should
    quote no company figures, so any hit is a finding (rewrite it, or record it as a technical
    constant or method value), and any dated figure that slipped in is compared with the registry marks. (b) Compare the bundle README's open-gap list with `open_gaps` in `registry.yaml`: which entries
-   are closed, which are new. (c) Note the date stamps of vault notes you relied on (`enriched:`, `generated:`,
+   are closed, which are new. (c) Note the date stamps of knowledge base notes you relied on (`enriched:`, `generated:`,
    export dates, `review_status`).
 7. **Draft the report** and name an owner per finding (table in `references/triage-and-actions.md`).
 8. **Hand over.** Bundle files go to the OD lead (owner of the Department OS); skills and registry marks go to the
@@ -128,5 +128,5 @@ the sources it names (`--cross`).
 - Do not edit any `last-verified`, `valid-until`, `sources_read` or `*_as_of` value to clear a finding.
 - Do not bump a skill's `sources_read` unless the sources were re-read in that session.
 - Do not mark anything verified, expired or stable on the script's say-so alone: the report recommends.
-- Do not open vault or registry files for writing; the script has no write path.
+- Do not open knowledge base or registry files for writing; the script has no write path.
 - Do not fix the findings in the same pass; report first, then let the owners decide.

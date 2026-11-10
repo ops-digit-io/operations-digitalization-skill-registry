@@ -15,7 +15,7 @@ generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 | Source | What it gives |
 |---|---|
 | `od-use-case-standardization` | The eleven cross-plant capability templates, the reference library, the cluster tags and the CSP gate - run by OD, not by plants |
-| Knowledge bundle, `Decision rights` | Standard enough to roll out across plants is the **CSP** decision, recorded per reference-library entry. The bundle states how many entries have been decided so far, split into `Yes` and `No` (check its date and re-count in the vault) |
+| Knowledge bundle, `Decision rights` | Standard enough to roll out across plants is the **CSP** decision, recorded per reference-library entry. The bundle states how many entries have been decided so far, split into `Yes` and `No` (check its date and re-count in the knowledge base) |
 | Same | A use case has a plant owner, and the plant decides whether it goes into daily use |
 
 At most the entries with a recorded CSP `Yes` are standard enough for another plant to take as they are. To see the
@@ -31,7 +31,7 @@ those with a `Yes` (`library-and-csp-state.md`). Re-count before quoting.
 | Knowledge bundle, decision rights | Equipment-integration go-ahead sits with the integration owner and the plant, per investment plan, with Cyber Security sign-off for an external connection |
 | `registry.yaml`, open gaps | Some routes are marked TODO (for example Beckhoff on edge, Modbus on edge, OPC-UA on the aggregation server); some plants have no integration concept recorded (read the open gaps live) |
 
-**Pattern from mining the vault:** a route meets the proposed test when it is "written in full and proven in at least two plants"
+**Pattern from mining the knowledge base:** a route meets the proposed test when it is "written in full and proven in at least two plants"
 (typically Siemens S7/TIA and Rockwell, on the edge and on the aggregation server; re-derive live). None has a kit, price or lead
 time on record, so they are **route candidates**, not yet standard systems. Routes in use at only one or two plants with an unwritten
 procedure (typically some Beckhoff, Omron, B&R, Bachmann and Modbus routes) are not candidates.

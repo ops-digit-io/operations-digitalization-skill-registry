@@ -32,9 +32,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - Prosci. The Prosci ADKAR Model. prosci.com/methodology/adkar. Retrieved 2026-10-22. Industry framework, not peer-reviewed — used for the individual-adoption diagnostic, not for the delivery-status facts above it.
     - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10; Vault note Agentic-OS/30_Knowledge/Internal Communication and Marketing Research"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Handover and adoption

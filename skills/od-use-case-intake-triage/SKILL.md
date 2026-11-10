@@ -28,8 +28,8 @@ metadata:
     - ops-knowledge-graph/.../00-core/05-intake.md
     - ops-knowledge-graph/.../00-core/04-service-catalog.md
     - ops-knowledge-graph/.../00-core/01-charter.md
-    - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - Department knowledge base, Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Use-case intake triage

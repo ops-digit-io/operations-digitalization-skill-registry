@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Showcase selection](SKILL.md) | Agent Skill | Decide which use case is ready to be told to the rest of the company, and which claims it may carry (new-state Lane 4, the outbound lane for use-case promotion via Internal Communications, step 41). Applies the entry gate (live, adoption confirmed by the recipient, plant owner agrees), the evidence rule (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any use-case story is briefed to Internal Communications. |
+| [Showcase selection](SKILL.md) | Agent Skill | Decide which use case is ready to be told to the rest of the company, and which claims it may carry (new-state Lane 4, the outbound lane for use-case promotion via Internal Communications, step 41). Applies the entry gate (live, adoption confirmed by the recipient, plant owner agrees), the evidence rule (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any use-case story is briefed to Internal Communications. Not for writing the story (od-comms-brief). |
 
 | Folder | Holds |
 |---|---|

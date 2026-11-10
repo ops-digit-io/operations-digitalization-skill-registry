@@ -16,4 +16,4 @@
 
 | Folder | Holds |
 |---|---|
-| [examples/](examples/index.md) | 1 concept(s) |
+| examples/ | 1 concept(s) |

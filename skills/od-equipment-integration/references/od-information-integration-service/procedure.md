@@ -13,8 +13,8 @@ derived_from:
 - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
 - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
 - this registry, cross-checked 2026-10-23 against the current state of every skill this lane composes into (each was a stub on 2026-08-25; all five are now documented or deep) — see references/lane-handoffs.md
-- Work vault (Work-OpsDigit-Knowledge), Graph/Tools (incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Slide Index (master note, slide-decks.jsonl, slide-manifest.jsonl; deck Operation Concept IIoT and Edge Computing) and ODEC Facts staging notes, AI-extracted and unverified, read 2026-11-05
+- Department knowledge base, Graph/Tools (incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
+- Department knowledge base, Slide Index (master note, slide-decks.jsonl, slide-manifest.jsonl; deck Operation Concept IIoT and Edge Computing) and ODEC Facts staging notes, AI-extracted and unverified, read 2026-11-05
 - Department notes Systems of record, Machine integration, and 20-Done MSB rollout projects (ops-knowledge-graph _knowledge), read 2026-11-05
 generated:
   by: claude-code/1

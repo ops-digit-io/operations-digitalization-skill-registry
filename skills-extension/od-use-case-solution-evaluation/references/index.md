@@ -12,4 +12,4 @@
 
 | Folder | Holds |
 |---|---|
-| [od-maturity-assessment/](od-maturity-assessment/index.md) | 7 concept(s) |
+| od-maturity-assessment/ | 7 concept(s) |

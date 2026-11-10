@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Strategic initiatives and savings
 
-Source: vault `Graph/Business Cases` and `Graph/Keynote Initiatives` / `Graph/Keynote Clusters` (strategic cases and their value
+Source: knowledge base `Graph/Business Cases` and `Graph/Keynote Initiatives` / `Graph/Keynote Clusters` (strategic cases and their value
 domains), `Case Groups` (the plant use-case groups) and the overview's own "things to know first". All AI-curated, not reviewed
 by a human. This file holds **no value ranges, costs or counts**; read them live and quote the read date.
 
@@ -24,7 +24,7 @@ by a human. This file holds **no value ranges, costs or counts**; read them live
 | Costs | The case-group notes take external cost as zero by owner statement and do not price internal effort, so delivery capacity limits rollout | The cases carry resource and cost estimates (people, compute, licences) |
 | Use | Where saved, where delivered without saving, where potential | Which bets to fund, in which order |
 
-The vault says it explicitly: the strategic cases are "a different set" and "were not merged" with the case groups. Do not add,
+The knowledge base says it explicitly: the strategic cases are "a different set" and "were not merged" with the case groups. Do not add,
 rank or convert between them. A strategic case may *name* plant use cases it would build on; that is a link, not a transfer of
 euros.
 
@@ -52,7 +52,7 @@ euros.
 - **Bundles** carry no standalone euro without their parent.
 - **Outcome cases** (for example ramp-up acceleration, OEE attribution) are not additional to the levers that produce them.
 - **Tracked and proven** stay separate in every rollup; a strategic estimate is never "tracked" until a measured baseline exists.
-- **External evidence** (case studies of other firms, standards) is context. The vault marks such figures as "not our result".
+- **External evidence** (case studies of other firms, standards) is context. The knowledge base marks such figures as "not our result".
 
 ## What may go into the savings portfolio
 

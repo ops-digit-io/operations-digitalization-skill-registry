@@ -30,10 +30,10 @@ metadata:
     - IEC 62381, Automation systems in the process industry — factory acceptance test (FAT), site acceptance test (SAT), and site integration test (SIT). Standard not opened directly; structure verified via automationforum.co's summary, 2026-10-22.
     - "Standard ISO/IEC/IEEE 29119-1:2022, Software and systems engineering — Software testing — Part 1, Concepts and definitions (test case, pass/fail criteria). Verified via Wikipedia's summary of the standard, 2026-10-22."
     - "BrowserStack, User Acceptance Testing (UAT): Templates and Examples. browserstack.com/guide/user-acceptance-testing-template. Retrieved 2026-10-22."
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Machines, Graph/Connectors and Graph/Tools (MIL 1.0, QFPR, RuleEngine 2.0, Energy Management 2.0 archive-evidence blocks), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), _knowledge/30-Nodes cluster notes C01 to C12 and Case Groups (overview and CG-02), read 2026-11-05
+    - Department knowledge base, Graph/Machines, Graph/Connectors and Graph/Tools (MIL 1.0, QFPR, RuleEngine 2.0, Energy Management 2.0 archive-evidence blocks), read 2026-11-05
+    - Department knowledge base, _knowledge/30-Nodes cluster notes C01 to C12 and Case Groups (overview and CG-02), read 2026-11-05
     - Department notes Use case lifecycle, Handover and Operating model (ops-knowledge-graph _knowledge 10-Department), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
+    - Department knowledge base, _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
   okf:
     type: Agent Skill
     title: Acceptance test

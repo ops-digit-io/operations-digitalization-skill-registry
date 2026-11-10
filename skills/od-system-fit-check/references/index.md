@@ -21,4 +21,4 @@
 
 | Folder | Holds |
 |---|---|
-| [od-application-consulting/](od-application-consulting/index.md) | 7 concept(s) |
+| od-application-consulting/ | 7 concept(s) |

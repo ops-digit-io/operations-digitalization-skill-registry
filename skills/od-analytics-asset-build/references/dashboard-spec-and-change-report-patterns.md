@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard spec and change report patterns
 
-Derived from the vault's dashboard-spec hub and its four specifications, the dashboard-level requirements and summary pair written
+Derived from the knowledge base's dashboard-spec hub and its four specifications, the dashboard-level requirements and summary pair written
 from one plant's exports, and the dashboard change and creation reports. Everything in those notes is a count of the estate at an
 export date; **none of it is carried here**. What is carried is how such documents are built and read, so an agent or key user can
 write the next one or judge one. The specs are drafts, AI-drafted from the exports and not reviewed by a human. Own synthesis is

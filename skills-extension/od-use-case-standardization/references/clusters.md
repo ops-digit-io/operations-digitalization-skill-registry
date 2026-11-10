@@ -14,7 +14,7 @@ A plant use case with no local notes is built to the checklist below, not from a
 page; only the plant-specific deltas (which machines, which line, which local constraint)
 get written down on top of it. Seven clusters (C01, C02, C03, C04, C06, C08, C11) cite a
 source independently verified against its DOI, Crossref record or standard preview in the
-personal vault's reference library; the remaining five (C05, C07, C09, C10, C12) carry a
+Department knowledge base's reference library; the remaining five (C05, C07, C09, C10, C12) carry a
 citation to the same standard or literature carried over from the department's own
 standardization knowledge base, not independently re-verified this round — treat those as
 a correct pointer to check, not as a verified quote.

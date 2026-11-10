@@ -31,7 +31,7 @@ not a concept.
   sit on the steps they deepen. Every skill now requires `dept-os`. `process.yaml` and the Mermaid name only
   department skills on the steps.
 - **Department context applied, registry 1.13.0, 42 skills (core 27, extension 15).** Fixed every finding of
-  `docs/department-context-conformance.md` from the vault folder `OD Department Knowledge/OD-instance` and the OD x IT
+  `docs/department-context-conformance.md` from the knowledge base folder `OD Department Knowledge/OD-instance` and the OD x IT
   meeting notes of 2026-09-11. Merged twelve duplicate or retired-lane skills into their owners, each kept as
   `references/<old-name>/procedure.md`: `od-analytical-support-service` → `od-first-aid-kit`;
   `od-project-support-consultancy`, `it-demand-package` → `od-it-handover`; `od-information-integration-service`,
@@ -43,7 +43,7 @@ not a concept.
   passes OpenSpec's own validator in strict mode). `od-investment-input` moved to core, `od-sharepoint-list-export` to
   extension. `process.yaml` and `OD_NewState_Flow.mermaid` redrawn to the department lanes (step 34 added, step ids
   kept); `validate_registry.py` now fails when core and flow disagree.
-- **Department context conformance.** Checked all 53 skills against the vault folder `OD Department Knowledge/OD-instance`
+- **Department context conformance.** Checked all 53 skills against the knowledge base folder `OD Department Knowledge/OD-instance`
   (new-state lane drafts, decision rights, intake, OD x IT alignment of 2026-09-11, naming convention); result in
   `docs/department-context-conformance.md`. Added `new_state_lane` / `new_state_step` to the 23 skills that only carried the
   old `lane:` value, from `docs/new-state/process.yaml`. No other skill content changed.
@@ -67,7 +67,7 @@ not a concept.
 
 ## 2026-11-05 (wave 2)
 
-- **Registry 1.11.0, 57 skills.** Folded the vault notes that no skill drew on into the skills as patterns, without figures: the IT/IoT
+- **Registry 1.11.0, 57 skills.** Folded the knowledge base notes that no skill drew on into the skills as patterns, without figures: the IT/IoT
   maturity model became the draft skill `od-maturity-assessment` (with maturity-profile references in `od-system-fit-check` and
   `od-application-consulting`); process-family patterns, the microservice-app pattern, tool boundaries, business-case archetypes, the AI
   initiative maturity ladder and strategic-initiative savings rules went into the catalog, standardization, prioritization, portfolio and AI
@@ -96,7 +96,7 @@ not a concept.
 - Added five **draft** skills the flow lists as net-new: `catalog-usecase`, `catalog-systems`, `catalog-guardrails`,
   `deploy-appstore`, `it-demand-package` (registry 1.8.0, 30 skills). Each is sourced and marks every unrecorded fact as
   an open gap; `registry.yaml` carries them with `origin: new-state` and `status: draft`.
-- **Registry 1.9.0, 48 skills.** Built the 18 skills that were missing: 16 from the department's own skill plan (`od-cybersec-gate`, `od-rollout-training`, `od-context-freshness`, prioritization, impact evaluation, workshop facilitation, first-aid kit, investment input, barrier triage, application consulting, promotion, template resolution, cross-plant compatibility, retro, risk watch, plant onboarding) and the flow's two thin spots (`od-prototype-poc`, `od-capital-request`), all as drafts with their open questions in `open_gaps`. Enriched 18 existing or draft skills with references and templates mined from the work vault (integration, data and flow skills, and the five new-state drafts). A recount showed 72 of 825 Node-RED flows disabled, not 0; `od-node-red-flow-builder/references/instances.md` is corrected.
+- **Registry 1.9.0, 48 skills.** Built the 18 skills that were missing: 16 from the department's own skill plan (`od-cybersec-gate`, `od-rollout-training`, `od-context-freshness`, prioritization, impact evaluation, workshop facilitation, first-aid kit, investment input, barrier triage, application consulting, promotion, template resolution, cross-plant compatibility, retro, risk watch, plant onboarding) and the flow's two thin spots (`od-prototype-poc`, `od-capital-request`), all as drafts with their open questions in `open_gaps`. Enriched 18 existing or draft skills with references and templates mined from the department knowledge base (integration, data and flow skills, and the five new-state drafts). A recount showed 72 of 825 Node-RED flows disabled, not 0; `od-node-red-flow-builder/references/instances.md` is corrected.
 - Added the process flow as data and as a site: `docs/new-state/process.yaml`, `docs/new-state-skill-map.md`, `scripts/build_site.py` (interactive process map, one page per skill, specification page, spec-strict downloads per lane), `docs/agent-skills-spec.md` and `scripts/agent_skills_spec.py`. CI builds the site on every push; the Pages workflow is manual and not switched on.
 - Listed the registry skills the new-state files do not place, in `docs/new-state-flow.md`: two in none of the four files and eleven only in the skill-map table. The four files themselves are unchanged.
 - `scripts/build_process_overview.py` skips skills with `origin: new-state`: the page draws the four service lanes of the old model.
@@ -178,8 +178,8 @@ not a concept.
   script (`evaluate_fit.py` — pre-evaluation case ranking against a 70-case literature
   library, driver-to-area mapping, gap sequencing against the dependency table, a 0-100 total
   evaluation score, ASCII visualization). Raw source material (both papers, the 16
-  focus-area files, `model.json`) filed in the personal vault at
-  `Work-OpsDigit-Knowledge/External Research/IT-IoT-Maturity-Model/`; the research session's
+  focus-area files, `model.json`) filed in the Department knowledge base at
+  `External Research/IT-IoT-Maturity-Model/`; the research session's
   own chat transcript, which carries unrelated personal/career context, stays in
   `Privat-Projekte/REHAU-IoT-Research/` instead.
 
@@ -193,8 +193,8 @@ not a concept.
   build, scoped explicitly against the sibling `build-grafana-ops-dashboard`), and real
   Microsoft Graph/SharePoint REST export patterns (list export, which also picked up a
   schema-drift-checking script). `od-use-case-standardization` instead found its 12 cluster
-  definitions/KPIs/checklists already written in the personal vault
-  (`Work-OpsDigit-Knowledge/_knowledge/30-Nodes/C01`-`C12` and
+  definitions/KPIs/checklists already written in the Department knowledge base
+  (`_knowledge/30-Nodes/C01`-`C12` and
   `90-Sources/org-analysis/usecase-standardization-knowledgebase.md`) and used that as
   internal evidence rather than researching from scratch — 5 of 12 clusters' citations
   there are carried over, not independently re-verified this round, and the skill says so.
@@ -210,12 +210,12 @@ not a concept.
   `od-scorecard-reporting`'s four pre-existing tacit placeholders (utilization-rate target,
   asset-mix target, value-delivery-cycle system/target, escalation window) and
   `od-handover-and-adoption`'s adoption-evidence tier ranking, proposed but not yet confirmed.
-  `docs/vault-alignment.md`'s Phase 3 and crosswalk entries updated to match.
+  `docs/knowledge-base-alignment.md`'s Phase 3 and crosswalk entries updated to match.
 
 - **Resolved Phase-1 tacit item #4 (ODEC vs. COP in practice) from the department's own
   record, not an interview.** The user pointed at the real source: ODEC and CoP call decks
   already exist as individually split slides in
-  `Work-OpsDigit-Knowledge/Split Slides/`. Extracted all ~30 ODEC/CoP decks (2023-2026,
+  `Split Slides/`. Extracted all ~30 ODEC/CoP decks (2023-2026,
   ~550 slides) via raw OOXML parsing (no `python-pptx` available; stdlib `zipfile` + regex
   on `ppt/slides/slideN.xml` instead) and mined three real worked examples into
   `od-decision-routing/references/escalation-worked-examples.md`: the Groot2B cybersecurity
@@ -229,11 +229,11 @@ not a concept.
   (`2023-#1-COP-not-in-use`) mixes in slides from an unrelated "MEIC" (Manufacturing
   Engineering) call and uses the forum's original name "ODIC" before the ODEC rename —
   neither used as ODEC/COP evidence. Updated `PHASE1-ELICITATION.md` topic 4 and
-  `docs/vault-alignment.md`'s tacit-item table to `resolved 2026-10-22`.
+  `docs/knowledge-base-alignment.md`'s tacit-item table to `resolved 2026-10-22`.
 
 - **Resolved Phase-1 tacit items #1 and #3 the same way as #4** (mining the real record
   instead of interview), after the user pointed at a second source:
-  `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--*.pptx` (78 workshop decks). The
+  `Split Slides/10-Workshops--*.pptx` (78 workshop decks). The
   single richest source for both was one deck — Thomas Zipf's "Agility in System &
   Process" retrospective from the January 2025 MPEE strategy workshop — which documents,
   in the department's own words, several "turns out" lessons: a cosmetic dashboard-change
@@ -246,7 +246,7 @@ not a concept.
   `od-benefit-calculation/references/review-checklist.md` from this record, each stating
   honestly which narrower sub-question (the exact plant pushback phrasing; the specific
   reason a particular row fails SPRINT) the mined record does not answer and remains open.
-  Updated `PHASE1-ELICITATION.md` topics 1 and 3 and `docs/vault-alignment.md`'s
+  Updated `PHASE1-ELICITATION.md` topics 1 and 3 and `docs/knowledge-base-alignment.md`'s
   tacit-item table accordingly — five of the plan's original six tacit items are now
   resolved (fully or partially), only P-02 (non-bet system-fit judgement) has no skill at
   all yet.
@@ -256,7 +256,7 @@ not a concept.
   load-bearing with no equivalent in the registry (P-02). Resolved from real department
   material rather than invented: `00-core/02-strategy.md`'s non-bets/bets/kill-criteria
   (verbatim), `OD_Skill_Map.md`'s own P-02 scope line, and — the key find — a January 2025
-  tool-catalogue deck in `Work-OpsDigit-Knowledge/Split Slides/10-Workshops--...` giving
+  tool-catalogue deck in `Split Slides/10-Workshops--...` giving
   explicit "is / is not" boundary cards for every lightweight Smart Factory tool (QFPR,
   MDA/PDA — recorded in the department's own table as "(Lightweight MES)" — Manufacturing
   Image Library, Recipe Management/Camline, the Energy Management System/WiriTec), plus
@@ -270,7 +270,7 @@ not a concept.
   into it, with a body pointer at the exact step each one calls it from). Left open
   honestly: a named *real* request that looked normal and secretly needed MES/MIL/EMS —
   the skill's worked example is illustrative, not a real case. Updated
-  `PHASE1-ELICITATION.md` topic 5 and `docs/vault-alignment.md` throughout — all six of
+  `PHASE1-ELICITATION.md` topic 5 and `docs/knowledge-base-alignment.md` throughout — all six of
   the plan's original tacit-knowledge items now have a skill; three Wave-1 "load-bearing,
   no equivalent" skills remain genuinely unbuilt (`od-ii-cybersec-gate`,
   `od-ps-rollout-training`, `od-o-context-freshness`).
@@ -299,7 +299,7 @@ not a concept.
 
 ## 2026-09-17
 
-- Resolved the connectability-judgement tacit-knowledge item (II-01 in `vault-alignment.md`)
+- Resolved the connectability-judgement tacit-knowledge item (II-01 in `knowledge-base-alignment.md`)
   by direct elicitation, and wrote it into a new `barrier-classes.md` reference: a
   practitioner difficulty ranking that corrects the raw integration-rate read (Modbus and
   Bachmann rank harder than their integration rate suggests; Siemens splits by protocol, not

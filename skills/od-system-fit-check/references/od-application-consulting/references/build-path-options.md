@@ -24,7 +24,7 @@ Precondition for all four: the need has passed the footprint check (`od-system-f
 | **3a.3 New codebase, external development** | Is it larger than the team can build, and can the specification be written in-house with a partner building it? | `it-demand-package` and an external developer | IT demand and demand evaluation; Cyber Security; spend (eCR); licensing decision owner `⟨to confirm⟩` |
 | **3a.4 Integrate a foreign app** | Is it a third-party or plant-local application whose data or function must be connected rather than rebuilt? | `it-demand-package` | IT demand, Cyber Security; possibly a tool rollout decision |
 
-Recorded design intent for app onboarding (work vault, Manufacturing App Store initiative, Graph/Keynote
+Recorded design intent for app onboarding (department knowledge base, Manufacturing App Store initiative, Graph/Keynote
 Initiatives and its business case, read 2026-11-05): three onboarding scenarios - internal development;
 external development with the source owned; external development with no source access - through a
 source repository, continuous integration, a container registry and a GitOps tool; infrastructure whose

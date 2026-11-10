@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Department formats
 
-These formats exist in the department's own material. They are **existing practice to build on, not approved Lane 4 standards**: the January 2026 marketing-template initiative was meant to define a template and a marketing process (interfacing processes, responsibilities, communication channels), but its results slide is empty, it records a lead and no team, and nothing shows it was finished (Deck Texts: `D-Operations Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md`, slides 2-3, deck dated 2026-01-25). Every source below was opened on 2026-11-10 and is cited by its vault deck text; the originals are in the archive (`Archive: <same path>.pptx`).
+These formats exist in the department's own material. They are **existing practice to build on, not approved Lane 4 standards**: the January 2026 marketing-template initiative was meant to define a template and a marketing process (interfacing processes, responsibilities, communication channels), but its results slide is empty, it records a lead and no team, and nothing shows it was finished (Deck Texts: `D-Operations Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md`, slides 2-3, deck dated 2026-01-25). Every source below was opened on 2026-11-10 and is cited by its knowledge base deck text; the originals are in the archive (`Archive: <same path>.pptx`).
 
 ## 1. CSP appetizer (plant-side project summary)
 

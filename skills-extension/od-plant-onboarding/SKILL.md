@@ -30,8 +30,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
     - ops-knowledge-graph/_knowledge/20-Done/Machine connectivity rollout.md
     - Registry docs/new-state-flow.md and docs/new-state/OD_NewState_Flow.mermaid (the three lanes and their steps), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Tools and Graph/Connectors note names, read 2026-11-05
+    - Department knowledge base, Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
+    - Department knowledge base, Graph/Tools and Graph/Connectors note names, read 2026-11-05
     - Skill od-data-availability-check, references/plant-instance-map.md, read 2026-11-05
   okf:
     type: Agent Skill
@@ -83,7 +83,7 @@ what comes next, which skill, what artefact, who decides.*
 
 | Stage | What happens | Skill (in order) | Artefact | Lane in new-state flow | Decided by |
 |---|---|---|---|---|---|
-| 1. Record the plant | Plant, machines, tools, use cases and legacy applications are in the lists the department reads; refresh the vault view | `od-sharepoint-list-export`; ground rule `od-context` | Plant record complete; run log | Spine | Plant ME / Plant IT for content; OD for the lists' structure |
+| 1. Record the plant | Plant, machines, tools, use cases and legacy applications are in the lists the department reads; refresh the knowledge base view | `od-sharepoint-list-export`; ground rule `od-context` | Plant record complete; run log | Spine | Plant ME / Plant IT for content; OD for the lists' structure |
 | 2. Assess the equipment | Equipment inventory with connectability and a barrier log; sequence a roadmap (this is playbook step 1, triggered by "new plant / integration wave") | `od-equipment-integration` (assessment route); `od-data-availability-check` for what the platform already receives; `od-equipment-integration` (planned) for machines that will not connect | `assets/assessment-protocol.md` of `od-equipment-integration`; barrier log | Lane 3b entry, Lane 1b | IIAE with Plant ME / Plant IT |
 | 3. Take in demands | Each plant demand is classified: known use case, new use case, new system or connector | `od-use-case-intake-triage`, `od-system-fit-check`, `od-template-resolution` (start from the approved master) | Intake decision with written reason; fit check | Intake, then Lane 1, 2 or 3 | DBVE with Plant ME (prioritization: recommend) |
 | 4. First wins from the catalog | Machines already connected: pick a catalogued use case and apply its template | `catalog-usecase`, `od-cross-plant-compatibility` (is the standard consumable here?), `od-analytics-asset-build`, `build-grafana-ops-dashboard`, `catalog-usecase` | Asset live on the plant's local Grafana; compatibility check | Lane 1 (1a) | The plant decides what it runs |

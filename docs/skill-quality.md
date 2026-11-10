@@ -29,7 +29,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 96.0)
+## Scores of the core skills (mean 97.0)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
@@ -38,43 +38,43 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`catalog-systems`](../skills/catalog-systems/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (583 chars, recommend 50-150) (-5) |
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (831 chars, recommend 50-150) (-5) |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (798 chars, recommend 50-150) (-5) |
+| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (977 chars, recommend 50-150) (-5) |
 | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (591 chars, recommend 50-150) (-5) |
 | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (696 chars, recommend 50-150) (-5) |
+| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (968 chars, recommend 50-150) (-5) |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (751 chars, recommend 50-150) (-5) |
 | [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (655 chars, recommend 50-150) (-5) |
 | [`od-context`](../skills/od-context/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (486 chars, recommend 50-150) (-5) |
+| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (825 chars, recommend 50-150) (-5) |
 | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (638 chars, recommend 50-150) (-5) |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (996 chars, recommend 50-150) (-5) |
+| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (955 chars, recommend 50-150) (-5) |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (780 chars, recommend 50-150) (-5) |
 | [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (806 chars, recommend 50-150) (-5) |
+| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (818 chars, recommend 50-150) (-5) |
+| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (556 chars, recommend 50-150) (-5) |
+| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (727 chars, recommend 50-150) (-5) |
 | [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (999 chars, recommend 50-150) (-5) |
+| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (975 chars, recommend 50-150) (-5) |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (843 chars, recommend 50-150) (-5) |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 97.0 | 95.0 | 95.0 | 100.0 | 100.0 | Description very long (733 chars, recommend 50-150) (-5) |
-| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | A | 95.8 | 95.0 | 90.0 | 100.0 | 100.0 | Broad description without negative triggers may cause over-triggering (-5) |
-| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 95.8 | 95.0 | 90.0 | 100.0 | 100.0 | Broad description without negative triggers may cause over-triggering (-5) |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 95.5 | 95.0 | 95.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 95.5 | 95.0 | 95.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 94.8 | 95.0 | 95.0 | 100.0 | 85.0 | Large skill (5615 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
-| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | A | 94.2 | 95.0 | 90.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 94.2 | 95.0 | 90.0 | 100.0 | 90.0 | Deeply nested references in index.md (-10) |
-| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | A | 93.5 | 85.0 | 95.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 93.5 | 85.0 | 95.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | A | 92.2 | 85.0 | 90.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
 
 ## Where the points go
 
 | Finding | Skills affected | Points each |
 |---|---|---|
 | SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
-| Broad description without negative triggers may cause over-triggering | 5 of 25 | 5 |
-| Deeply nested references in index.md | 4 of 25 | 10 |
-| Resource-based skill lacks documentation of available resources | 3 of 25 | 10 |
-| Description very long (1002 chars, recommend 50-150) | 1 of 25 | 5 |
-| Description very long (1013 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (486 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (556 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (583 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (591 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (625 chars, recommend 50-150) | 1 of 25 | 5 |
 | Description very long (638 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (655 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (696 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (721 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (727 chars, recommend 50-150) | 1 of 25 | 5 |
+| Description very long (733 chars, recommend 50-150) | 1 of 25 | 5 |
 
 ## Sources
 

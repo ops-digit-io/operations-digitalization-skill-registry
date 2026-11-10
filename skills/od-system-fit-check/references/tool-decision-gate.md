@@ -7,10 +7,10 @@ status: draft
 owner: human:jakob.gabriel
 tags: [lane-3, gate, it-footprint, sourcing, new-state]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-3-new-system-or-connector.md (front-end step 2, branch 3a options, guardrails), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/2026-09-02_OD_Investment_Screen.md (a run of the department's investment-checking skill: involvement classes, de-noise rule, the software / IT-footprint gate in use, verdict legend), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (od-system-fit-check feature list), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (themes 2, 5, 6, 7), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-3-new-system-or-connector.md (front-end step 2, branch 3a options, guardrails), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/2026-09-02_OD_Investment_Screen.md (a run of the department's investment-checking skill: involvement classes, de-noise rule, the software / IT-footprint gate in use, verdict legend), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (od-system-fit-check feature list), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (themes 2, 5, 6, 7), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Tool decision gate

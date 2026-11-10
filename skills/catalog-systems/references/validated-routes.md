@@ -20,11 +20,11 @@ standard system. Rank routes by evidence.
 
 ## Where to read the evidence
 
-- **Machine List** (SharePoint list, mirrored in vault `Graph/Machines`; fields `plc_vendor`, `plc_model`,
+- **Machine List** (SharePoint list, mirrored in knowledge base `Graph/Machines`; fields `plc_vendor`, `plc_model`,
   `network_protocol`, `integration_status`, `integration_method`). Export it with `od-sharepoint-list-export`, group by
   controller vendor and model, method and status, and count machines and distinct plants per group.
 - **Route status**: skill `od-equipment-integration`, `references/decision-paths.md` (the live tree and the "next" tree).
-- **Connector status**: vault `Graph/Connectors` and `references/connectors.md` of the same skill (status such as
+- **Connector status**: knowledge base `Graph/Connectors` and `references/connectors.md` of the same skill (status such as
   Productive, Idea, Development; utilization such as USE, NOT AVAILABLE, DO NOT USE).
 - **Method names in the list**: `IIoT Edge Computing Platform` = Concept 3 (edge route, topologies 1 and 2 of the guide);
   `Central OPCUA Aggregation Server` = Concept 1 (topology 3); `EVALUATION ONGOING` = not yet decided.
@@ -97,7 +97,7 @@ between classes when procedures are written or more plants prove them.
 
 ## Open
 
-- ⟨The list of purchasable kits per route, prices and lead times⟩ - OD lead, IIAE, procurement; not in the vault notes read.
+- ⟨The list of purchasable kits per route, prices and lead times⟩ - OD lead, IIAE, procurement; not in the knowledge base notes read.
 - ⟨Why some integrated machines carry no method⟩ and ⟨whether machines under `EVALUATION ONGOING` will land on edge or
   aggregation⟩ - IIAE.
 - ⟨Whether the guide's `TODO` for Beckhoff and Omron on the edge is still current⟩ given that machines are recorded as

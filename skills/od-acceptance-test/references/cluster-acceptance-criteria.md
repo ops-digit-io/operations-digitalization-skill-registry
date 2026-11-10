@@ -24,7 +24,7 @@ turns each standard into acceptance items a plant owner can check. The requireme
   standardization knowledge base, which was not read here).
 - **Acceptance item (suggested):** this analysis restates the standard as a check. A proposal
   for the DBVE and the plant owner to confirm.
-- **External, verified in the vault:** definitions from ISO 22400-2 in the cluster note C01 (time
+- **External, verified in the knowledge base:** definitions from ISO 22400-2 in the cluster note C01 (time
   elements only; **the KPI formulas are not verified there**; do not quote them).
 
 Portfolio sizes per cluster are not kept here. Look them up on the live cluster notes
@@ -64,9 +64,9 @@ Portfolio sizes per cluster are not kept here. Look them up on the live cluster 
   **Acceptance is the cheapest moment to record the baseline**: add it to the protocol as an
   item for every use case.
 
-## External definitions that stand behind C01 and C05 (verified in the vault)
+## External definitions that stand behind C01 and C05 (verified in the knowledge base)
 
-- ISO 22400-2:2014 defines KPIs for manufacturing operations management; the vault verified
+- ISO 22400-2:2014 defines KPIs for manufacturing operations management; the knowledge base verified
   these time elements from clause 5.1: planned run time per item is "the planned time for
   producing one quantity unit"; actual production time "includes only the value-adding
   functions"; actual unit delay time covers "malfunction-caused interruptions, minor
@@ -78,7 +78,7 @@ Portfolio sizes per cluster are not kept here. Look them up on the live cluster 
 
 ## Further items from the standardization knowledge base
 
-The vault's source note `_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase`
+The knowledge base's source note `_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase`
 gives each cluster a standard KPI set and a requirements checklist
 compiled from public references (ISO 22400-2, VDI 3423, ISA-95, ISO 22005, TPS literature, with
 Wikipedia as entry point). **Grade: compiled from published literature; the cluster
@@ -112,8 +112,8 @@ base. Who could supply it: its owner. When it is read, these items should be rec
 
 ## Sources
 
-- Vault `_knowledge/30-Nodes` cluster notes C01 to C12 (read 2026-11-05), including the verified
+- Knowledge base `_knowledge/30-Nodes` cluster notes C01 to C12 (read 2026-11-05), including the verified
   reference entries R01, R13, R32 in C01.
 - Department notes *Use case lifecycle*, *Handover*, *Operating model*, *Use case
   standardization* (`ops-knowledge-graph/_knowledge/10-Department`).
-- Vault `Case Groups` overview and group notes (derivation sheet rows).
+- Knowledge base `Case Groups` overview and group notes (derivation sheet rows).

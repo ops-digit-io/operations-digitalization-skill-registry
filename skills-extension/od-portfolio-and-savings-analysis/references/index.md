@@ -12,4 +12,4 @@
 
 | Folder | Holds |
 |---|---|
-| [od-use-case-prioritization/](od-use-case-prioritization/index.md) | 6 concept(s) |
+| od-use-case-prioritization/ | 6 concept(s) |

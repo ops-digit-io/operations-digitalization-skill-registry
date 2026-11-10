@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Rating rubric - the focus areas applied to one object
 
 Level labels follow the published model (Schott et al. 2020, Table 5); the cues, questions, evidence and route signals are the
-vault's operationalization, restated for a single machine, system or application. `PROPOSAL` = synthesis of this skill, not in the
+knowledge base's operationalization, restated for a single machine, system or application. `PROPOSAL` = synthesis of this skill, not in the
 source. The full level tables and target guidance per area are in `od-use-case-solution-evaluation` (`references/focus-areas.md`).
 
 ## Rating rules

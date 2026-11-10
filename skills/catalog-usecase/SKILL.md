@@ -32,23 +32,23 @@ metadata:
     - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 1 steps "Pick from catalog", "Pick UC + std system" and "Validate and go live", the Lane 2 graduation and the gap register entries, read 2026-11-05
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - Skill od-use-case-standardization, which holds the eleven capability templates, the reference library and the CSP gate
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Use Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
-    - Work vault, Graph/Use Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
-    - Work vault, Graph/Target Types and the library notes with a recorded CSP Yes, read 2026-11-05
+    - Department knowledge base, Graph/Use Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
+    - Department knowledge base, Graph/Use Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
+    - Department knowledge base, Graph/Target Types and the library notes with a recorded CSP Yes, read 2026-11-05
     - registry.yaml open_gaps, the integration routes marked TODO and the plants without an integration concept; Grafana is a local instance per plant while Databricks and the Azure Storage Account are the global layer
     - ops-knowledge-graph/.../00-core/03-objectives.md
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/agent-brief.md
     - Skill od-equipment-integration, references/decision-paths.md, the routes by controller and protocol
-    - Work vault, Graph/Machines, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
-    - Work vault, Graph/Tools, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case, the systems-of-record note
+    - Department knowledge base, Graph/Machines, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
+    - Department knowledge base, Graph/Tools, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
+    - Department knowledge base, _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case, the systems-of-record note
     - Skill od-handover-and-adoption, the three-question test and the rule that the plant decides PRODUCTIVE
-    - Work vault, Dashboard Exports/specs, SPEC-00 to SPEC-04 and the Hannover Stoecken KKA and Pulp Mixer requirements, all AI-drafted drafts, read 2026-11-05
-    - Work vault, Vault Gap Analysis - Working Items and Content Depth, _knowledge/20-Done and 10-Department (Decision rights, Handover, Use case standardization), read 2026-11-05
-    - Work vault, Graph/Use Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
+    - Department knowledge base, Dashboard Exports/specs, SPEC-00 to SPEC-04 and the Hannover Stoecken KKA and Pulp Mixer requirements, all AI-drafted drafts, read 2026-11-05
+    - Department knowledge base, Knowledge base Gap Analysis - Working Items and Content Depth, _knowledge/20-Done and 10-Department (Decision rights, Handover, Use case standardization), read 2026-11-05
+    - Department knowledge base, Graph/Use Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
     - Skills od-data-availability-check (failure modes), od-handover-and-adoption, od-decision-routing (escalation worked examples), read 2026-11-05
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: catalog-usecase
@@ -156,7 +156,7 @@ The match record names the branch and the next skill, with the CSP status and it
 
 ## Open points - what only the OD lead can supply
 
-- ⟨Where the catalog lives and in what form (list, library, portal)⟩ and ⟨who maintains it⟩. Partial answer from the vault: the nearest thing today is the SharePoint list `UseCase-Library` (the CSP field lives there) read through the eleven template pages in `Graph/Use Case Views`; no plant-facing portal is recorded.
+- ⟨Where the catalog lives and in what form (list, library, portal)⟩ and ⟨who maintains it⟩. Partial answer from the knowledge base: the nearest thing today is the SharePoint list `UseCase-Library` (the CSP field lives there) read through the eleven template pages in `Graph/Use Case Views`; no plant-facing portal is recorded.
 - ⟨Whether a recorded CSP `Yes` is the right threshold for self-service⟩, given how few entries may have one.
 - ⟨Which entries with a `Yes` a plant can take as is today⟩: conditions 3 and 4 (standardized signals, plant owner and handover) are not recorded in the entries - IIAE and plant owner.
 - ⟨How a plant reaches the catalog⟩ and ⟨who may add an entry⟩.
@@ -182,7 +182,7 @@ The match record names the branch and the next skill, with the CSP status and it
 | File | Open when |
 |---|---|
 | [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md) | What the catalog builds on, route-candidate pattern, standardized-system entry fields |
-| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Counting library and CSP decisions live, which of the four conditions the vault shows |
+| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Counting library and CSP decisions live, which of the four conditions the knowledge base shows |
 | [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: delivered vs wanted coverage, peer plants, data needed, boundaries, screen components |
 | [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Placement traps, what "Other Use Cases" resolves into, documentation standard of a usable peer |
 | [`references/validated-routes.md`](../catalog-systems/references/validated-routes.md)) | Classifying a route A to D, counting evidence live |

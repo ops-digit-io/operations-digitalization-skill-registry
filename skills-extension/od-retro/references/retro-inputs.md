@@ -40,7 +40,7 @@ recurring content shape of the rounds (regional breakout, not a blended total) i
 (`references/rounds-and-escalation.md`). Items that were *carried forward* from one round to the next are the ones to read
 first: the escalation window is one round, so a carried item is a repeated item.
 
-The ODEC fact slides in the vault (`ODEC Facts`, AI-extracted staging, not human-reviewed) show what the rounds have
+The ODEC fact slides in the knowledge base (`ODEC Facts`, AI-extracted staging, not human-reviewed) show what the rounds have
 tracked over time (savings target vs actual, machines integrated, connectivity-roadmap eCR status, training uptake,
 use-case upvoting). They are raw material for finding a pattern in previous months; open the cited archive
 slide before treating any line as evidence.
@@ -51,8 +51,8 @@ The sources name no incident register. What exists, and its limit:
 
 | Candidate source | What it gives | Limit |
 |---|---|---|
-| Blocker Register (work vault, `Graph/Registers`) | Every recorded blocker text from the use-case list, by keyword theme, plant and template. Typical themes: missing use case details or evaluation, PLC access and PLC program, edge device and hardware, connectivity concept and connector reuse. Re-count on the current export; quote no figure without its export date | Themes are keyword-inferred; the export is a snapshot, not a stream |
-| Use-case change logs (work vault, `Graph/Registers`) | Every dated status change and text revision, per year | Shows movement, not cause |
+| Blocker Register (department knowledge base, `Graph/Registers`) | Every recorded blocker text from the use-case list, by keyword theme, plant and template. Typical themes: missing use case details or evaluation, PLC access and PLC program, edge device and hardware, connectivity concept and connector reuse. Re-count on the current export; quote no figure without its export date | Themes are keyword-inferred; the export is a snapshot, not a stream |
+| Use-case change logs (department knowledge base, `Graph/Registers`) | Every dated status change and text revision, per year | Shows movement, not cause |
 | `12-portfolio.md` blocking points (owner, class) | Why value is not flowing, per undertaking | Table is a template; filled from the Scorecard and use-case library |
 | Support tickets | Named as an early indicator in `09-risks.md` | No source system named: `⟨to confirm⟩` |
 

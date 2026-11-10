@@ -32,7 +32,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/12-portfolio.md
-    - personal vault, Graph/Use Cases/*.md (650 pages) and Graph/Library Use Cases/*.md (100 pages), read 2026-09-17
+    - Department knowledge base, Graph/Use Cases/*.md (650 pages) and Graph/Library Use Cases/*.md (100 pages), read 2026-09-17
   okf:
     type: Agent Skill
     title: Use-case definition
@@ -43,7 +43,7 @@ metadata:
 
 # Use-case definition
 
-Read `od-context` first. Provenance: merged from the lane's playbook and the use-case vault pages.
+Read `od-context` first. Provenance: merged from the lane's playbook and the use-case knowledge base pages.
 
 ## Start here: understand your own use case idea
 
@@ -167,7 +167,7 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 | Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda - Use Case Workshop (SharePoint); run the questionnaire inside it |
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 
-Past workshop locations: the workshop folder of the vault.
+Past workshop locations: the workshop folder of the knowledge base.
 
 ## Example
 

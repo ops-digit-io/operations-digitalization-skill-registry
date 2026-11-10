@@ -7,9 +7,9 @@ status: draft
 owner: human:jakob.gabriel
 tags: [ecr, capital-request, department-standard, lane-2, lane-3]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/eCR_Management_Summary_inventory.md (content inventory of the blank eCR management-summary template), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (od-capital-request features), read 2026-11-10"
-  - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md (ecr-builder renamed od-capital-request; chain od-benefit-calculation → bc-assessment → od-capital-request), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/eCR_Management_Summary_inventory.md (content inventory of the blank eCR management-summary template), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (od-capital-request features), read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md (ecr-builder renamed od-capital-request; chain od-benefit-calculation → bc-assessment → od-capital-request), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # eCR management summary

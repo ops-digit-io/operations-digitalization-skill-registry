@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Deployment package](deployment-package.md) | Skill Asset | The blank deployment package and gate table for an app going to the platform, with the facts the vault supports pre-filled and every unknown marked. Copy one per app. |
+| [Deployment package](deployment-package.md) | Skill Asset | The blank deployment package and gate table for an app going to the platform, with the facts the knowledge base supports pre-filled and every unknown marked. Copy one per app. |

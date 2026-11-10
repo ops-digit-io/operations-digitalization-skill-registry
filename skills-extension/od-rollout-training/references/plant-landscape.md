@@ -16,7 +16,7 @@ generated from the SharePoint lists and are not audited. Read them live and say 
 
 ## 1. Find the plant before planning
 
-Each plant note in the vault's `Graph/Plants` holds the plant's machine count, controller vendors, field networks,
+Each plant note in the knowledge base's `Graph/Plants` holds the plant's machine count, controller vendors, field networks,
 integration methods, use-case status mix and the tool rollouts recorded for it. Open the plant's own note before planning:
 **the training content follows what is actually rolled out at that plant**, not the full list of tools. Place the plant by
 its starting profile (`od-plant-onboarding`, `references/plant-landscape.md`).
@@ -37,7 +37,7 @@ The sources give no job description for a key user and no number of key users pe
 
 ## 3. The tools a plant may have
 
-The vault's tool overview lists the shop-floor tools; each `Graph/Tools` note carries rollout records per plant (status such
+The knowledge base's tool overview lists the shop-floor tools; each `Graph/Tools` note carries rollout records per plant (status such
 as Available or Ongoing) and "used by" links from use cases. To choose modules:
 
 1. Open the plant note and list the tools with a rollout record there.
@@ -48,7 +48,7 @@ as Available or Ongoing) and "used by" links from use cases. To choose modules:
 
 ## 4. What the use-case estate teaches
 
-Delivered use cases cluster in a few templates (the Case Groups notes in the vault: process values and Andon boards per
+Delivered use cases cluster in a few templates (the Case Groups notes in the knowledge base: process values and Andon boards per
 material family). To see which cluster a plant received, read the Case Groups notes (generated, not reviewed) and filter by
 plant. A plant's first training should cover the template it actually received (process values or an Andon board), at the
 screen it will use, rather than a general course.

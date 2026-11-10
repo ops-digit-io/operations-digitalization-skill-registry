@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [node-red, rule-engine, datatron, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill/SKILL.md, read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill/SKILL.md, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ops-rule-engine.skill/SKILL.md` (the master).
@@ -152,3 +152,24 @@ On import Node-RED reuses the existing broker (`a5b9953ab68b73bb`) and proto fil
 
 When the user asks for a message to the colleague, write it plain and blame-free: what didn't
 work and why, what changed, what to double-check.
+
+## Workflow for calculated datapoints
+
+A new value derived from existing DATATRON datapoints (parts per shift, machine mode, cycle time, status text,
+downtime, OK + NOK totals, tool-to-part lookup) is built as a **rule-engine flow**, the department's
+`ops-rule-engine` package (master; transcribed in `references/rule-engine.md` (`rule-engine.md`)):
+
+1. **Collect the requirement** per input datapoint (PascalCase name, UUID, value field), the output datapoint (it must
+   already exist in DATATRON; never invent a UUID), the logic, the MQTT input topic (the user gives it) and output topic.
+2. **Pick the pattern** (`rule-engine-patterns.md`): arithmetic, status mapping,
+   lookup, event trigger, counter with cron reset, duration, sawtooth peak, scaled value. Core rule: store each
+   input's latest value in flow context and calculate from the stored values - DATATRON publishes on change.
+3. **Write the spec and generate** with [`scripts/build_flow.py`](../scripts/build_flow.py); never hand-write the flow JSON.
+   Anatomy, PLCPacket fields, topics, timestamps and naming: `rule-engine-standard-flow.md`.
+4. **Test before delivering**: offline dry-run with [`scripts/simulate.js`](../scripts/simulate.js), optionally the full run
+   in Node-RED with a local broker ([`scripts/e2e_test.sh`](../scripts/e2e_test.sh)).
+5. **Deliver** the importable flow plus the spec; then the shared rules and the analyser below apply as to any flow.
+
+Thirteen production flows are the reference cases ([`references/rule-engine-examples/`](rule-engine-examples/));
+`13_helium09_leakrate_BROKEN.json` and `13b_..._FIXED.json` show the classic wait-for-all-inputs bug and its fix.
+Signal naming and normalization rules for the output stay with `od-signal-standardization`.

@@ -25,17 +25,17 @@ metadata:
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-grafana-dashboards.zip (SKILL.md), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-grafana-dashboards.zip (SKILL.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
     - Kimball, R. and Ross, M. (2013). The Data Warehouse Toolkit / the Kimball Lifecycle (3rd ed.), Wiley — the requirements-track/data-track/BI-track structure and the deployment-readiness gate, adapted below to this registry's own upstream/downstream skills.
     - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
-    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Vault Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
+    - Department knowledge base, Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Knowledge base Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Analytics asset build

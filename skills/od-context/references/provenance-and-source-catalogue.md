@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Provenance and source catalogue
 
-Derived from the vault's source-catalogue notes, the sources README, the research notes behind the graph descriptions and the
+Derived from the knowledge base's source-catalogue notes, the sources README, the research notes behind the graph descriptions and the
 reference-library index. Method only: file counts, source counts and benchmark figures are not reproduced. Own synthesis is marked
 `PROPOSAL`; unknowns are `<...>`.
 

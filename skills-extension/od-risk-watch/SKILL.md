@@ -28,9 +28,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/07-metrics.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/13-swot.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/capabilities.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Registers/Blocker Register (export of 2026-08-21), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Legacy Applications (268 notes, cyber-security status field) and Graph/Plants tool-rollout lines, aggregated 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts, Department KPIs and Roadmap Status, strategy recap slide, read 2026-11-05
+    - Department knowledge base, Graph/Registers/Blocker Register (export of 2026-08-21), read 2026-11-05
+    - Department knowledge base, Graph/Legacy Applications (268 notes, cyber-security status field) and Graph/Plants tool-rollout lines, aggregated 2026-11-05
+    - Department knowledge base, ODEC Facts, Department KPIs and Roadmap Status, strategy recap slide, read 2026-11-05
   okf:
     type: Agent Skill
     title: Risk watch
@@ -79,7 +79,7 @@ reference); reporting them as clear would be the exact failure the honesty rules
 1. **Open the register** (`09-risks.md`) and note its `last-verified` date. If the register itself is older than the
    month, say so in the reading's header; the register is the thing being watched.
 2. **For each risk, read the indicator** at the source named in
-   [`risk-indicators.md`](references/risk-indicators.md). Refetch live figures (Power BI, lists); treat any vault aggregate only
+   [`risk-indicators.md`](references/risk-indicators.md). Refetch live figures (Power BI, lists); treat any knowledge base aggregate only
    as a labelled, dated snapshot and never as the reading.
 3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩
    months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
@@ -118,6 +118,6 @@ reference); reporting them as clear would be the exact failure the honesty rules
 - Do not import probability or impact scoring from project plans into the register (`references/process-chain-practice.md`).
 - Do not assign probabilities, impact scores or colours that the register excludes by design.
 - Do not report an unreadable indicator as clear.
-- Do not take a vault aggregate as a live reading; label the snapshot date.
+- Do not take a knowledge base aggregate as a live reading; label the snapshot date.
 - Do not add risks to the register; propose them to the OD lead.
 - Do not escalate by e-mail or by name; use the round and the role.

@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Rituals and consumption
 
-Derived from the vault note on department rituals and the lane and operating-context notes. Method only: counts of use cases,
+Derived from the knowledge base note on department rituals and the lane and operating-context notes. Method only: counts of use cases,
 utilization splits and review totals in the source are not reproduced; look them up on the live lists. Own synthesis is marked
 `PROPOSAL`; unknowns are `<...>`.
 

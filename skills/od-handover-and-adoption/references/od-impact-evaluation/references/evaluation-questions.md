@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 Sources: OD's "Use Case Utilization" slide template (Standard Agenda folder, one table per
 location), the Use Case Canvas page 2 "Success Criteria" block, and the recent Use Case Integration
-Workshop decks, all in the vault's Slide Index and Split Slides. Re-open them before quoting wording.
+Workshop decks, all in the knowledge base's Slide Index and Split Slides. Re-open them before quoting wording.
 
 ## 1 · OD's utilization description, field by field
 

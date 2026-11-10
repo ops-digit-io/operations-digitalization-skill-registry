@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop formats
 
-All facts below come from OD agenda and summary decks in the vault's `Slide Index` and
+All facts below come from OD agenda and summary decks in the knowledge base's `Slide Index` and
 `Split Slides` (10-Workshops and 03-AMT_MI_Standard_Agenda_Use_Case_Workshop). Re-open the decks before reusing a date or a day count.
 They are presentations written for the plants, not rule documents; where a deck shows only an image
 or table the text was not recoverable and is marked.
@@ -63,7 +63,7 @@ family). A savings figure quoted in such a deck without a shown basis is a works
 ## 4 · Workshops on record: where to look
 
 The list of past definition, integration, equipment integration, machine integration and savings workshops, with
-plant and date, lives in the `Slide Index` of the vault folder `10-Workshops`. Read it live before naming a past
+plant and date, lives in the `Slide Index` of the knowledge base folder `10-Workshops`. Read it live before naming a past
 workshop as a precedent. Not every plant on the list has a recorded outcome; to find out which workshops led to
 live use cases, filter the live use case list on its workshop or intake source rather than counting from decks.
 

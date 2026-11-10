@@ -37,7 +37,7 @@ metadata:
   sources_read: {today}
   requires: [od-context]
   derived_from:
-    - "TODO: each source you opened, with the date, for example: Work vault, <path>, read {today}"
+    - "TODO: each source you opened, with the date, for example: Department knowledge base, <path>, read {today}"
   okf:
     type: Agent Skill
     title: {title}

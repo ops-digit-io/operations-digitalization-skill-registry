@@ -23,10 +23,10 @@ metadata:
   composes: [od-comms-brief, catalog-usecase, od-use-case-intake-triage, od-handover-and-adoption]
   derived_from:
     - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Work vault, OD Department Knowledge/OD-instance/00-core/06-operating-rhythm.md (monthly retro: what did we learn, one change), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md and lane-2-develop-new-use-case.md (fall-through and cataloguing), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/00-core/07-metrics.md (utilization rate), read 2026-11-10"
-    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), read 2026-11-10; Vault note Agentic-OS/30_Knowledge/Internal Communication and Marketing Research"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/06-operating-rhythm.md (monthly retro: what did we learn, one change), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md and lane-2-develop-new-use-case.md (fall-through and cataloguing), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/07-metrics.md (utilization rate), read 2026-11-10"
+    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase follow-up
@@ -102,6 +102,8 @@ If a reaction cannot be placed or a figure has no source, write "not reported" o
 The publication is recorded, every reaction has a route, the answers stay within the story's promise, a review date is set, and the log is filled.
 
 ## References
+
+Each template, asset and other resource of this skill is listed here:
 
 | File | Open when |
 |---|---|

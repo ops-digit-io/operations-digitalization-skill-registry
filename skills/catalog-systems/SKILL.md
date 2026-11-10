@@ -18,7 +18,7 @@ metadata:
   sources_read: 2026-11-10
   requires: [od-context]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (skills table, gap), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (skills table, gap), read 2026-11-10"
     - "Split from catalog-usecase (formerly od-catalog), 2026-11-10"
   okf:
     type: Agent Skill

@@ -71,4 +71,4 @@ open.
 
 - Fixing any flag.
 - Judging whether a bundle file is right; only whether it is current by its own marks.
-- The vault's generated notes: checked only for their stamps (see [`staleness-signals.md`](staleness-signals.md)).
+- The knowledge base's generated notes: checked only for their stamps (see [`staleness-signals.md`](staleness-signals.md)).

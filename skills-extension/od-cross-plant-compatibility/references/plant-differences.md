@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Plant differences
 
 This file holds **no counts, shares or plant lists**. It names each dimension, where to read it live, what patterns to expect
-and what to do about them. **Sources:** the plant notes in the work vault (`Graph/Plants`, plant-profile blocks, built from
+and what to do about them. **Sources:** the plant notes in the department knowledge base (`Graph/Plants`, plant-profile blocks, built from
 the SharePoint machine, use case and tool lists), the Capability Epics notes and the Blocker Register. The plant notes say
 themselves that figures are "as entered in the SharePoint list, not audited". Always read the live lists (Machine List, Tool
 Overview) before relying on a number for a verdict, and state the date. A plant "has" a vendor, network or method when at

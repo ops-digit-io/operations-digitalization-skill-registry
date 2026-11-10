@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [business-case, worked-example, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/../Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
+  - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/../Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `../Business-Cases/gemba-app/bc-assessment-report.md` (the master). Money figures in examples are masked as ⟨€⟩.

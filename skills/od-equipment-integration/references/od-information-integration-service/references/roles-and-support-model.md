@@ -16,7 +16,7 @@ computing platform is more specific: it names the roles a plant meets when somet
 be installed, changed or fixed. A local key user needs it to know **who to call and what is
 theirs**.
 
-**Source and grade.** One deck: *Operation Concept IIoT and Edge Computing* (the process slides carry the deck's date), described in the vault's `Slide Index` and in the
+**Source and grade.** One deck: *Operation Concept IIoT and Edge Computing* (the process slides carry the deck's date), described in the knowledge base's `Slide Index` and in the
 archive-evidence block of the tool note `Concept 3 - IIoT Edge Computing Platform`
 ("AI-drafted ... not reviewed by a human"). The Slide Index keeps a snippet of about 400
 characters per slide; **several role slides are cut off** (marked "..."). What is listed below
@@ -86,5 +86,5 @@ The snippets show only the actors, not the steps. What can be read:
 
 ## Sources
 
-- Vault `Slide Index` (deck `Operation Concept IIoT and Edge Computing`, slides 2, 3, 5 to 21), read 2026-11-05.
-- Vault `Graph/Tools/Concept 3 - IIoT Edge Computing Platform` archive-evidence block.
+- Knowledge base `Slide Index` (deck `Operation Concept IIoT and Edge Computing`, slides 2, 3, 5 to 21), read 2026-11-05.
+- Knowledge base `Graph/Tools/Concept 3 - IIoT Edge Computing Platform` archive-evidence block.

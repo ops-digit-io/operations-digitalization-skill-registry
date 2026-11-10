@@ -9,4 +9,4 @@
 
 | Folder | Holds |
 |---|---|
-| [od-analytical-support-service/](od-analytical-support-service/index.md) | 4 concept(s) |
+| od-analytical-support-service/ | 4 concept(s) |

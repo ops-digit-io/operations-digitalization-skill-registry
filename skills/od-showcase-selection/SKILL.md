@@ -7,7 +7,7 @@ description: >-
   (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen
   (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no
   with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any
-  use-case story is briefed to Internal Communications.
+  use-case story is briefed to Internal Communications. Not for writing the story (od-comms-brief).
 license: MIT
 metadata:
   id: od-showcase-selection
@@ -25,10 +25,10 @@ metadata:
   composes: [od-handover-and-adoption, od-benefit-calculation, catalog-usecase, od-comms-brief]
   derived_from:
     - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Work vault, OD Department Knowledge/OD-instance/10-modules/smart-factory-use-case/systems-of-record.md (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/00-core/07-metrics.md (use-case utilization rate; recipient feedback), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/10-modules/smart-factory-use-case/systems-of-record.md (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/07-metrics.md (use-case utilization rate; recipient feedback), read 2026-11-10"
     - "Registry reference: od-use-case-definition, lane service flow (savings without a registered plant savings project or a baseline are a claim, not a result), read 2026-11-10"
-    - "Work vault, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
+    - "Department knowledge base, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase selection
@@ -98,6 +98,8 @@ Verdict: Go -> od-comms-brief
 The selection record is filled: verdict, audiences, claims with their evidence class, open points and owners. A Go has been handed to `od-comms-brief`.
 
 ## References
+
+Each template, asset and other resource of this skill is listed here:
 
 | File | Open when |
 |---|---|

@@ -8,7 +8,7 @@ description: >-
   both the handover packet that crosses a lane boundary and a standardized epic with its
   user stories and a background description of what it is used for. Use after intake accepts a
   demand and before anything is built — when scoping a use case for integration, specifying a machine or
-  its signals, baselining a project, or scoping an analytical request.
+  its signals, baselining a project, or scoping an analytical request. Not for choosing the tool (od-system-fit-check).
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/check_requirement.py:*)
 metadata:
@@ -30,13 +30,13 @@ metadata:
   requires: [od-context]
   composes: [funnel-features, od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption, it-demand-package]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/requirements-funnel/SKILL.md, references/handoff-schema.md), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/requirements-funnel/SKILL.md, references/handoff-schema.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
     - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (use case field population, target_text and blockers grammar; legacy applications)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/.../00-core/{05-intake,15-resources}.md
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Requirements breakdown

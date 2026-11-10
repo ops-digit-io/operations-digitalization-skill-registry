@@ -18,7 +18,7 @@ them from the live corpus and name the date. Rules are marked as such.
 |---|---|---|
 | Flow side | `ops-knowledge-graph/_knowledge/node-red-auto-docs/docs` (flow files) | change nodes that set a flow variable named `datapoint<Concept>` |
 | Topic side | same files | the last segment of `CT/...` topics |
-| Dashboard side | `Work-OpsDigit-Knowledge/Dashboard Exports/Dashboard Notes` and `specs/data/dashboard-inventory.jsonl` | "Signal labels used in the queries" lines and template variable names |
+| Dashboard side | `Dashboard Exports/Dashboard Notes` and `specs/data/dashboard-inventory.jsonl` | "Signal labels used in the queries" lines and template variable names |
 
 A flow-config key is **not** the label stored on the edge platform: it is the name the flow
 author gave the UUID inside one flow. The two should be the same word and often are; this file

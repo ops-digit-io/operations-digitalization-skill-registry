@@ -84,9 +84,9 @@ current working substitutes; whether they are adopted as the masters is `to conf
 
 ## C. Files found outside the register
 
-The work vault can hold master-slide files that the register does not list. A file found there is **not** an approved
+The department knowledge base can hold master-slide files that the register does not list. A file found there is **not** an approved
 master until the register (or the OD lead role) says so. Record its existence, do not use it as the master, and ask the
-OD lead role which deliverable it serves and who owns it. Search the vault's master-slide folder at the time of use; do
+OD lead role which deliverable it serves and who owns it. Search the knowledge base's master-slide folder at the time of use; do
 not rely on a remembered file list.
 
 ## D. Typical gaps and who can close them
@@ -98,6 +98,6 @@ not rely on a remembered file list.
 | Report links (scorecard, use-case integration, equipment integration) | OD lead role, DBVE, IIAE |
 | Platform links (data platform, IIoT Edge / MSB) | IIAE |
 | Whether skill-level protocols are adopted as masters | OD lead role, per lane owner |
-| Status of a vault master-slide file | OD lead role |
+| Status of a knowledge base master-slide file | OD lead role |
 
 Whether a given gap is open today is read from the register, not from this page.

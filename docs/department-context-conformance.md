@@ -9,7 +9,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Department context conformance
 
-**Source checked against.** Personal vault, `Work-OpsDigit-Knowledge/OD Department Knowledge/OD-instance/`, read
+**Source checked against.** Department knowledge base, `OD Department Knowledge/OD-instance/`, read
 2026-11-10: `20-lanes-newstate-DRAFT/` (README, lane 1, 2 and 3, `Transcripts/INDEX.md` for the 2026-09-11 OD x IT
 alignment), `00-core/04-service-catalog.md`, `05-intake.md`, `08-decision-rights.md`,
 `10-modules/smart-factory-use-case/systems-of-record.md`, `OD_Skill_Naming_Convention.md`,

@@ -191,6 +191,6 @@ camera status. Blocker themes are dominated by "platform or data model not avail
 
 ## Sources
 
-`Work-OpsDigit-Knowledge/Graph/Use Case Views/` (the template `... - Use Case View` notes and
+`Graph/Use Case Views/` (the template `... - Use Case View` notes and
 `template-standards.json`), `Dashboard Exports/Dashboard Notes/` and
 `Dashboard Exports/specs/data/dashboard-inventory.jsonl`.

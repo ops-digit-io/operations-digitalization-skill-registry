@@ -26,12 +26,12 @@ metadata:
   requires: [od-context]
   composes: [od-benefit-calculation, od-investment-input, od-capital-request]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases (README house standard, _template), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/bc-assessment.zip (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/BC-Assessment-Skill/use-case-input-questionnaire.md, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/Business-Cases (README house standard, _template), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/bc-assessment.zip (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/BC-Assessment-Skill/use-case-input-questionnaire.md, read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Business case assessment

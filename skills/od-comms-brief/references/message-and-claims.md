@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Message and claims
 
-The rules here are the vault's own (`CLAUDE.md` sections 1.5 and 3: no invented figures, roles not individuals, English) and the registry's savings rule. They are proposed for Lane 4; the OD lead has not confirmed them.
+The rules here are the knowledge base's own (`CLAUDE.md` sections 1.5 and 3: no invented figures, roles not individuals, English) and the registry's savings rule. They are proposed for Lane 4; the OD lead has not confirmed them.
 
 ## Evidence classes
 

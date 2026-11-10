@@ -28,7 +28,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
     - ops-knowledge-graph/_knowledge/10-Department/Roles and organization.md
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: OD context

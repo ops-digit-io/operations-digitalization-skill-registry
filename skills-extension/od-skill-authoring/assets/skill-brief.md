@@ -43,9 +43,9 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 
 | Source | Where | What it supports |
 |---|---|---|
-| ⟨vault note, archive file, external page⟩ | ⟨path and place⟩ | ⟨the step or rule⟩ |
+| ⟨knowledge base note, archive file, external page⟩ | ⟨path and place⟩ | ⟨the step or rule⟩ |
 
-Order: vault, then archive, then external. Cite only what was opened. Open questions for the owner: ⟨list; each with the person who can answer⟩.
+Order: knowledge base, then archive, then external. Cite only what was opened. Open questions for the owner: ⟨list; each with the person who can answer⟩.
 
 ## 7. Three test cases
 

@@ -7,14 +7,14 @@ status: stable
 owner: human:jakob.gabriel
 tags: [use-case-support-service, examples]
 derived_from:
-  - personal vault, Graph/Use Cases/*.md, read 2026-09-17 (pattern source only; the examples below are invented)
+  - Department knowledge base, Graph/Use Cases/*.md, read 2026-09-17 (pattern source only; the examples below are invented)
 generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Worked examples
 
 **Illustrative.** All plants, machines, tags and thresholds below are invented placeholders. They show the *shape* of a good
-record; they are not records of real use cases. Pattern source: the use-case notes in the vault.
+record; they are not records of real use cases. Pattern source: the use-case notes in the knowledge base.
 
 ## 1 · Alarm Notification — <plant A>
 

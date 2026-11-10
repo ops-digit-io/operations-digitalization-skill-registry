@@ -10,4 +10,4 @@
 
 | Folder | Holds |
 |---|---|
-| [od-use-case-promotion/](od-use-case-promotion/index.md) | 5 concept(s) |
+| od-use-case-promotion/ | 5 concept(s) |

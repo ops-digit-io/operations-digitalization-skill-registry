@@ -220,7 +220,7 @@ skills-extension/<skill-id>/     one extension skill, same layout
 docs/skill-map.md                the four lanes' skills/tools/interfaces, consolidated
 docs/derivation.md               concept-by-concept trace back to the knowledge graph
 docs/skill-state-map.md          generated Mermaid map: every skill, its lane, its build state, what is next
-docs/vault-alignment.md          crosswalk against the department's own skill-map plan and gap analysis, and the resulting build order
+docs/knowledge-base-alignment.md          crosswalk against the department's own skill-map plan and gap analysis, and the resulting build order
 docs/okf-conventions.md          the OKF contract, its three deviations, and what the guard refuses
 index.md, */index.md             generated OKF directory indexes (OKF §8)
 log.md                           bundle history (OKF §9)

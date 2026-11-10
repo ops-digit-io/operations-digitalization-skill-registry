@@ -18,10 +18,10 @@ derived_from:
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/metrics.md
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/agent-brief.md
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
-- Work vault (Work-OpsDigit-Knowledge), Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (Use Case Creation Process slides 7, 18, 19, 20; Workshop Summary slide 20; template Use Case Utilization), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Slide Index of 10-Workshops (Dolne Vestenice 2025 integration workshop purpose and utilization slides; Carei 2025 integration workshop), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Case Groups overview and CG-03 Andon Board - Assembly (section 4 recorded savings, evidence gap, section 7 derivation sheet), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases Catalog Maturity Sprint (validation plan pattern), read 2026-11-05
+- Department knowledge base, Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (Use Case Creation Process slides 7, 18, 19, 20; Workshop Summary slide 20; template Use Case Utilization), read 2026-11-05
+- Department knowledge base, Slide Index of 10-Workshops (Dolne Vestenice 2025 integration workshop purpose and utilization slides; Carei 2025 integration workshop), read 2026-11-05
+- Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (section 4 recorded savings, evidence gap, section 7 derivation sheet), read 2026-11-05
+- Department knowledge base, Graph/Business Cases Catalog Maturity Sprint (validation plan pattern), read 2026-11-05
 - Skill od-benefit-calculation SKILL.md and references/review-checklist.md (saving rows, tracked versus proven, calculator)
 - Skill od-handover-and-adoption SKILL.md, references/evidence-of-adoption.md and assets/handover-protocol.md
 generated:
@@ -82,7 +82,7 @@ the OD lead sets it, use the practical triggers in the description above and wri
    ([`references/savings-proof-path.md`](references/savings-proof-path.md)): is there a baseline, a
    methodology line a stranger can check, a dependency, a SPRINT link? Mark each row with its
    current firmness and the next step. Where no saving was ever recorded, say "not recorded"; the
-   vault shows delivered cases in this state, which is common, not a failure of yours.
+   knowledge base shows delivered cases in this state, which is common, not a failure of yours.
 7. **Decide the outcome** and let the plant owner confirm the adoption part:
 
 | Finding | Outcome | Next |

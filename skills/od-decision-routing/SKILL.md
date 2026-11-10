@@ -24,14 +24,14 @@ metadata:
   requires: [od-context]
   composes: [od-investment-input, it-demand-package]
   derived_from:
-    - "Work vault, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
+    - "Department knowledge base, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
     - Rogers, P. and Blenko, M. (2006). Who Has the D? How Clear Decision Roles Enhance Organizational Performance. Harvard Business Review, 84(1), 52-61. The RAPID decision-rights framework (Recommend/Agree/Input/Perform/Decide), verified via Bain & Company's own summary, 2026-10-22 — grounds this skill's Tandem/Consultation/Information modes.
-    - personal vault, Work-OpsDigit-Knowledge/Split Slides/D-Operations Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - Department knowledge base, Split Slides/D-Operations Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Decision routing and escalation

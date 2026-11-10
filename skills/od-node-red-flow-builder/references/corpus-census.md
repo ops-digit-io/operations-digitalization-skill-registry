@@ -53,7 +53,7 @@ How to read it:
 The site code is the third segment of `ct-oesl-<code>-nodered-...`. Count flows per code across prod and
 test instances of the code. Several codes can belong to one site (numbered instances of the same site;
 see `instances.md`). The code-to-plant table is open (⟨site-code table - IIAE⟩); the Connector and
-Machine notes in the vault do not carry the node-red code, so do not derive it by guessing.
+Machine notes in the knowledge base do not carry the node-red code, so do not derive it by guessing.
 
 ## What each site builds (flow titles, keyword match)
 
@@ -73,7 +73,7 @@ To obtain the live mix: count the segment over `mqtt in` / `mqtt out` nodes, per
 Driver families seen: `ads`, `tia`, `cifx`, `dqcdc`, `abrock`, plus `opcua`, `ethercat`, `s7net`,
 `mqtt`, `omron`, `omronnxnj`. `topic-conventions.md` lists the first five.
 
-The vault's Connector notes name the container image of several of them: `tia` -> `DTQ-TIA-Connector`
+The knowledge base's Connector notes name the container image of several of them: `tia` -> `DTQ-TIA-Connector`
 (image name `datatron-tia-collect`), `ads` -> `DTQ-Beckhoff-Connector` (`datatron-ads-collect`),
 `abrock` -> `DTQ-ALLENBRADLEY-ROCKWELL-Connector` (`datatron-abrock-collect`), `cifx` ->
 `DTQ-S7-Connector` (`datatron-cifx`), `omron` -> `DTQ-OMRON FINS-Connector` (`datatron-omron-collect`).
@@ -81,7 +81,7 @@ The vault's Connector notes name the container image of several of them: `tia` -
 note** - confirm with the IIAE before using it as a rule. For `dqcdc`, `opcua`, `ethercat`, `s7net` the
 Connector notes give no image name: ⟨driver-to-connector table - IIAE⟩.
 
-The Connector notes also carry per-connector machine and plant counts; read them live in the vault's
+The Connector notes also carry per-connector machine and plant counts; read them live in the knowledge base's
 Graph/Connectors profile blocks. Note that a driver can be unique to one connector (the `ads` segment is
 specific to the Beckhoff connector), which is a useful cross-check between topic and connector.
 
