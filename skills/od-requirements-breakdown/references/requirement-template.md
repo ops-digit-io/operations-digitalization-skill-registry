@@ -31,7 +31,7 @@ fraction of its use cases.** The job is to make that the default, not to introdu
 
 ## The core — every lane, every requirement
 
-Ten sections. A requirement missing any of §1–§6 is not ready to hand over.
+Eleven sections (§6a is the boundaries block). A requirement missing any of §1–§6, §6a or §10 is not ready to hand over.
 
 ### §1 · Identity
 
@@ -114,6 +114,10 @@ AC-3  ⟨named plant role⟩ has used it in a real shift, not a demonstration.
 **AC-3 or its equivalent is mandatory.** It is the department's own handover rule, and
 without it "delivered" and "in use" get conflated — the gap between `IMPLEMENTED` and
 `PRODUCTIVE` is what that conflation costs.
+
+### §6a · Boundaries
+
+Objective, in scope, out of scope, interfaces, **growth boundary** and change rule. Source: the OD x IT alignment of 2026-09-11 (technology guardrails): a requirement must fix objective, scope, interfaces and growth boundaries, because AI makes uncontrolled expansion (mission creep) easy. How it fails: "and later all plants" written into the target; an interface named after the fact; a growth boundary that is a wish ("scalable") instead of a limit. A request that grows past the line is a new requirement through intake, not an edit to this one.
 
 ### §7 · Blocking points
 

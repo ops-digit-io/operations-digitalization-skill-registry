@@ -67,6 +67,7 @@ first. The template is not new: its headings already appear in the estate's `tar
 3. **Set the standard baseline.** Take the cluster's KPI set and checklist; record only this plant's deltas; check for a public data model (`od-signal-standardization`).
 4. **Name and verify the signals.** Canonical name, direction in/out, existence verdict per signal from `od-data-availability-check` (verified, not assumed). An `out` signal is registered on the edge platform before anything publishes. A sensor value is not an event: state how each event is derived and whether production metadata (order, part, batch) is needed; a missing relation is a data gap, not approximated. Missing signals go into a `signal id | label | why needed` table for the information-integration lane.
 5. **Write testable acceptance criteria**, including one that requires use in a real shift by a named plant role.
+5a. **Fix the boundaries** (§6a, from the OD x IT alignment of 2026-09-11): objective, in and out of scope, approved interfaces, a **growth boundary** (the plants, machines, users or data volume it must not grow past) and the change rule. Anything beyond the line is a new requirement through intake, not an edit; this is the guard against mission creep, which AI-assisted building makes easy.
 6. **Assess legacy systems and footprint** ([`legacy-system-assessment.md`](references/legacy-system-assessment.md)). If the spec implies more than the lightweight tools cover (cross-process scheduling, full order genealogy, heavier image/recipe/energy reads), run `od-system-fit-check` before specifying further.
 7. **Classify the blockers.** *Method undefined* and *parameter selection open* are the requirement's own work, not an escalation.
 8. **Value it honestly.** Label every figure `CALCULATION`, `ESTIMATION` or *not yet assessed* (`od-benefit-calculation`).
@@ -78,7 +79,7 @@ python3 scripts/check_requirement.py MyRequirement.md --lane use-case
 python3 ../../skills-extension/funnel-features/scripts/check_epic.py MyEpic.md
 ```
 
-Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a placeholder role, a generic "so that", an epic with one story, a story without a use-in-a-real-shift criterion.
+Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a missing growth boundary, a placeholder role, a generic "so that", an epic with one story, a story without a use-in-a-real-shift criterion.
 
 ## The epic
 
@@ -105,7 +106,7 @@ The epic and its user stories are the department's next funnel stage, **`funnel-
 
 ## Handoff
 
-Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-schema.md): `frame`, `riskiest_assumption`, `problems`, `candidates`, with the rules the next stage relies on) so `funnel-features` and `od-prototype-poc` resume without re-asking. The lane variant goes to the receiving lane (integration, `od-system-fit-check` at step 32, project, analytics); the epic goes into the backlog. Done when sections 1-6 and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done, both checks report zero blockers, and the receiver accepts.
+Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-schema.md): `frame`, `riskiest_assumption`, `problems`, `candidates`, with the rules the next stage relies on) so `funnel-features` and `od-prototype-poc` resume without re-asking. The lane variant goes to the receiving lane (integration, `od-system-fit-check` at step 32, project, analytics); the epic goes into the backlog. Done when sections 1-6, 6a and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done, both checks report zero blockers, and the receiver accepts.
 
 ## Human gate and AI-agent notes
 
@@ -116,6 +117,7 @@ Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-sc
 ## Pitfalls and open points
 
 - Writing the solution (which nodes to wire) instead of what must be true.
+- No growth boundary, or one that is a wish ("scalable"): the requirement quietly grows from one machine to every plant.
 - Assuming a signal exists; blockers found late are usually assumptions.
 - Inventing a figure to make the case look decided; *not yet assessed* is honest.
 - Skipping the library check, the failure standardization exists to prevent.

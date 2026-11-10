@@ -52,6 +52,15 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 - **AC-2** The value matches ⟨reference⟩ within ⟨tolerance⟩ over ⟨period⟩.
 - **AC-3** ⟨named plant role⟩ has used it in a real shift, not a demonstration.
 
+## §6a Boundaries (OD x IT 2026-09-11: fix objective, scope, interfaces and growth)
+
+- **Objective:** ⟨one sentence: the outcome this requirement commits to⟩
+- **In scope:** ⟨machines, process steps, roles, signals⟩
+- **Out of scope:** ⟨what a reader might assume is included and is not⟩
+- **Interfaces:** ⟨approved interfaces only, for example MQTT / Edge; named systems it reads or writes⟩
+- **Growth boundary:** ⟨the limit it must not grow past without a new requirement: plants, machines, users, data volume, functions⟩
+- **Change rule:** ⟨anything beyond the growth boundary is a new requirement through intake; who decides⟩
+
 ## §7 Blocking points
 
 **Major blocking points**
