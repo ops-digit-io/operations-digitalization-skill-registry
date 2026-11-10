@@ -39,7 +39,7 @@ reported as "no usable last-verified", not silently skipped.
 | `metadata.status` | `draft`, `stable` or `deprecated` | `scripts/verify_okf.py` |
 | `metadata.derived_from` | What the skill was built from: a bare path or a sentence | the brief; `docs/okf-conventions.md` |
 | `verified: {by, at}` | A human reading, with an actor. **Absent on every skill**; the trust tier is "unverified" | `docs/okf-conventions.md` |
-| `⟨…⟩` in prose | An unresolved gap: a fact the sources did not give | the registry's honesty rule in `od-context` |
+| `⟨…⟩` in prose | An unresolved gap: a fact the sources did not give | the registry's honesty rule in `dept-os` |
 | Dated figures in prose | Should not exist in skills. If one is found, rewrite it to "how to read it live" | the no-company-figures rule |
 
 What it proves: when a person or agent last read the source. What it does not prove: that the source was current,

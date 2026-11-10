@@ -56,7 +56,7 @@ The sources name no incident register. What exists, and its limit:
 | `12-portfolio.md` blocking points (owner, class) | Why value is not flowing, per undertaking | Table is a template; filled from the Scorecard and use-case library |
 | Support tickets | Named as an early indicator in `09-risks.md` | No source system named: `⟨to confirm⟩` |
 
-Rule from `od-context`: version history carries text the current record does not, so an "incident" may be visible only in
+Rule from `dept-os`: version history carries text the current record does not, so an "incident" may be visible only in
 the change log.
 
 ## 4. What a usable item looks like

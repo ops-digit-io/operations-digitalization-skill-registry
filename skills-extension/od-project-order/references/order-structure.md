@@ -22,7 +22,7 @@ moved to the back, never deleted.
 | Requirements: scope | Expected results | Measurable; ties to the success criteria |
 | Requirements: timing | Start, end, first version, first three milestones | That is the minimum; below it the plan is not a plan |
 | Requirements: budget | Estimate of internal effort, external support, consultancy | Never blank, even for an internal project: "make an educated guess" |
-| Benefit | Expected benefit | Taken from `od-benefit-calculation` with its firmness; do not re-derive |
+| Benefit | Expected benefit | Taken from `bc-build` with its firmness; do not re-derive |
 | Good practices, lessons learned | What to reuse | From earlier projects, with the source |
 | Relationship to other projects | Dependencies and synergies | Anticipate critical areas |
 | Out of scope | What the project will not do | Write it; it removes grey zones |

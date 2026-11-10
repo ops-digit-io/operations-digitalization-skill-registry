@@ -23,11 +23,11 @@ Evidence tiers: **1** system record, **2** the plant owner's dated statement, **
 | C2 | Says what decision the delivered use case supports and in which ritual it is used | SL, PO | M1 | yes | `od-handover-and-adoption` (Q1) |
 | C3 | Acts correctly on a deviation shown on the screen (the agreed Andon or shift-check step) | SL | M1 | yes | the plant's use-case record |
 | C4 | Traces the data path from screen to machine and names the link that broke | KU, ME | M2 | yes | `od-handover-and-adoption` (Q2); `iiot-edge-platform.md` |
-| C5 | Says which layer is plant-local (Grafana) and which is global (data platform) | KU, ME, IT | M2 | no | registry open gaps; `od-context` |
-| C6 | Fills the machine integration guidance protocol for one machine without OD help | ME | M3 | yes | `od-equipment-integration` |
+| C5 | Says which layer is plant-local (Grafana) and which is global (data platform) | KU, ME, IT | M2 | no | registry open gaps; `dept-os` |
+| C6 | Fills the machine integration guidance protocol for one machine without OD help | ME | M3 | yes | `mi-connector` |
 | C7 | Names what is installed at the plant and which route is therefore available | ME, IT | M3 | no | guidance protocol Gate 0 |
 | C8 | Classifies a blocked machine into a barrier class and says where it is routed | ME | M3 | no | `barrier-classes.md` |
-| C9 | Changes or fixes one element of the plant's own dashboard or flow and has it reviewed | ME, KU | M4 | no | `build-grafana-ops-dashboard`; Node-RED skills |
+| C9 | Changes or fixes one element of the plant's own dashboard or flow and has it reviewed | ME, KU | M4 | no | `ops-dashboard-engine`; Node-RED skills |
 | C10 | Names the gate an action hits and fills a decision request instead of proceeding | ME, IT, KU, PO | M5 | yes | `od-decision-routing` |
 | C11 | States that a machine is not connected, and an external connection not made, before Cyber Security answers | ME, IT, PO | M5 | yes | `od-cybersec-gate` |
 | C12 | Acts as the witness at an acceptance item and writes the evidence line | PO, KU | M6 | yes | `od-acceptance-test` |

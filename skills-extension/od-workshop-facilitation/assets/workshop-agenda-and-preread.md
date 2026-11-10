@@ -46,7 +46,7 @@ Workshop agenda") were not available; replace this with them when you have them.
 | Block | Lead | Output |
 |---|---|---|
 | Project status; formal closure or handover of the connectivity project, if due | ⟨IIAE / project manager⟩ | status table: machines connected against roadmap target |
-| Use case requirements collection per area | ⟨DBVE⟩ | requirement lines per use case (feed `od-requirements-breakdown`) |
+| Use case requirements collection per area | ⟨DBVE⟩ | requirement lines per use case (feed `funnel-requirements`) |
 | Integration sessions on the connected equipment | ⟨IIAE / DBVE with key users⟩ | dashboards or flows agreed, signals missing |
 | Tool training sessions with key users | ⟨⟩ | trained key users (`od-rollout-training`) |
 | Feedback from OPEX, Engineering, Production | ⟨⟩ | feedback list |

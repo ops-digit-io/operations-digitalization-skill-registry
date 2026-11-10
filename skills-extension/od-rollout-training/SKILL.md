@@ -20,7 +20,7 @@ metadata:
   authority_level: draft the training package and competence checklist; the plant confirms competence
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
+  requires: [dept-os]
   composes: [od-handover-and-adoption, od-acceptance-test]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
@@ -30,7 +30,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/capabilities.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/09-risks.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - Skills od-handover-and-adoption (three-question test, ADKAR actions, evidence tiers), od-acceptance-test (witness rule), od-equipment-integration (guidance protocol gates), od-decision-routing, od-context, deploy-appstore, read 2026-11-05
+    - Skills od-handover-and-adoption (three-question test, ADKAR actions, evidence tiers), od-acceptance-test (witness rule), mi-connector (guidance protocol gates), od-decision-routing, dept-os, deploy-appstore, read 2026-11-05
     - Registry docs/new-state-flow.md and docs/new-state diagrams, the Lane 3a step "Rollout and adopt" and the Lane 1 and Lane 2 go-live steps, read 2026-11-05
     - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Department KPIs and Roadmap Status, plant notes (training and workshop history), Other (key users, Secure Critical Automation Software); Graph/Tools and Concept 3 (roles of the operations concept); Graph/Plants (plant-profile pattern); Case Groups, read 2026-11-05
   okf:
@@ -43,7 +43,7 @@ metadata:
 
 # Rollout training
 
-Read `od-context` first.
+Read `dept-os` first.
 
 **Status: draft, and the thinnest-sourced skill in the registry.** The skill map calls this "the decentralization skill"
 and says it "is under-specified in the current Department OS and needs the most new content". The sources give the

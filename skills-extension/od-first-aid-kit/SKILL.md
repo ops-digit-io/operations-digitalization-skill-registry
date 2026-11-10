@@ -15,8 +15,8 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
-  composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, od-requirements-breakdown, od-cybersec-gate, od-equipment-integration, od-decision-routing, od-system-fit-check]
+  requires: [dept-os]
+  composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, funnel-requirements, od-cybersec-gate, mi-connector, od-decision-routing, invest-screen]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
@@ -40,7 +40,7 @@ metadata:
 ---
 # Process First-Aid Kit
 
-Read `od-context` first. The service catalogue lists the Smart Factory Use Case Support Service
+Read `dept-os` first. The service catalogue lists the Smart Factory Use Case Support Service
 "(incl. Process First-Aid Kit)"; the glossary calls it a "rapid diagnostic offering within Use Case
 Support Service", next to Ad-Hoc Analytics in the Analytical Support Service. The lane's recurring
 tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with the template marked
@@ -65,7 +65,7 @@ split, diagnosis patterns, handoff contract, agent notes): [`references/process-
 | A process issue now, no use case, plant wants insight | Yes | |
 | The need keeps coming back every shift or week | Capture it, then route to intake | `od-use-case-intake-triage`, then `od-use-case-definition` |
 | A request to change the look of an existing dashboard | No | `od-use-case-intake-triage` (refusal playbook) |
-| Plant wants a machine connected for good | No, that is integration | Information Integration lane, `od-equipment-integration` |
+| Plant wants a machine connected for good | No, that is integration | Information Integration lane, `mi-connector` |
 | Request without an owner who can confirm facts at the plant | Not yet | Ask the Plant ME to name one |
 
 ## Procedure

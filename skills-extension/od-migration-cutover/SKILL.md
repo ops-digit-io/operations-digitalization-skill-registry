@@ -21,8 +21,8 @@ metadata:
   status: draft
   origin: plan-draft
   sources_read: 2026-11-05
-  requires: [od-context]
-  composes: [od-system-fit-check, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, od-requirements-breakdown, od-decision-routing, od-risk-watch, od-plant-onboarding, deploy-appstore]
+  requires: [dept-os]
+  composes: [invest-screen, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, funnel-requirements, od-decision-routing, od-risk-watch, od-plant-onboarding, deploy-appstore]
   derived_from:
     - Operations Digitalization slide decks (legacy-application assessment and migration workshops, platform and server migration across plants, middleware retirement, back-out plan diagrams), abstracted into process guidance; no figures.
   okf:
@@ -35,9 +35,9 @@ metadata:
 
 # Migration and cutover
 
-Read `od-context` first.
+Read `dept-os` first.
 
-No existing skill owns the move itself. `od-system-fit-check` and `od-system-fit-check` decide
+No existing skill owns the move itself. `invest-screen` and `invest-screen` decide
 *whether* to replace, integrate or keep an application; `od-cybersec-gate` decides whether the target may go
 live; `od-acceptance-test` proves it works; `od-handover-and-adoption` hands it to the operating model. This
 skill sits between them: it turns "replace it" into an inventory, a risk-rated plan, a staged cutover
@@ -63,8 +63,8 @@ Done when, for one migration:
 
 | Step | Role of this skill |
 |---|---|
-| 31 / 32 (`od-requirements-breakdown`, `od-system-fit-check`, `od-decision-routing`) | Receives the "replace or integrate" decision and the use-case list of the old system; adds the component assessment when the case is a legacy application |
-| 3a4 / 3a5 (`od-it-handover`, `deploy-appstore`, `od-cybersec-gate`, `od-acceptance-test`) | Plans the migration stages and back-out; the target is deployed and signed off on this path |
+| 31 / 32 (`funnel-requirements`, `invest-screen`, `od-decision-routing`) | Receives the "replace or integrate" decision and the use-case list of the old system; adds the component assessment when the case is a legacy application |
+| 3a4 / 3a5 (`it-demand-package`, `deploy-appstore`, `od-cybersec-gate`, `od-acceptance-test`) | Plans the migration stages and back-out; the target is deployed and signed off on this path |
 | 3a6 (`od-handover-and-adoption`, `od-rollout-training`) | Per-location cutover, parallel run, key-user verification, then decommissioning; hands the operating model over |
 | Spine (`od-plant-onboarding`, `od-risk-watch`) | A platform or server migration across plants runs as a series of per-location cutovers; risks are watched through `od-risk-watch` |
 
@@ -80,7 +80,7 @@ Done when, for one migration:
 
 ## Procedure
 
-1. **Frame and decide the scenario.** Take the decision from `od-system-fit-check` / `od-system-fit-check` (replace, integrate, keep). Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support). `PROPOSAL`: no decision package without that baseline.
+1. **Frame and decide the scenario.** Take the decision from `invest-screen` / `invest-screen` (replace, integrate, keep). Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support). `PROPOSAL`: no decision package without that baseline.
 2. **Assess.** Run the assessment workshop or desk assessment (reference 1): use cases of the old system, component inventory focused on interfaces, impact per use case, as-is/to-be status of security, bus, recipe management and MES where relevant. For an application estate, fill the OT application inventory and rate it.
 3. **Rate risk and recovery impact** per component; map each as-is component to its to-be component.
 4. **Stage the migration.** Start with the lowest-risk machine or location; replicate the existing reporting on the new platform as the requirement baseline; move the high-impact component last and with minimal downtime. Aim at parallel functionality, not a one-to-one copy; "low barrier, high impact" first.
@@ -103,8 +103,8 @@ Done when, for one migration:
 
 | Receives | From |
 |---|---|
-| Replace / integrate / keep decision, use-case list of the old system | `od-system-fit-check`, `od-system-fit-check`, `od-requirements-breakdown` |
-| Target architecture and security status | `od-system-fit-check`, `od-cybersec-gate` |
+| Replace / integrate / keep decision, use-case list of the old system | `invest-screen`, `invest-screen`, `funnel-requirements` |
+| Target architecture and security status | `invest-screen`, `od-cybersec-gate` |
 | Application and interface lists, machines concerned | plant ME, local owner, application list |
 
 | Hands on | To |

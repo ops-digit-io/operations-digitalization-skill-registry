@@ -43,15 +43,15 @@ LANES = [
         "steps": [
             ("Collect plant demand", "Collect plant demand (workshop / request) — logged vs. roadmap", [("od-use-case-intake-triage", 0)]),
             ("Define use case", "Define use case; process diagnostics and analytical insight", [("od-use-case-definition", 0), ("od-use-case-standardization", 0)]),
-            ("Break down requirement", "Break down requirement; assess MF-IT systems", [("od-requirements-breakdown", 0), ("od-system-fit-check", 0)]),
-            ("Business case", "Benefit calculation and business case; prioritize by value", [("od-use-case-solution-evaluation", 0), ("od-benefit-calculation", 0)]),
+            ("Break down requirement", "Break down requirement; assess MF-IT systems", [("funnel-requirements", 0), ("invest-screen", 0)]),
+            ("Business case", "Benefit calculation and business case; prioritize by value", [("od-use-case-solution-evaluation", 0), ("bc-build", 0)]),
             ("Hand to integration", "Hand to Information Integration for integration", [("od-data-availability-check", 0), ("od-decision-routing", 1)]),
             ("Qualify and train", "System qualification and training; execution support", [("od-handover-and-adoption", 1)]),
             ("Confirm impact", "Evaluate impact; confirm adoption into the daily process", [("od-scorecard-reporting", 0), ("od-handover-and-adoption", 0)]),
         ],
         "gates": [
-            (3, "System deployed, ops concept in place?", "No → mark blocked, escalate to strategy", ["od-system-fit-check"]),
-            (4, "Business case nameable?", "No → refuse the request", ["od-benefit-calculation", "od-use-case-intake-triage"]),
+            (3, "System deployed, ops concept in place?", "No → mark blocked, escalate to strategy", ["invest-screen"]),
+            (4, "Business case nameable?", "No → refuse the request", ["bc-build", "od-use-case-intake-triage"]),
             (6, "Acceptance passed?", "No → rework", ["od-acceptance-test"]),
         ],
         "wait": "Investment approval · Cyber Security sign-off · ContiTech tooling / licensing decision",
@@ -62,22 +62,22 @@ LANES = [
         "metrics": "Use cases per year 101 / 153 (behind plan). Per month: target 12, red bar below 12.",
     },
     {
-        "id": "ii", "name": "Information Integration Service", "skill": "od-equipment-integration",
+        "id": "ii", "name": "Information Integration Service", "skill": "mi-connector",
         "owner": "IIAE · 3 roles", "customer": "Plant ME / plant IT",
         "trigger": "Equipment integration or data-model harmonization need per roadmap",
         "done": "Machine / equipment integrated, signals standardized, data flowing into the MDL",
         "steps": [
-            ("Assess and roadmap", "Equipment assessment and integration roadmap per plant", [("od-equipment-integration", 0), ("od-data-availability-check", 0)]),
-            ("Plan investment", "Integration investment planning", [("od-decision-routing", 1), ("od-benefit-calculation", 1)]),
-            ("Integrate machine", "Machine integration and data acquisition — connect to the IIoT Edge", [("od-equipment-integration", 0)]),
-            ("Standardize signals", "Signal standardization; data pipelines into the MDL", [("od-signal-standardization", 0), ("od-node-red-flows", 0), ("od-node-red-flows", 0)]),
+            ("Assess and roadmap", "Equipment assessment and integration roadmap per plant", [("mi-connector", 0), ("od-data-availability-check", 0)]),
+            ("Plan investment", "Integration investment planning", [("od-decision-routing", 1), ("bc-build", 1)]),
+            ("Integrate machine", "Machine integration and data acquisition — connect to the IIoT Edge", [("mi-connector", 0)]),
+            ("Standardize signals", "Signal standardization; data pipelines into the MDL", [("od-signal-standardization", 0), ("ops-pipeline", 0), ("ops-pipeline", 0)]),
             ("Acceptance test", "Interface / software integration consulting and acceptance test", [("od-acceptance-test", 0)]),
             ("Prepare rollout", "Prepare Manufacturing Software Suite rollout; training", [("od-handover-and-adoption", 1)]),
             ("Update readiness", "Update the Equipment Integration report and readiness matrix", [("od-scorecard-reporting", 0)]),
         ],
         "gates": [
             (1, "Ops concept (MSB / MDL) in place?", "No → escalate to strategy", ["od-data-availability-check"]),
-            (3, "Machine can connect?", "No (legacy / protocol) → log the barrier, escalate the roadmap", ["od-equipment-integration"]),
+            (3, "Machine can connect?", "No (legacy / protocol) → log the barrier, escalate the roadmap", ["mi-connector"]),
             (5, "Acceptance passed?", "No → escalate to the OD lead via COP", ["od-acceptance-test"]),
         ],
         "wait": "Integration investment approval · Cyber Security / OT sign-off · ContiTech signal-standard decision",
@@ -88,15 +88,15 @@ LANES = [
         "metrics": "Equipment per year 338 / 331 (above target). Per month: target 25, red bar below 25. Readiness RAG by location.",
     },
     {
-        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "od-it-handover",
+        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "it-demand-package",
         "owner": "IIAE", "customer": "Plant / project teams",
         "trigger": "Digital investment project kick-off",
         "done": "Integration project managed to acceptance test; application consulted and accepted",
         "steps": [
             ("Initiate project", "Project initiated per plant roadmap", [("od-decision-routing", 1)]),
-            ("Kick-off", "Kick-off with the MPEE OD team; scope and requirements", [("od-requirements-breakdown", 0)]),
-            ("Manage project", "Equipment and solution integration project management", [("od-it-handover", 0)]),
-            ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("od-system-fit-check", 1)]),
+            ("Kick-off", "Kick-off with the MPEE OD team; scope and requirements", [("funnel-requirements", 0)]),
+            ("Manage project", "Equipment and solution integration project management", [("it-demand-package", 0)]),
+            ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("invest-screen", 1)]),
             ("Acceptance test", "Acceptance testing", [("od-acceptance-test", 0)]),
             ("Embed in daily work", "Ensure use cases are integrated into daily processes", [("od-handover-and-adoption", 0)]),
             ("Report", "Report progress and impact (Equipment / Applications / Use Cases)", [("od-scorecard-reporting", 0)]),
@@ -121,7 +121,7 @@ LANES = [
             ("Receive request", "Analytical / ad-hoc request received (Process First-Aid Kit)", [("od-use-case-intake-triage", 0)]),
             ("Check data in MDL", "Check data availability in the MDL", [("od-data-availability-check", 0), ("od-sharepoint-list-export", 0)]),
             ("Diagnose", "Process diagnostics and analytical insight — validated", [("od-portfolio-and-savings-analysis", 0), ("od-first-aid-kit", 0)]),
-            ("Build asset", "Build asset — dashboard / report / analytics / app", [("od-analytics-asset-build", 0), ("build-grafana-ops-dashboard", 0)]),
+            ("Build asset", "Build asset — dashboard / report / analytics / app", [("od-analytics-asset-build", 0), ("ops-dashboard-engine", 0)]),
             ("Deliver", "Deliver insight and asset; explain to the requester", [("od-analytics-asset-build", 0)]),
             ("Track and promote", "Track utilization; promote recurring value to a standard use case", [("od-scorecard-reporting", 0), ("od-use-case-standardization", 0)]),
         ],
@@ -179,7 +179,7 @@ def skill_info() -> dict[str, dict]:
 
 
 def model(info: dict[str, dict]) -> dict:
-    placed = {"od-context"}
+    placed = {"dept-os"}
     for lane in LANES:
         placed.add(lane["skill"])
         for _, _, sk in lane["steps"]:
@@ -202,7 +202,7 @@ def model(info: dict[str, dict]) -> dict:
     return {
         "lanes": lanes, "skills": info, "valueChain": VALUE_CHAIN,
         "flows": [{"from": [a, b], "to": [c, d], "label": lb, "inferred": inf} for a, b, c, d, lb, inf in FLOWS],
-        "foundation": "od-context",
+        "foundation": "dept-os",
     }
 
 

@@ -41,14 +41,14 @@ summaries into local (plant) and central (OD or other function).
 
 | # | Scope | Action | Owner (role) | Due | Route to | Status |
 |---|---|---|---|---|---|---|
-| 1 | Local | Finish running machine integration project | ⟨Machine Integration Lead⟩ | ⟨date or open⟩ | `od-equipment-integration` | ⟨⟩ |
+| 1 | Local | Finish running machine integration project | ⟨Machine Integration Lead⟩ | ⟨date or open⟩ | `mi-connector` | ⟨⟩ |
 | 2 | Local | (Re-)define next machine integration wave; confirm machines | ⟨Machine Integration Lead with IIAE⟩ | ⟨⟩ | Information Integration lane | |
-| 3 | Local | Prepare eCR calculation and presentation templates for the plant | ⟨⟩ | ⟨⟩ | `od-investment-input` | |
-| 4 | Local | Evaluate found use cases for registration as an Industry 4.0 / OD project for savings tracking | ⟨⟩ | ⟨⟩ | `od-benefit-calculation` | |
+| 3 | Local | Prepare eCR calculation and presentation templates for the plant | ⟨⟩ | ⟨⟩ | `bc-cost` | |
+| 4 | Local | Evaluate found use cases for registration as an Industry 4.0 / OD project for savings tracking | ⟨⟩ | ⟨⟩ | `bc-build` | |
 | 5 | Local | Check the use case library for use cases of potential | ⟨DBVE⟩ | ⟨⟩ | `od-use-case-standardization` | |
 | 6 | Central | Enforce Cyber Security approval where a tool needs it | ⟨OD lead⟩ | ⟨⟩ | `od-cybersec-gate` | |
 | 7 | Central | Define a standard data model with the local team where a process family needs one | ⟨IIAE⟩ | ⟨⟩ | `od-signal-standardization` | |
-| 8 | Both | Send OD's calculated first savings number for each use case | ⟨DBVE⟩ | ⟨date from capture sheet⟩ | `od-benefit-calculation` | |
+| 8 | Both | Send OD's calculated first savings number for each use case | ⟨DBVE⟩ | ⟨date from capture sheet⟩ | `bc-build` | |
 | 9 | Both | Define each promising need to a definition protocol | ⟨DBVE with plant owner⟩ | ⟨⟩ | `od-use-case-definition` | |
 | 10 | Both | Schedule the utilization review for the use cases already live | ⟨DBVE with Plant ME⟩ | ⟨⟩ | `od-handover-and-adoption` | |
 | 11 | Both | Log ad-hoc issues raised as first-aid cases | ⟨DBVE⟩ | ⟨⟩ | `od-first-aid-kit` | |

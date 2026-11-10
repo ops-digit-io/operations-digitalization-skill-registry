@@ -56,7 +56,7 @@ Time-series data always relates to product or production metadata. Check first:
 3. Where no standardized MES or ERP exists, the relation to production metadata is the blocker. Name the missing
    relation and route it as a data gap; do not approximate.
 4. A request for order or recipe execution, labels, batch genealogy or material validation is MES territory, not
-   a dashboard (see `od-system-fit-check`).
+   a dashboard (see `invest-screen`).
 5. A transactional record shows only the visible part of a cycle, so cycle time looks too short and the cause is
    hidden. A time-series view with an overridden start/stop (an edge flow) gives the realistic cycle.
 

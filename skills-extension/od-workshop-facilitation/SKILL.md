@@ -14,8 +14,8 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
-  composes: [od-use-case-definition, od-use-case-intake-triage, od-portfolio-and-savings-analysis, od-benefit-calculation, od-requirements-breakdown, od-data-availability-check, od-system-fit-check, od-use-case-standardization, od-equipment-integration, od-cybersec-gate, od-first-aid-kit]
+  requires: [dept-os]
+  composes: [od-use-case-definition, od-use-case-intake-triage, od-portfolio-and-savings-analysis, bc-build, funnel-requirements, od-data-availability-check, invest-screen, od-use-case-standardization, mi-connector, od-cybersec-gate, od-first-aid-kit]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/tasks.md
@@ -37,7 +37,7 @@ metadata:
 ---
 # Workshop facilitation
 
-Read `od-context` first. The lane's recurring tasks (`tasks.md`) include two workshops: the **Use
+Read `dept-os` first. The lane's recurring tasks (`tasks.md`) include two workshops: the **Use
 Case Definition Workshop** (trigger: plant onboarding or a new demand wave; template: "Standard
 Agenda — Use Case Workshop" on SharePoint) and the **Use Case Integration Workshop** (trigger: use
 case ready for integration; template: "Use Case Integration Workshop agenda"). Both are intake
@@ -107,7 +107,7 @@ other decisions).
    estimated / none); make tool recommendations only against a named use case. Workshops have not
    always produced the number: past summaries carried "Savings Estimation for Use Cases:
    open task" for the use cases collected. Past attempts to fit savings calculation into the
-   workshop agenda stalled it (`od-benefit-calculation`, review checklist), so book calculation as a
+   workshop agenda stalled it (`bc-build`, review checklist), so book calculation as a
    follow-up with OD's calculator and fix the date in the room.
 10. **Rank lightly.** Classification and priority in the standard agenda: highest generalization
     potential, highest saving potential; custom use cases per plant may need extra budget. Leave the
@@ -122,8 +122,8 @@ other decisions).
     priority per process, next steps split into local and central. Skeleton in
     [`assets/workshop-follow-up-list.md`](assets/workshop-follow-up-list.md).
 13. **Route every item**: use case to definition or `od-use-case-intake-triage`; machine need to
-    `od-equipment-integration` or the Information Integration lane; savings to
-    `od-benefit-calculation`; ranking to `od-portfolio-and-savings-analysis`; standard candidates to
+    `mi-connector` or the Information Integration lane; savings to
+    `bc-build`; ranking to `od-portfolio-and-savings-analysis`; standard candidates to
     `od-use-case-standardization`; ad-hoc issues to `od-first-aid-kit`.
 14. **Give each follow-up an owner role and a date, or mark it open.** The sources show open items
     without dates; an item with no owner is not a follow-up.

@@ -20,7 +20,7 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
+  requires: [dept-os]
   composes: [od-scorecard-reporting, od-risk-watch, od-portfolio-and-savings-analysis, od-decision-routing, od-context-freshness]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
@@ -41,7 +41,7 @@ metadata:
 
 # Monthly retrospective
 
-Read `od-context` first.
+Read `dept-os` first.
 
 Plan item O-06 of the department's skill map (wave 3). The operating rhythm marks the retro with a star and calls it
 mandatory: **"What did we learn -> 1 change"**, input *incidents, metrics, ODEC/COP feedback* (ODEC no longer meets; read its records as history), output *1 decided

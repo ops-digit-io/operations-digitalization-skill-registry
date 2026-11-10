@@ -43,7 +43,7 @@ who pays, and prices change.
 Reading for a key user: scenario A is a data-availability question (is the signal on the platform);
 scenario B is an installation question, and the installation is a connection to a machine, which
 needs the Cyber Security sign-off before go-live (`od-cybersec-gate`, in parallel) and the Information Integration lane
-(`od-equipment-integration`). The first-aid request only records which scenario applies.
+(`mi-connector`). The first-aid request only records which scenario applies.
 
 ## 3 · Two typical ad-hoc analyses (patterns, not data)
 

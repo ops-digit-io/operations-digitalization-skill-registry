@@ -80,8 +80,8 @@ impact (low / medium / high), plant-management relevant yes/no. Ask: who uses it
 follow, what would make people use it. Also record the improvement list with its source role, and who attests
 value (OPEX plus plant ME).
 
-**Legacy-application workshop pattern** (non-standard case; hands on to `od-requirements-breakdown`, section on
-legacy assessment, and `od-system-fit-check`): two-day format of use cases of the legacy application (function
+**Legacy-application workshop pattern** (non-standard case; hands on to `funnel-requirements`, section on
+legacy assessment, and `invest-screen`): two-day format of use cases of the legacy application (function
 inventory per component), architecture components with focus on interfaces, impact analysis per use case,
 as-is / to-be status of cyber security, service bus, recipe management and MES, wrap-up with follow-up meeting.
 Participants: plant ME, plant process or production, the application's original software owner, OD; supplier
@@ -111,8 +111,8 @@ list of what must be preserved; aim at parallel functionality, not a one-to-one 
 
 **Hands on, per demand row:** plant, process group, capability, moment of use, owner role, savings-basis label,
 tool dependency, machine dependency. Routing: use case to `od-use-case-definition`; machine need to
-`od-equipment-integration`; savings to `od-benefit-calculation`; ranking to `od-portfolio-and-savings-analysis`;
-standard candidates to `od-use-case-standardization`; IT demand to `od-it-handover`; ad-hoc issue to
+`mi-connector`; savings to `bc-build`; ranking to `od-portfolio-and-savings-analysis`;
+standard candidates to `od-use-case-standardization`; IT demand to `it-demand-package`; ad-hoc issue to
 `od-first-aid-kit`. Output set: use-case list by production area, process, use case (split per step and purpose,
 naming convention plant-material-process-use case); tool availability with recommendation; savings pre-evaluation
 (usually still open); local and central next steps.

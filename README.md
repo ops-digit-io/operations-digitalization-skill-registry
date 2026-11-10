@@ -1,7 +1,7 @@
 ---
 type: Map of Content
 title: Operations Digitalization skill registry
-description: What this registry is, the three new-state lanes it serves, the tiers a skill can hold, and the index of all 42 skills.
+description: What this registry is, the three new-state lanes it serves, the tiers a skill can hold, and the index of all 47 skills.
 status: stable
 owner: human:jakob.gabriel
 tags: [registry, navigation]
@@ -30,117 +30,119 @@ concept-by-concept trace.
 
 ## Two libraries: core and extension
 
-The split has one rule: **a skill is core when the process flow draws it** — named on a step or on the spine of [`docs/new-state/process.yaml`](docs/new-state/process.yaml) and drawn in [`OD_NewState_Flow.mermaid`](docs/new-state/OD_NewState_Flow.mermaid). Every other skill is an extension: deeper practice for a step, a neighbouring process, or a utility. `scripts/validate_registry.py` enforces it both ways (a core skill off the flow, a flow skill in the extension library, or a core skill missing from the Mermaid fails the build). Extension skills require core skills (`od-context`), never the other way round.
+**Core = the department's skills** (2026-11-10): the skills the department's process map names (`OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT`, lanes 1-3) plus its context layer, under the names of the department's naming convention (`OD_Skill_Naming_Convention.md`, `<family>-<object>`). Every core skill is drawn on [`OD_NewState_Flow.mermaid`](docs/new-state/OD_NewState_Flow.mermaid) and named on a step of [`process.yaml`](docs/new-state/process.yaml); `scripts/validate_registry.py` fails if core and flow disagree. **Extension = everything else**: registry skills that deepen a step (listed as `proposed` on it) or cover a neighbouring process. Every skill requires `dept-os`.
 
-**The flow follows the department.** Lanes, steps and gates come from the department's new-state lane files (`OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/`, lane 1-3) and the OD x IT alignment of 2026-09-11; see [`docs/department-context-conformance.md`](docs/department-context-conformance.md). The model is the department's DRAFT, the plan of record for this registry.
+**Renamed into department skills:**
 
-**Merged 2026-11-10.** Twelve skills that duplicated another skill's capability, or that orchestrated a lane the new state retires, were absorbed; each keeps its full content as `references/<old-name>/procedure.md` inside the absorbing skill:
-
-| Absorbed | Into | Why |
-|---|---|---|
-| `it-demand-package` | [`od-it-handover`](skills/od-it-handover/SKILL.md) | One handover to IT, now as an OpenSpec package |
-| `od-analytical-support-service` | [`od-first-aid-kit`](skills-extension/od-first-aid-kit/SKILL.md) | Analytical Support lane retired; ad-hoc analytics routes through the first-aid request |
-| `od-application-consulting` | [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md) | Solution design is the tool-decision gate's routing |
-| `od-barrier-triage` | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | Barrier classes and fallbacks already lived there |
-| `od-impact-evaluation` | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Adoption confirmation is the handover's own step |
-| `od-information-integration-service` | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | Information Integration lane becomes Lane 3b |
-| `od-machine-integration-plan` | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | Wave planning duplicated the assessment route |
-| `od-maturity-assessment` | [`od-use-case-solution-evaluation`](skills/od-use-case-solution-evaluation/SKILL.md) | Same 16-area model as the solution evaluation |
-| `od-project-support-consultancy` | [`od-it-handover`](skills/od-it-handover/SKILL.md) | Project Support lane becomes the Lane 3 front-end ending in the handover |
-| `od-use-case-prioritization` | [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Ranking is step 24's portfolio work |
-| `od-use-case-promotion` | [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | Promotion package duplicated the standardization placement |
-| `od-utilization-review` | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | "Deployed is not used" is the handover's own rule |
-
-New: [`od-it-handover`](skills/od-it-handover/SKILL.md) (OpenSpec handover to IT). Moved to core: `od-investment-input` (the cost side, Lane 1b cost template). Moved to extension: `od-sharepoint-list-export` (a data utility, not a process step).
-
-## The 42 skills
-
-### Core library (27) — by step of the flow
-
-| Lane · step | Skills |
+| Department skill | Was |
 |---|---|
-| Intake · i1 Classify the demand into exactly one lane | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md), [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md) |
-| Lane 1a · 1a1 Pick from the catalog | [`od-catalog`](skills/od-catalog/SKILL.md) |
-| Lane 1a · 1a2 Apply the standard template (self-service) | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) |
-| Lane 1a · 1a3 Guardrails, go live, confirm adoption | [`od-catalog`](skills/od-catalog/SKILL.md), [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) |
-| Lane 1b · 1b1 Pick the use case and the standard system | [`od-catalog`](skills/od-catalog/SKILL.md) |
-| Lane 1b · 1b2 Cost template, approved by the plant budget owner | [`od-investment-input`](skills/od-investment-input/SKILL.md), [`od-decision-routing`](skills/od-decision-routing/SKILL.md) |
-| Lane 1b · 1b3 Order and connect; Cyber Security sign-off in parallel | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-cybersec-gate`](skills/od-cybersec-gate/SKILL.md) |
-| Lane 1b · 1b4 Standardized deployment, go live, confirm adoption | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`od-catalog`](skills/od-catalog/SKILL.md), [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) |
-| Lane 2 · 21 Capture the idea, process diagnostics | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) |
-| Lane 2 · 22 Requirements, features and data check | [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md), [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md), [`od-use-case-solution-evaluation`](skills/od-use-case-solution-evaluation/SKILL.md) |
-| Lane 2 · 23 Prototype / click-dummy, validated with the recipient | [`od-prototype-poc`](skills/od-prototype-poc/SKILL.md), [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) |
-| Lane 2 · 24 Business case (value and cost), assessment, ranking | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md), [`od-investment-input`](skills/od-investment-input/SKILL.md), [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) |
-| Lane 2 · 25 Capital request if investment is needed | [`od-capital-request`](skills/od-capital-request/SKILL.md), [`od-decision-routing`](skills/od-decision-routing/SKILL.md) |
-| Lane 2 · 26 Implement, evaluate impact, ensure adoption, catalogue | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md), [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md), [`od-catalog`](skills/od-catalog/SKILL.md) |
-| Lane 3 front-end · 31 Requirements engineering | [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) |
-| Lane 3 front-end · 32 Tool-decision / IT-footprint gate (make, buy, integrate or connect) | [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md), [`od-decision-routing`](skills/od-decision-routing/SKILL.md) |
-| Lane 3 front-end · 33 Business case, prioritization, capital request | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md), [`od-investment-input`](skills/od-investment-input/SKILL.md), [`od-capital-request`](skills/od-capital-request/SKILL.md) |
-| Lane 3 front-end · 34 Handover once the demand is clear | [`od-it-handover`](skills/od-it-handover/SKILL.md) |
-| Lane 3a · 3a4 Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app) | [`od-it-handover`](skills/od-it-handover/SKILL.md), [`deploy-appstore`](skills/deploy-appstore/SKILL.md) |
-| Lane 3a · 3a5 Deploy to the platform, acceptance, Cyber Security sign-off | [`deploy-appstore`](skills/deploy-appstore/SKILL.md), [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md), [`od-cybersec-gate`](skills/od-cybersec-gate/SKILL.md) |
-| Lane 3a · 3a6 Rollout and adoption; ownership on formal acceptance | [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) |
-| Lane 3b · 3b4 Connector design and data pipeline (edge to data platform) | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md), [`od-node-red-flows`](skills/od-node-red-flows/SKILL.md) |
-| Lane 3b · 3b5 Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-node-red-flows`](skills/od-node-red-flows/SKILL.md), [`od-cybersec-gate`](skills/od-cybersec-gate/SKILL.md) |
-| Lane 3b · 3b6 Acceptance test, live on the data platform | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) |
-| Spine | [`od-context`](skills/od-context/SKILL.md), [`od-ai-generation-playbook`](skills/od-ai-generation-playbook/SKILL.md), [`od-scorecard-reporting`](skills/od-scorecard-reporting/SKILL.md) |
+| [`ops-dashboard-engine`](skills/ops-dashboard-engine/SKILL.md) | `build-grafana-ops-dashboard` |
+| [`bc-build`](skills/bc-build/SKILL.md) | `od-benefit-calculation` |
+| [`bc-capital-request`](skills/bc-capital-request/SKILL.md) | `od-capital-request` |
+| [`catalog-usecase`](skills/catalog-usecase/SKILL.md) | `od-catalog` |
+| [`dept-os`](skills/dept-os/SKILL.md) | `od-context` |
+| [`mi-connector`](skills/mi-connector/SKILL.md) | `od-equipment-integration` |
+| [`bc-cost`](skills/bc-cost/SKILL.md) | `od-investment-input` |
+| [`it-demand-package`](skills/it-demand-package/SKILL.md) | `od-it-handover` |
+| [`ops-pipeline`](skills/ops-pipeline/SKILL.md) | `od-node-red-flows` |
+| [`funnel-prototype`](skills/funnel-prototype/SKILL.md) | `od-prototype-poc` |
+| [`funnel-requirements`](skills/funnel-requirements/SKILL.md) | `od-requirements-breakdown` |
+| [`invest-screen`](skills/invest-screen/SKILL.md) | `od-system-fit-check` |
+
+**Split out of a renamed skill:** `funnel-features` (from `funnel-requirements`), `bc-assess` (assessment step of `bc-build`), `catalog-systems` and `catalog-guardrails` (from `catalog-usecase`). **New:** `ops-dashboard-datatron`. The department's own packages (`30-skills/*.zip`) stay the master where a skill says so.
+
+## The 47 skills
+
+### Core library (18) — department skills by step
+
+| Lane · step | Department skills |
+|---|---|
+| Lane 1a · 1a1 Pick from the catalog | [`catalog-usecase`](skills/catalog-usecase/SKILL.md) |
+| Lane 1a · 1a2 Apply the standard template (self-service) | [`ops-dashboard-datatron`](skills/ops-dashboard-datatron/SKILL.md), [`ops-dashboard-engine`](skills/ops-dashboard-engine/SKILL.md) |
+| Lane 1a · 1a3 Guardrails, go live, confirm adoption | [`catalog-guardrails`](skills/catalog-guardrails/SKILL.md) |
+| Lane 1b · 1b1 Pick the use case and the standard system | [`catalog-usecase`](skills/catalog-usecase/SKILL.md), [`catalog-systems`](skills/catalog-systems/SKILL.md) |
+| Lane 1b · 1b2 Cost template, approved by the plant budget owner | [`bc-cost`](skills/bc-cost/SKILL.md) |
+| Lane 1b · 1b3 Order and connect; Cyber Security sign-off in parallel | [`mi-connector`](skills/mi-connector/SKILL.md) |
+| Lane 1b · 1b4 Standardized deployment, go live, confirm adoption | [`ops-dashboard-datatron`](skills/ops-dashboard-datatron/SKILL.md), [`catalog-guardrails`](skills/catalog-guardrails/SKILL.md) |
+| Lane 2 · 21 Capture the idea, process diagnostics | human or plant step |
+| Lane 2 · 22 Requirements, features and data check | [`funnel-requirements`](skills/funnel-requirements/SKILL.md), [`funnel-features`](skills/funnel-features/SKILL.md) |
+| Lane 2 · 23 Prototype / click-dummy, validated with the recipient | [`funnel-prototype`](skills/funnel-prototype/SKILL.md) |
+| Lane 2 · 24 Business case (value and cost), assessment, ranking | [`bc-build`](skills/bc-build/SKILL.md), [`bc-cost`](skills/bc-cost/SKILL.md), [`bc-assess`](skills/bc-assess/SKILL.md) |
+| Lane 2 · 25 Capital request if investment is needed | [`bc-capital-request`](skills/bc-capital-request/SKILL.md) |
+| Lane 2 · 26 Implement, evaluate impact, ensure adoption, catalogue | [`catalog-usecase`](skills/catalog-usecase/SKILL.md) |
+| Lane 3 front-end · 31 Requirements engineering | [`funnel-requirements`](skills/funnel-requirements/SKILL.md) |
+| Lane 3 front-end · 32 Tool-decision / IT-footprint gate (make, buy, integrate or connect) | [`invest-screen`](skills/invest-screen/SKILL.md) |
+| Lane 3 front-end · 33 Business case, prioritization, capital request | [`bc-build`](skills/bc-build/SKILL.md), [`bc-cost`](skills/bc-cost/SKILL.md), [`bc-assess`](skills/bc-assess/SKILL.md), [`bc-capital-request`](skills/bc-capital-request/SKILL.md) |
+| Lane 3 front-end · 34 Handover once the demand is clear | [`it-demand-package`](skills/it-demand-package/SKILL.md) |
+| Lane 3a · 3a4 Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app) | [`deploy-appstore`](skills/deploy-appstore/SKILL.md), [`it-demand-package`](skills/it-demand-package/SKILL.md) |
+| Lane 3a · 3a5 Deploy to the platform, acceptance, Cyber Security sign-off | [`deploy-appstore`](skills/deploy-appstore/SKILL.md) |
+| Lane 3a · 3a6 Rollout and adoption; ownership on formal acceptance | human or plant step |
+| Lane 3b · 3b4 Connector design and data pipeline (edge to data platform) | [`mi-connector`](skills/mi-connector/SKILL.md), [`ops-pipeline`](skills/ops-pipeline/SKILL.md) |
+| Lane 3b · 3b5 Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent | [`mi-connector`](skills/mi-connector/SKILL.md), [`ops-pipeline`](skills/ops-pipeline/SKILL.md) |
+| Lane 3b · 3b6 Acceptance test, live on the data platform | human or plant step |
+| Spine | [`dept-os`](skills/dept-os/SKILL.md) |
 
 | Core skill | What it does |
 |---|---|
-| [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) | Build production-grade Grafana JSON dashboards backed by SQL for operations data — manufacturing, IIoT, energy, quality, throughput. |
-| [`deploy-appstore`](skills/deploy-appstore/SKILL.md) | Prepare and gate the deployment of a manufacturing app to the platform (new-state Lane 3a) - confirm the target and the sourcing route (reuse, self-developed, externally developed, integrated foreign app), assemble the deployment package, run the release gate  |
-| [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) | Author and run the acceptance test that closes an equipment integration or a delivered solution — define what "passed" means before the build, verify against it, and route a failure into the right rework loop rather than around it. |
-| [`od-ai-generation-playbook`](skills/od-ai-generation-playbook/SKILL.md) | The cross-cutting rulebook for using AI agents safely along the OD process chain - the department context layer as precondition, the multi-step generation pipeline with its human gate and visual-QA loop, AI signal selection and dashboard generation from fixed- |
-| [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) | Build the thing the plant actually opens — a dashboard, report, analytics workflow, app or agent — so that it is consumed inside a real moment in the day, diagnosable by the plant, and countable in the portfolio. |
-| [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | Build, assess and record the value side of an OD business case (the department's bc-build and bc-assess, one shared value model) and keep the savings ledger honest — a value-only backbone with grounded, tagged figures, an expected / min / potential headline, b |
-| [`od-capital-request`](skills/od-capital-request/SKILL.md) | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their firmness, the cost sid |
-| [`od-catalog`](skills/od-catalog/SKILL.md) | Run the plant self-service catalog end to end (new-state Lane 1) and its Lane 2 graduation. |
-| [`od-context`](skills/od-context/SKILL.md) | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. |
-| [`od-cybersec-gate`](skills/od-cybersec-gate/SKILL.md) | Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the neighbouring skills al |
-| [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. |
-| [`od-decision-routing`](skills/od-decision-routing/SKILL.md) | Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision to its owner, mode, approval requirement, reversibility, threshold and authority level; route spend through eCR, IT demand through demand management, rollout readiness throu |
-| [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | Two entry routes to one protocol for connecting machines (Lane 1b order and connect, Lane 3b new connector - the former Information Integration Service lane). |
-| [`od-handover-and-adoption`](skills/od-handover-and-adoption/SKILL.md) | Close a use case properly — run the handover to the plant against its definition of done, confirm real adoption rather than delivery, and act on the gap between implemented and productive. |
-| [`od-investment-input`](skills/od-investment-input/SKILL.md) | The cost side of an OD business case (the department's bc-cost, kept apart from the value side) and the investment planning input pack once an integration roadmap or a use-case plan is agreed and budget is needed - one-time build, licences and hardware, recurr |
-| [`od-it-handover`](skills/od-it-handover/SKILL.md) | Hand a clear demand over to IT or an external developer as an OpenSpec change package they can work with directly - proposal, delta specs with SHALL requirements and WHEN/THEN scenarios, design, tasks - plus an OD handover annex with every artefact IT asked fo |
-| [`od-node-red-flows`](skills/od-node-red-flows/SKILL.md) | Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor estate does it - the seven-group canonical layout, the protobuf PLCPacket schema over MQTT, the datatroniq and CT topic conventions, the standard function nodes (sysTime  |
-| [`od-portfolio-and-savings-analysis`](skills/od-portfolio-and-savings-analysis/SKILL.md) | Analyse the OD portfolio and its savings ledger without being wrong about it — cut the plant use cases by plant, region, capability, cluster, status and asset; read the savings ledger for what it does and does not claim; and apply the three ways this data most |
-| [`od-prototype-poc`](skills/od-prototype-poc/SKILL.md) | Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, build or brief it, run  |
-| [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | Turn an accepted demand into a requirement another lane can act on, for any of the four OD service lines. |
-| [`od-scorecard-reporting`](skills/od-scorecard-reporting/SKILL.md) | Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case and Equipment Integration Power BI reports — against their targets and intervention thresholds, and prepare and follow up reporting rounds (the COP and any round held on requ |
-| [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | Analyse a machine's signals and standardize them so a second plant can consume them without asking a question. |
-| [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md) | Two gates in one skill. |
-| [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. |
-| [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | Decide what OD does with an incoming request — accept it into exactly one of the three new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it, or route it to the function that actually owns it. |
-| [`od-use-case-solution-evaluation`](skills/od-use-case-solution-evaluation/SKILL.md) | Evaluate whether a use case's envisioned solution fits its need (Lane 2 step 22) — rank it against a library of known configurations, profile its complexity (27 drivers), find which of 16 IT/OT capability areas it depends on, compare required against the plant |
-| [`od-use-case-standardization`](skills/od-use-case-standardization/SKILL.md) | Make one plant's solution into every plant's — check a use case against the cross-plant capability templates and the reference library before anything is specified, apply the cluster classification (C01-C12), take a use case through the CSP (Common Solution Po |
+| [`bc-assess`](skills/bc-assess/SKILL.md) | Score a business case against the OD house rubric and give its maturity-gate verdict - the department's bc-assess, the governance step between bc-build (value) plus bc-cost (cost) and bc-capital-request. |
+| [`bc-build`](skills/bc-build/SKILL.md) | Build, assess and record the value side of an OD business case (the department's bc-build and bc-assess, one shared value model) and keep the savings ledger honest — a value-only backbone with grounded, tagged figures, an expected / min / p |
+| [`bc-capital-request`](skills/bc-capital-request/SKILL.md) | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from bc-build with their firmness, the co |
+| [`bc-cost`](skills/bc-cost/SKILL.md) | The cost side of an OD business case (the department's bc-cost, kept apart from the value side) and the investment planning input pack once an integration roadmap or a use-case plan is agreed and budget is needed - one-time build, licences  |
+| [`catalog-guardrails`](skills/catalog-guardrails/SKILL.md) | Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails): run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform boundary, lean footprint,  |
+| [`catalog-systems`](skills/catalog-systems/SKILL.md) | Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the stan |
+| [`catalog-usecase`](skills/catalog-usecase/SKILL.md) | Run the plant self-service catalog of proven use cases (new-state Lane 1, the department's catalog-usecase) and the Lane 2 graduation into it: match a plant's request to a catalogued use case (CSP decision recorded, capability template, mac |
+| [`deploy-appstore`](skills/deploy-appstore/SKILL.md) | Prepare and gate the deployment of a manufacturing app to the platform (new-state Lane 3a) - confirm the target and the sourcing route (reuse, self-developed, externally developed, integrated foreign app), assemble the deployment package, r |
+| [`dept-os`](skills/dept-os/SKILL.md) | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. |
+| [`funnel-features`](skills/funnel-features/SKILL.md) | Turn an accepted requirement into its feature definition - one epic with a background and at least two user stories that stand alone, each with testable acceptance and a use-in-a-real-shift criterion - the department's funnel-features, stag |
+| [`funnel-prototype`](skills/funnel-prototype/SKILL.md) | Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, bui |
+| [`funnel-requirements`](skills/funnel-requirements/SKILL.md) | Turn an accepted demand into a requirement another lane can act on, for any of the four OD service lines. |
+| [`invest-screen`](skills/invest-screen/SKILL.md) | Two gates in one skill. |
+| [`it-demand-package`](skills/it-demand-package/SKILL.md) | Hand a clear demand over to IT or an external developer as an OpenSpec change package they can work with directly - proposal, delta specs with SHALL requirements and WHEN/THEN scenarios, design, tasks - plus an OD handover annex with every  |
+| [`mi-connector`](skills/mi-connector/SKILL.md) | Two entry routes to one protocol for connecting machines (Lane 1b order and connect, Lane 3b new connector - the former Information Integration Service lane). |
+| [`ops-dashboard-datatron`](skills/ops-dashboard-datatron/SKILL.md) | Build or apply a Grafana dashboard on the DATATRON telemetry schema (PostgreSQL / TimescaleDB) for cooling (KKA), press centres and utilities - the department's ops-dashboard-datatron, the engine of Lane 1a self-service. |
+| [`ops-dashboard-engine`](skills/ops-dashboard-engine/SKILL.md) | Build production-grade Grafana JSON dashboards backed by SQL for operations data — manufacturing, IIoT, energy, quality, throughput. |
+| [`ops-pipeline`](skills/ops-pipeline/SKILL.md) | Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor estate does it - the seven-group canonical layout, the protobuf PLCPacket schema over MQTT, the datatroniq and CT topic conventions, the standard func |
 
-### Extension library (15)
+### Extension library (29)
 
 | Skill | Deepens step | What it adds |
 |---|---|---|
-| [`od-context-freshness`](skills-extension/od-context-freshness/SKILL.md) | spine | Run the quarterly freshness check that keeps every other OD skill honest - find the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry unresolved gaps, the skills that rest  |
-| [`od-cross-plant-compatibility`](skills-extension/od-cross-plant-compatibility/SKILL.md) | 3b4 | Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of the instance), test t |
-| [`od-event-object-modelling`](skills-extension/od-event-object-modelling/SKILL.md) | i1, 21, 22 | Reduce a plant request that looks unique to the objects, events and time axis it is really about, decide which signals are events and which are only sensor values, check that the time-series can be related to a product or order, and map the use case to an arch |
-| [`od-first-aid-kit`](skills-extension/od-first-aid-kit/SKILL.md) | i1, 21 | Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data scenarios applies, wh |
-| [`od-governance-cadence`](skills-extension/od-governance-cadence/SKILL.md) | 23, spine | Run the governance routines around the process chain - the CoP and any round the department holds (role, preparation, follow-up), the forums as sources of information (ODEC as a historical forum), the "call for action" and traffic-light status pattern, the reg |
-| [`od-migration-cutover`](skills-extension/od-migration-cutover/SKILL.md) | 32, 3a5, 3a6 | Plan and run the migration of a legacy shop-floor application, server, middleware or platform to the target platform, location by location - as-is/to-be canvas, per-component risk and recovery-impact tables, OT application inventory with production-criticality |
-| [`od-plant-diagnosis`](skills-extension/od-plant-diagnosis/SKILL.md) | 24, spine | Diagnose why plants with a similar system landscape and similar integration effort deliver unequal savings - read the gap across four Ishikawa branches (people, method, machine and IT, environment), tier plants as first mover or fast follower with stated crite |
-| [`od-plant-onboarding`](skills-extension/od-plant-onboarding/SKILL.md) | spine | Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the plant and assessing  |
-| [`od-project-order`](skills-extension/od-project-order/SKILL.md) | 25, 26, 33, 3a4 | Draft the project order (PREQ) for a use case or system project and run it through kick-off, milestone reports and closure - write the main target as a 30-second message, never leave the budget blank, split requesting side (steering committee, sponsor) from co |
-| [`od-retro`](skills-extension/od-retro/SKILL.md) | spine | Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, COP feedback and the historical ODEC record), list what was learned with its evidence, pick t |
-| [`od-risk-watch`](skills-extension/od-risk-watch/SKILL.md) | spine | Read the department's early indicators against the six-row risk register each month and say which escalation triggers are hit - for every risk, find the monitorable value, read it from its source with a date, compare it with the trigger, and classify the risk  |
-| [`od-rollout-training`](skills-extension/od-rollout-training/SKILL.md) | 1a3, 1b4, 26, 3a6 | Draft the plant training package and the competence checklist for a solution that is rollout-ready - who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence is evidenced, and ho |
+| [`od-acceptance-test`](skills-extension/od-acceptance-test/SKILL.md) | 3a5, 3b6 | Author and run the acceptance test that closes an equipment integration or a delivered solution — define what "passed" means before the build, verify against it, and route a failure into the right rework loop rather than around it. |
+| [`od-ai-generation-playbook`](skills-extension/od-ai-generation-playbook/SKILL.md) | spine | The cross-cutting rulebook for using AI agents safely along the OD process chain - the department context layer as precondition, the multi-step generation pipeline with its human gate and visual-QA loop, AI signal selection and dashboard ge |
+| [`od-analytics-asset-build`](skills-extension/od-analytics-asset-build/SKILL.md) | 1a2, 23, 26 | Build the thing the plant actually opens — a dashboard, report, analytics workflow, app or agent — so that it is consumed inside a real moment in the day, diagnosable by the plant, and countable in the portfolio. |
+| [`od-context-freshness`](skills-extension/od-context-freshness/SKILL.md) | spine | Run the quarterly freshness check that keeps every other OD skill honest - find the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry unresolved gaps, t |
+| [`od-cross-plant-compatibility`](skills-extension/od-cross-plant-compatibility/SKILL.md) | 3b4 | Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of t |
+| [`od-cybersec-gate`](skills-extension/od-cybersec-gate/SKILL.md) | 1b3, 3a5, 3b5 | Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the ne |
+| [`od-data-availability-check`](skills-extension/od-data-availability-check/SKILL.md) | 22 | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. |
+| [`od-decision-routing`](skills-extension/od-decision-routing/SKILL.md) | 1b2, 25, 32 | Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision to its owner, mode, approval requirement, reversibility, threshold and authority level; route spend through eCR, IT demand through demand management, rol |
+| [`od-event-object-modelling`](skills-extension/od-event-object-modelling/SKILL.md) | i1, 21, 22 | Reduce a plant request that looks unique to the objects, events and time axis it is really about, decide which signals are events and which are only sensor values, check that the time-series can be related to a product or order, and map the |
+| [`od-first-aid-kit`](skills-extension/od-first-aid-kit/SKILL.md) | i1, 21 | Capture an ad-hoc plant process issue (a ramp-up problem, a trouble-shooting case, an unexplained process behaviour) in a structured first-aid request - problem made S.M.A.R.T., process and machine, what data exists, which of the two data s |
+| [`od-governance-cadence`](skills-extension/od-governance-cadence/SKILL.md) | 23, spine | Run the governance routines around the process chain - the CoP and any round the department holds (role, preparation, follow-up), the forums as sources of information (ODEC as a historical forum), the "call for action" and traffic-light sta |
+| [`od-handover-and-adoption`](skills-extension/od-handover-and-adoption/SKILL.md) | 1a3, 1b4, 26, 3a6 | Close a use case properly — run the handover to the plant against its definition of done, confirm real adoption rather than delivery, and act on the gap between implemented and productive. |
+| [`od-migration-cutover`](skills-extension/od-migration-cutover/SKILL.md) | 32, 3a5, 3a6 | Plan and run the migration of a legacy shop-floor application, server, middleware or platform to the target platform, location by location - as-is/to-be canvas, per-component risk and recovery-impact tables, OT application inventory with pr |
+| [`od-plant-diagnosis`](skills-extension/od-plant-diagnosis/SKILL.md) | 24, spine | Diagnose why plants with a similar system landscape and similar integration effort deliver unequal savings - read the gap across four Ishikawa branches (people, method, machine and IT, environment), tier plants as first mover or fast follow |
+| [`od-plant-onboarding`](skills-extension/od-plant-onboarding/SKILL.md) | spine | Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the  |
+| [`od-portfolio-and-savings-analysis`](skills-extension/od-portfolio-and-savings-analysis/SKILL.md) | 24 | Analyse the OD portfolio and its savings ledger without being wrong about it — cut the plant use cases by plant, region, capability, cluster, status and asset; read the savings ledger for what it does and does not claim; and apply the three |
+| [`od-project-order`](skills-extension/od-project-order/SKILL.md) | 25, 26, 33, 3a4 | Draft the project order (PREQ) for a use case or system project and run it through kick-off, milestone reports and closure - write the main target as a 30-second message, never leave the budget blank, split requesting side (steering committ |
+| [`od-retro`](skills-extension/od-retro/SKILL.md) | spine | Run the department's monthly retrospective so that it ends in exactly one decided adjustment - gather the three inputs the operating rhythm names (incidents, metrics, COP feedback and the historical ODEC record), list what was learned with  |
+| [`od-risk-watch`](skills-extension/od-risk-watch/SKILL.md) | spine | Read the department's early indicators against the six-row risk register each month and say which escalation triggers are hit - for every risk, find the monitorable value, read it from its source with a date, compare it with the trigger, an |
+| [`od-rollout-training`](skills-extension/od-rollout-training/SKILL.md) | 1a3, 1b4, 26, 3a6 | Draft the plant training package and the competence checklist for a solution that is rollout-ready - who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence  |
+| [`od-scorecard-reporting`](skills-extension/od-scorecard-reporting/SKILL.md) | spine | Fetch, assess and report OD's numbers — the Digitalization Scorecard and the Use Case and Equipment Integration Power BI reports — against their targets and intervention thresholds, and prepare and follow up reporting rounds (the COP and an |
 | [`od-sharepoint-list-export`](skills-extension/od-sharepoint-list-export/SKILL.md) | spine | Export an OD SharePoint Online list in full — current items, complete item version history, attachment metadata and attachment binaries — from the browser console using only the REST API and an authenticated session. |
-| [`od-template-resolution`](skills-extension/od-template-resolution/SKILL.md) | 1a2, spine | Resolve which approved master template or standard a deliverable must start from, before anyone writes it - look the artefact up in the department's resource register, name its owner, location and verification state, and say plainly when the master is still "t |
-| [`od-workshop-facilitation`](skills-extension/od-workshop-facilitation/SKILL.md) | 21, 31 | Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evaluation, tool and machi |
+| [`od-signal-standardization`](skills-extension/od-signal-standardization/SKILL.md) | 3b4 | Analyse a machine's signals and standardize them so a second plant can consume them without asking a question. |
+| [`od-template-resolution`](skills-extension/od-template-resolution/SKILL.md) | 1a2, spine | Resolve which approved master template or standard a deliverable must start from, before anyone writes it - look the artefact up in the department's resource register, name its owner, location and verification state, and say plainly when th |
+| [`od-use-case-definition`](skills-extension/od-use-case-definition/SKILL.md) | 21 | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. |
+| [`od-use-case-intake-triage`](skills-extension/od-use-case-intake-triage/SKILL.md) | i1 | Decide what OD does with an incoming request — accept it into exactly one of the three new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it, or route it to the function that actually owns it. |
+| [`od-use-case-solution-evaluation`](skills-extension/od-use-case-solution-evaluation/SKILL.md) | 22 | Evaluate whether a use case's envisioned solution fits its need (Lane 2 step 22) — rank it against a library of known configurations, profile its complexity (27 drivers), find which of 16 IT/OT capability areas it depends on, compare requir |
+| [`od-use-case-standardization`](skills-extension/od-use-case-standardization/SKILL.md) | 26 | Make one plant's solution into every plant's — check a use case against the cross-plant capability templates and the reference library before anything is specified, apply the cluster classification (C01-C12), take a use case through the CSP |
+| [`od-workshop-facilitation`](skills-extension/od-workshop-facilitation/SKILL.md) | 21, 31 | Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evalua |
 
 ## How to use it
 
-**As a person.** Start at `od-context`, then open the lane you are in. The practice skills
+**As a person.** Start at `dept-os`, then open the lane you are in. The practice skills
 are the steps its playbook points at.
 
-**As an agent.** Load `od-context` first — every other skill declares it in
+**As an agent.** Load `dept-os` first — every other skill declares it in
 `metadata.requires` and the validator enforces it. Then load the lane or practice skill for
 the work in hand; each declares what it composes with.
 
@@ -264,7 +266,7 @@ Run the generators in this order after a change: `build_okf_index.py`, then `bui
 It checks that every folder has a registry entry and vice versa, that frontmatter parses,
 that each `name` and `metadata.id` matches its directory, that descriptions are substantial
 enough to trigger on, that tiers agree between the two, that every `od`-scoped skill
-requires `od-context` while a `portable` one instead ships a real `od_integration` note, and
+requires `dept-os` while a `portable` one instead ships a real `od_integration` note, and
 that no `requires` or `composes` points at a skill that does not exist.
 
 `verify_okf.py` checks that every concept's frontmatter parses and declares a known `type`,

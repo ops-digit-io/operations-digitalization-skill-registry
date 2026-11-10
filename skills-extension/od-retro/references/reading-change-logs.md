@@ -46,7 +46,7 @@ maintenance activity, not progress. Read the split before the lines.
 4. **Read direction, not volume.** A status moving back, a handover marked done while development is still open, or a priority
    moving to closed without a matching status change are the lines worth a question.
 5. **Check the text.** A text revision is not shown in the log. Open the use-case note's earlier values: rationale, blockers and
-   comments were often written during active work and later tidied away (see `od-context`, honesty rule on version history).
+   comments were often written during active work and later tidied away (see `dept-os`, honesty rule on version history).
 6. **Cross-read.** Pair a status change with the saving basis and the blocker texts for the same use case before drawing a
    conclusion (`od-portfolio-and-savings-analysis`).
 

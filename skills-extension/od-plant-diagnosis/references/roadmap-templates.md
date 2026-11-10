@@ -69,4 +69,4 @@ regional gaps are structural (complex infrastructure) as much as effort.
 - **Strategy rounds** (ODEC, now historical, no fixed replacement forum; past decks are a source): regional roadmaps, cyber-security status.
 - Plant management one-pager: current progress, regional engineering roadmap, plant scorecard, initiate investment,
   allocate resources, integrate with OPEX processes.
-Hand over to `od-scorecard-reporting`; investment items to `od-investment-input`.
+Hand over to `od-scorecard-reporting`; investment items to `bc-cost`.

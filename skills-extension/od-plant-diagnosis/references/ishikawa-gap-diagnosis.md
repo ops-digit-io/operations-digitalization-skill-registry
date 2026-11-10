@@ -26,7 +26,7 @@ branches first; use the machine and IT and environment branches to explain what 
 |---|---|---|
 | **People** | "Not my responsibility"; unclear roles between OD, IT and engineering; functions (production, OPEX) not involved; a single engineer "only responsible for the technical part" | Who attends requirement meetings; who owns the use case after delivery; named key user and deputy; who asks for ideas |
 | **Method** | No standard for the savings calculation; weak requirements management for systems and use cases; no systematic follow-up and escalation; approaches explained too complex; ideas-driven requests launched without pre-alignment with OD; requirements that change weekly | Is there a saving project registered per use case; is there a requirements-iteration loop after first delivery; does an open action have an owner and a date |
-| **Machine and IT** | Scattered infrastructure; black-box legacy systems; no interoperability; slow feature updates; a system added without a standard machine-integration and interface layer; machines relocated repeatedly; recurring IT issues (reverse proxy and access, unknown cyber-security process for application approval, no update or lifecycle management) | Ticket age (use it as a risk indicator); barrier log (`od-equipment-integration`); layout stability before an integration wave |
+| **Machine and IT** | Scattered infrastructure; black-box legacy systems; no interoperability; slow feature updates; a system added without a standard machine-integration and interface layer; machines relocated repeatedly; recurring IT issues (reverse proxy and access, unknown cyber-security process for application approval, no update or lifecycle management) | Ticket age (use it as a risk indicator); barrier log (`mi-connector`); layout stability before an integration wave |
 | **Environment** | Cyber-security approval that does not integrate with the project; purchasing lead times longer than project timelines; no incident management for operational technology systems | Open approvals and their age; purchase order lead time against the project plan |
 
 ## Good-practice and bad-practice signature
@@ -64,4 +64,4 @@ decide "no potential"; an agent never writes it. Run the Ishikawa on each "deplo
 
 One line per gap: branch, cause, evidence (source and date), confidence (stated by the plant / observed in the lists /
 inferred), action proposed, owner role. Gaps in the people and method branches usually become roadmap rows with a
-call for action; technology gaps may go to `od-equipment-integration` or `od-cross-plant-compatibility`.
+call for action; technology gaps may go to `mi-connector` or `od-cross-plant-compatibility`.

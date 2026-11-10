@@ -14,8 +14,8 @@ metadata:
   authority_level: draft
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
-  composes: [od-capital-request, od-decision-routing, od-investment-input, od-handover-and-adoption, od-retro, od-it-handover, od-risk-watch, od-workshop-facilitation, od-equipment-integration]
+  requires: [dept-os]
+  composes: [bc-capital-request, od-decision-routing, bc-cost, od-handover-and-adoption, od-retro, it-demand-package, od-risk-watch, od-workshop-facilitation, mi-connector]
   derived_from:
     - Operations Digitalization slide decks (project orders, kick-off plans, milestone and closure forms, customer-mandated program), abstracted into process guidance; no figures.
   okf:
@@ -28,12 +28,12 @@ metadata:
 
 # Project order
 
-Read `od-context` first.
+Read `dept-os` first.
 
 A project order (PREQ) is the steering committee's written request to a project team: what the project
 must achieve, by when, for how much, and who answers for it. This skill drafts it, prepares the kick-off
 that turns it into a project plan, and supplies the milestone and closure forms. It does not size the
-benefit (`od-benefit-calculation`), package the money request (`od-capital-request`) or decide who may
+benefit (`bc-build`), package the money request (`bc-capital-request`) or decide who may
 approve (`od-decision-routing`); it names them at the right point.
 
 Done when: the order has a 30-second main target, a budget estimate (never blank), a timing minimum, an
@@ -69,8 +69,8 @@ or a non-standard interface (`od-decision-routing`). A small initiative uses the
 1. **Is it a project?** Apply the small-change rule above. Smaller: no order, ticket route. Larger or in an
    unfamiliar field: continue; an unfamiliar field gets the limited-risk pattern (fund a first step, time-box it).
 2. **Collect inputs, ask nothing twice.** From the earlier steps: use-case definition and demand
-   (`od-use-case-definition`), benefit rows (`od-benefit-calculation`), cost side and option
-   (`od-investment-input`, `od-capital-request`), tool decision and IT gate (`od-system-fit-check`). Reuse
+   (`od-use-case-definition`), benefit rows (`bc-build`), cost side and option
+   (`bc-cost`, `bc-capital-request`), tool decision and IT gate (`invest-screen`). Reuse
    earlier projects for the history and lessons-learned chapters and cite which.
 3. **Write the 30-second main target**: who does what for whom with which intention, phrased "at the end of
    the project we will have ...". If it needs more than one breath, the scope is not settled.
@@ -84,7 +84,7 @@ or a non-standard interface (`od-decision-routing`). A small initiative uses the
 6. **Name both sides.** Requesting: steering committee with sponsor. Contracting: project team with project
    manager. A missing sponsor, lead or team is stated as `<...>`, not invented.
 7. **If a solution is bought,** lay out the procurement milestone chain and put the eCR in it (the money
-   request itself is `od-capital-request`).
+   request itself is `bc-capital-request`).
 8. **Run the pre-send check** (end of [`assets/project-order.md`](assets/project-order.md)): empty budget,
    sponsor, owner, out-of-scope, unclassified high risk. Fix or flag each; send nothing with a silent blank.
 9. **Approval is a human gate**, documented (signature, e-signature or e-mail) with date. After approval:
@@ -101,13 +101,13 @@ If the driver is a customer mandate rather than savings, use the intake variant 
 | Receives | From |
 |---|---|
 | Use case, scope, owner, demand | `od-use-case-definition`, `od-portfolio-and-savings-analysis` |
-| Benefit rows with firmness | `od-benefit-calculation` |
-| Cost, option, funding gate | `od-investment-input`, `od-capital-request`, `od-decision-routing` |
-| Tool or system decision, IT gate | `od-system-fit-check`, `od-system-fit-check` |
+| Benefit rows with firmness | `bc-build` |
+| Cost, option, funding gate | `bc-cost`, `bc-capital-request`, `od-decision-routing` |
+| Tool or system decision, IT gate | `invest-screen`, `invest-screen` |
 
 | Hands on | To |
 |---|---|
-| Approved order and plan | the project team; the funding trail to `od-capital-request` |
+| Approved order and plan | the project team; the funding trail to `bc-capital-request` |
 | Open questions to the steering committee, cost of not deciding | `od-decision-routing` (decision request) |
 | Risks with owner and due date | `od-risk-watch` |
 | Handover check at closure | `od-handover-and-adoption` |
@@ -125,7 +125,7 @@ If the driver is a customer mandate rather than savings, use the intake variant 
 - **Human gate:** sponsor approval of the order, budget authorisation, steering-committee approval of the plan,
   any status change to red, closure sign-off. The agent proposes a status light; the project manager sets it.
 - **Hand over:** the draft plus the flag list to the project manager and sponsor; the approved order to
-  `od-capital-request` where money follows.
+  `bc-capital-request` where money follows.
 
 ## Still open
 

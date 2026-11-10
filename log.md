@@ -5,6 +5,14 @@ not a concept.
 
 ## 2026-11-10
 
+- **Core = department skills, registry 2.0.0, 47 skills (core 18, extension 29).** The core library is now exactly the
+  department's skills from its process map and naming convention: `dept-os`, `catalog-usecase`, `catalog-systems`,
+  `catalog-guardrails`, `bc-cost`, `ops-dashboard-datatron`, `ops-dashboard-engine`, `funnel-requirements`,
+  `funnel-features`, `funnel-prototype`, `bc-build`, `bc-assess`, `bc-capital-request`, `invest-screen`,
+  `it-demand-package`, `deploy-appstore`, `mi-connector`, `ops-pipeline`. Twelve registry skills were renamed into
+  them (table in the README), four split out, `ops-dashboard-datatron` new; all other skills moved to extension and
+  sit on the steps they deepen. Every skill now requires `dept-os`. `process.yaml` and the Mermaid name only
+  department skills on the steps.
 - **Department context applied, registry 1.13.0, 42 skills (core 27, extension 15).** Fixed every finding of
   `docs/department-context-conformance.md` from the vault folder `OD Department Knowledge/OD-instance` and the OD x IT
   meeting notes of 2026-09-11. Merged twelve duplicate or retired-lane skills into their owners, each kept as

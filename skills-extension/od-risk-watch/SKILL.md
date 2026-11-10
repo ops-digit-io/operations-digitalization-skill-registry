@@ -19,8 +19,8 @@ metadata:
   authority_level: read-only on sources; draft the risk reading
   status: draft
   sources_read: 2026-11-05
-  requires: [od-context]
-  composes: [od-scorecard-reporting, od-portfolio-and-savings-analysis, od-decision-routing, od-retro, od-cybersec-gate, od-system-fit-check]
+  requires: [dept-os]
+  composes: [od-scorecard-reporting, od-portfolio-and-savings-analysis, od-decision-routing, od-retro, od-cybersec-gate, invest-screen]
   derived_from:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/09-risks.md
@@ -41,7 +41,7 @@ metadata:
 
 # Risk watch
 
-Read `od-context` first.
+Read `dept-os` first.
 
 Plan item O-07 of the department's skill map. The risk register (`09-risks.md`, review cadence **monthly**) is built
 so that an agent can watch it: "an early indicator is a monitorable value - a register an agent can watch, not a table

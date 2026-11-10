@@ -62,10 +62,10 @@ cite the skill, not the register.
 |---|---|---|
 | Use-case definition protocol and questionnaire | `od-use-case-definition`: `assets/use-case-definition-protocol.md`, `assets/use-case-definition-questionnaire.md` | Lane 2 step 1 |
 | Solution evaluation protocol | `od-use-case-solution-evaluation`: `assets/evaluation-protocol.md` | Lane 2 step 2 |
-| Requirement, epic and stories | `od-requirements-breakdown`: `assets/requirement-template.md`, `assets/epic-and-stories.md` (+ `.example.md`) | Lane 2 step 2 / Lane 3 step 1 |
+| Requirement, epic and stories | `funnel-requirements`: `assets/requirement-template.md`, `assets/epic-and-stories.md` (+ `.example.md`) | Lane 2 step 2 / Lane 3 step 1 |
 | Data availability verdict | `od-data-availability-check`: `assets/data-availability-verdict.md` | Lane 2 step 2 |
-| System fit check | `od-system-fit-check`: `assets/system-fit-check.md` | Intake / Lane 3 gate |
-| Equipment assessment, connection guidance | `od-equipment-integration`: `assets/assessment-protocol.md`, `assets/guidance-protocol.md` | Lane 1b / Lane 3b |
+| System fit check | `invest-screen`: `assets/system-fit-check.md` | Intake / Lane 3 gate |
+| Equipment assessment, connection guidance | `mi-connector`: `assets/assessment-protocol.md`, `assets/guidance-protocol.md` | Lane 1b / Lane 3b |
 | Signal analysis report | `od-signal-standardization`: `assets/signal-analysis-report.md` | Lane 3b |
 | Acceptance test protocol | `od-acceptance-test`: `assets/acceptance-test-protocol.md` | Lane 3b step 3 |
 | Handover protocol | `od-handover-and-adoption`: `assets/handover-protocol.md` | Lane 2 step 6 / Lane 3 |
@@ -75,7 +75,7 @@ cite the skill, not the register.
 | Scorecard update protocol | `od-scorecard-reporting`: `assets/scorecard-update-protocol.md` | on request or on the department schedule / COP |
 | Portfolio review protocol | `od-portfolio-and-savings-analysis`: `assets/portfolio-review-protocol.md` | portfolio review |
 | Export run log | `od-sharepoint-list-export`: `assets/export-run-log.md` | list export |
-| Investment input pack; prototype briefs | `od-investment-input`, `od-prototype-poc` (see each skill's assets folder) | Lane 1b / Lane 2 |
+| Investment input pack; prototype briefs | `bc-cost`, `funnel-prototype` (see each skill's assets folder) | Lane 1b / Lane 2 |
 
 The information-integration lane's task list (`20-lanes/information-integration-service/tasks.md`) names four templates
 as gaps in the department itself: *Equipment Assessment & Roadmap*, *Investment plan*, *Integration checklist* (each

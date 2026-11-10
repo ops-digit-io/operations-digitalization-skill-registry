@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 # Export run log — ⟨list name⟩
 
 One entry per run, appended, never overwritten — the history of captures is itself
-evidence (it is what lets `od-portfolio-and-savings-analysis` or `od-benefit-calculation`
+evidence (it is what lets `od-portfolio-and-savings-analysis` or `bc-build`
 answer "as of when" for any figure they quote).
 
 | Run date | List | Items | Attachments | Mode | Schema check | Notes |
@@ -27,7 +27,7 @@ might have filtered or branched on has changed shape). Otherwise `incremental si
 
 **Schema check** is `scripts/check_export_schema.py`'s verdict, pasted in, not
 re-summarized — a "columns removed" entry here is the signal `od-portfolio-and-savings-analysis`
-and `od-benefit-calculation` need to re-check whether a field they depend on still exists
+and `bc-build` need to re-check whether a field they depend on still exists
 before quoting a figure from this run.
 
 ## Hand-off

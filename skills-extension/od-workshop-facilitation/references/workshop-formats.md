@@ -70,7 +70,7 @@ live use cases, filter the live use case list on its workshop or intake source r
 ## 5 · Lessons already written down
 
 - Fitting savings calculation into the broader agenda "messed up the workshop" with too many
-  domains on the table (`od-benefit-calculation`, review checklist). Book it as its own follow-up.
+  domains on the table (`bc-build`, review checklist). Book it as its own follow-up.
 - A tool demoed at a plant does not put the use case in scope there (`od-use-case-intake-triage`,
   refusal playbook): read the tool availability table first.
 - Integration workshops end with utilization: who uses it, how often, which actions.
