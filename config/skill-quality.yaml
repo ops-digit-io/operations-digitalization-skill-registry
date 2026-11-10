@@ -1,0 +1,49 @@
+# Quality-check configuration for the OD skill registry, for NVIDIA SkillEvaluator (Apache-2.0,
+# https://github.com/NVIDIA/SkillEvaluator), tier 1 `quality-check`, option --quality-config.
+#
+# The tool's packaged defaults expect the headings "Prerequisites", "Limitations" and "Troubleshooting".
+# OD skills use department sections instead, so those defaults would penalise skills for headings they
+# intentionally do not use. This file replaces them with the sections the registry expects of every
+# skill. Matching is by substring (the tool checks that the text is present in the skill), so
+# "## Procedure" also accepts "## Procedure: four phases". Every rule is worth 5 points of Reliability.
+#
+# Run (from a clone of SkillEvaluator):
+#   skillevaluator quality-check <skills folder> --quality-config config/skill-quality.yaml -r json -o <output>
+expected_headers:
+  - heading: "## Inputs"
+    alternatives:
+      - "## Purpose and where it sits"
+      - "## The gate"
+    points: 5
+    message: "No inputs, outputs or purpose documented"
+    suggestion: "Add '## Inputs and output': what the skill needs and what it returns"
+  - heading: "## Procedure"
+    alternatives:
+      - "## The triage"
+      - "## The guardrails"
+      - "## Go-live guardrails"
+      - "## Pick a standardized system"
+      - "## Walk the path"
+    points: 5
+    message: "No procedure documented"
+    suggestion: "Add '## Procedure': the steps, in order, with the control point of each"
+  - heading: "## Human gate"
+    alternatives:
+      - "## Human gate and AI-agent notes"
+    points: 5
+    message: "No human gate or agent notes documented"
+    suggestion: "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
+  - heading: "## Do not"
+    alternatives:
+      - "## Pitfalls"
+      - "## Limitations"
+    points: 5
+    message: "No limits, pitfalls or 'do not' list documented"
+    suggestion: "Add '## Pitfalls' or '## Do not': the failures the department has seen"
+  - heading: "## Definition of done"
+    alternatives:
+      - "## Handoff"
+      - "## Done when"
+    points: 5
+    message: "No definition of done or handoff documented"
+    suggestion: "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"

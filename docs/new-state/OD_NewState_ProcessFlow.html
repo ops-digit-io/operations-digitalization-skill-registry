@@ -72,6 +72,23 @@
   .chip.built{background:var(--built-bg);color:var(--built);}
   .chip.part{background:var(--part-bg);color:var(--part);}
   .chip.gap{background:var(--gap-bg);color:var(--gap);border:1px dashed #c7c7c7;}
+/* quality rating: a grade and a score per skill, filled in when the site is built (scripts/build_site.py) */
+a.chip{text-decoration:none;}
+.chip .qs{margin-left:5px;font-weight:700;}
+.chip.q0{background:var(--gap-bg);color:var(--gap);border:1px dashed #c7c7c7;}
+.chip.qA,.chip.qB{background:var(--built-bg);color:var(--built);}
+.chip.qC{background:var(--part-bg);color:var(--part);}
+.chip.qD,.chip.qF{background:#fbe4e1;color:#a3281a;}
+.node.q0{border-top-color:var(--gap);background:#fbfbfb;}
+.node.qA,.node.qB{border-top-color:var(--built);}
+.node.qC{border-top-color:var(--part);}
+.node.qD,.node.qF{border-top-color:#a3281a;}
+.node.qA .state,.node.qB .state{color:var(--built);}
+.node.qC .state{color:var(--part);}
+.node.qD .state,.node.qF .state{color:#a3281a;}
+.sw.qA,.sw.qB{background:var(--built);}
+.sw.qC{background:var(--part);}
+.sw.qD,.sw.qF{background:#a3281a;}
   .node .state{position:absolute;top:7px;right:8px;font-size:7.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
   .node.built .state{color:var(--built);} .node.part .state{color:var(--part);} .node.gap .state{color:var(--gap);}
 
@@ -125,10 +142,12 @@
   </header>
 
   <div class="legend">
-    <div class="grp"><b>Skill state:</b>
-      <span class="st"><span class="sw built"></span>Built</span>
-      <span class="st"><span class="sw part"></span>Partial</span>
-      <span class="st"><span class="sw gap"></span>Gap (net-new)</span>
+    <div class="grp"><b>Skill quality (grade and score, 0 to 100):</b>
+      <span class="st"><span class="sw qA"></span>A &ge; 90</span>
+      <span class="st"><span class="sw qB"></span>B &ge; 80</span>
+      <span class="st"><span class="sw qC"></span>C &ge; 70</span>
+      <span class="st"><span class="sw qD"></span>D / F &lt; 70</span>
+      <span class="st"><a href="docs/skill-quality.html">how it is rated</a></span>
     </div>
     <div class="grp"><b>Owner:</b> <span class="own-k self">Self-service</span><span class="own-k od">OD-led</span><span class="own-k mix">OD / Ext / IT&middot;CS</span></div>
     <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait (approval / CS / procurement)</div>
@@ -144,13 +163,13 @@
       </div>
       <div class="body" style="background:#f2f5fb;">
         <div class="track">
-          <div class="node built" style="flex:2;"><div class="t">Known use case?</div><span class="chip built">od-use-case-intake-triage</span><span class="chip built">od-system-fit-check</span></div>
+          <div class="node q0" style="flex:2;"><div class="t">Known use case?</div><span class="chip q0">od-use-case-intake-triage</span><span class="chip q0">od-system-fit-check</span></div>
           <div class="arr"></div>
-          <div class="node built"><div class="t">YES &rarr; run it</div><span class="chip built">Lane&nbsp;1</span></div>
+          <div class="node q0"><div class="t">YES &rarr; run it</div><span class="chip q0">Lane&nbsp;1</span></div>
           <div class="arr"></div>
-          <div class="node built"><div class="t">NEW use case, machine connected</div><span class="chip built">Lane&nbsp;2</span></div>
+          <div class="node q0"><div class="t">NEW use case, machine connected</div><span class="chip q0">Lane&nbsp;2</span></div>
           <div class="arr"></div>
-          <div class="node built"><div class="t">NEW system / connector</div><span class="chip built">Lane&nbsp;3</span></div>
+          <div class="node q0"><div class="t">NEW system / connector</div><span class="chip q0">Lane&nbsp;3</span></div>
         </div>
       </div>
     </div>
@@ -165,23 +184,23 @@
         <div class="brow">
           <div class="btag">1a<span>connected</span></div>
           <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Pick from catalog</div><span class="chip gap">catalog-usecase</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Pick from catalog</div><span class="chip q0">catalog-usecase</span></div>
             <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Apply template</div><span class="chip built">od-analytics-asset-build</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Apply template</div><span class="chip q0">od-analytics-asset-build</span></div>
             <div class="arr"></div>
-            <div class="node gap"><span class="state">Gap</span><div class="t">Validate &amp; go live</div><span class="chip gap">catalog-guardrails</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Validate &amp; go live</div><span class="chip q0">catalog-guardrails</span></div>
           </div>
         </div>
         <div class="brow">
           <div class="btag">1b<span>not connected</span></div>
           <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Pick UC + std system</div><span class="chip gap">catalog-usecase</span><span class="chip gap">catalog-systems</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Pick UC + std system</div><span class="chip q0">catalog-usecase</span><span class="chip q0">catalog-systems</span></div>
             <div class="arr wait"><span class="wlab">~d</span></div>
-            <div class="node part"><span class="state">Part</span><div class="t">Cost template + approval</div><span class="chip part">od-decision-routing</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Cost template + approval</div><span class="chip q0">od-decision-routing</span></div>
             <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Order &amp; connect system</div><span class="chip built">od-equipment-integration</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Order &amp; connect system</div><span class="chip q0">od-equipment-integration</span></div>
             <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Apply template &amp; go live</div><span class="chip built">od-analytics-asset-build</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Apply template &amp; go live</div><span class="chip q0">od-analytics-asset-build</span></div>
           </div>
         </div>
         <div class="fallnote">Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b></div>
@@ -196,17 +215,17 @@
       </div>
       <div class="body">
         <div class="track">
-          <div class="node built"><span class="state">Built</span><div class="t">Define &amp; diagnose</div><span class="chip built">od-use-case-definition</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Define &amp; diagnose</div><span class="chip q0">od-use-case-definition</span></div>
           <div class="arr"></div>
-          <div class="node built"><span class="state">Built</span><div class="t">Features + data check</div><span class="chip built">od-requirements-breakdown</span><span class="chip built">od-data-availability-check</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Features + data check</div><span class="chip q0">od-requirements-breakdown</span><span class="chip q0">od-data-availability-check</span></div>
           <div class="arr"></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Prototype / validate</div><span class="chip part">od-analytics-asset-build</span><span class="chip gap">PoC skill</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Prototype / validate</div><span class="chip q0">od-analytics-asset-build</span><span class="chip q0">od-prototype-poc</span></div>
           <div class="arr"></div>
-          <div class="node built"><span class="state">Built</span><div class="t">Business case + rank</div><span class="chip built">od-benefit-calculation</span><span class="chip part">bc-assessment</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Business case + rank</div><span class="chip q0">od-benefit-calculation</span><span class="chip q0">bc-assessment</span></div>
           <div class="arr wait"><span class="wlab">~wks</span></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Capital request</div><span class="chip part">od-decision-routing</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Capital request</div><span class="chip q0">od-decision-routing</span><span class="chip q0">od-capital-request</span></div>
           <div class="arr"></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Implement &amp; graduate</div><span class="chip built">od-handover-and-adoption</span><span class="chip gap">&rarr; catalog</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Implement &amp; graduate</div><span class="chip q0">od-handover-and-adoption</span><span class="chip q0">catalog-usecase</span></div>
         </div>
         <div class="fallnote">Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b></div>
       </div>
@@ -223,11 +242,11 @@
         <div class="brow">
           <div class="btag">Front&#8209;end<span>shared</span></div>
           <div class="track">
-            <div class="node built"><span class="state">Built</span><div class="t">Requirements</div><span class="chip built">od-requirements-breakdown</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Requirements</div><span class="chip q0">od-requirements-breakdown</span></div>
             <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Tool-decision gate</div><span class="chip built">od-system-fit-check</span><span class="chip built">od-decision-routing</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Tool-decision gate</div><span class="chip q0">od-system-fit-check</span><span class="chip q0">od-decision-routing</span></div>
             <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Business case + capital</div><span class="chip built">od-benefit-calculation</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Business case + capital</div><span class="chip q0">od-benefit-calculation</span><span class="chip q0">od-capital-request</span></div>
             <div class="fork">&#9666;</div>
           </div>
         </div>
@@ -242,22 +261,22 @@
         <div class="brow">
           <div class="btag">3a<span>new system</span></div>
           <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Package / build</div><span class="chip gap">it-demand-package</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Package / build</div><span class="chip q0">it-demand-package</span></div>
             <div class="arr wait"><span class="wlab">CS ~wks</span></div>
-            <div class="node gap"><span class="state">Gap</span><div class="t">Deploy to platform + CS</div><span class="chip gap">deploy-appstore</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Deploy to platform + CS</div><span class="chip q0">deploy-appstore</span></div>
             <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Rollout &amp; adopt</div><span class="chip built">od-handover-and-adoption</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Rollout &amp; adopt</div><span class="chip q0">od-handover-and-adoption</span></div>
           </div>
         </div>
         <!-- 3b flow -->
         <div class="brow">
           <div class="btag">3b<span>new connector</span></div>
           <div class="track">
-            <div class="node built"><span class="state">Built</span><div class="t">Connector + pipeline to MDL</div><span class="chip built">od-equipment-integration</span><span class="chip built">od-signal-standardization</span><span class="chip built">od-node-red-flow-builder</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Connector + pipeline to MDL</div><span class="chip q0">od-equipment-integration</span><span class="chip q0">od-signal-standardization</span><span class="chip q0">od-node-red-flow-builder</span></div>
             <div class="arr wait"><span class="wlab">proc ~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Procure &amp; connect machine</div><span class="chip built">od-equipment-integration</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Procure &amp; connect machine</div><span class="chip q0">od-equipment-integration</span></div>
             <div class="arr wait"><span class="wlab">CS ~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Acceptance + CS &rarr; live</div><span class="chip built">od-acceptance-test</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Acceptance + CS &rarr; live</div><span class="chip q0">od-acceptance-test</span></div>
           </div>
         </div>
       </div>
@@ -272,38 +291,21 @@
       </div>
       <div class="body">
         <div class="track">
-          <div class="node gap"><span class="state">Gap</span><div class="t">Select + check story</div><span class="chip gap">od-showcase-selection</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Select + check story</div><span class="chip q0">od-showcase-selection</span></div>
           <div class="arr"></div>
-          <div class="node gap"><span class="state">Gap</span><div class="t">Brief Internal Communications</div><span class="chip gap">od-comms-brief</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Brief Internal Communications</div><span class="chip q0">od-comms-brief</span></div>
           <div class="arr wait"><span class="wlab">IC</span></div>
-          <div class="node gap"><span class="state">Gap</span><div class="t">Review + publish</div><span class="chip gap">od-comms-brief</span><span class="chip gap">IC publishes</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Review + publish</div><span class="chip q0">od-comms-brief</span><span class="chip q0">IC publishes</span></div>
           <div class="arr"></div>
-          <div class="node gap"><span class="state">Gap</span><div class="t">Follow up + feed back</div><span class="chip gap">od-showcase-followup</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Follow up + feed back</div><span class="chip q0">od-showcase-followup</span></div>
         </div>
         <div class="fallnote">Entry: use case <b>live &amp; adopted</b> (Lane&nbsp;1 go-live or Lane&nbsp;2 graduation), never from intake &nbsp;&middot;&nbsp; Feeds back: catalogued &rarr; <b>Lane&nbsp;1</b> &nbsp;&middot;&nbsp; new need &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; needs a system &rarr; <b>Lane&nbsp;3</b></div>
       </div>
     </div>
   </div>
 
-  <!-- ===== GAP STRIP ===== -->
-  <div class="gaps">
-    <h2>The only net-new builds</h2>
-    <div class="gaprow">
-      <div class="gcard"><div class="gn">catalog-usecase</div><div class="gl">Lane 1 &amp; 2</div><div class="gd">Plant self-serve catalog; Lane&nbsp;2 graduation target.</div></div>
-      <div class="gcard"><div class="gn">catalog-systems</div><div class="gl">Lane 1b</div><div class="gd">Standardized connection-kit list to match &amp; order.</div></div>
-      <div class="gcard"><div class="gn">catalog-guardrails</div><div class="gl">Lane 1</div><div class="gd">Self-check to go live without OD labour.</div></div>
-      <div class="gcard"><div class="gn">deploy-appstore</div><div class="gl">Lane 3a</div><div class="gd">Containerize &amp; deploy to platform + CS.</div></div>
-      <div class="gcard"><div class="gn">it-demand-package</div><div class="gl">Lane 3a</div><div class="gd">Package demand for IT / external dev.</div></div>
-      <div class="gcard thin"><div class="gn">prototype / PoC</div><div class="gl">Lane 2 &middot; thin</div><div class="gd">Exists partially via asset-build.</div></div>
-      <div class="gcard thin"><div class="gn">capital-request</div><div class="gl">Lane 2 &amp; 3 &middot; thin</div><div class="gd">Routing only, no packaging skill.</div></div>
-      <div class="gcard"><div class="gn">od-showcase-selection</div><div class="gl">Lane 4</div><div class="gd">Entry gate and claims check for a use-case story.</div></div>
-      <div class="gcard"><div class="gn">od-comms-brief</div><div class="gl">Lane 4</div><div class="gd">Brief and drafts for Internal Communications; checked before it leaves OD.</div></div>
-      <div class="gcard"><div class="gn">od-showcase-followup</div><div class="gl">Lane 4</div><div class="gd">Routes reactions into Lanes 1 to 3; keeps the story true.</div></div>
-    </div>
-  </div>
-
   <div class="foot">
-    <div class="src">Source: new-state model (<b>Thomas, 2026-09</b>) &amp; the <b>OD skill registry</b> (25 skills). Green/amber/grey read from each <code style="font-family:var(--font);background:#eef1f8;padding:0 3px;border-radius:2px">SKILL.md</code>. <b>Corrected vs draft:</b> Lane&nbsp;3b + rollout + acceptance are Built, not gaps.</div>
+    <div class="src">Source: new-state model (<b>OD lead, 2026-09</b>) &amp; the <b>OD skill registry</b> (core skills). Each skill carries the grade and score of the open-source <b>NVIDIA SkillEvaluator</b> quality check (documentation quality, not task success); see <a href="docs/skill-quality.html">how skills are rated</a>.</div>
     <div class="way">The neuwerk way</div>
   </div>
 </div>

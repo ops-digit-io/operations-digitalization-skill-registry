@@ -68,6 +68,7 @@ aside#panel dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-siz
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:14px 0}
 table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}th{background:var(--grey-bg)}
 pre{background:var(--grey-bg);padding:10px 12px;border-radius:8px;overflow:auto}.md img{max-width:100%}
+.chip.qA i,.chip.qB i{background:var(--ok)}.chip.qC i{background:var(--warn)}.chip.qD i,.chip.qF i{background:var(--wait)}.chip b{margin-left:6px;font-weight:700}
 .badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}.b-ok{background:var(--ok-bg);color:var(--ok)}.b-warn{background:var(--warn-bg);color:var(--warn)}.b-grey{background:var(--grey-bg);color:var(--grey)}
 footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px}
 @media(max-width:700px){header.top h1{font-size:19px}.steps{grid-template-columns:1fr}}
@@ -110,7 +111,7 @@ def md_to_html(text: str, from_dir: Path, site_root: Path) -> str:
 def page(title: str, body: str, depth: int, active: str = "", extra_head: str = "") -> str:
     up = "../" * depth
     nav = (f'<a href="{up}index.html">Process map</a><a href="{up}explorer/index.html">Skill explorer</a><a href="{up}spec/index.html">Specification</a>'
-           f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a>'
+           f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a><a href="{up}docs/skill-quality.html">How skills are rated</a>'
            f'<a href="{up}downloads/core-library.zip">Download the core library</a>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{esc(title)}</title><style>{CSS}</style>{extra_head}</head><body>'
@@ -149,6 +150,13 @@ def build(out: Path, repo_url: str) -> None:
         zip_skills([n], dl / "skills" / f"{n}.zip")
     zip_skills(ids, dl / "core-library.zip")
 
+    # ---- quality ratings (NVIDIA SkillEvaluator report, read by scripts/build_skill_quality.py)
+    qdata = json.loads((ROOT / "docs/new-state/skill-quality.json").read_text(encoding="utf-8"))
+    quality = qdata["skills"]
+
+    def qstale(n):
+        return quality[n]["folder_hash"] != skp.folder_hash(n)
+
     # ---- skill facts
     info = {}
     regmap = {s["id"]: s for s in reg["skills"]}
@@ -160,7 +168,8 @@ def build(out: Path, repo_url: str) -> None:
         info[n] = {"id": n, "desc": " ".join(str(fm.get("description", "")).split()), "short": first_sentences(fm.get("description", ""), 1),
                    "state": "draft" if str(meta.get("status")) == "draft" else "built", "tier": meta.get("tier", ""), "lane": meta.get("lane", ""),
                    "authority": meta.get("authority_level", ""), "summary": regmap.get(n, {}).get("summary", ""), "files": files,
-                   "words": len(body.split()), "steps": [], "library": skp.library_of(n)}
+                   "words": len(body.split()), "steps": [], "library": skp.library_of(n),
+                   "q": {"grade": quality[n]["grade"], "score": quality[n]["score"], "stale": qstale(n)}}
 
     # ---- lanes for the map
     lanes = []
@@ -200,20 +209,19 @@ def build(out: Path, repo_url: str) -> None:
 
     # ---- map page
     data = json.dumps({"lanes": lanes, "skills": info}, ensure_ascii=False).replace("</", "<\\/")
-    n_built = sum(1 for v in info.values() if v["state"] == "built")
     body = f"""
-<p>{len(ids)} core skills ordered along the new-state process flow: pick a lane, a step, then a skill. {n_built} are in use, {len(ids) - n_built} are drafts.
+<p>{len(ids)} core skills ordered along the new-state process flow: pick a lane, a step, then a skill. Each skill shows its quality grade and score ([how they are rated](../docs/skill-quality.html)).
 </p>
 <div class="bar"><input id="q" type="search" placeholder="Search a skill, a step or a word (e.g. cyber, template, rollout)" aria-label="Search"></div>
 <div class="tabs" role="tablist" id="tabs"></div>
-<div class="legend"><span class="chip"><i></i>in use</span><span class="chip draft"><i></i>draft</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
+<div class="legend"><span class="chip qA"><i></i>A / B</span><span class="chip qC"><i></i>C</span><span class="chip qD"><i></i>D / F</span><span><b style="color:var(--wait)">~wks</b> external wait after the step</span></div>
 <div id="lanes"></div><aside id="panel" aria-live="polite"></aside>
 <script id="data" type="application/json">{data}</script>
 <script>
 const D=JSON.parse(document.getElementById('data').textContent);const $=s=>document.querySelector(s);
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}}[c]));
 let cur='all';
-function chip(id,prop){{const s=D.skills[id];return `<button class="chip ${{s.state==='draft'?'draft':''}} ${{prop?'proposed':''}}" data-skill="${{id}}" data-prop="${{prop?1:0}}" title="${{esc(s.short)}}"><i></i>${{esc(id)}}</button>`}}
+function chip(id,prop){{const s=D.skills[id];return `<button class="chip q${{s.q.grade}}" data-skill="${{id}}" data-prop="0" title="${{esc(s.short)}}"><i></i>${{esc(id)}}<b>${{s.q.grade}} ${{s.q.score}}</b></button>`}}
 function render(){{
   const q=$('#q').value.trim().toLowerCase();const showProp=false;
   $('#tabs').innerHTML=[['all','All lanes']].concat(D.lanes.map(l=>[l.id,l.title])).map(([id,t])=>`<button role="tab" aria-selected="${{cur===id}}" data-tab="${{id}}">${{esc(t)}}</button>`).join('');
@@ -231,7 +239,7 @@ function render(){{
 function open_(id){{const s=D.skills[id];if(!s)return;history.replaceState(null,'','#skill='+id);
   const where=s.steps.length?s.steps.map(x=>`<li><a href="#${{x.lane}}" data-tab="${{x.lane}}">${{esc(x.laneTitle)}}</a>${{x.branch?' / '+esc(x.branch):''}} / ${{esc(x.step)}}${{x.proposed?' <em>(proposed)</em>':''}}</li>`).join(''):'<li>Not placed on the flow.</li>';
   const f=Object.entries(s.files).map(([k,v])=>`<dt>${{k}}</dt><dd>${{v.map(esc).join(', ')}}</dd>`).join('');
-  $('#panel').innerHTML=`<button class="x" aria-label="Close">×</button><h2>${{esc(id)}}</h2><p><span class="badge ${{s.state==='draft'?'b-warn':'b-ok'}}">${{s.state==='draft'?'draft':'in use'}}</span> <span class="badge b-grey">${{esc(s.tier)}}</span></p><p>${{esc(s.desc)}}</p>
+  $('#panel').innerHTML=`<button class="x" aria-label="Close">×</button><h2>${{esc(id)}}</h2><p><span class="badge ${{s.q.grade==='A'||s.q.grade==='B'?'b-ok':(s.q.grade==='C'?'b-warn':'b-grey')}}">quality ${{s.q.grade}} ${{s.q.score}}</span> <span class="badge b-grey">${{esc(s.tier)}}</span></p><p>${{esc(s.desc)}}</p>
   <p><a class="btn primary" href="${{s.page}}">Open the skill</a><a class="btn" href="${{s.zip}}">Download (.zip)</a><a class="btn" href="${{s.github}}">SKILL.md on GitHub</a></p>
   <dl><dt>Authority</dt><dd>${{esc(s.authority)}}</dd><dt>Old lane</dt><dd>${{esc(s.lane)}}</dd><dt>Size</dt><dd>${{s.words}} words</dd>${{f}}</dl><h3>Where it sits</h3><ul>${{where}}</ul>`;
   $('#panel').classList.add('open');document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('sel',c.dataset.skill===id));}}
@@ -248,14 +256,42 @@ render();
 
     # ---- the process map: the owner's diagram, as supplied; only the skill chips become links to the skill pages
     src = (ROOT / "docs/new-state/OD_NewState_ProcessFlow.html").read_text(encoding="utf-8")
-    def link_chip(m):
-        name = m.group(3)
-        if name in info:
-            return f'<a class="{m.group(1)}" href="skills/{name}/index.html" style="text-decoration:none">{name}</a>'
+    def chip_html(m):
+        name = m.group(1)
+        q = quality.get(name)
+        if name in info and q:
+            g, sc = q["grade"], q["score"]
+            return (f'<a class="chip q{g}" href="skills/{name}/index.html" title="Quality {g}, {sc} of 100">{name}'
+                    f'<span class="qs">{g}&nbsp;{sc:g}</span></a>')
         return m.group(0)
-    src = re.sub(r'<span class="(chip [a-z]+)"( [^>]*)?>([a-z][a-z0-9-]+)</span>', link_chip, src)
+    src = re.sub(r'<span class="chip q0">([a-z][a-z0-9-]+)</span>', chip_html, src)
+
+    def grade_node(html):
+        """Colour each step by the lowest grade of its skills and show that grade as the step's badge."""
+        out, pos = [], 0
+        for m in re.finditer(r'<div class="node q0"([^>]*)>', html):
+            if m.start() < pos:
+                continue
+            depth, i = 0, m.start()
+            for t in re.finditer(r'<div\b|</div>', html[m.start():]):
+                depth += 1 if t.group(0) == "<div" else -1
+                if depth == 0:
+                    i = m.start() + t.end()
+                    break
+            node = html[m.start():i]
+            names = re.findall(r'href="skills/([^/]+)/index.html"', node)
+            if names:
+                worst = min(names, key=lambda n: quality[n]["score"])
+                g = quality[worst]["grade"]
+                node = node.replace('class="node q0"', f'class="node q{g}"', 1).replace('<span class="state"></span>', f'<span class="state">{g}</span>', 1)
+            out.append(html[pos:m.start()])
+            out.append(node)
+            pos = i
+        out.append(html[pos:])
+        return "".join(out)
+    src = grade_node(src)
     bar = ('<p style="text-align:center;font:13px system-ui,sans-serif;margin:18px 0 28px">'
-           '<a href="explorer/index.html">Skill explorer</a> &middot; <a href="docs/new-state-skill-map.html">Skill map table</a> &middot; '
+           '<a href="explorer/index.html">Skill explorer</a> &middot; <a href="docs/new-state-skill-map.html">Skill map table</a> &middot; <a href="docs/skill-quality.html">How skills are rated</a> &middot; '
            '<a href="spec/index.html">Specification</a> &middot; <a href="downloads/core-library.zip">Download the core library</a></p>')
     src = src.replace("</body>", bar + "</body>", 1)
     (out / "index.html").write_text(src, encoding="utf-8")
@@ -269,10 +305,22 @@ render();
         i = info[n]
         where = "".join(f'<li><a href="../../explorer/index.html#{esc(x["lane"])}">{esc(x["laneTitle"])}</a>{" / " + esc(x["branch"]) if x["branch"] else ""} / {esc(x["step"])}{" <em>(proposed)</em>" if x["proposed"] else ""}</li>' for x in i["steps"]) or "<li>Not placed on the flow.</li>"
         files = "".join(f'<li>{k}: ' + ", ".join(f'<a href="{k}/{esc(Path(f).stem)}.html">{esc(f)}</a>' if f.endswith(".md") else f'<a href="{k}/{esc(f)}">{esc(f)}</a>' for f in v) + "</li>" for k, v in i["files"].items())
-        head = (f'<div class="card"><span class="badge {"b-warn" if i["state"] == "draft" else "b-ok"}">{"draft" if i["state"] == "draft" else "in use"}</span> '
+        qd = quality[n]
+        qcls = "b-ok" if qd["grade"] in "AB" else ("b-warn" if qd["grade"] == "C" else "b-grey")
+        cats = "".join(f"<tr><td>{k.capitalize()}</td><td>{qd['categories'][k]:g}</td><td>{int(qdata['weights'][k] * 100)}%</td></tr>"
+                       for k in qdata["weights"]) if "categories" in qd else ""
+        finds = "".join(f"<li>{esc(f['message'])} <small>(&minus;{f['deduction']:g}, {esc(f['dimension'])})</small></li>"
+                        for f in qd["findings"] if "recommended field missing" not in f["message"])
+        qcard = (f'<h3>Quality</h3><p><span class="badge {qcls}">Grade {qd["grade"]}, score {qd["score"]:g} of 100</span> '
+                 f'<small>NVIDIA SkillEvaluator quality check, {esc(qdata["run_date"])}; measures documentation quality, not task success. '
+                 f'<a href="../../docs/skill-quality.html">How skills are rated</a>.</small>'
+                 f'{" <em>This skill changed after its rating run: the score may be out of date.</em>" if qstale(n) else ""}</p>'
+                 f'{"<table><tr><th>Category</th><th>Score</th><th>Weight</th></tr>" + cats + "</table>" if cats else ""}'
+                 f'{"<p>Findings that cost points:</p><ul>" + finds + "</ul>" if finds else ""}')
+        head = (f'<div class="card"><span class="badge {qcls}">Quality {qd["grade"]} {qd["score"]:g}</span> '
                 f'<span class="badge b-grey">{esc(i["tier"])}</span> <span class="badge b-grey">{esc(i["lane"])}</span><p>{esc(i["desc"])}</p>'
                 f'<p><b>Authority:</b> {esc(i["authority"])}</p><p><a class="btn primary" href="../../{i["zip"]}">Download this skill (.zip)</a>'
-                f'<a class="btn" href="{esc(i["github"])}">On GitHub</a></p><h3>Where it sits in the process</h3><ul>{where}</ul><h3>Files</h3><ul>{files or "<li>SKILL.md only</li>"}</ul></div>')
+                f'<a class="btn" href="{esc(i["github"])}">On GitHub</a></p><h3>Where it sits in the process</h3><ul>{where}</ul>{qcard}<h3>Files</h3><ul>{files or "<li>SKILL.md only</li>"}</ul></div>')
         (od / "index.html").write_text(page(n, head + '<div class="card md">' + md_to_html(text, od, out) + "</div>", 2), encoding="utf-8")
         for sub in ("references", "assets"):
             for f in sorted((od / sub).glob("*.md")) if (od / sub).is_dir() else []:
@@ -286,7 +334,7 @@ render();
     dd.mkdir()
     # Only documents about the core process and the specification are published. The design records, the derivation and the
     # conformance notes describe the whole registry (extension skills included) and stay in the repository.
-    SITE_DOCS = ("new-state-skill-map.md", "agent-skills-spec.md", "okf-conventions.md")
+    SITE_DOCS = ("new-state-skill-map.md", "skill-quality.md", "agent-skills-spec.md", "okf-conventions.md")
     (dd / "new-state").mkdir()    # the process picture is the owner's ProcessFlow page (also the main page); the derived diagrams stay in the repository
     shutil.copy2(ROOT / "docs/new-state/OD_NewState_ProcessFlow.html", dd / "new-state" / "OD_NewState_ProcessFlow.html")
     for name in SITE_DOCS:

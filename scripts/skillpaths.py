@@ -26,6 +26,17 @@ def skill_dir(name):
     return LIBRARIES[library_of(name)] / name
 
 
+def folder_hash(name):
+    """Content hash of a skill folder (line endings normalised), to tell whether a quality rating is still current."""
+    import hashlib
+    h = hashlib.sha256()
+    base = skill_dir(name)
+    for f in sorted(p for p in base.rglob("*") if p.is_file() and "__pycache__" not in p.parts):
+        h.update(f.relative_to(base).as_posix().encode("utf-8") + b"\0")
+        h.update(f.read_bytes().replace(b"\r\n", b"\n") + b"\0")
+    return h.hexdigest()[:16]
+
+
 def folder_of(name):
     """Repository-relative folder of the library holding the skill: 'skills' or 'skills-extension'."""
     return LIBRARIES[library_of(name)].name
