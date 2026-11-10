@@ -113,6 +113,17 @@
   .foot .way{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--navy);}
 
   @media print{body{padding:0;background:#fff;}.page{box-shadow:none;border-radius:0;width:100%;}@page{size:A3 landscape;margin:8mm;}}
+
+  .chip.draft{background:var(--part-bg);color:var(--part);}
+  .chip.ext{background:#fff;color:var(--b2);border:1px solid var(--b4);font-weight:500;font-size:8px;}
+  .node.draft{border-top-color:var(--part);} .node.draft .state{color:var(--part);}
+  .node.human{border-top-color:var(--b4);background:#f7f9fd;} .node.human .state{color:var(--b2);}
+  .node.supplier{border-top-color:var(--melon-d);background:#fff6f3;} .node.supplier .state{color:var(--melon-d);}
+  .exts{display:flex;flex-wrap:wrap;gap:0;margin-top:2px;padding-top:4px;border-top:1px dotted var(--g6);}
+  .exts .lbl{font-size:7.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--g3);width:100%;margin-bottom:1px;}
+  .sw.draft{background:var(--part);} .sw.human{background:var(--b4);} .sw.supplier{background:var(--melon-d);}
+  .node .t{padding-right:40px;}
+  .chipk{display:inline-block;font-size:8.5px;padding:1px 6px;border-radius:3px;}
 </style>
 </head>
 <body>
@@ -120,166 +131,24 @@
   <header>
     <div class="logo"><div class="mark">neu<b>werk</b></div><div class="tag">The neuwerk way</div></div>
     <div class="eyebrow">Operations Digitalization &middot; MPEE</div>
-    <h1>New-State Service Lanes <span class="thin">— process flow with skills &amp; gaps</span></h1>
+    <h1>New-State Service Lanes <span class="thin">— process flow with the department skills</span></h1>
   </header>
-
   <div class="legend">
-    <div class="grp"><b>Skill state:</b>
+    <div class="grp"><b>Core skill:</b>
       <span class="st"><span class="sw built"></span>Built</span>
-      <span class="st"><span class="sw part"></span>Partial</span>
-      <span class="st"><span class="sw gap"></span>Gap (net-new)</span>
+      <span class="st"><span class="sw draft"></span>Draft</span>
+      <span class="st"><span class="sw human"></span>Human / plant step</span>
+      <span class="st"><span class="sw supplier"></span>Supplier gap</span>
     </div>
-    <div class="grp"><b>Owner:</b> <span class="own-k self">Self-service</span><span class="own-k od">OD-led</span><span class="own-k mix">OD / Ext / IT&middot;CS</span></div>
-    <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait (approval / CS / procurement)</div>
+    <div class="grp"><b>Extension:</b> <span class="chip ext">outlined chip</span> deepens the step</div>
+    <div class="grp"><span style="color:var(--melon-d);font-weight:700;font-size:13px;">&#8594;</span> external wait</div>
   </div>
-
-  <div class="flow">
-
-    <!-- ===== INTAKE ===== -->
-    <div class="lane" style="background:#f2f5fb;">
-      <div class="spine" style="background:var(--b1);">
-        <div class="ln">Intake</div><div class="nm">Classify</div>
-        <div class="ow">triage + fit-check</div>
-      </div>
-      <div class="body" style="background:#f2f5fb;">
-        <div class="track">
-          <div class="node built" style="flex:2;"><div class="t">Known use case?</div><span class="chip built">od-use-case-intake-triage</span><span class="chip built">invest-screen</span></div>
-          <div class="arr"></div>
-          <div class="node built"><div class="t">YES &rarr; run it</div><span class="chip built">Lane&nbsp;1</span></div>
-          <div class="arr"></div>
-          <div class="node built"><div class="t">NEW use case, machine connected</div><span class="chip built">Lane&nbsp;2</span></div>
-          <div class="arr"></div>
-          <div class="node built"><div class="t">NEW system / connector</div><span class="chip built">Lane&nbsp;3</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== LANE 1 ===== -->
-    <div class="lane l1">
-      <div class="spine">
-        <div class="ln">Lane 1</div><div class="nm">Run a known use case</div>
-        <div class="ow">Self-service</div>
-      </div>
-      <div class="body">
-        <div class="brow">
-          <div class="btag">1a<span>connected</span></div>
-          <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Pick from catalog</div><span class="chip gap">catalog-usecase</span></div>
-            <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Apply template</div><span class="chip built">od-analytics-asset-build</span></div>
-            <div class="arr"></div>
-            <div class="node gap"><span class="state">Gap</span><div class="t">Validate &amp; go live</div><span class="chip gap">catalog-guardrails</span></div>
-          </div>
-        </div>
-        <div class="brow">
-          <div class="btag">1b<span>not connected</span></div>
-          <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Pick UC + std system</div><span class="chip gap">catalog-usecase</span><span class="chip gap">catalog-systems</span></div>
-            <div class="arr wait"><span class="wlab">~d</span></div>
-            <div class="node part"><span class="state">Part</span><div class="t">Cost template + approval</div><span class="chip part">od-decision-routing</span></div>
-            <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Order &amp; connect system</div><span class="chip built">mi-connector</span></div>
-            <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Apply template &amp; go live</div><span class="chip built">od-analytics-asset-build</span></div>
-          </div>
-        </div>
-        <div class="fallnote">Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b></div>
-      </div>
-    </div>
-
-    <!-- ===== LANE 2 ===== -->
-    <div class="lane l2">
-      <div class="spine">
-        <div class="ln">Lane 2</div><div class="nm">Develop a new use case</div>
-        <div class="ow">OD-led</div>
-      </div>
-      <div class="body">
-        <div class="track">
-          <div class="node built"><span class="state">Built</span><div class="t">Define &amp; diagnose</div><span class="chip built">od-use-case-definition</span></div>
-          <div class="arr"></div>
-          <div class="node built"><span class="state">Built</span><div class="t">Features + data check</div><span class="chip built">funnel-requirements</span><span class="chip built">od-data-availability-check</span></div>
-          <div class="arr"></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Prototype / validate</div><span class="chip part">od-analytics-asset-build</span><span class="chip gap">PoC skill</span></div>
-          <div class="arr"></div>
-          <div class="node built"><span class="state">Built</span><div class="t">Business case + rank</div><span class="chip built">bc-build</span><span class="chip part">bc-assessment</span></div>
-          <div class="arr wait"><span class="wlab">~wks</span></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Capital request</div><span class="chip part">od-decision-routing</span></div>
-          <div class="arr"></div>
-          <div class="node part"><span class="state">Part</span><div class="t">Implement &amp; graduate</div><span class="chip built">od-handover-and-adoption</span><span class="chip gap">&rarr; catalog</span></div>
-        </div>
-        <div class="fallnote">Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b></div>
-      </div>
-    </div>
-
-    <!-- ===== LANE 3 ===== -->
-    <div class="lane l3">
-      <div class="spine">
-        <div class="ln">Lane 3</div><div class="nm">New system or connector</div>
-        <div class="ow">OD / Ext / IT&middot;CS</div>
-      </div>
-      <div class="body">
-        <!-- shared front-end -->
-        <div class="brow">
-          <div class="btag">Front&#8209;end<span>shared</span></div>
-          <div class="track">
-            <div class="node built"><span class="state">Built</span><div class="t">Requirements</div><span class="chip built">funnel-requirements</span></div>
-            <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Tool-decision gate</div><span class="chip built">invest-screen</span><span class="chip built">od-decision-routing</span></div>
-            <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Business case + capital</div><span class="chip built">bc-build</span></div>
-            <div class="fork">&#9666;</div>
-          </div>
-        </div>
-        <!-- 3a options -->
-        <div class="opts">
-          <div class="opt"><span class="h">3a.1 reuse app</span>deploy existing codebase</div>
-          <div class="opt"><span class="h">3a.2 self dev</span>build then deploy</div>
-          <div class="opt"><span class="h">3a.3 external dev</span>spec in-house, build ext.</div>
-          <div class="opt"><span class="h">3a.4 integrate</span>foreign app via IT&middot;CS</div>
-        </div>
-        <!-- 3a flow -->
-        <div class="brow">
-          <div class="btag">3a<span>new system</span></div>
-          <div class="track">
-            <div class="node gap"><span class="state">Gap</span><div class="t">Package / build</div><span class="chip gap">it-demand-package</span></div>
-            <div class="arr wait"><span class="wlab">CS ~wks</span></div>
-            <div class="node gap"><span class="state">Gap</span><div class="t">Deploy to platform + CS</div><span class="chip gap">deploy-appstore</span></div>
-            <div class="arr"></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Rollout &amp; adopt</div><span class="chip built">od-handover-and-adoption</span></div>
-          </div>
-        </div>
-        <!-- 3b flow -->
-        <div class="brow">
-          <div class="btag">3b<span>new connector</span></div>
-          <div class="track">
-            <div class="node built"><span class="state">Built</span><div class="t">Connector + pipeline to MDL</div><span class="chip built">mi-connector</span><span class="chip built">od-signal-standardization</span><span class="chip built">od-node-red-flow-builder</span></div>
-            <div class="arr wait"><span class="wlab">proc ~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Procure &amp; connect machine</div><span class="chip built">mi-connector</span></div>
-            <div class="arr wait"><span class="wlab">CS ~wks</span></div>
-            <div class="node built"><span class="state">Built</span><div class="t">Acceptance + CS &rarr; live</div><span class="chip built">od-acceptance-test</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ===== GAP STRIP ===== -->
-  <div class="gaps">
-    <h2>The only net-new builds</h2>
-    <div class="gaprow">
-      <div class="gcard"><div class="gn">catalog-usecase</div><div class="gl">Lane 1 &amp; 2</div><div class="gd">Plant self-serve catalog; Lane&nbsp;2 graduation target.</div></div>
-      <div class="gcard"><div class="gn">catalog-systems</div><div class="gl">Lane 1b</div><div class="gd">Standardized connection-kit list to match &amp; order.</div></div>
-      <div class="gcard"><div class="gn">catalog-guardrails</div><div class="gl">Lane 1</div><div class="gd">Self-check to go live without OD labour.</div></div>
-      <div class="gcard"><div class="gn">deploy-appstore</div><div class="gl">Lane 3a</div><div class="gd">Containerize &amp; deploy to platform + CS.</div></div>
-      <div class="gcard"><div class="gn">it-demand-package</div><div class="gl">Lane 3a</div><div class="gd">Package demand for IT / external dev.</div></div>
-      <div class="gcard thin"><div class="gn">prototype / PoC</div><div class="gl">Lane 2 &middot; thin</div><div class="gd">Exists partially via asset-build.</div></div>
-      <div class="gcard thin"><div class="gn">capital-request</div><div class="gl">Lane 2 &amp; 3 &middot; thin</div><div class="gd">Routing only, no packaging skill.</div></div>
-    </div>
-  </div>
-
+  <div class="flow"><div class="lane" style="background:#f2f5fb;"><div class="spine" style="background:var(--b1);"><div class="ln">Intake</div><div class="nm">Classify</div><div class="ow">one lane per demand</div></div><div class="body" style="background:#f2f5fb;"><div class="track"><div class="node human"><span class="state">Human</span><div class="t">i1 &middot; Classify the demand into exactly one lane</div><div class="who">human / plant step</div><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-use-case-intake-triage</span><span class="chip ext">od-first-aid-kit</span><span class="chip ext">od-event-object-modelling</span></div></div></div><div class="fallnote">Known &amp; catalogued &rarr; <b>Lane&nbsp;1</b> &nbsp;&middot;&nbsp; new recurring need &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; new system or connector &rarr; <b>Lane&nbsp;3</b> &nbsp;&middot;&nbsp; no roadmap link or nameable business case &rarr; <b>refuse</b></div></div></div><div class="lane l1"><div class="spine"><div class="ln">Lane 1</div><div class="nm">Run a known use case</div><div class="ow">Self-service</div></div><div class="body"><div class="brow"><div class="btag">1a<span>connected</span></div><div class="track"><div class="node draft"><span class="state">Draft</span><div class="t">1a1 &middot; Pick from the catalog</div><span class="chip draft">catalog-usecase</span></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">1a2 &middot; Apply the standard template (self-service)</div><span class="chip draft">ops-dashboard-datatron</span><span class="chip built">ops-dashboard-engine</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-analytics-asset-build</span><span class="chip ext">od-template-resolution</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">1a3 &middot; Guardrails, go live, confirm adoption</div><span class="chip draft">catalog-guardrails</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-handover-and-adoption</span><span class="chip ext">od-rollout-training</span></div></div></div></div><div class="brow"><div class="btag">1b<span>not connected</span></div><div class="track"><div class="node draft"><span class="state">Draft</span><div class="t">1b1 &middot; Pick the use case and the standard system</div><span class="chip draft">catalog-usecase</span><span class="chip draft">catalog-systems</span></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">1b2 &middot; Cost template, approved by the plant budget owner</div><span class="chip draft">bc-cost</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-decision-routing</span></div></div><div class="arr wait"><span class="wlab">~d</span></div><div class="node built"><span class="state">Built</span><div class="t">1b3 &middot; Order and connect; Cyber Security sign-off in parallel</div><span class="chip built">mi-connector</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-cybersec-gate</span></div></div><div class="arr wait"><span class="wlab">~wks</span></div><div class="node draft"><span class="state">Draft</span><div class="t">1b4 &middot; Standardized deployment, go live, confirm adoption</div><span class="chip draft">ops-dashboard-datatron</span><span class="chip draft">catalog-guardrails</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-handover-and-adoption</span><span class="chip ext">od-rollout-training</span></div></div></div></div><div class="fallnote">Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b></div></div></div><div class="lane l2"><div class="spine"><div class="ln">Lane 2</div><div class="nm">Develop a new use case</div><div class="ow">OD-led</div></div><div class="body"><div class="track"><div class="node human"><span class="state">Human</span><div class="t">21 &middot; Capture the idea, process diagnostics</div><div class="who">human / plant step</div><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-use-case-definition</span><span class="chip ext">od-workshop-facilitation</span><span class="chip ext">od-first-aid-kit</span><span class="chip ext">od-event-object-modelling</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">22 &middot; Requirements, features and data check</div><span class="chip built">funnel-requirements</span><span class="chip draft">funnel-features</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-data-availability-check</span><span class="chip ext">od-use-case-solution-evaluation</span><span class="chip ext">od-event-object-modelling</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">23 &middot; Prototype / click-dummy, validated with the recipient</div><span class="chip draft">funnel-prototype</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-analytics-asset-build</span><span class="chip ext">od-governance-cadence</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">24 &middot; Business case (value and cost), assessment, ranking</div><span class="chip built">bc-build</span><span class="chip draft">bc-cost</span><span class="chip draft">bc-assess</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-portfolio-and-savings-analysis</span><span class="chip ext">od-plant-diagnosis</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">25 &middot; Capital request if investment is needed</div><span class="chip draft">bc-capital-request</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-decision-routing</span><span class="chip ext">od-project-order</span></div></div><div class="arr wait"><span class="wlab">~wks</span></div><div class="node draft"><span class="state">Draft</span><div class="t">26 &middot; Implement, evaluate impact, ensure adoption, catalogue</div><span class="chip draft">catalog-usecase</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-handover-and-adoption</span><span class="chip ext">od-use-case-standardization</span><span class="chip ext">od-analytics-asset-build</span><span class="chip ext">od-rollout-training</span><span class="chip ext">od-project-order</span></div></div></div><div class="fallnote">Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b></div></div></div><div class="lane l3"><div class="spine"><div class="ln">Lane 3</div><div class="nm">New system or connector</div><div class="ow">OD / Ext / IT&middot;CS</div></div><div class="body"><div class="brow"><div class="btag">Front&#8209;end<span>shared</span></div><div class="track"><div class="node built"><span class="state">Built</span><div class="t">31 &middot; Requirements engineering</div><span class="chip built">funnel-requirements</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-workshop-facilitation</span></div></div><div class="arr"></div><div class="node built"><span class="state">Built</span><div class="t">32 &middot; Tool-decision / IT-footprint gate (make, buy, integrate or connect)</div><span class="chip built">invest-screen</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-decision-routing</span><span class="chip ext">od-migration-cutover</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">33 &middot; Business case, prioritization, capital request</div><span class="chip built">bc-build</span><span class="chip draft">bc-cost</span><span class="chip draft">bc-assess</span><span class="chip draft">bc-capital-request</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-project-order</span></div></div><div class="arr wait"><span class="wlab">~wks</span></div><div class="node draft"><span class="state">Draft</span><div class="t">34 &middot; Handover once the demand is clear</div><span class="chip draft">it-demand-package</span></div></div></div><div class="opts"><div class="opt"><span class="h">3a.1 reuse app</span>deploy existing codebase</div><div class="opt"><span class="h">3a.2 self dev</span>build then deploy</div><div class="opt"><span class="h">3a.3 external dev</span>guided buy, IT guidelines</div><div class="opt"><span class="h">3a.4 integrate</span>foreign app via IT&middot;CS</div><div class="opt"><span class="h">3b connector</span>new machine connection</div></div><div class="brow"><div class="btag">3a<span>new system</span></div><div class="track"><div class="node draft"><span class="state">Draft</span><div class="t">3a4 &middot; Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app)</div><span class="chip draft">deploy-appstore</span><span class="chip draft">it-demand-package</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-project-order</span></div></div><div class="arr"></div><div class="node draft"><span class="state">Draft</span><div class="t">3a5 &middot; Deploy to the platform, acceptance, Cyber Security sign-off</div><span class="chip draft">deploy-appstore</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-acceptance-test</span><span class="chip ext">od-cybersec-gate</span><span class="chip ext">od-migration-cutover</span></div></div><div class="arr wait"><span class="wlab">CS ~wks</span></div><div class="node human"><span class="state">Human</span><div class="t">3a6 &middot; Rollout and adoption; ownership on formal acceptance</div><div class="who">human / plant step</div><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-handover-and-adoption</span><span class="chip ext">od-rollout-training</span><span class="chip ext">od-migration-cutover</span></div></div></div></div><div class="brow"><div class="btag">3b<span>new connector</span></div><div class="track"><div class="node built"><span class="state">Built</span><div class="t">3b4 &middot; Connector design and data pipeline (edge to data platform)</div><span class="chip built">mi-connector</span><span class="chip built">ops-pipeline</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-signal-standardization</span><span class="chip ext">od-cross-plant-compatibility</span></div></div><div class="arr"></div><div class="node built"><span class="state">Built</span><div class="t">3b5 &middot; Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent</div><span class="chip built">mi-connector</span><span class="chip built">ops-pipeline</span><div class="who" style="color:var(--melon-d)">Integration execution is supplier-dependent (App-Store-Ops feature request)</div><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-cybersec-gate</span></div></div><div class="arr wait"><span class="wlab">procurement ~wks</span></div><div class="node human"><span class="state">Human</span><div class="t">3b6 &middot; Acceptance test, live on the data platform</div><div class="who">human / plant step</div><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-acceptance-test</span></div></div></div></div><div class="fallnote">Hand over only once the demand is clear &nbsp;&middot;&nbsp; Cyber Security runs in parallel and blocks go-live &nbsp;&middot;&nbsp; delivery after handover is IT / external</div></div></div><div class="lane" style="background:#f7f8fc;"><div class="spine" style="background:var(--g2);"><div class="ln">Spine</div><div class="nm">Every step</div></div><div class="body" style="background:#f7f8fc;"><div class="node built"><span class="state">Built</span><div class="t">spine &middot; Context layer</div><span class="chip built">dept-os</span><div class="exts"><span class="lbl">extension</span><span class="chip ext">od-ai-generation-playbook</span><span class="chip ext">od-scorecard-reporting</span><span class="chip ext">od-context-freshness</span><span class="chip ext">od-template-resolution</span><span class="chip ext">od-retro</span><span class="chip ext">od-risk-watch</span><span class="chip ext">od-plant-onboarding</span><span class="chip ext">od-governance-cadence</span><span class="chip ext">od-plant-diagnosis</span><span class="chip ext">od-sharepoint-list-export</span></div></div></div></div></div>
+  <div class="gaps"><h2>Still open: 11 of 18 core skills are drafts</h2><div class="gaprow"><div class="gcard thin"><div class="gn">bc-assess</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">bc-capital-request</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">bc-cost</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">catalog-guardrails</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">catalog-systems</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">catalog-usecase</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">deploy-appstore</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">funnel-features</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">funnel-prototype</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">it-demand-package</div><div class="gl">core &middot; draft</div></div><div class="gcard thin"><div class="gn">ops-dashboard-datatron</div><div class="gl">core &middot; draft</div></div><div class="gcard"><div class="gn">Integration execution</div><div class="gl">Lane 3b &middot; supplier gap</div><div class="gd">Not an OD skill; waits on the App-Store-Ops supplier decision.</div></div></div></div>
   <div class="foot">
-    <div class="src">Source: new-state model (<b>Thomas, 2026-09</b>) &amp; the <b>OD skill registry</b> (25 skills). Green/amber/grey read from each <code style="font-family:var(--font);background:#eef1f8;padding:0 3px;border-radius:2px">SKILL.md</code>. <b>Corrected vs draft:</b> Lane&nbsp;3b + rollout + acceptance are Built, not gaps.</div>
+    <div class="src">Generated by <b>scripts/build_process_flow.py</b> from <b>docs/new-state/process.yaml</b> and each skill's <code>SKILL.md</code>
+    status (stable = built, draft = draft). Core = the department's skills (18, 7 built); lanes from the department's
+    new-state lane files (Thomas, 2026-09) and the OD x IT alignment of 2026-09-11.</div>
     <div class="way">The neuwerk way</div>
   </div>
 </div>
