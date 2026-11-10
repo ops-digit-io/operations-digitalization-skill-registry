@@ -13,8 +13,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 Use this when someone says "we have Rockwell machines at the plant, what happens to them?". It
 tells you **how to read the written-down status** per family and what patterns to expect. It does
-not rank difficulty (that is [`barrier-classes.md`](barrier-classes.md), an elicited judgement)
-and it does not give the configuration (that is [`decision-paths.md`](decision-paths.md) and the
+not rank difficulty (that is `barrier-classes.md`, an elicited judgement)
+and it does not give the configuration (that is `decision-paths.md` and the
 Softing and edge references).
 
 **This file holds no counts.** The per-vendor, per-model and per-protocol tables that used to sit
@@ -31,7 +31,7 @@ Statements marked **Rule** cite where they come from.
 2. **Rule (this analysis):** read a family by status, by route **and** by plant. A family whose
    integrated machines all sit in one plant shows that plant's decision, not that the family is
    easy.
-3. **Rule ([`connectors.md`](connectors.md)):** where the Overview's native connector is `NOT
+3. **Rule (`connectors.md`):** where the Overview's native connector is `NOT
    AVAILABLE`, ask what the machine exposes; `DTQ-OPCUA-Connector` reaches any OPC UA server.
 4. **Data-quality trap:** the vendor field carries variant spellings of the same vendor (for
    example `Keba` / `KEBA Industrial Automation`, `VIPA` / `Vipa`, `Bachmann Electronic GmbH` /
@@ -84,7 +84,7 @@ spellings before grouping.
 
 - **Modbus / TCP:** nearly all rows integrated, but the route field records the aggregation route
   only for part of them and is blank for the rest. The statement that the high Modbus integration
-  rate reflects the aggregation-server route ([`barrier-classes.md`](barrier-classes.md)) is
+  rate reflects the aggregation-server route (`barrier-classes.md`) is
   visible in the route field for some rows and **not demonstrable from it for the others**. The
   bulk sits in one or two plants. ⟨How the Modbus machines of those plants reach the data
   platform. Who could supply it: the responsible IIAE.⟩ The edge `DTQ-MODBUS-Connector` is `Idea`
@@ -111,5 +111,5 @@ Who could supply it: OD lead or regional IIAE, from the eCR calculation template
 - Vault `Graph/Connectors` (`ConnectorOverview-List`) for connector names and states.
 - Vault `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified) for the one cost
   slide.
-- Registry references [`barrier-classes.md`](barrier-classes.md) and
-  [`connectors.md`](connectors.md) for the rules cited.
+- Registry references `barrier-classes.md` and
+  `connectors.md` for the rules cited.

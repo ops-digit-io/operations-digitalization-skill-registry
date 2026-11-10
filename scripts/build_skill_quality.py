@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Turn a SkillEvaluator quality-check report into the registry's skill ratings (stdlib).
 
-    python scripts/build_skill_quality.py REPORT.json [--default-report DEFAULT.json] \
+    python scripts/build_skill_quality.py CORE.json [EXTENSION.json ...] [--default-report DEFAULT.json] \
         --tool-commit d717f22 --run-date 2026-11-10          # write docs/new-state/skill-quality.json + docs/skill-quality.md
-    python scripts/build_skill_quality.py --check            # fail if the page is stale or a core skill has no rating
+    python scripts/build_skill_quality.py --check            # fail if the page is stale or a skill has no rating
 
 The ratings come from NVIDIA SkillEvaluator (Apache-2.0, https://github.com/NVIDIA/SkillEvaluator), tier 1
 `quality-check`, run with this repository's `config/skill-quality.yaml`:
 
     skillevaluator quality-check skills --quality-config config/skill-quality.yaml -r json -o <output>
+    skillevaluator quality-check skills-extension --quality-config config/skill-quality.yaml -r json -o <output>
 
 The tool is not run here (it needs Python 3.12 or newer and its own dependencies); this script only reads its JSON
 report. Category scores are derived as 100 minus the deductions of that category, which reproduces the tool's overall
@@ -55,8 +56,10 @@ def read_report(path: Path) -> dict:
     return {"skills": out, "config": d.get("quality_config", {}), "min_score": d.get("quality_config", {}).get("min_score")}
 
 
-def build(report: Path, default_report: Path | None, tool_commit: str, run_date: str) -> dict:
-    main = read_report(report)
+def build(reports: list[Path], default_report: Path | None, tool_commit: str, run_date: str) -> dict:
+    main = read_report(reports[0])
+    for extra in reports[1:]:
+        main["skills"].update(read_report(extra)["skills"])
     dflt = read_report(default_report)["skills"] if default_report else {}
     skills = {}
     for name, v in sorted(main["skills"].items()):
@@ -73,6 +76,7 @@ def build(report: Path, default_report: Path | None, tool_commit: str, run_date:
             entry["default_score"] = dflt[name]["score"]
         skills[name] = entry
     mean = round(sum(s["score"] for s in skills.values()) / len(skills), 1)
+    core_scores = [s["score"] for n, s in skills.items() if skp.library_of(n) == "core"]
     return {
         "tool": {"name": "NVIDIA SkillEvaluator", "license": "Apache-2.0", "source": "https://github.com/NVIDIA/SkillEvaluator",
                  "commit": tool_commit, "tier": "1, quality-check (deterministic, offline)",
@@ -82,12 +86,13 @@ def build(report: Path, default_report: Path | None, tool_commit: str, run_date:
         "weights": WEIGHTS,
         "scale": {g: lo for g, lo in SCALE},
         "mean": mean,
+        "mean_core": round(sum(core_scores) / len(core_scores), 1),
         "skills": skills,
     }
 
 
 def render(data: dict) -> str:
-    sk = data["skills"]
+    sk = {n: v for n, v in data["skills"].items() if skp.library_of(n) == "core"}  # the published page lists core skills only
     L = ["---", "type: Design Record", "title: Skill quality",
          'description: "How the core skills are rated (NVIDIA SkillEvaluator tier 1 quality-check with the registry\'s own configuration): the scale, the four categories, what the score does not measure, and the score of every core skill."',
          "status: draft", "owner: human:jakob.gabriel", "tags: [quality, rating, process-flow]",
@@ -110,10 +115,11 @@ def render(data: dict) -> str:
          "## What the score does not measure", "",
          "- It rates **documentation quality**: structure, wording, size and completeness. It does **not** measure whether a skill helps an agent do the task; "
          "that is the tool's tier 3 (live runs with and without the skill) and the evaluation method of the Agent Skills guides, neither of which has been run.",
-         "- Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`, "
-         "which this registry does not use, so differences between skills come from the other findings.",
+         "- Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. "
+         "The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; "
+         "differences between skills come from the other findings.",
          "- Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.", "",
-         f"## Scores of the core skills (mean {data['mean']})", "",
+         f"## Scores of the core skills (mean {data['mean_core']})", "",
          "| Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |", "|---|---|---|---|---|---|---|---|"]
     for name, s in sorted(sk.items(), key=lambda kv: (-kv[1]["score"], kv[0])):
         c = s.get("categories", {})
@@ -140,16 +146,16 @@ def check() -> int:
         return 1
     data = json.loads(DATA.read_text(encoding="utf-8"))
     core = [n for n in skp.all_ids() if skp.library_of(n) == "core"]
-    missing = [n for n in core if n not in data["skills"]]
+    missing = [n for n in skp.all_ids() if n not in data["skills"]]
     if missing:
-        print("core skills without a quality rating:", ", ".join(missing))
+        print("skills without a quality rating:", ", ".join(missing))
         return 1
     cur = PAGE.read_text(encoding="utf-8") if PAGE.exists() else ""
     if cur.replace("\r\n", "\n") != render(data):
         print("stale: docs/skill-quality.md")
         return 1
-    stale = [n for n in core if data["skills"][n]["folder_hash"] != skp.folder_hash(n)]
-    print("skill quality ratings present for all core skills" + (f"; changed since the rating run (rerun the tool): {', '.join(stale)}" if stale else ""))
+    stale = [n for n in skp.all_ids() if data["skills"][n]["folder_hash"] != skp.folder_hash(n)]
+    print("skill quality ratings present for all skills" + (f"; changed since the rating run (rerun the tool): {', '.join(stale)}" if stale else ""))
     return 0
 
 
@@ -157,11 +163,12 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if "--check" in a:
         raise SystemExit(check())
-    rep = Path(a[0])
+    opts = {"--default-report", "--tool-commit", "--run-date"}
+    reps = [Path(x) for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in opts)]
     dflt = Path(a[a.index("--default-report") + 1]) if "--default-report" in a else None
     commit = a[a.index("--tool-commit") + 1] if "--tool-commit" in a else ""
     day = a[a.index("--run-date") + 1] if "--run-date" in a else ""
-    data = build(rep, dflt, commit, day)
+    data = build(reps, dflt, commit, day)
     DATA.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     PAGE.write_text(render(data), encoding="utf-8", newline="\n")
     print(f"wrote {DATA.relative_to(ROOT)} and {PAGE.relative_to(ROOT)}: {len(data['skills'])} skills, mean {data['mean']}")

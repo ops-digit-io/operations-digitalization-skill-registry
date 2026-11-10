@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Failure cases and routing
 
-A guardrail earns its place only if a failure has been recorded that it would have caught. The list below is the failure patterns the sources hold, without the counts (they move; read the cited source for the current ones). Guardrails G1 to G7 are in `SKILL.md`; G8 to G18 are the candidates in [technical-guardrails.md](../../catalog-guardrails/references/technical-guardrails.md)).
+A guardrail earns its place only if a failure has been recorded that it would have caught. The list below is the failure patterns the sources hold, without the counts (they move; read the cited source for the current ones). Guardrails G1 to G7 are in `SKILL.md`; G8 to G18 are the candidates in `../../catalog-guardrails/references/technical-guardrails.md`).
 
 ## Recorded failure patterns
 

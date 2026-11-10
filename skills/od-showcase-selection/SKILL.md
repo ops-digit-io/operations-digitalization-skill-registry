@@ -16,6 +16,8 @@ metadata:
   new_state_lane: "Lane 4 (41)"
   new_state_step: "Select the use case and check the story"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owner agrees
+  author: Digital-Business-Value-Engineer (DBVE); the plant owner agrees
+  tags: [lane-4, practice, draft]
   authority_level: draft the selection record and recommend go, hold or no; the plant owner and the OD lead decide
   status: draft
   sources_read: 2026-11-10
@@ -44,6 +46,10 @@ Read `od-context` first. Lane 4 is the outbound lane: it tells other plants, lea
 - **In:** a use case at `PRODUCTIVE`, its handover record (`od-handover-and-adoption`), its savings status (`od-benefit-calculation`), the plant owner.
 - **Out:** the filled [`assets/selection-record.md`](assets/selection-record.md): go, hold or no, the audience, the claims that may be made with their evidence class, and the open points. A `go` goes to `od-comms-brief`.
 
+## Purpose
+
+Decides whether a live, adopted use case is ready to be told to the rest of the company, and which claims it may carry. Use it when a use case has gone productive, when someone asks to publicise a result, or before any story is briefed to Internal Communications (step 41).
+
 ## The gate, in order
 
 1. **Live and adopted.** Delivery status `PRODUCTIVE`, and the recipient confirmed adoption into the daily process. Implemented is not adopted; a use case with utilization `NEVER` is not a story yet.
@@ -61,6 +67,19 @@ Read `od-context` first. Lane 4 is the outbound lane: it tells other plants, lea
 | **Hold** | Adoption not yet confirmed, a figure is still a claim and the story needs it, the plant owner has not answered | Name what is missing and the owner; revisit at the next review |
 | **No** | The plant owner declines, the use case is not live, or the story cannot be told without a sensitive detail | Record the reason; do not retry through another channel |
 
+## Procedure
+
+Work the six gate steps in order ("The gate, in order"), fill the selection record, and give one verdict from the table above. If a gate step fails validation (a failure, not a pass), the verdict is Hold (something is missing) or No (the owner declines or a sensitive detail cannot be removed); record the reason either way.
+
+Fictional example (plant and figures invented for illustration):
+
+```text
+Use case: U at plant X, status PRODUCTIVE, adoption confirmed
+Claim: "saves 1,000 EUR per year" - ESTIMATION (fictional figure), no baseline registered -> worded as a claim
+Sensitivity screen: pass; people content: roles and screenshots only
+Verdict: Go -> od-comms-brief
+```
+
 ## Human gate and AI-agent notes
 
 - **Agent may:** read the use-case record, draft the selection record, list what is missing. **Humans decide:** the plant owner (consent and claims), the OD lead (whether OD tells it).
@@ -73,6 +92,10 @@ Read `od-context` first. Lane 4 is the outbound lane: it tells other plants, lea
 - Quoting the savings from the business case as if they were measured.
 - Naming the engineer who built it. Name the role and the plant.
 - Treating a published story as permanent: it ages (see `od-showcase-followup`).
+
+## Definition of done
+
+The selection record is filled: verdict, audiences, claims with their evidence class, open points and owners. A Go has been handed to `od-comms-brief`.
 
 ## References
 

@@ -202,15 +202,15 @@ def main() -> int:
                 if not re.search(r"(?<![\w-])" + re.escape(name) + r"(?![\w-])", mer):
                     fail(f"OD_NewState_Flow.mermaid does not draw core skill '{name}'")
 
-    # Every core skill carries a quality rating (docs/new-state/skill-quality.json, made from a SkillEvaluator report
+    # Every skill carries a quality rating (docs/new-state/skill-quality.json, made from a SkillEvaluator report
     # by scripts/build_skill_quality.py). A skill changed since its rating run only warns: the rating is then out of date.
     quality_file = ROOT / "docs" / "new-state" / "skill-quality.json"
     if quality_file.exists():
         import json
         rated = json.loads(quality_file.read_text(encoding="utf-8")).get("skills", {})
-        for name in sorted(n for n in on_disk if skillpaths.library_of(n) == "core"):
+        for name in sorted(on_disk):
             if name not in rated:
-                fail(f"core skill '{name}' has no quality rating in docs/new-state/skill-quality.json (run SkillEvaluator, then scripts/build_skill_quality.py)")
+                fail(f"skill '{name}' has no quality rating in docs/new-state/skill-quality.json (run SkillEvaluator, then scripts/build_skill_quality.py)")
             elif rated[name].get("folder_hash") != skillpaths.folder_hash(name):
                 print(f"note: '{name}' changed since its quality rating; rerun the rating", file=sys.stderr)
 

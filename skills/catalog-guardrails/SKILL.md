@@ -1,7 +1,7 @@
 ---
 name: catalog-guardrails
 description: >-
-  Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails): run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform boundary, lean footprint, no invented figures, a named owner, handover, Cyber Security - plus the screen-level and IT technology guardrails (stack, CMO, approved interfaces, observability, growth boundaries). Use at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed.
+  Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails): run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform boundary, lean footprint, no invented figures, a named owner, handover, Cyber Security - plus the screen-level and IT technology guardrails (stack, CMO, approved interfaces, observability, growth boundaries). Use at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed. Not for deciding go-live (the plant decides) or for checking data availability (od-data-availability-check).
 license: MIT
 metadata:
   id: catalog-guardrails
@@ -11,6 +11,8 @@ metadata:
   new_state_step: "Guardrails, go live, confirm adoption"
   department_names: ["catalog-guardrails"]
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant runs the check
+  author: Digital-Business-Value-Engineer (DBVE); the plant runs the check
+  tags: [department-core, lane-1]
   authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
   status: draft
   sources_read: 2026-11-10
@@ -26,6 +28,14 @@ metadata:
     generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Catalog guardrails
+
+## Purpose
+
+Run the go-live self-check for a catalogued use case that a plant applied itself, and keep self-service inside the guardrails. Use it at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed.
+
+## Inputs and output
+
+Inputs: the Part A match record (and, on branch 1b, the system match record), the data-availability verdict, the handover record, and evidence for each guardrail (a verdict, a source, a name). Output: the go-live check record ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)) with a result per guardrail, evidence, date and who answered.
 
 Read `od-context` first. The department's `catalog-guardrails`: the boundaries inside which a plant runs a catalogued use case itself, and the go-live self-check (steps 1a3 and 1b4). Self-service stays inside pre-approved guardrails; anything outside them is not self-service.
 
@@ -77,3 +87,25 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 
 - Do not present the seeded guardrails as a finished, approved set.
 - Do not let a failed guardrail pass as a warning when it is marked block.
+
+## Human gate and AI-agent notes
+
+An agent may draft the go-live check record, collect evidence, and report which guardrails passed, failed or were not checked. The plant owner role decides `PRODUCTIVE`. The Cyber Security role signs off any external connection (G7). The OD lead role confirms the candidate guardrails G8 to G19 and P1 to P7 and any new guardrail. An agent never marks a failed guardrail as passed.
+
+## Example
+
+Fictional example (all values invented for illustration):
+
+```text
+Input : use case "line-state board", plant "Plant X", plant owner role named, data verdict fresh
+Check : G1 passed (verdict dated), G2 passed, G3 passed, G4 failed (a savings number without source),
+        G5 passed, G6 passed, G7 not checked (no external connection), G7a passed
+Output: go-live check record; result "no go-live" - remove the number or mark it to be collected;
+        final line "go-live decision: the plant's"
+```
+
+If it fails: a failed or unvalidated guardrail means no go-live; route back as the table in "The guardrails" says. A guardrail with no evidence is "not checked", not "passed".
+
+## Definition of done
+
+The go-live check record is complete (every guardrail has a result, evidence, date and answering role), the utilization expectation is written into it, any failure is routed back, and the plant owner role has the report for its go-live decision.

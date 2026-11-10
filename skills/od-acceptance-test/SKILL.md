@@ -6,7 +6,8 @@ description: >-
   failure into the right rework loop rather than around it. Use when an integration is
   complete, a solution is ready, an acceptance protocol needs writing, or a delivery is
   being declared done. Acceptance sign-off is human-only; an agent drafts the protocol
-  and reports the result, never approves it.
+  and reports the result, never approves it. Not for building the integration (od-equipment-integration)
+  or for adoption after the pass (od-handover-and-adoption).
 license: MIT
 metadata:
   id: od-acceptance-test
@@ -15,6 +16,8 @@ metadata:
   new_state_lane: "Lane 3a (3a5), Lane 3b (3b6)"
   new_state_step: "Deploy to the platform, acceptance, Cyber Security sign-off; Acceptance test, live on the data platform"
   owner_role: IIoT Interface & Automation Engineer (IIAE)
+  author: IIoT Interface & Automation Engineer (IIAE)
+  tags: [information-integration-service, practice, project-support-consultancy]
   authority_level: draft the protocol; report the result; sign-off is human-only
   status: stable
   origin: derived
@@ -48,6 +51,28 @@ on step 5 of both the Information Integration and the Project Support playbooks,
 is the one an agent may prepare but never pass. Every kind of work composing into this
 gate — a connected machine, a Node-RED flow, a dashboard, an evaluated use case — passes
 through the same gate, but not the same test: see `references/test-structure.md`.
+
+## Purpose
+
+Use this skill when an integration or a delivered solution is ready to be declared done. It defines what "passed"
+means before the build, checks the result against it, and routes a failure into the right rework loop.
+
+## Inputs and output
+
+- **In:** the requirement breakdown, the signal standard, the artefact to test, the plant witness.
+- **Out:** a filled [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) with every result recorded,
+  a sign-off by a human on the receiving side, and section 6 for `od-handover-and-adoption`.
+
+Short example of one protocol item (fictional example; the signal and values are invented):
+
+```text
+Item 3   Signal: spindle_temp (fictional)   Path: machine -> connector -> edge -> offload -> data platform -> dashboard
+Expected: value within the stated tolerance at the dashboard   Witness: plant ME (role)
+Result:   passed | failed   Finding (if failed): written in section 4, rework loop named
+```
+
+If an item fails or the data stops short of the asset the plant opens, the acceptance is not valid: record the
+finding and follow the rework loop below.
 
 ## The references are the substance
 
@@ -103,6 +128,13 @@ happens — one document per artefact, its six sections matching the steps below
 6. On pass → fill §6 (handover readiness) and go to `od-handover-and-adoption`, which reads
    it directly. On failure → the matching rework loop from `references/signoff-and-rework.md`,
    with the finding written down in §4.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** draft the protocol from the requirement breakdown, prepare the test items, run the checks it has
+  access to and report each result, passes included.
+- **Only a human decides:** sign-off, by the plant witness or receiving owner (a role, named in the protocol); the
+  builder alone is not enough. The agent never passes, signs or marks `INTEGRATED`.
 
 ## Definition of done
 

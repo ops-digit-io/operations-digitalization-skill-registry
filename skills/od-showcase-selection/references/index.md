@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Readiness gate](readiness-gate.md) | Skill Reference | The five gate criteria for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear. |
+| Readiness gate (`readiness-gate.md`) | Skill Reference | The five gate criteria for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear. |

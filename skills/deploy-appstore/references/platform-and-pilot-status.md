@@ -51,7 +51,7 @@ The flow's term "Container Orchestration Platform" means the edge runtime of the
 
 - The initiative note calls the app store platform **CMO, Container Management & Orchestration** (registry, source host, GitOps catalog).
 - The same note lists the **IIoT edge runtime as a prerequisite that is "already deployed"**. The WIP landscape says the services would run "on the edge K8s runtime that already exists" and be "published through the same container registry and GitOps flow".
-- So there are **two layers**: the edge runtime (Kubernetes at the plant, Concept 3; the "Container Orchestration Platform") is where an app runs; the app store / CMO is how an app gets there. Record both layers in the package (see [../assets/deployment-package.md](../assets/deployment-package.md)).
+- So there are **two layers**: the edge runtime (Kubernetes at the plant, Concept 3; the "Container Orchestration Platform") is where an app runs; the app store / CMO is how an app gets there. Record both layers in the package (see `../assets/deployment-package.md`).
 
 ## What this means for the four sourcing routes of Lane 3a
 

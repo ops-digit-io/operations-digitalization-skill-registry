@@ -14,6 +14,8 @@ metadata:
   new_state_lane: "Lane 4 (44)"
   new_state_step: "Follow up and feed back into Lanes 1 to 3"
   owner_role: Digital-Business-Value-Engineer (DBVE)
+  author: Digital-Business-Value-Engineer (DBVE)
+  tags: [lane-4, practice, draft]
   authority_level: draft the follow-up log and the routing and recommend; OD lead and plant owners decide; Internal Communications owns any correction of a published item
   status: draft
   sources_read: 2026-11-10
@@ -50,6 +52,10 @@ Read `od-context` first. A story that is published and then forgotten is a cost.
 5. **Learn.** One line per promotion for the monthly retro: what worked, what did not, one change.
 6. **Measure,** with the definitions below and no targets until the department sets them.
 
+## Purpose
+
+Turns the reactions to a published use-case story into routed demand for the lanes that can serve it, and keeps the story true over time. Use it after Internal Communications publishes a story (step 44).
+
 ## Measures of the lane (definitions, proposed; no targets)
 
 | Measure | Definition | Source |
@@ -70,6 +76,24 @@ Read `od-context` first. A story that is published and then forgotten is a cost.
 - Answering a plant's request with a delivery date.
 - Quoting an IC reach figure that IC did not give.
 - Leaving a story up after the savings were restated.
+
+## Example
+
+Fictional example (plant and reaction invented for illustration):
+
+```text
+Story: use case U, plant X, channel: internal news, published 2026-01-01 (fictional)
+Reach: not reported by IC
+Reaction: "Plant Y wants this" -> Lane 1 request (catalog-usecase)
+Reaction: "Can it also read machine Z?" -> intake demand (Lane 2)
+Review date: set; next retro line: one change
+```
+
+If a reaction cannot be placed or a figure has no source, write "not reported" or ask the routing owner; do not guess. Check each log entry for a route and a review date before closing it, and treat an entry without them as invalid.
+
+## Definition of done
+
+The publication is recorded, every reaction has a route, the answers stay within the story's promise, a review date is set, and the log is filled.
 
 ## References
 

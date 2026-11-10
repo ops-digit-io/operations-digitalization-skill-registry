@@ -14,7 +14,7 @@ Thirteen patterns cover almost every flow in the estate. Each is given with its 
 shape, the real implementation, and what breaks it. Copy these; do not reinvent them.
 
 All of them sit inside the **`functional flow`** group of the canonical layout, between the
-decode side and the encode side — see [`architecture.md`](architecture.md).
+decode side and the encode side — see `architecture.md`.
 
 ---
 
@@ -177,7 +177,7 @@ if (released === true && state === 1 && !mode)   { msg.payload.valueString = "Ma
 ```
 
 This is the four-question classification from
-[`composing-transformations.md`](composing-transformations.md) in its most common shape —
+`composing-transformations.md` in its most common shape —
 several inputs latched in flow context, evaluated together — written as `if`/`else` because
 a `switch` node tests one property at a time. **Order the conditions most-specific first**:
 `state === 2` (Breakdown) has to be checked before a looser combination would otherwise
@@ -242,7 +242,7 @@ http request GET {url}/datatrons → set device endpoint
 ```
 
 **Fetch it once at startup, never per message.** A synchronous HTTP call inside the
-per-packet chain is the classic stall — see [`streaming.md`](streaming.md).
+per-packet chain is the classic stall — see `streaming.md`.
 
 `label` is not a `PLCPacket` field. It exists only inside the flow, and must be removed
 before the encode.

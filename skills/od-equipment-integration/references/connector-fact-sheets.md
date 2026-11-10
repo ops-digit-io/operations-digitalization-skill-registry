@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Connector fact sheets
 
-[`connectors.md`](connectors.md) answers "is the connector available?". This file adds what
+`connectors.md` answers "is the connector available?". This file adds what
 the Connector Overview records **beyond availability**: the technical limits that decide whether a
 connector fits a machine, the kind of endpoint each reaches, and the build or enhancement requests
 somebody wrote on the item.
@@ -48,8 +48,8 @@ the S7-1200 plus S7-1500 rows of the Machine List. So:
 | `DTQ-EthercatIO-Connector` | to MQTT | "Ethercat Master Connector for Beckhoff Clamps (e.g. for BLM AST80)". Not linked to machines; the EtherCAT rows of the Machine List are the population |
 | `DTQ-ALLENBRADLEY-ROCKWELL-Connector` | to MQTT | Rockwell / Allen-Bradley |
 | `DTQ-OMRON FINS-Connector` | OMRON FINS to MQTT | OMRON FINS PLCs |
-| `DTQ-OPCUA-Connector` | OPC-UA to MQTT | No PLC list, no comment. The bridge to the Central Aggregation Server and the direct reader of a machine's own server ([`connectors.md`](connectors.md)) |
-| `DTQ-MODBUS-Connector` | Modbus TCP to MQTT | "Default connector from the Edge Platform"; status `Idea`, utilization `USE`; see [`vendor-protocol-routes.md`](vendor-protocol-routes.md) for the Modbus rows |
+| `DTQ-OPCUA-Connector` | OPC-UA to MQTT | No PLC list, no comment. The bridge to the Central Aggregation Server and the direct reader of a machine's own server (`connectors.md`) |
+| `DTQ-MODBUS-Connector` | Modbus TCP to MQTT | "Default connector from the Edge Platform"; status `Idea`, utilization `USE`; see `vendor-protocol-routes.md` for the Modbus rows |
 
 ## Connectors for non-PLC endpoints
 
@@ -64,7 +64,7 @@ the S7-1200 plus S7-1500 rows of the Machine List. So:
 | `DTQ-Engel EMI-Connector` | Engel-specific to MQTT | `Idea`, `NOT AVAILABLE`. Comment: consider a custom connector for Engel machines, high-frequency time series (EMI) |
 | `DTQ-ZWICK-Connector` | not recorded | `Idea`, `NOT AVAILABLE`. "Custom connector to collect high-frequency data from zs2 files from Zwick" (example: pull-off tests). An estimate is written on the item |
 | `DTQ-SMB-Connector` | SMB file share to direct S3 upload | `Development`, `NOT AVAILABLE`. "Development to be started based on Laser Welding Machine Integration". A comment says it has priority and is in preparation to move ahead with eCR / funding and development |
-| `DTQ-SmartKlaus-Connector` | to MQTT | `Development`, `NOT AVAILABLE`. "Custom connector for Smart Klaus systems". A vision system whose missing connection to the MSB is a stated blocker for result feedback (see [`blockers-and-waves.md`](blockers-and-waves.md)) |
+| `DTQ-SmartKlaus-Connector` | to MQTT | `Development`, `NOT AVAILABLE`. "Custom connector for Smart Klaus systems". A vision system whose missing connection to the MSB is a stated blocker for result feedback (see `blockers-and-waves.md`) |
 | `DTQ-B&R-Connector`, `DTQ-Bachmann-Connector` | none recorded | `Idea`, `NOT AVAILABLE`; "Development to be started with Rollout in Dolne Vestenice" |
 
 ## Softing connectors (Softing Industrial)
@@ -111,5 +111,5 @@ Who could supply it: IIAE with the connector vendor's account owner.⟩
 - Vault `Graph/Connectors/*.md` (including the `SharePoint record (full text)` blocks), read
   2026-11-05.
 - Vault `Graph/Machines` links.
-- Registry reference [`connectors.md`](connectors.md) (availability) and
-  [`vendor-protocol-routes.md`](vendor-protocol-routes.md).
+- Registry reference `connectors.md` (availability) and
+  `vendor-protocol-routes.md`.

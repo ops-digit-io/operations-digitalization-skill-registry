@@ -67,11 +67,11 @@ request is phrased in their words:
 2. Read the standard column and check the **agreement** it names exists at this plant before
    checking any signal: ideal cycle time and micro-stop threshold (C01), reason catalogue
    (C05), recipient and acknowledgement (C05), control-limit source and reaction plan (C03).
-   These are definition gaps, not data gaps ([`failure-modes.md`](failure-modes.md)).
+   These are definition gaps, not data gaps (`failure-modes.md`).
 3. For *Manual Quality Data* the data does not come from a machine; use
-   [`non-machine-data-sources.md`](non-machine-data-sources.md).
+   `non-machine-data-sources.md`.
 4. For *Process Values*, *Andon*, *Process Quality* and *Alerts*, the machine path applies:
-   walk the six steps and use [`machine-list-completeness.md`](machine-list-completeness.md)
+   walk the six steps and use `machine-list-completeness.md`
    for the plant.
 5. Check step 6 against the delivered cases in your template (count the productive or
    implemented ones live; see `od-use-case-standardization` and the reference library). Many

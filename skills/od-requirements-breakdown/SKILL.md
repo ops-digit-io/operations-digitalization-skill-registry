@@ -22,6 +22,8 @@ metadata:
   scope: od
   origin: derived
   owner_role: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
+  author: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
+  tags: [all, od, practice]
   authority_level: draft the requirement; accept or refuse per intake; approvals are human
   status: stable
   sources_read: 2026-11-10
@@ -81,6 +83,14 @@ python3 ../../skills-extension/funnel-features/scripts/check_epic.py MyEpic.md
 
 Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a missing growth boundary, a placeholder role, a generic "so that", an epic with one story, a story without a use-in-a-real-shift criterion.
 
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| [`scripts/check_requirement.py`](scripts/check_requirement.py) | Completeness check of a requirement document before it crosses a lane boundary | `REQUIREMENT.md` (file), `--lane use-case`, `integration`, `project` or `analytical`, `--json` |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output: 2 blockers, 1 warnings, 0 ready.
+
 ## The epic
 
 The epic and its user stories are the department's next funnel stage, **`funnel-features`**: hand the accepted requirement there. This skill stops at the requirement and its lane variant.
@@ -113,6 +123,18 @@ Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-sc
 - **Agent may:** elicit, draft the requirement and epic, run both checks, list what is missing. **Humans decide:** accept or refuse per intake, whether the problem is the real one, who is the shift-use role, all approvals.
 - **Evidence to cite:** the verdict per signal, the library check result, the reliability label per figure, the check output.
 - Chain detail (category to method to data job, object/event/metadata checks, AI-assisted signal selection, rubrics): [`process-chain-practice.md`](references/process-chain-practice.md).
+
+## Example
+
+Fictional example (requirement and output invented for illustration):
+
+```text
+$ python3 scripts/check_requirement.py MyRequirement.md --lane use-case
+BLOCKER: signal list not verified (fictional output)
+exit code 2 -> fix, then re-run
+```
+
+If the check reports a blocker, validate the named section against [`requirement-template.md`](references/requirement-template.md) and re-run; do not hand over with a failed check.
 
 ## Pitfalls and open points
 

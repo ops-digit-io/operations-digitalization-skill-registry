@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 **A sample is not a census.** `Dashboard Exports/dashboards/` holds many JSON files per unique
 dashboard (runs repeat, and early runs kept a `raw/` copy; `run.json` files are run metadata). They
 are not meant to be opened one by one. Population-level numbers come from the generated inventory
-(`specs/data/dashboard-inventory.jsonl`), see [`dashboard-estate-baseline.md`](dashboard-estate-baseline.md);
+(`specs/data/dashboard-inventory.jsonl`), see `dashboard-estate-baseline.md`;
 this file shows what a dashboard looks like inside.
 
 ## Method (repeat it when you need a fresh look)

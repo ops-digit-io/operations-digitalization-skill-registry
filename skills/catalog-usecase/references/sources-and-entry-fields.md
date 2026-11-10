@@ -20,7 +20,7 @@ generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 
 At most the entries with a recorded CSP `Yes` are standard enough for another plant to take as they are. To see the
 current state, count the library entries in `Graph/Use Cases` by `csp_decision` (`Yes`, `No`, no recorded decision) and name
-those with a `Yes` ([`library-and-csp-state.md`](library-and-csp-state.md)). Re-count before quoting.
+those with a `Yes` (`library-and-csp-state.md`). Re-count before quoting.
 
 ## What exists today to build on - Part B (standard systems)
 
@@ -46,7 +46,7 @@ procedure (typically some Beckhoff, Omron, B&R, Bachmann and Modbus routes) are 
 | Indicative cost | ⟨to be supplied⟩ - feeds the cost template |
 | Lead time (procurement, Cyber Security) | ⟨to be supplied⟩ |
 | Cyber Security status | ⟨to be supplied⟩ |
-| Validated at | plants where machines are recorded `INTEGRATED` through the route - count live ([`validated-routes.md`](../../catalog-systems/references/validated-routes.md)), state the Machine List export date); ⟨plants where the *kit* runs⟩ to be supplied |
+| Validated at | plants where machines are recorded `INTEGRATED` through the route - count live (`../../catalog-systems/references/validated-routes.md`), state the Machine List export date); ⟨plants where the *kit* runs⟩ to be supplied |
 | What it is / what it is **not** | the tool's boundary sentences, so a request can be tested against them |
 | Integration recommended if | the trigger condition, tied to a named use case |
 | Cost class | free / per-connector / per-plant development - a class, not a number |

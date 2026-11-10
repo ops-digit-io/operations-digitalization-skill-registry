@@ -19,7 +19,7 @@ on the current export and name its date.
 ## Machine List
 
 Steps 1 to 3. Every row carries `plant`, `region` and `label`; everything else is partial.
-Measure the fill rate per field and per plant ([`machine-list-completeness.md`](machine-list-completeness.md)).
+Measure the fill rate per field and per plant (`machine-list-completeness.md`).
 
 | Field | What it decides | Expect |
 |---|---|---|
@@ -77,7 +77,7 @@ question for the platform, the other is a request to another lane.
 
 **Coverage is partial by plant.** Some plants have no Node-RED instance in the corpus; for
 those, step 4 cannot be answered from the bundle at all. Derive the list live as described in
-[`plant-instance-map.md`](plant-instance-map.md).
+`plant-instance-map.md`.
 
 ## Use case portfolio and reference library
 

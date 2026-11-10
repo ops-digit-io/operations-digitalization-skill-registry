@@ -10,8 +10,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Corpus census: how to read and how to obtain
 
-This file extends [`instances.md`](instances.md), [`artefacts.md`](artefacts.md) and
-[`topic-conventions.md`](topic-conventions.md). It holds **no counts**. Every figure about the estate
+This file extends `instances.md`, `artefacts.md` and
+`topic-conventions.md`. It holds **no counts**. Every figure about the estate
 (how many flows, instances, drivers, nodes) changes with each export; re-count on the live export
 before quoting one, and quote it with its source and date.
 
@@ -144,7 +144,7 @@ name - confirm in the flow's `config flow` comment):
 | `valueUpper/LowerRunningTolerance`, `...StoppedTolerance` | static limits |
 
 Rule (from `SKILL.md`): every UUID and every limit is a config key, never a literal. The asset
-[`../assets/flow-config-contract.md`](../assets/flow-config-contract.md) turns this into a form.
+`../assets/flow-config-contract.md` turns this into a form.
 
 Naming of the `datapoint*` keys follows the signal vocabulary of `od-signal-standardization` (see its
 `field-signal-vocabulary.md`): the key is `datapoint` + the concept name. Context keys are

@@ -7,7 +7,7 @@ description: >-
   CSP, daily use through the plant and proven value through SPRINT; and escalate to the
   right forum. Use before committing spend, approving an integration or a connection,
   changing a standard or a rollout, or whenever it is unclear whether an action is
-  recommend, execute-with-approval or execute-autonomously.
+  recommend, execute-with-approval or execute-autonomously. Not for assigning a request to a lane (od-use-case-intake-triage).
 license: MIT
 metadata:
   id: od-decision-routing
@@ -16,6 +16,8 @@ metadata:
   new_state_lane: "Lane 1b (1b2), Lane 2 (25), Lane 3 front-end (32)"
   new_state_step: "Cost template, approved by the plant budget owner; Capital request if investment is needed; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
   owner_role: OD lead
+  author: OD lead
+  tags: [all, practice]
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
   sources_read: 2026-11-10
@@ -39,6 +41,14 @@ metadata:
 ---
 
 # Decision routing and escalation
+
+## Purpose
+
+Answer "am I allowed to do this, and if not who decides?" for OD work: map a decision to its owner role, mode, approval, threshold and authority level, and escalate to the right forum. Use it before committing spend, approving an integration or connection, or changing a standard or a rollout.
+
+## Inputs and output
+
+Inputs: the decision or action in question, the use case or saving row it touches, and the decision-rights tables below. Output: a filled [`assets/decision-request.md`](assets/decision-request.md) naming the row or gate, what the table says, how it was routed and the outcome.
 
 Read `od-context` first.
 
@@ -145,3 +155,31 @@ Escalate on these triggers from the risk register:
 Fill [`assets/decision-request.md`](assets/decision-request.md) per decision, not as a
 mental note: which row or gate, what the table says, how it was routed, and the outcome —
 so a decision that stalled has a record of where, not just a memory of it.
+
+## Human gate and AI-agent notes
+
+An agent may look up the row, draft the decision request, state the recommendation and record the gate as a dependency. The decision itself stays with the named role in the table: the DBVE, IIAE, OD lead, plant budget owner, plant owner, receiving team or Cyber Security role, as the row says. Until the OD lead role re-verifies the decision rights, every row is used at most at `recommend`.
+
+## Example
+
+Fictional example (all values invented for illustration):
+
+```text
+Input : "Can we order a connection kit for Plant X?"
+Lookup: row "Equipment integration go-ahead": role IIAE with Plant ME / Plant IT, Tandem,
+        approval yes, Cyber Security sign-off for an external connection
+Output: decision request: routed to IIAE (Tandem); agent level recommend; gate recorded as
+        dependency; outcome: waiting for sign-off
+```
+
+If it fails: when no row or gate fits, or the rights look out of date, validate with the OD lead role and write "decision rights pending re-verification"; do not act on the row.
+
+## Definition of done
+
+The decision request names the row or gate, the deciding role, the mode, the authority level and the outcome; the gate is recorded as a dependency on the use case or saving row; escalation has been sent to the named role or forum when a trigger was met.
+
+## Do not
+
+- Do not act on a row above `recommend` while the decision rights are pending re-verification.
+- Do not narrow an action until it fits your authority level; produce the recommendation and route it.
+- Do not treat urgency as a substitute for the deciding role or the approval body.

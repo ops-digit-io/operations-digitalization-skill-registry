@@ -3,15 +3,13 @@ name: od-handover-and-adoption
 description: >-
   Close a use case properly — run the handover to the plant against its definition of
   done, confirm real adoption rather than delivery, and act on the gap between
-  implemented and productive. Covers the three-question handover test, the utilization
-  expectation, what to do about an asset nobody opens, and handing over the function
-  itself rather than a single use case. Use when a use case is being handed to a plant,
-  when someone asks whether something is actually in use, when utilization is low or
+  implemented and productive. Covers the three-question handover test, the utilization expectation, an asset nobody opens, and handing over the function itself. Use when a use case is being handed to a plant,
+  when someone asks whether a use case is actually in use, when utilization is low or
   `NEVER`, or when a role or portfolio is changing hands. Also covers the OD x IT ownership rules
-  (build-and-run, ownership moves only on formal acceptance, the handover checklist, recurring
-  self-assessment), the impact evaluation and adoption confirmation record of a live use case
+  (build-and-run, formal acceptance, handover checklist, self-assessment), the impact evaluation and adoption confirmation record of a live use case
   (formerly od-impact-evaluation) and the utilization review "deployed is not used" per site
   (formerly od-utilization-review).
+  Not for building the use case (od-analytics-asset-build) or cataloguing a proven result (od-use-case-standardization, catalog-usecase).
 license: MIT
 metadata:
   id: od-handover-and-adoption
@@ -20,6 +18,8 @@ metadata:
   new_state_lane: "Lane 1a (1a3), Lane 1b (1b4), Lane 2 (26), Lane 3a (3a6)"
   new_state_step: "Guardrails, go live, confirm adoption; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue; Rollout and adoption; ownership on formal acceptance"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
+  author: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
+  tags: [all, practice]
   authority_level: draft and report; the plant decides PRODUCTIVE
   status: stable
   origin: derived
@@ -45,6 +45,25 @@ metadata:
 # Handover and adoption
 
 Read `od-context` first.
+
+## Purpose
+
+Closes a use case properly: it runs the handover to the plant against the definition of done, confirms real adoption rather than delivery, and acts on the gap between `IMPLEMENTED` and `PRODUCTIVE`. Use it when a use case is handed to a plant, when someone asks whether it is in use, when utilization is low or `NEVER`, or when a role or portfolio changes hands.
+
+## Inputs and output
+
+- **Inputs**: the use case record (output asset, business process, utilization expectation), the acceptance protocol from `od-acceptance-test`, the data path to the machine, the named plant owner, and the utilization field.
+- **Output**: the filled [`assets/handover-protocol.md`](assets/handover-protocol.md), including the three-question result, the ADKAR barrier point and the evidence-of-adoption tier.
+
+## Procedure
+
+1. Pull the acceptance result from `od-acceptance-test`; do not re-ask it.
+2. Run the three-question test (section below) with the receiving side.
+3. Check the definition of done (section below): data path to the machine, named plant owner, use in a real shift, dependencies on the record.
+4. Record the adoption tier with the strongest evidence available ([`references/evidence-of-adoption.md`](references/evidence-of-adoption.md)).
+5. If utilization is low or `NEVER`, follow the section "When utilization is low or `NEVER`".
+6. For an application or a function changing owner, use the two handing-over sections below.
+7. Fill the protocol and hand it to the plant owner; reopen it on every scorecard cadence.
 
 ## The references are the substance
 
@@ -155,6 +174,24 @@ pulls its first section straight from `od-acceptance-test`'s protocol (no re-ask
 the three-question test, the ADKAR barrier point and the evidence-of-adoption tier, and its
 last section is what `od-scorecard-reporting` reads back on every cadence — reopen it, do
 not file it away after one good week.
+
+## Human gate and AI-agent notes
+
+- **An agent may**: prepare the protocol, run the three-question test as a checklist against the record, rate the ADKAR elements from the evidence, and draft the impact and utilization tables.
+- **Stays with roles**: the plant owner decides adoption and daily use; the receiving team formally accepts an application; the OD lead decides to retire an unused asset. An agent never marks a handover `DONE`.
+
+## Example
+
+Fictional example (invented, not a company record):
+
+```text
+Input : use case "shift summary" (fictional), utilization = NEVER, handover = ONGOING
+Output: three-question test: Q1 pass, Q2 fail (data path not written to the machine), Q3 pass
+        ADKAR barrier point: Desire (nobody asked for it)
+        adoption tier: none yet; action: review with requester or retire
+```
+
+If it fails: a test question the receiving side cannot answer, or a missing plant owner, means the handover is invalid and stays `ONGOING`.
 
 ## Do not
 

@@ -8,7 +8,7 @@ description: >-
   lane, the owner role and the trigger the request satisfies. Use whenever a request,
   demand, idea or "can you just…" arrives and it is not yet clear whether it is OD work,
   which lane it belongs to, or whether it should be refused. Also use to check that a
-  request already in flight was admitted on legitimate grounds.
+  request already in flight was admitted on legitimate grounds. Not for working out the decision rights of an accepted request (od-decision-routing).
 license: MIT
 metadata:
   id: od-use-case-intake-triage
@@ -17,6 +17,8 @@ metadata:
   new_state_lane: "Intake (i1)"
   new_state_step: "Classify the demand into exactly one lane"
   owner_role: OD lead
+  author: OD lead
+  tags: [all, practice]
   authority_level: recommend
   status: stable
   sources_read: 2026-11-10
@@ -37,6 +39,22 @@ metadata:
 ---
 
 # Use-case intake triage
+
+## Purpose
+
+Decide what OD does with an incoming request: accept it into exactly one new-state lane, refuse it, or route it to the function that owns it. Use it whenever a request, demand or idea arrives and it is not clear whether it is OD work or which lane it belongs to.
+
+## Inputs and output
+
+Inputs: the request, the channel it arrived through, and the references in this skill. Output: a one-line triage record per request (channel, lane, owner role, trigger satisfied, definition of done, priority basis, gate expected, known blockers) - see "Output of a triage".
+
+## Procedure
+
+1. Check the channel and record it ("Channels a request legitimately arrives through").
+2. Is it OD's at all? Refuse and name the owner if not (step 1 in "The triage").
+3. Apply the refusal list and shape the statement (steps 2 and 2b).
+4. Classify into exactly one lane (step 3), prioritize (step 4) and check against OD's position (step 5).
+5. Write the triage record and name the expected gate for `od-decision-routing`.
 
 Read `od-context` first. Without a defined entrance, the loudest channel steers the
 department — this skill is the entrance.
@@ -121,7 +139,7 @@ formalization (no scoring model, no weighting) beyond value-against-roadmap alig
 strategic-plant scope.
 
 **5 — Check the request against OD's position** before accepting a large one. A proposed
-action should leverage a strength, cover a weakness, capture an opportunity or mitigate a
+action should use a strength, cover a weakness, capture an opportunity or mitigate a
 threat. One that does none of these is worth questioning: check the department's current weaknesses and
 threats in the strategy record (look up: OD lead / latest ODEC strategy deck). Typical
 ones are integration running behind its yearly target and a value delivery cycle that is
@@ -145,3 +163,25 @@ owner was named. The work that stalls is almost never stuck on engineering.
 - Do not silently widen a lane's scope to make a request fit.
 - Do not record a priority you have inferred. Many use cases carry `UNKNOWN`
   priority and `UNKNOWN` is a truthful value.
+
+## Human gate and AI-agent notes
+
+An agent may draft the triage record, propose a lane and prepare a refusal with its reason and route. The decision to accept a large request, to set a priority and to refuse stays with the OD lead role; the DBVE role owns the intake record for Lane 1 and Lane 2; the demand owner role receives every refusal. An agent never records a priority it inferred.
+
+## Example
+
+Fictional example (all values invented for illustration):
+
+```text
+Input : "Can you just add a scrap-rate tile to the Plant X dashboard?" (via a plant workshop)
+Triage: channel = Use Case Definition workshop; OD's: yes; refusal list: no hit;
+        catalogued, machine connected -> Lane 1a
+Output: channel workshop | lane 1a | owner DBVE + plant | trigger: catalogued use case |
+        done: plant confirms adoption | priority: UNKNOWN | gate: plant go-live | blockers: none known
+```
+
+If it fails: a request that fails the SMART test or has no roadmap link is invalid for admission; return it to the demand owner with the reason and the route.
+
+## Definition of done
+
+The request has a recorded channel, exactly one lane (or a refusal returned to the demand owner with reason and route), an owner role, a priority basis (`UNKNOWN` is allowed) and the expected gate.

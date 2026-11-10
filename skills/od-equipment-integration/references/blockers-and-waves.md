@@ -39,7 +39,7 @@ non-blank, group by plant and by status, then classify each text with the table.
 | TIA V16 to V17 | "TIA V16 Upgrade necessary for TIA V17"; typically S7-1500 and S7-1200, `NOT INTEGRATED` | An engineering-software upgrade, discussed with the plant that already did it |
 | Cyber-security vulnerability | "Needs to be patched before integration"; typically S7-1500 | Patch first, then integrate |
 | Edge device allocation or hardware | "1x Edge Device dedicated to Module n needed"; "1x Edge Device (PROFIBUS / cifx) as actual machine"; "both machines connected to 1 Edge Device"; "Edge (together with camera)"; "Camera Hardware and Integration"; "no Edge device needed - S7-NET connector, due to manual operations within cell" | A cell-design decision: how many edge devices the plant buys (see the "approved edge device" constraint in [`SKILL.md`](../SKILL.md)) |
-| PLC program or PLC identity | "PLC Program missing, was wrong"; "when PLC Program is available, Integration is possible"; "Timeline for PLC / HMI renewal needs to be checked"; "IM151-1 Standard: No PLC. Which PLC-Type is used?" | The PLC-program gate; see [`fallbacks.md`](fallbacks.md) |
+| PLC program or PLC identity | "PLC Program missing, was wrong"; "when PLC Program is available, Integration is possible"; "Timeline for PLC / HMI renewal needs to be checked"; "IM151-1 Standard: No PLC. Which PLC-Type is used?" | The PLC-program gate; see `fallbacks.md` |
 | Not a blocker: labels, codes, numbers | Short codes such as "AC01", "BMM1", "M418", "GM", or bare numbers | Probably machine labels or counts typed into the wrong column; ignore, and tell the list owner |
 | Pointers and comments | "see: ..." another machine; "Is part of Laser Welding Machines similar to KUKA Robots"; "see Planner Board regarding multiple sub plc programs" | Follow the pointer; not a blocker by itself |
 
@@ -48,7 +48,7 @@ How to use this:
 1. **Several of the most common classes are not connectivity problems.** Data-model
    standardization, firmware patching and the TIA upgrade need a data-model decision, an OT
    patch window and an engineering-software upgrade respectively. This repeats what
-   [`barrier-classes.md`](barrier-classes.md) says.
+   `barrier-classes.md` says.
 2. **A blocker text on an `INTEGRATED` machine is not a stop.** Read it as an open follow-up, or as
    stale text, and ask which. Do not count it as the reason the plant is stuck.
 3. **A long blocker list at one plant is often one cell design.** The edge allocation notes say, in
@@ -96,7 +96,7 @@ slides of the ODEC and CoP calls:
   eligibility and central capacity goes first to staffed first-mover plants.
 - **Status slides** carry per-plant states for each wave (kick-off done, delayed, at risk, eCR
   approved, in implementation) and cost figures that cannot be assigned to a plant from the
-  extracted text (see [`vendor-protocol-routes.md`](vendor-protocol-routes.md)). Read the current
+  extracted text (see `vendor-protocol-routes.md`). Read the current
   status slide; do not quote an old one.
 - **Pre-planning rule:** pre-planning is based on use case identification; eligibility follows request
   order to use the given budget at its best; redistribution based on on-going use case identification is possible.
@@ -132,7 +132,7 @@ use cases deployed. Each slide is staging, unverified.
 | MSB assessment at a SCADA plant | IT/OT separation done; cyber-security assessment of the SCADA tool to follow; plan: inventory connected machines and use cases, bill of material for what is needed to bring current data acquisition onto the platform, non-invasive plan | ODEC Facts, staging |
 
 Each row is the kind of dependency a key user finds only by asking. Add the relevant row to
-the machine's record in [`../assets/guidance-protocol.md`](../assets/guidance-protocol.md)
+the machine's record in `../assets/guidance-protocol.md`
 when a machine depends on it.
 
 ## Sources
@@ -140,4 +140,4 @@ when a machine depends on it.
 - Vault `Graph/Machines`, `Graph/Plants`, `Graph/Tools`, read 2026-11-05.
 - Vault `ODEC Facts` folder: `Triage`, `Department KPIs and Roadmap Status`, `Plant - Carei`,
   `Plant - Auburn`, `Other` (staging, AI-extracted, not human-reviewed).
-- Registry reference [`barrier-classes.md`](barrier-classes.md) for the symptom-versus-root-cause rule.
+- Registry reference `barrier-classes.md` for the symptom-versus-root-cause rule.

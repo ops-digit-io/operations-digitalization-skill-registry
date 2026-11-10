@@ -24,6 +24,8 @@ metadata:
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
+  author: IIoT Interface & Automation Engineer (IIAE)
+  tags: [information-integration-service, od, technical]
   authority_level: author flows and fixes on a test instance; read and diagnose only elsewhere; prod deploys are human-approved
   status: stable
   sources_read: 2026-11-05
@@ -59,6 +61,23 @@ Read `od-context` first. The house pattern from the `ct-oesl-*-nodered-*` flows 
 
 Chain handoffs, library classes, placement of logic and agent operating notes:
 [`references/process-chain-practice.md`](references/process-chain-practice.md).
+
+## Purpose
+
+Builds, reviews and ports Node-RED flows to the OESL house pattern, builds calculated datapoints with the rule engine, and diagnoses a flow that is broken, silent or producing wrong values. Use it for steps 3b4 and 3b5 (3b6 when acceptance fails).
+
+## Inputs and output
+
+- **Build in:** signal analysis report, integration plan and tag list, the filled config contract. **Build out:** an importable flow, its tab description, the analyser result and test evidence.
+- **Troubleshoot in:** the flow JSON export and the symptom. **Troubleshoot out:** the findings, the named cause and the filled triage record.
+
+## Procedure
+
+1. Read the Shared rules.
+2. Build: follow "Build (step 3b4)" in order; for derived values use "Calculated datapoints - the rule engine".
+3. Troubleshoot: follow "Troubleshoot (step 3b5)": Step A analyser, Step B order of findings, Step C what it cannot see.
+4. Test on a `test` instance and hand to `od-acceptance-test`; a prod import goes to the human approver.
+5. Close against "Done when".
 
 ## Where a flow sits
 
@@ -237,6 +256,45 @@ Fill [`assets/triage-record.md`](assets/triage-record.md) while diagnosing (chea
 analyser result, what the analyser cannot see, decision). Route outcomes: a signal or topic
 problem to `od-signal-standardization` as a data-model change, a connection or machine problem to
 `od-equipment-integration` / `od-equipment-integration`, an ownership gap to `od-decision-routing`.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** write and change flows on a test instance, run the analyser and the simulator, read exports, draft the triage record.
+- **Roles decide:** the human approver (with the IIAE) approves any import to a `prod` instance; the plant key user confirms the values are correct; the owner of `od-signal-standardization` decides on a signal or topic change. The agent only reads and diagnoses on other instances.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/analyze_flow.py` | Static analysis of a flow export. Exit 2 blocker, 1 warning, 0 clean | `FLOW.json [FLOW.json ...] [--json] [--quiet]` |
+| `scripts/build_flow.py` | Generate a rule-engine flow from a spec | `spec.json output_flow.json` |
+| `scripts/simulate.js` | Dry-run a generated flow without Node-RED (Node.js) | `flow.json batches.json` |
+| `scripts/e2e_test.sh` | Run a generated flow in a throw-away Node-RED with a local broker | `<flow.json> <batches.json> <output-uuid>` |
+| `scripts/e2e_runner.js` | Helper called by `e2e_test.sh` | `<batchFile> <inTopic> <outTopic> <outUuid>` |
+| `scripts/test_plcschema.proto` | Stand-in PLCPacket schema for the end-to-end test; the production schema is authoritative | not run |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+
+## Example
+
+Fictional example; the flow name is made up for illustration.
+
+```text
+$ python3 scripts/analyze_flow.py ExampleFlow.json
+=== Example Flow
+  BLOCKER systime-not-repacked
+  WARN    no-catch
+    1 blocker . 1 warn . 0 info          -> exit 2
+```
+
+If the analyser reports a blocker, the flow fails the bar in "Done when": fix it on `test`, run the analyser again, then continue.
+
+## Pitfalls
+
+- Fixing a symptom in a function body (a UUID, a threshold, a topic) instead of in the config node or the data model.
+- Reading the dashboard inward instead of walking outward from the machine.
+- Treating a clean static analysis as proof: it cannot see the broker, the PLC or runtime state.
+- Hand-writing rule-engine flow JSON instead of generating it.
 
 ## Done when
 

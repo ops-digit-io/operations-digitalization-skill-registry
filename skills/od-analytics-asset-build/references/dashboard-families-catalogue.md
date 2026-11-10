@@ -74,7 +74,7 @@ in more than one language; check the printed language before reusing labels.
 Each card is a **reading of what the captured dashboards display**; "signals needed" are the
 quantities shown, to be matched against `od-signal-standardization` names, not a requirement written
 by a plant. Query patterns Q1 to Q9 are defined in
-[`dashboard-json-sample.md`](dashboard-json-sample.md).
+`dashboard-json-sample.md`.
 
 ### 4.1 Plant Andon Board (Production Overview) - class C, Andon Board
 - **Shows.** A machine table per plant: state, program or part number, current and average cycle

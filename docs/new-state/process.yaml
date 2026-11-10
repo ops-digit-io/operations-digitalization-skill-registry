@@ -273,6 +273,7 @@ spine:
   - od-context
   proposed:
   - od-ai-generation-playbook
+  - od-skill-authoring
   - od-scorecard-reporting
   - od-context-freshness
   - od-template-resolution

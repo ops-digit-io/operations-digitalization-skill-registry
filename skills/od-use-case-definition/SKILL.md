@@ -9,6 +9,7 @@ description: >-
   demand and daily use (roles, control points, error paths, autonomy, metrics, Process First-Aid
   Kit, prioritizing a use case or business case). Use when an accepted plant demand needs a
   definition, a use-case record is too thin to act on, or a workshop is being prepared.
+  Not for intake triage (od-use-case-intake-triage) or the business case (od-benefit-calculation).
 license: MIT
 metadata:
   id: od-use-case-definition
@@ -17,6 +18,8 @@ metadata:
   new_state_lane: "Lane 2 (21)"
   new_state_step: "Capture the idea, process diagnostics"
   owner_role: Digital-Business-Value-Engineer (DBVE)
+  author: Digital-Business-Value-Engineer (DBVE)
+  tags: [technical, lane, use-case-support-service]
   authority_level: draft
   capacity: per the current DBVE roster
   escalation: OD lead (decision route per the current approval policy; look up)
@@ -165,6 +168,20 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 
 Past workshop locations: the workshop folder of the vault.
+
+## Example
+
+Shape of a filled protocol header (fictional example; every value is invented):
+
+```text
+Use case:   Downtime view for Line 4 (fictional)    Plant: Plant X (fictional)
+Coordinate: material family Plastic / process group / capability Downtime Reporting
+Category:   non-standard, unique to one plant        Output asset: Dashboard
+Plant owner (role): Plant ME      Benefit: stated, classified (tangible / non-cashable)
+Control points: 1 logged, 2 scoped, 3 system assessment, 4 decided with Plant ME
+```
+
+If a field cannot be filled, mark it unknown; a record with a blank or invalid field fails the handover test below.
 
 ## Definition of done
 

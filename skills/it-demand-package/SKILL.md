@@ -21,6 +21,8 @@ metadata:
   new_state_step: "3a.3 New codebase (external dev); 3a.4 Integrate a foreign app; front-end step 3 hand off once demand is clear"
   department_names: ["it-demand-package"]
   owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
+  author: OD lead for the Lane 3 front-end; IIAE for connector demands
+  tags: [lane-3, handover, openspec, it-alignment, practice]
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
   status: draft
   sources_read: 2026-11-10
@@ -54,6 +56,15 @@ to store and exchange them (action item 2, IT). OpenSpec is a public, plain-mark
 exactly that: a change folder with `proposal.md`, delta `specs/`, `design.md` and `tasks.md`, versioned
 in Git and reviewed in a pull request, checked by `openspec validate`. A package IT can open with its own
 tooling is a cleaner handover than a slide deck.
+
+## Purpose
+
+Turns a clear Lane 3 demand into an OpenSpec change package plus the OD handover annex, so IT or an external developer can take over the build. Use it after requirements, the tool-decision gate and the business case are done, and when someone asks what IT needs from OD.
+
+## Inputs and output
+
+- **In:** the front-end results named in step 1 of the Procedure: requirement with growth boundaries, gate verdict and route, business case and investment estimate, approval route.
+- **Out:** `openspec/changes/<change-id>/` with the OpenSpec files and `handover.md`, and the check output (see Output below).
 
 ## The rule it serves
 
@@ -142,6 +153,33 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
   model, data and interface catalog structure⟩ - open IT action items; the annex marks each.
 - ⟨Whether IT adopts OpenSpec itself⟩ - proposed here; if IT keeps its own demand form, the absorbed IT
   demand package carries the same content.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** scaffold the package, draft the OpenSpec files and the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.
+- **Roles decide:** the OD lead for the Lane 3 front-end sends the package; IT or the external developer accepts it; Cyber Security signs off; the approvers of the capital request approve the money. The agent never sends a package and never marks an acceptance as given.
+
+## Available Scripts
+
+| Script | Purpose | Arguments |
+|---|---|---|
+| `scripts/new_handover.py` | Scaffold a change folder from the templates in `assets/openspec/`; never overwrites | `<out-dir> <change-id> [--capability <name>] [--with-config]` |
+| `scripts/check_handover.py` | Check the package against OpenSpec's strict validation rules and the annex's blocking fields | `<path-to-openspec/changes/<change-id>> [--json]` |
+
+An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+
+## Example
+
+Fictional example; the change id and the output are made up for illustration.
+
+```text
+$ python3 scripts/new_handover.py ./out add-downtime-reason-capture --with-config
+$ python3 scripts/check_handover.py ./out/openspec/changes/add-downtime-reason-capture
+ERROR handover.md: blocking section "Cyber Security inputs" still has a placeholder
+NOT READY (1 error)   -> exit 1; fix, re-run until it reports READY
+```
+
+If the check fails, fix the named file and run it again; the package is sent only when it reports READY.
 
 ## Do not
 

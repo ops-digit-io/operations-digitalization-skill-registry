@@ -132,7 +132,7 @@ sense of a sequence, not a process value.
 > propagates into every flow, topic and dashboard downstream, and by then it is an interface.
 
 **3 · Map to canonical.** Standard vocabulary first, public data model second —
-[`signal-catalogue.md`](signal-catalogue.md), [`public-data-models.md`](public-data-models.md).
+`signal-catalogue.md`, `public-data-models.md`.
 A public companion specification is already language-neutral, which is another reason to adopt
 one.
 

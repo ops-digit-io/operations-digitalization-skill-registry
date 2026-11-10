@@ -4,8 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [It expected inputs](it-expected-inputs.md) | Skill Reference | What IT asked OD to deliver with a demand in the OD x IT alignment of 2026-09-11, item by item, where each lands in the handover package, which items block a handover, and the open IT action items that will firm them. |
-| [Openspec format](openspec-format.md) | Skill Reference | The OpenSpec rules an OD handover package must meet (structure, proposal sections, delta spec format, validation thresholds) and which OD skill fills which artefact. |
+| It expected inputs (`it-expected-inputs.md`) | Skill Reference | What IT asked OD to deliver with a demand in the OD x IT alignment of 2026-09-11, item by item, where each lands in the handover package, which items block a handover, and the open IT action items that will firm them. |
+| Openspec format (`openspec-format.md`) | Skill Reference | The OpenSpec rules an OD handover package must meet (structure, proposal sections, delta spec format, validation thresholds) and which OD skill fills which artefact. |
 
 | Folder | Holds |
 |---|---|

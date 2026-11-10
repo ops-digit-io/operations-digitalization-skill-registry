@@ -10,13 +10,13 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Handover to Internal Communications
 
-**Status.** Internal Communications is a department outside OD. A staff census in the vault records the role as central, in HR and Communications, with the task of scalable communication around activities, keeping the image, sorting the funnel and managing expectations (`Document Texts/Department Documents/Digital or IT Staff in Business.md`, row Internal Communications; a person-level file, so use the role only). OD's own January 2026 marketing-template initiative planned to define the process, responsibilities and channels but left its results slide empty ([`department-formats.md`](department-formats.md)). No note in the vault was found that describes IC's process (a keyword search of `Work-OpsDigit-Knowledge` for internal communication, newsletter and intranet gave 17 hits in 13 files, mostly plant and deck notes; searched 2026-11-10, hits not opened, so a relevant note may exist; the archive was not searched). The owner will supply the Internal Communications brief. Until then everything marked ⟨to confirm⟩ is open, and this file must not be filled from general knowledge.
+**Status.** Internal Communications is a department outside OD. A staff census in the vault records the role as central, in HR and Communications, with the task of scalable communication around activities, keeping the image, sorting the funnel and managing expectations (`Document Texts/Department Documents/Digital or IT Staff in Business.md`, row Internal Communications; a person-level file, so use the role only). OD's own January 2026 marketing-template initiative planned to define the process, responsibilities and channels but left its results slide empty (`department-formats.md`). No note in the vault was found that describes IC's process (a keyword search of `Work-OpsDigit-Knowledge` for internal communication, newsletter and intranet gave 17 hits in 13 files, mostly plant and deck notes; searched 2026-11-10, hits not opened, so a relevant note may exist; the archive was not searched). The owner will supply the Internal Communications brief. Until then everything marked ⟨to confirm⟩ is open, and this file must not be filled from general knowledge.
 
 ## What OD hands over
 
 | Item | Source in the lane |
 |---|---|
-| The brief (message, proof points with sources and classes, audience variants, call to action) | `od-comms-brief`, [`assets/comms-brief.md`](../assets/comms-brief.md) |
+| The brief (message, proof points with sources and classes, audience variants, call to action) | `od-comms-brief`, `assets/comms-brief.md` (`../assets/comms-brief.md`) |
 | The selection record (gate result, consent of the plant owner) | `od-showcase-selection` |
 | Draft assets, if IC wants them | `od-comms-brief` |
 | The approvals already given (plant owner, OD lead) | The brief, section Approvals |
@@ -32,7 +32,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 
 ## Channels that exist today (options to confirm, not arrangements)
 
-Peer-sharing formats recorded in OD's material; their current status is unknown. Details and sources in [`department-formats.md`](department-formats.md), section 5.
+Peer-sharing formats recorded in OD's material; their current status is unknown. Details and sources in `department-formats.md`, section 5.
 
 | Channel | Audience it reaches | Status |
 |---|---|---|

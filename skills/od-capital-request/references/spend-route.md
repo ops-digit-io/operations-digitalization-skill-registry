@@ -48,7 +48,7 @@ Four 2026 sources record a route that runs **before** the eCR. Amounts are quote
 | A review-meeting action reads "Central Approval >> put to 25k EUR >> NOT 50k EUR" (the context of the change is not recorded) | Vault `Work-2015_2026/2026/2026-02-24 - Review Meeting 1.md` |
 | The central flow starts only if the local approval is "done" and "approved"; the request for execution now triggers only the local approval flow | Vault `Work-2015_2026/2026/2026-03-27 Changes on Invest Approval.md` |
 
-The eCR approval matrix itself (tiers below 50 kEUR, from 50 kEUR and from 150 kEUR) is in [`ecr-approval-matrix.md`](ecr-approval-matrix.md). How the pre-approval bands (25 and 100) relate to those tiers (50 and 150) is **not stated** in the sources.
+The eCR approval matrix itself (tiers below 50 kEUR, from 50 kEUR and from 150 kEUR) is in `ecr-approval-matrix.md`. How the pre-approval bands (25 and 100) relate to those tiers (50 and 150) is **not stated** in the sources.
 
 **Open points.** ⟨whether the 25 kEUR central-approval limit is the Lane 1b "lightweight approval" limit⟩ · ⟨which route the 25 to 100 kEUR band takes⟩ · ⟨what "eCR" stands for: this skill reads it as electronic capital request, while the bundle's `10-Department/Decision rights.md` says engineering change request; confirm with Finance⟩.
 

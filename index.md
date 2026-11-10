@@ -15,4 +15,4 @@ okf_version: 0.2
 |---|---|
 | [docs/](docs/index.md) | 12 concept(s) |
 | [skills/](skills/index.md) | 265 concept(s) |
-| [skills-extension/](skills-extension/index.md) | 167 concept(s) |
+| [skills-extension/](skills-extension/index.md) | 173 concept(s) |

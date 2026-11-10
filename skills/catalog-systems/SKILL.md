@@ -1,7 +1,7 @@
 ---
 name: catalog-systems
 description: >-
-  Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the standard-system entry, and hand over to the cost template and to ordering and connecting (od-equipment-integration); anything non-standard falls through to Lane 3. Use when a plant wants a catalogued use case on a machine that is not connected yet.
+  Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the standard-system entry, and hand over to the cost template and to ordering and connecting (od-equipment-integration); anything non-standard falls through to Lane 3. Use when a plant wants a catalogued use case on a machine that is not connected yet. Not for choosing the use case itself (catalog-usecase) or for cost approval (od-investment-input).
 license: MIT
 metadata:
   id: catalog-systems
@@ -11,6 +11,8 @@ metadata:
   new_state_step: "Pick the use case and the standard system"
   department_names: ["catalog-systems"]
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant self-serves
+  author: Digital-Business-Value-Engineer (DBVE); the plant self-serves
+  tags: [department-core, lane-1]
   authority_level: draft the match record; recommend only - ordering, connecting and the spend approval stay human
   status: draft
   sources_read: 2026-11-10
@@ -26,6 +28,14 @@ metadata:
     generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Catalog systems
+
+## Purpose
+
+Match a catalogued use case to a standardized system or connection kit that a plant can order itself (Lane 1b, step 1b1). Use it when a plant wants a catalogued use case on a machine that is not connected yet; anything non-standard goes to Lane 3.
+
+## Inputs and output
+
+Inputs: the Part A match record, the machine facts (controller vendor and model, protocol, program version, where the data should land) and the validated routes and tool boundaries in `references/`. Output: the system match record ([`assets/standard-system-entry.md`](assets/standard-system-entry.md)) with machine class, route and status, candidate kit or "no standard system", cost-template inputs, Cyber Security status and next step.
 
 Read `od-context` first. The department's `catalog-systems`: the catalogue of standardized systems and connection kits a plant can order in Lane 1b. Only standardized systems qualify for 1b; anything non-standard goes to Lane 3. The use case itself comes from `catalog-usecase`; cost and approval follow in `od-investment-input` (plant budget owner approves); ordering and connecting in `od-equipment-integration`.
 
@@ -71,3 +81,25 @@ Recommendation vocabulary: recommended / recommended if ⟨condition⟩ / not re
 
 - Do not offer a system that is not standardized; route it to Lane 3.
 - Do not quote a kit price or lead time from memory; read it from the kit list or mark it ⟨…⟩.
+
+## Human gate and AI-agent notes
+
+An agent may draft the system match record and recommend (recommended, recommended if, not recommended, not available). Ordering, connecting and the spend approval stay human: the plant budget owner role approves cost, the Cyber Security role signs off a security-relevant connection, and the OD lead role decides what counts as a standardized system. An agent never quotes a kit price or lead time that is not in the kit list.
+
+## Example
+
+Fictional example (all values invented for illustration):
+
+```text
+Input : request "catalogued use case on a press", controller vendor A, protocol OPC UA
+Steps : route looked up in the validated-routes list: written in full -> candidate standard system
+Output: system match record: machine class press; route status candidate;
+        kit "see kit list" (price and lead time: <missing>); Cyber Security status open;
+        next step: 1b order and connect
+```
+
+If it fails: a route marked TODO, stub or absent is invalid as a standard system; the record says "no standard system" and hands to `od-system-fit-check` and Lane 3.
+
+## Definition of done
+
+The system match record is filled (every field set or marked missing), the route status is stated with its source, and the next step (1b order and connect, or Lane 3) is named.

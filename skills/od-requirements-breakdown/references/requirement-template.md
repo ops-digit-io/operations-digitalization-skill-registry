@@ -150,7 +150,7 @@ Inside the lean footprint?  ⟨yes / no — and if no, refuse or escalate⟩
 Legacy applications touched: ⟨from the Legacy Application list⟩
 ```
 
-See [`legacy-system-assessment.md`](legacy-system-assessment.md). A requirement needing a
+See `legacy-system-assessment.md`. A requirement needing a
 system outside the standard footprint is refused at intake, not discovered at build.
 
 ### §9 · Value

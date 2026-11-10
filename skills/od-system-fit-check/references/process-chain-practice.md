@@ -12,7 +12,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 Derived from the Operations Digitalization slide decks (tool and architecture decks, strategy decks, workshop decks), abstracted
 into process guidance. No figures. `PROPOSAL` marks synthesis that no deck states; `<to confirm>` marks a reading the decks
-leave open. The boundary sentences themselves stay in [`tool-boundaries.md`](tool-boundaries.md); this file is how to *use* them
+leave open. The boundary sentences themselves stay in `tool-boundaries.md`; this file is how to *use* them
 as a classifier and how the step hands on.
 
 ## Where it sits in the chain
@@ -35,7 +35,7 @@ as a classifier and how the step hands on.
    "integration recommended if" line (the intake trigger). Use both: the first says what the tool refuses, the second says
    when it earns a rollout. Record the tool's **cost class** (free, per-camera or per-system connector, per-plant development
    and deployment), never a number; a "recommended if" tool without a cost line invites scope creep.
-4. **Check this plant**, dated (see [`deployment-reality.md`](deployment-reality.md)). A tool recommendation must name the
+4. **Check this plant**, dated (see `deployment-reality.md`). A tool recommendation must name the
    defined use case behind it; a recommendation without a use case is not made.
 5. **Sort the demand into its shape** before the lane is chosen:
    - use case on an already connected machine: sprint or workshop path (lane 2);

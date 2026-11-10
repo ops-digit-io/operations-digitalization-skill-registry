@@ -4,5 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Process chain practice](process-chain-practice.md) | Skill Reference | How workshops are prepared and run as a stage in the AI-driven chain - choosing by trigger, workshop order, preparation checklists, in-room practices, utilization session, legacy-application pattern, output and handoff contract, pitfalls and agent operating notes. |
-| [Workshop formats](workshop-formats.md) | Skill Reference | The workshop formats OD has actually run at plants (definition, integration, equipment integration, machine integration, savings), with purpose lines, day structure, audience, outputs and the workshops on record, for choosing and designing the next one. |
+| Process chain practice (`process-chain-practice.md`) | Skill Reference | How workshops are prepared and run as a stage in the AI-driven chain - choosing by trigger, workshop order, preparation checklists, in-room practices, utilization session, legacy-application pattern, output and handoff contract, pitfalls and agent operating notes. |
+| Workshop formats (`workshop-formats.md`) | Skill Reference | The workshop formats OD has actually run at plants (definition, integration, equipment integration, machine integration, savings), with purpose lines, day structure, audience, outputs and the workshops on record, for choosing and designing the next one. |
