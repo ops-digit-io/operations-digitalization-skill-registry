@@ -60,7 +60,7 @@ skills:
     library: core
     tier: foundation
     lane: all
-    owner_role: OD lead (Thomas Zipf)
+    owner_role: OD lead
     authority_level: read-only
     summary: Vocabulary, service lines, systems of record, decision gates and the honesty rules.
 
@@ -68,7 +68,7 @@ skills:
     library: core
     tier: practice
     lane: all
-    owner_role: OD lead (Thomas Zipf)
+    owner_role: OD lead
     authority_level: recommend
     summary: Accept, refuse or route an incoming request; name the lane, the trigger and the gate.
 
@@ -187,7 +187,7 @@ skills:
     library: core
     tier: practice
     lane: all
-    owner_role: OD lead (Thomas Zipf)
+    owner_role: OD lead
     authority_level: read-only — this skill routes decisions, it never takes them
     summary: Owner, mode, threshold and authority level per decision; the five gates; escalation triggers.
 
@@ -467,7 +467,7 @@ skills:
     library: core
     tier: practice
     lane: lane-3
-    owner_role: OD lead (Thomas Zipf) for the Lane 3 front-end; IIAE for connector demands
+    owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
     authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
     summary: Hand a clear Lane 3 demand to IT or an external developer as an OpenSpec change package (proposal, delta specs, design, tasks) with the OD handover annex of the OD x IT alignment; checked against OpenSpec's validation rules.
     trigger: A Lane 3 demand has passed requirements, the tool-decision gate and the business case, or IT asks what it needs from OD.

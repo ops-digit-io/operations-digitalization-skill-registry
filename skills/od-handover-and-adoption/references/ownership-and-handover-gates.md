@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 # Ownership and handover gates
 
 Agreed direction from the OD x IT alignment of 2026-09-11. The formal gates are an open IT action item
-(Ignacio, Jose, Thomas: "ownership and handover gates based on locality, operational criticality,
+(IT and the OD lead: "ownership and handover gates based on locality, operational criticality,
 technology alignment, observability, backlog status, maintenance readiness and shared-responsibility
 boundaries"). Use these rules now and mark the gate definition ⟨to confirm⟩ until it is published.
 
@@ -58,7 +58,7 @@ engineers who know the stack are available also decide whether ownership can mov
 
 Production owners run a lightweight self-assessment every six or twelve months: architectural alignment,
 maintainability, backlog and upgrade status, observability, current IT practices, and whether the
-application should stay in production. The format is an open action item (Jose, Thomas).
+application should stay in production. The format is an open action item (IT and the OD lead).
 
 ## No delivery dates without commitment
 

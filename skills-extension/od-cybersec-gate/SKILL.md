@@ -127,12 +127,12 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
 
 - **Pre-evaluate before the formal review.** Run this skill's package as a repeatable pre-evaluation that
   names every missing input before Cyber Security sees it: fewer round trips, a team that learns the
-  process, less load on Cyber Security. The approach is an open action item (Thomas, Ignacio, aligned with
-  Axel); until it is agreed, the package is the pre-evaluation.
+  process, less load on Cyber Security. The approach is an open action item (OD lead and IT, aligned with
+  Cyber Security); until it is agreed, the package is the pre-evaluation.
 - **Approve at platform level where possible.** Once a platform or connectivity pattern (Grafana,
   connectivity, the CMO deployment structure) is approved, an app using the same pattern should not need a
   full review only because it runs on another machine or at another location. The model is an open IT item
-  (Ignacio): record which approved pattern a case reuses and ask, do not assume the shortcut.
+  (IT): record which approved pattern a case reuses and ask, do not assume the shortcut.
 - **CMO compliance is the preferred route** for apps (`deploy-appstore`).
 
 ## Decision table - what blocks what

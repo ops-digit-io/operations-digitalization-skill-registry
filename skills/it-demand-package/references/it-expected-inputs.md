@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [it-alignment, handover, transcript]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (AI-generated meeting notes and follow-up tasks; participants IT: Ignacio Garro, Jose Duarte Silva; MPEE: Zoltan; OD: Thomas Zipf, Rami Nasr), read 2026-11-10"
+  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (AI-generated meeting notes and follow-up tasks; participants from IT, MPEE and OD, names withheld), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # What IT expects from OD
@@ -45,14 +45,14 @@ case firm, is the scope stable, is the solution defined, and was it prioritized 
 
 | Action | Owner (as recorded) | Firms input |
 |---|---|---|
-| Structure and contents of the data and interface catalogs | Ignacio | 7, 8 |
-| Consolidate the artefacts IT expects from the funnel and where each is stored or exchanged | Ignacio | all; the receiving location for OpenSpec changes |
-| Cyber Security pre-evaluation approach, aligned with Axel | Thomas, Ignacio | 4 |
-| Platform-level Cyber Security approval model | Ignacio | 4 |
-| Ownership and handover gates | Ignacio, Jose, Thomas | 11 |
-| Technology guardrails (stacks, Kubernetes / CMO, interfaces, OT) | Ignacio, Jose, Rami | 3 |
-| Recurring application self-assessment | Jose, Thomas | 11 |
-| CMO roadmap and target blueprint | Ignacio | 3 |
-| Minimum and maximum deployment scenarios per use case | Thomas, Ignacio | 9 |
-| Build / buy / guided delivery sourcing criteria with TCO | Ignacio, Jose, Thomas | 10 |
+| Structure and contents of the data and interface catalogs | IT | 7, 8 |
+| Consolidate the artefacts IT expects from the funnel and where each is stored or exchanged | IT | all; the receiving location for OpenSpec changes |
+| Cyber Security pre-evaluation approach, aligned with Cyber Security | OD lead, IT | 4 |
+| Platform-level Cyber Security approval model | IT | 4 |
+| Ownership and handover gates | IT, OD lead | 11 |
+| Technology guardrails (stacks, Kubernetes / CMO, interfaces, OT) | IT, OD | 3 |
+| Recurring application self-assessment | IT, OD lead | 11 |
+| CMO roadmap and target blueprint | IT | 3 |
+| Minimum and maximum deployment scenarios per use case | OD lead, IT | 9 |
+| Build / buy / guided delivery sourcing criteria with TCO | IT, OD lead | 10 |
 | Requirements and technology baseline for the legacy applications | unassigned | 13 |
