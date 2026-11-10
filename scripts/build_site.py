@@ -287,9 +287,8 @@ render();
     # Only documents about the core process and the specification are published. The design records, the derivation and the
     # conformance notes describe the whole registry (extension skills included) and stay in the repository.
     SITE_DOCS = ("new-state-skill-map.md", "agent-skills-spec.md", "okf-conventions.md")
-    (dd / "new-state").mkdir()
-    for name in ("OD_NewState_ProcessFlow.html", "OD_NewState_BPMN.html", "OD_NewState_Flow.mermaid"):
-        shutil.copy2(ROOT / "docs/new-state" / name, dd / "new-state" / name)
+    (dd / "new-state").mkdir()    # the process picture is the owner's ProcessFlow page (also the main page); the derived diagrams stay in the repository
+    shutil.copy2(ROOT / "docs/new-state/OD_NewState_ProcessFlow.html", dd / "new-state" / "OD_NewState_ProcessFlow.html")
     for name in SITE_DOCS:
         f = ROOT / "docs" / name
         fm, t = spec.split(f.read_text(encoding="utf-8"))
