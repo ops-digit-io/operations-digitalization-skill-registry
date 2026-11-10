@@ -41,7 +41,7 @@ If a reference file is missing, the essentials are reproduced inline below so th
 ## The principle in four sentences
 
 1. OD's job at investment intake is **not to approve spend** — it is to detect involvement early, protect a lean/standardised footprint, and make the digitalisation consequences of a purchase visible before the eCR is launched.
-2. **Involvement is wider than ownership.** OD is involved whenever an item produces data, needs connectivity, ships software/endpoints, touches the shopfloor network/OT, or overlaps a running OD platform (MDL, IIoT Edge, MSB, MES pilots) — regardless of which department owns the row.
+2. **Involvement is wider than ownership.** OD is involved whenever an item produces data, needs connectivity, ships software/endpoints, touches the shopfloor network/OT, or overlaps a running OD platform (the data platform, IIoT Edge, MSB, MES pilots) — regardless of which department owns the row.
 3. Every involved item gets a **visible verdict** (Go / PoC-first / Reduce-complexity / Hold / Reject) built from a transparent score, never a black-box yes/no.
 4. The **software / IT-footprint gate is a hard gate**: an item that drags in unmanaged software, PCs, frameworks, licenses or competing endpoints cannot be "Go" until that footprint is named, owned and cleared by Cyber Security — no matter how good the business case.
 
@@ -53,7 +53,7 @@ Run against the whole list, then classify each row into one of:
 
 - **OD-owned** — Department = `OPERATION DIGITALIZATION`. Always in scope.
 - **OD-touching** — any department, but the item produces/consumes data, needs connectivity, ships or requires software, touches OT/shopfloor network, or overlaps an OD platform. Detect via the involvement lexicon in `screening-method.md`. **This is where OD is usually missed.**
-- **Cross-region interlock** — Energy / Facility & Green Operations, Manufacturing Engineering or IT items in the regions that are technologically woven together with OD (e.g. an energy-metering or ME automation project that will need MDL/IIoT Edge/MSB, or that stands up its own parallel data path). Flag for co-ownership, not just review.
+- **Cross-region interlock** — Energy / Facility & Green Operations, Manufacturing Engineering or IT items in the regions that are technologically woven together with OD (e.g. an energy-metering or ME automation project that will need the data platform/IIoT Edge/MSB, or that stands up its own parallel data path). Flag for co-ownership, not just review.
 - **Not involved** — no data/software/connectivity/OT signal. Record the count, drop from the working set.
 
 Reason the classification out loud (show the signal that triggered it). Do not silently downgrade an item to "not involved".
@@ -79,7 +79,7 @@ Each scored 0 (fails) · 1 (partial / unclear) · 2 (clearly met). Criterion 6 i
 
 1. **Healthy business case** — a nameable value (saving / lead-time / risk / mandatory), a roadmap link, a rough payback, and a kill criterion. No business case → not OD's to push.
 2. **Compounding** — does the technology or use case compound across the organisation (reusable platform, standard signal model, repeatable use case) rather than a one-off island?
-3. **Interface standardisation** — does it use, or can it be steered to, standardised interfaces (OPC UA / MQTT / MSB connectors, the MDL path) instead of proprietary or ad-hoc endpoints (vendor FTP, bespoke DB dumps) that compete with internal connectors?
+3. **Interface standardisation** — does it use, or can it be steered to, standardised interfaces (OPC UA / MQTT / MSB connectors, the data-platform path) instead of proprietary or ad-hoc endpoints (vendor FTP, bespoke DB dumps) that compete with internal connectors?
 4. **Complexity load** — does it keep OD's footprint lean, or add operational burden and tool proliferation? Ask *what must be proven first* — prefer **PoC-first** over an org-wide commitment; consider complexity-reduction alternatives.
 5. **Cross-region / tech interlock** — is it technologically woven with OD elsewhere (Energy/ME/IT), such that OD should co-own rather than just comment?
 6. **Software / IT-footprint gate (HARD)** — pass only when every piece of software, PC, framework, license, endpoint and network touch is named, has an owner, and is cleared by Cyber Security. See the dedicated reference.
@@ -100,9 +100,9 @@ Always show the six sub-scores and the one decisive reason. A verdict without it
 ## Anchor to OD strategy (so verdicts stay consistent)
 
 Check each item against `00-core/02-strategy.md`:
-- **Bets** it should reinforce: MDL asset-to-cloud (B1); Cyber Security + MSB bundle for strategic plants (B2); MES value only via the 2 pilots (B3).
+- **Bets** it should reinforce: asset-to-cloud on the data platform (B1); Cyber Security + MSB bundle for strategic plants (B2); MES value only via the 2 pilots (B3).
 - **Non-bets** that push toward Hold/Reject: no standardised MES rollout short/mid-term; EMS rollout stopped; OD does not build automation solutions or own energy/facility topics; no broad tool proliferation — footprint stays small.
-- **Trade-offs**: prefer few systems / small footprint, standardised modular deployments, and ContiTech interface compatibility.
+- **Trade-offs**: prefer few systems / small footprint, and standardised modular deployments.
 
 An item that quietly violates a non-bet (e.g. a new parallel MES-like control system, a fresh energy-data silo) is exactly what this screen must catch.
 

@@ -80,7 +80,7 @@ The process flow of the [four New-State files](new-state-flow.md) with the skill
 
 | Step | Named in the files | Proposed here | Wait |
 |---|---|---|---|
-| Connector + pipeline to MDL | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) *(draft)* *(extension)* | proc ~wks |
+| Connector + pipeline to the data platform | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) *(draft)* *(extension)* | proc ~wks |
 | Procure & connect machine | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) *(draft)* *(extension)* | CS ~wks |
 | Acceptance + CS → live | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | - | - |
 
@@ -121,18 +121,18 @@ Registry skills the flow does not place. Empty since the merge of 2026-11-10; th
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow, Process flow |
 | [`od-context`](../skills-extension/od-context/SKILL.md) *(extension)* | in use | foundation | Supporting (extension) | VSM |
 | [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) *(draft)* *(extension)* | draft | practice | Supporting (extension) | none |
-| [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) *(draft)* *(extension)* | draft | practice | New system or connector: Connector + pipeline to MDL | none |
+| [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) *(draft)* *(extension)* | draft | practice | New system or connector: Connector + pipeline to the data platform | none |
 | [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) *(draft)* *(extension)* | draft | practice | Run a known use case: Order & connect system; New system or connector: Deploy to platform + CS; New system or connector: Procure & connect machine | none |
 | [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | in use | practice | Develop a new use case: Features + data check | Flow, Process flow, BPMN, VSM |
 | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to MDL; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to the data platform; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
 | [`od-event-object-modelling`](../skills-extension/od-event-object-modelling/SKILL.md) *(draft)* *(extension)* | draft | practice | Intake: Known use case?; Develop a new use case: Define & diagnose; Develop a new use case: Features + data check | none |
 | [`od-first-aid-kit`](../skills-extension/od-first-aid-kit/SKILL.md) *(draft)* *(extension)* | draft | practice | Intake: Known use case?; Develop a new use case: Define & diagnose | none |
 | [`od-governance-cadence`](../skills-extension/od-governance-cadence/SKILL.md) *(draft)* *(extension)* | draft | practice | Develop a new use case: Prototype / validate; Supporting (extension) | none |
 | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | in use | practice | Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | Flow, Process flow, BPMN, VSM |
 | [`od-investment-input`](../skills-extension/od-investment-input/SKILL.md) *(draft)* *(extension)* | draft | practice | Run a known use case: Cost template + approval; Develop a new use case: Business case + rank | none |
 | [`od-migration-cutover`](../skills-extension/od-migration-cutover/SKILL.md) *(draft)* *(extension)* | draft | practice | New system or connector: Tool-decision gate; New system or connector: Deploy to platform + CS; New system or connector: Rollout & adopt | none |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to the data platform | Flow, Process flow, BPMN, VSM |
 | [`od-plant-diagnosis`](../skills-extension/od-plant-diagnosis/SKILL.md) *(draft)* *(extension)* | draft | practice | Develop a new use case: Business case + rank; Supporting (extension) | none |
 | [`od-plant-onboarding`](../skills-extension/od-plant-onboarding/SKILL.md) *(draft)* *(extension)* | draft | practice | Supporting (extension) | none |
 | [`od-portfolio-and-savings-analysis`](../skills-extension/od-portfolio-and-savings-analysis/SKILL.md) *(extension)* | in use | practice | Develop a new use case: Business case + rank | VSM |
@@ -144,7 +144,7 @@ Registry skills the flow does not place. Empty since the merge of 2026-11-10; th
 | [`od-rollout-training`](../skills-extension/od-rollout-training/SKILL.md) *(draft)* *(extension)* | draft | practice | Run a known use case: Validate & go live; Run a known use case: Apply template & go live; Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | none |
 | [`od-scorecard-reporting`](../skills-extension/od-scorecard-reporting/SKILL.md) *(extension)* | in use | practice | Supporting (extension) | VSM |
 | [`od-sharepoint-list-export`](../skills-extension/od-sharepoint-list-export/SKILL.md) *(extension)* | in use | practice | Supporting (extension) | VSM |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to the data platform | Flow, Process flow, BPMN, VSM |
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | in use | practice | Intake: Known use case?; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
 | [`od-template-resolution`](../skills-extension/od-template-resolution/SKILL.md) *(draft)* *(extension)* | draft | practice | Run a known use case: Apply template; Supporting (extension) | none |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | in use | technical | Develop a new use case: Define & diagnose | Flow, Process flow, BPMN, VSM |

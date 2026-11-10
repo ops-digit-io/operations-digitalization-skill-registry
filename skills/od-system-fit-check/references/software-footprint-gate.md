@@ -33,7 +33,7 @@ Trigger the gate for every OD-touching and cross-region item, and for any equipm
 1. **Embedded compute?** Does it include or require a PC / IPC / server / workstation / embedded controller? Who patches and owns it?
 2. **Software & framework?** What software, runtime or framework runs on it? Version, vendor, support/EOL. Is it on any approved list?
 3. **Licenses?** Named user / floating / per-device licenses, subscription, renewal, and who carries the recurring cost?
-4. **Endpoints exposed?** Does it stand up services — FTP/SFTP, OPC, REST, shares, its own DB, a web UI? Do any **compete with or duplicate an internal connector** (IIoT Edge / MSB / MDL path)?
+4. **Endpoints exposed?** Does it stand up services — FTP/SFTP, OPC, REST, shares, its own DB, a web UI? Do any **compete with or duplicate an internal connector** (IIoT Edge / MSB / data-platform path)?
 5. **Network / OT touch?** What does it connect to (shopfloor VLAN, corporate LAN, internet)? Inbound/outbound flows? Does it need a firewall rule or segmentation?
 6. **Cyber Security clearance?** Is the framework/device known to Cyber Security? MSB / security-bundle applicable? Any sign-off needed before an external connection (per decision-rights "Cyber Security sign-off for external connection")?
 7. **Interface fit vs standard?** Does the data path use a standardised interface, or a proprietary one that will need custom glue and add long-term maintenance?

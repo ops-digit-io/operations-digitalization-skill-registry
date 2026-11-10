@@ -27,7 +27,7 @@ Score criteria 1–5 on 0 / 1 / 2. Criterion 6 is the **hard gate** (see `softwa
 - **0** — one-off island; every future instance would re-buy from scratch.
 
 ## 3. Interface standardisation
-- **2** — uses standardised interfaces (OPC UA / MQTT / MSB connector / MDL path) or is easily steered there.
+- **2** — uses standardised interfaces (OPC UA / MQTT / MSB connector / data-platform path) or is easily steered there.
 - **1** — mixed; a standard path exists but the vendor default is proprietary.
 - **0** — proprietary/ad-hoc endpoints (vendor FTP, bespoke DB dumps, a parallel data path) that compete with internal connectors and lock in custom glue.
 
@@ -62,6 +62,6 @@ Let `S = sum(criteria 1–5)` (max 10).
 When several conditions apply, the **most upstream blocker wins**: Blocked > Reject > Hold > Reduce-complexity > PoC-first > Go. State the single decisive reason.
 
 ## Strategy anchors (from `00-core/02-strategy.md`)
-- Reinforces a **bet** (MDL / MSB+CyberSec / MES-pilot-only) → supports Go/PoC-first.
+- Reinforces a **bet** (data platform / MSB+CyberSec / MES-pilot-only) → supports Go/PoC-first.
 - Hits a **non-bet** (standardised MES rollout, EMS restart, OD building automation or owning energy/facility, tool proliferation) → pushes Hold/Reject.
-- Prefer few systems / small footprint / standardised modular deployments / ContiTech interface compatibility.
+- Prefer few systems / small footprint / standardised modular deployments.

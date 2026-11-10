@@ -39,12 +39,12 @@ Assign one class per row and show the trigger:
 
 1. **OD-owned** — `Department = OPERATION DIGITALIZATION`.
 2. **OD-touching** — any department, but the text hits the **involvement lexicon** below.
-3. **Cross-region interlock** — Energy/`FACILITY & GREEN OPERATIONS`, `MANUFACTURING ENGINEERING`, or `IT` items in a region that will need, or will parallel, an OD platform (MDL / IIoT Edge / MSB / edge devices / traceability / a shopfloor data path). These get flagged for **co-ownership**, not just a comment.
+3. **Cross-region interlock** — Energy/`FACILITY & GREEN OPERATIONS`, `MANUFACTURING ENGINEERING`, or `IT` items in a region that will need, or will parallel, an OD platform (the data platform / IIoT Edge / MSB / edge devices / traceability / a shopfloor data path). These get flagged for **co-ownership**, not just a comment.
 4. **Not involved** — no signal. Count them, then drop from the working set.
 
 ### Involvement lexicon (signal words → OD is likely involved)
 
-- **Data / analytics:** data, database, SQL, dashboard, analytic, reporting, traceability, KPI, historian, cloud, MDL, data layer.
+- **Data / analytics:** data, database, SQL, dashboard, analytic, reporting, traceability, KPI, historian, cloud, data platform, data layer (source rows may still say MDL: match it as a keyword, read it as the data platform).
 - **Connectivity / OT:** PLC, PLC upgrade, IIoT, edge, MSB, OPC, MQTT, gateway, DataFeed/Softing, network integration, switch, access point, optical backbone, ethernet, FTP, interface, integration.
 - **Software / endpoints:** software, license/licence, framework, PC, workstation, server, Windows, firmware, app, SCADA, MES, control system, controller, image/vision, camera, scanner, laser control, marking system, Keyence/Cognex/Precitec/KBA, TIA Portal.
 - **Cyber / IT infrastructure:** firewall, VPN, DNS, active directory, backup server, UPS (server room), video surveillance server, HR/time-attendance system (Interflex), label software.

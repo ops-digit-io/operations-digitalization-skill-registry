@@ -43,10 +43,10 @@ flowchart TD
         E1 -.->|CS ~wks| E2["Deploy to platform + CS<br/><i>deploy-appstore</i>"]
         E2 --> E3["Rollout & adopt<br/><i>od-handover-and-adoption</i>"]
         E3 --> L3AEND(((Live)))
-        D3 -->|3b new connector| F1["Connector + pipeline to MDL<br/><i>od-equipment-integration, od-signal-standardization, od-node-red-flow-builder</i>"]
+        D3 -->|3b new connector| F1["Connector + pipeline to the data platform<br/><i>od-equipment-integration, od-signal-standardization, od-node-red-flow-builder</i>"]
         F1 -.->|proc ~wks| F2["Procure & connect machine<br/><i>od-equipment-integration</i>"]
         F2 -.->|CS ~wks| F3["Acceptance + CS → live<br/><i>od-acceptance-test</i>"]
-        F3 --> L3BEND(((Live on MDL)))
+        F3 --> L3BEND(((Live on the data platform)))
     end
 
     classDef evt fill:#1b1e52,stroke:#1b1e52,color:#ffffff;

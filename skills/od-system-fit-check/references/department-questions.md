@@ -25,11 +25,11 @@ The questions OD brings to the invest review / ODEC / COP. Grouped by concern; a
 - What is the measurable value (saving / lead-time / risk / customer-mandatory) and the rough payback?
 - Which roadmap (plant or central) does it sit on?
 - What is the kill criterion — when would we stop?
-- Does it reinforce a bet (MDL / MSB+CyberSec / MES-pilot) or hit a non-bet (MES rollout, EMS, energy/facility ownership, tool proliferation)?
+- Does it reinforce a bet (data platform / MSB+CyberSec / MES-pilot) or hit a non-bet (MES rollout, EMS, energy/facility ownership, tool proliferation)?
 
 ## Compounding & standardisation
 - Is this reusable across plants, or a one-off? Could it be a standard use case / signal model?
-- What interface does the data use — standardised (OPC UA / MQTT / MSB / MDL) or proprietary?
+- What interface does the data use — standardised (OPC UA / MQTT / MSB / data platform) or proprietary?
 - Does it expose endpoints (FTP, own DB, web UI) that **duplicate or compete with** our internal connectors?
 
 ## Complexity & proof
@@ -45,5 +45,5 @@ The questions OD brings to the invest review / ODEC / COP. Grouped by concern; a
 
 ## Cross-region interlock
 - Is a similar Energy / ME / IT project running elsewhere that this should align with?
-- Will it need MDL / IIoT Edge / MSB / edge devices later — should OD co-own from the start rather than retrofit?
+- Will it need the data platform / IIoT Edge / MSB / edge devices later — should OD co-own from the start rather than retrofit?
 - Does it risk standing up a **parallel data path or silo** that we'll have to reconcile?
