@@ -175,6 +175,10 @@ def build(out: Path, repo_url: str) -> None:
                   "branches": [{"id": "intake", "title": "", "steps": intake["steps"]}]})
     for l in proc["lanes"]:
         lanes.append({"id": l["id"], "title": l["title"], "who": l["who"], "summary": l["summary"], "branches": l["branches"]})
+    sp = proc["spine"]
+    if sp.get("skills"):
+        lanes.append({"id": "spine", "title": sp["title"], "who": "Across all lanes", "summary": sp["summary"],
+                      "branches": [{"id": "spine", "title": "", "steps": [{"id": "sp", "title": "Read first, applies to every step", "text": "", "skills": sp["skills"], "proposed": []}]}]})
     for l in lanes:                       # the extension lists of the data file are not published
         for b in l["branches"]:
             for st in b["steps"]:

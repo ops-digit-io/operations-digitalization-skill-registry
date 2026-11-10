@@ -238,11 +238,11 @@ lanes:
       - od-acceptance-test
       proposed: []
 spine:
-  title: Supporting (extension)
-  summary: Not drawn on the flow; loaded by every step.
-  skills: []
-  proposed:
+  title: Foundation
+  summary: Not a step; every skill reads it first.
+  skills:
   - od-context
+  proposed:
   - od-ai-generation-playbook
   - od-scorecard-reporting
   - od-context-freshness

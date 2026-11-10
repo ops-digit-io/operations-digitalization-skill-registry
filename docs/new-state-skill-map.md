@@ -84,9 +84,17 @@ The process flow with the core skills that serve each step. The interactive vers
 | Procure & connect machine | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | CS ~wks |
 | Acceptance + CS → live | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | - |
 
+## Foundation
+
+Not a step; every skill reads it first.
+
+| Skills |
+|---|
+| [`od-context`](../skills/od-context/SKILL.md) |
+
 ## All skills
 
-21 core skills. 'Files' lists which of the four New-State files name the skill.
+22 core skills. 'Files' lists which of the four New-State files name the skill.
 
 | Skill | State | Tier | Steps | Files |
 |---|---|---|---|---|
@@ -100,6 +108,7 @@ The process flow with the core skills that serve each step. The interactive vers
 | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | in use | practice | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |
 | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | in use | practice | Develop a new use case: Business case + rank; New system or connector: Business case + capital | Flow, Process flow, BPMN, VSM |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow, Process flow |
+| [`od-context`](../skills/od-context/SKILL.md) | in use | foundation | Foundation | Flow, VSM |
 | [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | in use | practice | Develop a new use case: Features + data check | Flow, Process flow, BPMN, VSM |
 | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
 | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to the data platform; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |

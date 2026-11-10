@@ -1,6 +1,7 @@
 %% OD New-State Service Lanes - process flow with skills
 %% Drawn from the owner's process flow (OD_NewState_ProcessFlow.html). docs/new-state/process.yaml holds the same as data.
 %% Every core skill (skills/) is on a step; extension skills (skills-extension/) are not drawn.
+%% Foundation, not a step (every skill reads it first): od-context
 %% Shapes: (( )) start/end · { } gateway · [ ] task · [( )] catalog · red dashed = external wait (approval / CS / procurement)
 flowchart TD
     START((Demand)) --> CLS{"Known use case?<br/><i>od-use-case-intake-triage, od-system-fit-check</i>"}

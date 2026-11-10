@@ -58,6 +58,11 @@ def render() -> str:
     for lane in proc["lanes"]:
         section(lane["title"], lane["who"], lane["summary"], lane["branches"])
 
+    sp = proc["spine"]
+    L.extend([f"## {sp['title']}", "", sp["summary"], "", "| Skills |", "|---|", f"| {', '.join(link(s) for s in sp.get('skills', [])) or '-'} |", ""])
+    for s in sp.get("skills", []):
+        where[s].append(sp["title"])
+
     L.extend(["## All skills", "", f"{len(reg)} core skills. 'Files' lists which of the four New-State files name the skill.", "",
               "| Skill | State | Tier | Steps | Files |", "|---|---|---|---|---|"])
     for s in sorted(reg):

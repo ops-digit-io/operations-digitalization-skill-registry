@@ -57,7 +57,7 @@ tiers:
 
 skills:
   - id: od-context
-    library: extension
+    library: core
     tier: foundation
     lane: all
     owner_role: OD lead (Thomas Zipf)

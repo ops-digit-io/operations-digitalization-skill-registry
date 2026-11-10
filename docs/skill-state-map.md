@@ -127,7 +127,7 @@ flowchart TD
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | — | 🟨 documented | 8 | 0 | 7 |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | — | 🟨 documented | 6 | 0 | 5 |
 | [`od-ai-generation-playbook`](../skills-extension/od-ai-generation-playbook/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
-| [`od-context`](../skills-extension/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
+| [`od-context`](../skills/od-context/SKILL.md) | — | 🟨 documented | 5 | 0 | 0 |
 | [`od-cross-plant-compatibility`](../skills-extension/od-cross-plant-compatibility/SKILL.md) | — | 🟨 documented | 4 | 0 | 3 |
 | [`od-cybersec-gate`](../skills-extension/od-cybersec-gate/SKILL.md) | — | 🟨 documented | 5 | 0 | 9 |
 | [`od-event-object-modelling`](../skills-extension/od-event-object-modelling/SKILL.md) | — | 🟨 documented | 4 | 0 | 0 |

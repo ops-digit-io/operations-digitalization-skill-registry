@@ -34,7 +34,7 @@ concept-by-concept trace.
 
 ## The 47 skills
 
-### Core library (21) — by step of the process flow
+### Core library (22) — by step of the process flow
 
 | Lane · step | Skills |
 |---|---|
@@ -61,6 +61,7 @@ concept-by-concept trace.
 | Lane 3 · 3b · Connector + pipeline to the data platform | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) |
 | Lane 3 · 3b · Procure & connect machine | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) |
 | Lane 3 · 3b · Acceptance + CS → live | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) |
+| Foundation · read first, not a step | [`od-context`](skills/od-context/SKILL.md) |
 
 | Core skill | What it does |
 |---|---|
@@ -74,6 +75,7 @@ concept-by-concept trace.
 | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) | Build the thing the plant actually opens — a dashboard, report, analytics workflow, app or agent — so that it is consumed inside a real moment in the day, diagnosable by the plant, and countable in the portfolio. Covers choosing the asset t… |
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | Build, assess and record the value side of an OD business case (the department's od-benefit-calculation and bc-assessment, one shared value model) and keep the savings ledger honest — a value-only backbone with grounded, tagged figures, an … |
 | [`od-capital-request`](skills/od-capital-request/SKILL.md) | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their fi… |
+| [`od-context`](skills/od-context/SKILL.md) | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. Load before any… |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. Walks the path from the machine through its connector and integration variant to the data platform, disti… |
 | [`od-decision-routing`](skills/od-decision-routing/SKILL.md) | Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision to its owner, mode, approval requirement, reversibility, threshold and authority level; route spend through eCR, IT demand through demand management, rol… |
 | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) | Two entry routes to one protocol for connecting machines (Lane 1b order and connect, Lane 3b new connector - the former Information Integration Service lane). Assessment: inventory a plant's or wave's machines, decide per machine the integr… |
@@ -86,14 +88,13 @@ concept-by-concept trace.
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. Define a plant use case so it can be built, standardized, handed over and measured: scope it, break down the requirement, assess the (legacy) M… |
 | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | Decide what OD does with an incoming request — accept it into exactly one of the three new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it, or route it to the function that actually owns it. Applies … |
 
-### Extension library (26)
+### Extension library (25)
 
 | Skill | Deepens step | What it adds |
 |---|---|---|
 | [`build-grafana-ops-dashboard`](skills-extension/build-grafana-ops-dashboard/SKILL.md) | 1a2 | Build production-grade Grafana JSON dashboards backed by SQL for operations data — manufacturing, IIoT, energy, quality, throughput. Supports two data model archetypes: relational (custom fact + dimension tables) and timeseries (UUID-keyed … |
 | [`funnel-features`](skills-extension/funnel-features/SKILL.md) | 22 | Turn an accepted requirement into its feature definition - one epic with a background and at least two user stories that stand alone, each with testable acceptance and a use-in-a-real-shift criterion - the department's funnel-features, stag… |
 | [`od-ai-generation-playbook`](skills-extension/od-ai-generation-playbook/SKILL.md) | spine | The cross-cutting rulebook for using AI agents safely along the OD process chain - the department context layer as precondition, the multi-step generation pipeline with its human gate and visual-QA loop, AI signal selection and dashboard ge… |
-| [`od-context`](skills-extension/od-context/SKILL.md) | spine | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. Load before any… |
 | [`od-context-freshness`](skills-extension/od-context-freshness/SKILL.md) | spine | Run the quarterly freshness check that keeps every other OD skill honest - find the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry unresolved gaps, t… |
 | [`od-cross-plant-compatibility`](skills-extension/od-cross-plant-compatibility/SKILL.md) | 3b4 | Check that a signal standard, data model or capability solution stays consumable by every plant's instance of the same capability - build the plant grid (controller vendor, field network, ingress variant, tool versions, language, state of t… |
 | [`od-cybersec-gate`](skills-extension/od-cybersec-gate/SKILL.md) | 1b3, 3a5, 3b5 | Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the ne… |
