@@ -34,7 +34,7 @@ concept-by-concept trace.
 
 ## The 47 skills
 
-### Core library (22) — by step of the process flow
+### Core library (25) — by step of the process flow
 
 | Lane · step | Skills |
 |---|---|
@@ -61,6 +61,9 @@ concept-by-concept trace.
 | Lane 3 · 3b · Connector + pipeline to MDL | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) |
 | Lane 3 · 3b · Procure & connect machine | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) |
 | Lane 3 · 3b · Acceptance + CS → live | [`od-acceptance-test`](skills/od-acceptance-test/SKILL.md) |
+| Lane 4 · 4 · Select + check story | [`od-showcase-selection`](skills/od-showcase-selection/SKILL.md) |
+| Lane 4 · 4 · Brief Internal Communications; review + publish (IC) | [`od-comms-brief`](skills/od-comms-brief/SKILL.md) |
+| Lane 4 · 4 · Follow up + feed back | [`od-showcase-followup`](skills/od-showcase-followup/SKILL.md) |
 | Foundation · read first, not a step | [`od-context`](skills/od-context/SKILL.md) |
 
 | Core skill | What it does |
@@ -75,6 +78,7 @@ concept-by-concept trace.
 | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) | Build the thing the plant actually opens — a dashboard, report, analytics workflow, app or agent — so that it is consumed inside a real moment in the day, diagnosable by the plant, and countable in the portfolio. Covers choosing the asset t… |
 | [`od-benefit-calculation`](skills/od-benefit-calculation/SKILL.md) | Build, assess and record the value side of an OD business case (the department's od-benefit-calculation and bc-assessment, one shared value model) and keep the savings ledger honest — a value-only backbone with grounded, tagged figures, an … |
 | [`od-capital-request`](skills/od-capital-request/SKILL.md) | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their fi… |
+| [`od-comms-brief`](skills/od-comms-brief/SKILL.md) | Turn a selected use case into the brief and the draft pack that Internal Communications can publish (new-state Lane 4, steps 42 and 43): one message, proof points that each carry a source and an evidence class, audience variants (other plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), a call to action that leads back into Lane 1, drafts of the article, one-pager, slide and short post in English, and the list of approvals. Checks the brief with a script before it leaves OD. Use after od-showcase-selection returns go, when a use-case story must be written for the company, or when a draft story needs its claims checked. |
 | [`od-context`](skills/od-context/SKILL.md) | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. Load before any… |
 | [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) | Check whether the data a use case or an analysis needs actually exists, is reachable and is fit for use — before anything is promised. Walks the path from the machine through its connector and integration variant to the data platform, disti… |
 | [`od-decision-routing`](skills/od-decision-routing/SKILL.md) | Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision to its owner, mode, approval requirement, reversibility, threshold and authority level; route spend through eCR, IT demand through demand management, rol… |
@@ -83,6 +87,8 @@ concept-by-concept trace.
 | [`od-node-red-flow-builder`](skills/od-node-red-flow-builder/SKILL.md) | Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor estate does it - the seven-group canonical layout, the protobuf PLCPacket schema over MQTT, the datatroniq and CT topic conventions, the standard func… |
 | [`od-prototype-poc`](skills/od-prototype-poc/SKILL.md) | Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, bui… |
 | [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md) | Turn an accepted demand into a requirement another lane can act on, for any of the four OD service lines. Elicits the problem behind the stated request, sets it against the capability's standard baseline, names the signals it needs and whet… |
+| [`od-showcase-followup`](skills/od-showcase-followup/SKILL.md) | Close the loop after a use-case story is published (new-state Lane 4, step 44): record what was published and where, route every reaction back into the right lane (a plant that wants a catalogued use case goes to Lane 1, a new need to Lane 2, a need for a system or connector to Lane 3), keep the story true as the use case changes, and capture what the promotion taught OD. Defines the few measures of the lane without targets. Use after Internal Communications has published, when a plant reacts to a story, or when a published story may have gone stale. |
+| [`od-showcase-selection`](skills/od-showcase-selection/SKILL.md) | Decide which use case is ready to be told to the rest of the company, and which claims it may carry (new-state Lane 4, the outbound lane for use-case promotion via Internal Communications, step 41). Applies the entry gate (live, adoption confirmed by the recipient, plant owner agrees), the evidence rule (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any use-case story is briefed to Internal Communications. |
 | [`od-signal-standardization`](skills/od-signal-standardization/SKILL.md) | Analyse a machine's signals and standardize them so a second plant can consume them without asking a question. Reads the machine context - PLC program, tag export, sequence or flow chart, layout, handbook, HMI, or the machine itself - to es… |
 | [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md) | Two gates in one skill. Intake fit: catch the request that sounds like a normal dashboard or integration ask but quietly needs a system outside the lean footprint (MES, EMS, a heavier MIL, Recipe Management or Data Science Factory) and reso… |
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. Define a plant use case so it can be built, standardized, handed over and measured: scope it, break down the requirement, assess the (legacy) M… |

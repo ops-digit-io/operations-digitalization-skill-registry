@@ -500,6 +500,33 @@ skills:
     authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
     summary: Enforce the boundaries of plant self-service (new-state Lane 1, the department's catalog-guardrails) - run the go-live self-check on a catalogued use case the plant applied itself - data present and fresh, platform bounda
 
+  - id: od-showcase-selection
+    origin: new-state
+    library: core
+    tier: practice
+    lane: lane-4
+    owner_role: "Digital-Business-Value-Engineer (DBVE); the plant owner agrees"
+    authority_level: "draft the selection record and recommend go, hold or no; the plant owner and the OD lead decide"
+    summary: "Decide which use case is ready to be told to the rest of the company, and which claims it may carry (new-state Lane 4, the outbound lane for use-case promotion via Internal Communications, step 41). Applies the entry gate (live, adoption confirmed by the recipient, plant owner agrees), the evidence rule (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any use-case story is briefed to Internal Communications."
+
+  - id: od-comms-brief
+    origin: new-state
+    library: core
+    tier: practice
+    lane: lane-4
+    owner_role: "Digital-Business-Value-Engineer (DBVE); Internal Communications publishes"
+    authority_level: "draft the brief and the assets and run the check; nothing is published by OD; the plant owner, the OD lead and Internal Communications approve"
+    summary: "Turn a selected use case into the brief and the draft pack that Internal Communications can publish (new-state Lane 4, steps 42 and 43): one message, proof points that each carry a source and an evidence class, audience variants (other plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), a call to action that leads back into Lane 1, drafts of the article, one-pager, slide and short post in English, and the list of approvals. Checks the brief with a script before it leaves OD. Use after od-showcase-selection returns go, when a use-case story must be written for the company, or when a draft story needs its claims checked."
+
+  - id: od-showcase-followup
+    origin: new-state
+    library: core
+    tier: practice
+    lane: lane-4
+    owner_role: "Digital-Business-Value-Engineer (DBVE)"
+    authority_level: "draft the follow-up log and the routing and recommend; OD lead and plant owners decide; Internal Communications owns any correction of a published item"
+    summary: "Close the loop after a use-case story is published (new-state Lane 4, step 44): record what was published and where, route every reaction back into the right lane (a plant that wants a catalogued use case goes to Lane 1, a new need to Lane 2, a need for a system or connector to Lane 3), keep the story true as the use case changes, and capture what the promotion taught OD. Defines the few measures of the lane without targets. Use after Internal Communications has published, when a plant reacts to a story, or when a published story may have gone stale."
+
   - id: catalog-systems
     origin: new-state
     library: core

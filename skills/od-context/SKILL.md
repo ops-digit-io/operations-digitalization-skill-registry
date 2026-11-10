@@ -106,6 +106,9 @@ external (OD scopes, externals deliver) · IT, Cyber Security gated (OD does not
 
 Lane cut rule: **one lane = one trigger + one definition of done + one autonomy profile.**
 
+
+**Lane 4, the outbound lane (added 2026-11-10 on the owner's request).** Lane 4 promotes a proven use case to other plants, leadership and colleagues through Internal Communications (IC). It is not an intake lane: no demand is classified into it. It is entered from a use case that is live and adopted (Lane 1 go-live or Lane 2 graduation) through `od-showcase-selection`, continues with `od-comms-brief` and `od-showcase-followup`, and feeds reactions back into Lanes 1 to 3. OD drafts; the plant owner, the OD lead and IC approve; IC publishes. IC's own process is not yet recorded (the IC brief is to be supplied).
+
 ## Vocabulary — one term, one meaning
 
 | Term | Means here | Not to be confused with |

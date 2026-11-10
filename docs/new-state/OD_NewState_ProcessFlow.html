@@ -49,6 +49,7 @@
   .lane.l1 .spine{background:var(--mint-d);}
   .lane.l2 .spine{background:var(--b2);}
   .lane.l3 .spine{background:var(--navy);}
+.lane.l4 .spine{background:var(--azure-d);}
   .spine .ln{font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
   .spine .nm{font-size:14px;font-weight:700;line-height:1.15;}
   .spine .ow{font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:2px 6px;border-radius:3px;align-self:flex-start;}
@@ -262,6 +263,26 @@
       </div>
     </div>
 
+
+    <!-- ===== LANE 4 (outbound, added 2026-11-10) ===== -->
+    <div class="lane l4">
+      <div class="spine">
+        <div class="ln">Lane 4</div><div class="nm">Promote a proven use case</div>
+        <div class="ow">OD-led &middot; IC publishes</div>
+      </div>
+      <div class="body">
+        <div class="track">
+          <div class="node gap"><span class="state">Gap</span><div class="t">Select + check story</div><span class="chip gap">od-showcase-selection</span></div>
+          <div class="arr"></div>
+          <div class="node gap"><span class="state">Gap</span><div class="t">Brief Internal Communications</div><span class="chip gap">od-comms-brief</span></div>
+          <div class="arr wait"><span class="wlab">IC</span></div>
+          <div class="node gap"><span class="state">Gap</span><div class="t">Review + publish</div><span class="chip gap">od-comms-brief</span><span class="chip gap">IC publishes</span></div>
+          <div class="arr"></div>
+          <div class="node gap"><span class="state">Gap</span><div class="t">Follow up + feed back</div><span class="chip gap">od-showcase-followup</span></div>
+        </div>
+        <div class="fallnote">Entry: use case <b>live &amp; adopted</b> (Lane&nbsp;1 go-live or Lane&nbsp;2 graduation), never from intake &nbsp;&middot;&nbsp; Feeds back: catalogued &rarr; <b>Lane&nbsp;1</b> &nbsp;&middot;&nbsp; new need &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; needs a system &rarr; <b>Lane&nbsp;3</b></div>
+      </div>
+    </div>
   </div>
 
   <!-- ===== GAP STRIP ===== -->
@@ -275,6 +296,9 @@
       <div class="gcard"><div class="gn">it-demand-package</div><div class="gl">Lane 3a</div><div class="gd">Package demand for IT / external dev.</div></div>
       <div class="gcard thin"><div class="gn">prototype / PoC</div><div class="gl">Lane 2 &middot; thin</div><div class="gd">Exists partially via asset-build.</div></div>
       <div class="gcard thin"><div class="gn">capital-request</div><div class="gl">Lane 2 &amp; 3 &middot; thin</div><div class="gd">Routing only, no packaging skill.</div></div>
+      <div class="gcard"><div class="gn">od-showcase-selection</div><div class="gl">Lane 4</div><div class="gd">Entry gate and claims check for a use-case story.</div></div>
+      <div class="gcard"><div class="gn">od-comms-brief</div><div class="gl">Lane 4</div><div class="gd">Brief and drafts for Internal Communications; checked before it leaves OD.</div></div>
+      <div class="gcard"><div class="gn">od-showcase-followup</div><div class="gl">Lane 4</div><div class="gd">Routes reactions into Lanes 1 to 3; keeps the story true.</div></div>
     </div>
   </div>
 

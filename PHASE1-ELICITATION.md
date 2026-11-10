@@ -180,3 +180,14 @@ real one directly if you have one.
 source — e.g. the `UseCase-SavingCalculation` list for topic 3, or scanning use-case
 `target_text` for MES/MIL/EMS-adjacent language for topic 5. Say the word and I'll pull it
 before you write those answers.*
+
+---
+
+## 6. Internal Communications handover (Lane 4) — OPEN
+→ `skills/od-comms-brief/references/ic-handover.md`
+
+The owner asked for an outbound lane that promotes live, adopted use cases through Internal Communications. The vault holds no description of the Internal Communications process, so the skill leaves its details open. **To be supplied by the owner (the Internal Communications brief):** the intake channel or role, the channels per audience (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), the lead time, any IC template or review route that replaces `comms-brief.md`, brand and tone rules, a second approval or language, and what reach or response data IC returns.
+
+**Your answer:**
+
+—
