@@ -66,7 +66,7 @@ included in the skill's `assets/`.
   13 (year), 14 (tagline, set to Lora). `content()`/`cover()`/`divider()` fill these
   from `CASE`; don't hand-place footers.
 - **Chrome consistency** — one presenter string, one year, one title tag across all
-  slides. Mixed ContiTech/Continental branding or date formats is a defect.
+  slides. Mixed company names, branding or date formats is a defect.
 
 ## Mapping the backbone → CASE/slides
 

@@ -346,7 +346,7 @@ def open_items_conflicts(open_items, conflicts, verdict):
 CASE = {
     'slug': 'Example_Regionalization',
     'title_tag': 'eCR - Example (illustrative)',
-    'presenter': 'OESL - Original Equipment Solutions',
+    'presenter': 'neuwerk',
     'year': '2025',
     'tagline': 'The neuwerk way',
 }
@@ -359,7 +359,7 @@ def build():
           [('Capital Request', 10, G3, False, False, 3),
            ('Regionalization of AC pressure-line production to Kranj', 12.5, NAVY, True, False, 8),
            ('Location    Kranj, Slovenia', 10.5, NAVY, False, False, 2),
-           ('Company    ContiTech - Original Equipment Solutions', 10.5, NAVY, False, False, 0)])
+           ('Company    neuwerk', 10.5, NAVY, False, False, 0)])
 
     # ---- 2 CONTENT
     s2 = content('Content')

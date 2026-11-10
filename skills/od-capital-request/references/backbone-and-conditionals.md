@@ -16,7 +16,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 
 ## The section backbone (convention, not law)
 
-The OESL / ContiTech eCR **Management Summary** follows this sequence. Numbering is
+The neuwerk eCR **Management Summary** follows this sequence. Numbering is
 a *convention* — real teams reorder (e.g. promote P&L from Backup into the body, or
 move Key Figures late). Keep the reader's logic intact; don't renumber for its own
 sake.
@@ -85,6 +85,6 @@ low-confidence/unknown. This layer maps 1:1 onto the `CASE`/slide-assembly code 
 - Risks/opportunities as free bullet text → use the rated, colour-coded table.
 - Over-dense PN/investment tables at unreadable font → group, summarise, move detail
   to Backup.
-- Inconsistent chrome (ContiTech vs Continental, mixed date formats/authors,
+- Inconsistent chrome (mixed company names, mixed date formats/authors,
   off-by-one section numbers) → one consistent footer/title system throughout.
 - Undefined acronyms → Glossary slide.
