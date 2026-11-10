@@ -37,7 +37,7 @@ SECTIONS = {
 }
 
 LANE_EXTRA = {
-    "use-case":   (r"handover packet",       "Handover packet to Information Integration"),
+    "use-case":   (r"handover packet",       "Handover packet to Lane 3"),
     "integration":(r"equipment requirement", "Equipment requirement"),
     "project":    (r"project scope baseline","Project scope baseline"),
     "analytical": (r"request scope",         "Request scope"),

@@ -138,7 +138,7 @@ From the intake rules, and each has a route:
 | No plant-roadmap link and no nameable business case | Back to the demand owner, with the reason |
 | Needs a system outside the lean footprint | Strategy — a tool-rollout decision, not a use case |
 | Owned by a sibling function | Manufacturing Engineering · P&PI · Facility · Tool Centre · IT |
-| A one-off question with no recurring value | Analytical Support as an ad-hoc request — **do not industrialize** |
+| A one-off question with no recurring value | `od-first-aid-kit` as an ad-hoc request (Lane 1, Lane 2 or external support) — **do not industrialize** |
 | Already exists at another plant | Adoption, via the reference library |
 
 **A refusal with a named route is a better outcome than a thin requirement**, because a thin

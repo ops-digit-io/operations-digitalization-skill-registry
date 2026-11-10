@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Technical guardrails
 
-The seven guardrails in `SKILL.md` (G1 to G7) cover data, platform boundary, footprint, figures, ownership, handover and Cyber Security. A plant that builds or copies a dashboard needs more: how the screen reads data, how it is built, what it shows. The vault holds these as **proposed specifications**, not as adopted rules. Treat every row below as a **candidate** that the OD lead has not yet confirmed. This file holds no counts of the Grafana estate; the specs carry them and they move.
+The guardrails in `SKILL.md` (G1 to G7 and G7a) cover data, platform boundary, footprint, figures, ownership, handover, Cyber Security and an unchanged data model. A plant that builds or copies a dashboard needs more: how the screen reads data, how it is built, what it shows. The vault holds these as **proposed specifications**, not as adopted rules. Treat every row below as a **candidate** that the OD lead has not yet confirmed. This file holds no counts of the Grafana estate; the specs carry them and they move.
 
 ## Where they come from and how far to trust them
 

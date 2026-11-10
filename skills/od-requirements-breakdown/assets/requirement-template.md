@@ -97,7 +97,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 
 ## §11 Lane variant — keep only the one that applies
 
-### Handover packet to Information Integration  *(Use Case Support)*
+### Handover packet to Lane 3  *(`use-case`: Lane 2 use case needing a new system or connection)*
 
 | | |
 |---|---|
@@ -109,7 +109,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 | Known barriers, classified | ⟨from §7⟩ |
 | Business case reference | ⟨from §9⟩ |
 
-### Equipment requirement  *(Information Integration)*
+### Equipment requirement  *(`integration`: Lane 3b, Lane 1b)*
 
 | | |
 |---|---|
@@ -123,7 +123,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 | Cyber Security / OT sign-off | ⟨required? requested? granted?⟩ |
 | Signal standard / data model | ⟨⟩ |
 
-### Project scope baseline  *(Project Support & Application Consultancy)*
+### Project scope baseline  *(`project`: Lane 3 front-end)*
 
 | | |
 |---|---|
@@ -135,7 +135,7 @@ generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 | Training + competence requirement | ⟨who must run it afterwards⟩ |
 | Flow owner | ⟨named⟩ |
 
-### Request scope  *(Analytical Support)*
+### Request scope  *(`analytical`: ad-hoc request)*
 
 | | |
 |---|---|

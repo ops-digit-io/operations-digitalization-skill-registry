@@ -1,8 +1,8 @@
 ---
 name: od-requirements-breakdown
 description: >-
-  Turn an accepted demand into a requirement another lane can act on, for any of the four OD
-  service lines. Elicits the problem behind the stated request, sets it against the
+  Turn an accepted demand into a requirement another lane can act on, for any of the three
+  new-state lanes (Lane 2 and the Lane 3 front-end, and the hand-offs between them). Elicits the problem behind the stated request, sets it against the
   capability's standard baseline, names the signals it needs and whether they exist, writes
   testable acceptance criteria, assesses the legacy MF IT systems it touches, and produces
   both the handover packet that crosses a lane boundary and a standardized epic with its
@@ -89,12 +89,12 @@ The epic and its user stories are the department's next funnel stage, **`funnel-
 
 - **Lane variants:** same core, one added section each; **nothing crosses a lane boundary without its variant** (an integration request without signal list and acceptance is a conversation, not a work item).
 
-| Lane | Adds | Playbook step |
+| Variant (`--lane`) | Adds | Flow step |
 |---|---|---|
-| Use Case Support | Handover packet to Information Integration: machines, signals, data path, outputs to register, integration acceptance; handed over with a business case | 3, break down requirement; assess legacy IT |
-| Information Integration | Equipment requirement: PLC identity, protocol, ingress variant, connector, PLC program available?, tag export, companion specification, Cyber Security sign-off | 1, equipment assessment; feeds the PRS where a machine is bought or modified |
-| Project Support | Project scope baseline: stage/gate, investment and eCR route, milestones with acceptance points, resources, dependencies, training, flow owner | 2, kick-off, scope |
-| Analytical Support | Request scope: question, decision supported, data verdict, turnaround, one-off or recurring | 1, request scoped |
+| `use-case`: Lane 2 use case that needs a new system or connection | Handover packet to Lane 3 (3a system demand or 3b connector): machines, signals, data path, outputs to register, integration acceptance; handed over with a business case | 22, requirements and data check; assess legacy IT |
+| `integration`: Lane 3b new connector, Lane 1b order and connect | Equipment requirement: PLC identity, protocol, ingress variant, connector, PLC program available?, tag export, companion specification, Cyber Security sign-off | 3b4, connector design; feeds the PRS where a machine is bought or modified |
+| `project`: Lane 3 front-end (new system) | Project scope baseline: stage/gate, investment and eCR route, milestones with acceptance points, resources, dependencies, training, flow owner | 31, requirements; kick-off and scope |
+| `analytical`: ad-hoc request (Lane 1, Lane 2 or external, via `od-first-aid-kit`) | Request scope: question, decision supported, data verdict, turnaround, one-off or recurring | i1, request scoped |
 
 - **One use case or three?** Different people or moments mean different use cases.
 - **Real problem?** Ask what they would do differently with the answer.

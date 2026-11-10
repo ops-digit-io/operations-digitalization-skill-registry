@@ -29,6 +29,7 @@ Rules for filling: a result is `passed`, `failed` or `not checked`. "Yes" withou
 | G5 | Named plant owner; the plant decides daily use | | | |
 | G6 | Three-question handover test answerable from the record alone | | | |
 | G7 | External connection: Cyber Security sign-off (human-only) granted - by whom, when | | | |
+| G7a | Data model and signal standard unchanged from the catalogued one - what was checked | | | |
 
 ## B - Candidate build guardrails (references/technical-guardrails.md; proposals, not yet confirmed)
 
