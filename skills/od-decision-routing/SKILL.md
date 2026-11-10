@@ -65,10 +65,11 @@ engineering.**
 | Tool/system rollout (MES, MSB, IIoT Edge, the data platform…) | OD lead | IT-responsible role of the business side | Tandem | **yes** | no | strategic-plant scope | `execute-with-approval` |
 | Data-model / signal standardization | IIAE | Plant ME / Plant IT | Consultation | no | yes | must stay consumable by every plant's instance of the capability | `recommend` |
 | Machine standards for digital connection | OD lead | Manufacturing Engineering | Consultation | **yes** | partially | aligned with M+E standards | `recommend` |
-| Lane 1b standardized-system cost (cost template) | Plant budget owner | DBVE (OD supplies the template) | — | **yes** | partially | pre-priced standardized spend only; anything non-standard goes to Lane 3 | `recommend` (OD prepares; the plant budget owner approves) |
+| Lane 1b standardized-system cost (cost template) | Plant budget owner | DBVE (OD supplies the template) | — | **yes** | partially | pre-priced standardized spend only; anything non-standard goes to Lane 3; pre-approval bands recorded 2026 (below 25 kEUR and 25 to 100 kEUR through an automated workflow, central approval at 25 kEUR per a review note, local approval first): see `od-capital-request`, spend route, owner to confirm | `recommend` (OD prepares; the plant budget owner approves) |
 | Lane 3 tool decision / IT-footprint gate | OD lead | IT (solution design) | Tandem | **yes** | no | mandatory for every Lane 3 demand; routes 3a.1-3a.4 or 3b | `recommend` |
 | Application ownership transfer to IT or another team | Receiving team | Current owner (builder) | Tandem | **yes** | partially | only on formal acceptance; until then the builder runs it | `recommend` |
 | Ad-hoc analytics delivery | DBVE | — | — | no | yes | read-only on source systems | `execute-autonomously` |
+| Lane 4 outbound use-case story (proposed; not in the department decision rights) | DBVE | Plant owner; Internal Communications | Tandem | **yes** | no (a published item can only be corrected or withdrawn by IC) | only a live, adopted use case; plant owner consents; every figure with an evidence class; no individuals, hosts or supplier detail | `recommend` (OD drafts; IC publishes) ⟨to confirm with the OD lead⟩ |
 
 The three rows above the last are from the department's new-state lane files (Lane 1 step 3b, Lane 3
 step 2) and the OD x IT alignment of 2026-09-11; `08-decision-rights.md` does not carry them yet.

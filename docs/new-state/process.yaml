@@ -237,6 +237,35 @@ lanes:
       skills:
       - od-acceptance-test
       proposed: []
+- id: lane4
+  title: Promote a proven use case
+  who: OD-led / IC publishes
+  summary: 'Outbound. Entered only from a live, adopted use case (Lane 1 go-live or Lane 2 graduation), never from intake. Feeds back: an enquiry for a catalogued use case goes to Lane 1, a new need to Lane 2, a need for a system to Lane 3.'
+  branches:
+  - id: '4'
+    title: Use-case promotion via Internal Communications
+    steps:
+    - id: '41'
+      title: Select + check story
+      skills:
+      - od-showcase-selection
+      proposed: []
+    - id: '42'
+      title: Brief Internal Communications
+      skills:
+      - od-comms-brief
+      proposed: []
+    - id: '43'
+      title: Review + publish (IC)
+      wait: IC
+      skills:
+      - od-comms-brief
+      proposed: []
+    - id: '44'
+      title: Follow up + feed back
+      skills:
+      - od-showcase-followup
+      proposed: []
 spine:
   title: Foundation
   summary: Not a step; every skill reads it first.

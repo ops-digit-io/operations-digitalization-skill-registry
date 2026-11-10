@@ -50,6 +50,16 @@ flowchart TD
         F3 --> L3BEND(((Live on MDL)))
     end
 
+    subgraph LANE4 [Lane 4 - Promote a proven use case · OD-led, IC publishes]
+        direction TB
+        G1["Select + check story<br/><i>od-showcase-selection</i>"] --> G2["Brief Internal Communications<br/><i>od-comms-brief</i>"]
+        G2 -.->|IC| G3["Review + publish (IC)<br/><i>od-comms-brief</i>"]
+        G3 --> G4["Follow up + feed back<br/><i>od-showcase-followup</i>"]
+    end
+    L1END -.->|live and adopted| G1
+    CAT -.->|live and adopted| G1
+    G4 -.->|catalogued → Lane 1 · new need → Lane 2 · system → Lane 3| CLS
+
     classDef evt fill:#1b1e52,stroke:#1b1e52,color:#ffffff;
     class START,L1END,L3AEND,L3BEND evt;
     classDef gate fill:#fff7e6,stroke:#ffa500,color:#1b1e52;
