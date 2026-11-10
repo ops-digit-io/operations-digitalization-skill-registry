@@ -13,5 +13,6 @@
 | [New-state skill map](new-state-skill-map.md) | Map of Content | Every core skill mapped onto the new-state process flow: which step it serves and in which of the four New-State files it appears. Extension skills are not listed. |
 | [OKF conventions](okf-conventions.md) | Map of Content | The Open Knowledge Format contract this registry follows, the three places it deviates from the knowledge-graph bundle and why, and what the guard refuses. |
 | [Skill map](skill-map.md) | Map of Content | The four lane skill maps read as one: which capability each lane names, where they overlap, and which registry skill covers each. |
+| [Skill quality](skill-quality.md) | Design Record | How the core skills are rated (NVIDIA SkillEvaluator tier 1 quality-check with the registry's own configuration): the scale, the four categories, what the score does not measure, and the score of every core skill. |
 | [Skill state map](skill-state-map.md) | Map of Content | Every skill in the registry as one picture - which lane it serves, where it sits in the delivery order, how far it is built, and what is next. |
 | [Vault alignment](vault-alignment.md) | Design Record | Cross-check of this registry's 24 skills against the department's own 33-skill build plan and gap analysis, with the resulting build order. |
