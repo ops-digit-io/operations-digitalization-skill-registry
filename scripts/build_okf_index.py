@@ -17,6 +17,9 @@ import pathlib
 import re
 import sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import skillpaths  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 _DIRS: "list[pathlib.Path] | None" = None
 OKF_VERSION = "0.2"
@@ -102,6 +105,8 @@ def directories() -> list[pathlib.Path]:
             continue
         parts = d.relative_to(ROOT).parts
         if any(p.startswith((".", "__")) for p in parts) or parts[0] == "scripts":
+            continue
+        if skillpaths.is_vendored(d):   # a third-party copy kept unchanged: no generated indexes inside it
             continue
         # A directory earns an index only if it holds a concept somewhere beneath it.
         if any(f.name not in RESERVED for f in d.rglob("*.md")):

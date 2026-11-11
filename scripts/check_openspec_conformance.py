@@ -6,13 +6,15 @@
 Builds throw-away OpenSpec projects and runs the real `openspec validate --strict` (the release pinned in
 skills/it-demand-package/scripts/check_handover.py, OPENSPEC_PINNED; github.com/Fission-AI/OpenSpec) on:
   1. the worked example, through check_handover.py (OpenSpec plus the OD annex): must be READY;
-  2. a package scaffolded by new_handover.py from the templates: OpenSpec must accept its structure;
+  2. a change created by `openspec new change`, with the OD part added by new_handover.py: the annex and attachments/
+     are added, and OpenSpec hands OD's rules from config.yaml to its skills (`openspec instructions`);
   3. the worked example with a duplicated task id: OpenSpec must reject it (proves the CLI is really what decides).
 Without the CLI (set OPENSPEC_BIN or put `openspec` on PATH) the check is skipped with a note, unless --require is
 given (CI does). Standard library only; the CLI needs Node 22.12 or newer: npm install -g @fission-ai/openspec@<pin>.
 """
 from __future__ import annotations
 
+import json
 import os
 import pathlib
 import re
@@ -66,16 +68,27 @@ def main() -> int:
         r = run([sys.executable, str(CHECK), str(change)], tmp_path)
         if r.returncode != 0 or "READY to hand over" not in r.stdout:
             problems.append("worked example is not READY:\n" + (r.stdout + r.stderr)[-800:])
-        # 2. the templates, as scaffolded
-        proj = tmp_path / "scaffold"
-        proj.mkdir()
-        r = run([sys.executable, str(NEW), str(proj), "check-openspec-conformance", "--with-config"], tmp_path)
+        # 2. the OD part on a change OpenSpec created: annex and attachments added, OD rules reach OpenSpec's skills
+        proj = tmp_path / "store"
+        (proj / "openspec").mkdir(parents=True)
+        cid = "check-openspec-conformance"
+        r = run([cli, "new", "change", cid, "--no-interactive"], proj)
         if r.returncode != 0:
-            problems.append("new_handover.py failed:\n" + (r.stdout + r.stderr)[-400:])
+            r = run([cli, "new", "change", cid], proj)
+        change = proj / "openspec" / "changes" / cid
+        if not (change / ".openspec.yaml").is_file():
+            problems.append("openspec new change did not create the change:\n" + (r.stdout + r.stderr)[-400:])
         else:
-            r = run([cli, "validate", "check-openspec-conformance", "--type", "change", "--strict", "--no-interactive"], proj)
-            if r.returncode != 0:
-                problems.append("scaffolded templates rejected by openspec validate --strict:\n" + (r.stdout + r.stderr)[-800:])
+            r = run([sys.executable, str(NEW), str(change), "--with-config"], tmp_path)
+            if r.returncode != 0 or not (change / "handover.md").is_file() or not (change / "attachments").is_dir():
+                problems.append("new_handover.py did not add the annex and attachments/:\n" + (r.stdout + r.stderr)[-400:])
+            r = run([cli, "instructions", "proposal", "--change", cid, "--json"], proj)
+            try:
+                rules = json.loads(r.stdout).get("rules") or []
+            except ValueError:
+                rules = []
+            if not rules:
+                problems.append("OpenSpec does not hand OD's rules from config.yaml to its skills (openspec instructions)")
         # 3. the CLI must be the one that decides: a duplicated task id is rejected by OpenSpec only
         bad = example_project(tmp_path / "bad")
         tasks = bad / "tasks.md"
@@ -88,7 +101,7 @@ def main() -> int:
         for p in problems:
             print("  - " + p, file=sys.stderr)
         return 1
-    print(f"OK — the IT handover follows OpenSpec {ver} (worked example READY, templates accepted, CLI decides)")
+    print(f"OK — the IT handover follows OpenSpec {ver} (worked example READY, OD part added to an OpenSpec change, OD rules reach OpenSpec, CLI decides)")
     return 0
 
 

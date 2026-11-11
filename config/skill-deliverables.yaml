@@ -117,12 +117,7 @@ skills:
     - assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example
     - assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example
     - assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example
-    - assets/openspec/change/.openspec.yaml.tmpl
-    - assets/openspec/change/design.md.tmpl
     - assets/openspec/change/handover.md.tmpl
-    - assets/openspec/change/proposal.md.tmpl
-    - assets/openspec/change/specs/capability/spec.md.tmpl
-    - assets/openspec/change/tasks.md.tmpl
     - assets/openspec/config.yaml.tmpl
     - references/input-intake.md
     - references/it-demand-package/assets/it-demand-package.md
@@ -136,6 +131,42 @@ skills:
     - references/od-project-support-consultancy/references/process-chain-practice.md
     - references/od-project-support-consultancy/references/task-chain-and-tool-use.md
     - references/openspec-format.md
+    - references/openspec/LICENSE
+    - references/openspec/README.md
+    - references/openspec/VENDORED.md
+    - references/openspec/docs/README.md
+    - references/openspec/docs/agent-contract.md
+    - references/openspec/docs/cli.md
+    - references/openspec/docs/commands.md
+    - references/openspec/docs/community.md
+    - references/openspec/docs/concepts.md
+    - references/openspec/docs/customization.md
+    - references/openspec/docs/editing-changes.md
+    - references/openspec/docs/examples.md
+    - references/openspec/docs/existing-projects.md
+    - references/openspec/docs/explore.md
+    - references/openspec/docs/faq.md
+    - references/openspec/docs/getting-started.md
+    - references/openspec/docs/glossary.md
+    - references/openspec/docs/how-commands-work.md
+    - references/openspec/docs/installation.md
+    - references/openspec/docs/migration-guide.md
+    - references/openspec/docs/multi-language.md
+    - references/openspec/docs/opsx.md
+    - references/openspec/docs/overview.md
+    - references/openspec/docs/reviewing-changes.md
+    - references/openspec/docs/stores-beta/user-guide.md
+    - references/openspec/docs/supported-tools.md
+    - references/openspec/docs/team-workflow.md
+    - references/openspec/docs/troubleshooting.md
+    - references/openspec/docs/workflows.md
+    - references/openspec/docs/writing-specs.md
+    - references/openspec/schemas/spec-driven/schema.yaml
+    - references/openspec/schemas/spec-driven/templates/design.md
+    - references/openspec/schemas/spec-driven/templates/proposal.md
+    - references/openspec/schemas/spec-driven/templates/spec.md
+    - references/openspec/schemas/spec-driven/templates/tasks.md
+    - references/openspec/skills/README.md
     - references/outputs.md
     - scripts/check_handover.py
     - scripts/new_handover.py

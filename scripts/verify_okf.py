@@ -19,6 +19,9 @@ import re
 import sys
 import urllib.parse
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import skillpaths  # noqa: E402
+
 try:
     import yaml
 except ImportError:                                          # pragma: no cover
@@ -157,6 +160,8 @@ def main() -> int:
     concepts = 0
     for path in sorted(ROOT.rglob("*.md")):
         if any(p.startswith((".", "__")) for p in path.relative_to(ROOT).parts):
+            continue
+        if skillpaths.is_vendored(path):   # a third-party copy kept unchanged (see its VENDORED.md)
             continue
         text = path.read_text(encoding="utf-8")
 

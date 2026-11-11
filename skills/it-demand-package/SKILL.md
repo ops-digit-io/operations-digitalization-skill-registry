@@ -69,9 +69,11 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 | [`references/openspec-format.md`](references/openspec-format.md) | The OpenSpec rules this package must meet, and which OD skill fills which artefact |
 | [`references/input-intake.md`](references/input-intake.md) | How to collect every input, including the user's own files (PDF, Excel, images, slides, mails), read each by type, register it and trace it |
 | [`references/it-expected-inputs.md`](references/it-expected-inputs.md) | What IT asked OD for on 2026-09-11, item by item, with the open IT actions that will firm each one |
-| [`assets/openspec/`](assets/openspec/) | The templates: `config.yaml` (project context for IT's repository) and `change/` (proposal, spec, design, tasks, `.openspec.yaml`, `handover.md`) |
+| [`references/openspec/VENDORED.md`](references/openspec/VENDORED.md) | OpenSpec 1.17.0 as its authors ship it: the agent skills (`openspec-propose`, `openspec-new-change`, `openspec-continue-change`, `openspec-apply-change`, ...), the spec-driven schema and templates, the docs including the store guide. Unchanged; this skill follows them |
+| [`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl) | OD's project context and per-artifact rules for the OD store; OpenSpec hands them to its skills through `openspec instructions` |
+| [`assets/openspec/change/handover.md.tmpl`](assets/openspec/change/handover.md.tmpl) | The OD annex, the one file OD adds to an OpenSpec change |
 | `assets/example/` | An illustrative package (`*.example`; drop the suffix to use it) that passes this check and OpenSpec's own validator in strict mode; no figures |
-| [`scripts/new_handover.py`](scripts/new_handover.py) | Scaffold a change folder from the templates |
+| [`scripts/new_handover.py`](scripts/new_handover.py) | Add the OD annex and `attachments/` to a change OpenSpec created |
 | [`scripts/check_handover.py`](scripts/check_handover.py) | Run the OpenSpec CLI in strict mode on a package, then check the annex's blocking fields |
 | [`references/it-demand-package/procedure.md`](references/it-demand-package/procedure.md) | Absorbed: the IT demand management package for the evaluation board (formerly `it-demand-package`) |
 | [`references/od-project-support-consultancy/procedure.md`](references/od-project-support-consultancy/procedure.md) | Absorbed: the retired Project Support & Application Consultancy lane, kept for its composed protocols |
@@ -88,44 +90,63 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
    gate verdict and route (`od-system-fit-check`, verdict Go or PoC-first), business case and investment
    estimate (`od-benefit-calculation`, `od-investment-input`), approval route (`od-capital-request`,
    `od-decision-routing`). If a part is missing, name it and stop.
-3. **Scaffold** the change: `python3 scripts/new_handover.py <out-dir> <change-id>`. The change id is
-   kebab-case and names the change (`add-downtime-reason-capture`), not the project.
-4. **Fill `proposal.md`.** *Why* from the problem and the bankable value (50 to 1000 characters).
-   *What Changes* from the requirement's scope. *Capabilities*: one per durable behaviour the epic
-   describes, named for the behaviour (`downtime-reason-capture`), not the work. *Impact*: plants,
-   systems, interfaces, data.
-5. **Write one delta spec per capability** under `specs/<capability>/spec.md`: `## Purpose` (50+
-   characters), then `## ADDED Requirements`; each `### Requirement:` states one behaviour with SHALL or
-   MUST in its body (500 characters at most) and has at least one `#### Scenario:` with **WHEN** and
-   **THEN**. User stories and acceptance criteria become scenarios (`od-acceptance-test`); data the
-   system must read or publish becomes requirements on the data contract (`od-signal-standardization`,
-   `od-data-availability-check`). No framework names, no class names: those go in `design.md`.
-6. **Fill `design.md`**: the route (3a.1-3a.4 or 3b) and why, target platform (CMO with the standard
-   manifests where the app is a container), interfaces (approved OT interfaces, reuse of central data
-   stores), the data platform, Cyber Security constraints, the legacy application it replaces or touches,
-   **non-goals = the growth boundaries**, risks.
-7. **Fill `tasks.md`**: numbered checkbox groups. Always include logging and observability, the standard
-   manifests, the acceptance test, the Cyber Security sign-off and the handover checklist.
-8. **Fill `handover.md`** (the OD annex, not part of OpenSpec): every input IT asked for
-   ([`references/it-expected-inputs.md`](references/it-expected-inputs.md)), the business case summary,
-   the approval status, the ownership terms, and the register of every input and attachment (section 14). Unknown stays ⟨…⟩ with who supplies it.
-9. **Fill the project context** (`assets/openspec/config.yaml`) once per IT repository, if IT does not
-   have one yet: stack, deployment, interfaces, guardrails, language rules.
-10. **Run the check**: `python3 scripts/check_handover.py <out-dir>/openspec/changes/<change-id>`. It runs the
-   real OpenSpec CLI (`openspec validate <change-id> --strict`, release 1.17.0) and fails without it, then adds
-   the annex and the no-template rule; a package must report READY. The repository's CI proves the worked
-   example and the templates against that CLI (`scripts/check_openspec_conformance.py`).
-11. **Hand over.** A human sends the package (pull request into IT's repository, or the demand board for
-    3a.4 with the absorbed IT demand package). Record the demand as handed over, not accepted.
-12. **Ownership moves only on formal acceptance** (`od-handover-and-adoption`). Until IT or the developer
-    accepts, OD remains the owner of the demand. Do not pass a delivery date to the plant until a team has
-    committed the work in sprint or PI planning.
+3. **Work in the OD store.** OD drafts every change in its own OpenSpec store (a Git repository) and hands it over
+   from there ([`store guide`](references/openspec/docs/stores-beta/user-guide.md)). Once per machine a human clones
+   it and runs `openspec store register <path>`; the very first time, `openspec store setup <od-store> --path <path>
+   --remote <repository URL>`. The store's `openspec/config.yaml` carries OD's context and rules
+   ([`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl)); OpenSpec passes them to its skills for
+   every artifact. All OpenSpec commands below take `--store <od-store>`.
+4. **Create the change with OpenSpec's own skills, never by hand.** Follow
+   [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md) to create the change and all its
+   artifacts in one pass, or [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md) and then
+   [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md) for one reviewed
+   artifact at a time; [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) first when the
+   demand is still unclear. Give them the inputs from step 1 and the front-end results; which OD result feeds which
+   artifact is in [`openspec-format.md`](references/openspec-format.md). The change id is kebab-case and names the
+   change (`add-downtime-reason-capture`), not the project. Later edits go through
+   [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md).
+5. **Add the OD part**: `python3 scripts/new_handover.py <store>/openspec/changes/<change-id> --with-config`. It adds
+   `handover.md` (the OD annex, not part of OpenSpec) and `attachments/`, and writes OD's `config.yaml` where the store
+   has only OpenSpec's default. Copy the user's files into `attachments/` and fill the annex: every input IT asked for
+   ([`references/it-expected-inputs.md`](references/it-expected-inputs.md)), the business case summary, the approval
+   status, the ownership terms and the register of every input (section 14). Unknown stays ⟨…⟩ with who supplies it.
+6. **Run the check**: `python3 scripts/check_handover.py <store>/openspec/changes/<change-id>`. It runs the real
+   OpenSpec CLI (`openspec validate <change-id> --strict`, release 1.17.0) and fails without it, then checks the annex,
+   the attachments and the no-template rule; a package must report READY. CI proves the worked example, the OD part
+   and the OpenSpec copy against that release (`scripts/check_openspec_conformance.py`,
+   `scripts/sync_openspec_vendor.py --check`).
+7. **Hand over.** A human commits and pushes the change in the OD store and opens a pull request there for review. IT
+   reads it with `openspec show <change-id> --store <od-store>`, or lists the store under `references:` in its own
+   repository's `openspec/config.yaml`. For 3a.4 the absorbed IT demand package goes to the demand board as well.
+   Record the demand as handed over, not accepted.
+8. **IT builds with OpenSpec's skills, not OD.** IT implements with
+   [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md), checks the result with
+   [`openspec-verify-change`](references/openspec/skills/openspec-verify-change/SKILL.md) and closes with
+   [`openspec-archive-change`](references/openspec/skills/openspec-archive-change/SKILL.md) or
+   [`openspec-sync-specs`](references/openspec/skills/openspec-sync-specs/SKILL.md). OD does not run these.
+9. **Ownership moves only on formal acceptance** (`od-handover-and-adoption`). Until IT or the developer
+   accepts, OD remains the owner of the demand. Do not pass a delivery date to the plant until a team has
+   committed the work in sprint or PI planning.
+
+## OpenSpec skills in this handover
+
+| OpenSpec skill | Who | When |
+|---|---|---|
+| [`openspec-onboard`](references/openspec/skills/openspec-onboard/SKILL.md) | OD, once | Learning the OpenSpec workflow |
+| [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) | OD | Clarifying a demand before the change exists |
+| [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md) | OD | Creating the change and all artifacts in one pass (step 4) |
+| [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md), [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md), [`openspec-ff-change`](references/openspec/skills/openspec-ff-change/SKILL.md) | OD | Creating the change artifact by artifact, or fast-forwarding the rest (step 4) |
+| [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md) | OD | Changing artifacts after review or new inputs |
+| [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md) | IT | Implementing the tasks (step 8) |
+| [`openspec-verify-change`](references/openspec/skills/openspec-verify-change/SKILL.md) | IT | Checking the implementation against the change before archive |
+| [`openspec-archive-change`](references/openspec/skills/openspec-archive-change/SKILL.md), [`openspec-bulk-archive-change`](references/openspec/skills/openspec-bulk-archive-change/SKILL.md), [`openspec-sync-specs`](references/openspec/skills/openspec-sync-specs/SKILL.md) | IT | Folding the finished change into the main specs |
 
 ## Output
 
-`openspec/changes/<change-id>/` with `.openspec.yaml`, `proposal.md`, `specs/<capability>/spec.md`,
-`design.md`, `tasks.md` and `handover.md`, plus the user's files under `attachments/` (each registered in section 14
-of `handover.md`) and `openspec/config.yaml` when the receiving repository needs one; the check output attached.
+`<od-store>/openspec/changes/<change-id>/` as OpenSpec's skills write it (`.openspec.yaml`, `proposal.md`,
+`specs/<capability>/spec.md`, `design.md`, `tasks.md`), plus OD's `handover.md` and the user's files under
+`attachments/` (each registered in section 14 of `handover.md`); OD's `config.yaml` in the store; the check output
+attached.
 
 ## Definition of done
 
@@ -136,8 +157,10 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 
 ## Open - what only the OD lead and IT can supply
 
-- ⟨The receiving repository or store for OpenSpec changes on the IT side⟩ - the meeting asked IT to define
-  where each artefact is stored and exchanged (IT).
+- ⟨The OD store: its id and repository URL⟩ - decided: OD drafts in its own OpenSpec store; the OD lead sets it
+  up once (`openspec store setup`) and names it here.
+- ⟨How IT takes a change from the OD store: `references:` in its repositories, or a copy into its own store⟩ -
+  the meeting asked IT to define where each artefact is stored and exchanged (IT).
 - ⟨Published technology guardrails, sourcing criteria, ownership gates, platform-level Cyber Security
   model, data and interface catalog structure⟩ - open IT action items; the annex marks each.
 - ⟨Whether IT adopts OpenSpec itself⟩ - proposed here; if IT keeps its own demand form, the absorbed IT
@@ -145,15 +168,15 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 
 ## Human gate and AI-agent notes
 
-- **Agent may:** ask for and read every input and attachment, register it, scaffold the package, draft the OpenSpec files and the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.
+- **Agent may:** ask for and read every input and attachment, register it, create the change with OpenSpec's skills in the OD store, draft the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.
 - **Roles decide:** the OD lead for the Lane 3 front-end sends the package; IT or the external developer accepts it; Cyber Security signs off; the approvers of the capital request approve the money. The agent never sends a package and never marks an acceptance as given.
 
 ## Available Scripts
 
 | Script | Purpose | Arguments |
 |---|---|---|
-| `scripts/new_handover.py` | Scaffold a change folder from the templates in `assets/openspec/`; never overwrites | `<out-dir> <change-id> [--capability <name>] [--with-config]` |
-| `scripts/check_handover.py` | Check the package against OpenSpec's strict validation rules and the annex's blocking fields | `<path-to-openspec/changes/<change-id>> [--json]` |
+| `scripts/new_handover.py` | Add the OD annex and `attachments/` to a change OpenSpec created; never overwrites | `<path-to-openspec/changes/<change-id>> [--with-config]` |
+| `scripts/check_handover.py` | Run `openspec validate --strict` on the change, then check the annex, attachments and blocking fields | `<path-to-openspec/changes/<change-id>> [--json]` |
 
 An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
@@ -162,8 +185,9 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
 Fictional example; the change id and the output are made up for illustration.
 
 ```text
-$ python3 scripts/new_handover.py ./out add-downtime-reason-capture --with-config
-$ python3 scripts/check_handover.py ./out/openspec/changes/add-downtime-reason-capture
+$ openspec new change add-downtime-reason-capture --store od-handover   # then openspec-propose fills it
+$ python3 scripts/new_handover.py ~/openspec/od-handover/openspec/changes/add-downtime-reason-capture --with-config
+$ python3 scripts/check_handover.py ~/openspec/od-handover/openspec/changes/add-downtime-reason-capture
 ERROR handover.md: blocking section "Cyber Security inputs" still has a placeholder
 NOT READY (1 error)   -> exit 1; fix, re-run until it reports READY
 ```
@@ -173,6 +197,8 @@ If the check fails, fix the named file and run it again; the package is sent onl
 ## Do not
 
 - Do not send a package that fails the check, or one with a blocking field ⟨open⟩.
+- Do not write or reformat OpenSpec files by hand or from other templates; OpenSpec's skills and CLI write them.
+- Do not edit the copy under `references/openspec/`; refresh it from the pinned release.
 - Do not put implementation choices into specs; requirements describe observable behaviour.
 - Do not invent a figure, a date, a threshold, an owner or an IT field; mark it ⟨…⟩ and name who supplies it.
 - Do not promise a delivery date; only a committed sprint or PI does that.
@@ -190,10 +216,5 @@ If the check fails, fix the named file and run it again; the package is sent onl
 | [`assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example) | Worked example (file of the example change) |
 | [`assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example) | Worked example (file of the example change) |
 | [`assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example) | Worked example (file of the example change) |
-| [`assets/openspec/change/.openspec.yaml.tmpl`](assets/openspec/change/.openspec.yaml.tmpl) | Template |
-| [`assets/openspec/change/design.md.tmpl`](assets/openspec/change/design.md.tmpl) | Template |
 | [`assets/openspec/change/handover.md.tmpl`](assets/openspec/change/handover.md.tmpl) | Template |
-| [`assets/openspec/change/proposal.md.tmpl`](assets/openspec/change/proposal.md.tmpl) | Template |
-| [`assets/openspec/change/specs/capability/spec.md.tmpl`](assets/openspec/change/specs/capability/spec.md.tmpl) | Template |
-| [`assets/openspec/change/tasks.md.tmpl`](assets/openspec/change/tasks.md.tmpl) | Template |
 | [`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl) | Template |

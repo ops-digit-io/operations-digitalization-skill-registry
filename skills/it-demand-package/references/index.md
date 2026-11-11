@@ -13,3 +13,4 @@
 |---|---|
 | it-demand-package/ | 5 concept(s) |
 | od-project-support-consultancy/ | 4 concept(s) |
+| openspec/ | 46 concept(s) |
