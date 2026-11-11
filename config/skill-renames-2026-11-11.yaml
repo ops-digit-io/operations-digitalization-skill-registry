@@ -1,0 +1,56 @@
+# Rename of every skill to the department's naming convention (OD_Skill_Naming_Convention, 2026-09-21):
+# <family>-<object>[-<variant>], families from its section 2, plus comms- for Lane 4 (decided 2026-11-11; Lane 4 was
+# added after the convention). Where the convention names a skill (its sections 3 and 5) that name is used.
+# Each renamed skill keeps its old name in metadata.aliases. Applied by scripts/rename_skills.py.
+renames:
+  # core
+  od-context: dept-context
+  od-use-case-intake-triage: dept-intake
+  od-decision-routing: dept-decision-rights
+  od-system-fit-check: invest-screen                 # convention: investment-checking -> invest-screen
+  od-requirements-breakdown: funnel-requirements     # convention: requirements-funnel -> funnel-requirements
+  od-use-case-definition: funnel-use-case
+  od-data-availability-check: mi-data-availability
+  od-prototype-poc: funnel-prototype                 # convention: click-dummy -> funnel-prototype (alias click-dummy)
+  od-benefit-calculation: bc-build                   # convention: business-case -> bc-build
+  bc-assessment: bc-assess                           # convention
+  od-capital-request: bc-capital-request             # convention: ecr-builder -> bc-capital-request (alias eCR)
+  od-analytics-asset-build: ops-analytics-asset
+  build-grafana-ops-dashboard: ops-dashboard-engine  # convention
+  od-equipment-integration: mi-equipment
+  od-node-red-flow-builder: mi-flow
+  od-signal-standardization: mi-signals
+  od-acceptance-test: deploy-acceptance
+  od-handover-and-adoption: deploy-handover          # one name, two capabilities (convention: split candidate)
+  it-demand-package: deploy-it-demand
+  od-showcase-selection: comms-showcase
+  od-comms-brief: comms-brief
+  od-showcase-followup: comms-followup
+  # extension
+  od-investment-input: bc-cost                       # convention: Use Case Cost Estimation -> bc-cost
+  od-portfolio-and-savings-analysis: bc-portfolio
+  od-ai-generation-playbook: know-ai-generation
+  od-rollout-training: know-training
+  od-sharepoint-list-export: know-sharepoint-export
+  od-skill-authoring: know-skill-authoring
+  od-context-freshness: dept-context-freshness
+  od-governance-cadence: dept-governance
+  od-plant-diagnosis: dept-plant-diagnosis
+  od-plant-onboarding: dept-plant-onboarding
+  od-retro: dept-retro
+  od-risk-watch: dept-risk
+  od-cross-plant-compatibility: catalog-compatibility
+  od-template-resolution: catalog-template
+  od-use-case-standardization: catalog-standardization
+  od-cybersec-gate: deploy-cybersec
+  od-migration-cutover: deploy-migration
+  od-project-order: deploy-project-order
+  od-event-object-modelling: ops-event-model
+  od-first-aid-kit: funnel-first-aid
+  od-use-case-solution-evaluation: funnel-evaluation
+  od-workshop-facilitation: funnel-workshop
+  od-scorecard-reporting: metrics-scorecard
+# unchanged: catalog-usecase, catalog-systems, catalog-guardrails, deploy-appstore, funnel-features, ops-dashboard-datatron
+extra_aliases:
+  bc-capital-request: [eCR]
+  funnel-prototype: [click-dummy]

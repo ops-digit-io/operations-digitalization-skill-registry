@@ -32,20 +32,20 @@ concept-by-concept trace.
 
 **Core = the skills on the owner's process flow** ([`OD_NewState_ProcessFlow.html`](docs/new-state/OD_NewState_ProcessFlow.html), new-state service lanes with skills & gaps): every skill drawn on one of its steps, under the name it has there, plus the net-new builds it lists, now built and placed on their steps (`catalog-usecase`, `catalog-systems`, `catalog-guardrails`, `deploy-appstore`, `it-demand-package`, `od-prototype-poc`, `od-capital-request`). The same flow as data is [`process.yaml`](docs/new-state/process.yaml), as a diagram [`OD_NewState_Flow.mermaid`](docs/new-state/OD_NewState_Flow.mermaid); `scripts/validate_registry.py` fails if core and flow disagree. **Extension = everything else**: skills that deepen a step (listed as `proposed` on it) or cover a neighbouring process. Every skill requires `od-context`.
 
-## The 47 skills
+## The 51 skills
 
-### Core library (25) — by step of the process flow
+### Core library (26) — by step of the process flow
 
 | Lane · step | Skills |
 |---|---|
 | Intake · Known use case? | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md), [`od-system-fit-check`](skills/od-system-fit-check/SKILL.md) |
 | Lane 1 · 1a · Pick from catalog | [`catalog-usecase`](skills/catalog-usecase/SKILL.md) |
-| Lane 1 · 1a · Apply template | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) |
+| Lane 1 · 1a · Apply template | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) |
 | Lane 1 · 1a · Validate & go live | [`catalog-guardrails`](skills/catalog-guardrails/SKILL.md) |
 | Lane 1 · 1b · Pick UC + std system | [`catalog-usecase`](skills/catalog-usecase/SKILL.md), [`catalog-systems`](skills/catalog-systems/SKILL.md) |
 | Lane 1 · 1b · Cost template + approval | [`od-decision-routing`](skills/od-decision-routing/SKILL.md) |
 | Lane 1 · 1b · Order & connect system | [`od-equipment-integration`](skills/od-equipment-integration/SKILL.md) |
-| Lane 1 · 1b · Apply template & go live | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md) |
+| Lane 1 · 1b · Apply template & go live | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`build-grafana-ops-dashboard`](skills/build-grafana-ops-dashboard/SKILL.md) |
 | Lane 2 · 2 · Define & diagnose | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) |
 | Lane 2 · 2 · Features + data check | [`od-requirements-breakdown`](skills/od-requirements-breakdown/SKILL.md), [`od-data-availability-check`](skills/od-data-availability-check/SKILL.md) |
 | Lane 2 · 2 · Prototype / validate | [`od-analytics-asset-build`](skills/od-analytics-asset-build/SKILL.md), [`od-prototype-poc`](skills/od-prototype-poc/SKILL.md) |
@@ -94,11 +94,10 @@ concept-by-concept trace.
 | [`od-use-case-definition`](skills/od-use-case-definition/SKILL.md) | Run step 21 (define and diagnose) and the Smart Factory Use Case Support Service lane around it. Define a plant use case so it can be built, standardized, handed over and measured: scope it, break down the requirement, assess the (legacy) M… |
 | [`od-use-case-intake-triage`](skills/od-use-case-intake-triage/SKILL.md) | Decide what OD does with an incoming request — accept it into exactly one of the three new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it, or route it to the function that actually owns it. Applies … |
 
-### Extension library (26)
+### Extension library (25)
 
 | Skill | Deepens step | What it adds |
 |---|---|---|
-| [`build-grafana-ops-dashboard`](skills-extension/build-grafana-ops-dashboard/SKILL.md) | 1a2 | Build production-grade Grafana JSON dashboards backed by SQL for operations data — manufacturing, IIoT, energy, quality, throughput. Supports two data model archetypes: relational (custom fact + dimension tables) and timeseries (UUID-keyed … |
 | [`funnel-features`](skills-extension/funnel-features/SKILL.md) | 22 | Turn an accepted requirement into its feature definition - one epic with a background and at least two user stories that stand alone, each with testable acceptance and a use-in-a-real-shift criterion - the department's funnel-features, stag… |
 | [`od-ai-generation-playbook`](skills-extension/od-ai-generation-playbook/SKILL.md) | spine | The cross-cutting rulebook for using AI agents safely along the OD process chain - the department context layer as precondition, the multi-step generation pipeline with its human gate and visual-QA loop, AI signal selection and dashboard ge… |
 | [`od-skill-authoring`](skills-extension/od-skill-authoring/SKILL.md) | spine | The standard method for building or reworking an OD skill - a one-page brief before writing, the registry anatomy, the gates in order (registry checks, specification export, OKF, no invented figures, quality rating), tests with and without the skill and owner review. |

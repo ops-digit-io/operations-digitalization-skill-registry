@@ -118,7 +118,7 @@ flowchart TD
 | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | Use Case Support | 🟨 documented | 8 | 0 | 16 |
 | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | Information Integration | 🟨 documented | 16 | 0 | 15 |
 | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | Analytical Support | 🟨 documented | 12 | 0 | 4 |
-| [`build-grafana-ops-dashboard`](../skills-extension/build-grafana-ops-dashboard/SKILL.md) | Analytical Support | 🟨 documented | 11 | 0 | 2 |
+| [`build-grafana-ops-dashboard`](../skills/build-grafana-ops-dashboard/SKILL.md) | Analytical Support | 🟨 documented | 11 | 0 | 2 |
 | [`od-portfolio-and-savings-analysis`](../skills-extension/od-portfolio-and-savings-analysis/SKILL.md) | Analytical Support | 🟨 documented | 7 | 0 | 9 |
 | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | Project Support and closing out | 🟨 documented | 8 | 0 | 12 |
 | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | Project Support and closing out | 🟨 documented | 6 | 0 | 17 |

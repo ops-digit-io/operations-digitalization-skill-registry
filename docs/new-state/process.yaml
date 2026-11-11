@@ -34,10 +34,10 @@ lanes:
       title: Apply template
       skills:
       - od-analytics-asset-build
+      - build-grafana-ops-dashboard
       proposed:
       - od-template-resolution
       - ops-dashboard-datatron
-      - build-grafana-ops-dashboard
     - id: 1a3
       title: Validate & go live
       skills:
@@ -71,6 +71,7 @@ lanes:
       title: Apply template & go live
       skills:
       - od-analytics-asset-build
+      - build-grafana-ops-dashboard
       proposed:
       - od-rollout-training
       - ops-dashboard-datatron

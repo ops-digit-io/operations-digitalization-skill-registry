@@ -4,7 +4,6 @@
 
 | Folder | Holds |
 |---|---|
-| [build-grafana-ops-dashboard/](build-grafana-ops-dashboard/index.md) | 14 concept(s) |
 | [funnel-features/](funnel-features/index.md) | 5 concept(s) |
 | [od-ai-generation-playbook/](od-ai-generation-playbook/index.md) | 8 concept(s) |
 | [od-context-freshness/](od-context-freshness/index.md) | 7 concept(s) |

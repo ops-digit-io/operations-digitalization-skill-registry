@@ -19,16 +19,16 @@ metadata:
   id: build-grafana-ops-dashboard
   tier: technical
   lane: lane-1
-  new_state_lane: "Lane 1a (1a2)"
-  new_state_step: "Apply the standard template (self-service)"
+  new_state_lane: "Lane 1a (1a2), Lane 1b (1b4)"
+  new_state_step: "Apply template (1a2); Apply template & go live (1b4)"
   department_names: ["ops-dashboard-engine"]
   scope: portable            # domain-generic; not derived from the OD knowledge graph
-  origin: vendored           # body and references are the author's, unmodified
+  origin: vendored           # the author's skill; OD sections and file links added 2026-11-11, rules and references unchanged
   owner_role: human:jakob.gabriel
   authority_level: author the dashboard; publishing to a shared Grafana is human-approved
   status: stable
   related: [od-analytics-asset-build, od-data-availability-check, od-handover-and-adoption]
-  od_integration: skills-extension/build-grafana-ops-dashboard/OD-INTEGRATION.md
+  od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
   okf:
     type: Agent Skill
     title: Grafana ops dashboard builder
@@ -47,6 +47,21 @@ metadata:
 | Importable Grafana `.json` with live SQL, ECharts panels, variables | **this skill** |
 
 If unspecified, ask once. The two outputs are not interchangeable — Grafana queries a live database; HTML embeds a static snapshot.
+
+## Inputs and output
+
+- **In:** the domain and the question the dashboard answers; the schema (tables and columns) or the signal list (UUIDs and
+  labels); the audience tier (manager, analyst, operations); for an OD dashboard, the ritual it is read in and the walked
+  data path (see [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
+- **Out:** one importable Grafana `.json` file with portable SQL, plus the Step 6 audit
+  ([`references/outputs.md`](references/outputs.md)).
+
+## Procedure
+
+Follow Steps 0 to 6 below in order: confirm the schema (Step 0), identify the archetype (Step 1), pick the tier
+(Step 2), apply the time-window patterns (Step 3), wire the variables (Step 4), generate the JSON with the builder
+(Step 5), and run the audit checklist (Step 6). The two hard rules apply to every query. In OD, the two gates of
+[`OD-INTEGRATION.md`](OD-INTEGRATION.md) come first; the end-to-end walk-through is in [`usage_guide.md`](usage_guide.md).
 
 ---
 
@@ -400,26 +415,57 @@ For timeseries archetype dashboards specifically, when the user gives you natura
 
 ---
 
+## Human gate and AI-agent notes
+
+- **Agent may:** confirm the schema, write the SQL and the dashboard JSON, run the audit and the portability check, and
+  list what is not confirmed.
+- **Humans decide:** publishing the dashboard to a shared Grafana instance (human-approved); the plant owner confirms
+  adoption.
+
+## Pitfalls
+
+- A query that uses `time_bucket()`, hardcoded time bounds or `::int` on a boolean breaks the two hard rules, even when a
+  reference snippet shows it.
+- In OD: a savings tile that shows the tracked total as proven; `COALESCE(x, 0)` that turns a missing value into a zero;
+  a plant's Grafana pointed at the global data platform; a cross-plant view built on a local instance (see
+  [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
+
+## Definition of done
+
+The JSON validates, every item of the Step 6 checklist is ticked or its exception stated, the portability check passed
+on at least five representative panels, and the dashboard is handed over with `od-handover-and-adoption`.
+
 ## Files in this skill
 
 | File | Purpose | When to read |
 |---|---|---|
-| `SKILL.md` | This file — workflow and decision points | Always |
-| `references/schema_interview.md` | Question bank for confirming the schema before writing SQL | Step 0 (full interview); short version is in this SKILL.md |
-| `references/archetypes.md` | How to recognize and choose between relational and timeseries | Step 1 |
-| `references/relational_patterns.sql` | SQL patterns for fact + dimension models (downtime as worked example) | When archetype = relational |
-| `references/timeseries_patterns.sql` | SQL patterns for UUID-keyed long-format telemetry | When archetype = timeseries |
-| `references/dashboard_tiers.md` | Manager / analyst / operations tier design rules and naming conventions | Step 2 |
-| `references/variables.md` | Variable wiring reference — types, refresh order, filter patterns, audit checklist | Step 4 |
-| `references/dashboard_builder.py` | Python helpers for generating Grafana 8.5 panel JSON | Step 5 |
-| `references/echarts_templates.js` | 12 ECharts JS templates: Pareto, donut, heatmap, compare-bars, histogram, gauge, state-timeline, hourly-output, scatter-with-limits, KPI-grid, correlation, stacked-area | Step 5 |
-| `references/annotations_and_alerts.md` | Annotations and panel-alert patterns for operations and analyst tiers | Step 5 (optional, depending on tier) |
-| `references/signal_matching.md` | Translate natural-language descriptions + UUID catalog → specific UUIDs and panels | When archetype = timeseries and user gives descriptions, not UUIDs |
-| `references/performance.md` | Indexes, aggregates, hypertable chunk intervals, performance budgets | Step 6 (audit), or any time the dashboard is slow |
-| `references/portability_check.md` | Delivery-time procedure for verifying queries on both PG and DuckDB | Step 6 (audit), before final delivery |
-| `references/troubleshooting.md` | Error → fix lookup, including DuckDB first-time setup verification | When debugging |
-| `references/examples/` | Complete worked-example dashboards (manager + analyst views per archetype) | When you want a concrete model to imitate rather than building from patterns |
-| `usage_guide.md` | End-to-end orchestration walkthrough — how to use this skill from a system prompt or Claude Code session | When invoking the skill end-to-end |
+| [`SKILL.md`](SKILL.md) | This file — workflow and decision points | Always |
+| [`references/schema_interview.md`](references/schema_interview.md) | Question bank for confirming the schema before writing SQL | Step 0 (full interview); short version is in this SKILL.md |
+| [`references/archetypes.md`](references/archetypes.md) | How to recognize and choose between relational and timeseries | Step 1 |
+| [`references/relational_patterns.sql`](references/relational_patterns.sql) | SQL patterns for fact + dimension models (downtime as worked example) | When archetype = relational |
+| [`references/timeseries_patterns.sql`](references/timeseries_patterns.sql) | SQL patterns for UUID-keyed long-format telemetry | When archetype = timeseries |
+| [`references/dashboard_tiers.md`](references/dashboard_tiers.md) | Manager / analyst / operations tier design rules and naming conventions | Step 2 |
+| [`references/variables.md`](references/variables.md) | Variable wiring reference — types, refresh order, filter patterns, audit checklist | Step 4 |
+| [`references/dashboard_builder.py`](references/dashboard_builder.py) | Python helpers for generating Grafana 8.5 panel JSON | Step 5 |
+| [`references/echarts_templates.js`](references/echarts_templates.js) | 12 ECharts JS templates: Pareto, donut, heatmap, compare-bars, histogram, gauge, state-timeline, hourly-output, scatter-with-limits, KPI-grid, correlation, stacked-area | Step 5 |
+| [`references/annotations_and_alerts.md`](references/annotations_and_alerts.md) | Annotations and panel-alert patterns for operations and analyst tiers | Step 5 (optional, depending on tier) |
+| [`references/signal_matching.md`](references/signal_matching.md) | Translate natural-language descriptions + UUID catalog → specific UUIDs and panels | When archetype = timeseries and user gives descriptions, not UUIDs |
+| [`references/performance.md`](references/performance.md) | Indexes, aggregates, hypertable chunk intervals, performance budgets | Step 6 (audit), or any time the dashboard is slow |
+| [`references/portability_check.md`](references/portability_check.md) | Delivery-time procedure for verifying queries on both PG and DuckDB | Step 6 (audit), before final delivery |
+| [`references/troubleshooting.md`](references/troubleshooting.md) | Error → fix lookup, including DuckDB first-time setup verification | When debugging |
+| [`references/examples/`](references/examples/) | Complete worked-example dashboards (manager + analyst views per archetype) | When you want a concrete model to imitate rather than building from patterns |
+| [`usage_guide.md`](usage_guide.md) | End-to-end orchestration walkthrough — how to use this skill from a system prompt or Claude Code session | When invoking the skill end-to-end |
+| [`references/examples/README.md`](references/examples/README.md) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/relational_analyst.json`](references/examples/relational_analyst.json) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/relational_analyst.py`](references/examples/relational_analyst.py) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/relational_manager.json`](references/examples/relational_manager.json) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/relational_manager.py`](references/examples/relational_manager.py) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/timeseries_analyst.json`](references/examples/timeseries_analyst.json) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/timeseries_analyst.py`](references/examples/timeseries_analyst.py) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/timeseries_manager.json`](references/examples/timeseries_manager.json) | Worked example | When you want a concrete model to imitate |
+| [`references/examples/timeseries_manager.py`](references/examples/timeseries_manager.py) | Worked example | When you want a concrete model to imitate |
+| [`OD-INTEGRATION.md`](OD-INTEGRATION.md) | How OD uses this skill: gates, local Grafana, handover | Every OD dashboard |
+| [`references/outputs.md`](references/outputs.md) | What this skill must deliver, to whom, and when it is complete | Before handing over |
 
 Read `archetypes.md` and the matching `*_patterns.sql` early. The other reference files are loaded on-demand based on the task — most relevant when their step is reached, except `troubleshooting.md` and `performance.md` which are pulled in reactively when something goes wrong.
 

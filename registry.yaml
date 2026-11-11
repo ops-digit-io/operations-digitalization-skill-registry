@@ -43,7 +43,7 @@ registry:
   vendored:
     - id: build-grafana-ops-dashboard
       source: author's skill, uploaded 2026-08-25
-      modified: frontmatter metadata block added; body and references unchanged
+      modified: frontmatter metadata block added; 2026-11-11 core sections and file links added; rules and references unchanged
   data_as_of: 2026-08-10          # Scorecard / Power BI figures
   graph_as_of: 2026-08-24         # portfolio and ledger figures from the knowledge bundle
   flows_as_of: 2026-08-25         # Node-RED corpus and machine estate
@@ -200,7 +200,7 @@ skills:
     summary: Full list export including version history, from the browser console, with its stated limits.
 
   - id: build-grafana-ops-dashboard
-    library: extension
+    library: core
     tier: technical
     lane: lane-1
     scope: portable
@@ -208,7 +208,7 @@ skills:
     owner_role: human:jakob.gabriel
     authority_level: author the dashboard; publishing to a shared Grafana is human-approved
     summary: Grafana JSON dashboards over SQL for operations data — relational and timeseries archetypes, ECharts panels, audience tiers.
-    od_integration: skills-extension/build-grafana-ops-dashboard/OD-INTEGRATION.md
+    od_integration: skills/build-grafana-ops-dashboard/OD-INTEGRATION.md
 
   - id: od-signal-standardization
     library: core

@@ -5,6 +5,7 @@
 | Folder | Holds |
 |---|---|
 | [bc-assessment/](bc-assessment/index.md) | 10 concept(s) |
+| [build-grafana-ops-dashboard/](build-grafana-ops-dashboard/index.md) | 14 concept(s) |
 | [catalog-guardrails/](catalog-guardrails/index.md) | 4 concept(s) |
 | [catalog-systems/](catalog-systems/index.md) | 6 concept(s) |
 | [catalog-usecase/](catalog-usecase/index.md) | 10 concept(s) |

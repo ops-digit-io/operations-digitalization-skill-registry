@@ -12,13 +12,13 @@ flowchart TD
     subgraph LANE1 [Lane 1 - Run a known use case · Self-service]
         direction TB
         L1G -->|1a connected| A1["Pick from catalog<br/><i>catalog-usecase</i>"]
-        A1 --> A2["Apply template<br/><i>od-analytics-asset-build</i>"]
+        A1 --> A2["Apply template<br/><i>od-analytics-asset-build, build-grafana-ops-dashboard</i>"]
         A2 --> A3["Validate & go live<br/><i>catalog-guardrails</i>"]
         A3 --> L1END(((Live)))
         L1G -->|1b not connected| B1["Pick UC + std system<br/><i>catalog-usecase, catalog-systems</i>"]
         B1 -.->|~d| B2["Cost template + approval<br/><i>od-decision-routing</i>"]
         B2 -.->|~wks| B3["Order & connect system<br/><i>od-equipment-integration</i>"]
-        B3 --> B4["Apply template & go live<br/><i>od-analytics-asset-build</i>"]
+        B3 --> B4["Apply template & go live<br/><i>od-analytics-asset-build, build-grafana-ops-dashboard</i>"]
         B4 --> L1END
     end
     LANE1 -.->|not truly catalogued| C1
