@@ -131,6 +131,7 @@ skills:
     - references/od-project-support-consultancy/references/process-chain-practice.md
     - references/od-project-support-consultancy/references/task-chain-and-tool-use.md
     - references/openspec-format.md
+    - references/openspec-without-cli.md
     - references/openspec/LICENSE
     - references/openspec/README.md
     - references/openspec/VENDORED.md
@@ -170,6 +171,7 @@ skills:
     - references/outputs.md
     - scripts/check_handover.py
     - scripts/new_handover.py
+    - scripts/openspec_offline.py
   od-acceptance-test:
     files:
     - assets/acceptance-test-protocol.md

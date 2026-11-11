@@ -106,7 +106,7 @@ flowchart TD
 | [`od-sharepoint-list-export`](../skills-extension/od-sharepoint-list-export/SKILL.md) | Analytical Support | 🟩 deep | 4 | 1 | 2 |
 | [`bc-assessment`](../skills/bc-assessment/SKILL.md) | — | 🟩 deep | 9 | 1 | 0 |
 | [`funnel-features`](../skills-extension/funnel-features/SKILL.md) | — | 🟩 deep | 3 | 1 | 1 |
-| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟩 deep | 5 | 2 | 9 |
+| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | — | 🟩 deep | 6 | 3 | 9 |
 | [`od-capital-request`](../skills/od-capital-request/SKILL.md) | — | 🟩 deep | 12 | 1 | 6 |
 | [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | — | 🟩 deep | 5 | 2 | 2 |
 | [`od-context-freshness`](../skills-extension/od-context-freshness/SKILL.md) | — | 🟩 deep | 6 | 1 | 3 |
