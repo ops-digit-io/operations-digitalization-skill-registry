@@ -111,6 +111,7 @@ skills:
   it-demand-package:
     files:
     - assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/attachments/downtime-export-sample.csv.example
     - assets/example/openspec/changes/add-downtime-reason-capture/design.md.example
     - assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example
     - assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example
@@ -123,6 +124,7 @@ skills:
     - assets/openspec/change/specs/capability/spec.md.tmpl
     - assets/openspec/change/tasks.md.tmpl
     - assets/openspec/config.yaml.tmpl
+    - references/input-intake.md
     - references/it-demand-package/assets/it-demand-package.md
     - references/it-demand-package/procedure.md
     - references/it-demand-package/references/external-build-and-foreign-app-inputs.md

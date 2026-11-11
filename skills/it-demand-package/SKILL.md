@@ -44,7 +44,7 @@ Turns a clear Lane 3 demand into an OpenSpec change package plus the OD handover
 
 ## Inputs and output
 
-- **In:** the front-end results named in step 1 of the Procedure: requirement with growth boundaries, gate verdict and route, business case and investment estimate, approval route.
+- **In:** the front-end results named in step 2 of the Procedure (requirement with growth boundaries, gate verdict and route, business case and investment estimate, approval route), plus every file or note the user adds: PDF, Excel, images, slides, mails, exports, links. All of it is collected in step 1, read, and registered.
 - **Out:** `openspec/changes/<change-id>/` with the OpenSpec files and `handover.md`, and the check output (see Output below).
 
 ## The rule it serves
@@ -67,6 +67,7 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 | File | Use it for |
 |---|---|
 | [`references/openspec-format.md`](references/openspec-format.md) | The OpenSpec rules this package must meet, and which OD skill fills which artefact |
+| [`references/input-intake.md`](references/input-intake.md) | How to collect every input, including the user's own files (PDF, Excel, images, slides, mails), read each by type, register it and trace it |
 | [`references/it-expected-inputs.md`](references/it-expected-inputs.md) | What IT asked OD for on 2026-09-11, item by item, with the open IT actions that will firm each one |
 | [`assets/openspec/`](assets/openspec/) | The templates: `config.yaml` (project context for IT's repository) and `change/` (proposal, spec, design, tasks, `.openspec.yaml`, `handover.md`) |
 | `assets/example/` | An illustrative package (`*.example`; drop the suffix to use it) that passes this check and OpenSpec's own validator in strict mode; no figures |
@@ -77,52 +78,59 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 
 ## Procedure
 
-1. **Check the front-end is complete.** Requirement with growth boundaries (`od-requirements-breakdown`),
+1. **Collect every input first** ([`references/input-intake.md`](references/input-intake.md)). Show the user the twelve
+   expected inputs as a checklist (known, partly known, missing) and ask for each gap. Invite any further material,
+   in any form: PDF, Excel or CSV, Word or slides, images and screenshots, mails, exports, links. Repeat "anything
+   else?" until the answer is no. Read every file completely, by its type; ask who may see it. Copy each file to
+   `attachments/` in the change folder and register it in section 14 of `handover.md`. Nothing provided is dropped and
+   nothing is filled in that no input supports.
+2. **Check the front-end is complete.** Requirement with growth boundaries (`od-requirements-breakdown`),
    gate verdict and route (`od-system-fit-check`, verdict Go or PoC-first), business case and investment
    estimate (`od-benefit-calculation`, `od-investment-input`), approval route (`od-capital-request`,
    `od-decision-routing`). If a part is missing, name it and stop.
-2. **Scaffold** the change: `python3 scripts/new_handover.py <out-dir> <change-id>`. The change id is
+3. **Scaffold** the change: `python3 scripts/new_handover.py <out-dir> <change-id>`. The change id is
    kebab-case and names the change (`add-downtime-reason-capture`), not the project.
-3. **Fill `proposal.md`.** *Why* from the problem and the bankable value (50 to 1000 characters).
+4. **Fill `proposal.md`.** *Why* from the problem and the bankable value (50 to 1000 characters).
    *What Changes* from the requirement's scope. *Capabilities*: one per durable behaviour the epic
    describes, named for the behaviour (`downtime-reason-capture`), not the work. *Impact*: plants,
    systems, interfaces, data.
-4. **Write one delta spec per capability** under `specs/<capability>/spec.md`: `## Purpose` (50+
+5. **Write one delta spec per capability** under `specs/<capability>/spec.md`: `## Purpose` (50+
    characters), then `## ADDED Requirements`; each `### Requirement:` states one behaviour with SHALL or
    MUST in its body (500 characters at most) and has at least one `#### Scenario:` with **WHEN** and
    **THEN**. User stories and acceptance criteria become scenarios (`od-acceptance-test`); data the
    system must read or publish becomes requirements on the data contract (`od-signal-standardization`,
    `od-data-availability-check`). No framework names, no class names: those go in `design.md`.
-5. **Fill `design.md`**: the route (3a.1-3a.4 or 3b) and why, target platform (CMO with the standard
+6. **Fill `design.md`**: the route (3a.1-3a.4 or 3b) and why, target platform (CMO with the standard
    manifests where the app is a container), interfaces (approved OT interfaces, reuse of central data
    stores), the data platform, Cyber Security constraints, the legacy application it replaces or touches,
    **non-goals = the growth boundaries**, risks.
-6. **Fill `tasks.md`**: numbered checkbox groups. Always include logging and observability, the standard
+7. **Fill `tasks.md`**: numbered checkbox groups. Always include logging and observability, the standard
    manifests, the acceptance test, the Cyber Security sign-off and the handover checklist.
-7. **Fill `handover.md`** (the OD annex, not part of OpenSpec): every input IT asked for
+8. **Fill `handover.md`** (the OD annex, not part of OpenSpec): every input IT asked for
    ([`references/it-expected-inputs.md`](references/it-expected-inputs.md)), the business case summary,
-   the approval status, the ownership terms. Unknown stays ⟨…⟩ with who supplies it.
-8. **Fill the project context** (`assets/openspec/config.yaml`) once per IT repository, if IT does not
+   the approval status, the ownership terms, and the register of every input and attachment (section 14). Unknown stays ⟨…⟩ with who supplies it.
+9. **Fill the project context** (`assets/openspec/config.yaml`) once per IT repository, if IT does not
    have one yet: stack, deployment, interfaces, guardrails, language rules.
-9. **Run the check**: `python3 scripts/check_handover.py <out-dir>/openspec/changes/<change-id>`. It runs the
+10. **Run the check**: `python3 scripts/check_handover.py <out-dir>/openspec/changes/<change-id>`. It runs the
    real OpenSpec CLI (`openspec validate <change-id> --strict`, release 1.17.0) and fails without it, then adds
    the annex and the no-template rule; a package must report READY. The repository's CI proves the worked
    example and the templates against that CLI (`scripts/check_openspec_conformance.py`).
-10. **Hand over.** A human sends the package (pull request into IT's repository, or the demand board for
+11. **Hand over.** A human sends the package (pull request into IT's repository, or the demand board for
     3a.4 with the absorbed IT demand package). Record the demand as handed over, not accepted.
-11. **Ownership moves only on formal acceptance** (`od-handover-and-adoption`). Until IT or the developer
+12. **Ownership moves only on formal acceptance** (`od-handover-and-adoption`). Until IT or the developer
     accepts, OD remains the owner of the demand. Do not pass a delivery date to the plant until a team has
     committed the work in sprint or PI planning.
 
 ## Output
 
 `openspec/changes/<change-id>/` with `.openspec.yaml`, `proposal.md`, `specs/<capability>/spec.md`,
-`design.md`, `tasks.md` and `handover.md`, plus `openspec/config.yaml` when the receiving repository needs
-one; the check output attached.
+`design.md`, `tasks.md` and `handover.md`, plus the user's files under `attachments/` (each registered in section 14
+of `handover.md`) and `openspec/config.yaml` when the receiving repository needs one; the check output attached.
 
 ## Definition of done
 
-The check reports no errors; every blocking annex field is filled or the package is not sent; the route,
+The check reports no errors; every blocking annex field is filled or the package is not sent; every file the user provided is
+in `attachments/` and registered, read in full or carried as an open item; the route,
 the approval status and the Cyber Security inputs are stated; a human has sent it; the demand record shows
 "handed over, awaiting acceptance" with the receiving team named.
 
@@ -137,7 +145,7 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 
 ## Human gate and AI-agent notes
 
-- **Agent may:** scaffold the package, draft the OpenSpec files and the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.
+- **Agent may:** ask for and read every input and attachment, register it, scaffold the package, draft the OpenSpec files and the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.
 - **Roles decide:** the OD lead for the Lane 3 front-end sends the package; IT or the external developer accepts it; Cyber Security signs off; the approvers of the capital request approve the money. The agent never sends a package and never marks an acceptance as given.
 
 ## Available Scripts
@@ -176,6 +184,7 @@ If the check fails, fix the named file and run it again; the package is sent onl
 | File | Kind |
 |---|---|
 | [`assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example`](assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/attachments/downtime-export-sample.csv.example`](assets/example/openspec/changes/add-downtime-reason-capture/attachments/downtime-export-sample.csv.example) | Worked example (a registered attachment) |
 | [`assets/example/openspec/changes/add-downtime-reason-capture/design.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/design.md.example) | Worked example (file of the example change) |
 | [`assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example) | Worked example (file of the example change) |
 | [`assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example) | Worked example (file of the example change) |

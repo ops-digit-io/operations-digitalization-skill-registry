@@ -48,6 +48,8 @@ def main() -> int:
         if parts[:2] == ["specs", "capability"]:
             parts = ["specs", *cap.split("/"), *parts[2:]]
         render(src, change.joinpath(*parts), values)
+    (change / "attachments").mkdir(parents=True, exist_ok=True)
+    (change / "attachments" / ".gitkeep").write_text("", encoding="utf-8")   # the user's own files go here; register each in the annex
     if a.with_config:
         render(ASSETS / "config.yaml.tmpl", root / "config.yaml", values)
     return 0

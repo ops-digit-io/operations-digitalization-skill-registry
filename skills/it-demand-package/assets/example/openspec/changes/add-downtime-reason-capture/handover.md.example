@@ -60,6 +60,13 @@ Not an OpenSpec artefact; travels with the change. Prepared by OD; drafted, not 
 ## 13. Commitment status (blocking)
 - Committed in sprint / PI: no. No delivery date is given to the plant before commitment. No delivery date is given to the plant before commitment.
 
-## 14. Open items
+## 14. Inputs and attachments (blocking)
+Every file the user provided, registered. Copy each file to `attachments/` next to proposal.md, or give a link.
+
+| ID | File or link | Type | What it is | Covers | Used in | Read | Share with |
+|---|---|---|---|---|---|---|---|
+| I-01 | `attachments/downtime-export-sample.csv` | CSV | Sample export of stop events from the line-side system, fictional | 6 | spec downtime-reason-capture, annex 6 | in full | IT and external developer |
+
+## 15. Open items
 | Item | Who supplies it |
 |---|---|

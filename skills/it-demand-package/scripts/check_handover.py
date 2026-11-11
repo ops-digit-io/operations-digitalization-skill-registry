@@ -10,7 +10,8 @@ OPENSPEC_BIN to the CLI path if it is not on PATH. The offline checks that follo
 Why 50-1000 chars, What Changes non-empty, at least one delta, delta headers, SHALL/MUST in
 every requirement body, at least one '#### Scenario:' per requirement with WHEN/GIVEN and THEN,
 requirement text <= 500 chars, Purpose >= 50 chars for a new capability, kebab-case capability
-paths, <= 10 deltas, numbered checkbox tasks. Adds the OD annex: every '(blocking)' section of
+paths, <= 10 deltas, numbered checkbox tasks. Adds the OD annex: every file the user provided is registered in section 14
+(attachments/ and the register agree), and every '(blocking)' section of
 handover.md filled (no open placeholder). Any open placeholder in the OpenSpec files is an error:
 IT must not receive a template. Exit 1 on any error or (strict) warning. Standard library only.
 """
@@ -113,6 +114,67 @@ def check_annex(p: pathlib.Path) -> list[str]:
     return opened
 
 
+ATT_COLUMNS = ["ID", "File or link", "Type", "What it is", "Covers", "Used in", "Read", "Share with"]
+ATT_READ = {"in full", "in part", "not readable"}
+ATT_SHARE = {"IT and external developer", "IT only", "OD only"}
+ATT_COVERS = re.compile(r"^(?:(?:[1-9]|1[0-2])(?:\s*,\s*(?:[1-9]|1[0-2]))*|extra)$")
+ATT_NONE = re.compile(r"No attachments supplied \(confirmed by [^)⟨⟩]+\)")
+
+
+def check_attachments(change: pathlib.Path) -> None:
+    """Section 14 of the annex registers every file the user provided; the files and the register must agree."""
+    annex = change / "handover.md"
+    if not annex.exists():
+        return
+    text = annex.read_text(encoding="utf-8")
+    m = re.search(r"^## 14\. Inputs and attachments[^\n]*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+    if not m:
+        errors.append("handover.md: no section '14. Inputs and attachments (blocking)' (register every file the user provided)")
+        return
+    body = m.group(1)
+    folder = change / "attachments"
+    on_disk = sorted(f.relative_to(change).as_posix() for f in folder.rglob("*")
+                     if f.is_file() and f.name not in (".gitkeep", "README.md")) if folder.is_dir() else []
+    rows = [ln for ln in body.splitlines() if ln.strip().startswith("|")]
+    registered: set[str] = set()
+    if len(rows) >= 3:
+        if [c.strip() for c in rows[0].strip().strip("|").split("|")] != ATT_COLUMNS:
+            errors.append(f"handover.md section 14: table columns must be {' | '.join(ATT_COLUMNS)}")
+            return
+        om = re.search(r"^## 15\. Open items(.*)", text, re.M | re.S)
+        open_items = om.group(1) if om else ""
+        for row in rows[2:]:
+            c = [x.strip() for x in row.strip().strip("|").split("|")]
+            if len(c) != len(ATT_COLUMNS) or not all(c):
+                errors.append(f"handover.md section 14: every input needs all {len(ATT_COLUMNS)} cells: {row.strip()[:70]}")
+                continue
+            iid, where, _typ, _what, covers, _used, read, share = c
+            if PLACEHOLDER.search(row):
+                continue   # an open placeholder is reported by the blocking-section rule
+            ref = where.strip("`")
+            if ref.startswith(("http://", "https://")):
+                pass
+            elif ref.startswith("attachments/"):
+                registered.add(ref)
+                if not (change / ref).is_file():
+                    errors.append(f"handover.md section 14: {iid} lists '{ref}', which is not in the change folder")
+            else:
+                errors.append(f"handover.md section 14: {iid} must be a file under attachments/ or an https link, not '{where}'")
+            if not ATT_COVERS.match(covers):
+                errors.append(f"handover.md section 14: {iid} 'Covers' must be expected-input numbers 1-12 (like '1, 6') or 'extra'")
+            if read not in ATT_READ:
+                errors.append(f"handover.md section 14: {iid} 'Read' must be one of {', '.join(sorted(ATT_READ))}")
+            elif read != "in full" and iid not in open_items:
+                errors.append(f"handover.md: {iid} was {read} but has no open item (section 15) naming it and who supplies a readable version")
+            if share not in ATT_SHARE:
+                errors.append(f"handover.md section 14: {iid} 'Share with' must be one of {', '.join(sorted(ATT_SHARE))}")
+    elif not ATT_NONE.search(body):
+        errors.append("handover.md section 14: register the inputs, or write 'No attachments supplied (confirmed by <role>)'")
+    for f in on_disk:
+        if f not in registered:
+            errors.append(f"{f}: is in the change folder but not registered in section 14 of handover.md")
+
+
 def run_openspec(change: pathlib.Path) -> None:
     """The real OpenSpec validator, strict mode, is the authority; every message it prints is an error here."""
     cli = os.environ.get("OPENSPEC_BIN") or shutil.which("openspec")
@@ -177,6 +239,7 @@ def main() -> int:
         fp = change / f
         if fp.exists() and PLACEHOLDER.search(fp.read_text(encoding="utf-8")):
             errors.append(f"{f}: still contains template placeholders - IT must not receive a template")
+    check_attachments(change)
     run_openspec(change)
     open_annex = check_annex(change / "handover.md")
     ready = not errors and not warnings
