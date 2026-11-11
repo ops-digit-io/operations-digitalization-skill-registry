@@ -3,6 +3,16 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-11 — The IT demand follows the OpenSpec process, modelled in step 3a4
+
+- Step 3a4 *Package / build* (routes 3a.3 and 3a.4) now has six sub-steps in `docs/new-state/process.yaml`, the flow
+  diagram, the process page and the explorer: 3a4.1 explore + collect inputs, 3a4.2 propose the change, 3a4.3 validate +
+  hand over (OD), 3a4.4 apply, 3a4.5 verify, 3a4.6 archive + sync specs (IT / external developer).
+- Each sub-step names OpenSpec's own skills (`openspec`: chips without pages; the skills stay unchanged inside
+  `deploy-it-demand`). The validator checks every named OpenSpec skill exists in the copy.
+- `deploy-it-demand` is now only the OD part: inputs and attachments, the OD annex, OD's store config and the check
+  (sub-steps 3a4.1 and 3a4.3). Writing, applying, verifying and archiving the change belong to OpenSpec's skills.
+
 ## 2026-11-11 — Skills renamed to the department's naming convention; Grafana engine moves to core
 
 - Every skill name now follows the department's naming convention (`<family>-<object>[-<variant>]`). Where the convention

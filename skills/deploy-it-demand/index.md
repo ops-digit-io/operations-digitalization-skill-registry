@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [IT handover](SKILL.md) | Agent Skill | Hand a cleared Lane 3 demand to IT or an outside developer as an OpenSpec change package plus OD handover annex. Not for requirements (funnel-requirements) or tool choice (invest-screen). |
+| [IT handover](SKILL.md) | Agent Skill | OD part of the IT demand, which follows OpenSpec (step 3a4): collect every input, add the OD annex, check and hand over. Not for writing the OpenSpec change (OpenSpec's skills) or requirements. |
 
 | Folder | Holds |
 |---|---|

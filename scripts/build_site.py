@@ -51,7 +51,7 @@ main{max-width:1180px;margin:0 auto;padding:18px 16px 60px}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:6px 0 14px}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:7px;padding:3px 9px;font-size:12.5px;background:var(--surface);color:var(--ink);cursor:pointer;margin:2px 4px 2px 0;font-family:inherit}
 .chip i{width:9px;height:9px;border-radius:50%;display:inline-block;background:var(--ok)}
-.chip.draft i{background:var(--warn)}.chip.proposed{border-style:dashed}.chip.sel{outline:2px solid var(--accent)}
+.chip.draft i{background:var(--warn)}.chip.ext{border-style:dashed;cursor:default}ul.sub{margin:.4rem 0 0;padding-left:0;list-style:none;font-size:.9em}ul.sub li{margin:.2rem 0}ul.sub small{opacity:.7;margin:0 .3rem}.chip.proposed{border-style:dashed}.chip.sel{outline:2px solid var(--accent)}
 .chip.hide{display:none}.legend .chip{cursor:default}
 .lane{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:0 0 18px;overflow:hidden}
 .lane>h2{margin:0;padding:12px 16px;font-size:17px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--line)}
@@ -176,6 +176,10 @@ def build(out: Path, repo_url: str) -> None:
     zips = {}
 
     def add_steps(lane_id, lane_title, branch_title, step, proposed_flag_skills):
+        for sub in step.get("substeps", []):
+            for s in sub.get("skills", []):
+                info[s]["steps"].append({"lane": lane_id, "laneTitle": lane_title, "branch": branch_title,
+                                         "step": step["title"] + " / " + sub["id"] + " " + sub["title"], "proposed": False})
         for s in step.get("skills", []):
             info[s]["steps"].append({"lane": lane_id, "laneTitle": lane_title, "branch": branch_title, "step": step["title"], "proposed": False})
 
@@ -231,7 +235,7 @@ function render(){{
         const all=[...(st.skills||[]).map(i=>[i,false]),...(showProp?(st.proposed||[]).map(i=>[i,true]):[])];
         const hit=!q||(st.title+' '+(st.text||'')).toLowerCase().includes(q)||all.some(([i])=>(i+' '+D.skills[i].short).toLowerCase().includes(q));
         if(!hit)return '';
-        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}</div>`}}).join('');
+        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}${{st.substeps?`<ul class="sub">${{st.substeps.map(x=>`<li><b>${{esc(x.id)}} ${{esc(x.title)}}</b><small>${{esc(x.owner)}}</small>${{(x.skills||[]).map(i=>chip(i,false)).join('')}}${{(x.openspec||[]).map(o=>`<span class="chip ext" title="OpenSpec skill, carried unchanged inside deploy-it-demand">${{esc(o)}}</span>`).join('')}}</li>`).join('')}}</ul>`:''}}</div>`}}).join('');
       return steps?`<div class="branch">${{b.title?`<h3>${{esc(b.title)}}</h3>`:''}}<div class="steps">${{steps}}</div></div>`:''}}).join('');
     if(!br)return '';
     return `<section class="lane" id="${{l.id}}"><h2>${{esc(l.title)}} <small>${{esc(l.who)}}</small><a class="zip" href="${{l.zip}}">Download ${{l.count}} skills (.zip)</a></h2><p>${{esc(l.summary)}}</p>${{br}}</section>`}}).join('')||'<p>No match.</p>';

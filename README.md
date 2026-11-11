@@ -55,7 +55,7 @@ concept-by-concept trace.
 | Lane 3 · front · Requirements | [`funnel-requirements`](skills/funnel-requirements/SKILL.md) |
 | Lane 3 · front · Tool-decision gate | [`invest-screen`](skills/invest-screen/SKILL.md), [`dept-decision-rights`](skills/dept-decision-rights/SKILL.md) |
 | Lane 3 · front · Business case + capital | [`bc-build`](skills/bc-build/SKILL.md), [`bc-capital-request`](skills/bc-capital-request/SKILL.md) |
-| Lane 3 · 3a · Package / build | [`deploy-it-demand`](skills/deploy-it-demand/SKILL.md) |
+| Lane 3 · 3a · Package / build (3a.3, 3a.4: the IT demand follows OpenSpec in six sub-steps, explore → propose → validate + hand over → apply → verify → archive, with OpenSpec's own skills) | [`deploy-it-demand`](skills/deploy-it-demand/SKILL.md) (the OD part: inputs, annex, check) |
 | Lane 3 · 3a · Deploy to platform + CS | [`deploy-appstore`](skills/deploy-appstore/SKILL.md) |
 | Lane 3 · 3a · Rollout & adopt | [`deploy-handover`](skills/deploy-handover/SKILL.md) |
 | Lane 3 · 3b · Connector + pipeline to MDL | [`mi-equipment`](skills/mi-equipment/SKILL.md), [`mi-signals`](skills/mi-signals/SKILL.md), [`mi-flow`](skills/mi-flow/SKILL.md) |

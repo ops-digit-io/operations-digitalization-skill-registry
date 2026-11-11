@@ -196,6 +196,13 @@ def main() -> int:
             for branch in lane.get("branches", []):
                 for step in branch.get("steps", []):
                     named |= set(step.get("skills") or [])
+                    # sub-steps (3a4: the IT demand follows OpenSpec): registry skills as usual; `openspec` names are
+                    # OpenSpec's own skills, carried unchanged inside the skill that holds the OpenSpec copy
+                    for sub in step.get("substeps") or []:
+                        named |= set(sub.get("skills") or [])
+                        for ext in sub.get("openspec") or []:
+                            if not list(ROOT.glob(f"skills*/*/references/openspec/skills/{ext}/SKILL.md")):
+                                fail(f"process.yaml step {sub.get('id')} names OpenSpec skill '{ext}', which is not in the OpenSpec copy")
         named |= set((proc.get("spine") or {}).get("skills") or [])
         for name in sorted(named - on_disk):
             fail(f"process.yaml names '{name}' but no such skill exists")
