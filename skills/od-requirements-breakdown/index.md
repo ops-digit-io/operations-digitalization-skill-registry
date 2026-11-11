@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Requirements breakdown](SKILL.md) | Agent Skill | Turn an accepted demand into a requirement another lane can act on, for any of the three new-state lanes (Lane 2 and the Lane 3 front-end, and the hand-offs between them). Elicits the problem behind the stated request, sets it against the capability's standard baseline, names the signals it needs and whether they exist, writes testable acceptance criteria, assesses the legacy MF IT systems it touches, and produces both the handover packet that crosses a lane boundary and a standardized epic with its user stories and a background description of what it is used for. Use after intake accepts a demand and before anything is built — when scoping a use case for integration, specifying a machine or its signals, baselining a project, or scoping an analytical request. Not for choosing the tool (od-system-fit-check). |
+| [Requirements breakdown](SKILL.md) | Agent Skill | Turn an accepted demand into a requirement another lane can act on: signals, testable acceptance criteria, handover packet and epic. Not for choosing the tool (od-system-fit-check). |
 
 | Folder | Holds |
 |---|---|

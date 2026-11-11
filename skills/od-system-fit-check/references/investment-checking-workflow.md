@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [invest-screen, workflow, department-package]
 derived_from:
-  - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/investment-checking.zip/SKILL.md, read 2026-11-10"
+  - "Department knowledge base, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `investment-checking.zip/SKILL.md` (the master).
@@ -20,7 +20,7 @@ Two failure modes this skill exists to prevent:
 1. **Silent involvement** — an equipment, IT, energy or facility purchase quietly drags in software, endpoints, a PC, a framework or a connector that OD ends up owning, integrating or securing, but OD was never asked (the "Lessmüller laser controller needs a PC running an unknown framework and exposes an FTP endpoint" case).
 2. **Unhealthy scale-out** — OD-owned or OD-touching items that add operational footprint without a healthy business case, that don't compound across the organisation, or that should be proven as a PoC first before an org-wide commitment.
 
-> **Language:** all written output (report, tables, review files) in **English**, per `OD-instance/CLAUDE.md`. German is fine only when talking to the user in chat.
+> **Language:** all written output (report, tables, review files) in **English**, per the department conventions. German is fine only when talking to the user in chat.
 
 ---
 

@@ -29,9 +29,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - Department knowledge base, Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
-    - Department knowledge base, Graph/Capability Epics (the template notes and their numbered plant instances), read 2026-11-05
-    - Department knowledge base, Graph/Registers/Blocker Register and Case Groups, read 2026-11-05
+    - Department knowledge base (plant notes, plant-profile blocks), read 2026-11-05
+    - Department knowledge base Epics (the template notes and their numbered plant instances), read 2026-11-05
+    - Department knowledge base Register and Case Groups, read 2026-11-05
     - Skills od-signal-standardization, od-use-case-standardization and od-data-availability-check (plant-instance-map), read 2026-11-05
   okf:
     type: Agent Skill

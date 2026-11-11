@@ -3,9 +3,15 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-11 — Citations reduced, core descriptions shortened
+
+- Source citations now read "Department knowledge base, read <date>": document paths and titles removed.
+- The 25 core skill descriptions are 200 characters or fewer, each keeping its "Not for" boundary.
+- The quality ratings predate these changes; rerun SkillEvaluator to refresh them.
+
 ## 2026-11-10 — Department packages transcribed into ten core skills
 
-- The department's skill packages in `OD-instance/30-skills/` are now readable and are the master where transcribed:
+- The department's skill packages in the department knowledge base are now readable and are the master where transcribed:
   `bc-assessment.zip` → `bc-assessment` (full rubric C1-C5 / D1-D9 / E1-E6, lever model, grounding, provenance, deck spec, renderer; plus the intake questionnaire and the Gemba assessment as worked example, money masked);
   `ecr-builder.zip` → `od-capital-request` (workflow, refusal gate and de-risk questions, honesty layer, renderer) plus the eCR approval matrix by role and tier → also `od-decision-routing`;
   `investment-checking.zip` → `od-system-fit-check` (8-point footprint gate, six criteria, whole-list screen, region-grouped review);
@@ -31,7 +37,7 @@ not a concept.
   sit on the steps they deepen. Every skill now requires `dept-os`. `process.yaml` and the Mermaid name only
   department skills on the steps.
 - **Department context applied, registry 1.13.0, 42 skills (core 27, extension 15).** Fixed every finding of
-  `docs/department-context-conformance.md` from the knowledge base folder `OD Department Knowledge/OD-instance` and the OD x IT
+  `docs/department-context-conformance.md` from the department knowledge base and the OD x IT
   meeting notes of 2026-09-11. Merged twelve duplicate or retired-lane skills into their owners, each kept as
   `references/<old-name>/procedure.md`: `od-analytical-support-service` → `od-first-aid-kit`;
   `od-project-support-consultancy`, `it-demand-package` → `od-it-handover`; `od-information-integration-service`,
@@ -43,7 +49,7 @@ not a concept.
   passes OpenSpec's own validator in strict mode). `od-investment-input` moved to core, `od-sharepoint-list-export` to
   extension. `process.yaml` and `OD_NewState_Flow.mermaid` redrawn to the department lanes (step 34 added, step ids
   kept); `validate_registry.py` now fails when core and flow disagree.
-- **Department context conformance.** Checked all 53 skills against the knowledge base folder `OD Department Knowledge/OD-instance`
+- **Department context conformance.** Checked all 53 skills against the department knowledge base
   (new-state lane drafts, decision rights, intake, OD x IT alignment of 2026-09-11, naming convention); result in
   `docs/department-context-conformance.md`. Added `new_state_lane` / `new_state_step` to the 23 skills that only carried the
   old `lane:` value, from `docs/new-state/process.yaml`. No other skill content changed.

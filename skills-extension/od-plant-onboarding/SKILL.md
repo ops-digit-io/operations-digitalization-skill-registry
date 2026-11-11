@@ -30,8 +30,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
     - ops-knowledge-graph/_knowledge/20-Done/Machine connectivity rollout.md
     - Registry docs/new-state-flow.md and docs/new-state/OD_NewState_Flow.mermaid (the three lanes and their steps), read 2026-11-05
-    - Department knowledge base, Graph/Plants (plant notes, plant-profile blocks), read 2026-11-05
-    - Department knowledge base, Graph/Tools and Graph/Connectors note names, read 2026-11-05
+    - Department knowledge base (plant notes, plant-profile blocks), read 2026-11-05
+    - Department knowledge base and Graph/Connectors note names, read 2026-11-05
     - Skill od-data-availability-check, references/plant-instance-map.md, read 2026-11-05
   okf:
     type: Agent Skill

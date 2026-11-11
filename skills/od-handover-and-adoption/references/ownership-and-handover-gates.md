@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [handover, ownership, it-alignment, lane-3]
 derived_from:
-  - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (themes 3 and 5, action items 5 and 7), read 2026-11-10"
+  - "Department knowledge base (themes 3 and 5, action items 5 and 7), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Ownership and handover gates

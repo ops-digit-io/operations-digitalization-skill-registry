@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Capital request](SKILL.md) | Agent Skill | Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from od-benefit-calculation with their firmness, the cost side, options, risks, dependencies and a validation plan for the funded phase, and record the dependency and the outcome. Drafts only: submission and approval are human. Use when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector needs funding before demand is handed to IT, or when a saving is waiting on ECR CREATION or ECR APPROVAL. Not for calculating the value (od-benefit-calculation) or the investment input pack (od-investment-input). |
+| [Capital request](SKILL.md) | Agent Skill | Package a use case's value and cost into a capital request (eCR) for human approvers: spend gate, evidence, options, risks. Drafts only. Not for calculating value (od-benefit-calculation). |
 
 | Folder | Holds |
 |---|---|

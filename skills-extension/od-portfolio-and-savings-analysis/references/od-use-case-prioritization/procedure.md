@@ -21,7 +21,7 @@ derived_from:
 - Department knowledge base, Split Slides of 50-Use_Case_Planning 2025-03-10 UseCase_Priorities slides 2 to 7 (priority tiers and cluster table columns), read 2026-11-05
 - Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (rollout map, evidence gap, white space), read 2026-11-05
 - Department knowledge base, ODEC Facts - Department KPIs and Roadmap Status (use case upvoting slides 2025), read 2026-11-05
-- Department knowledge base, Graph/Business Cases notes (portfolio tier and score fields; Catalog Maturity Sprint UC-Y; Cycle Time Optimization), read 2026-11-05
+- Department knowledge base Cases notes (portfolio tier and score fields; Catalog Maturity Sprint UC-Y; Cycle Time Optimization), read 2026-11-05
 - Skill od-portfolio-and-savings-analysis, references/prioritization.md (weighted scoring and the unscoreable bucket)
 - Skill od-use-case-intake-triage and od-use-case-definition, admission rule and control points
 generated:

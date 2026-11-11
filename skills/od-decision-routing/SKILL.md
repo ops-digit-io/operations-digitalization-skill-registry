@@ -1,13 +1,7 @@
 ---
 name: od-decision-routing
 description: >-
-  Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision
-  to its owner, mode, approval requirement, reversibility, threshold and authority level;
-  route spend through eCR, IT demand through demand management, rollout readiness through
-  CSP, daily use through the plant and proven value through SPRINT; and escalate to the
-  right forum. Use before committing spend, approving an integration or a connection,
-  changing a standard or a rollout, or whenever it is unclear whether an action is
-  recommend, execute-with-approval or execute-autonomously. Not for assigning a request to a lane (od-use-case-intake-triage).
+  Answer "am I allowed to do this, and who decides?" for OD work: map a decision to its owner, approval and authority level. Not for assigning a request to a lane (od-use-case-intake-triage).
 license: MIT
 metadata:
   id: od-decision-routing
@@ -24,14 +18,14 @@ metadata:
   requires: [od-context]
   composes: [od-investment-input, it-demand-package]
   derived_from:
-    - "Department knowledge base, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
+    - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../00-core/09-risks.md
     - Rogers, P. and Blenko, M. (2006). Who Has the D? How Clear Decision Roles Enhance Organizational Performance. Harvard Business Review, 84(1), 52-61. The RAPID decision-rights framework (Recommend/Agree/Input/Perform/Decide), verified via Bain & Company's own summary, 2026-10-22 — grounds this skill's Tandem/Consultation/Information modes.
-    - Department knowledge base, Split Slides/D-Operations Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - Department knowledge base Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Decision routing and escalation

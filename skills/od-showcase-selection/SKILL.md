@@ -1,13 +1,7 @@
 ---
 name: od-showcase-selection
 description: >-
-  Decide which use case is ready to be told to the rest of the company, and which claims it may carry
-  (new-state Lane 4, the outbound lane for use-case promotion via Internal Communications, step 41).
-  Applies the entry gate (live, adoption confirmed by the recipient, plant owner agrees), the evidence rule
-  (a saving is a claim until a plant savings project and a baseline are registered), the sensitivity screen
-  (no individuals, no hosts, no supplier or customer detail) and the audience fit, then returns go, hold or no
-  with reasons. Use when a use case has gone productive, when someone asks to publicise a result, or before any
-  use-case story is briefed to Internal Communications. Not for writing the story (od-comms-brief).
+  Decide which use case is ready to be told company-wide and which claims it may carry (Lane 4): go, hold or no. Not for writing the story (od-comms-brief).
 license: MIT
 metadata:
   id: od-showcase-selection
@@ -25,10 +19,10 @@ metadata:
   composes: [od-handover-and-adoption, od-benefit-calculation, catalog-usecase, od-comms-brief]
   derived_from:
     - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/10-modules/smart-factory-use-case/systems-of-record.md (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/07-metrics.md (use-case utilization rate; recipient feedback), read 2026-11-10"
+    - "Department knowledge base (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
+    - "Department knowledge base (use-case utilization rate; recipient feedback), read 2026-11-10"
     - "Registry reference: od-use-case-definition, lane service flow (savings without a registered plant savings project or a baseline are a claim, not a result), read 2026-11-10"
-    - "Department knowledge base, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
+    - "Department knowledge base Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase selection

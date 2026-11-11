@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [App deployment to the platform](SKILL.md) | Agent Skill | Prepare and gate the deployment of a manufacturing app to the platform (new-state Lane 3a) - confirm the target and the sourcing route (reuse, self-developed, externally developed, integrated foreign app), assemble the deployment package, run the release gate including the Cyber Security sign-off, and hand over to rollout. Drafts the package and the checklist; deploying to a shared platform is human-approved and the sign-off is human-only. Use when an app is ready to go to the manufacturing app store on the IIoT Edge platform or the container platform, when someone asks what must be true before a deployment, or when the deploy step of a new system is planned. Checks the package against the department's GitOps / ArgoCD deployment shape (standard manifests on CMO, reference instance HDAS). |
+| [App deployment to the platform](SKILL.md) | Agent Skill | Prepare and gate deployment of a manufacturing app (Lane 3a): sourcing route, deployment package, release gate with Cyber Security sign-off, handover to rollout. Sign-off human-only. |
 
 | Folder | Holds |
 |---|---|

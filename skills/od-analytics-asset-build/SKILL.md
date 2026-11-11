@@ -1,13 +1,7 @@
 ---
 name: od-analytics-asset-build
 description: >-
-  Build the thing the plant actually opens — a dashboard, report, analytics workflow, app
-  or agent — so that it is consumed inside a real moment in the day, diagnosable by the
-  plant, and countable in the portfolio. Covers choosing the asset type, designing for the
-  ritual that consumes it, the Grafana and Power BI reality, recording the asset and its
-  utilization expectation, and knowing when not to build. Use whenever a delivery asset is
-  being designed or built, when an existing one is being reworked, or when choosing
-  between a dashboard, a report and an app. Not for the Grafana JSON build itself (build-grafana-ops-dashboard) or for deciding whether data exists (od-data-availability-check).
+  Design and build the dashboard, report, workflow, app or agent a plant actually opens, tied to a daily routine. Not for the Grafana JSON build or data checks (od-data-availability-check).
 license: MIT
 metadata:
   id: od-analytics-asset-build
@@ -25,7 +19,7 @@ metadata:
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
   derived_from:
-    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-grafana-dashboards.zip (SKILL.md), read 2026-11-10"
+    - "Department knowledge base (SKILL.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
     - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
@@ -34,8 +28,8 @@ metadata:
     - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
     - Department knowledge base, Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Knowledge base Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
     - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Analytics asset build

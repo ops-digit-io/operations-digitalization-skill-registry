@@ -1,16 +1,7 @@
 ---
 name: od-equipment-integration
 description: >-
-  Two entry routes to one protocol for connecting machines (Lane 1b order and connect, Lane 3b new
-  connector - the former Information Integration Service lane). Assessment: inventory a plant's or
-  wave's machines, decide per machine the integration concept and connector, plan, size and sequence
-  the wave (formerly od-machine-integration-plan). Guidance: route one assessed machine to the IIoT Edge
-  Platform or the Softing dataFEED Central OPC-UA Aggregation Server, walk the configuration, clear the
-  preparation gates, take the right fallback, and triage a machine that will not connect (formerly
-  od-barrier-triage). Use when a plant or wave starts, a machine's route is unclear, a use case is blocked
-  for want of machine data, a machine is silent or blocked, or someone asks how to connect a Siemens /
-  Rockwell / Beckhoff / B&R / Omron / Mitsubishi / Modbus / OPC-UA device, configure a dataFEED data
-  source, or what to specify when ordering a new machine. Not for acceptance (od-acceptance-test).
+  Assess and connect machines to the platform: plan a wave, route a machine to IIoT Edge or dataFEED, clear gates, triage a machine that will not connect. Not for acceptance (od-acceptance-test).
 license: MIT
 metadata:
   id: od-equipment-integration
@@ -36,9 +27,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf (Softing dataFEED OPC Suite V5.70 manual, 2026-02-16)
     - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv
     - interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation)
-    - Department knowledge base, Graph/Machines (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
+    - Department knowledge base (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
     - Department knowledge base, ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Equipment integration — assessment and guidance

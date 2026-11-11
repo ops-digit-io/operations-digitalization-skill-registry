@@ -34,11 +34,11 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/project-support-consultancy/skills.md
     - New-state flow (docs/new-state-flow.md and docs/new-state/OD_NewState_VSM_SkillMap.html), the Lane 1b cost-template step, the Lane 2 capital-request step and the Lane 3 shared front-end, read 2026-11-05
     - Skills od-decision-routing and od-benefit-calculation (the spend ladder, the dependency values), od-equipment-integration (assessment protocol section 3, edge-device hardware constraint) and od-system-fit-check (tool boundaries with their recorded cost references), read 2026-11-05
-    - Department knowledge base, Graph/Business Cases notes Sensor-Upgrade Decision Frame and PLC Evergreening, and Case Groups - Overview, read 2026-11-05
-    - Department knowledge base bundle file kg_nodes.csv, Machine records read as an aggregate (integration status, priority, method), 2026-11-05
-    - "Department knowledge base, OD Department Knowledge/OD-instance/Business-Cases (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - Department knowledge base Cases notes Sensor-Upgrade Decision Frame and PLC Evergreening, and Case Groups - Overview, read 2026-11-05
+    - Department knowledge base, Machine records read as an aggregate (integration status, priority, method), 2026-11-05
+    - "Department knowledge base (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Investment input pack

@@ -28,7 +28,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/07-metrics.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
-    - Department knowledge base, Graph/Registers hub, Blocker Register and the change log header, read 2026-11-05
+    - Department knowledge base hub, Blocker Register and the change log header, read 2026-11-05
     - Department knowledge base, Knowledge base Gap Analysis - Working Items, read 2026-11-05
     - Skill od-scorecard-reporting, the rounds and the retro rule, read 2026-11-05
   okf:

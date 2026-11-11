@@ -1,16 +1,7 @@
 ---
 name: od-signal-standardization
 description: >-
-  Analyse a machine's signals and standardize them so a second plant can consume them
-  without asking a question. Reads the machine context (PLC program, tag export, sequence chart, handbook, HMI) to establish how it
-  works, inventories the data points an edge platform exposes, checks
-  them against the canonical vocabulary and against what a capability actually requires,
-  finds the name collisions, raw PLC tags and coverage gaps that stop a use case being
-  built, and takes the result through the data-model decision. Use when a machine is newly
-  connected and its signals need naming, when a use case cannot be built because a signal
-  is missing or ambiguous, when two plants' versions of the same signal will not compare,
-  or before publishing any derived data point. Adopts public data models (OPC UA for Machinery, EUROMAP, PackML) instead of re-inventing them; output is a signal analysis report.
-  Not for connecting the machine (od-equipment-integration) or building flows (od-node-red-flow-builder).
+  Analyse a machine's signals and standardize them so a second plant can use them: names, collisions, gaps, public data models. Not for connecting the machine (od-equipment-integration) or flows.
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
@@ -30,13 +21,13 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-data-availability-check, od-node-red-flow-builder, od-acceptance-test]
   derived_from:
-    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples), read 2026-11-10"
+    - "Department knowledge base (references/patterns.md, examples), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (signal vocabulary in use)
     - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills}.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Department knowledge base, Dashboard Exports/specs SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes, Graph/Use Case Views (template views and template-standards), Graph/Machines (front matter) and Graph/Connectors, read 2026-11-05
+    - Department knowledge base SPEC-02 Telemetry Data Contract and the dashboard inventory, Dashboard Exports/Dashboard Notes, Graph/Use Case Views (template views and template-standards), Graph/Machines (front matter) and Graph/Connectors, read 2026-11-05
     - Node-RED auto-docs flow JSON, read 2026-11-05 for flow-config keys and CT topic leaves (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs)
   okf:
     type: Agent Skill

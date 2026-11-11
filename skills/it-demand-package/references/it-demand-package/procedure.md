@@ -17,7 +17,7 @@ derived_from:
 - Skill od-decision-routing, which routes IT demand through demand management and does not package it
 - Skill od-requirements-breakdown, the requirement and the epic with its stories
 - Department deck AI_Initiatives_IT_Contact_Points.pptx (one slide, the asks to IT per initiative, roles only), text extracted and read 2026-11-05
-- Department knowledge base, Graph/Legacy Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
+- Department knowledge base Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
 - Knowledge bundle, 00-core decision rights (08-decision-rights.md) and the 10-Department notes Operating model and Roles and organization, read 2026-11-05
 generated:
   by: claude-code/1

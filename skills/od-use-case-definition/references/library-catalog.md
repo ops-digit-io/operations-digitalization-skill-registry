@@ -7,7 +7,7 @@ status: stable
 owner: human:jakob.gabriel
 tags: [use-case-support-service, library, elicited]
 derived_from:
-  - Department knowledge base, Graph/Library Use Cases/*.md, read 2026-09-17 (structure and vocabulary only)
+  - Department knowledge base Use Cases/*.md, read 2026-09-17 (structure and vocabulary only)
 generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 

@@ -1,14 +1,7 @@
 ---
 name: od-use-case-intake-triage
 description: >-
-  Decide what OD does with an incoming request — accept it into exactly one of the three
-  new-state lanes (1a/1b known use case, 2 new use case, 3 new system or connector), refuse it,
-  or route it to the function that actually owns it. Applies OD's
-  intake channels, its prioritization rule and its explicit refusal list, and names the
-  lane, the owner role and the trigger the request satisfies. Use whenever a request,
-  demand, idea or "can you just…" arrives and it is not yet clear whether it is OD work,
-  which lane it belongs to, or whether it should be refused. Also use to check that a
-  request already in flight was admitted on legitimate grounds. Not for working out the decision rights of an accepted request (od-decision-routing).
+  Decide what OD does with an incoming request: accept into one of three lanes, refuse, or route to the owner. Not for decision rights of an accepted request (od-decision-routing).
 license: MIT
 metadata:
   id: od-use-case-intake-triage
@@ -28,8 +21,8 @@ metadata:
     - ops-knowledge-graph/.../00-core/05-intake.md
     - ops-knowledge-graph/.../00-core/04-service-catalog.md
     - ops-knowledge-graph/.../00-core/01-charter.md
-    - Department knowledge base, Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - Department knowledge base, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Use-case intake triage

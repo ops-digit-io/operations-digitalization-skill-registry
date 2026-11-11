@@ -1,13 +1,7 @@
 ---
 name: od-node-red-flow-builder
 description: >-
-  Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor estate does it:
-  canonical layout, protobuf PLCPacket schema over MQTT, topic conventions, standard function nodes, catch-based
-  error handling and the naming the auto-documentation depends on. Diagnoses a broken, silent or wrong-valued flow
-  from its exported JSON with a static analyser and a symptom-to-cause table. Use when writing or changing a flow
-  for a machine or use case (step 3b4), reviewing a flow before a prod instance, porting a flow between plants, or
-  when a flow publishes nothing, a wrong value or a nonsense timestamp, stops after a redeploy, or a dashboard has
-  gone flat (step 3b5, also 3b6 when acceptance fails). Not for choosing signal names (od-signal-standardization).
+  Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf, topics, error handling). Not for choosing signal names (od-signal-standardization).
 license: MIT
 allowed-tools: Read Grep Glob Write Edit Bash(python3 scripts/analyze_flow.py:*)
 metadata:
@@ -29,14 +23,14 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-data-availability-check]
   derived_from:
-    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
+    - "Department knowledge base (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (exported flow JSON and generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - Node-RED auto-docs flow JSON re-read 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs) for disabled flows, drivers, MQTT settings, timers and flow-config keys
-    - Department knowledge base, Graph/Connectors profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
+    - Department knowledge base profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
     - Analyser re-run unchanged over all exported flow files on 2026-11-05 and the same files re-checked for disabled tabs, drivers and context keys
-    - Department knowledge base, Graph/Connectors, DTQ-Beckhoff-Connector profile block, read 2026-11-05
+    - Department knowledge base, DTQ-Beckhoff-Connector profile block, read 2026-11-05
   okf:
     type: Agent Skill
     title: od-node-red-flow-builder

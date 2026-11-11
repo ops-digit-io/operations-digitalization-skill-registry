@@ -21,7 +21,7 @@ derived_from:
 - Department knowledge base, Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (Use Case Creation Process slides 7, 18, 19, 20; Workshop Summary slide 20; template Use Case Utilization), read 2026-11-05
 - Department knowledge base, Slide Index of 10-Workshops (Dolne Vestenice 2025 integration workshop purpose and utilization slides; Carei 2025 integration workshop), read 2026-11-05
 - Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (section 4 recorded savings, evidence gap, section 7 derivation sheet), read 2026-11-05
-- Department knowledge base, Graph/Business Cases Catalog Maturity Sprint (validation plan pattern), read 2026-11-05
+- Department knowledge base Cases Catalog Maturity Sprint (validation plan pattern), read 2026-11-05
 - Skill od-benefit-calculation SKILL.md and references/review-checklist.md (saving rows, tracked versus proven, calculator)
 - Skill od-handover-and-adoption SKILL.md, references/evidence-of-adoption.md and assets/handover-protocol.md
 generated:

@@ -1,15 +1,7 @@
 ---
 name: od-data-availability-check
 description: >-
-  Check whether the data a use case or an analysis needs actually exists, is reachable and
-  is fit for use — before anything is promised. Walks the path from the machine through
-  its connector and integration variant to the data platform, distinguishes "not integrated" from
-  "not standardized" from "not fit for use", and turns a shortfall into a named data gap
-  routed to the Information Integration lane rather than an approximation. Runs the six
-  steps against the Machine List, the Connector Overview and the deployed flow corpus, and
-  writes a defined verdict naming which step the request dies at. Use at the start of any
-  analytical request, before scoping a use case, and whenever an analysis is about to be
-  built on data whose provenance has not been checked. Not for designing a signal standard (od-signal-standardization).
+  Check whether the data a use case needs exists, is reachable and fit for use before anything is promised; name the step it fails at. Not for designing a signal standard (od-signal-standardization).
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/check_availability.py:*)
 metadata:
@@ -30,9 +22,9 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Department knowledge base, Graph/Machines (field completeness per plant), Graph/Legacy Applications, Graph/Capability Epics and Process Epics, Case Groups (member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
-    - Department knowledge base, Graph/Connectors and Graph/Tools notes for the non-PLC connectors, MIL, QFPR and Energy Management, read 2026-11-05
-    - Department knowledge base, _knowledge/90-Sources/org-analysis usecase-standardization-knowledgebase (cluster KPIs and requirements checklists), read 2026-11-05
+    - Department knowledge base (field completeness per plant), Graph/Legacy Applications, Graph/Capability Epics and Process Epics, Case Groups (member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
+    - Department knowledge base and Graph/Tools notes for the non-PLC connectors, MIL, QFPR and Energy Management, read 2026-11-05
+    - Department knowledge base usecase-standardization-knowledgebase (cluster KPIs and requirements checklists), read 2026-11-05
   okf:
     type: Agent Skill
     title: Data availability check

@@ -28,8 +28,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/07-metrics.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/13-swot.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/capabilities.md
-    - Department knowledge base, Graph/Registers/Blocker Register (export of 2026-08-21), read 2026-11-05
-    - Department knowledge base, Graph/Legacy Applications (268 notes, cyber-security status field) and Graph/Plants tool-rollout lines, aggregated 2026-11-05
+    - Department knowledge base Register (export of 2026-08-21), read 2026-11-05
+    - Department knowledge base Applications (268 notes, cyber-security status field) and Graph/Plants tool-rollout lines, aggregated 2026-11-05
     - Department knowledge base, ODEC Facts, Department KPIs and Roadmap Status, strategy recap slide, read 2026-11-05
   okf:
     type: Agent Skill

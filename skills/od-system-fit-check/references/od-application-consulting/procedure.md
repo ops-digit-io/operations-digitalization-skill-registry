@@ -22,8 +22,8 @@ derived_from:
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
 - Skills od-system-fit-check (its tool boundaries and non-bets) and od-project-support-consultancy (composed protocols, recurring tasks), read 2026-11-05
 - New-state flow (docs/new-state-flow.md and the VSM skill map), Lane 3 shared front-end and branch 3a with options 3a.1 to 3a.4, read 2026-11-05
-- Department knowledge base, Graph/Tools notes (rollout and use records, Concept 3 operations concept, MES 1.0), Graph/Keynote Initiatives note Manufacturing App Store (CMO) and its business case, read 2026-11-05
-- Department knowledge base bundle file kg_nodes.csv, the Legacy Application records read as an aggregate, 2026-11-05
+- Department knowledge base notes (rollout and use records, Concept 3 operations concept, MES 1.0), Graph/Keynote Initiatives note Manufacturing App Store (CMO) and its business case, read 2026-11-05
+- Department knowledge base, the Legacy Application records read as an aggregate, 2026-11-05
 generated:
   by: claude-code/1
   at: 2026-11-05 00:00:00+00:00

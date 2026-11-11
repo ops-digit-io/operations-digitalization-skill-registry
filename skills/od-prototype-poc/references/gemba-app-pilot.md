@@ -18,9 +18,9 @@ recorded.
 
 | Source | What it is |
 |---|---|
-| Department knowledge base, `Gemba App` project folder (README, quick start guide, click-dummy template prompt, example production dashboard spec) | A Claude project export: a prompt system for generating click-dummies |
+| Department knowledge base project folder (README, quick start guide, click-dummy template prompt, example production dashboard spec) | A Claude project export: a prompt system for generating click-dummies |
 | Department archive (read-only), `13-AI_Activities/2026-08-AI_Initiatives_Pitch/04-AI based Requirements Engineering Mockup Creation/` | The initiative deck and a generated HTML mock-up. Read it for the current problem, target, plan and budget state; do not copy them into a skill |
-| Department knowledge base, `Graph/Business Cases/AI Requirements Engineering Pipeline.md` (AI-curated) | Describes the process in an AI usage deck |
+| Department knowledge base (AI-curated) | Describes the process in an AI usage deck |
 
 ## The process (as described, not as measured)
 

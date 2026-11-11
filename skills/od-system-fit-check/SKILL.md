@@ -1,16 +1,7 @@
 ---
 name: od-system-fit-check
 description: >-
-  Two gates in one skill. Intake fit: catch the request that sounds like a normal dashboard or
-  integration ask but quietly needs a system outside the lean footprint (MES, EMS, a heavier MIL,
-  Recipe Management or Data Science Factory) and resolve it to fits, redesign or escalate, checked
-  against this plant's real tool availability. Lane 3 tool-decision gate (the department's mandatory
-  investment-screening): run the software and IT-footprint hard gate, then route the demand to 3a.1
-  reuse, 3a.2 self-develop, 3a.3 external build (guided buy), 3a.4 integrate a foreign app, or 3b new
-  connector, with a Go / PoC-first / Reduce-complexity / Hold / Blocked verdict; includes the solution
-  design recommendation for application questions. Use at intake,
-  during requirements breakdown, at Lane 3 step 32, whenever someone asks make, buy, integrate or connect,
-  or when a purchase ships a PC, software, licence or endpoint. Not for writing the requirement (od-requirements-breakdown).
+  Intake fit check and Lane 3 tool-decision gate: catch requests needing a system outside the lean footprint; route make/buy/integrate/connect. Not for requirements (od-requirements-breakdown).
 license: MIT
 metadata:
   id: od-system-fit-check
@@ -29,16 +20,16 @@ metadata:
   requires: [od-context]
   composes: [od-decision-routing, od-use-case-solution-evaluation, it-demand-package, deploy-appstore, od-equipment-integration, od-prototype-poc]
   derived_from:
-    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/investment-checking.zip (SKILL.md, reference/*; newer than the unnamed copy zi0XqsQv), read 2026-11-10"
-    - Department knowledge base, _knowledge/OperationsDigitalization-Department/00-core/02-strategy.md (the non-bets, bets and kill criteria, verbatim), read 2026-10-23.
-    - Department knowledge base, _knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (P-02's own scope statement and deployment-reality framing), read 2026-10-23.
-    - Department knowledge base, Split Slides/10-Workshops--2025-01-12-1.1-OnePager-System_Overview*.pptx (the per-tool is/is-not boundary cards, integration-recommended-if criteria, real cost estimates), read 2026-10-22.
-    - Department knowledge base, Split Slides/10-Workshops--2023_06_29_Summary_SanLuisPotosi_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_04_04_Summary_Subotica_SmartFactory_UseCase_Definition_Workshop*.pptx, --2024_07_04_Summary_Timisoara_SmartFactory_UseCase_Definition_Workshop*.pptx (three real per-plant Smart Factory Tools Availability snapshots), read 2026-10-22. Resolves PHASE1-ELICITATION.md topic 5 (non-bet system-fit judgement) and builds the skill the department's own Wave-1 plan named but never built (P-02, `od-p-system-fit-check`).
-    - Department knowledge base, Graph/Tools (rollout history and tables, use of the tool, archive-evidence blocks), Graph/Plants rollout blocks and Graph/Legacy Applications, read 2026-11-05
+    - "Department knowledge base (SKILL.md, reference/*; newer than the unnamed copy zi0XqsQv), read 2026-11-10"
+    - Department knowledge base (the non-bets, bets and kill criteria, verbatim), read 2026-10-23.
+    - Department knowledge base (P-02's own scope statement and deployment-reality framing), read 2026-10-23.
+    - Department knowledge base (the per-tool is/is-not boundary cards, integration-recommended-if criteria, real cost estimates), read 2026-10-22.
+    - Department knowledge base (three real per-plant Smart Factory Tools Availability snapshots), read 2026-10-22. Resolves PHASE1-ELICITATION.md topic 5 (non-bet system-fit judgement) and builds the skill the department's own Wave-1 plan named but never built (P-02, `od-p-system-fit-check`).
+    - Department knowledge base (rollout history and tables, use of the tool, archive-evidence blocks), Graph/Plants rollout blocks and Graph/Legacy Applications, read 2026-11-05
     - Department knowledge base, Slide Index (deck OD Initiative - CS Legacy Application As_Is_Analysis) and ODEC Facts staging notes (Department KPIs and Roadmap Status), AI-extracted and unverified, read 2026-11-05
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/2026-09-02_OD_Investment_Screen.md, read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: System fit check

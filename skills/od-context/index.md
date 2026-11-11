@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [OD context](SKILL.md) | Agent Skill | Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill inherits. Load before any OD work, before quoting any OD number, before routing a request, and whenever terms like use case, asset, MSB, MES, ODEC, COP, DBVE, IIAE, CSP, eCR or SPRINT must resolve to one meaning. Not for deciding a specific request (od-decision-routing). |
+| [OD context](SKILL.md) | Agent Skill | Shared ground truth for OD work: vocabulary, the three lanes, who decides what, honesty rules. Load before any OD work or quoting an OD number. Not for deciding a request (od-decision-routing). |
 
 | Folder | Holds |
 |---|---|

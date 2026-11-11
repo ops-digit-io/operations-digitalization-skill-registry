@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [signals, normalization, rule-engine, department-package]
 derived_from:
-  - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (references/patterns.md, examples/*.json), read 2026-11-10"
+  - "Department knowledge base (references/patterns.md, examples/*.json), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Normalization in flows

@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [cost, business-case, template, department-standard]
 derived_from:
-  - "Department knowledge base, OD Department Knowledge/OD-instance/Business-Cases/_template/investment-estimate-template.md, read 2026-11-10 (the knowledge base file is the master)"
+  - "Department knowledge base, read 2026-11-10 (the knowledge base file is the master)"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Investment & Effort Estimate — ⟨case name⟩

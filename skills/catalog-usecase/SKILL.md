@@ -1,15 +1,7 @@
 ---
 name: catalog-usecase
 description: >-
-  Run the plant self-service catalog of proven use cases (new-state Lane 1, the department's
-  catalog-usecase) and the Lane 2 graduation into it: match a plant's request to a catalogued use case
-  (CSP decision recorded, capability template, machine connected, signals present) or say plainly that
-  it is not catalogued so the demand falls through to Lane 2 or Lane 3; and record what a proven,
-  repeatable Lane 2 result must show before it becomes a catalog entry. Standardized systems are
-  catalog-systems, the go-live self-check is catalog-guardrails. Use when a plant asks for a use case
-  another plant already has, when a use case should graduate into the catalog, or when a catalog
-  entry is proposed. Not for standardized systems (catalog-systems) or the go-live self-check (catalog-guardrails).
-  Draft: no catalog data set exists yet.
+  Match a plant request to a proven catalogued use case (Lane 1), or say it is not catalogued and route it to Lane 2/3; set what a Lane 2 result needs to graduate. Not for systems (catalog-systems).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -32,23 +24,23 @@ metadata:
     - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 1 steps "Pick from catalog", "Pick UC + std system" and "Validate and go live", the Lane 2 graduation and the gap register entries, read 2026-11-05
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - Skill od-use-case-standardization, which holds the eleven capability templates, the reference library and the CSP gate
-    - Department knowledge base, Graph/Use Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
-    - Department knowledge base, Graph/Use Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
-    - Department knowledge base, Graph/Target Types and the library notes with a recorded CSP Yes, read 2026-11-05
+    - Department knowledge base Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
+    - Department knowledge base Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
+    - Department knowledge base Types and the library notes with a recorded CSP Yes, read 2026-11-05
     - registry.yaml open_gaps, the integration routes marked TODO and the plants without an integration concept; Grafana is a local instance per plant while Databricks and the Azure Storage Account are the global layer
     - ops-knowledge-graph/.../00-core/03-objectives.md
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/agent-brief.md
     - Skill od-equipment-integration, references/decision-paths.md, the routes by controller and protocol
-    - Department knowledge base, Graph/Machines, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
-    - Department knowledge base, Graph/Tools, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
-    - Department knowledge base, _knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case, the systems-of-record note
+    - Department knowledge base, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
+    - Department knowledge base, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
+    - Department knowledge base, the systems-of-record note
     - Skill od-handover-and-adoption, the three-question test and the rule that the plant decides PRODUCTIVE
-    - Department knowledge base, Dashboard Exports/specs, SPEC-00 to SPEC-04 and the Hannover Stoecken KKA and Pulp Mixer requirements, all AI-drafted drafts, read 2026-11-05
+    - Department knowledge base, SPEC-00 to SPEC-04 and the Hannover Stoecken KKA and Pulp Mixer requirements, all AI-drafted drafts, read 2026-11-05
     - Department knowledge base, Knowledge base Gap Analysis - Working Items and Content Depth, _knowledge/20-Done and 10-Department (Decision rights, Handover, Use case standardization), read 2026-11-05
-    - Department knowledge base, Graph/Use Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
+    - Department knowledge base Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
     - Skills od-data-availability-check (failure modes), od-handover-and-adoption, od-decision-routing (escalation worked examples), read 2026-11-05
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: catalog-usecase

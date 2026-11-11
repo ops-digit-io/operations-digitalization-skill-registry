@@ -1,13 +1,7 @@
 ---
 name: od-capital-request
 description: >-
-  Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work
-  out which spend gate and approver the amount hits, assemble the evidence, the value rows from
-  od-benefit-calculation with their firmness, the cost side, options, risks, dependencies and a validation plan
-  for the funded phase, and record the dependency and the outcome. Drafts only: submission and approval are human.
-  Use when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector
-  needs funding before demand is handed to IT, or when a saving is waiting on ECR CREATION or ECR APPROVAL.
-  Not for calculating the value (od-benefit-calculation) or the investment input pack (od-investment-input).
+  Package a use case's value and cost into a capital request (eCR) for human approvers: spend gate, evidence, options, risks. Drafts only. Not for calculating value (od-benefit-calculation).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -26,8 +20,8 @@ metadata:
   requires: [od-context]
   composes: [od-benefit-calculation, od-decision-routing, od-prototype-poc, od-portfolio-and-savings-analysis, od-use-case-solution-evaluation, od-system-fit-check, od-investment-input, od-cybersec-gate, it-demand-package, od-handover-and-adoption]
   derived_from:
-    - "Department knowledge base, OD Department Knowledge/OD-instance/30-skills/ecr-builder.zip (SKILL.md, reference/*, assets/build_ecr.py, render_qa.sh), read 2026-11-10"
-    - "Department knowledge base, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md, read 2026-11-10"
+    - "Department knowledge base (SKILL.md, reference/*, assets/build_ecr.py, render_qa.sh), read 2026-11-10"
+    - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md, read 2026-11-10"
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 5, Lane 3 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
@@ -35,11 +29,11 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/90-Sources/du-overview/OneDrive_1_21.8.2026/260818_DU_Setup_Timeplan.md
-    - Department knowledge base, Graph/Business Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
-    - Department knowledge base, Graph/Registers Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
+    - Department knowledge base Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
+    - Department knowledge base Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
     - Skills od-decision-routing and od-benefit-calculation, read 2026-11-05
-    - "Department knowledge base, OD Department Knowledge/OD-instance/eCR_Management_Summary_inventory.md, read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Capital request

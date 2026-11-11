@@ -1,11 +1,7 @@
 ---
 name: od-showcase-followup
 description: >-
-  Close the loop after a use-case story is published (new-state Lane 4, step 44): record what was published and
-  where, route every reaction back into the right lane (a plant that wants a catalogued use case goes to Lane 1, a
-  new need to Lane 2, a need for a system or connector to Lane 3), keep the story true as the use case changes, and
-  capture what the promotion taught OD. Defines the few measures of the lane without targets. Use after Internal
-  Communications has published, when a plant reacts to a story, or when a published story may have gone stale.
+  Close the loop after a use-case story is published (Lane 4): record it, route reactions to the right lane, keep the story true, capture lessons. Use after Internal Communications has published.
 license: MIT
 metadata:
   id: od-showcase-followup
@@ -23,9 +19,9 @@ metadata:
   composes: [od-comms-brief, catalog-usecase, od-use-case-intake-triage, od-handover-and-adoption]
   derived_from:
     - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/06-operating-rhythm.md (monthly retro: what did we learn, one change), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md and lane-2-develop-new-use-case.md (fall-through and cataloguing), read 2026-11-10"
-    - "Department knowledge base, OD Department Knowledge/OD-instance/00-core/07-metrics.md (utilization rate), read 2026-11-10"
+    - "Department knowledge base (monthly retro: what did we learn, one change), read 2026-11-10"
+    - "Department knowledge base and lane-2-develop-new-use-case.md (fall-through and cataloguing), read 2026-11-10"
+    - "Department knowledge base (utilization rate), read 2026-11-10"
     - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), read 2026-11-10"
   okf:
     type: Agent Skill

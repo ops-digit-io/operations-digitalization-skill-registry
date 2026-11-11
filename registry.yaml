@@ -527,7 +527,7 @@ skills:
     lane: lane-4
     owner_role: "Digital-Business-Value-Engineer (DBVE); Internal Communications publishes"
     authority_level: "draft the brief and the assets and run the check; nothing is published by OD; the plant owner, the OD lead and Internal Communications approve"
-    summary: "Turn a selected use case into the brief and the draft pack that Internal Communications can publish (new-state Lane 4, steps 42 and 43): one message, proof points that each carry a source and an evidence class, audience variants (other plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), a call to action that leads back into Lane 1, drafts of the article, one-pager, slide and short post in English, and the list of approvals. Checks the brief with a script before it leaves OD. Use after od-showcase-selection returns go, when a use-case story must be written for the company, or when a draft story needs its claims checked."
+    summary: "Turn a selected use case into a brief and draft pack Internal Communications can publish (Lane 4): message, sourced proof points, audiences, call to action. Use after od-showcase-selection says go."
 
   - id: od-showcase-followup
     origin: new-state
@@ -536,7 +536,7 @@ skills:
     lane: lane-4
     owner_role: "Digital-Business-Value-Engineer (DBVE)"
     authority_level: "draft the follow-up log and the routing and recommend; OD lead and plant owners decide; Internal Communications owns any correction of a published item"
-    summary: "Close the loop after a use-case story is published (new-state Lane 4, step 44): record what was published and where, route every reaction back into the right lane (a plant that wants a catalogued use case goes to Lane 1, a new need to Lane 2, a need for a system or connector to Lane 3), keep the story true as the use case changes, and capture what the promotion taught OD. Defines the few measures of the lane without targets. Use after Internal Communications has published, when a plant reacts to a story, or when a published story may have gone stale."
+    summary: "Close the loop after a use-case story is published (Lane 4): record it, route reactions to the right lane, keep the story true, capture lessons. Use after Internal Communications has published."
 
   - id: catalog-systems
     origin: new-state

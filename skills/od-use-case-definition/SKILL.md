@@ -1,15 +1,7 @@
 ---
 name: od-use-case-definition
 description: >-
-  Run step 21 (define and diagnose) and the Lane 2 funnel around it (the former Use Case Support Service).
-  Define a plant use case so it can be built, standardized, handed over and measured: scope it,
-  break down the requirement, assess the (legacy) MF IT systems, place it on its capability
-  template and process group, record the fields that make it evaluable. Also prepares and runs
-  Use Case Definition and Integration workshops, and answers what happens to a use case between
-  demand and daily use (roles, control points, error paths, autonomy, metrics, Process First-Aid
-  Kit, prioritizing a use case or business case). Use when an accepted plant demand needs a
-  definition, a use-case record is too thin to act on, or a workshop is being prepared.
-  Not for intake triage (od-use-case-intake-triage) or the business case (od-benefit-calculation).
+  Define a plant use case so it can be built, standardized, handed over and measured (step 21), and run definition workshops. Not for intake triage (od-use-case-intake-triage) or the business case.
 license: MIT
 metadata:
   id: od-use-case-definition
@@ -32,7 +24,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/12-portfolio.md
-    - Department knowledge base, Graph/Use Cases/*.md (650 pages) and Graph/Library Use Cases/*.md (100 pages), read 2026-09-17
+    - Department knowledge base Cases/*.md (650 pages) and Graph/Library Use Cases/*.md (100 pages), read 2026-09-17
   okf:
     type: Agent Skill
     title: Use-case definition

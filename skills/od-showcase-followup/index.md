@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Showcase follow-up](SKILL.md) | Agent Skill | Close the loop after a use-case story is published (new-state Lane 4, step 44): record what was published and where, route every reaction back into the right lane (a plant that wants a catalogued use case goes to Lane 1, a new need to Lane 2, a need for a system or connector to Lane 3), keep the story true as the use case changes, and capture what the promotion taught OD. Defines the few measures of the lane without targets. Use after Internal Communications has published, when a plant reacts to a story, or when a published story may have gone stale. |
+| [Showcase follow-up](SKILL.md) | Agent Skill | Close the loop after a use-case story is published (Lane 4): record it, route reactions to the right lane, keep the story true, capture lessons. Use after Internal Communications has published. |
 
 | Folder | Holds |
 |---|---|
