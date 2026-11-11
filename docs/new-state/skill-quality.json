@@ -11,7 +11,7 @@
   "file": "config/skill-quality.yaml",
   "digest": "sha256:9f59880281e30d8f55a8a21007c7b6e299855b01d82a3d327674b63a04a61b08"
  },
- "run_date": "2026-11-10",
+ "run_date": "2026-11-11",
  "weights": {
   "correctness": 0.35,
   "discoverability": 0.25,
@@ -25,35 +25,29 @@
   "D": 60,
   "F": 0
  },
- "mean": 90.2,
- "mean_core": 97.0,
+ "mean": 90.7,
+ "mean_core": 98.1,
  "skills": {
   "bc-assessment": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "e1926d2dc5f7c11e",
+   "folder_hash": "5f97d4dd5d1c660e",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (721 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 78.2
+   "default_score": 94.5
   },
   "build-grafana-ops-dashboard": {
    "score": 81.8,
@@ -148,118 +142,100 @@
    }
   },
   "catalog-guardrails": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "23a04590cf179e04",
+   "folder_hash": "b4a7fff2ae63f9f7",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (625 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 84.0
+   "default_score": 94.5
   },
   "catalog-systems": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "dbec1f4294bb067f",
+   "folder_hash": "0800b3bed336215e",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (583 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 85.2
+   "default_score": 94.5
   },
   "catalog-usecase": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "0941544ff1a88df9",
+   "folder_hash": "ce368788a0e0a5e3",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (831 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 80.2
+   "default_score": 94.5
   },
   "deploy-appstore": {
-   "score": 97.0,
+   "score": 95.8,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b31267e8bee5ce1d",
+   "folder_hash": "b174eefbe5cfee9b",
    "findings": [
+    {
+     "dimension": "discoverability",
+     "deduction": 10,
+     "message": "Description doesn't mention WHEN to use this skill",
+     "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (798 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 90.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 82.8
+   "default_score": 92.0
   },
   "funnel-features": {
    "score": 77.2,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "08a74ba94a1c7df5",
+   "folder_hash": "07e2071b67381fb0",
    "findings": [
     {
      "dimension": "correctness",
@@ -342,58 +318,46 @@
    }
   },
   "it-demand-package": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "d2e63df79f294930",
+   "folder_hash": "91ba67af42d95d11",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (977 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 78.2
+   "default_score": 94.5
   },
   "od-acceptance-test": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "cc9330057c4322a3",
+   "folder_hash": "5735c1da27c478fc",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (591 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 85.2
+   "default_score": 94.5
   },
   "od-ai-generation-playbook": {
    "score": 82.8,
@@ -482,139 +446,109 @@
    }
   },
   "od-analytics-asset-build": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "70ee9b10931d616e",
+   "folder_hash": "aeab6bb5ee99d5ed",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (696 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 85.2
+   "default_score": 94.5
   },
   "od-benefit-calculation": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "1fc7e9a2c206a8b2",
+   "folder_hash": "aee5d4f3be766ad1",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (968 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 79.2
+   "default_score": 94.5
   },
   "od-capital-request": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "e334c3d43f683f0b",
+   "folder_hash": "5d6cb2078ba496e0",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (751 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 78.2
+   "default_score": 94.5
   },
   "od-comms-brief": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "a8a2b595e1454c34",
+   "folder_hash": "0dfb603a954b2c4d",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (655 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 75.8
+   "default_score": 94.5
   },
   "od-context": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "72c73cc6912960b0",
+   "folder_hash": "f6f259f7ba24c2e2",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (486 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 86.0
+   "default_score": 94.5
   },
   "od-context-freshness": {
    "score": 77.5,
@@ -706,7 +640,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "7e534e3ad38c3d15",
+   "folder_hash": "90b0185effb4e64f",
    "findings": [
     {
      "dimension": "discoverability",
@@ -792,7 +726,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "9668dabb7fb26314",
+   "folder_hash": "8e4727192ccc8f81",
    "findings": [
     {
      "dimension": "efficiency",
@@ -857,85 +791,67 @@
    }
   },
   "od-data-availability-check": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "747d920834b57583",
+   "folder_hash": "7b4ee21e5beb1d39",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (825 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 78.8
+   "default_score": 94.5
   },
   "od-decision-routing": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "77f2d8fcb4e55d45",
+   "folder_hash": "3e56fed92b7d7b2d",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (638 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 85.2
+   "default_score": 94.5
   },
   "od-equipment-integration": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "327061bd14a800a8",
+   "folder_hash": "2ff657c5529cdcaa",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (996 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 84.0
+   "default_score": 94.5
   },
   "od-event-object-modelling": {
    "score": 86.5,
@@ -1148,37 +1064,31 @@
    }
   },
   "od-handover-and-adoption": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "835d3956ffee0b8d",
+   "folder_hash": "f22945e6ef8e8a07",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (955 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 81.5
+   "default_score": 94.5
   },
   "od-investment-input": {
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a6b39249b475a893",
+   "folder_hash": "bb888c2ffefd131a",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1311,31 +1221,25 @@
    }
   },
   "od-node-red-flow-builder": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "8d896160877c04dc",
+   "folder_hash": "3e3df2613cbd4998",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (780 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 80.0
+   "default_score": 94.5
   },
   "od-plant-diagnosis": {
    "score": 87.8,
@@ -1403,7 +1307,7 @@
    "score": 81.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "e51fd020fadc00f1",
+   "folder_hash": "18dd4a985bb1615d",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1489,7 +1393,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "94cd1f66884319d4",
+   "folder_hash": "0a8275378a269d20",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1646,64 +1550,52 @@
    }
   },
   "od-prototype-poc": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "45f8f0c80c3c727e",
+   "folder_hash": "27a4db57cd70f4b9",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (806 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 84.0
+   "default_score": 94.5
   },
   "od-requirements-breakdown": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "cfa16d4b94924790",
+   "folder_hash": "d25cd5c20706a162",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (818 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 80.0
+   "default_score": 94.5
   },
   "od-retro": {
    "score": 81.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "f67c32e3a25d2e57",
+   "folder_hash": "73cbdc9e5428699b",
    "findings": [
     {
      "dimension": "correctness",
@@ -1783,7 +1675,7 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "b43cebc55a2564e1",
+   "folder_hash": "73c101136afd3f36",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1931,7 +1823,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "d1448f430435c929",
+   "folder_hash": "69cab253f2f09274",
    "findings": [
     {
      "dimension": "reliability",
@@ -2088,85 +1980,67 @@
    }
   },
   "od-showcase-followup": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ff3dbafe8dddc572",
+   "folder_hash": "714e344c0028db4c",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (556 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 79.2
+   "default_score": 94.5
   },
   "od-showcase-selection": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "890d957cd9216e53",
+   "folder_hash": "5c43e8a4b2f324c8",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (727 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 80.5
+   "default_score": 94.5
   },
   "od-signal-standardization": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "06f7fb611c8bfbad",
+   "folder_hash": "817f950f168fe72e",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (999 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 76.2
+   "default_score": 94.5
   },
   "od-skill-authoring": {
    "score": 87.5,
@@ -2219,31 +2093,25 @@
    }
   },
   "od-system-fit-check": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "55b82b3054dba53e",
+   "folder_hash": "a1bf0b749de51d3b",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (975 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 84.0
+   "default_score": 94.5
   },
   "od-template-resolution": {
    "score": 85.5,
@@ -2314,58 +2182,46 @@
    }
   },
   "od-use-case-definition": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "de99074aae0ce263",
+   "folder_hash": "99766549b74507dd",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (843 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 85.2
+   "default_score": 94.5
   },
   "od-use-case-intake-triage": {
-   "score": 97.0,
+   "score": 98.2,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "d11f5713c055dc15",
+   "folder_hash": "d74d9d98aceadd29",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (733 chars, recommend 50-150)",
-     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 95.0,
+    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 84.5
+   "default_score": 94.5
   },
   "od-use-case-solution-evaluation": {
    "score": 86.5,
@@ -2421,7 +2277,7 @@
    "score": 82.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "bc2817e94ae2b323",
+   "folder_hash": "734f4676e19c67f4",
    "findings": [
     {
      "dimension": "discoverability",
@@ -2569,7 +2425,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "ea998e225dca242c",
+   "folder_hash": "ba671bd7ec5cbc6a",
    "findings": [
     {
      "dimension": "reliability",
