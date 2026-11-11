@@ -26,6 +26,7 @@ metadata:
 ## Purpose
 
 Answer "am I allowed to do this, and if not who decides?" for OD work: map a decision to its owner role, mode, approval, threshold and authority level, and escalate to the right forum. Use it before committing spend, approving an integration or connection, or changing a standard or a rollout.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

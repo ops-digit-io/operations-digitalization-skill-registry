@@ -30,6 +30,7 @@ Read `od-context` first.
 ## Purpose
 
 Packages a use case's value and cost into a draft capital request (eCR) so the human approvers can decide. Use it when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector needs funding, or when a saving waits on `ECR CREATION` or `ECR APPROVAL`.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

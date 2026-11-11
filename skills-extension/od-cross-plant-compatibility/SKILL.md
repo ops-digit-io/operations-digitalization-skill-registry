@@ -41,6 +41,8 @@ It composes, it does not repeat: `od-signal-standardization` defines the standar
 `od-use-case-standardization` places a use case on a capability template and runs the CSP gate. This skill
 asks the question neither asks: *does the thing still work at the plants that are not the first plant?*
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Why a check is needed
 
 - A capability is not a one-off. Each of the eleven cross-plant capability templates has an instance at

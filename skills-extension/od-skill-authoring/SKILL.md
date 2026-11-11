@@ -28,6 +28,7 @@ Read `od-context` first.
 ## Purpose
 
 A skill is worth building when a department procedure recurs, the judgement in it can be written down, and an agent would get it wrong without it. This skill is the registry's standard method for that: nine steps from "should this be a skill?" to a reviewed, rated, published skill, with a control point at each. It turns the Agent Skills guides, the SkillEvaluator rubric and the registry's own conventions into one order of work, so that a new skill passes its checks the first time and a weak skill gets a defined repair path.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

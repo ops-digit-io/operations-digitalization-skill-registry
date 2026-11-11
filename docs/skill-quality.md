@@ -56,7 +56,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5218 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5254 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 94.0 | 90.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
 
 ## Where the points go
@@ -66,7 +66,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | SKILL_SPEC recommended field missing: 'metadata.author' | 25 of 25 | 5 |
 | SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
 | Description doesn't mention WHEN to use this skill | 1 of 25 | 10 |
-| Large skill (5218 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 25 | 15 |
+| Large skill (5254 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 25 | 15 |
 
 ## Sources
 

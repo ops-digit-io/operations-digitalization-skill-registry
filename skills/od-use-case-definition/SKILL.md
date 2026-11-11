@@ -40,6 +40,7 @@ Serves **step 21, define and diagnose**, and holds the service flow of the lane 
 Digital-Business-Value-Engineer (DBVE), with Plant ME as customer; an AI agent drafts, humans decide.
 Every use case is **one plant's instance of one need**, never a programme or plant-wide ambition.
 Lane detail (error paths, wait states, tasks, access, autonomy, metrics): `references/lane-service-flow.md`.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

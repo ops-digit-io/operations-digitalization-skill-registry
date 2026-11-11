@@ -33,6 +33,8 @@ metadata:
 
 Read `od-context` first.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## The references are the substance
 
 | File | Use it for |

@@ -50,6 +50,7 @@ Done when:
 - the use case has an **archetype class** (cross-process, per-process, unique) and the category to method to ETL
   mapping is drafted;
 - the [data requirements for the data platform](assets/data-requirements-statement.md) are written and handed on.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits in the chain
 

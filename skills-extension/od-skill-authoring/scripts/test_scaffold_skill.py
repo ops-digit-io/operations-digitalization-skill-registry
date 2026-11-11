@@ -52,6 +52,13 @@ class ScaffoldChecks(unittest.TestCase):
             self.assertIn(heading, text)
         self.assertIn("```", text)
 
+    def test_outputs_reference_is_created_and_linked(self):
+        folder = sc.scaffold(self.root, "od-example-check", **ARGS)
+        outputs = (folder / "references" / "outputs.md").read_text(encoding="utf-8")
+        for part in ("## Required outputs", "| Output | Form | Recipient | Complete when |", "## Handoff"):
+            self.assertIn(part, outputs)
+        self.assertIn("references/outputs.md", (folder / "SKILL.md").read_text(encoding="utf-8"))
+
     def test_core_library_folder(self):
         folder = sc.scaffold(self.root, "od-example-check", library="core", **ARGS)
         self.assertEqual(folder.parent.name, "skills")

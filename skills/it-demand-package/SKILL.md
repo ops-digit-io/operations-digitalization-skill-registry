@@ -40,6 +40,7 @@ tooling is a cleaner handover than a slide deck.
 ## Purpose
 
 Turns a clear Lane 3 demand into an OpenSpec change package plus the OD handover annex, so IT or an external developer can take over the build. Use it after requirements, the tool-decision gate and the business case are done, and when someone asks what IT needs from OD.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

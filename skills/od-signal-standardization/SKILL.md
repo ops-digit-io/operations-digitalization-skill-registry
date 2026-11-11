@@ -35,6 +35,7 @@ signal at other plants**, the only reason a cross-plant capability template mean
 (connector and pipeline), **22** (signal selection for a use case) and **1a2** (a template works only on standardized signals).
 Key user: IIoT Interface & Automation Engineer (IIAE). AI agent: analyses and proposes, never enacts a standard.
 Detail behind each step: [`procedure-detail.md`](references/procedure-detail.md).
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

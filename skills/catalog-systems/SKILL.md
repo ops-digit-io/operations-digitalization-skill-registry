@@ -25,6 +25,7 @@ metadata:
 ## Purpose
 
 Match a catalogued use case to a standardized system or connection kit that a plant can order itself (Lane 1b, step 1b1). Use it when a plant wants a catalogued use case on a machine that is not connected yet; anything non-standard goes to Lane 3.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

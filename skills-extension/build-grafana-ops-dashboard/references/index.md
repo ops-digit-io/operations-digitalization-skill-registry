@@ -7,6 +7,7 @@
 | Annotations and alerts (`annotations_and_alerts.md`) | Skill Reference | Two Grafana features that appear at the operations and analyst tiers but not in the main patterns, with the design constraints each imposes. |
 | Archetypes (`archetypes.md`) | Skill Reference | The two schemas an ops dashboard is built on - relational fact/dimension and UUID-keyed timeseries - and how to tell which one you have. |
 | Dashboard tiers (`dashboard_tiers.md`) | Skill Reference | Manager, analyst and operations dashboards are three different products; the design rules and panel inventory for each. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs build-grafana-ops-dashboard must deliver, who receives each one, and what makes each complete. |
 | Performance (`performance.md`) | Skill Reference | What makes an ops dashboard fast, what makes one slow enough that people stop opening it, and what to do about it. |
 | Portability check (`portability_check.md`) | Skill Reference | How to test that every query runs on PostgreSQL and DuckDB, turning the portability rule from an aspiration into a check. |
 | Schema interview (`schema_interview.md`) | Skill Reference | The interview that stops a dashboard being rebuilt because the first version assumed the wrong schema. |

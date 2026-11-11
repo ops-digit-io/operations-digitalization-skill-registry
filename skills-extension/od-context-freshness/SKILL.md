@@ -42,6 +42,7 @@ and the skills' own dates are still current, and writes down what is not. It **r
 - **Output.** A dated hygiene report from [`assets/hygiene-report.md`](assets/hygiene-report.md) with the script's
   tables pasted in and a decision per finding left to its owner.
 - **Done.** Every finding has an owner and an action; nothing was edited to make a date look newer.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## The references and the script
 

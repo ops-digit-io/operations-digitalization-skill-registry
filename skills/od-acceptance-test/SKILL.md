@@ -36,6 +36,7 @@ through the same gate, but not the same test: see `references/test-structure.md`
 
 Use this skill when an integration or a delivered solution is ready to be declared done. It defines what "passed"
 means before the build, checks the result against it, and routes a failure into the right rework loop.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

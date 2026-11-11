@@ -29,6 +29,7 @@ truth lives, and the honesty rules. Serves every process step as the preconditio
 users are all roles and every AI agent, which loads it before any OD work.
 **Inputs:** none (read-only). **Output:** a resolved term, route or source, never a figure (numbers are read live from
 the lists below).
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## What the department does
 

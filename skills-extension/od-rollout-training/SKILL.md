@@ -47,6 +47,7 @@ the neighbouring skills already teach, and every proposal that is not a recorded
   [`assets/competence-checklist.md`](assets/competence-checklist.md) for one plant and one solution.
 - **Done.** Each competence on the checklist is confirmed **by the plant** with evidence, and no critical skill rests on
   one person. Delivery of a session is not done.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## The references
 

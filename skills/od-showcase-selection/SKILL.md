@@ -29,6 +29,7 @@ Read `od-context` first. Lane 4 is the outbound lane: it tells other plants, lea
 
 - **In:** a use case at `PRODUCTIVE`, its handover record (`od-handover-and-adoption`), its savings status (`od-benefit-calculation`), the plant owner.
 - **Out:** the filled [`assets/selection-record.md`](assets/selection-record.md): go, hold or no, the audience, the claims that may be made with their evidence class, and the open points. A `go` goes to `od-comms-brief`.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Purpose
 

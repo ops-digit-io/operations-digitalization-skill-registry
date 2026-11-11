@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-guardrails must deliver, who receives each one, and what makes each complete. |
 | Technical guardrails (`technical-guardrails.md`) | Skill Reference | Candidate guardrails G8 to G18 for a self-served dashboard, each with its recorded source rule, the failure pattern it prevents (no counts) and a proposed block-or-warn setting. Open it when the seven seeded guardrails are not enough for the screen a plant has built. |

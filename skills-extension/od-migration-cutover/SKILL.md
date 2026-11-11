@@ -53,6 +53,7 @@ Done when, for one migration:
 - a back-out plan exists per stage and was read by the people who would execute it;
 - "continue as-is" is written down as a baseline scenario with its consequences;
 - the old system is switched off by a named person, its server released and the application list updated; no parallel paper or shadow system remains.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits in the chain
 

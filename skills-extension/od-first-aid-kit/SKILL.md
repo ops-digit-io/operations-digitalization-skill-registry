@@ -31,6 +31,8 @@ tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with t
 record that no dedicated template exists. This skill supplies the **working version of that
 template** and the routing rule. It is a draft for the DBVE to adopt or replace.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## What the offering is, in OD's words
 
 From the IIoT Edge platform tool deck: purpose is **process or product

@@ -40,6 +40,8 @@ has no improvement loop, and "learning is a leadership duty (PDCA/Kaizen)".
 exactly one decided adjustment. This skill does **not** repeat the round preparation. It starts from the finished
 round and its numbers and turns them into one change.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## The rule that defines it
 
 **A retro that produces a list has not produced a decision.** The record has a list (what was learned) and exactly one

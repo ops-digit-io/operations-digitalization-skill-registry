@@ -28,6 +28,7 @@ Read `od-context` first. Lane 4 is outbound and runs through Internal Communicat
 ## Purpose
 
 Turns a selected use case into the brief and draft pack Internal Communications can publish. Use it after `od-showcase-selection` returns `go`, when a use-case story must be written for the company, or when a draft story needs its claims checked.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

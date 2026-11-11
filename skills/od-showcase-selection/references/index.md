@@ -4,4 +4,5 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Outputs (`outputs.md`) | Skill Reference | The outputs od-showcase-selection must deliver, who receives each one, and what makes each complete. |
 | Readiness gate (`readiness-gate.md`) | Skill Reference | The five gate criteria for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear. |

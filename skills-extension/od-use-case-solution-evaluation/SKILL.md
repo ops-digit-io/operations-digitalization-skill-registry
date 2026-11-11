@@ -38,6 +38,7 @@ problem needs, or does it quietly require more capability than anyone named? It 
 and data check), before the business case (step 24), and feeds the Lane 3 fit test. Key user: DBVE; an AI agent can
 run the script and draft the protocol. It always ends in a visualized ranking and one evaluation score, never prose
 alone. Read `od-context` first.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

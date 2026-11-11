@@ -29,6 +29,7 @@ Read `od-context` first.
 ## Purpose
 
 Builds and records the value side of an OD business case and keeps the savings ledger honest: saving rows with amount, year, category, rationale and methodology, tracked kept apart from proven. Use it when a use case is prioritized and needs a business case, when a saving needs recording or defending, or when a savings figure is about to leave the department.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

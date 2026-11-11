@@ -35,6 +35,8 @@ so that an agent can watch it: "an early indicator is a monitorable value - a re
 opened once a year". It deliberately has **no probability x damage matrix** ("false precision; the early indicator does
 more"). This skill therefore never scores risks; it reads indicators and tests triggers.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## What it produces
 
 A dated **risk reading**: for each of the six registered risks, the indicator value with its source and read date, the

@@ -36,6 +36,7 @@ scoped around it, redesigning is a much bigger conversation than catching it at 
 ## Purpose
 
 Checks whether a request quietly needs a system outside the lean footprint (MES, EMS or similar), and, in Lane 3, runs the tool-decision / IT-footprint gate that routes a demand to reuse, self-develop, external build, integrate or connector. Use it at intake, during requirements breakdown, at Lane 3 step 32, and whenever someone asks make, buy, integrate or connect.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

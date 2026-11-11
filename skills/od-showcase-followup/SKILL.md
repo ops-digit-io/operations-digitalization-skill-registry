@@ -29,6 +29,7 @@ Read `od-context` first. A story that is published and then forgotten is a cost.
 
 - **In:** the approved brief (`od-comms-brief`), the publication facts as Internal Communications gives them (channel, date, any reach figure), and the reactions: questions, requests, objections.
 - **Out:** the filled [`assets/followup-log.md`](assets/followup-log.md), one per story, with each reaction routed and the review date set.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Procedure
 

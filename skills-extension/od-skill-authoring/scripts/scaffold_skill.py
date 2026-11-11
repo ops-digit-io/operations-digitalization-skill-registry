@@ -85,7 +85,33 @@ Read `od-context` first.
 
 | File | Open when |
 |---|---|
+| [`references/outputs.md`](references/outputs.md) | What this skill must deliver, to whom, and when each output is complete |
 | ⟨`references/topic.md`⟩ | ⟨the situation in which to open it⟩ |
+"""
+
+OUTPUTS = """---
+type: Skill Reference
+title: Outputs
+description: The outputs {name} must deliver, who receives each one, and what makes each complete.
+resource: ../SKILL.md
+status: draft
+tags: [outputs, handoff]
+---
+# Outputs
+
+⟨One or two sentences: what this skill delivers.⟩
+
+## Required outputs
+
+| Output | Form | Recipient | Complete when |
+|---|---|---|---|
+| ⟨the output⟩ | ⟨template path or where it lives⟩ | ⟨downstream skill id in backticks, or a role⟩ | ⟨a checkable condition⟩ |
+
+## Handoff
+
+- **Receives from:** ⟨upstream skill ids in backticks and what arrives⟩
+- **Next in the flow:** ⟨downstream skill ids, with the step id from docs/new-state/process.yaml⟩
+- **Stops here when:** ⟨the condition under which this skill must not hand over⟩
 """
 
 
@@ -113,6 +139,8 @@ def scaffold(root: Path, name: str, tier: str, lane: str, owner_role: str, autho
     (folder / "SKILL.md").write_text(TEMPLATE.format(
         name=name, tier=tier, lane=lane, owner_role=owner_role, authority=authority, today=today,
         description=DESCRIPTION, title=title_of(name)), encoding="utf-8", newline="\n")
+    (folder / "references").mkdir()
+    (folder / "references" / "outputs.md").write_text(OUTPUTS.format(name=name), encoding="utf-8", newline="\n")
     return folder
 
 

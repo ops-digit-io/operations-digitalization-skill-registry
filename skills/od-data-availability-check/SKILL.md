@@ -36,6 +36,7 @@ and two quarters.
 ## Purpose
 
 Finds out which of the six availability steps a data request dies at, before anyone promises an answer the data cannot support. Use it at step 2 of the Analytical lane, before a use-case scope is agreed.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

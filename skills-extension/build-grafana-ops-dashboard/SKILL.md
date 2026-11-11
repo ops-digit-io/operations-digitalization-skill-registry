@@ -37,6 +37,8 @@ metadata:
 
 # build-grafana-ops-dashboard — Grafana JSON for Operations Data
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## When to use this skill vs `/build-dashboard`
 
 | Output is… | Use |

@@ -31,6 +31,7 @@ assess it. The rubric below is the department package's own (`30-skills/bc-asses
 ## Purpose
 
 Scores a business case against the OD house rubric and gives a maturity-gate verdict. Use it when a case is drafted and before a capital request, when a reviewer asks whether a case is signable, or when two cases must be compared on the same rubric.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

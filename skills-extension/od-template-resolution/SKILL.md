@@ -37,6 +37,8 @@ its own reason: when an agent produces a deliverable "it must start from the app
 cite the canonical source, not invent one". This skill is the lookup that makes that rule usable at the
 moment of need. It points; it never decides which template is approved.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## When to use it
 
 - Before the first line of any artefact: use-case one-pager, business case, requirement spec,

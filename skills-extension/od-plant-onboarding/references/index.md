@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Outputs (`outputs.md`) | Skill Reference | The outputs od-plant-onboarding must deliver, who receives each one, and what makes each complete. |
 | Plant landscape (`plant-landscape.md`) | Skill Reference | Guidance, no figures - how to read the plant records (region, recorded machines, integration share, use cases, main controller and integration method), how to obtain them live, and the four starting profiles that decide where onboarding begins; open it to place a plant. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How a plant joins the chain in practice - first mover versus fast follower tiering, the plant visit, readiness signals from good and poor plants, wave and migration mechanics, and what an agent may draft. Pattern only, no figures. |

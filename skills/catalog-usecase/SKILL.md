@@ -33,6 +33,7 @@ Merged from: `catalog-usecase`.
 ## Purpose
 
 Matches a plant's request to a catalogued use case, or says plainly that it is not catalogued so the demand falls to Lane 2 or Lane 3, and records what a proven Lane 2 result must show to graduate into the catalog. Use it when a plant asks for a use case another plant already has, when a result should graduate, or when an entry is proposed.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

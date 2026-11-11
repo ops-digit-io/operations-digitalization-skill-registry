@@ -38,6 +38,8 @@ visible.
 [`assets/epic-and-stories.example.md`](assets/epic-and-stories.example.md), read it before the blank), checked by
 `python3 scripts/check_epic.py MyEpic.md` (exit 2 blockers, 1 warnings, 0 ready).
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## The epic
 
 | Part | Rule |

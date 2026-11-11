@@ -46,6 +46,7 @@ Done when: (1) the comparison set is fair (procedure step 1); (2) each gap is pl
 with evidence and a confidence label; (3) the plant has a tier (first mover or fast follower) with each
 criterion answered; (4) the plant roadmap has one row per workstream with status and a call-for-action cell;
 (5) the regional roadmap is updated from the plant rows; (6) open unknowns are listed with an owner role.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits in the chain
 

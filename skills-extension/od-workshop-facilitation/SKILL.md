@@ -32,6 +32,8 @@ template, follow-up list. Authority: **draft**; the DBVE facilitates, the Plant 
 side, nothing is committed in the room (investment, equipment integration, external connection are
 other decisions).
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## The references and assets
 
 | File | Use it for |
