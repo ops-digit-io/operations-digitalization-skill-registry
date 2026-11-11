@@ -4,11 +4,7 @@ title: Worked examples
 description: Three illustrative use cases (invented, with placeholder values) carried through the four phases - a complete record, one correctly stopped before Control, and a minimal-but-correct standard case.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, examples]
-derived_from:
-  - Department knowledge base Cases/*.md, read 2026-09-17 (pattern source only; the examples below are invented)
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Worked examples

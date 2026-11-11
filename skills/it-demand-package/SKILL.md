@@ -11,25 +11,15 @@ metadata:
   new_state_step: "3a.3 New codebase (external dev); 3a.4 Integrate a foreign app; front-end step 3 hand off once demand is clear"
   department_names: ["it-demand-package"]
   owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
-  author: OD lead for the Lane 3 front-end; IIAE for connector demands
   tags: [lane-3, handover, openspec, it-alignment, practice]
   authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-requirements-breakdown, od-system-fit-check, od-benefit-calculation, od-investment-input, od-capital-request, od-decision-routing, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, deploy-appstore, od-data-availability-check, od-signal-standardization]
-  derived_from:
-    - "Department knowledge base and INDEX.md (OD x IT alignment: artefacts IT expects, catalogs, Cyber Security pre-evaluation, ownership and handover, guardrails, sourcing, business cases, legacy, Gemba lessons), read 2026-11-10"
-    - "Department knowledge base (front-end step 5 handover once the demand is clear; it-demand-package named as gap; error path: do not push an under-specified demand), read 2026-11-10"
-    - "Department knowledge base (Project Support & Application Consultancy transformed into the Lane 3 front-end), read 2026-11-10"
-    - "OpenSpec (github.com/Fission-AI/OpenSpec, public): schemas/spec-driven/schema.yaml and templates, src/core/validation/constants.ts, docs/team-workflow.md, read 2026-11-10"
-    - "Absorbed skills it-demand-package and od-project-support-consultancy (see references/), 2026-11-10"
   okf:
     type: Agent Skill
     title: IT handover
     tags: [lane-3, handover, openspec, it-alignment, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # IT handover
 

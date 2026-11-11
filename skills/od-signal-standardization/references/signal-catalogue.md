@@ -4,9 +4,7 @@ title: Signal catalogue
 description: "What the estate names its signals, how the same concept gets many names, and the canonical name for each concept. No counts; re-measure the variance on the live flow corpus."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [signals, vocabulary]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The signal catalogue
 

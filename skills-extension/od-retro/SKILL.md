@@ -19,24 +19,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-scorecard-reporting, od-risk-watch, od-portfolio-and-savings-analysis, od-decision-routing, od-context-freshness]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/07-metrics.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
-    - Department knowledge base hub, Blocker Register and the change log header, read 2026-11-05
-    - Department knowledge base, Knowledge base Gap Analysis - Working Items, read 2026-11-05
-    - Skill od-scorecard-reporting, the rounds and the retro rule, read 2026-11-05
   okf:
     type: Agent Skill
     title: Monthly retrospective
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Monthly retrospective

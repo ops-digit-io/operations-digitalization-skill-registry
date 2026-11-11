@@ -4,9 +4,7 @@ title: Ishikawa gap diagnosis
 description: Why equal integration effort gives unequal savings - the four branches (people, method, machine and IT, environment) with the causes recorded in the gap analysis, the good and bad practice signature of a plant, fair comparison and the scaling test; open it to place a gap on a branch.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Ishikawa gap diagnosis

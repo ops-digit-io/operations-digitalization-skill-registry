@@ -4,11 +4,7 @@ title: Process chain practice
 description: How ranking is run at step 24 of the AI-driven chain - planning states, an explicit ordering rule, cluster-first ranking, dependency and foundation-first logic, value tiers and grounding tags, kill and defer outcomes, handoff and agent operating notes.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, prioritization, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (priorities, planning, strategy, business-case and gap-analysis decks), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - prioritization (step 24)
 

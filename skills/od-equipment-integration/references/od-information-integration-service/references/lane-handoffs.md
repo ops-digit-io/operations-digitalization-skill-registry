@@ -4,9 +4,7 @@ title: Lane handoffs
 description: Each happy-path step matched to the real, current asset the composed skill now produces, confirmed against each skill's actual state rather than assumed from its name.
 resource: ../procedure.md
 status: stable
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Lane handoffs
 

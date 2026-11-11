@@ -4,9 +4,7 @@ title: Decision request
 description: The defined output of routing one decision - owner, mode, threshold and gate read off the table, recorded as a dependency, so the thing the decision is about can cite that its gate was cleared.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Decision request — ⟨decision, one line⟩
 

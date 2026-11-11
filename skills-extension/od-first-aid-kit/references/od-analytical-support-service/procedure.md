@@ -4,16 +4,10 @@ title: Procedure
 description: Formerly the skill od-analytical-support-service, absorbed into od-first-aid-kit on 2026-11-10 to remove duplication against the department context. Run the Analytical Support Service lane — take an ad-hoc analytical or process-insight request (the Process First-Aid Kit), check data availability on the data platform, run process diagnostics, build the dashboard, report, analytics workflow or app, deliver and explain the insight, track utilization, and promote recurring high-value analytics into standard use cases. Use for any ad-hoc analytics request, a rapid process diagnosis, a question about whether the data exists to answer something, or a decision on whether a one-off analysis should be industrialized. Owner is the Digital-Business-Va
 resource: ../../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags:
 - analytical-support-service
 - lane
 - absorbed
-derived_from:
-- ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
-generated:
-  by: claude-code/1
-  at: 2026-10-23 00:00:00+00:00
 ---
 # Analytical Support Service
 

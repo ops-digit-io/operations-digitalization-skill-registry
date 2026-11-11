@@ -4,9 +4,7 @@ title: System fit check
 description: The defined output of the check - the request's actual need stated plainly, which tool boundary it crosses if any, and the redesign-or-escalate verdict - so the result is a reusable record rather than a private judgement call.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # System fit check — ⟨request / use case name⟩
 

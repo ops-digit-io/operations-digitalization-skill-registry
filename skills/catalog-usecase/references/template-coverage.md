@@ -4,9 +4,7 @@ title: Template coverage
 description: Guidance, no figures - the eleven capability templates, how to find live which plants run or want each one, what data each template needs, the boundary rules for placing a request, and the typical components of a matching screen. Open it to find a peer plant and the preconditions for a match.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Template coverage
 

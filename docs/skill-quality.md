@@ -29,40 +29,41 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 98.1)
+## Scores of the core skills (mean 96.4)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
-| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`catalog-systems`](../skills/catalog-systems/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-capital-request`](../skills/od-capital-request/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-context`](../skills/od-context/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 98.2 | 95.0 | 100.0 | 100.0 | 100.0 | - |
-| [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 95.8 | 95.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
+| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`catalog-systems`](../skills/catalog-systems/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-capital-request`](../skills/od-capital-request/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-context`](../skills/od-context/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 94.0 | 90.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
 
 ## Where the points go
 
 | Finding | Skills affected | Points each |
 |---|---|---|
+| SKILL_SPEC recommended field missing: 'metadata.author' | 25 of 25 | 5 |
 | SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
 | Description doesn't mention WHEN to use this skill | 1 of 25 | 10 |
 

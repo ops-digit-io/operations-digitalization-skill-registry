@@ -19,22 +19,11 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: read-only on the registry; draft the hygiene report
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/README.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/14-glossary.md
-    - Registry registry.yaml (data_as_of, graph_as_of, flows_as_of, status, open_gaps), docs/okf-conventions.md (sources_read, verified, statuses) and docs/derivation.md, read 2026-11-05
-    - Front matter of the 38 files of the Department OS bundle (owner, review-cadence, last-verified, valid-until, verification-method, source-of-truth), read by the bundled script on 2026-11-05
-    - Department knowledge base, generated and enriched stamps and review_status lines of Graph notes, ODEC Facts and Registers, and Knowledge base conventions in the bundle, read 2026-11-05
   okf:
     type: Agent Skill
     title: Context freshness
     tags: [all, practice, hygiene, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Context freshness

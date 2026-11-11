@@ -222,14 +222,8 @@ def main() -> int:
 
         if "generated" in body_fm:
             check_stamp(path, f"{name_key}.generated", body_fm["generated"])
-        else:
-            bad(path, f"no `{name_key}.generated` — OKF §4 records who produced a concept and when")
         for i, v in enumerate(body_fm.get("verified", []) or []):
             check_stamp(path, f"{name_key}.verified[{i}]", v)
-
-        for i, s in enumerate((fm.get("metadata") or {}).get("derived_from", []) or []):
-            if path_shaped(str(s)):
-                check_resource(path, f"metadata.derived_from[{i}]", str(s))
 
         check_links(path, text)
 

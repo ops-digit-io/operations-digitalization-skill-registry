@@ -4,9 +4,7 @@ title: External build and foreign app inputs
 description: What to collect for route 3a.3 (external development) and 3a.4 (foreign app) - the record fields the legacy application list already uses, the four assessment questions, the requirement parts an external developer can be handed, and the typical foreign-app cases in the legacy list. Open it when you assemble the specification or the foreign-app description.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # External build and foreign app inputs
 

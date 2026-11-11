@@ -4,29 +4,12 @@ title: Procedure
 description: Formerly the skill od-impact-evaluation, absorbed into od-handover-and-adoption on 2026-11-10 to remove duplication against the department context. Evaluate the impact of a use case that is live in a plant and prepare the adoption confirmation record - what the use case is used for, how often, what changed in the process, what saving can be shown and at what firmness (calculated, estimated, linked to a SPRINT project, proven), and what the plant owner still has to confirm. Drafts the evaluation; the plant confirms adoption. Use when a use case has been live for a while and the lane's last step is due, when the Scorecard shows low or NEVER utilization, when a saving needs a methodology before it goes to SPRINT, or when a delivered use case
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - use-case-support-service
 - practice
 - impact
 - adoption
 - absorbed
-derived_from:
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/playbook.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/tasks.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/metrics.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/agent-brief.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
-- Department knowledge base, Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (Use Case Creation Process slides 7, 18, 19, 20; Workshop Summary slide 20; template Use Case Utilization), read 2026-11-05
-- Department knowledge base, Slide Index of 10-Workshops (Dolne Vestenice 2025 integration workshop purpose and utilization slides; Carei 2025 integration workshop), read 2026-11-05
-- Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (section 4 recorded savings, evidence gap, section 7 derivation sheet), read 2026-11-05
-- Department knowledge base Cases Catalog Maturity Sprint (validation plan pattern), read 2026-11-05
-- Skill od-benefit-calculation SKILL.md and references/review-checklist.md (saving rows, tracked versus proven, calculator)
-- Skill od-handover-and-adoption SKILL.md, references/evidence-of-adoption.md and assets/handover-protocol.md
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Impact evaluation
 

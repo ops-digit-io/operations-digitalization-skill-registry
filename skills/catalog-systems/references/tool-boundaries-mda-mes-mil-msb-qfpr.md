@@ -4,9 +4,7 @@ title: Tool boundaries MDA MES MIL MSB QFPR
 description: Is / is-not / recommended-if boundary for five shop-floor tools that the tool overview lists without a strong definition - MDA/PDA, MES, MIL, MSB and QFPR - with the traps each one brings to a match. Pattern only, no rollout status, counts or plants.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Tool boundaries: MDA/PDA, MES, MIL, MSB, QFPR
 

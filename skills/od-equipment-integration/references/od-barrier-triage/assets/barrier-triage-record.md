@@ -4,9 +4,7 @@ title: Barrier triage record
 description: The record of one blocked machine - facts, demand, ladder result, root-cause class, difficulty tier, exit, owner, wait state and the log line.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Barrier triage - ⟨machine or group⟩ · ⟨plant⟩
 

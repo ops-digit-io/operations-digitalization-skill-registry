@@ -4,9 +4,7 @@ title: Deployable flow
 description: "The half that is not the transformation: tabs, groups, wires, config nodes, and the traps that make a flow import but not run."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, deployment]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Making the flow actually deployable
 

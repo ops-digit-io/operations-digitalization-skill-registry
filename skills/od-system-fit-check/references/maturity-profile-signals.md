@@ -4,9 +4,7 @@ title: Maturity profile signals
 description: Which levels of the IT/OT maturity model on a requested or existing system act as fit-check signals - MES-shaped need, edge need, reporting-before-AI order, integration cost - and how to cite them without turning them into a verdict.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, system-fit, maturity, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Maturity profile signals for the fit check
 

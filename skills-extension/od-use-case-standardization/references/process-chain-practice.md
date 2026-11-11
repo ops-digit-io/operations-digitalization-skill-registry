@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for standardization, abstracted from the Operations Digitalization slide decks - archetypes, category to method to data-job mapping, graduation from validated prototype to configurable container app, the library tree, and why a scaled use case needs utilization rather than a rollout count. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, use-case-support-service]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - standardizing and scaling
 

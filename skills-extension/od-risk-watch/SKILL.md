@@ -18,25 +18,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: read-only on sources; draft the risk reading
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-scorecard-reporting, od-portfolio-and-savings-analysis, od-decision-routing, od-retro, od-cybersec-gate, od-system-fit-check]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/09-risks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/12-portfolio.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/07-metrics.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/13-swot.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/capabilities.md
-    - Department knowledge base Register (export of 2026-08-21), read 2026-11-05
-    - Department knowledge base Applications (268 notes, cyber-security status field) and Graph/Plants tool-rollout lines, aggregated 2026-11-05
-    - Department knowledge base, ODEC Facts, Department KPIs and Roadmap Status, strategy recap slide, read 2026-11-05
   okf:
     type: Agent Skill
     title: Risk watch
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Risk watch

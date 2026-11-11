@@ -4,21 +4,10 @@ title: Procedure
 description: Formerly the skill od-information-integration-service, absorbed into od-equipment-integration on 2026-11-10 to remove duplication against the department context. Run the Information Integration Service lane — equipment assessment and integration roadmap per plant, integration investment planning, machine and equipment connection to the IIoT Edge, process-related signal standardization and data pipelines into the the data platform, interface and software integration consulting, acceptance testing, Manufacturing Software Suite rollout preparation, and keeping the Equipment Integration report and the readiness matrix current. Use when a machine needs connecting, signals need standardizing, a data model needs harmonizing, or someone asks why a use case has
 resource: ../../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags:
 - information-integration-service
 - lane
 - absorbed
-derived_from:
-- ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,skills,tasks,metrics,agent-brief}.md
-- ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
-- this registry, cross-checked 2026-10-23 against the current state of every skill this lane composes into (each was a stub on 2026-08-25; all five are now documented or deep) — see references/lane-handoffs.md
-- Department knowledge base (incl. archive-evidence blocks), Graph/Machines, Graph/Plants and Graph/Connectors, counted and read 2026-11-05
-- Department knowledge base, Slide Index (master note, slide-decks.jsonl, slide-manifest.jsonl; deck Operation Concept IIoT and Edge Computing) and ODEC Facts staging notes, AI-extracted and unverified, read 2026-11-05
-- Department notes Systems of record, Machine integration, and 20-Done MSB rollout projects (ops-knowledge-graph _knowledge), read 2026-11-05
-generated:
-  by: claude-code/1
-  at: 2026-08-25 00:00:00+00:00
 ---
 # Information Integration Service
 

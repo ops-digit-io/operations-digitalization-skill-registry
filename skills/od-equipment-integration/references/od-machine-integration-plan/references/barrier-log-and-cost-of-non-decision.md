@@ -4,9 +4,7 @@ title: Barrier log and cost of non-decision
 description: The wave's barrier log - fields, how it relates to barrier triage, how to state the cost of non-decision, the rapid decision board and the error-log review - process guidance, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Barrier log and cost of non-decision
 

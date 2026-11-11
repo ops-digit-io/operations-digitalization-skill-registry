@@ -4,11 +4,7 @@ title: Lever model
 description: "Lever register (H hard / O optional IDs), formulas and drivers, contribution matrix min|exp|max, de-banking of low-confidence levers."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/lever-model.md` (the master).
 

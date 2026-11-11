@@ -4,9 +4,7 @@ title: Readiness evidence
 description: What the readiness RAG matrix actually requires before a dimension turns green, and why "Available" is a claim that needs a record behind it, not a status anyone can set.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, scorecard]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Readiness evidence
 

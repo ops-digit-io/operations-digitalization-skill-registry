@@ -4,9 +4,7 @@ title: Process chain practice
 description: How acceptance is run at chain steps 3a5 and 3b6 and as the close of a use-case sprint - reconciliation against the paper process, utilization table, parallel run and switch-off, pre-go-live adoption checklist, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - acceptance as the step that proves use, not delivery
 

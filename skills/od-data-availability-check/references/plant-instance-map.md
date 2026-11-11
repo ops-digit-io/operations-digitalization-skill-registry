@@ -4,9 +4,7 @@ title: Plant instance map
 description: Which Node-RED instance belongs to which plant, how each mapping was established, and how to find the plants the flow corpus cannot speak for. No counts.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [data-availability, node-red, coverage]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Plant instance map

@@ -4,11 +4,7 @@ title: Rule engine standard flow
 description: "The standard rule-engine flow layout: config flow, input, calculation, output to DATATRON, the node groups and the variables each needs."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [node-red, rule-engine, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ops-rule-engine.skill/references/standard-flow.md` (the master).
 

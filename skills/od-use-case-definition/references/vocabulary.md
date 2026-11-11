@@ -4,11 +4,7 @@ title: Vocabulary
 description: The controlled vocabulary in use for business process, output asset, and legacy/target systems - for Phases 1, 3 and 4.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, vocabulary]
-derived_from:
-  - Department knowledge base Cases/*.md, read 2026-09-17
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Vocabulary

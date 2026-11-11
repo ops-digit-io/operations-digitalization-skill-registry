@@ -4,9 +4,7 @@ title: Platform and pilot status
 description: How to classify the manufacturing app store, the container platform and the edge runtime as running, pilot, planned or design-only, where to look the current status up, and how the two platform layers relate - guidance only, no status snapshot. Open it before you name a target platform.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Platform and pilot status
 

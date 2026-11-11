@@ -4,11 +4,7 @@ title: Ownership and handover gates
 description: "The OD x IT rules for who runs an application and when ownership moves (2026-09-11): build-and-run, formal acceptance, the handover checklist, shared responsibility, criticality gates, and the recurring self-assessment."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [handover, ownership, it-alignment, lane-3]
-derived_from:
-  - "Department knowledge base (themes 3 and 5, action items 5 and 7), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Ownership and handover gates
 

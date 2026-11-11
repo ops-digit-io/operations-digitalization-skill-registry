@@ -4,11 +4,7 @@ title: Click dummy
 description: "The department's click-dummy stage (funnel-prototype): turn the selected features into a verified clickable prototype traceable problem to feature to screen."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [prototype, click-dummy, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/click-dummy/SKILL.md` (the master).
 

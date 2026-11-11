@@ -4,11 +4,7 @@ title: Ops grafana dashboards
 description: "The department's ops-grafana-dashboards: DATATRON / Grafana dashboards end to end - tag selection, Grafana 8.5 JSON (schemaVersion 36), ECharts panels, and the stakeholder pitch deck with an auditable savings model."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [dashboard, grafana, datatron, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ops-grafana-dashboards.zip/SKILL.md` (the master).
 

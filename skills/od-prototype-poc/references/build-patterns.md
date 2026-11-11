@@ -4,11 +4,7 @@ title: Build patterns
 description: "Build patterns for the click-dummy: layout, navigation, states, data stubs, design tokens and the verification pass."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [prototype, click-dummy, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/click-dummy/references/build-patterns.md` (the master).
 

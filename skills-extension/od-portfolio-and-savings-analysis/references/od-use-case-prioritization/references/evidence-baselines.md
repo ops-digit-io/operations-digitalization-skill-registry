@@ -4,9 +4,7 @@ title: Evidence baselines
 description: How to read the knowledge base's case groups, rollout maps and savings basis for a candidate use case, and the other demand signals - a reading guide with live-count recipes, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Evidence baselines
 

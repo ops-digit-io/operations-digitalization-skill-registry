@@ -4,9 +4,7 @@ title: Workshop formats
 description: The workshop formats OD has actually run at plants (definition, integration, equipment integration, machine integration, savings), with purpose lines, day structure, audience, outputs and the workshops on record, for choosing and designing the next one.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop formats
 

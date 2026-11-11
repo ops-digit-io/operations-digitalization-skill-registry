@@ -4,9 +4,7 @@ title: AI governance
 description: Governance for GenAI proofs of concept, agentic workflows, AI-built apps and AI assistants - start conditions, scope limits, intake path, fit criteria and the maturity sanity check - with the step ids where each applies.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # AI governance
 

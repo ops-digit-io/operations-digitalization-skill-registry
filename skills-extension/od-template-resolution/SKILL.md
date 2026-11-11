@@ -19,21 +19,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: read-only; points to the approved master
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-decision-routing, od-requirements-breakdown, od-benefit-calculation, od-scorecard-reporting, od-handover-and-adoption]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
-    - Department knowledge base, folder Master-Slide-Templates (one pptx file name only, not opened), read 2026-11-05
-    - Skills od-benefit-calculation, od-requirements-breakdown, od-scorecard-reporting, od-handover-and-adoption, od-acceptance-test and od-signal-standardization, their assets folders listed 2026-11-05
   okf:
     type: Agent Skill
     title: Template resolution
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Template resolution

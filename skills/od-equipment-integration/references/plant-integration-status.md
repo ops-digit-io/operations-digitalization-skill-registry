@@ -4,9 +4,7 @@ title: Plant integration status
 description: Guidance for building a plant-by-plant integration status view from the Machine List, the Tool Overview and the Legacy Application List - which fields to read, how to count live, which flags to compute, which record mismatches to expect. Guidance only, no company figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant integration status

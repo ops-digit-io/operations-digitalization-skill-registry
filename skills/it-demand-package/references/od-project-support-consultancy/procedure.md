@@ -4,16 +4,10 @@ title: Procedure
 description: Formerly the skill od-project-support-consultancy, absorbed into it-demand-package on 2026-11-10 to remove duplication against the department context. Run the Project Support & Application Consultancy lane — kick off digital investment projects with the MPEE OD team, break down requirements, manage equipment and solution integration projects to acceptance, consult on the Manufacturing Software Suite and manufacturing apps, confirm use cases are integrated into daily processes, and report progress and impact into the department's reporting. Use when a digital investment project starts or stalls, when a project needs a kick-off agenda, requirement spec or status report, when application-consultancy advice is needed, or when progress and impact
 resource: ../../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags:
 - lane
 - project-support-consultancy
 - absorbed
-derived_from:
-- ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,skills,tasks,metrics,agent-brief}.md
-generated:
-  by: claude-code/1
-  at: 2026-10-23 00:00:00+00:00
 ---
 # Project Support & Application Consultancy
 

@@ -4,9 +4,7 @@ title: IT touchpoints
 description: What the knowledge base records about where OD meets IT - the rule for which demands go through demand management, the asks OD has put to IT per initiative (by role), the IT roles of the platform operations concept, and what stays unknown. Open it before you write the IT-facing part of a package.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # IT touchpoints
 

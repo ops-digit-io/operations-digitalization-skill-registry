@@ -4,11 +4,7 @@ title: Ecr approval matrix
 description: "Who approves an eCR, step by step, in the recorded approval matrix (OESL stand-alone, 2026-03-02): local management, functional reviews, central management, by amount tier and by case type. Roles only; the amounts stay in the source."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [capital-request, ecr, approval, decision-rights]
-derived_from:
-  - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (verbatim copy of the xlsx in 90-Sources/du-overview/.../04-Governance/eCR (Pre-)Approval), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # eCR approval matrix
 

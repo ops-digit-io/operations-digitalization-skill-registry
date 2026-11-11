@@ -4,7 +4,6 @@ title: Procedure
 description: Formerly the skill od-utilization-review, absorbed into od-handover-and-adoption on 2026-11-10 to remove duplication against the department context. Review whether a deployed or scaled-out use case is actually used and delivers value - "deployed is not used". Fills the utilization table per use case and site, asks "what would make it utilized?", flags the dashboard-without-action-owner smell, reconciles the dashboard with the paper record before it is accepted, decides between "to be evaluated" and "no potential" for a use case with deployments but no saving, and ends in a dated follow-up list. Feeds the savings-forecast gate at the close of a use-case sprint. Drafts the review; the plant owner confirms adoption and a human decides "no pot
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - use-case-support-service
 - practice
@@ -12,11 +11,6 @@ tags:
 - utilization
 - draft
 - absorbed
-derived_from:
-- Operations Digitalization slide decks (utilization tables, scaling lessons, dashboard acceptance, sprint close), abstracted into process guidance; no figures.
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Utilization review
 

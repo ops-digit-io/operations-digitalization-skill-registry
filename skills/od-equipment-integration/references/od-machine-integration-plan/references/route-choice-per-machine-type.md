@@ -4,9 +4,7 @@ title: Route choice per machine type
 description: How to choose the connector and route for each machine type in a wave - data classes, when an edge device is needed, the low-cost address-translation pattern, legacy and camera cases - rules only, to be confirmed per machine in od-equipment-integration.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Route choice per machine type
 

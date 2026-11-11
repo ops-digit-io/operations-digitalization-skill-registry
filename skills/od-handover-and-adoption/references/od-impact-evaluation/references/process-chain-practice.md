@@ -4,9 +4,7 @@ title: Process chain practice
 description: How impact evaluation (step 26) is run in the AI-driven chain - deployed is not used, the savings-forecast gate at sprint close, the utilisation table, dashboard-to-paper reconciliation, who attests value, and what an agent may draft. Pattern only, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

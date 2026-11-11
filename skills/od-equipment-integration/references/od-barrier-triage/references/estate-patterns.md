@@ -4,9 +4,7 @@ title: Estate patterns
 description: How to read the Machine List for barrier patterns - where NOT INTEGRATED clusters by vendor, protocol and plant, how to group recorded blocker texts by class, and the data gaps that make triage impossible. Guidance and live-count recipes; no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, aggregate]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Estate patterns
 

@@ -4,9 +4,7 @@ title: Failure cases and routing
 description: The failure patterns the knowledge base has recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. No figures. Open it to justify a guardrail or to decide what a failed check means.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Failure cases and routing
 

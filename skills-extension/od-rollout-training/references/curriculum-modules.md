@@ -4,9 +4,7 @@ title: Curriculum modules
 description: The module catalogue for plant rollout training (M0 to M7) - audience, what the trainee must be able to do, the skill that already holds the content, and the hands-on form - a proposal built from existing skills and the recorded workshop content.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Curriculum modules
 

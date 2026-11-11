@@ -4,9 +4,7 @@ title: Maturity assessment record
 description: The as-is profile of one machine, system or application on the 16 focus areas - level, evidence grade, source, owner - with plausibility notes; a draft for the DBVE or IIAE to accept.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, template, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Maturity assessment - ⟨object⟩ · ⟨plant⟩
 

@@ -4,9 +4,7 @@ title: Dashboard estate baseline
 description: How to read and measure the plant Grafana estate (platforms, data sources, query patterns, lifecycle, churn) from the dashboard exports, and which patterns to expect. Guidance only - it holds no counts, shares or per-plant tables; measure them live.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard estate baseline
 

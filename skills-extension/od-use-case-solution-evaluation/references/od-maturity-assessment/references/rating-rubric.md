@@ -4,9 +4,7 @@ title: Rating rubric
 description: The 16 IT/OT focus areas read as a qualitative rating rubric for one machine, system or application - level cues, the question to ask, the evidence that counts, the route signal of a low level, the evidence grade and the data and interface inventory.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, rubric, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Rating rubric - the focus areas applied to one object
 

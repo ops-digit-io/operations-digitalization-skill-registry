@@ -4,11 +4,7 @@ title: Criteria checklist
 description: "The scored rubric: core integrity C1-C5 (a gap blocks signing), deck-renderable structure D1-D8, discipline E; pass / partial / gap with evidence."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/criteria-checklist.md` (the master).
 

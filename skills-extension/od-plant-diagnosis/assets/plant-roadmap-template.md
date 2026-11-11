@@ -4,9 +4,7 @@ title: Plant roadmap template
 description: Plant roadmap rows with status colour and call-for-action cell, plus the regional roll-up table and the call status table.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant and regional roadmap template

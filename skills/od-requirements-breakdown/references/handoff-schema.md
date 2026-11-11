@@ -4,11 +4,7 @@ title: Handoff schema
 description: "The handoff file the requirements stage writes and the feature stage reads: frame, riskiest assumption, problems, candidates, with the rules the consumer relies on and a minimal valid example."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [requirements, handoff, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/requirements-funnel/references/handoff-schema.md` (the master).
 

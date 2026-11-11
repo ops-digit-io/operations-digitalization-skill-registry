@@ -4,9 +4,7 @@ title: IT demand package
 description: The one-document package for IT demand management or an external developer, with OD's parts pre-wired to the skills that produce them and every IT-side field marked as missing. Copy one per demand.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # IT demand package
 

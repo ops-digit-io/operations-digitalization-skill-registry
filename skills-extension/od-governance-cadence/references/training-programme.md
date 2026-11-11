@@ -4,9 +4,7 @@ title: Training programme
 description: Running the toolbox training offer - request, registration, invitation cycle, feedback, needs list and delivery format. Programme management, not the plant package.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Training programme
 

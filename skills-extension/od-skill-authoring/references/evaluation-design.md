@@ -4,9 +4,7 @@ title: Evaluation design
 description: How to test an OD skill beyond its documentation - two or three test cases run with and without the skill, assertions with evidence, a trigger query set with near-misses, and the iteration loop - as the Agent Skills guides prescribe, adapted to OD, with a statement of what has not been run. Open it at step 8.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [skills, practice, evaluation]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Evaluation design
 

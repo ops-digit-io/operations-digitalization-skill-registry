@@ -4,9 +4,7 @@ title: Click-dummy brief
 description: The brief to write before a click-dummy is built - context, screens, mock data, flow, limits and the question it answers - distilled from the Gemba App click-dummy prompt system.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Click-dummy brief - ⟨use case name⟩
 

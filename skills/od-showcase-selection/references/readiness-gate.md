@@ -4,9 +4,7 @@ title: Readiness gate
 description: The five gate criteria for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Readiness gate for a use-case story
 

@@ -4,9 +4,7 @@ title: Status labels
 description: How the department's AI decks label items (pilot, PoC, PoC proven, rollout), the ways labels mislead, and the rule for quoting one - no list of which item carries which label today.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Status labels
 

@@ -4,9 +4,7 @@ title: Symptoms
 description: "What the static analyser cannot see: work down from the symptom to the cause and the file to open."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, troubleshooting]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Symptom → cause → where to look
 

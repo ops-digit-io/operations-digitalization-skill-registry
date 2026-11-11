@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the prototype step is run inside the new process chain - the PoC to prototype to pilot to rollout maturity stages, scope-limiting as a gate strategy, AI-assisted mock-ups and dashboards, decision rules, handoff contract, pitfalls, and AI agent operating notes. Process guidance only; no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [prototype, process-chain, ai-agent, maturity]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

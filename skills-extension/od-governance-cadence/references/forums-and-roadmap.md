@@ -4,9 +4,7 @@ title: Forums and roadmap
 description: The CoP and ODEC (historical) as information sources - question, input, output; preparation and follow-up; the call-for-action and traffic-light status pattern; regional and plant roadmap fields; community routine between rounds.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Forums and roadmap
 

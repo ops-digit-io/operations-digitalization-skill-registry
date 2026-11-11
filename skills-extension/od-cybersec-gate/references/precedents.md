@@ -4,9 +4,7 @@ title: Precedents
 description: Patterns from the department's own record of Cyber Security approvals - the Groot2B programme, an app that waited on approval, a network-separation case, how application cyber status is recorded, how security shows up in blocker records - so a plant sees how the gate behaved before. Guidance only, no current figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Precedents
 

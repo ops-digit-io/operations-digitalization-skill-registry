@@ -4,9 +4,7 @@ title: Utilization table
 description: The utilization table, one row per use case and site, with the columns used in the decks plus verdict and basis.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Utilization - <site or area> · <read date>
 

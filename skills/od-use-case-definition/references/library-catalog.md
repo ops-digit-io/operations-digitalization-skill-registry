@@ -4,11 +4,7 @@ title: Library catalog
 description: How to search the use-case library (proven reference solutions) by capability, what a good entry looks like, and the lean-method vocabulary - a how-to-get-it guide to the live list, with no entries, counts or plant names copied.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, library, elicited]
-derived_from:
-  - Department knowledge base Use Cases/*.md, read 2026-09-17 (structure and vocabulary only)
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Library catalog (how to search it)

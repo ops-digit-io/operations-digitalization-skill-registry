@@ -39,7 +39,7 @@ The specification does not say where a client looks for skills; that depends on 
 ## How the registry meets it
 
 - **Checked by script.** `python scripts/agent_skills_spec.py` reports every skill against the rules above. `--export DIR` writes spec-strict copies and validates them; its exit code is 1 if an export is invalid.
-- **Known deviation: structured `metadata`.** The registry's own checks read lists (`requires`, `composes`, `derived_from`) and a nested `okf` block from `metadata`. The specification asks for string values. The source skills therefore fail that one rule by design.
+- **Known deviation: structured `metadata`.** The registry's own checks read lists (`requires`, `composes`) and a nested `okf` block from `metadata`. The specification asks for string values. The source skills therefore fail that one rule by design.
 - **The packages are exported, not copied.** `--export` turns lists into comma-separated text, nested blocks into dotted keys (`okf.type`), and links from one skill into another into a text reference (`skill od-x, references/y.md`), because a packaged skill has to work alone. Every download package of the documentation site is such an export.
 - **Not met everywhere: one level deep.** Reference files link on to other reference files in many skills. The script lists these as warnings. The reference validator does not check it.
 - **Frontmatter size.** `description` stays under 1,024 characters in every skill (also enforced by `scripts/validate_registry.py`).

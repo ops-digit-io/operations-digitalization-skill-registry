@@ -4,9 +4,7 @@ title: Template resolution record
 description: One-page record, filled per deliverable, that names the approved master, its location, owner and state, and the outcome of the lookup.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Template resolution record

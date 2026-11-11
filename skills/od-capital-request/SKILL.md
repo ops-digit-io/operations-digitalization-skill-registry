@@ -12,34 +12,15 @@ metadata:
   new_state_step: "Capital request if investment is needed; Business case, prioritization, capital request"
   department_names: ["bc-capital-request", "ecr-builder", "capital-request-builder", "eCR"]
   owner_role: human:jakob.gabriel
-  author: human:jakob.gabriel
   tags: [use-case-support-service, practice, new-state, draft]
   authority_level: draft the request; submission and approval are human
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-benefit-calculation, od-decision-routing, od-prototype-poc, od-portfolio-and-savings-analysis, od-use-case-solution-evaluation, od-system-fit-check, od-investment-input, od-cybersec-gate, it-demand-package, od-handover-and-adoption]
-  derived_from:
-    - "Department knowledge base (SKILL.md, reference/*, assets/build_ecr.py, render_qa.sh), read 2026-11-10"
-    - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md, read 2026-11-10"
-    - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 5, Lane 3 step 3 and the gap register, read 2026-11-05
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-    - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
-    - ops-knowledge-graph/_knowledge/90-Sources/du-overview/OneDrive_1_21.8.2026/260818_DU_Setup_Timeplan.md
-    - Department knowledge base Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
-    - Department knowledge base Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
-    - Skills od-decision-routing and od-benefit-calculation, read 2026-11-05
-    - "Department knowledge base, read 2026-11-10"
-    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Capital request
     tags: [use-case-support-service, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 
 # Capital request

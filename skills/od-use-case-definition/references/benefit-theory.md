@@ -4,9 +4,7 @@ title: Benefit theory
 description: The Benefits Dependency Network, adapted to the four phases - why a dashboard is not a benefit, what closes the Implemented-to-Productive gap, and how to classify a benefit before it reaches od-benefit-calculation.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, benefits, method]
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Benefit theory

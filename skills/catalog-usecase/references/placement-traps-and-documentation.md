@@ -4,9 +4,7 @@ title: Placement traps and documentation
 description: Where catalog matching goes wrong on template placement (same title in different templates, mis-templated records, the catch-all), what "Other Use Cases" resolves into, and the documentation standard that decides whether a peer is a usable match. Pattern only, no counts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Placement traps and documentation
 

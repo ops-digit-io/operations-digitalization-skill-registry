@@ -4,9 +4,7 @@ title: Field signal vocabulary
 description: How to read the signal names in use on the flow side (flow-config keys, CT leaf names) and on the dashboard side (display labels in several languages) - where the sides disagree, the collisions to expect and the rules that follow. No counts; re-measure on the live corpus.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, signals]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Field signal vocabulary
 

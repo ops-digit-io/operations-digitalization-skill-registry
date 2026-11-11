@@ -4,9 +4,7 @@ title: Triage record
 description: A one-page record a key user fills in while diagnosing a broken flow, in the order that avoids the commonest wrong starts, so the next person can see what was checked and what was only assumed.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, node-red]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Triage record
 

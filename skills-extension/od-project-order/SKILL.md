@@ -13,17 +13,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-capital-request, od-decision-routing, od-investment-input, od-handover-and-adoption, od-retro, it-demand-package, od-risk-watch, od-workshop-facilitation, od-equipment-integration]
-  derived_from:
-    - Operations Digitalization slide decks (project orders, kick-off plans, milestone and closure forms, customer-mandated program), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: Project order
     tags: [project-support-consultancy, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Project order

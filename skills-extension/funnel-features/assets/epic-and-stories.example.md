@@ -4,9 +4,7 @@ title: Epic and stories example
 description: An illustrative filled epic for OEE at an invented plant that passes every check in check_epic.py; read it before the blank. All names, counts and values are placeholders, not company data.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [requirements, epic, example]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # EPIC-C01-PLA · Plant A · OEE Calculation
 

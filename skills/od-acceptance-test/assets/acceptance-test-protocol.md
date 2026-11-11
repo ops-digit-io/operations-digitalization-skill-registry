@@ -4,9 +4,7 @@ title: Acceptance test protocol
 description: The defined output of this gate - written before the build, filled as the test runs, and the final section is exactly what od-handover-and-adoption needs as input.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, information-integration-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Acceptance test protocol — ⟨artefact name⟩
 

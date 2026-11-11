@@ -4,11 +4,7 @@ title: Process chain practice
 description: How requirements are broken down in steps 22 and 31 of the AI-driven chain - category to method to data job, object and event checks, signal list handoff, AI-assisted signal selection, refinement rules, legacy-application and OT application assessment, key-user collaboration and agent operating notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [requirements, practice, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (analytics, event-data, legacy-assessment, workshop and AI-assistant decks), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - requirements breakdown
 

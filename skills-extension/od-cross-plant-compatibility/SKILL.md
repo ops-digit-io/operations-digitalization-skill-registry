@@ -20,25 +20,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: recommend
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-signal-standardization, od-use-case-standardization, od-equipment-integration, od-data-availability-check, od-system-fit-check, od-decision-routing, catalog-usecase]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - Department knowledge base (plant notes, plant-profile blocks), read 2026-11-05
-    - Department knowledge base Epics (the template notes and their numbered plant instances), read 2026-11-05
-    - Department knowledge base Register and Case Groups, read 2026-11-05
-    - Skills od-signal-standardization, od-use-case-standardization and od-data-availability-check (plant-instance-map), read 2026-11-05
   okf:
     type: Agent Skill
     title: Cross-plant compatibility check
     tags: [information-integration-service, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Cross-plant compatibility check

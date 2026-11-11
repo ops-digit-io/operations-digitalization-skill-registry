@@ -4,9 +4,7 @@ title: Assessment, canvas and risk
 description: How a legacy application or platform is assessed before migration - workshop pattern, as-is/to-be canvas, component inventory, per-component risk and recovery-impact tables, OT application inventory with qualitative rubrics.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [migration, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Assessment, canvas and risk
 

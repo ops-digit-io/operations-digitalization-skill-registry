@@ -4,9 +4,7 @@ title: Application maturity profile
 description: How to read a plant-local or foreign application on the IT/OT focus areas that matter for integration - which areas to rate, what the levels say about integrate, keep or replace, the data path and the run owner.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, maturity, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Application maturity profile - integrate, keep or replace
 

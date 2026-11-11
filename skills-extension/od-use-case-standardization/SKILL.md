@@ -21,21 +21,12 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); CSP decision outside OD
   authority_level: recommend
   status: stable
-  sources_read: 2026-10-22
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-benefit-calculation]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
-    - ops-knowledge-graph/_knowledge/20-Done/AI cluster classification.md
-    - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
-    - Department knowledge base *.md (12 cluster nodes, their verified-reference blocks where present) and _knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md, read 2026-10-22
-    - ISO 22400-2:2014, ISO 17359:2018, ISO 50001:2018, ISO 23247-1:2021 (verified via the knowledge base's reference library, DOI/Crossref/standard-preview checked); ISO 22005, VDI 3423, MESA/ISA-95 Level 3, AIAG SPC Reference Manual, Nakajima/Liker/Imai TPS literature (carried over from the department's own standardization knowledge base, not independently re-verified this round)
   okf:
     type: Agent Skill
     title: Use-case standardization
     tags: [practice, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Use-case standardization

@@ -19,22 +19,12 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: read-only
   status: stable
-  sources_read: 2026-10-22
   requires: [od-context]
   composes: [od-sharepoint-list-export, od-benefit-calculation, od-use-case-standardization, od-scorecard-reporting, od-decision-routing]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/20-Done/Use case portfolio analysis.md
-    - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
-    - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
-    - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
-    - Project Management Institute (2017). The Standard for Portfolio Management, 4th edition. PMI. Categorization, evaluation and prioritization/balancing as distinct steps — the rollup and regional-handling method's backbone.
-    - weighted-scoring and value-vs-effort prioritization models (standard project-portfolio practice; see references/prioritization.md for the specific criteria adaptation, ours).
   okf:
     type: Agent Skill
     title: Portfolio and savings analysis
     tags: [analytical-support-service, practice, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Portfolio and savings analysis

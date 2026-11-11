@@ -4,9 +4,7 @@ title: Connector fact sheets
 description: One fact sheet per connector in the Connector Overview - what the record says it does, technical signal limits and sampling rates, endpoint kinds, which connectors carry written build or enhancement requests, and how to read the connector-to-machine links. Guidance only, no company figures or prices.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Connector fact sheets

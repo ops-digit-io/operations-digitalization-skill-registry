@@ -4,18 +4,12 @@ title: Procedure
 description: Formerly the skill od-maturity-assessment, absorbed into od-use-case-solution-evaluation on 2026-11-10 to remove duplication against the department context. Assess how mature and how complex one machine, system or application is along the 16 IT/OT focus areas (identity, communication, protocols, data collection, storage, processing, analytics, control, information model, point of use), derive the complexity drivers behind the profile and the prerequisite chain between the areas, and turn the result into a route signal for the tool decision, the standard-system pick, the data check and the connector design. Rates qualitatively with an evidence grade, never from the top of the scale. Use when a machine, system or app must be judged before a route is
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - practice
 - all
 - new-state
 - draft
 - absorbed
-derived_from:
-- Department knowledge base, External Research, IT-IoT-Maturity-Model (overview, the focus-area notes F01 to F16, dependencies, complexity drivers, assessment template, references), generalized from three peer-reviewed publications by Schott and co-authors (2017, 2017b, 2020), read 2026-11-05; the papers' case study and literature case base are not carried over.
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Maturity assessment
 

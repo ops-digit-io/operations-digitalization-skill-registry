@@ -4,11 +4,7 @@ title: Process chain practice
 description: How the fit check of an envisioned solution is run in step 22 of the AI-driven chain - fit tests the decks use besides the capability model (tool boundary, edge versus plain connection, PLC versus rule engine, cloud versus edge, make or buy), the operations-concept gate, handoff and agent operating notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (tool, platform, analytics, AI and initiative decks), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - solution evaluation
 

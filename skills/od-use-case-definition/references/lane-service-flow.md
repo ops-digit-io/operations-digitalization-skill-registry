@@ -4,9 +4,7 @@ title: Lane service flow
 description: Detail of the Smart Factory Use Case Support Service lane around step 21 - error paths, wait states, recurring tasks, systems and access, autonomy and the lane metrics. SKILL.md keeps only the compact flow table.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [lane, use-case-support-service]
-generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 # Lane service flow - detail
 

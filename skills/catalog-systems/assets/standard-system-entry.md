@@ -4,9 +4,7 @@ title: Standard system entry
 description: The blank entry for the standardized-system list and the system match record, each pre-filled with the facts the knowledge base carries and with every missing field marked. Copy one per route or per request.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Standard system entry and system match record
 

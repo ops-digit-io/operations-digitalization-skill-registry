@@ -4,9 +4,7 @@ title: Drivers and dependencies
 description: How an object profile becomes complexity drivers and candidate areas, the prerequisite chain between areas as a backbone, plausibility checks on a profile, and how to sequence gaps without trusting the source dependency table mechanically.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, drivers, dependencies, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Drivers and dependencies - from profile to candidate areas to gap chain
 

@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the first-aid step, abstracted from the Operations Digitalization slide decks - the SMART test with a good and a bad pair, object and event reduction, organizational versus technical split, diagnosis templates (loss tree, error top list, control loop), preconditions for an explainable-model claim. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, first-aid, ad-hoc]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - first aid and diagnosis
 

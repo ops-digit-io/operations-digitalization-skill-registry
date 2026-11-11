@@ -19,26 +19,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-use-case-intake-triage, od-system-fit-check, od-sharepoint-list-export, od-equipment-integration, od-data-availability-check, od-template-resolution, od-cross-plant-compatibility, catalog-usecase, od-decision-routing, od-handover-and-adoption, od-rollout-training, od-scorecard-reporting, od-risk-watch, od-retro]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/06-operating-rhythm.md
-    - ops-knowledge-graph/_knowledge/20-Done/Machine connectivity rollout.md
-    - Registry docs/new-state-flow.md and docs/new-state/OD_NewState_Flow.mermaid (the three lanes and their steps), read 2026-11-05
-    - Department knowledge base (plant notes, plant-profile blocks), read 2026-11-05
-    - Department knowledge base and Graph/Connectors note names, read 2026-11-05
-    - Skill od-data-availability-check, references/plant-instance-map.md, read 2026-11-05
   okf:
     type: Agent Skill
     title: Plant onboarding
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant onboarding

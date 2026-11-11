@@ -4,9 +4,7 @@ title: Catalog match record
 description: The blank record a plant fills when it matches a request to a catalogued use case, with one worked example built from a real library entry. Copy it per request.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Catalog match record
 

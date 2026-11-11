@@ -4,9 +4,7 @@ title: Portfolio review protocol
 description: The defined output of a portfolio review - snapshot, rollup, ranking and regional read, built from od-sharepoint-list-export's export and od-benefit-calculation's ledger, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [analytical-support-service, use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Portfolio review — ⟨period, e.g. 2026-Q4⟩
 

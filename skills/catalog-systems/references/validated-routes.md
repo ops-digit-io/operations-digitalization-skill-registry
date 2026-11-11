@@ -4,9 +4,7 @@ title: Validated routes
 description: Guidance, no figures - how to classify an integration route as written-and-proven, proven-but-unwritten, fallback or none, from the guide and the Machine List, and how to count the evidence live. Open it before you say "there is a standard system for this machine".
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Validated routes
 

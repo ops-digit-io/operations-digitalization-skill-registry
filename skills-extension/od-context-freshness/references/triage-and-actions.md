@@ -4,9 +4,7 @@ title: Triage and actions
 description: Each kind of flag the freshness script raises, who owns it, what to do, and the first run of 2026-11-05 as a dated worked example - open it when turning the script output into a hygiene report.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Triage and actions
 

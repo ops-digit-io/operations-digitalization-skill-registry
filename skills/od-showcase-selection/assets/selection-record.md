@@ -4,9 +4,7 @@ title: Selection record
 description: The record that decides whether a live, adopted use case is told outwards - gate result per criterion, audiences, the claims that may be made with their evidence class, and the open points. Copy one per use case.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice, blank]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Selection record: ⟨use case⟩ at ⟨plant⟩
 

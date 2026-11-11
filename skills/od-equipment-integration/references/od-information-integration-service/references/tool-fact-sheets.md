@@ -4,9 +4,7 @@ title: Tool fact sheets
 description: Guidance for answering "what is it, where is it, what does it need" for each shop-floor tool in the Tool Overview - what each tool is for, which records to read for rollout, cost, hardware, status and blockers, and the prerequisites to check. No figures; counts, prices and plant lists are looked up live.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Tool fact sheets

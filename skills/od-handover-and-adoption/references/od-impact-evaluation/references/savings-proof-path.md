@@ -4,9 +4,7 @@ title: Savings proof path
 description: The path a use case saving takes from a workshop pre-evaluation to a SPRINT-proven row as OD's own decks describe it, the firmness label at each step, and where it stalls.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Savings proof path
 

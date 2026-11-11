@@ -4,9 +4,7 @@ title: Refusal playbook
 description: Request patterns that look legitimate but should be refused or re-scoped, what the tell is, and one pattern accepted that should have been refused - guidance distilled from the department's retrospectives, no plant names or figures.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Refusal playbook
 

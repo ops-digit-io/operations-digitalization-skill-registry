@@ -4,9 +4,7 @@ title: Message and claims
 description: How to word the single message and the proof points of a use-case story - evidence classes, result versus claim, scope statements, style rules and a worked before-and-after with placeholders only. Open it when a claim is unclear or a draft reads stronger than its evidence.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Message and claims
 

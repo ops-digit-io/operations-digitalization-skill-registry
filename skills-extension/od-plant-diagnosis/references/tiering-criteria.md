@@ -4,9 +4,7 @@ title: Tiering criteria
 description: First mover vs fast follower - the stated criteria, what each tier receives, how to apply them at intake and onboarding, and the open conflict with first-come-first-served wave allocation; open it to tier a plant.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant tiering criteria

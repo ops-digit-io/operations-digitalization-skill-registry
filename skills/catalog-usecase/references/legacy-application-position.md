@@ -4,9 +4,7 @@ title: Legacy application position
 description: Guidance, no figures - how to read the legacy application list by licence, support concept, criticality, cyber-security status and network status, and what a standard system will typically meet on the shop floor. Open it when a kit has to coexist with, or replace, an installed application.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Legacy application position
 

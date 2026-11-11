@@ -4,9 +4,7 @@ title: Release checklist
 description: The checklist completed before the pull request of a new or changed skill - the brief, the anatomy, the registry entries, the gates, the quality rating, the tests and the honesty rules - so the owner reviews a finished skill. Copy one per skill.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [skills, practice, checklist]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Release checklist: ⟨skill name⟩
 

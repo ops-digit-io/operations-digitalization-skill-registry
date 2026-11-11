@@ -4,9 +4,7 @@ title: Tools and footprint
 description: Guidance, no figures - the three machine-integration concepts, the other shop-floor tools and how to read their rollout and deployment status live, and what "inside the lean footprint" means in practice. Open it when you need to know what a plant can already order against.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Tools and footprint
 

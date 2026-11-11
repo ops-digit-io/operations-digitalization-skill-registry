@@ -4,9 +4,7 @@ title: Business case archetypes
 description: The archetypes of the strategic AI and operations business cases (foundation, enabling layer, value layer, attribution, bundle, compliance, big bet, defer), what a complete business-case record contains, how the cases depend on each other, and how that changes ranking. Pattern only, no value ranges, scores or counts.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Business case archetypes
 

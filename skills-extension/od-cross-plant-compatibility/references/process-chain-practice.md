@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the cross-plant check, abstracted from the Operations Digitalization slide decks - where the base data model does and does not fit, process-specific models, data classes and the leading system, plant differences that break a standard, adding one unknown machine type at a time. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - testing a standard at the second plant
 

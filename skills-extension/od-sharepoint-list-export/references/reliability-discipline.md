@@ -4,9 +4,7 @@ title: Reliability discipline
 description: What a full re-export does not give you — an incremental pattern for daily use, the list-view-threshold trap it walks into, schema-drift detection, and the checkpoint a resumed run needs.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, sharepoint, export, reliability]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Reliability discipline
 

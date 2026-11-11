@@ -4,9 +4,7 @@ title: Design recommendation
 description: The form for one application consulting answer - need, footprint verdict, existing apps, data path, build path, gates, run owner, open items; a proposed form until the lane confirms its session template.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Application design recommendation - ⟨question, one line⟩
 

@@ -4,9 +4,7 @@ title: Plant tool availability
 description: Guidance, no figures. How to read the live Tool Overview for one plant (status codes, empty cells, rollout years), count the use cases that name a tool, and handle disagreement with workshop tables - for step 3 of the system fit check.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant tool availability — how to get it live

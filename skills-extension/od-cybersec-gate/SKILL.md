@@ -19,29 +19,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: recommend - the Cyber Security sign-off itself is human-only
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-equipment-integration, od-decision-routing, od-acceptance-test, deploy-appstore]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/agent-brief.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/skills.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/project-support-consultancy/agent-brief.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/09-risks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
-    - Skills od-information-integration-service (guardrails), od-decision-routing (escalation triggers and the cybersecurity worked example), od-equipment-integration (SKILL.md, references barrier-classes, fallbacks, iiot-edge-platform, decision-paths) and deploy-appstore, read 2026-11-05
-    - Registry docs/new-state-flow.md and the Mermaid and skill-map diagrams in docs/new-state, the Cyber Security steps of Lanes 1b and 3, read 2026-11-05
-    - Department knowledge base, ODEC Facts notes Tools and Systems (Groot2B, QFPR), Plant - Auburn, Plant - Monterrey and Other (AI news session disclaimer, Shopfloor Applications List); Graph/Tools QFPR and Concept 3; Graph/Legacy Applications (268 notes, aggregate counts); Graph/Registers Blocker Register; Graph/Connectors and Graph/Tools for the connected platforms, read 2026-11-05
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Cyber Security sign-off gate
     tags: [information-integration-service, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Cyber Security sign-off gate

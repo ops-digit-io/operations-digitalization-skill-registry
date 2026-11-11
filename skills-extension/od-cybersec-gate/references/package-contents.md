@@ -4,9 +4,7 @@ title: Package contents
 description: What the Cyber Security sign-off package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item - open when filling the package.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Package contents
 

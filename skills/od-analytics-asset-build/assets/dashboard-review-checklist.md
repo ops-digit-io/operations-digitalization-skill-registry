@@ -4,9 +4,7 @@ title: Dashboard review checklist
 description: A checklist a plant key user ticks before a Grafana dashboard is called built - ritual, family, signal binding, authoring rules with the estate's violation counts, template placement and handover - using the proposals of the dashboard specs as the yardstick. No estate counts; measure them on the current export.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard review checklist
 

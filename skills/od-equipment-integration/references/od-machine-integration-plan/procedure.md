@@ -4,18 +4,12 @@ title: Procedure
 description: Formerly the skill od-machine-integration-plan, absorbed into od-equipment-integration on 2026-11-10 to remove duplication against the department context. Plan a machine-integration wave from the machine list to flow design - scale known machine types with at most one unknown type per deployment, sequence the wave with the weekly capital-request micro-process, prepare the integration workshop, pick the connector and route per machine type, test readiness, and keep a barrier log that states the cost of not deciding. Drafts the plan and checklists; plant, OD lead and forums decide. Use when a plant or region starts or re-plans a wave, when a machine list must become an integration plan and a capital request, when an integration workshop is being p
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - information-integration-service
 - practice
 - wave-planning
 - draft
 - absorbed
-derived_from:
-- Operations Digitalization slide decks (machine-integration waves, integration workshops, community-of-practice calls, connector and architecture decks), abstracted into process guidance; no figures.
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Machine integration plan
 

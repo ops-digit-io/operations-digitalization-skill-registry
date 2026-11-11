@@ -20,17 +20,12 @@ metadata:
   authority_level: draft
   status: draft
   origin: plan-draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-decision-routing, od-scorecard-reporting, od-retro, od-risk-watch, od-use-case-definition, od-rollout-training, od-plant-onboarding, it-demand-package, od-portfolio-and-savings-analysis]
-  derived_from:
-    - Operations Digitalization slide decks (community and strategy rounds, roadmap templates, demand management, use-case sprint reviews, training programme), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: Governance cadence
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Governance cadence

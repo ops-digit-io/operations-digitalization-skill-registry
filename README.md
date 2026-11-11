@@ -259,9 +259,8 @@ that no `requires` or `composes` points at a skill that does not exist.
 
 `verify_okf.py` checks that every concept's frontmatter parses and declares a known `type`,
 that a `SKILL.md` carries only the six spec-allowed top-level keys and its OKF fields under
-`metadata.okf`, that every other `title` slugs to its filename, that `generated` names an OKF
-actor and an ISO timestamp, that every `resource`, path-shaped `derived_from` entry and
-in-bundle link resolves, and that no wikilink or bundle-relative link has crept in.
+`metadata.okf`, that every other `title` slugs to its filename, that a `generated` stamp, where present, names an
+OKF actor and an ISO timestamp, that every `resource` and in-bundle link resolves, and that no wikilink or bundle-relative link has crept in.
 
 When a source concept changes, follow "Keeping this registry true" in
 [`docs/derivation.md`](docs/derivation.md).

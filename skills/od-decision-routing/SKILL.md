@@ -10,28 +10,15 @@ metadata:
   new_state_lane: "Lane 1b (1b2), Lane 2 (25), Lane 3 front-end (32)"
   new_state_step: "Cost template, approved by the plant budget owner; Capital request if investment is needed; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
   owner_role: OD lead
-  author: OD lead
   tags: [all, practice]
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-investment-input, it-demand-package]
-  derived_from:
-    - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md (approval matrix), read 2026-11-10"
-    - ops-knowledge-graph/.../00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-    - ops-knowledge-graph/.../00-core/09-risks.md
-    - Rogers, P. and Blenko, M. (2006). Who Has the D? How Clear Decision Roles Enhance Organizational Performance. Harvard Business Review, 84(1), 52-61. The RAPID decision-rights framework (Recommend/Agree/Input/Perform/Decide), verified via Bain & Company's own summary, 2026-10-22 — grounds this skill's Tandem/Consultation/Information modes.
-    - Department knowledge base Digitalization--2024#9-ODEC*.pptx and --2024#1-CoP_Call*.pptx (ODEC and CoP call decks, split-slide export), read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 4 (ODEC-vs-COP worked examples) from the department's own record rather than from memory.
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Decision routing and escalation
     tags: [all, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Decision routing and escalation

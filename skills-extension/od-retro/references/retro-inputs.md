@@ -4,9 +4,7 @@ title: Retro inputs
 description: Where each of the three retro inputs (incidents, metrics, COP feedback and the historical ODEC record) is read from, which usable signals the sources already carry, and the limits of each; open it when preparing a monthly retro.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Retro inputs

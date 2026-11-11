@@ -4,9 +4,7 @@ title: Build path options
 description: The four ways an application question can be answered in Lane 3a - reuse, self-develop, external development, integrate a foreign app - with the selecting question, executing skill, gates and what is not yet defined.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Build path options
 

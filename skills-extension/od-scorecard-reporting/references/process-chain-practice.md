@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for running the community-of-practice call, other reporting rounds and the scorecard cycle, abstracted from the Operations Digitalization slide decks - agenda blocks, call for action, status colours, plant status and readiness tables, KPI-basis discipline, utilization next to count. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - rounds, status and reporting
 

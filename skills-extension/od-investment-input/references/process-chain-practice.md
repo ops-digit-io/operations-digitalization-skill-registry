@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the investment input (steps 1b2, 25, 33) is run in the AI-driven chain - cost build-up and allocation, cost calculator before the project, machine-integration planning workflow, staged scope, wave decision checks, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

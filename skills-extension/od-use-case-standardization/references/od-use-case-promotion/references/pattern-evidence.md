@@ -4,9 +4,7 @@ title: Pattern evidence
 description: How to read the portfolio aggregates that frame a promotion decision (declared standard, library and CSP status, case groups, handover and utilization), how to count them live, and what they do not show - guidance only, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, aggregate]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Pattern evidence
 

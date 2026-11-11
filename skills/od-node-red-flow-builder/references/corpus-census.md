@@ -4,9 +4,7 @@ title: Corpus census
 description: Guidance, no figures - how to census the Node-RED flow corpus live (disabled flows, driver segments, MQTT settings, triggers and timers, flow-config vocabulary, global context, HTTP and UI use) and how to read what the census shows.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, node-red]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Corpus census: how to read and how to obtain
 

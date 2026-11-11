@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the Information Integration lane runs its rhythm in the AI-driven chain - wave cadence and status, the community call pack, plant tiering, integration workshop, hand-over to use-case support, recurring blockers, handoffs and agent notes.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - the lane's operating rhythm
 

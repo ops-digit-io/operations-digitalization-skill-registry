@@ -4,9 +4,7 @@ title: Test structure
 description: The test-case structure per artefact type that reaches this gate — a connected machine, a Node-RED flow, a dashboard, an evaluated use case — grounded in FAT/SAT/SIT and UAT practice.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Test structure, per artefact type
 

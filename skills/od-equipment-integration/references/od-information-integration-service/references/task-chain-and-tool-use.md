@@ -4,9 +4,7 @@ title: Task chain and tool use
 description: The integration lane's recurring tasks as a trigger chain with tool access rationale, the signal-standardization rule, the readiness matrix and source-catalogue traps, and metric hooks.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane, information-integration-service, tasks]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Task chain and tool use - Information Integration Service
 

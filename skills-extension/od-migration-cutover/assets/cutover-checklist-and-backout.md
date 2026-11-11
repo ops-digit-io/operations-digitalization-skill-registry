@@ -4,9 +4,7 @@ title: Cutover checklist and backout
 description: Template for one location - checklist with RAG, outage window, key-user verification, parallel-run end, back-out plan (proposal) and decommissioning record.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [migration, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Cutover - `<application or platform>` at `<location>`
 

@@ -4,9 +4,7 @@ title: Process family patterns
 description: What a use case looks like per process family (rubber, plastic, metal, assembly, cross-process) - the process groups, the capabilities that usually apply, the data needed, how much standardization to expect and the traps. Pattern only, no counts. Open it when you place a use case, judge whether it can be a standard, or brief a plant on what peers usually ask for.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process family patterns
 

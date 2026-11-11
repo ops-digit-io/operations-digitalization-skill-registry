@@ -11,26 +11,15 @@ metadata:
   new_state_step: "Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
   department_names: ["bc-assess", "bc-assessment", "business-case-assessor"]
   owner_role: OD lead (separation of duties - not the person who built the case)
-  author: OD lead (separation of duties - not the person who built the case)
   tags: [department-core, lane-2, lane-3]
   authority_level: recommend - scores and gives a verdict; the approvers decide
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-benefit-calculation, od-investment-input, od-capital-request]
-  derived_from:
-    - "Department knowledge base (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
-    - "Department knowledge base §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
-    - "Department knowledge base (README house standard, _template), read 2026-11-10"
-    - "Department knowledge base (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Business case assessment
     tags: [department-core, lane-2, lane-3]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Business case assessment
 

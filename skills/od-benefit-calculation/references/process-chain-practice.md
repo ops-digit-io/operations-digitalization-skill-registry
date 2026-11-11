@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the business-case step (24, 33) is run in the AI-driven chain - segment before averaging, grounding tags on every figure, banked floor versus potential versus de-banked value, baseline first, what to hand to the capital request, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

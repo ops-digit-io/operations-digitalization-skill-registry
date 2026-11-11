@@ -4,9 +4,7 @@ title: Capability templates and placement
 description: The 11 use case templates a dashboard or report is filed under, the 13 placement rules and their precedence, how case groups work, and how to place a new asset so it is counted once. Method only - no member counts, savings or per-group tables; re-count on the live views.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, templates]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Capability templates and placement
 

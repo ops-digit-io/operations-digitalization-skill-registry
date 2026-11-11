@@ -4,9 +4,7 @@ title: Followup log
 description: The log kept for one published use-case story - publication facts as Internal Communications gave them, each reaction with its routing and answer, the review date and the lesson for the retro. Copy one per story.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice, blank]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Follow-up log: ⟨use case⟩ at ⟨plant⟩
 

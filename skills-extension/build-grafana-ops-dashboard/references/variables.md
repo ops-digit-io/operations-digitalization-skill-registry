@@ -4,9 +4,7 @@ title: Variables
 description: Every variable must be used in every panel where it is relevant; how to wire them and why a defined-but-unused one is the commonest silent failure.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, variables]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # variables.md — Grafana variable wiring reference
 

@@ -4,9 +4,7 @@ title: Prefilled test items
 description: Test items to copy into sections 1 to 3 of the acceptance test protocol, prefilled per route (edge, aggregation, file or image endpoint) and per use case cluster, with the typical failure patterns beside each item (no counts).
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Prefilled test items

@@ -4,11 +4,7 @@ title: Grounding discipline
 description: "The four grounding tags and how each figure earns one; what counts as input, assumption, market and unknown."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/grounding-discipline.md` (the master).
 

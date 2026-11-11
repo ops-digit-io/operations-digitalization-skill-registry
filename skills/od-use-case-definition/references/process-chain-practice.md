@@ -4,11 +4,7 @@ title: Process chain practice
 description: How step 21 (define and diagnose) and the use case support service lane around it are run end to end in the AI-driven chain - Part A the definition (canvas, data-source split, diagnosis, utilization moment, handoff to step 22), Part B the lane (flow blocks, use-case sprint, registration gate for savings, handoffs between blocks), with agent operating notes for each.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, technical, lane, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (definition workshops, canvases, sprint and initiative decks, support-service flow, sprint reviews, community calls, priorities and strategy decks), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process chain practice
 

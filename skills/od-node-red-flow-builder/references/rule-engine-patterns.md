@@ -4,11 +4,7 @@ title: Rule engine patterns
 description: "The rule-engine patterns (mapping, normalization, counters, triggers, lookups, durations) and when to pick which."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [node-red, rule-engine, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ops-rule-engine.skill/references/patterns.md` (the master).
 

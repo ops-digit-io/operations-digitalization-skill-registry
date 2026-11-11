@@ -4,9 +4,7 @@ title: Evidence of adoption
 description: What counts as evidence that a use case is actually in use, in order of strength, so adoption is recorded as a fact with a source rather than an impression.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, adoption]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Evidence of adoption
 

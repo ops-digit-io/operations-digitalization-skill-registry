@@ -4,9 +4,7 @@ title: Master register
 description: Guidance for reading the department resource register to resolve a template - which kinds of rows exist, who owns them, how to read the state markers, plus the templates produced inside registry skills; no state or date snapshot, look the live state up in the register.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Master register

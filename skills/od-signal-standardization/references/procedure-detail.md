@@ -4,9 +4,7 @@ title: Procedure detail
 description: The detail behind the signal standardization procedure - why the blocker is so common, the edge-platform data-point contract, the analyser checks, the machine-context test, public data model choice, the four signal families, signal classes, and the language rule.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [signals, analyser, standardization]
-generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 # Procedure detail
 

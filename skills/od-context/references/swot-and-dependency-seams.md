@@ -4,9 +4,7 @@ title: SWOT and dependency seams
 description: How to use the department's SWOT as a machine-checkable filter on a proposed action (ids, evidence, so-what, derived moves), how to read the operating-context table of dependency seams and interaction modes, and how the filled-instance README records corrections to source decks and open gaps.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, context, strategy]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # SWOT and dependency seams
 

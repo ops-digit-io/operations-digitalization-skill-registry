@@ -4,11 +4,7 @@ title: Process chain practice
 description: How the intake step (i1) is run in the AI-driven chain - the SMART test and object/event reduction of a request, standard versus special, the three-way triage (just do, go forward, lead change), lane by demand shape, handoff record, pitfalls and agent operating notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (workshops, priorities, strategy, tool and sprint decks), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - intake (step i1)
 

@@ -4,9 +4,7 @@ title: Competence checklist
 description: The plant competence checklist for one solution - observable competences by role, the module and source behind each, the evidence tier, and an empty confirmation field the plant owner fills; the assistant never confirms.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Competence checklist - ⟨plant⟩ · ⟨solution⟩
 

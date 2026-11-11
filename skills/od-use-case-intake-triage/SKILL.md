@@ -10,25 +10,15 @@ metadata:
   new_state_lane: "Intake (i1)"
   new_state_step: "Classify the demand into exactly one lane"
   owner_role: OD lead
-  author: OD lead
   tags: [all, practice]
   authority_level: recommend
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-system-fit-check, catalog-usecase, od-use-case-definition, od-requirements-breakdown, od-first-aid-kit]
-  derived_from:
-    - ops-knowledge-graph/.../00-core/05-intake.md
-    - ops-knowledge-graph/.../00-core/04-service-catalog.md
-    - ops-knowledge-graph/.../00-core/01-charter.md
-    - Department knowledge base, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 1 (refusal in practice) from the department's own record.
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Use-case intake triage
     tags: [all, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Use-case intake triage

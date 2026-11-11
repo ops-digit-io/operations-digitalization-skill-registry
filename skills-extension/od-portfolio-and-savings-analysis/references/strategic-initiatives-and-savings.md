@@ -4,9 +4,7 @@ title: Strategic initiatives and savings
 description: How to read the strategic AI and operations business cases next to the plant savings portfolio without mixing them - addressable versus realistic value, author inputs versus recorded savings, enabling value booked once, and the checks to run on a value anchor. Pattern only, no values.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Strategic initiatives and savings
 

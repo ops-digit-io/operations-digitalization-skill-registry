@@ -4,9 +4,7 @@ title: Signal matching
 description: "The timeseries archetype's core problem: the user knows what they want to see but not which UUIDs hold it."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, signals]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Signal matching — picking the right UUIDs from a description
 

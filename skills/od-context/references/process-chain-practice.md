@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the department context layer, abstracted from the Operations Digitalization slide decks - why a structured context is the precondition for agent work, the currency rules per field, the three demand shapes, plant tiering (first mover, fast follower), maturity sanity check. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, foundation]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - the context layer and plant tiering
 

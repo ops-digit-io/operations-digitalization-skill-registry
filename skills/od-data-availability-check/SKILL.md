@@ -11,26 +11,15 @@ metadata:
   new_state_lane: "Lane 2 (22)"
   new_state_step: "Requirements, features and data check"
   owner_role: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
-  author: Digital-Business-Value-Engineer (DBVE), with IIAE for the integration side
   tags: [analytical-support-service, practice, use-case-support-service]
   authority_level: read-only
   status: stable
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization]
-  derived_from:
-    - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,tasks}.md
-    - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
-    - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - Department knowledge base (field completeness per plant), Graph/Legacy Applications, Graph/Capability Epics and Process Epics, Case Groups (member and machine counts) and _knowledge/30-Nodes cluster notes C01 to C12, read 2026-11-05
-    - Department knowledge base and Graph/Tools notes for the non-PLC connectors, MIL, QFPR and Energy Management, read 2026-11-05
-    - Department knowledge base usecase-standardization-knowledgebase (cluster KPIs and requirements checklists), read 2026-11-05
   okf:
     type: Agent Skill
     title: Data availability check
     tags: [analytical-support-service, practice, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Data availability check

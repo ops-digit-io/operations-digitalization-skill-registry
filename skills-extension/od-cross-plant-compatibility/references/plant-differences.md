@@ -4,9 +4,7 @@ title: Plant differences
 description: Guidance, no figures - the dimensions along which plants differ that a cross-plant standard must survive (region and integration state, controllers, field networks, ingress variants, tool rollouts, capability-instance spread, recorded blockers, data-gap plants), where to read each live and how to interpret it.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant differences

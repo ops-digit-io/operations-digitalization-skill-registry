@@ -4,9 +4,7 @@ title: Process chain practice
 description: How ranking and portfolio reading (steps 24 and the spine) is run in the AI-driven chain - ranking criteria and their order, numbered planning states, the where-saved matrix, dependency versus return ordering, hygiene and kill rules, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, analytical-support-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

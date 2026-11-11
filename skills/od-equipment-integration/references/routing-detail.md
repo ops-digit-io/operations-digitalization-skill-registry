@@ -4,9 +4,7 @@ title: Routing detail
 description: The detail behind Route A and Route B - estate and status vocabulary, terminology, the three ingress variants and how to choose, the breakpoint, connector availability traps, the two OESL guidance errors, live constraints and what the estate means for a routing decision.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, routing, topology]
-generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 # Routing detail
 

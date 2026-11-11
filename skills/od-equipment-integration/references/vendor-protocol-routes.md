@@ -4,9 +4,7 @@ title: Vendor protocol routes
 description: Guidance per controller vendor, PLC model and network protocol - how to read the Machine List for each family, which connector the Connector Overview names, and what the records do and do not say about how each family is reached. Guidance only, no company figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Vendor and protocol routes

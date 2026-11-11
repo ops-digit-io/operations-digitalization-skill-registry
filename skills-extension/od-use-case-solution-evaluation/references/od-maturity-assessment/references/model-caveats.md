@@ -4,9 +4,7 @@ title: Model caveats
 description: What the IT/OT maturity model is and is not - provenance of levels and dependencies, the numbering reconciliation, the undefined levels, the architecture-choice areas, and why the literature distributions are not a benchmark.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, caveats, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Model caveats - read before quoting the model
 

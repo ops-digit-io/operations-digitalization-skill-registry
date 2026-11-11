@@ -4,9 +4,7 @@ title: Standardization review
 description: The defined output of the procedure - template placement, library check, cluster baseline and delta, and the CSP-readiness verdict od-decision-routing's rollout gate consumes directly.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Standardization review — ⟨use case name⟩

@@ -4,9 +4,7 @@ title: Roles risks procurement
 description: Requesting side versus contracting side in a project order, how opportunities and risks are classified and treated, the limited-risk funding pattern for an unfamiliar field, and the procurement milestone chain for a bought solution.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Roles, risks and procurement chain
 

@@ -4,27 +4,12 @@ title: Procedure
 description: Formerly the skill od-barrier-triage, absorbed into od-equipment-integration on 2026-11-10 to remove duplication against the department context. Classify why a machine will not connect (legacy hardware, protocol with no route, missing PLC program, platform not installed, Cyber Security wait, data model) and route it to one of three exits - the integration roadmap, strategy, or a substitution path - with an owner and a logged barrier, instead of leaving the machine silently out of the wave. Builds on the fallback ladder and barrier classes of od-equipment-integration. Use when a machine cannot be connected or an assessment finds no route, when a blocker text such as "firmware patching required" or "PLC program missing" is recorded, or w
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - information-integration-service
 - practice
 - new-state
 - draft
 - absorbed
-derived_from:
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/agent-brief.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/landscape.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/02-strategy.md
-- Skill od-equipment-integration, its references barrier-classes, fallbacks, decision-paths and connectors, and its assessment protocol, read 2026-11-05
-- Skill od-decision-routing, escalation forums and the risk triggers, read 2026-11-05
-- Department knowledge base, the Machine records read as an aggregate (status, vendor, protocol, blocker text) and the Connector records, 2026-11-05
-- Department knowledge base Cases notes PLC Evergreening and Sensor-Upgrade Decision Frame, read 2026-11-05
-- New-state flow (docs/new-state-flow.md, VSM skill map), Lane 3b step 4b connector design, read 2026-11-05
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Barrier triage
 

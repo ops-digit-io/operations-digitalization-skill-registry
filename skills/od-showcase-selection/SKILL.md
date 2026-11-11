@@ -10,25 +10,15 @@ metadata:
   new_state_lane: "Lane 4 (41)"
   new_state_step: "Select the use case and check the story"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owner agrees
-  author: Digital-Business-Value-Engineer (DBVE); the plant owner agrees
   tags: [lane-4, practice, draft]
   authority_level: draft the selection record and recommend go, hold or no; the plant owner and the OD lead decide
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-handover-and-adoption, od-benefit-calculation, catalog-usecase, od-comms-brief]
-  derived_from:
-    - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Department knowledge base (Digitalization Scorecard, SmartFactory UseCase Savings register), read 2026-11-10"
-    - "Department knowledge base (use-case utilization rate; recipient feedback), read 2026-11-10"
-    - "Registry reference: od-use-case-definition, lane service flow (savings without a registered plant savings project or a baseline are a claim, not a result), read 2026-11-10"
-    - "Department knowledge base Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022; method only), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase selection
     tags: [lane-4, practice, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 
 # Showcase selection

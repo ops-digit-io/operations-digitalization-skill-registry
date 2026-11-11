@@ -4,9 +4,7 @@ title: Utilization method
 description: The utilization table columns, the questions that find out what makes a use case utilized, the dashboard-without-action-owner smell, dashboard-to-paper reconciliation and the follow-up list.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Utilization method
 

@@ -4,9 +4,7 @@ title: Symptoms extended
 description: Guidance, no figures - the disabled-tab check, how to measure where analyser findings concentrate, extra symptom rows, and three illustrative worked findings.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, node-red]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Symptoms, extended
 

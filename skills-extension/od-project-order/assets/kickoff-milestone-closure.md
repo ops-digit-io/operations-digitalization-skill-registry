@@ -4,9 +4,7 @@ title: Kickoff milestone closure
 description: Kick-off agenda, milestone report and closure checklist with fields.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Kick-off, milestone and closure - <project name>
 

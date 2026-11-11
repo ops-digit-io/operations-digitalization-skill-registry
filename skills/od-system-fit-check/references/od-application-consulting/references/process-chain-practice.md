@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the design recommendation is produced at chain steps 32 and 3a4 - build-path questions, supplier-built app practice, supplier selection round, legacy application component assessment, operations-concept precondition, handoffs and agent notes.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - application consulting in the chain
 

@@ -4,9 +4,7 @@ title: Training package
 description: The plant training package for one solution at one plant - scope, readiness, audience by role, modules with hands-on form, session record and follow-up - drafted by the assistant, delivered by the trainer role, with the competence checklist as its companion.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Training package - ⟨plant⟩ · ⟨solution⟩
 

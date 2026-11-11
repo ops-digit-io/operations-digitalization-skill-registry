@@ -10,25 +10,15 @@ metadata:
   new_state_lane: "Lane 4 (44)"
   new_state_step: "Follow up and feed back into Lanes 1 to 3"
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  author: Digital-Business-Value-Engineer (DBVE)
   tags: [lane-4, practice, draft]
   authority_level: draft the follow-up log and the routing and recommend; OD lead and plant owners decide; Internal Communications owns any correction of a published item
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-comms-brief, catalog-usecase, od-use-case-intake-triage, od-handover-and-adoption]
-  derived_from:
-    - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department"
-    - "Department knowledge base (monthly retro: what did we learn, one change), read 2026-11-10"
-    - "Department knowledge base and lane-2-develop-new-use-case.md (fall-through and cataloguing), read 2026-11-10"
-    - "Department knowledge base (utilization rate), read 2026-11-10"
-    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Showcase follow-up
     tags: [lane-4, practice, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 
 # Showcase follow-up

@@ -4,9 +4,7 @@ title: Task chain and tool use
 description: The analytical lane's recurring tasks as a trigger chain (what starts each, what it needs, which tool, what it leaves, which task and metric it feeds), why each tool has the access it has, and when ad-hoc work is promoted.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane, analytical-support-service, tasks]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Task chain and tool use - Analytical Support Service
 

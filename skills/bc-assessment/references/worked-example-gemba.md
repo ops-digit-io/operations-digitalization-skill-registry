@@ -4,11 +4,7 @@ title: Worked example gemba
 description: "A complete assessment run with the rubric: the Gemba app case scored C1-C5, D1-D8 and E with evidence, the maturity-gate verdict and the ranked open questions."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, worked-example, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `../Business-Cases/gemba-app/bc-assessment-report.md` (the master). Money figures in examples are masked as ⟨€⟩.
 

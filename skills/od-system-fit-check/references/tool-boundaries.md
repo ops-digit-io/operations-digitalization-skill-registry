@@ -4,9 +4,7 @@ title: Tool boundaries
 description: What each lightweight Smart Factory tool is and is not for, in the department's own words, with the real cost estimates and recommended-if criteria the tell is built from.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, system-fit]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Tool boundaries
 

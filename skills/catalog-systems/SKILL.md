@@ -11,21 +11,14 @@ metadata:
   new_state_step: "Pick the use case and the standard system"
   department_names: ["catalog-systems"]
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant self-serves
-  author: Digital-Business-Value-Engineer (DBVE); the plant self-serves
   tags: [department-core, lane-1]
   authority_level: draft the match record; recommend only - ordering, connecting and the spend approval stay human
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
-  derived_from:
-    - "Department knowledge base (skills table, gap), read 2026-11-10"
-    - "Split from catalog-usecase (formerly od-catalog), 2026-11-10"
   okf:
     type: Agent Skill
     title: Catalog systems
     tags: [department-core, lane-1]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Catalog systems
 

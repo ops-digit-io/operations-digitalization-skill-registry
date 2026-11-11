@@ -4,9 +4,7 @@ title: IIoT edge platform
 description: "The edge pattern: a DATATRONiQ edge device in the machine cabinet, what it speaks, and where its data lands."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, edge, iiot]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Pattern — IIoT Edge Computing Platform
 

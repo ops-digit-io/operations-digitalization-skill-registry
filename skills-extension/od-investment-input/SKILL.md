@@ -23,28 +23,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: recommend
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-equipment-integration, od-decision-routing, od-benefit-calculation, od-system-fit-check, od-cybersec-gate, od-capital-request, catalog-usecase, it-demand-package]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/playbook.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/information-integration-service/tasks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/project-support-consultancy/skills.md
-    - New-state flow (docs/new-state-flow.md and docs/new-state/OD_NewState_VSM_SkillMap.html), the Lane 1b cost-template step, the Lane 2 capital-request step and the Lane 3 shared front-end, read 2026-11-05
-    - Skills od-decision-routing and od-benefit-calculation (the spend ladder, the dependency values), od-equipment-integration (assessment protocol section 3, edge-device hardware constraint) and od-system-fit-check (tool boundaries with their recorded cost references), read 2026-11-05
-    - Department knowledge base Cases notes Sensor-Upgrade Decision Frame and PLC Evergreening, and Case Groups - Overview, read 2026-11-05
-    - Department knowledge base, Machine records read as an aggregate (integration status, priority, method), 2026-11-05
-    - "Department knowledge base (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Investment input pack
     tags: [information-integration-service, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Investment input pack

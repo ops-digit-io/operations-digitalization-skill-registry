@@ -4,9 +4,7 @@ title: Plant readiness brief
 description: One-page form a local key user or IIAE fills before a plant integration conversation, a status request or a wave capital request (eCR) - the plant's row from the records, the flags to clear, and the open questions that only the plant can answer.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant readiness brief

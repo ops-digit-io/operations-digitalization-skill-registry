@@ -4,9 +4,7 @@ title: Artefacts
 description: Guidance, no figures - the artefact families Node-RED flows actually build, the naming convention, a generalized key-free example per artefact, and the reusable building blocks; count usage live.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, artefacts]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The artefact catalogue
 

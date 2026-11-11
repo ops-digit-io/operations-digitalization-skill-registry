@@ -4,9 +4,7 @@ title: Wave plan template
 description: Template for one integration wave - machine list and CV fields, machine type and route, cost line, plant status row, readiness check and barrier log; fill with placeholders, never with remembered numbers.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Wave plan - `<plant or area>` · `<wave id>`
 

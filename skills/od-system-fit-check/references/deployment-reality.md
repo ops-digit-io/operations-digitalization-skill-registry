@@ -4,9 +4,7 @@ title: Deployment reality
 description: Guidance, no figures. Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table so a system-fit check runs against what that plant has, not the estate average.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, system-fit]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Deployment reality — the same tools, different plants
 

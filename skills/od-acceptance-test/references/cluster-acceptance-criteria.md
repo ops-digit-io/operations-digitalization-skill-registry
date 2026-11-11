@@ -4,9 +4,7 @@ title: Cluster acceptance criteria
 description: Guidance, no figures. For each use case cluster, the department's own standard turned into user acceptance items - what the plant owner should be able to see and do before the use case counts as accepted - with the verified external definitions the cluster notes rest on.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Cluster acceptance criteria

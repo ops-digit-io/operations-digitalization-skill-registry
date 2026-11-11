@@ -4,9 +4,7 @@ title: Process chain practice
 description: Recurring blocker patterns from the decks mapped onto the seven barrier classes, the ownership signals that show a stuck case early, the blocker one-pager, barrier reporting with cost of non-decision, handoffs and agent notes.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - recurring blockers and how to spot them early
 

@@ -4,9 +4,7 @@ title: Failure modes
 description: The three shortfalls at steps 2, 4 and 5 that are indistinguishable from a dashboard, how to tell them apart, and who owns each.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [data-availability, diagnosis]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Failure modes

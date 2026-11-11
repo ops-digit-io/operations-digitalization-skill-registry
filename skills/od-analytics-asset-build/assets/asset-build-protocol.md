@@ -4,9 +4,7 @@ title: Asset build protocol
 description: The defined output of this skill - asset type, ritual, data path and validation record, so od-acceptance-test and od-handover-and-adoption can both read it as input rather than ask again.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [analytical-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Analytics asset build — ⟨use case name⟩

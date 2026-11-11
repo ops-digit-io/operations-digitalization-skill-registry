@@ -4,14 +4,7 @@ title: Tool decision gate
 description: "The Lane 3 tool-decision / IT-footprint gate (the department's investment-screening, od-system-fit-check): the software and IT-footprint hard gate, the route to 3a.1-3a.4 or 3b, the sourcing criteria from the OD x IT alignment, and the verdict words the department already uses."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-3, gate, it-footprint, sourcing, new-state]
-derived_from:
-  - "Department knowledge base (front-end step 2, branch 3a options, guardrails), read 2026-11-10"
-  - "Department knowledge base (a run of the department's investment-checking skill: involvement classes, de-noise rule, the software / IT-footprint gate in use, verdict legend), read 2026-11-10"
-  - "Department knowledge base (od-system-fit-check feature list), read 2026-11-10"
-  - "Department knowledge base (themes 2, 5, 6, 7), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Tool decision gate
 

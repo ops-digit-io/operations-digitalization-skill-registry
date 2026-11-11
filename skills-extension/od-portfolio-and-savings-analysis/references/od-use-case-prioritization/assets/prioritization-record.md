@@ -4,9 +4,7 @@ title: Prioritization record
 description: The output of od-use-case-prioritization - one record per plant round holding the candidates, the agreed criteria and weights, the scores with evidence, the unscored bucket and the Plant ME sign-off.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Prioritization record — ⟨plant / region and category⟩ — ⟨round date⟩
 

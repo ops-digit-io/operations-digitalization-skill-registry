@@ -4,9 +4,7 @@ title: Asset type and tier
 description: Working through the asset-type decision past the table in SKILL.md, and exactly where this skill's job ends and build-grafana-ops-dashboard's begins once the type is Dashboard.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [analytical-support-service, use-case-support-service, dashboard]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Asset type and tier
 

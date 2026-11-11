@@ -4,9 +4,7 @@ title: Validation patterns
 description: How the AI business cases in the department knowledge base define a validation plan and a pass criterion, grouped into wording patterns a key user can copy when writing the criterion for a prototype or PoC - patterns only, with placeholder thresholds.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Validation patterns
 

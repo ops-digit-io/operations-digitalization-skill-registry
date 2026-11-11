@@ -4,9 +4,7 @@ title: Promotion package
 description: The package for one candidate asset - recurrence, value, reproducibility, placement, handover, catalog conditions and the promote / reuse / keep / retire recommendation that feeds use case definition.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Promotion package - ⟨asset name⟩ · ⟨plant of origin⟩
 

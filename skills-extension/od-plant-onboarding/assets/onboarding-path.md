@@ -4,9 +4,7 @@ title: Onboarding path
 description: Tracker for one plant's onboarding - starting profile, then one row per stage with skill, artefact, role, evidence and status.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Onboarding path

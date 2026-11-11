@@ -4,9 +4,7 @@ title: Requirement template
 description: The blank requirement to copy, carrying the ten core sections and all four lane variants.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [requirements, template, blank]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Requirement: ⟨asset⟩ - ⟨artefact⟩
 

@@ -4,9 +4,7 @@ title: Event definition canvas
 description: One canvas per use case - plant sentence, objects, events, time axis, signal classification, object relation, archetype class, method and ETL, open gaps.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Event definition canvas - <use case> · <plant>
 

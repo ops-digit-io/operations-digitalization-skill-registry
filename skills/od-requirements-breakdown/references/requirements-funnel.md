@@ -4,11 +4,7 @@ title: Requirements funnel
 description: "The department's requirements funnel (funnel-requirements): from a vague idea to framed problems and candidate requirements, with a human gate and a handoff file."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [requirements, funnel, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/requirements-funnel/SKILL.md` (the master).
 

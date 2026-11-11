@@ -10,27 +10,17 @@ metadata:
   new_state_lane: "Lane 2 (21)"
   new_state_step: "Capture the idea, process diagnostics"
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  author: Digital-Business-Value-Engineer (DBVE)
   tags: [technical, lane, use-case-support-service]
   authority_level: draft
   capacity: per the current DBVE roster
   escalation: OD lead (decision route per the current approval policy; look up)
   status: stable
-  sources_read: 2026-10-23
   requires: [od-context]
   composes: [od-use-case-standardization, od-use-case-solution-evaluation, od-benefit-calculation, od-data-availability-check, od-use-case-intake-triage, od-system-fit-check, od-requirements-breakdown, od-handover-and-adoption, od-scorecard-reporting]
-  derived_from:
-    - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,skills,tasks,metrics,agent-brief}.md
-    - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
-    - ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/12-portfolio.md
-    - Department knowledge base Cases/*.md (650 pages) and Graph/Library Use Cases/*.md (100 pages), read 2026-09-17
   okf:
     type: Agent Skill
     title: Use-case definition
     tags: [technical, lane, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Use-case definition

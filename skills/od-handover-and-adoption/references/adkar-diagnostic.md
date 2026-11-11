@@ -4,9 +4,7 @@ title: ADKAR diagnostic
 description: Why a use case stalls between IMPLEMENTED and PRODUCTIVE, diagnosed against the five elements of individual change adoption rather than guessed at.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, adoption]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # ADKAR diagnostic
 

@@ -4,11 +4,7 @@ title: Ecr builder workflow
 description: "The department's eCR builder workflow in five steps: ingest a folder plus the chat, refusal gate, grounded backbone, colour-coded honesty deck, maturity verdict."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [capital-request, ecr, workflow, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ecr-builder.zip/SKILL.md` (the master).
 

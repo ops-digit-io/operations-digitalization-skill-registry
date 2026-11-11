@@ -4,9 +4,7 @@ title: Knowledge graph reading
 description: How to read the node kinds of the operations knowledge graph (regions, material families, process groups, capabilities, cluster tags, the Andon and Gemba escalation cluster), what the graph is and is not, and how its descriptions are marked by provenance.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, context, knowledge-graph]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Knowledge graph reading
 

@@ -4,9 +4,7 @@ title: Workshop prep checklist
 description: Preparation checklist for an equipment-integration workshop at a plant - inputs, IT and physical access, attendees, agenda order and outputs; to be completed before the visit.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Equipment-integration workshop - preparation checklist · `<plant>` · `<date>`
 

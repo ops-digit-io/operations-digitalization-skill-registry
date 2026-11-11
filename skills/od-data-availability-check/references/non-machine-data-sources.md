@@ -4,9 +4,7 @@ title: Non-machine data sources
 description: Where requested data lives when it is not a PLC signal - laboratory and measurement software, camera systems, manual entry, energy loggers, legacy applications - with how to read the legacy application records, how reachable each class is, and the connectors and tools that exist for them. No counts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Non-machine data sources

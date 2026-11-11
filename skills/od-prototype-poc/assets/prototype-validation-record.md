@@ -4,9 +4,7 @@ title: Prototype validation record
 description: The output of od-prototype-poc - the open question, the pass criterion written first, the result, the status label and the open items, in a form the business case and capital request can read.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Prototype validation record - ⟨use case name⟩
 

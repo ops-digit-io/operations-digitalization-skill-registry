@@ -4,9 +4,7 @@ title: Softing tag syntax
 description: The identifier written when a tag is defined by hand, per driver family, and what a symbol import produces instead.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, softing, tags]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Softing dataFEED — datapoint (tag) syntax
 

@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for promotion, abstracted from the Operations Digitalization slide decks - graduation conditions, the use-case exchange with the operational-excellence function, the promotion template fields, recurrence evidence, and retire versus re-evaluate. Guidance only, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, new-state, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - promoting an asset
 

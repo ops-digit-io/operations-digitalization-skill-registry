@@ -4,9 +4,7 @@ title: Assessment protocol
 description: The defined output of Route A - plant/wave inventory, barrier tier and roadmap per machine, sized and sequenced, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [information-integration-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Equipment integration assessment — ⟨plant⟩ ⟨· wave⟩

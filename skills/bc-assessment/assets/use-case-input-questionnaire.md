@@ -4,11 +4,7 @@ title: Use case input questionnaire
 description: "Interview guide and record template (sections A-L) that captures a use case well enough to assess its business case; every quantitative field gets value, confidence and source."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, intake, template, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `../BC-Assessment-Skill/use-case-input-questionnaire.md` (the master).
 

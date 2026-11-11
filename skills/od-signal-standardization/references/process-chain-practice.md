@@ -4,9 +4,7 @@ title: Process chain practice
 description: How signal standardization is run inside the new process chain - data classes and routes, the data-model creation steps, AI-assisted signal selection with a missing-signal table, decision rules, handoff contract, pitfalls, and AI agent operating notes. Process guidance only; no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [signals, process-chain, ai-agent]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

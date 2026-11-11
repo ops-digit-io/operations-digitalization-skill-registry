@@ -4,9 +4,7 @@ title: Plant status input
 description: One-page input a plant fills for the equipment-integration line of a status request - the plant's numbers with sources and dates, the open blockers, the capital request (eCR) state and the asks - built from the fields the historical ODEC KPI slides tracked.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant status input

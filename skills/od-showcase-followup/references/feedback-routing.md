@@ -4,9 +4,7 @@ title: Feedback routing
 description: How a reaction to a published use-case story is routed into Lane 1, Lane 2 or Lane 3, how to answer without promising delivery, and when to refresh or retire a story. Open it when a plant reacts to a story or a story is due for review.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Feedback routing
 

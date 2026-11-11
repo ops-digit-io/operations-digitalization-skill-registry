@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the deploy step (3a5) is run in the chain - the three onboarding scenarios and the source-ownership rule, the GitOps chain and deployment set, local preparation checklist, pitfalls from platform rollouts and migrations, PoC scope limits, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - deployment to the platform
 

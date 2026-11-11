@@ -4,9 +4,7 @@ title: Instances
 description: Guidance, no figures - how Node-RED instances are named and discovered, what a site code is, what the instance shape tells you, and how to count flows per instance live.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, estate]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The Node-RED estate
 

@@ -4,11 +4,7 @@ title: Process chain practice
 description: How workshops are prepared and run as a stage in the AI-driven chain - choosing by trigger, workshop order, preparation checklists, in-room practices, utilization session, legacy-application pattern, output and handoff contract, pitfalls and agent operating notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, workshop, process-chain]
-derived_from:
-  - Operations Digitalization slide decks (definition, integration, equipment-integration, savings and legacy-assessment workshops, agendas and summaries), abstracted into process guidance; no figures.
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - workshops
 

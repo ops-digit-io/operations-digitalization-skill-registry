@@ -4,9 +4,7 @@ title: OD integration
 description: "How the portable Grafana dashboard skill is used at OESL: which lane calls it, what a plant Grafana instance is for, and what stays out of it."
 resource: SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, dashboards, portable]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Using this skill inside Operations Digitalization
 

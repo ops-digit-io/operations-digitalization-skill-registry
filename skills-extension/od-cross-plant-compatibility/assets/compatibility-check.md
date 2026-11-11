@@ -4,9 +4,7 @@ title: Compatibility check
 description: The output of the cross-plant compatibility check - subject, plant grid with a verdict per plant, mappings, findings and the recommendation to route.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Compatibility check

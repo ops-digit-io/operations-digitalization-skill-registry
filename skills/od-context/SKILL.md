@@ -11,26 +11,13 @@ metadata:
   new_state_step: "Supporting spine"
   department_names: ["dept-os"]
   owner_role: OD lead
-  author: OD lead
   tags: [all, foundation]
   authority_level: read-only
   status: stable
-  sources_read: 2026-11-10
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/01-charter.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/14-glossary.md
-    - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
-    - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
-    - ops-knowledge-graph/_knowledge/10-Department/Roles and organization.md
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: OD context
     tags: [all, foundation]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # OD context

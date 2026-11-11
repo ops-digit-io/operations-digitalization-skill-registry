@@ -4,9 +4,7 @@ title: Library and CSP state
 description: Guidance, no figures - how to read the reference library and the CSP decision in the knowledge base, how to find the entries with a recorded Yes live, and what that does and does not make self-servable. Open it before you tell a plant that something is catalogued.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Library and CSP state
 

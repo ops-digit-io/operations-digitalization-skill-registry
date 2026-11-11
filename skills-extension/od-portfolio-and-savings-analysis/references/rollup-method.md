@@ -4,9 +4,7 @@ title: Rollup method
 description: How individual savings rows become a portfolio-level number without crossing a boundary that changes what the number means.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, use-case-support-service, analytical-support-service]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Rollup method
 

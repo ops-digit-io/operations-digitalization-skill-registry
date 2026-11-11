@@ -4,11 +4,7 @@ title: Openspec format
 description: "The OpenSpec rules an OD handover package must meet (structure, proposal sections, delta spec format, validation thresholds) and which OD skill fills which artefact."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [openspec, handover, format]
-derived_from:
-  - "OpenSpec (github.com/Fission-AI/OpenSpec, public), schemas/spec-driven/schema.yaml and templates/, src/core/validation/constants.ts, docs/team-workflow.md, openspec/changes/* examples, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # OpenSpec format
 

@@ -12,30 +12,15 @@ metadata:
   new_state_step: "Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app); Deploy to the platform, acceptance, Cyber Security sign-off"
   department_names: ["deploy-appstore", "Manufacturing-App-Store-Ops", "container-deploy", "deploy-entrygate", "deploy-exitgate"]
   owner_role: human:jakob.gabriel
-  author: human:jakob.gabriel
   tags: [project-support-consultancy, practice, new-state, draft]
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-system-fit-check, od-decision-routing, od-acceptance-test, od-handover-and-adoption, it-demand-package, od-cybersec-gate]
-  derived_from:
-    - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 3a step "Deploy to platform + CS", the four 3a options and the gap register entry, read 2026-11-05
-    - ops-knowledge-graph/.../10-modules/smart-factory-use-case/systems-of-record.md
-    - ops-knowledge-graph/.../20-lanes/project-support-consultancy/skills.md
-    - ops-knowledge-graph/.../00-core/08-decision-rights.md
-    - Department deck AI_Where_We_Apply_Today.pptx (one slide; the line "Manufacturing App Store - GitOps deployment (pilot)"), text extracted and read 2026-11-05
-    - Department knowledge base Initiatives notes Manufacturing App Store (CMO), AI-Coding Assimilation, Cybersec Backlog Closure and AI Requirements Eng. Pipeline, read 2026-11-05
-    - Department knowledge base, Microservice Apps (WIP), the notes Microservice Landscape, Platform Extensibility and Onboarding, Cross-Cutting Platform Concerns, Platform Services (Shared Kernel), Recipe Values Service, User Interfaces and Interaction Layer and Extension Services, AI-drafted and not reviewed, read 2026-11-05
-    - Department knowledge base (Concept 3, IIoT Edge Computing Platform) and the skill od-equipment-integration reference iiot-edge-platform.md, read 2026-11-05
-    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: App deployment to the platform
     tags: [project-support-consultancy, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # App deployment to the platform

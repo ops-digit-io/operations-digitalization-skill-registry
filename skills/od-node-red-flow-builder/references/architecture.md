@@ -4,9 +4,7 @@ title: Architecture
 description: An illustrative canonical flow walked end to end, with placeholder values, so the shape of a real flow is concrete before you build one.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, architecture]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # A canonical flow, node by node
 

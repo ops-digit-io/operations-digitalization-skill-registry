@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the IT demand package is assembled at chain step 3a4 - the demand-management question list, the request flow, small change versus project routing, the supplier-built app and selection practice, commercial consistency check, decision phrasing, handoffs and agent notes.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - the demand package in the chain
 

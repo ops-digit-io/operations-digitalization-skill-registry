@@ -4,9 +4,7 @@ title: PLC packet
 description: "The protobuf message every datatroniq MQTT topic carries: its fields, the packed timestamp, the oneof, and the decoding traps."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, protobuf, mqtt]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The PLCPacket message
 

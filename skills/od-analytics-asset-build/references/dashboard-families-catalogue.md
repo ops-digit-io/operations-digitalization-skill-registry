@@ -4,9 +4,7 @@ title: Dashboard families catalogue
 description: How to find a dashboard family before building, the four sharing classes (central tool, parameterised template, same name different content, plant-specific), the family groups, and fourteen qualitative family cards listing what each shows, the signals it needs and the traps seen. Guidance only - no counts, plant tables or per-dashboard figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard families catalogue
 

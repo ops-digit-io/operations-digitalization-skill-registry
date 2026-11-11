@@ -4,11 +4,7 @@ title: Grounding and color coding
 description: "The honesty layer: four grounding tags rendered as colour-coded chips (A amber, M blue, ? red) on every figure of the eCR deck."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [capital-request, ecr, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ecr-builder.zip/reference/grounding-and-color-coding.md` (the master).
 

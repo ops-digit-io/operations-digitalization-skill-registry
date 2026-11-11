@@ -4,9 +4,7 @@ title: Signal binding sheet
 description: One row per signal that a dashboard or flow will read - the record that the Grafana exports show is missing today (unit, scale, value type, delta flag, consumers) - to be filled by the key user before a signal is bound.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, signals]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Signal binding sheet
 
