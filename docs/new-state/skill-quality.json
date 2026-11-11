@@ -25,8 +25,8 @@
   "D": 60,
   "F": 0
  },
- "mean": 89.9,
- "mean_core": 96.3,
+ "mean": 89.8,
+ "mean_core": 96.2,
  "skills": {
   "bc-assessment": {
    "score": 96.5,
@@ -348,11 +348,17 @@
    }
   },
   "it-demand-package": {
-   "score": 96.5,
+   "score": 95.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "573c007e543450dc",
+   "folder_hash": "87654193497cb4a4",
    "findings": [
+    {
+     "dimension": "efficiency",
+     "deduction": 10,
+     "message": "Deeply nested references in input-intake.md",
+     "suggestion": "Keep references one level deep from SKILL.md"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -370,9 +376,9 @@
     "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
-    "efficiency": 100.0
+    "efficiency": 90.0
    },
-   "default_score": 92.8
+   "default_score": 91.2
   },
   "od-acceptance-test": {
    "score": 96.5,
