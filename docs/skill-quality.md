@@ -29,7 +29,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 96.4)
+## Scores of the core skills (mean 96.3)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
@@ -48,7 +48,6 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
@@ -57,6 +56,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
+| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5218 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 94.0 | 90.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
 
 ## Where the points go
@@ -66,6 +66,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | SKILL_SPEC recommended field missing: 'metadata.author' | 25 of 25 | 5 |
 | SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
 | Description doesn't mention WHEN to use this skill | 1 of 25 | 10 |
+| Large skill (5218 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 25 | 15 |
 
 ## Sources
 

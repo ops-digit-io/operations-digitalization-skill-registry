@@ -26,6 +26,7 @@ Tick each line with the evidence (output, path or number). A line that does not 
 - [ ] `registry.yaml` entry added; `authority_level` equals the `SKILL.md`
 - [ ] `docs/new-state/process.yaml` placement (extension: proposed on a step or the spine)
 - [ ] README row and counts updated
+- [ ] Shipped files declared in `config/skill-deliverables.yaml` (`python scripts/skill_deliverables.py --draft`, review the diff); every file linked from `SKILL.md`
 - [ ] Generated pages regenerated (`build_okf_index.py`, `build_skill_map.py`, `build_new_state_skill_map.py`)
 
 ## Gates

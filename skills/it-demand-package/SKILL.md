@@ -69,8 +69,8 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 | [`references/it-expected-inputs.md`](references/it-expected-inputs.md) | What IT asked OD for on 2026-09-11, item by item, with the open IT actions that will firm each one |
 | [`assets/openspec/`](assets/openspec/) | The templates: `config.yaml` (project context for IT's repository) and `change/` (proposal, spec, design, tasks, `.openspec.yaml`, `handover.md`) |
 | `assets/example/` | An illustrative package (`*.example`; drop the suffix to use it) that passes this check and OpenSpec's own validator in strict mode; no figures |
-| `scripts/new_handover.py` | Scaffold a change folder from the templates |
-| `scripts/check_handover.py` | Check a package against OpenSpec's validation rules and the annex's blocking fields |
+| [`scripts/new_handover.py`](scripts/new_handover.py) | Scaffold a change folder from the templates |
+| [`scripts/check_handover.py`](scripts/check_handover.py) | Check a package against OpenSpec's validation rules and the annex's blocking fields |
 | [`references/it-demand-package/procedure.md`](references/it-demand-package/procedure.md) | Absorbed: the IT demand management package for the evaluation board (formerly `it-demand-package`) |
 | [`references/od-project-support-consultancy/procedure.md`](references/od-project-support-consultancy/procedure.md) | Absorbed: the retired Project Support & Application Consultancy lane, kept for its composed protocols |
 
@@ -169,3 +169,21 @@ If the check fails, fix the named file and run it again; the package is sent onl
 - Do not promise a delivery date; only a committed sprint or PI does that.
 - Do not treat "sent" as "accepted"; ownership moves only on formal acceptance.
 - Do not hand over a demand whose growth boundaries are not written down.
+
+## Templates and the worked example
+
+| File | Kind |
+|---|---|
+| [`assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example`](assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/design.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/design.md.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example) | Worked example (file of the example change) |
+| [`assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example`](assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example) | Worked example (file of the example change) |
+| [`assets/openspec/change/.openspec.yaml.tmpl`](assets/openspec/change/.openspec.yaml.tmpl) | Template |
+| [`assets/openspec/change/design.md.tmpl`](assets/openspec/change/design.md.tmpl) | Template |
+| [`assets/openspec/change/handover.md.tmpl`](assets/openspec/change/handover.md.tmpl) | Template |
+| [`assets/openspec/change/proposal.md.tmpl`](assets/openspec/change/proposal.md.tmpl) | Template |
+| [`assets/openspec/change/specs/capability/spec.md.tmpl`](assets/openspec/change/specs/capability/spec.md.tmpl) | Template |
+| [`assets/openspec/change/tasks.md.tmpl`](assets/openspec/change/tasks.md.tmpl) | Template |
+| [`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl) | Template |

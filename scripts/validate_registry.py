@@ -4,7 +4,8 @@
 Checks the things that silently rot: a skill folder with no registry entry, a
 registry entry with no folder, frontmatter that will not parse, a name that does
 not match its directory, a description too thin to trigger on, and a `requires` or
-`composes` reference to a skill that does not exist.
+`composes` reference to a skill that does not exist, and a skill whose shipped files no longer match
+config/skill-deliverables.yaml (see scripts/skill_deliverables.py).
 
     python3 scripts/validate_registry.py
 
@@ -25,6 +26,7 @@ except ImportError:  # pragma: no cover
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import skillpaths  # noqa: E402
+import skill_deliverables  # noqa: E402
 
 LIBRARIES = ("core", "extension")
 REGISTRY = ROOT / "registry.yaml"
@@ -213,6 +215,8 @@ def main() -> int:
                 fail(f"skill '{name}' has no quality rating in docs/new-state/skill-quality.json (run SkillEvaluator, then scripts/build_skill_quality.py)")
             elif rated[name].get("folder_hash") != skillpaths.folder_hash(name):
                 print(f"note: '{name}' changed since its quality rating; rerun the rating", file=sys.stderr)
+
+    skill_deliverables.check(fail)
 
     if errors:
         print(f"FAIL — {len(errors)} problem(s):\n", file=sys.stderr)
