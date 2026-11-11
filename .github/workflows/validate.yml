@@ -26,6 +26,13 @@ jobs:
           python3 scripts/build_skill_quality.py --check
       - name: Skills against the open Agent Skills specification (strict export must be valid)
         run: python3 scripts/agent_skills_spec.py --export dist/skills
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: The IT handover follows OpenSpec (real CLI, pinned release)
+        run: |
+          npm install -g @fission-ai/openspec@$(grep -o 'OPENSPEC_PINNED = "[^"]*"' skills/it-demand-package/scripts/check_handover.py | cut -d'"' -f2)
+          python3 scripts/check_openspec_conformance.py --require
       - name: Build the documentation site
         run: python3 scripts/build_site.py --out site --repo-url "${{ github.server_url }}/${{ github.repository }}"
       - uses: actions/upload-artifact@v4

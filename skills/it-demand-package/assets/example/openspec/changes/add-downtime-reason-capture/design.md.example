@@ -9,7 +9,7 @@ Stop reasons are written on paper and typed in later, if at all. The machines of
 **Goals:**
 - Complete, event-linked stop reasons for the shift review.
 
-**Non-Goals (growth boundaries):**
+**Non-Goals:**
 - No maintenance work orders, no OEE calculation, no production planning. Growth beyond this is a new demand.
 
 ## Decisions

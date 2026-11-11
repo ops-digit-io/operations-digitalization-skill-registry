@@ -71,7 +71,7 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 | [`assets/openspec/`](assets/openspec/) | The templates: `config.yaml` (project context for IT's repository) and `change/` (proposal, spec, design, tasks, `.openspec.yaml`, `handover.md`) |
 | `assets/example/` | An illustrative package (`*.example`; drop the suffix to use it) that passes this check and OpenSpec's own validator in strict mode; no figures |
 | [`scripts/new_handover.py`](scripts/new_handover.py) | Scaffold a change folder from the templates |
-| [`scripts/check_handover.py`](scripts/check_handover.py) | Check a package against OpenSpec's validation rules and the annex's blocking fields |
+| [`scripts/check_handover.py`](scripts/check_handover.py) | Run the OpenSpec CLI in strict mode on a package, then check the annex's blocking fields |
 | [`references/it-demand-package/procedure.md`](references/it-demand-package/procedure.md) | Absorbed: the IT demand management package for the evaluation board (formerly `it-demand-package`) |
 | [`references/od-project-support-consultancy/procedure.md`](references/od-project-support-consultancy/procedure.md) | Absorbed: the retired Project Support & Application Consultancy lane, kept for its composed protocols |
 
@@ -104,10 +104,10 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
    the approval status, the ownership terms. Unknown stays ⟨…⟩ with who supplies it.
 8. **Fill the project context** (`assets/openspec/config.yaml`) once per IT repository, if IT does not
    have one yet: stack, deployment, interfaces, guardrails, language rules.
-9. **Run the check**: `python3 scripts/check_handover.py <out-dir>/openspec/changes/<change-id>`. It mirrors
-   OpenSpec's validator in strict mode and adds the annex and the no-template rule; a package must report
-   READY. Where the OpenSpec CLI is installed, `openspec validate <change-id> --strict` is the same check
-   on IT's side (the example passed both, 2026-11-10).
+9. **Run the check**: `python3 scripts/check_handover.py <out-dir>/openspec/changes/<change-id>`. It runs the
+   real OpenSpec CLI (`openspec validate <change-id> --strict`, release 1.17.0) and fails without it, then adds
+   the annex and the no-template rule; a package must report READY. The repository's CI proves the worked
+   example and the templates against that CLI (`scripts/check_openspec_conformance.py`).
 10. **Hand over.** A human sends the package (pull request into IT's repository, or the demand board for
     3a.4 with the absorbed IT demand package). Record the demand as handed over, not accepted.
 11. **Ownership moves only on formal acceptance** (`od-handover-and-adoption`). Until IT or the developer

@@ -1,3 +1,5 @@
+# Spec Delta
+
 ## Purpose
 
 Let operators record why a machine stopped, at the moment it stops, so that stop reasons are complete, linked to the stop event and usable in the shift review.

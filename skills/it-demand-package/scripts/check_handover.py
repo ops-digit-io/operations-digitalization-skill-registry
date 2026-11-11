@@ -3,8 +3,10 @@
 
     python3 check_handover.py <path-to-openspec/changes/<change-id>> [--json]
 
-Mirrors the rules of OpenSpec's own validator (github.com/Fission-AI/OpenSpec,
-src/core/validation) so the package passes `openspec validate --strict` on IT's side:
+The authority is OpenSpec itself: this script runs `openspec validate <change> --strict` with the real CLI
+(github.com/Fission-AI/OpenSpec, pinned below) and fails if the CLI is missing or rejects the package. Set
+OPENSPEC_BIN to the CLI path if it is not on PATH. The offline checks that follow mirror a subset of its rules
+(src/core/validation) for fast feedback and for the OD annex:
 Why 50-1000 chars, What Changes non-empty, at least one delta, delta headers, SHALL/MUST in
 every requirement body, at least one '#### Scenario:' per requirement with WHEN/GIVEN and THEN,
 requirement text <= 500 chars, Purpose >= 50 chars for a new capability, kebab-case capability
@@ -13,7 +15,9 @@ handover.md filled (no open placeholder). Any open placeholder in the OpenSpec f
 IT must not receive a template. Exit 1 on any error or (strict) warning. Standard library only.
 """
 from __future__ import annotations
-import json, pathlib, re, sys
+import json, os, pathlib, re, shutil, subprocess, sys
+
+OPENSPEC_PINNED = "1.17.0"   # the OpenSpec release this skill follows (npm: @fission-ai/openspec)
 
 MIN_WHY, MAX_WHY, MIN_PURPOSE, MAX_REQ, MAX_DELTAS = 50, 1000, 50, 500, 10
 KEBAB = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -109,6 +113,33 @@ def check_annex(p: pathlib.Path) -> list[str]:
     return opened
 
 
+def run_openspec(change: pathlib.Path) -> None:
+    """The real OpenSpec validator, strict mode, is the authority; every message it prints is an error here."""
+    cli = os.environ.get("OPENSPEC_BIN") or shutil.which("openspec")
+    if not cli:
+        errors.append(f"OpenSpec CLI not found: install it (npm install -g @fission-ai/openspec@{OPENSPEC_PINNED}) or set "
+                      "OPENSPEC_BIN; without it the package is not validated by OpenSpec itself")
+        return
+    parents = change.resolve().parents
+    if parents[0].name != "changes" or parents[1].name != "openspec":
+        errors.append("the change must sit at <project>/openspec/changes/<change-id> for OpenSpec to validate it")
+        return
+    root = parents[2]
+    env = {**os.environ, "OPENSPEC_TELEMETRY": "0", "NO_COLOR": "1"}
+    try:
+        ver = subprocess.run([cli, "--version"], capture_output=True, text=True, env=env, timeout=60).stdout.strip()
+        if ver and ver != OPENSPEC_PINNED:
+            warnings.append(f"OpenSpec CLI is {ver}, this skill follows {OPENSPEC_PINNED}: re-check the package against {OPENSPEC_PINNED}")
+        r = subprocess.run([cli, "validate", change.name, "--type", "change", "--strict", "--no-interactive"],
+                           cwd=root, capture_output=True, text=True, env=env, timeout=120)
+    except (OSError, subprocess.TimeoutExpired) as e:
+        errors.append(f"OpenSpec CLI could not run: {e}")
+        return
+    if r.returncode != 0:
+        lines = [ln.strip() for ln in (r.stdout + r.stderr).splitlines() if ln.strip() and "usage stats" not in ln]
+        errors.append("openspec validate --strict rejected the package: " + " | ".join(lines)[:600])
+
+
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(args) != 1:
@@ -146,6 +177,7 @@ def main() -> int:
         fp = change / f
         if fp.exists() and PLACEHOLDER.search(fp.read_text(encoding="utf-8")):
             errors.append(f"{f}: still contains template placeholders - IT must not receive a template")
+    run_openspec(change)
     open_annex = check_annex(change / "handover.md")
     ready = not errors and not warnings
     if "--json" in sys.argv:
