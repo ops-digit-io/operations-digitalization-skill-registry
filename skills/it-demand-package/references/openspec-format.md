@@ -27,6 +27,16 @@ openspec/
     └── handover.md             OD annex (not an OpenSpec artefact; travels with the change)
 ```
 
+## Authority: OpenSpec itself
+
+This skill follows OpenSpec release **1.17.0** (github.com/Fission-AI/OpenSpec, npm `@fission-ai/openspec`). The
+OpenSpec CLI decides: `check_handover.py` runs `openspec validate <change-id> --strict` and fails if the CLI is
+missing, rejects the package, or is another release (re-check the package against the new release). The templates
+under `assets/openspec/` keep OpenSpec's own headings (`# Proposal`, `# Spec Delta`, `# Design`, `# Tasks`;
+`**Goals:**` and `**Non-Goals:**`). The table below is a summary, not the full rule set: OpenSpec also rejects, for
+example, a task numbered into the wrong group and a duplicated task id. To move to a newer OpenSpec release, change
+`OPENSPEC_PINNED` in `scripts/check_handover.py` and run `python3 scripts/check_openspec_conformance.py --require`.
+
 ## Rules the check enforces (from OpenSpec's validator)
 
 | Rule | Level |
