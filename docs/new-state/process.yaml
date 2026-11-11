@@ -173,6 +173,43 @@ lanes:
       - deploy-it-demand
       proposed:
       - deploy-project-order
+      substeps:   # 3a.3 and 3a.4: the IT demand follows the OpenSpec workflow; openspec = OpenSpec's own skills (inside deploy-it-demand)
+      - id: '3a4.1'
+        title: Explore + collect inputs
+        owner: OD
+        text: "Clarify the demand; collect every input, including the user's own files, into the change's attachments."
+        skills: [deploy-it-demand]
+        openspec: [openspec-explore]
+      - id: '3a4.2'
+        title: Propose the change
+        owner: OD
+        text: "OpenSpec writes proposal, specs, design and tasks in the OD store, with OD's context and rules."
+        skills: []
+        openspec: [openspec-propose, openspec-new-change, openspec-continue-change, openspec-ff-change]
+      - id: '3a4.3'
+        title: Validate + hand over
+        owner: OD
+        text: "Add the OD annex, run the check until READY, hand the change over from the OD store."
+        skills: [deploy-it-demand]
+        openspec: [openspec-update-change]
+      - id: '3a4.4'
+        title: Apply
+        owner: IT / Ext
+        text: "IT or the external developer implements the tasks."
+        skills: []
+        openspec: [openspec-apply-change]
+      - id: '3a4.5'
+        title: Verify
+        owner: IT / Ext
+        text: "The implementation is checked against the change before archive."
+        skills: []
+        openspec: [openspec-verify-change]
+      - id: '3a4.6'
+        title: Archive + sync specs
+        owner: IT
+        text: "The finished change is folded into the main specs."
+        skills: []
+        openspec: [openspec-archive-change, openspec-bulk-archive-change, openspec-sync-specs]
       options:
       - id: 3a.1
         owner: OD + Ext

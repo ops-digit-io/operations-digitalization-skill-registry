@@ -42,6 +42,17 @@ flowchart TD
         D2 -.->|~wks| D3["Business case + capital<br/><i>bc-build, bc-capital-request</i>"]
         D3 -->|3a.1 reuse app · 3a.2 self dev<br/>3a.3 external dev · 3a.4 integrate via IT-CS| E1["Package / build<br/><i>deploy-it-demand</i>"]
         E1 -.->|CS ~wks| E2["Deploy to platform + CS<br/><i>deploy-appstore</i>"]
+        E1 -.->|3a.3 · 3a.4: IT demand via OpenSpec| OS1
+        subgraph OSPEC [IT demand via OpenSpec · OpenSpec skills inside deploy-it-demand]
+            direction LR
+            OS1["3a4.1 Explore + collect inputs (OD)<br/><i>openspec-explore, deploy-it-demand</i>"]
+            OS2["3a4.2 Propose the change (OD)<br/><i>openspec-propose, openspec-new-change, openspec-continue-change, openspec-ff-change</i>"]
+            OS3["3a4.3 Validate + hand over (OD)<br/><i>openspec-update-change, deploy-it-demand</i>"]
+            OS4["3a4.4 Apply (IT / Ext)<br/><i>openspec-apply-change</i>"]
+            OS5["3a4.5 Verify (IT / Ext)<br/><i>openspec-verify-change</i>"]
+            OS6["3a4.6 Archive + sync specs (IT)<br/><i>openspec-archive-change, openspec-bulk-archive-change, openspec-sync-specs</i>"]
+            OS1 --> OS2 --> OS3 --> OS4 --> OS5 --> OS6
+        end
         E2 --> E3["Rollout & adopt<br/><i>deploy-handover</i>"]
         E3 --> L3AEND(((Live)))
         D3 -->|3b new connector| F1["Connector + pipeline to MDL<br/><i>mi-equipment, mi-signals, mi-flow</i>"]

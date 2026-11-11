@@ -26,5 +26,5 @@ not done until the package passes its check, a human has sent it and the demand 
 
 - **Also receives from:** `dept-governance`: Routed demand.
 - **Receives from:** `funnel-requirements` (requirement with growth boundaries), `invest-screen` (gate verdict Go or PoC-first, and route), `bc-build` and `bc-cost` (business case and investment estimate), `bc-capital-request` and `dept-decision-rights` (approval route).
-- **Next in the flow:** IT or the external developer builds from the package (steps 3a.3 and 3a.4 in `process.yaml`); `deploy-appstore` (steps 3a.1, 3a.2, 3a5) takes the built app to the platform; `deploy-handover` (step 3a6) moves ownership only on formal acceptance.
+- **Next in the flow:** sub-steps 3a4.4 to 3a4.6 of `process.yaml`: IT or the external developer applies, verifies and archives the change with OpenSpec's skills; `deploy-appstore` (steps 3a.1, 3a.2, 3a5) takes the built app to the platform; `deploy-handover` (step 3a6) moves ownership only on formal acceptance.
 - **Stops here when:** any front-end part is missing (name it and stop), the demand has no written growth boundaries, or the check does not report READY. A human sends the package; the agent never sends it and never marks an acceptance as given.

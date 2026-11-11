@@ -74,6 +74,13 @@
   .chip.gap{background:var(--gap-bg);color:var(--gap);border:1px dashed #c7c7c7;}
 /* quality rating: a grade and a score per skill, filled in when the site is built (scripts/build_site.py) */
 a.chip{text-decoration:none;}
+  .node .sub{margin-top:3px;border-top:1px dashed var(--g6);padding-top:3px;}
+  .node .subh{font-size:8px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--g3);}
+  .node .sub ul{margin:2px 0 0;padding-left:0;list-style:none;font-size:8.6px;color:var(--navy);}
+  .node .sub li{margin:2px 0;line-height:1.25;}
+  .node .sub em{font-style:normal;font-weight:700;font-size:7.6px;color:var(--g3);margin-right:3px;}
+  .chip.ext{background:#eef2f7;color:#34495e;border:1px dashed #9aa7b5;}
+  .node .odpart{font-size:7.6px;font-weight:700;color:var(--g3);margin-left:3px;}
 .chip .qs{margin-left:5px;font-weight:700;}
 .chip.q0{background:var(--gap-bg);color:var(--gap);border:1px dashed #c7c7c7;}
 .chip.qA,.chip.qB{background:var(--built-bg);color:var(--built);}
@@ -261,7 +268,7 @@ a.chip{text-decoration:none;}
         <div class="brow">
           <div class="btag">3a<span>new system</span></div>
           <div class="track">
-            <div class="node q0"><span class="state"></span><div class="t">Package / build</div><span class="chip q0">deploy-it-demand</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Package / build</div><span class="chip q0">deploy-it-demand</span><div class="sub"><div class="subh">3a.3 · 3a.4: IT demand via OpenSpec</div><ul><li><b>1 Explore + collect inputs</b> <em>OD</em><span class="chip ext">openspec-explore</span><span class="odpart">+ OD part</span></li><li><b>2 Propose the change</b> <em>OD</em><span class="chip ext">openspec-propose</span><span class="chip ext">openspec-new-change</span><span class="chip ext">openspec-continue-change</span><span class="chip ext">openspec-ff-change</span></li><li><b>3 Validate + hand over</b> <em>OD</em><span class="chip ext">openspec-update-change</span><span class="odpart">+ OD part</span></li><li><b>4 Apply</b> <em>IT / Ext</em><span class="chip ext">openspec-apply-change</span></li><li><b>5 Verify</b> <em>IT / Ext</em><span class="chip ext">openspec-verify-change</span></li><li><b>6 Archive + sync specs</b> <em>IT</em><span class="chip ext">openspec-archive-change</span><span class="chip ext">openspec-bulk-archive-change</span><span class="chip ext">openspec-sync-specs</span></li></ul></div></div>
             <div class="arr wait"><span class="wlab">CS ~wks</span></div>
             <div class="node q0"><span class="state"></span><div class="t">Deploy to platform + CS</div><span class="chip q0">deploy-appstore</span></div>
             <div class="arr"></div>

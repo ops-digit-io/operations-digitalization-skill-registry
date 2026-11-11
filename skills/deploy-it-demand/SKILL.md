@@ -1,14 +1,14 @@
 ---
 name: deploy-it-demand
 description: >-
-  Hand a cleared Lane 3 demand to IT or an outside developer as an OpenSpec change package plus OD handover annex. Not for requirements (funnel-requirements) or tool choice (invest-screen).
+  OD part of the IT demand, which follows OpenSpec (step 3a4): collect every input, add the OD annex, check and hand over. Not for writing the OpenSpec change (OpenSpec's skills) or requirements.
 license: MIT
 metadata:
   id: deploy-it-demand
   aliases: [it-demand-package]   # former name (naming convention, 2026-11-11)
   tier: practice
   lane: lane-3
-  new_state_lane: "Lane 3a (3a.3, 3a.4); hand-off at the end of the Lane 3 front-end (step 3)"
+  new_state_lane: "Lane 3a, step 3a4 (routes 3a.3, 3a.4): sub-steps 3a4.1 and 3a4.3 of the OpenSpec process"
   new_state_step: "3a.3 New codebase (external dev); 3a.4 Integrate a foreign app; front-end step 3 hand off once demand is clear"
   department_names: ["deploy-it-demand"]
   owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
@@ -40,13 +40,20 @@ tooling is a cleaner handover than a slide deck.
 
 ## Purpose
 
-Turns a clear Lane 3 demand into an OpenSpec change package plus the OD handover annex, so IT or an external developer can take over the build. Use it after requirements, the tool-decision gate and the business case are done, and when someone asks what IT needs from OD.
+The IT demand follows the OpenSpec process, modelled as the sub-steps of step 3a4 *Package / build* in the process
+flow (`docs/new-state/process.yaml`): explore, propose, validate and hand over (OD), then apply, verify and archive (IT).
+OpenSpec's own skills do every OpenSpec stage. This skill carries only what OpenSpec has no place for: every input the
+user brings, the OD annex IT asked for, OD's context and rules for the store, and the check before hand-over. It also
+carries the OpenSpec copy the stages use ([`references/openspec/VENDORED.md`](references/openspec/VENDORED.md)).
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 
-- **In:** the front-end results named in step 2 of the Procedure (requirement with growth boundaries, gate verdict and route, business case and investment estimate, approval route), plus every file or note the user adds: PDF, Excel, images, slides, mails, exports, links. All of it is collected in step 1, read, and registered.
-- **Out:** `openspec/changes/<change-id>/` with the OpenSpec files and `handover.md`, and the check output (see Output below).
+- **In:** the front-end results (requirement with growth boundaries, gate verdict and route, business case and
+  investment estimate, approval route), plus every file or note the user adds: PDF, Excel, images, slides, mails,
+  exports, links.
+- **Out:** the OD part of the change in the OD store: `attachments/` with the register, `handover.md` (the annex), OD's
+  `config.yaml`, and the check output. The OpenSpec files are written by OpenSpec's skills in sub-step 3a4.2.
 
 ## The rule it serves
 
@@ -54,14 +61,23 @@ Turns a clear Lane 3 demand into an OpenSpec change package plus the OD handover
 pushed to IT or an external developer (department Lane 3, error paths). "Clear" is tested, not felt: the
 package passes `scripts/check_handover.py` with no errors and no open blocking field.
 
-## Where the flow puts it
+## Where the flow puts it: the OpenSpec process in step 3a4
 
-| Where | Step | Route |
-|---|---|---|
-| Lane 3 front-end, end of step 3 | Business case & capital request: hand off once demand is clear | After requirements engineering (1) and the tool-decision / IT-footprint gate (2) |
-| Lane 3a | 3a.3 external build (guided buy); 3a.4 integrate a foreign app | IT, Cyber Security gated |
-| Lane 3a | 3a.1 / 3a.2, when IT must run what OD or externals deploy | Ownership terms of the annex; deploy with `deploy-appstore` |
-| Lane 2 → 3 | A new use case that needs software chains here through the front-end | — |
+Routes 3a.3 (external build) and 3a.4 (integrate a foreign app) run step 3a4 as six sub-steps. OD acts on the first
+three, IT or the external developer on the last three. The OpenSpec skills are carried unchanged in this skill.
+
+| Sub-step | Who | OpenSpec skill | This skill's part |
+|---|---|---|---|
+| 3a4.1 Explore + collect inputs | OD | [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) | Procedure steps 1 to 3: inputs, front-end check, store |
+| 3a4.2 Propose the change | OD | [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md), or [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md) + [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md), [`openspec-ff-change`](references/openspec/skills/openspec-ff-change/SKILL.md) | None: OpenSpec writes proposal, specs, design and tasks with OD's rules |
+| 3a4.3 Validate + hand over | OD | [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md) for fixes | Procedure steps 4 to 6: annex, check, hand-over |
+| 3a4.4 Apply | IT / Ext | [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md) | None |
+| 3a4.5 Verify | IT / Ext | [`openspec-verify-change`](references/openspec/skills/openspec-verify-change/SKILL.md) | None |
+| 3a4.6 Archive + sync specs | IT | [`openspec-archive-change`](references/openspec/skills/openspec-archive-change/SKILL.md), [`openspec-bulk-archive-change`](references/openspec/skills/openspec-bulk-archive-change/SKILL.md), [`openspec-sync-specs`](references/openspec/skills/openspec-sync-specs/SKILL.md) | None; ownership moves on formal acceptance (`deploy-handover`) |
+
+[`openspec-onboard`](references/openspec/skills/openspec-onboard/SKILL.md) teaches the workflow once. Without the
+OpenSpec CLI (Claude Cowork), run these skills as described in
+[`references/openspec-without-cli.md`](references/openspec-without-cli.md).
 
 ## The references
 
@@ -83,75 +99,47 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 
 ## Procedure
 
+The OD part, by sub-step. Hand off only once the demand is clear.
+
+**3a4.1 Explore + collect inputs**
 1. **Collect every input first** ([`references/input-intake.md`](references/input-intake.md)). Show the user the twelve
-   expected inputs as a checklist (known, partly known, missing) and ask for each gap. Invite any further material,
-   in any form: PDF, Excel or CSV, Word or slides, images and screenshots, mails, exports, links. Repeat "anything
-   else?" until the answer is no. Read every file completely, by its type; ask who may see it. Copy each file to
-   `attachments/` in the change folder and register it in section 14 of `handover.md`. Nothing provided is dropped and
-   nothing is filled in that no input supports.
-2. **Check the front-end is complete.** Requirement with growth boundaries (`funnel-requirements`),
-   gate verdict and route (`invest-screen`, verdict Go or PoC-first), business case and investment
-   estimate (`bc-build`, `bc-cost`), approval route (`bc-capital-request`,
-   `dept-decision-rights`). If a part is missing, name it and stop.
-3. **Work in the OD store, with skills only.** OD drafts every change in its own OpenSpec store: a folder (a Git
-   repository) that holds `openspec/`. In Claude Cowork, open that folder. No OpenSpec CLI is needed: wherever an
-   OpenSpec skill calls `openspec ...`, use the replacement in
-   [`references/openspec-without-cli.md`](references/openspec-without-cli.md) (`scripts/openspec_offline.py` answers
-   `new change`, `instructions` and `status` from the OpenSpec copy in this skill). The store's `openspec/config.yaml`
-   carries OD's context and rules ([`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl)); they reach
-   every artifact through `instructions`.
-4. **Create the change with OpenSpec's own skills, never by hand.** Follow
-   [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md) to create the change and all its
-   artifacts in one pass, or [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md) and then
-   [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md) for one reviewed
-   artifact at a time; [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) first when the
-   demand is still unclear. The change itself starts with `python3 scripts/openspec_offline.py new <store>
-   <change-id>`. Give the skills the inputs from step 1 and the front-end results; which OD result feeds which
-   artifact is in [`openspec-format.md`](references/openspec-format.md). The change id is kebab-case and names the
-   change (`add-downtime-reason-capture`), not the project. Later edits go through
-   [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md).
-5. **Add the OD part**: `python3 scripts/new_handover.py <store>/openspec/changes/<change-id> --with-config`. It adds
-   `handover.md` (the OD annex, not part of OpenSpec) and `attachments/`, and writes OD's `config.yaml` where the store
-   has only OpenSpec's default. Copy the user's files into `attachments/` and fill the annex: every input IT asked for
+   expected inputs as a checklist and ask for each gap; invite any further material in any form (PDF, Excel or CSV,
+   Word or slides, images and screenshots, mails, exports, links) until the user says there is nothing else. Read every
+   file by its type and ask who may see it. Use [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md)
+   when the demand itself is still unclear.
+2. **Check the front-end is complete.** Requirement with growth boundaries (`funnel-requirements`), gate verdict and
+   route (`invest-screen`, verdict Go or PoC-first), business case and investment estimate (`bc-build`, `bc-cost`),
+   approval route (`bc-capital-request`, `dept-decision-rights`). If a part is missing, name it and stop.
+3. **Open the OD store.** A folder (Git repository) with `openspec/`; OD's context and rules sit in its
+   `openspec/config.yaml` ([`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl)). Start the change
+   with `python3 scripts/openspec_offline.py new <store> <change-id>` (or `openspec new change` where the CLI exists),
+   then `python3 scripts/new_handover.py <store>/openspec/changes/<change-id> --with-config`, which adds `handover.md`
+   and `attachments/` and writes OD's config where the store has only OpenSpec's default. Copy the user's files into
+   `attachments/` and register each in section 14 of `handover.md`.
+
+**3a4.2 Propose the change** is OpenSpec's: follow its skill (table above). Feed it the inputs and the front-end results;
+which OD result feeds which artifact is in [`openspec-format.md`](references/openspec-format.md). Do not write the
+OpenSpec files by hand.
+
+**3a4.3 Validate + hand over**
+4. **Fill the annex** (`handover.md`): every input IT asked for
    ([`references/it-expected-inputs.md`](references/it-expected-inputs.md)), the business case summary, the approval
    status, the ownership terms and the register of every input (section 14). Unknown stays ⟨…⟩ with who supplies it.
-6. **Run the check**: `python3 scripts/check_handover.py <store>/openspec/changes/<change-id>`. It needs no OpenSpec
-   CLI: it applies OpenSpec 1.17.0's validation rules offline, then checks the annex, the attachments and the
-   no-template rule; a package must report READY. Where the CLI happens to be installed it also runs
-   `openspec validate --strict`. CI proves that the offline answers and the offline check match the real CLI and that
-   the OpenSpec copy equals the release (`scripts/check_openspec_conformance.py`, `scripts/sync_openspec_vendor.py`).
-7. **Hand over.** A human commits and pushes the change in the OD store and opens a pull request there for review. IT
-   reads the change folder from the store (with the CLI: `openspec show <change-id> --store <od-store>`, or the store
-   under `references:` in its repository's `openspec/config.yaml`) and can run `openspec validate --strict` on it. For 3a.4 the absorbed IT demand package goes to the demand board as well.
-   Record the demand as handed over, not accepted.
-8. **IT builds with OpenSpec's skills, not OD.** IT implements with
-   [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md), checks the result with
-   [`openspec-verify-change`](references/openspec/skills/openspec-verify-change/SKILL.md) and closes with
-   [`openspec-archive-change`](references/openspec/skills/openspec-archive-change/SKILL.md) or
-   [`openspec-sync-specs`](references/openspec/skills/openspec-sync-specs/SKILL.md). OD does not run these.
-9. **Ownership moves only on formal acceptance** (`deploy-handover`). Until IT or the developer
-   accepts, OD remains the owner of the demand. Do not pass a delivery date to the plant until a team has
-   committed the work in sprint or PI planning.
+5. **Run the check**: `python3 scripts/check_handover.py <store>/openspec/changes/<change-id>`. It applies OpenSpec
+   1.17.0's validation rules offline (and `openspec validate --strict` where the CLI is installed), then checks the
+   annex, the attachments and the no-template rule. Fix through
+   [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md) until it reports READY.
+6. **Hand over.** A human commits and pushes the change in the OD store and opens a pull request there; IT reads it
+   from the store. For 3a.4 the absorbed IT demand package goes to the demand board as well. Record the demand as
+   handed over, not accepted.
 
-## OpenSpec skills in this handover
-
-| OpenSpec skill | Who | When |
-|---|---|---|
-| [`openspec-onboard`](references/openspec/skills/openspec-onboard/SKILL.md) | OD, once | Learning the OpenSpec workflow |
-| [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) | OD | Clarifying a demand before the change exists |
-| [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md) | OD | Creating the change and all artifacts in one pass (step 4) |
-| [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md), [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md), [`openspec-ff-change`](references/openspec/skills/openspec-ff-change/SKILL.md) | OD | Creating the change artifact by artifact, or fast-forwarding the rest (step 4) |
-| [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md) | OD | Changing artifacts after review or new inputs |
-| [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md) | IT | Implementing the tasks (step 8) |
-| [`openspec-verify-change`](references/openspec/skills/openspec-verify-change/SKILL.md) | IT | Checking the implementation against the change before archive |
-| [`openspec-archive-change`](references/openspec/skills/openspec-archive-change/SKILL.md), [`openspec-bulk-archive-change`](references/openspec/skills/openspec-bulk-archive-change/SKILL.md), [`openspec-sync-specs`](references/openspec/skills/openspec-sync-specs/SKILL.md) | IT | Folding the finished change into the main specs |
+**3a4.4 to 3a4.6** are IT's, with OpenSpec's skills. Ownership moves only on formal acceptance (`deploy-handover`);
+until then OD owns the demand. Do not pass a delivery date to the plant before a team has committed the work.
 
 ## Output
 
-`<od-store>/openspec/changes/<change-id>/` as OpenSpec's skills write it (`.openspec.yaml`, `proposal.md`,
-`specs/<capability>/spec.md`, `design.md`, `tasks.md`), plus OD's `handover.md` and the user's files under
-`attachments/` (each registered in section 14 of `handover.md`); OD's `config.yaml` in the store; the check output
-attached.
+The OD part of `<od-store>/openspec/changes/<change-id>/`: `handover.md` and `attachments/` with the register, OD's
+`config.yaml` in the store, and the check output. The OpenSpec files beside them are written by OpenSpec's skills.
 
 ## Definition of done
 
