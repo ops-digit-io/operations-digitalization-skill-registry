@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Check an OD handover package: OpenSpec validation rules (strict) plus the OD annex.
 
-    python3 check_handover.py <path-to-openspec/changes/<change-id>> [--json]
+    python3 check_handover.py <path-to-openspec/changes/<change-id>> [--json] [--require-cli]
 
-The authority is OpenSpec itself: this script runs `openspec validate <change> --strict` with the real CLI
-(github.com/Fission-AI/OpenSpec, pinned below) and fails if the CLI is missing or rejects the package. Set
-OPENSPEC_BIN to the CLI path if it is not on PATH. The offline checks that follow mirror a subset of its rules
-(src/core/validation) for fast feedback and for the OD annex:
+Works without the OpenSpec CLI (Claude Cowork and other skills-only setups): the offline rules below follow
+OpenSpec's validator (github.com/Fission-AI/OpenSpec, src/core/validation, release pinned below), and the
+repository's CI proves on a set of broken packages that nothing OpenSpec rejects in strict mode passes them
+(scripts/check_openspec_conformance.py). Where the CLI is installed (OPENSPEC_BIN or PATH), it also runs
+`openspec validate <change> --strict` and any rejection is an error; --require-cli makes a missing CLI an error.
+The offline rules:
 Why 50-1000 chars, What Changes non-empty, at least one delta, delta headers, SHALL/MUST in
 every requirement body, at least one '#### Scenario:' per requirement with WHEN/GIVEN and THEN,
 requirement text <= 500 chars, Purpose >= 50 chars for a new capability, kebab-case capability
@@ -27,6 +29,7 @@ DELTA_HDR = re.compile(r"^## (ADDED|MODIFIED|REMOVED|RENAMED) Requirements\s*$",
 
 errors: list[str] = []
 warnings: list[str] = []
+notes: list[str] = []
 
 
 def section(text: str, title: str) -> str | None:
@@ -63,6 +66,20 @@ def check_spec(p: pathlib.Path, rel: str) -> int:
     reqs = re.split(r"^### Requirement:", t, flags=re.M)[1:]
     if not reqs:
         errors.append(f"{rel}: delta has no '### Requirement:' blocks")
+    # OpenSpec: a requirement outside the four delta sections is ignored (an error under another '## ... Requirements')
+    current = None
+    for line in t.splitlines():
+        h2 = re.match(r"^## (.+?)\s*$", line)
+        if h2:
+            current = h2.group(1)
+            continue
+        if line.startswith("### Requirement:") and not re.fullmatch(r"(ADDED|MODIFIED|REMOVED|RENAMED) Requirements", current or ""):
+            where = f"under '## {current}'" if current else "above the first '## ' section"
+            (errors if current and current.endswith("Requirements") else warnings).append(
+                f"{rel}: requirement '{line[16:].strip()}' is {where}, not in a delta section, so OpenSpec ignores it")
+    names = [b.partition("\n")[0].strip().lower() for b in reqs]
+    for dup in sorted({n for n in names if names.count(n) > 1}):
+        errors.append(f"{rel}: requirement '{dup}' appears twice")
     for block in reqs:
         name, _, body = block.partition("\n")
         name = name.strip() or "(unnamed)"
@@ -92,12 +109,29 @@ def check_spec(p: pathlib.Path, rel: str) -> int:
 def check_tasks(p: pathlib.Path) -> None:
     if not p.exists():
         errors.append("tasks.md is missing"); return
-    items = re.findall(r"^- \[[ xX]\] (\S+)", p.read_text(encoding="utf-8"), re.M)
+    text = p.read_text(encoding="utf-8")
+    items = re.findall(r"^- \[[ xX]\] (\S+)", text, re.M)
     if not items:
         errors.append("tasks.md: no checkbox tasks ('- [ ] 1.1 ...')")
     for n in items:
         if not re.match(r"^\d+\.\d+$", n):
             errors.append(f"tasks.md: task number '{n}' is not 'group.item'")
+    # OpenSpec (validation/task-numbering.ts): a task's leading number names its '## N.' group; an id is used once
+    group, seen = None, set()
+    for line in text.splitlines():
+        if re.match(r"^ {0,3}##(?!#)", line):
+            m = re.match(r"^ {0,3}##[ \t]+(\d+)\.(?:[ \t]|$)", line)
+            group = (m.group(1).lstrip("0") or "0") if m else None
+            continue
+        m = re.match(r"^\s*[-*+]\s+\[[ xX]\]\s+(\d+(?:\.\d+)+[A-Za-z]*)(?=\s|$)", line)
+        if not m or group is None:
+            continue
+        tid = m.group(1)
+        if (tid.split(".")[0].lstrip("0") or "0") != group:
+            warnings.append(f"tasks.md: task '{tid}' is under group {group} but its number points to group {tid.split('.')[0]}")
+        if tid in seen:
+            warnings.append(f"tasks.md: task id '{tid}' is used twice")
+        seen.add(tid)
 
 
 def check_annex(p: pathlib.Path) -> list[str]:
@@ -179,8 +213,10 @@ def run_openspec(change: pathlib.Path) -> None:
     """The real OpenSpec validator, strict mode, is the authority; every message it prints is an error here."""
     cli = os.environ.get("OPENSPEC_BIN") or shutil.which("openspec")
     if not cli:
-        errors.append(f"OpenSpec CLI not found: install it (npm install -g @fission-ai/openspec@{OPENSPEC_PINNED}) or set "
-                      "OPENSPEC_BIN; without it the package is not validated by OpenSpec itself")
+        if "--require-cli" in sys.argv:
+            errors.append(f"OpenSpec CLI not found (npm install -g @fission-ai/openspec@{OPENSPEC_PINNED}, or set OPENSPEC_BIN)")
+        else:
+            notes.append(f"checked offline against OpenSpec {OPENSPEC_PINNED}'s rules (no OpenSpec CLI here; none needed)")
         return
     parents = change.resolve().parents
     if parents[0].name != "changes" or parents[1].name != "openspec":
@@ -222,8 +258,12 @@ def main() -> int:
             errors.append(".openspec.yaml: skip_specs is not allowed for an OD handover (it must carry specs)")
     check_proposal(change / "proposal.md")
     deltas = 0
+    if (change / "specs" / "spec.md").is_file():
+        errors.append("specs/spec.md: a delta spec must live under a capability path (specs/<capability>/spec.md)")
     for spec in sorted((change / "specs").rglob("spec.md")) if (change / "specs").is_dir() else []:
         rel = spec.relative_to(change).as_posix()
+        if rel == "specs/spec.md":
+            continue
         for seg in spec.parent.relative_to(change / "specs").parts:
             if not KEBAB.match(seg):
                 errors.append(f"{rel}: capability path segment '{seg}' is not kebab-case")
@@ -245,8 +285,9 @@ def main() -> int:
     ready = not errors and not warnings
     if "--json" in sys.argv:
         print(json.dumps({"change": change.name, "ready": ready, "errors": errors, "warnings": warnings,
-                          "open_non_blocking": open_annex}, indent=2))
+                          "open_non_blocking": open_annex, "notes": notes}, indent=2))
     else:
+        for n in notes: print("NOTE   ", n)
         for e in errors: print("ERROR  ", e)
         for w in warnings: print("WARN   ", w)
         for o in open_annex: print("OPEN   ", f"annex section {o} (non-blocking, list it under open items)")

@@ -67,6 +67,8 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
 | File | Use it for |
 |---|---|
 | [`references/openspec-format.md`](references/openspec-format.md) | The OpenSpec rules this package must meet, and which OD skill fills which artefact |
+| [`references/openspec-without-cli.md`](references/openspec-without-cli.md) | Running OpenSpec's skills with no OpenSpec CLI (Claude Cowork): each CLI command they call and its replacement |
+| [`scripts/openspec_offline.py`](scripts/openspec_offline.py) | `new change`, `instructions` and `status` without the CLI, from the OpenSpec copy in this skill |
 | [`references/input-intake.md`](references/input-intake.md) | How to collect every input, including the user's own files (PDF, Excel, images, slides, mails), read each by type, register it and trace it |
 | [`references/it-expected-inputs.md`](references/it-expected-inputs.md) | What IT asked OD for on 2026-09-11, item by item, with the open IT actions that will firm each one |
 | [`references/openspec/VENDORED.md`](references/openspec/VENDORED.md) | OpenSpec 1.17.0 as its authors ship it: the agent skills (`openspec-propose`, `openspec-new-change`, `openspec-continue-change`, `openspec-apply-change`, ...), the spec-driven schema and templates, the docs including the store guide. Unchanged; this skill follows them |
@@ -90,18 +92,20 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
    gate verdict and route (`od-system-fit-check`, verdict Go or PoC-first), business case and investment
    estimate (`od-benefit-calculation`, `od-investment-input`), approval route (`od-capital-request`,
    `od-decision-routing`). If a part is missing, name it and stop.
-3. **Work in the OD store.** OD drafts every change in its own OpenSpec store (a Git repository) and hands it over
-   from there ([`store guide`](references/openspec/docs/stores-beta/user-guide.md)). Once per machine a human clones
-   it and runs `openspec store register <path>`; the very first time, `openspec store setup <od-store> --path <path>
-   --remote <repository URL>`. The store's `openspec/config.yaml` carries OD's context and rules
-   ([`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl)); OpenSpec passes them to its skills for
-   every artifact. All OpenSpec commands below take `--store <od-store>`.
+3. **Work in the OD store, with skills only.** OD drafts every change in its own OpenSpec store: a folder (a Git
+   repository) that holds `openspec/`. In Claude Cowork, open that folder. No OpenSpec CLI is needed: wherever an
+   OpenSpec skill calls `openspec ...`, use the replacement in
+   [`references/openspec-without-cli.md`](references/openspec-without-cli.md) (`scripts/openspec_offline.py` answers
+   `new change`, `instructions` and `status` from the OpenSpec copy in this skill). The store's `openspec/config.yaml`
+   carries OD's context and rules ([`assets/openspec/config.yaml.tmpl`](assets/openspec/config.yaml.tmpl)); they reach
+   every artifact through `instructions`.
 4. **Create the change with OpenSpec's own skills, never by hand.** Follow
    [`openspec-propose`](references/openspec/skills/openspec-propose/SKILL.md) to create the change and all its
    artifacts in one pass, or [`openspec-new-change`](references/openspec/skills/openspec-new-change/SKILL.md) and then
    [`openspec-continue-change`](references/openspec/skills/openspec-continue-change/SKILL.md) for one reviewed
    artifact at a time; [`openspec-explore`](references/openspec/skills/openspec-explore/SKILL.md) first when the
-   demand is still unclear. Give them the inputs from step 1 and the front-end results; which OD result feeds which
+   demand is still unclear. The change itself starts with `python3 scripts/openspec_offline.py new <store>
+   <change-id>`. Give the skills the inputs from step 1 and the front-end results; which OD result feeds which
    artifact is in [`openspec-format.md`](references/openspec-format.md). The change id is kebab-case and names the
    change (`add-downtime-reason-capture`), not the project. Later edits go through
    [`openspec-update-change`](references/openspec/skills/openspec-update-change/SKILL.md).
@@ -110,14 +114,14 @@ package passes `scripts/check_handover.py` with no errors and no open blocking f
    has only OpenSpec's default. Copy the user's files into `attachments/` and fill the annex: every input IT asked for
    ([`references/it-expected-inputs.md`](references/it-expected-inputs.md)), the business case summary, the approval
    status, the ownership terms and the register of every input (section 14). Unknown stays ⟨…⟩ with who supplies it.
-6. **Run the check**: `python3 scripts/check_handover.py <store>/openspec/changes/<change-id>`. It runs the real
-   OpenSpec CLI (`openspec validate <change-id> --strict`, release 1.17.0) and fails without it, then checks the annex,
-   the attachments and the no-template rule; a package must report READY. CI proves the worked example, the OD part
-   and the OpenSpec copy against that release (`scripts/check_openspec_conformance.py`,
-   `scripts/sync_openspec_vendor.py --check`).
+6. **Run the check**: `python3 scripts/check_handover.py <store>/openspec/changes/<change-id>`. It needs no OpenSpec
+   CLI: it applies OpenSpec 1.17.0's validation rules offline, then checks the annex, the attachments and the
+   no-template rule; a package must report READY. Where the CLI happens to be installed it also runs
+   `openspec validate --strict`. CI proves that the offline answers and the offline check match the real CLI and that
+   the OpenSpec copy equals the release (`scripts/check_openspec_conformance.py`, `scripts/sync_openspec_vendor.py`).
 7. **Hand over.** A human commits and pushes the change in the OD store and opens a pull request there for review. IT
-   reads it with `openspec show <change-id> --store <od-store>`, or lists the store under `references:` in its own
-   repository's `openspec/config.yaml`. For 3a.4 the absorbed IT demand package goes to the demand board as well.
+   reads the change folder from the store (with the CLI: `openspec show <change-id> --store <od-store>`, or the store
+   under `references:` in its repository's `openspec/config.yaml`) and can run `openspec validate --strict` on it. For 3a.4 the absorbed IT demand package goes to the demand board as well.
    Record the demand as handed over, not accepted.
 8. **IT builds with OpenSpec's skills, not OD.** IT implements with
    [`openspec-apply-change`](references/openspec/skills/openspec-apply-change/SKILL.md), checks the result with
@@ -158,7 +162,7 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 ## Open - what only the OD lead and IT can supply
 
 - ⟨The OD store: its id and repository URL⟩ - decided: OD drafts in its own OpenSpec store; the OD lead sets it
-  up once (`openspec store setup`) and names it here.
+  up once (a Git repository with `openspec/`; no CLI needed) and names it here.
 - ⟨How IT takes a change from the OD store: `references:` in its repositories, or a copy into its own store⟩ -
   the meeting asked IT to define where each artefact is stored and exchanged (IT).
 - ⟨Published technology guardrails, sourcing criteria, ownership gates, platform-level Cyber Security
@@ -176,7 +180,8 @@ the approval status and the Cyber Security inputs are stated; a human has sent i
 | Script | Purpose | Arguments |
 |---|---|---|
 | `scripts/new_handover.py` | Add the OD annex and `attachments/` to a change OpenSpec created; never overwrites | `<path-to-openspec/changes/<change-id>> [--with-config]` |
-| `scripts/check_handover.py` | Run `openspec validate --strict` on the change, then check the annex, attachments and blocking fields | `<path-to-openspec/changes/<change-id>> [--json]` |
+| `scripts/openspec_offline.py` | OpenSpec's `new change`, `instructions` and `status` without the CLI | `new <store> <change-id>` · `instructions <change> <artifact>` · `status <change>` |
+| `scripts/check_handover.py` | OpenSpec's validation rules offline (plus `openspec validate --strict` where the CLI exists), then the annex, attachments and blocking fields | `<path-to-openspec/changes/<change-id>> [--json] [--require-cli]` |
 
 An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
@@ -185,9 +190,10 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
 Fictional example; the change id and the output are made up for illustration.
 
 ```text
-$ openspec new change add-downtime-reason-capture --store od-handover   # then openspec-propose fills it
-$ python3 scripts/new_handover.py ~/openspec/od-handover/openspec/changes/add-downtime-reason-capture --with-config
-$ python3 scripts/check_handover.py ~/openspec/od-handover/openspec/changes/add-downtime-reason-capture
+$ python3 scripts/openspec_offline.py new ./od-store add-downtime-reason-capture   # then follow openspec-propose
+$ python3 scripts/new_handover.py ./od-store/openspec/changes/add-downtime-reason-capture --with-config
+$ python3 scripts/check_handover.py ./od-store/openspec/changes/add-downtime-reason-capture
+NOTE    checked offline against OpenSpec 1.17.0's rules (no OpenSpec CLI here; none needed)
 ERROR handover.md: blocking section "Cyber Security inputs" still has a placeholder
 NOT READY (1 error)   -> exit 1; fix, re-run until it reports READY
 ```

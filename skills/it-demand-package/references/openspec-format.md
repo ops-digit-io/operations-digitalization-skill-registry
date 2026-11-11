@@ -14,16 +14,18 @@ committed and reviewed like code, and archived into the main specs once shipped.
 
 ## Structure
 
-OpenSpec writes the change; OD adds two things to it. Everything sits in the OD store, a Git repository registered
-with `openspec store register` (see the [store guide](openspec/docs/stores-beta/user-guide.md)).
+OpenSpec's skills write the change; OD adds two things to it. Everything sits in the OD store, a folder (Git
+repository) with `openspec/`; with the CLI it can also be registered as a store (see the
+[store guide](openspec/docs/stores-beta/user-guide.md)).
 
 ```
 <od-store>/
-├── .openspec-store/store.yaml      the store's identity (OpenSpec)
+├── .openspec-store/store.yaml      the store's identity (only where the CLI registered it)
 └── openspec/
     ├── config.yaml                 OD context and per-artifact rules (assets/openspec/config.yaml.tmpl)
     ├── specs/                      the main specs, built up by archiving changes
-    └── changes/<change-id>/        created by OpenSpec's skills (openspec-propose, or new-change + continue-change)
+    └── changes/<change-id>/        created by OpenSpec's skills (openspec-propose, or new-change + continue-change);
+                                    without the CLI via scripts/openspec_offline.py
         ├── .openspec.yaml          OpenSpec
         ├── proposal.md             OpenSpec: Why · What Changes · Capabilities · Impact
         ├── specs/<capability>/spec.md   OpenSpec: delta spec per capability
@@ -40,8 +42,9 @@ which its skills read through `openspec instructions`.
 ## Authority: OpenSpec itself
 
 This skill follows OpenSpec release **1.17.0** (github.com/Fission-AI/OpenSpec, npm `@fission-ai/openspec`). The
-OpenSpec CLI decides: `check_handover.py` runs `openspec validate <change-id> --strict` and fails if the CLI is
-missing, rejects the package, or is another release (re-check the package against the new release). OD keeps no templates of its own for OpenSpec's files: OpenSpec's skills write them from its schema, with
+OpenSpec's rules decide, and no CLI is needed to apply them: `check_handover.py` applies them offline and, where the
+CLI is installed, also runs `openspec validate <change-id> --strict`; CI proves the offline check never passes what
+the CLI of the pinned release rejects. OD keeps no templates of its own for OpenSpec's files: OpenSpec's skills write them from its schema, with
 OD's context and rules from `config.yaml`. The table below is a summary, not the full rule set: OpenSpec also rejects, for
 example, a task numbered into the wrong group and a duplicated task id. To move to a newer OpenSpec release, change
 `OPENSPEC_PINNED` in `scripts/check_handover.py` and run `python3 scripts/check_openspec_conformance.py --require`.
