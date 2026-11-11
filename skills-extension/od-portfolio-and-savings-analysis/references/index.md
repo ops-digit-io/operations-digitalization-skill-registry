@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Outputs (`outputs.md`) | Skill Reference | The outputs od-portfolio-and-savings-analysis must deliver, who receives each one, and what makes each complete. |
 | Prioritization (`prioritization.md`) | Skill Reference | A weighted-scoring method for ranking use cases in a portfolio review, and the honest bucket for the ones that cannot be scored at all. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How ranking and portfolio reading (steps 24 and the spine) is run in the AI-driven chain - ranking criteria and their order, numbered planning states, the where-saved matrix, dependency versus return ordering, hygiene and kill rules, and what an agent may draft. Pattern only, no figures. |
 | Regional handling (`regional-handling.md`) | Skill Reference | Why the three regions are never blended into one conversion figure, and what to report instead. Method only - read the regional figures live. |

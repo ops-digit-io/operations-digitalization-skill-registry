@@ -36,6 +36,8 @@ A repeatable way to export a SharePoint Online list in full — current items, c
 version history, attachment metadata and attachment binaries — from the browser console,
 using nothing but the REST API and an authenticated session.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## What it needs, and what it does not
 
 **Does not need:** PowerShell, the PnP module, or tenant admin rights. That is the point —

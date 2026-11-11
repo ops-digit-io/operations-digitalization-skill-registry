@@ -33,6 +33,8 @@ the stakeholder-deck part went to `deck-stakeholder`). The package holds the que
 checklist and is the master; this skill carries the procedure and the gates. `build-grafana-ops-dashboard` is the generic
 engine for the Grafana JSON itself.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Self-service mode (Lane 1a)
 
 The plant key user applies a **catalogued** dashboard (`catalog-usecase`) to its own machines. Anything the template

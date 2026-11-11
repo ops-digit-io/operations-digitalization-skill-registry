@@ -39,6 +39,7 @@ OD has run this step to a stated standard.
 Use this skill when a defined Lane 2 use case has an open question about usability or about whether the data or
 model works, and that question is cheaper to answer with a mock-up or a narrow proof of concept than with a
 build. It returns a validation record that feeds the business case, never a claim of proven value.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

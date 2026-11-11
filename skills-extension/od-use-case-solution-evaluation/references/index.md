@@ -8,6 +8,7 @@
 | Complexity drivers (`complexity-drivers.md`) | Skill Reference | The 27 drivers that describe why a use case's situation is complex, each mapped to the focus areas it makes a target-raise candidate. |
 | Dependencies (`dependencies.md`) | Skill Reference | Which focus-area levels require which others first, the source table's own reliability caveat, and the recommended backbone chain for sequencing a gap. |
 | Focus areas (`focus-areas.md`) | Skill Reference | The 16 IT/OT capability areas a use case's solution can depend on — levels, what each level looks like, and where to set the target from need rather than from the top of the scale. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs od-use-case-solution-evaluation must deliver, who receives each one, and what makes each complete. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How the fit check of an envisioned solution is run in step 22 of the AI-driven chain - fit tests the decks use besides the capability model (tool boundary, edge versus plain connection, PLC versus rule engine, cloud versus edge, make or buy), the operations-concept gate, handoff and agent operating notes. |
 
 | Folder | Holds |

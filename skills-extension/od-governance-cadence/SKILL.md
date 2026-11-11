@@ -39,6 +39,8 @@ governance meeting is never assumed. Past ODEC decks and facts remain a source o
 escalation (`od-decision-routing`), the one-change retro (`od-retro`), the risk readings (`od-risk-watch`) or
 the lane flow of a use case (`od-use-case-definition`). It names them at the handoff.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Where it sits in the chain
 
 | Part | Process steps (`docs/new-state/process.yaml`) | Neighbour |

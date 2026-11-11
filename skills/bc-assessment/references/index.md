@@ -9,5 +9,6 @@
 | Deck spec (`deck-spec.md`) | Skill Reference | The standard business-case one-pager deck (9 slides plus provenance backup): slide by slide content rules. |
 | Grounding discipline (`grounding-discipline.md`) | Skill Reference | The four grounding tags and how each figure earns one; what counts as input, assumption, market and unknown. |
 | Lever model (`lever-model.md`) | Skill Reference | Lever register (H hard / O optional IDs), formulas and drivers, contribution matrix min|exp|max, de-banking of low-confidence levers. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs bc-assessment must deliver, who receives each one, and what makes each complete. |
 | Provenance and conflicts (`provenance-and-conflicts.md`) | Skill Reference | Provenance register and conflict log: every source listed, every conflict between sources resolved visibly with an owner. |
 | Worked example gemba (`worked-example-gemba.md`) | Skill Reference | A complete assessment run with the rubric: the Gemba app case scored C1-C5, D1-D8 and E with evidence, the maturity-gate verdict and the ranked open questions. |

@@ -26,6 +26,7 @@ metadata:
 ## Purpose
 
 Decide what OD does with an incoming request: accept it into exactly one new-state lane, refuse it, or route it to the function that owns it. Use it whenever a request, demand or idea arrives and it is not clear whether it is OD work or which lane it belongs to.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

@@ -34,6 +34,7 @@ below: [`routing-detail.md`](references/routing-detail.md).
 
 Use this skill to decide how machines get connected: per plant or wave (Route A) and per machine (Route B). It
 returns a route, a connector, a sequence position and a record of barriers, never a connection made by an agent.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

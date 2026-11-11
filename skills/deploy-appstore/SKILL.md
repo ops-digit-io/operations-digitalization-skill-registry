@@ -37,6 +37,7 @@ once the external build is delivered (`it-demand-package`).
 ## Purpose
 
 Defines the gates and the deployment package for putting an app on the platform (routes 3a.1 and 3a.2, and 3a.3 once the external build is delivered), and checks a package against the department's GitOps shape. Use it after the Lane 3 front-end is done and before rollout. It does not deploy.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

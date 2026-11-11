@@ -44,6 +44,7 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
   decision request, and a dated record of the answer.
 - **Done.** The sign-off is recorded as given by a named human with its scope and conditions, or the case is
   held at the wait state with an owner and an escalation date. Never "done" because the work was built.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## The references
 

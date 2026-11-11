@@ -36,6 +36,7 @@ the artefact that crosses a lane boundary; it makes tacit judgement explicit. Ke
 IIAE (integration, project). An AI agent drafts; the receiving lane accepts or says what is missing. Read `od-context`
 first. The template is not new: its headings already appear in the estate's `target_text` and `blockers` fields
 (`references/requirement-template.md`).
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

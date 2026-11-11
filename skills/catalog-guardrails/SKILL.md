@@ -25,6 +25,7 @@ metadata:
 ## Purpose
 
 Run the go-live self-check for a catalogued use case that a plant applied itself, and keep self-service inside the guardrails. Use it at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

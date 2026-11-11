@@ -5,3 +5,4 @@
 | Concept | Type | Description |
 |---|---|---|
 | Epic and user stories (`epic-and-user-stories.md`) | Skill Reference | The background description, which epic axis to use, how to cut stories that stand alone, and what makes acceptance testable. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-features must deliver, who receives each one, and what makes each complete. |

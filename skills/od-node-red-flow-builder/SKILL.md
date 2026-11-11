@@ -42,6 +42,7 @@ Chain handoffs, library classes, placement of logic and agent operating notes:
 ## Purpose
 
 Builds, reviews and ports Node-RED flows to the OESL house pattern, builds calculated datapoints with the rule engine, and diagnoses a flow that is broken, silent or producing wrong values. Use it for steps 3b4 and 3b5 (3b6 when acceptance fails).
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

@@ -36,6 +36,8 @@ out-of-scope list, classified risks, named roles on both sides and a documented 
 `<...>`, not invented. For the kick-off: a plan that the steering committee approved. For closure: the
 closure checklist is filled and "handover completed" is answered yes or no.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Where it sits in the chain
 
 | Step | Role of this skill |

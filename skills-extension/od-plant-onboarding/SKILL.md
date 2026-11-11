@@ -39,6 +39,8 @@ The department's aim is that use-case work, machine integration and requirement 
 plants** rather than centrally (skill map, purpose). A local key user at a plant needs one place that says: *where are we,
 what comes next, which skill, what artefact, who decides.*
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Trigger and definition of done
 
 - Trigger (plan): a new plant enters scope. The sources do not define "enters scope" (the strategic-plant list is

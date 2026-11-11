@@ -29,6 +29,7 @@ Read `od-context` first.
 ## Purpose
 
 Closes a use case properly: it runs the handover to the plant against the definition of done, confirms real adoption rather than delivery, and acts on the gap between `IMPLEMENTED` and `PRODUCTIVE`. Use it when a use case is handed to a plant, when someone asks whether it is in use, when utilization is low or `NEVER`, or when a role or portfolio changes hands.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

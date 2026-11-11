@@ -39,6 +39,8 @@ a human gate before anything leaves the team.**
 Everything below is process guidance from the decks. Where a rule is this skill's own synthesis it is
 marked `PROPOSAL`; unknowns are `<...>`. The owner has not confirmed the `PROPOSAL` rules.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## Where it sits in the chain
 
 | Step id | Where the agent helps | Rule / reference |

@@ -27,6 +27,7 @@ metadata:
 ## Purpose
 
 Build the asset the plant actually opens (dashboard, report, analytics workflow, app or agent) so that it is used inside a real ritual, can be diagnosed by the plant and is counted in the portfolio. Use it when a delivery asset is designed, reworked, or when choosing between a dashboard, a report and an app.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
 

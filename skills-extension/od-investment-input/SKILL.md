@@ -48,6 +48,7 @@ not proven), which gates it must pass, and what is still unknown.** The pack is 
 has a figure with a source or an open marker, the benefit side points at a `od-benefit-calculation`
 record, the gate route is named, and the pack is handed over with a `od-decision-routing` decision
 request. It is never "done" by approval: approval is not this skill's.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits
 

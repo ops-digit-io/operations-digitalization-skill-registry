@@ -35,6 +35,8 @@ Read `od-context` first.
 A metric without a nameable source is not measured but felt. Every figure below carries
 its source, its target and the value at which somebody intervenes.
 
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
 ## The references are the substance
 
 | File | Use it for |

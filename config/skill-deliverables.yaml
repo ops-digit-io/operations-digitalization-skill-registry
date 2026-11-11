@@ -11,6 +11,7 @@ skills:
     - references/deck-spec.md
     - references/grounding-discipline.md
     - references/lever-model.md
+    - references/outputs.md
     - references/provenance-and-conflicts.md
     - references/worked-example-gemba.md
     - scripts/build_bc_short.py
@@ -31,6 +32,7 @@ skills:
     - references/examples/timeseries_analyst.py
     - references/examples/timeseries_manager.json
     - references/examples/timeseries_manager.py
+    - references/outputs.md
     - references/performance.md
     - references/portability_check.md
     - references/relational_patterns.sql
@@ -68,10 +70,12 @@ skills:
   catalog-guardrails:
     files:
     - assets/go-live-check-record.md
+    - references/outputs.md
     - references/technical-guardrails.md
   catalog-systems:
     files:
     - assets/standard-system-entry.md
+    - references/outputs.md
     - references/tool-boundaries-mda-mes-mil-msb-qfpr.md
     - references/tools-and-footprint.md
     - references/validated-routes.md
@@ -81,6 +85,7 @@ skills:
     - references/failure-cases-and-routing.md
     - references/legacy-application-position.md
     - references/library-and-csp-state.md
+    - references/outputs.md
     - references/placement-traps-and-documentation.md
     - references/process-chain-practice.md
     - references/sources-and-entry-fields.md
@@ -91,6 +96,7 @@ skills:
     - references/app-manifest-and-release-gate.md
     - references/gitops-deployment-shape.md
     - references/microservice-app-pattern.md
+    - references/outputs.md
     - references/platform-and-pilot-status.md
     - references/process-chain-practice.md
   funnel-features:
@@ -98,6 +104,7 @@ skills:
     - assets/epic-and-stories.example.md
     - assets/epic-and-stories.md
     - references/epic-and-user-stories.md
+    - references/outputs.md
     - scripts/check_epic.py
     unlinked:
     - scripts/check_epic.py
@@ -127,6 +134,7 @@ skills:
     - references/od-project-support-consultancy/references/process-chain-practice.md
     - references/od-project-support-consultancy/references/task-chain-and-tool-use.md
     - references/openspec-format.md
+    - references/outputs.md
     - scripts/check_handover.py
     - scripts/new_handover.py
   od-acceptance-test:
@@ -135,6 +143,7 @@ skills:
     - assets/prefilled-test-items.md
     - references/acceptance-by-route.md
     - references/cluster-acceptance-criteria.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/signoff-and-rework.md
     - references/test-structure.md
@@ -147,6 +156,7 @@ skills:
     - references/ai-initiative-maturity-ladder.md
     - references/evidence-and-human-decisions.md
     - references/generation-pipeline.md
+    - references/outputs.md
   od-analytics-asset-build:
     files:
     - assets/asset-build-protocol.md
@@ -161,6 +171,7 @@ skills:
     - references/dashboard-worked-examples.md
     - references/lifecycle-and-validation.md
     - references/ops-grafana-dashboards.md
+    - references/outputs.md
     - references/process-chain-practice.md
   od-benefit-calculation:
     files:
@@ -168,6 +179,7 @@ skills:
     - references/deck-structure.md
     - references/funnel-business-case.md
     - references/house-business-case-standard.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/review-checklist.md
     - references/savings-model.md
@@ -182,6 +194,7 @@ skills:
     - references/ecr-management-summary.md
     - references/grounding-and-color-coding.md
     - references/open-items-and-conflicts.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/spend-route.md
     - scripts/build_ecr.py
@@ -192,11 +205,13 @@ skills:
     - references/department-formats.md
     - references/ic-handover.md
     - references/message-and-claims.md
+    - references/outputs.md
     - scripts/check_comms_brief.py
     - scripts/test_check_comms_brief.py
   od-context:
     files:
     - references/knowledge-graph-reading.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/provenance-and-source-catalogue.md
     - references/swot-and-dependency-seams.md
@@ -204,6 +219,7 @@ skills:
     files:
     - assets/hygiene-report.md
     - references/fact-triage-and-generated-registers.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/staleness-signals.md
     - references/triage-and-actions.md
@@ -212,12 +228,14 @@ skills:
     files:
     - assets/compatibility-check.md
     - references/compatibility-tests.md
+    - references/outputs.md
     - references/plant-differences.md
     - references/process-chain-practice.md
   od-cybersec-gate:
     files:
     - assets/cybersec-signoff-package.md
     - references/gate-rules.md
+    - references/outputs.md
     - references/package-contents.md
     - references/precedents.md
     - references/process-chain-practice.md
@@ -230,6 +248,7 @@ skills:
     - references/freshness.md
     - references/machine-list-completeness.md
     - references/non-machine-data-sources.md
+    - references/outputs.md
     - references/plant-instance-map.md
     - references/process-chain-practice.md
     - references/sources.md
@@ -239,6 +258,7 @@ skills:
     - assets/decision-request.md
     - references/decision-rights-framework.md
     - references/escalation-worked-examples.md
+    - references/outputs.md
     - references/process-chain-practice.md
   od-equipment-integration:
     files:
@@ -271,6 +291,7 @@ skills:
     - references/od-machine-integration-plan/references/barrier-log-and-cost-of-non-decision.md
     - references/od-machine-integration-plan/references/route-choice-per-machine-type.md
     - references/od-machine-integration-plan/references/wave-planning-and-readiness.md
+    - references/outputs.md
     - references/plant-integration-status.md
     - references/process-chain-practice.md
     - references/routing-detail.md
@@ -284,6 +305,7 @@ skills:
     - assets/event-definition-canvas.md
     - references/archetype-method-etl.md
     - references/object-event-reduction.md
+    - references/outputs.md
     - references/worked-examples.md
   od-first-aid-kit:
     files:
@@ -293,6 +315,7 @@ skills:
     - references/od-analytical-support-service/references/composed-artefacts.md
     - references/od-analytical-support-service/references/process-chain-practice.md
     - references/od-analytical-support-service/references/task-chain-and-tool-use.md
+    - references/outputs.md
     - references/process-chain-practice.md
   od-governance-cadence:
     files:
@@ -300,6 +323,7 @@ skills:
     - assets/sprint-plan-and-review.md
     - references/demand-and-change-routing.md
     - references/forums-and-roadmap.md
+    - references/outputs.md
     - references/rituals-and-consumption.md
     - references/sprint-runbook.md
     - references/training-programme.md
@@ -318,6 +342,7 @@ skills:
     - references/od-utilization-review/procedure.md
     - references/od-utilization-review/references/no-saving-decision.md
     - references/od-utilization-review/references/utilization-method.md
+    - references/outputs.md
     - references/ownership-and-handover-gates.md
     - references/process-chain-practice.md
   od-investment-input:
@@ -326,6 +351,7 @@ skills:
     - assets/investment-input-pack.md
     - references/approval-route.md
     - references/cost-lines.md
+    - references/outputs.md
     - references/process-chain-practice.md
   od-migration-cutover:
     files:
@@ -333,6 +359,7 @@ skills:
     - assets/migration-assessment.md
     - references/assessment-canvas-and-risk.md
     - references/backout-plan-proposal.md
+    - references/outputs.md
     - references/staged-migration-and-cutover.md
   od-node-red-flow-builder:
     files:
@@ -346,6 +373,7 @@ skills:
     - references/corpus-census.md
     - references/deployable-flow.md
     - references/instances.md
+    - references/outputs.md
     - references/plc-packet.md
     - references/process-chain-practice.md
     - references/rule-engine-examples/12_ac402_machine_status_mapping.json
@@ -383,11 +411,13 @@ skills:
     - assets/plant-roadmap-template.md
     - references/evidence-synthesis.md
     - references/ishikawa-gap-diagnosis.md
+    - references/outputs.md
     - references/roadmap-templates.md
     - references/tiering-criteria.md
   od-plant-onboarding:
     files:
     - assets/onboarding-path.md
+    - references/outputs.md
     - references/plant-landscape.md
     - references/process-chain-practice.md
   od-portfolio-and-savings-analysis:
@@ -399,6 +429,7 @@ skills:
     - references/od-use-case-prioritization/references/evidence-baselines.md
     - references/od-use-case-prioritization/references/process-chain-practice.md
     - references/od-use-case-prioritization/references/ranking-criteria.md
+    - references/outputs.md
     - references/prioritization.md
     - references/process-chain-practice.md
     - references/regional-handling.md
@@ -410,6 +441,7 @@ skills:
     - assets/project-order.md
     - references/kickoff-and-reports.md
     - references/order-structure.md
+    - references/outputs.md
     - references/roles-risks-procurement.md
   od-prototype-poc:
     files:
@@ -418,6 +450,7 @@ skills:
     - references/build-patterns.md
     - references/click-dummy.md
     - references/gemba-app-pilot.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/status-labels.md
     - references/validation-patterns.md
@@ -427,6 +460,7 @@ skills:
     - references/elicitation.md
     - references/handoff-schema.md
     - references/legacy-system-assessment.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/requirement-template.md
     - references/requirements-funnel.md
@@ -434,12 +468,14 @@ skills:
   od-retro:
     files:
     - assets/retro-record.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/reading-change-logs.md
     - references/retro-inputs.md
   od-risk-watch:
     files:
     - assets/risk-reading.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/risk-indicators.md
   od-rollout-training:
@@ -448,12 +484,14 @@ skills:
     - assets/training-package.md
     - references/competence-and-sustainment.md
     - references/curriculum-modules.md
+    - references/outputs.md
     - references/plant-landscape.md
     - references/process-chain-practice.md
   od-scorecard-reporting:
     files:
     - assets/scorecard-update-protocol.md
     - references/metric-reading-guide.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/readiness-evidence.md
     - references/rounds-and-escalation.md
@@ -462,6 +500,7 @@ skills:
     files:
     - assets/export-run-log.md
     - references/export-procedure.md
+    - references/outputs.md
     - references/reliability-discipline.md
     - scripts/check_export_schema.py
     unlinked:
@@ -470,9 +509,11 @@ skills:
     files:
     - assets/followup-log.md
     - references/feedback-routing.md
+    - references/outputs.md
   od-showcase-selection:
     files:
     - assets/selection-record.md
+    - references/outputs.md
     - references/readiness-gate.md
   od-signal-standardization:
     files:
@@ -485,6 +526,7 @@ skills:
     - references/machine-vendor-and-connector-landscape.md
     - references/multilingual-tags.md
     - references/normalization-in-flows.md
+    - references/outputs.md
     - references/procedure-detail.md
     - references/process-chain-practice.md
     - references/public-data-models.md
@@ -497,6 +539,7 @@ skills:
     - assets/release-checklist.md
     - assets/skill-brief.md
     - references/evaluation-design.md
+    - references/outputs.md
     - references/quality-gates.md
     - references/skill-anatomy.md
     - scripts/scaffold_skill.py
@@ -522,6 +565,7 @@ skills:
     - references/od-application-consulting/references/footprint-and-data-path.md
     - references/od-application-consulting/references/legacy-application-landscape.md
     - references/od-application-consulting/references/process-chain-practice.md
+    - references/outputs.md
     - references/plant-tool-availability.md
     - references/process-chain-practice.md
     - references/review-template.md
@@ -533,6 +577,7 @@ skills:
     files:
     - assets/template-resolution-record.md
     - references/master-register.md
+    - references/outputs.md
     - references/process-chain-practice.md
   od-use-case-definition:
     files:
@@ -543,6 +588,7 @@ skills:
     - references/lane-service-flow.md
     - references/lane-templates.md
     - references/library-catalog.md
+    - references/outputs.md
     - references/patterns.md
     - references/process-chain-practice.md
     - references/task-chain-and-tool-use.md
@@ -550,6 +596,7 @@ skills:
     - references/worked-examples.md
   od-use-case-intake-triage:
     files:
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/refusal-playbook.md
   od-use-case-solution-evaluation:
@@ -568,6 +615,7 @@ skills:
     - references/od-maturity-assessment/references/model-caveats.md
     - references/od-maturity-assessment/references/rating-rubric.md
     - references/od-maturity-assessment/references/routing-and-handoff.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - scripts/evaluate_fit.py
     - scripts/model_data.json
@@ -584,6 +632,7 @@ skills:
     - references/od-use-case-promotion/references/pattern-evidence.md
     - references/od-use-case-promotion/references/process-chain-practice.md
     - references/od-use-case-promotion/references/promotion-criteria.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/process-family-patterns.md
   od-workshop-facilitation:
@@ -591,7 +640,9 @@ skills:
     - assets/workshop-agenda-and-preread.md
     - assets/workshop-capture-template.md
     - assets/workshop-follow-up-list.md
+    - references/outputs.md
     - references/process-chain-practice.md
     - references/workshop-formats.md
   ops-dashboard-datatron:
-    files: []
+    files:
+    - references/outputs.md
