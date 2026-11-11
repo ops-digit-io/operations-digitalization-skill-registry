@@ -9,7 +9,7 @@
 | [catalog-systems/](catalog-systems/index.md) | 6 concept(s) |
 | [catalog-usecase/](catalog-usecase/index.md) | 10 concept(s) |
 | [deploy-appstore/](deploy-appstore/index.md) | 8 concept(s) |
-| [it-demand-package/](it-demand-package/index.md) | 14 concept(s) |
+| [it-demand-package/](it-demand-package/index.md) | 60 concept(s) |
 | [od-acceptance-test/](od-acceptance-test/index.md) | 10 concept(s) |
 | [od-analytics-asset-build/](od-analytics-asset-build/index.md) | 15 concept(s) |
 | [od-benefit-calculation/](od-benefit-calculation/index.md) | 9 concept(s) |

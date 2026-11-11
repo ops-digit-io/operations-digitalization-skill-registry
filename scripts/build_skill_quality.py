@@ -62,7 +62,10 @@ def build(reports: list[Path], default_report: Path | None, tool_commit: str, ru
         main["skills"].update(read_report(extra)["skills"])
     dflt = read_report(default_report)["skills"] if default_report else {}
     skills = {}
+    registry = set(skp.all_ids())
     for name, v in sorted(main["skills"].items()):
+        if name not in registry:   # a skill copied unchanged inside another one (e.g. OpenSpec's in it-demand-package) is not rated
+            continue
         dims = collections.defaultdict(float)
         for f in v["findings"]:
             dims[f["dimension"]] += f["deduction"]

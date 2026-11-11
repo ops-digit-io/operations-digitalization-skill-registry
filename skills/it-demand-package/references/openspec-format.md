@@ -14,26 +14,35 @@ committed and reviewed like code, and archived into the main specs once shipped.
 
 ## Structure
 
+OpenSpec writes the change; OD adds two things to it. Everything sits in the OD store, a Git repository registered
+with `openspec store register` (see the [store guide](openspec/docs/stores-beta/user-guide.md)).
+
 ```
-openspec/
-├── config.yaml                 project context and rules (schema: spec-driven)
-├── specs/                      the main specs, built up by archiving changes
-└── changes/<change-id>/
-    ├── .openspec.yaml          schema: spec-driven · created: <date>
-    ├── proposal.md             Why · What Changes · Capabilities · Impact
-    ├── specs/<capability>/spec.md   delta spec per capability
-    ├── design.md               Context · Goals / Non-Goals · Decisions · Risks / Trade-offs
-    ├── tasks.md                numbered checkbox groups
-    └── handover.md             OD annex (not an OpenSpec artefact; travels with the change)
+<od-store>/
+├── .openspec-store/store.yaml      the store's identity (OpenSpec)
+└── openspec/
+    ├── config.yaml                 OD context and per-artifact rules (assets/openspec/config.yaml.tmpl)
+    ├── specs/                      the main specs, built up by archiving changes
+    └── changes/<change-id>/        created by OpenSpec's skills (openspec-propose, or new-change + continue-change)
+        ├── .openspec.yaml          OpenSpec
+        ├── proposal.md             OpenSpec: Why · What Changes · Capabilities · Impact
+        ├── specs/<capability>/spec.md   OpenSpec: delta spec per capability
+        ├── design.md               OpenSpec: Context · Goals / Non-Goals · Decisions · Risks / Trade-offs
+        ├── tasks.md                OpenSpec: numbered checkbox groups
+        ├── handover.md             OD annex (not an OpenSpec artefact; added by scripts/new_handover.py)
+        └── attachments/            the user's files, registered in section 14 of handover.md
 ```
+
+The shapes of OpenSpec's own files are not described here: they come from OpenSpec's schema and templates
+([`schema.yaml`](openspec/schemas/spec-driven/schema.yaml), [`templates/`](openspec/schemas/spec-driven/templates/proposal.md)),
+which its skills read through `openspec instructions`.
 
 ## Authority: OpenSpec itself
 
 This skill follows OpenSpec release **1.17.0** (github.com/Fission-AI/OpenSpec, npm `@fission-ai/openspec`). The
 OpenSpec CLI decides: `check_handover.py` runs `openspec validate <change-id> --strict` and fails if the CLI is
-missing, rejects the package, or is another release (re-check the package against the new release). The templates
-under `assets/openspec/` keep OpenSpec's own headings (`# Proposal`, `# Spec Delta`, `# Design`, `# Tasks`;
-`**Goals:**` and `**Non-Goals:**`). The table below is a summary, not the full rule set: OpenSpec also rejects, for
+missing, rejects the package, or is another release (re-check the package against the new release). OD keeps no templates of its own for OpenSpec's files: OpenSpec's skills write them from its schema, with
+OD's context and rules from `config.yaml`. The table below is a summary, not the full rule set: OpenSpec also rejects, for
 example, a task numbered into the wrong group and a duplicated task id. To move to a newer OpenSpec release, change
 `OPENSPEC_PINNED` in `scripts/check_handover.py` and run `python3 scripts/check_openspec_conformance.py --require`.
 

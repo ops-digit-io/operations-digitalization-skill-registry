@@ -40,3 +40,21 @@ def folder_hash(name):
 def folder_of(name):
     """Repository-relative folder of the library holding the skill: 'skills' or 'skills-extension'."""
     return LIBRARIES[library_of(name)].name
+
+
+def vendored_root(path):
+    """The folder of a third-party copy kept unchanged inside a skill (marked by a VENDORED.md), or None."""
+    p = Path(path).resolve()
+    for parent in [p, *p.parents] if p.is_dir() else p.parents:
+        if (parent / "VENDORED.md").is_file():
+            return parent
+        if parent == ROOT:
+            break
+    return None
+
+
+def is_vendored(path):
+    """True for a file or folder inside a vendored copy; its VENDORED.md and generated index.md are the registry's own."""
+    root = vendored_root(path)
+    p = Path(path).resolve()
+    return root is not None and p not in (root, root / "VENDORED.md", root / "index.md")
