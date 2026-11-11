@@ -26,7 +26,7 @@
   "F": 0
  },
  "mean": 89.9,
- "mean_core": 96.4,
+ "mean_core": 96.3,
  "skills": {
   "bc-assessment": {
    "score": 96.5,
@@ -351,7 +351,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "ff81dd33e03f5918",
+   "folder_hash": "ece7b7bf78ad4239",
    "findings": [
     {
      "dimension": "correctness",
@@ -572,7 +572,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "048b6d6066831fc2",
+   "folder_hash": "49850df08440fce5",
    "findings": [
     {
      "dimension": "correctness",
@@ -1317,11 +1317,17 @@
    }
   },
   "od-node-red-flow-builder": {
-   "score": 96.5,
+   "score": 94.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "e93674b362de0b6c",
+   "folder_hash": "aa45654188dd8457",
    "findings": [
+    {
+     "dimension": "efficiency",
+     "deduction": 15,
+     "message": "Large skill (5218 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1339,9 +1345,9 @@
     "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
-    "efficiency": 100.0
+    "efficiency": 85.0
    },
-   "default_score": 92.8
+   "default_score": 90.5
   },
   "od-plant-diagnosis": {
    "score": 87.8,
@@ -2178,7 +2184,7 @@
    "score": 87.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "788777e7fa7024be",
+   "folder_hash": "6e7536bedc3ee32f",
    "findings": [
     {
      "dimension": "correctness",

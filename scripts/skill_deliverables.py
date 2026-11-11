@@ -8,8 +8,9 @@ The contract lists, per skill, every file the skill ships besides SKILL.md and t
   - a skill has no entry, or an entry names a skill that does not exist;
   - a declared file is missing or empty;
   - a shipped file is not declared (adding a file to a skill means declaring it);
-  - a declared file cannot be reached by Markdown links from SKILL.md, unless it is listed under `unlinked` (scripts,
-    examples and vendored files that are used by path, not linked); an `unlinked` file that is in fact linked is an error;
+  - a declared file cannot be reached by Markdown links from SKILL.md. A core skill must link every file it ships;
+    an extension skill may list files under `unlinked` (scripts, examples, vendored files used by path). An `unlinked`
+    file that is in fact linked is an error;
   - a core skill's SKILL.md lacks one of the sections config/skill-quality.yaml expects (an extension skill only warns).
 """
 from __future__ import annotations
@@ -67,7 +68,7 @@ def draft() -> None:
     header = ("# What each skill ships (every file except SKILL.md and the generated index.md files). Checked by\n"
               "# scripts/validate_registry.py via scripts/skill_deliverables.py. Add a file to a skill, add it here.\n"
               "# `unlinked`: shipped files that SKILL.md and its references do not link to (scripts, examples, vendored\n"
-              "# files); they are used by path. Keep this list short: link the file instead where you can.\n")
+              "# files); they are used by path. Core skills may not have any: every file must be linked from SKILL.md.\n")
     CONTRACT.write_text(header + yaml.safe_dump(out, sort_keys=True, allow_unicode=True, width=120), encoding="utf-8")
     print(f"wrote {CONTRACT.relative_to(ROOT)}: {len(out['skills'])} skills, "
           f"{sum(len(v['files']) for v in out['skills'].values())} files")
@@ -106,8 +107,12 @@ def check(fail) -> None:
         for rel in sorted(loose - declared):
             fail(f"{where}/: 'unlinked' lists '{rel}', which is not a declared file")
         ok = linked(name)
+        core = skp.library_of(name) == "core"
+        if core and loose:
+            fail(f"{where}/: a core skill may not list files under 'unlinked' ({', '.join(sorted(loose))}); link them from SKILL.md")
         for rel in sorted(declared - ok - loose):
-            fail(f"{where}/: '{rel}' is not linked from SKILL.md or from a file it links to (link it, or list it under unlinked)")
+            hint = "link it from SKILL.md" if core else "link it, or list it under unlinked"
+            fail(f"{where}/: '{rel}' is not linked from SKILL.md or from a file it links to ({hint})")
         for rel in sorted(loose & ok):
             fail(f"{where}/: '{rel}' is listed under unlinked but is linked; remove it from unlinked")
         text = (base / "SKILL.md").read_text(encoding="utf-8")

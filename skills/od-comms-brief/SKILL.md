@@ -99,4 +99,4 @@ The check exits 0 (or reports only warnings that are explained); every proof poi
 | [`references/department-formats.md`](references/department-formats.md) | The department's existing story formats (appetizer, testimonial, ODEC shapes, OPEX exchange call) and their status |
 | [`references/ic-handover.md`](references/ic-handover.md) | What OD hands to Internal Communications, the channels that exist, and what is still unknown |
 | [`assets/comms-brief.md`](assets/comms-brief.md) | The brief template |
-| [`scripts/check_comms_brief.py`](scripts/check_comms_brief.py) | The check; `scripts/test_check_comms_brief.py` tests it |
+| [`scripts/check_comms_brief.py`](scripts/check_comms_brief.py) | The check; [`scripts/test_check_comms_brief.py`](scripts/test_check_comms_brief.py) tests it |

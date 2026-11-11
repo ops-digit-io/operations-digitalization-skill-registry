@@ -220,12 +220,12 @@ problem to `od-signal-standardization` as a data-model change, a connection or m
 
 | Script | Purpose | Arguments |
 |---|---|---|
-| `scripts/analyze_flow.py` | Static analysis of a flow export. Exit 2 blocker, 1 warning, 0 clean | `FLOW.json [FLOW.json ...] [--json] [--quiet]` |
+| [`scripts/analyze_flow.py`](scripts/analyze_flow.py) | Static analysis of a flow export. Exit 2 blocker, 1 warning, 0 clean | `FLOW.json [FLOW.json ...] [--json] [--quiet]` |
 | `scripts/build_flow.py` | Generate a rule-engine flow from a spec | `spec.json output_flow.json` |
 | `scripts/simulate.js` | Dry-run a generated flow without Node-RED (Node.js) | `flow.json batches.json` |
 | `scripts/e2e_test.sh` | Run a generated flow in a throw-away Node-RED with a local broker | `<flow.json> <batches.json> <output-uuid>` |
-| `scripts/e2e_runner.js` | Helper called by `e2e_test.sh` | `<batchFile> <inTopic> <outTopic> <outUuid>` |
-| `scripts/test_plcschema.proto` | Stand-in PLCPacket schema for the end-to-end test; the production schema is authoritative | not run |
+| [`scripts/e2e_runner.js`](scripts/e2e_runner.js) | Helper called by `e2e_test.sh` | `<batchFile> <inTopic> <outTopic> <outUuid>` |
+| [`scripts/test_plcschema.proto`](scripts/test_plcschema.proto) | Stand-in PLCPacket schema for the end-to-end test; the production schema is authoritative | not run |
 
 An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
@@ -265,4 +265,23 @@ fix tested on `test`; triage record filled; plant key user confirmed correct val
 | `references/build-guide.md` | Layout, message, standard functions, config, topics, standards, error handling, documentation, review checklist |
 | `references/plc-packet.md`, `topic-conventions.md`, `standard-functions.js`, `deployable-flow.md`, `instances.md`, `corpus-census.md` | Wire, topics, functions, deployable file, instances, live census |
 | `assets/flow-config-contract.md`, `protobuf-schema-bootstrap.flow.json`, `triage-record.md` | Config form, importable schema flow, triage record |
-| `references/rule-engine.md`, `rule-engine-patterns.md`, `rule-engine-standard-flow.md`, `rule-engine-examples/` | Calculated datapoints: the department's rule-engine workflow, patterns, standard flow, production examples |
+| [`references/rule-engine.md`](references/rule-engine.md), [`rule-engine-patterns.md`](references/rule-engine-patterns.md), [`rule-engine-standard-flow.md`](references/rule-engine-standard-flow.md), the examples below | Calculated datapoints: the department's rule-engine workflow, patterns, standard flow, production examples |
+
+### Rule-engine examples
+
+| File | Kind |
+|---|---|
+| [`references/rule-engine-examples/12_ac402_machine_status_mapping.json`](references/rule-engine-examples/12_ac402_machine_status_mapping.json) | Rule-engine production example |
+| [`references/rule-engine-examples/13_helium09_leakrate_BROKEN.json`](references/rule-engine-examples/13_helium09_leakrate_BROKEN.json) | Rule-engine production example |
+| [`references/rule-engine-examples/13b_helium09_leakrate_FIXED.json`](references/rule-engine-examples/13b_helium09_leakrate_FIXED.json) | Rule-engine production example |
+| [`references/rule-engine-examples/14_m1072_shift_part_counter.json`](references/rule-engine-examples/14_m1072_shift_part_counter.json) | Rule-engine production example |
+| [`references/rule-engine-examples/15_m1072_part_counter_trigger.json`](references/rule-engine-examples/15_m1072_part_counter_trigger.json) | Rule-engine production example |
+| [`references/rule-engine-examples/16_m1072_machine_mode_normalization.json`](references/rule-engine-examples/16_m1072_machine_mode_normalization.json) | Rule-engine production example |
+| [`references/rule-engine-examples/17_m1072_alert_counter_trigger.json`](references/rule-engine-examples/17_m1072_alert_counter_trigger.json) | Rule-engine production example |
+| [`references/rule-engine-examples/18_m1072_cycle_time_normalization.json`](references/rule-engine-examples/18_m1072_cycle_time_normalization.json) | Rule-engine production example |
+| [`references/rule-engine-examples/19_blm_ast30_status_code_lookup.json`](references/rule-engine-examples/19_blm_ast30_status_code_lookup.json) | Rule-engine production example |
+| [`references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json`](references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json) | Rule-engine production example |
+| [`references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json`](references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json) | Rule-engine production example |
+| [`references/rule-engine-examples/22_grazioli_downtime_duration.json`](references/rule-engine-examples/22_grazioli_downtime_duration.json) | Rule-engine production example |
+| [`references/rule-engine-examples/23_erlas2_nok_part_trigger.json`](references/rule-engine-examples/23_erlas2_nok_part_trigger.json) | Rule-engine production example |
+| [`references/rule-engine-examples/24_erlas2_ok_part_trigger.json`](references/rule-engine-examples/24_erlas2_ok_part_trigger.json) | Rule-engine production example |

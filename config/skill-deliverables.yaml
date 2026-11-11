@@ -1,7 +1,7 @@
 # What each skill ships (every file except SKILL.md and the generated index.md files). Checked by
 # scripts/validate_registry.py via scripts/skill_deliverables.py. Add a file to a skill, add it here.
 # `unlinked`: shipped files that SKILL.md and its references do not link to (scripts, examples, vendored
-# files); they are used by path. Keep this list short: link the file instead where you can.
+# files); they are used by path. Core skills may not have any: every file must be linked from SKILL.md.
 skills:
   bc-assessment:
     files:
@@ -129,22 +129,6 @@ skills:
     - references/openspec-format.md
     - scripts/check_handover.py
     - scripts/new_handover.py
-    unlinked:
-    - assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example
-    - assets/example/openspec/changes/add-downtime-reason-capture/design.md.example
-    - assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example
-    - assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example
-    - assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example
-    - assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example
-    - assets/openspec/change/.openspec.yaml.tmpl
-    - assets/openspec/change/design.md.tmpl
-    - assets/openspec/change/handover.md.tmpl
-    - assets/openspec/change/proposal.md.tmpl
-    - assets/openspec/change/specs/capability/spec.md.tmpl
-    - assets/openspec/change/tasks.md.tmpl
-    - assets/openspec/config.yaml.tmpl
-    - scripts/check_handover.py
-    - scripts/new_handover.py
   od-acceptance-test:
     files:
     - assets/acceptance-test-protocol.md
@@ -209,8 +193,6 @@ skills:
     - references/ic-handover.md
     - references/message-and-claims.md
     - scripts/check_comms_brief.py
-    - scripts/test_check_comms_brief.py
-    unlinked:
     - scripts/test_check_comms_brief.py
   od-context:
     files:
@@ -394,26 +376,6 @@ skills:
     - scripts/e2e_runner.js
     - scripts/e2e_test.sh
     - scripts/simulate.js
-    - scripts/test_plcschema.proto
-    unlinked:
-    - references/rule-engine-examples/12_ac402_machine_status_mapping.json
-    - references/rule-engine-examples/13_helium09_leakrate_BROKEN.json
-    - references/rule-engine-examples/13b_helium09_leakrate_FIXED.json
-    - references/rule-engine-examples/14_m1072_shift_part_counter.json
-    - references/rule-engine-examples/15_m1072_part_counter_trigger.json
-    - references/rule-engine-examples/16_m1072_machine_mode_normalization.json
-    - references/rule-engine-examples/17_m1072_alert_counter_trigger.json
-    - references/rule-engine-examples/18_m1072_cycle_time_normalization.json
-    - references/rule-engine-examples/19_blm_ast30_status_code_lookup.json
-    - references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json
-    - references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json
-    - references/rule-engine-examples/22_grazioli_downtime_duration.json
-    - references/rule-engine-examples/23_erlas2_nok_part_trigger.json
-    - references/rule-engine-examples/24_erlas2_ok_part_trigger.json
-    - references/rule-engine-patterns.md
-    - references/rule-engine-standard-flow.md
-    - scripts/analyze_flow.py
-    - scripts/e2e_runner.js
     - scripts/test_plcschema.proto
   od-plant-diagnosis:
     files:
