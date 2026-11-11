@@ -4,9 +4,7 @@ title: Migration assessment
 description: Template for the assessment of a legacy application or platform - scenarios, as-is/to-be canvas, component inventory, risk and recovery-impact table, OT application rating, target mapping and staged plan.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [migration, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Migration assessment - `<application or platform>` at `<location or kind of plant>`
 

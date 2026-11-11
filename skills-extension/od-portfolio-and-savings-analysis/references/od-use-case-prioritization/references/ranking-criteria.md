@@ -4,9 +4,7 @@ title: Ranking criteria
 description: Every criterion OD has itself used to rank or classify use cases, each with its source and its limit, so a ranking can be built from the department's own language and not from invented scores.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Ranking criteria
 

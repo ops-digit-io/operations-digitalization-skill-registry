@@ -4,9 +4,7 @@ title: Machine vendor and connector landscape
 description: How to read the Machine List and the connector notes to see what a new machine's signals will look like and which path they arrive by - controller vendor families, field networks, integration routes, connector families and the traps in the records. Guidance only; counts are measured live.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, signals]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Machine vendor and connector landscape
 

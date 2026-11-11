@@ -4,9 +4,7 @@ title: Complexity drivers
 description: The 27 drivers that describe why a use case's situation is complex, each mapped to the focus areas it makes a target-raise candidate.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-evaluation, maturity-model]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # The 27 complexity drivers — the problem side
 

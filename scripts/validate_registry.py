@@ -117,7 +117,7 @@ def main() -> int:
         meta = fm.get("metadata") or {}
         if meta.get("id") != name:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.id '{meta.get('id')}' does not match its directory")
-        for field in ("tier", "lane", "owner_role", "authority_level", "status", "derived_from"):
+        for field in ("tier", "lane", "owner_role", "authority_level", "status"):
             if not meta.get(field):
                 fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.{field} is missing")
         if meta.get("tier") and meta["tier"] not in tiers:

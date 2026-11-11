@@ -4,11 +4,7 @@ title: Rule engine
 description: "The department's OPS rule engine on DATATRON / Node-RED: workflow for a new calculated datapoint (requirement, pattern, spec, generate, test, deliver) and for fixing an existing flow."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [node-red, rule-engine, datatron, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ops-rule-engine.skill/SKILL.md` (the master).
 

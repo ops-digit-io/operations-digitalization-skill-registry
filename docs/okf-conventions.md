@@ -151,16 +151,11 @@ python3 scripts/verify_okf.py
 | Every other concept's `title` slugs to its filename | A graph label you cannot find on disk |
 | `description` is present | A node in the graph with nothing under its name |
 | `status` is one of `draft \| stable \| deprecated` | A vocabulary nothing can act on |
-| `generated` names an OKF actor and an ISO 8601 timestamp | Provenance that says nothing |
-| `resource` and every path-shaped `derived_from` entry resolves | A claim the bundle cannot back |
+| A `generated` stamp, where present, names an OKF actor and an ISO 8601 timestamp | Provenance that says nothing |
+| `resource` resolves | A claim the bundle cannot back |
 | Every in-bundle link resolves | A reference that navigates nowhere |
 | No wikilinks, no bundle-relative links | Drifting out of conformance one convenient link at a time |
 | The root has an `index.md`; no other index carries frontmatter | OKF §8 |
-
-`derived_from` entries pointing into `ops-knowledge-graph/` are resolved against that bundle
-when it sits beside this repository — including the abbreviated `.../`, `{a,b}` and `*` forms
-the skills use. When it is not there, the guard says so in its output rather than passing
-those paths silently.
 
 ## The one thing no guard can check
 

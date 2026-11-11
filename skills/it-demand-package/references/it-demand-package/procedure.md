@@ -4,24 +4,12 @@ title: Procedure
 description: Formerly the skill it-demand-package, absorbed into it-demand-package on 2026-11-10 to remove duplication against the department context. Package a demand for IT demand management and its evaluation board, or for an external developer (new-state Lane 3a, routes 3a.3 external development and 3a.4 foreign-app integration) - one hand-off that carries the requirement, the fit-check verdict, the business case, the approval route, the plant sponsor and the open Cyber Security points. Drafts the package; submitting it and the board's decision stay human. Use when a demand touches a platform OD does not own, when a foreign app must be integrated, when an app is to be built externally, or when someone asks what IT needs from OD. Draft sc
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - all
 - practice
 - new-state
 - draft
 - absorbed
-derived_from:
-- The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 3a step "Package / build app", the options 3a.3 and 3a.4 and the gap register entry, read 2026-11-05
-- ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-- Skill od-decision-routing, which routes IT demand through demand management and does not package it
-- Skill od-requirements-breakdown, the requirement and the epic with its stories
-- Department deck AI_Initiatives_IT_Contact_Points.pptx (one slide, the asks to IT per initiative, roles only), text extracted and read 2026-11-05
-- Department knowledge base Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
-- Knowledge bundle, 00-core decision rights (08-decision-rights.md) and the 10-Department notes Operating model and Roles and organization, read 2026-11-05
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # IT demand package
 

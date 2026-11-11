@@ -15,27 +15,15 @@ metadata:
   scope: od
   origin: derived
   owner_role: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
-  author: Digital-Business-Value-Engineer (DBVE) or IIoT Interface & Automation Engineer (IIAE), per lane
   tags: [all, od, practice]
   authority_level: draft the requirement; accept or refuse per intake; approvals are human
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [funnel-features, od-use-case-intake-triage, od-system-fit-check, od-use-case-definition, od-data-availability-check, od-signal-standardization, od-use-case-standardization, od-benefit-calculation, od-equipment-integration, od-acceptance-test, od-handover-and-adoption, it-demand-package]
-  derived_from:
-    - "Department knowledge base (skills/requirements-funnel/SKILL.md, references/handoff-schema.md), read 2026-11-10"
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md (UC-03, P-04)
-    - ops-knowledge-graph/.../20-lanes/*/playbook.md (step 3 in each lane)
-    - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv (use case field population, target_text and blockers grammar; legacy applications)
-    - ops-knowledge-graph/_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase.md
-    - ops-knowledge-graph/.../00-core/{05-intake,15-resources}.md
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Requirements breakdown
     tags: [all, od, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Requirements breakdown

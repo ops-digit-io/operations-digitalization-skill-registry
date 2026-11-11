@@ -4,9 +4,7 @@ title: Acceptance by route
 description: Guidance, no figures. What to look at in a site acceptance of a machine integration, per route and connector, and the failure patterns the Machine List, the Connector Overview and the tool notes typically show - each check marked as suggested (derived from a kind of record) or as an existing rule.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Acceptance by route

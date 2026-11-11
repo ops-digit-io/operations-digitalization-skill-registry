@@ -4,9 +4,7 @@ title: Use case definition protocol
 description: The defined output of the four phases - Collect, Analyse, Assess, Control - each with its control point, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Use case definition — ⟨plant⟩ · ⟨use case⟩

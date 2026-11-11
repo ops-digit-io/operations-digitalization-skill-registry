@@ -4,9 +4,7 @@ title: Dashboard requirements template
 description: Template for a dashboard-level requirements document and its summary, written from an existing or planned dashboard, using the observed, issue and open markers and the common requirements checklist. Fields in angle brackets; illustrative only.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard requirements template
 

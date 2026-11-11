@@ -4,11 +4,7 @@ title: Investment estimate
 description: "The department's investment and effort estimate template (the cost side of a business case, od-investment-input): one-time build, licences and hardware, recurring run cost, cost summary against bankable value, payback. Never netted into the value headline."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [cost, business-case, template, department-standard]
-derived_from:
-  - "Department knowledge base, read 2026-11-10 (the knowledge base file is the master)"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Investment & Effort Estimate — ⟨case name⟩
 

@@ -4,9 +4,7 @@ title: Sprint runbook
 description: How a plant use-case sprint is planned, run and reviewed - preconditions, rhythm, standard deliverables, review questions, additional-phase rule and pitfalls.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Sprint runbook
 

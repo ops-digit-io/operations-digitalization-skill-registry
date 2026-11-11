@@ -4,9 +4,7 @@ title: Roles and support model
 description: Who does what around the IIoT edge and manufacturing suite at a plant according to the operations concept deck - local key user, business-area key user, governance board, central key user, divisional engineering, divisional and local IT, platform provider - plus the incident, change and security-incident flows.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Roles and support model

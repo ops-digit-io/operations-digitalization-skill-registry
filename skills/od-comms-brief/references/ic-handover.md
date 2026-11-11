@@ -4,9 +4,7 @@ title: Ic handover
 description: What OD hands to Internal Communications for a use-case story, who approves what, and the open points that only the Internal Communications brief can answer - channels, intake form, lead times and review route. Open it before briefing IC or when an IC detail is needed.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Handover to Internal Communications
 

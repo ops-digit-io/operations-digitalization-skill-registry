@@ -4,9 +4,7 @@ title: Sprint plan and review
 description: Template for a use-case sprint - preconditions, rhythm, deliverable board, IT-issue log and sprint-end review.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Sprint - <use case> · <plant kind>
 

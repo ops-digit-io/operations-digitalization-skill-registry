@@ -4,9 +4,7 @@ title: Competence and sustainment
 description: How competence is evidenced and confirmed by the plant, the single-point-of-failure rule, a proposed hand-down from key user to key user, and what keeps the competence alive after the trainer leaves.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Competence and sustainment
 

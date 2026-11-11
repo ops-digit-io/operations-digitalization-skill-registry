@@ -4,9 +4,7 @@ title: Prioritization
 description: A weighted-scoring method for ranking use cases in a portfolio review, and the honest bucket for the ones that cannot be scored at all.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, use-case-support-service, analytical-support-service]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Prioritization
 

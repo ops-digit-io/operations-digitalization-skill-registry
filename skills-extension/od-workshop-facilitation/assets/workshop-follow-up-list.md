@@ -4,9 +4,7 @@ title: Workshop follow-up list
 description: The summary skeleton and follow-up list that close a workshop - tool status, top use cases by priority per process, next steps split into local and central, each with an owner role and a date or an explicit open mark, and the route to the next skill.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop summary and follow-up list — ⟨plant⟩ — ⟨workshop dates⟩
 

@@ -4,9 +4,7 @@ title: Regional handling
 description: Why the three regions are never blended into one conversion figure, and what to report instead. Method only - read the regional figures live.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, use-case-support-service, analytical-support-service]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Regional handling
 

@@ -4,9 +4,7 @@ title: Idea check
 description: A plain-language self-fill sheet for anybody with a use case idea - ten questions in the order that saves the most work (has it been done already first), a one-page summary and the next step, with no department jargon. Fill it before talking to OD; "I don't know" is a valid answer.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-2, practice, blank]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Idea check: ⟨your idea in one sentence⟩
 

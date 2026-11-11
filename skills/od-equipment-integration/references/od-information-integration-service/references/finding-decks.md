@@ -4,9 +4,7 @@ title: Finding decks
 description: How to find which archive deck holds what for the integration lane - the Slide Index and how to search it, and a topic-to-deck map for machine integration workshops, initiatives, tools and architecture, energy, QFPR, MIL and roadmaps.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, lane]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Finding decks

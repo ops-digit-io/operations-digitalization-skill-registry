@@ -4,15 +4,7 @@ title: House business case standard
 description: "The department's own business-case standard (od-benefit-calculation / bc-assessment house rules and the shared value model): value-only backbone, grounding tags, expected / min / potential headline, lever register, contribution matrix, de-banking, cost envelope, gated value realization, scaling; plus the OD x IT business-case rules of 2026-09-11."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, value-model, department-standard, lane-2, lane-3]
-derived_from:
-  - "Department knowledge base (value model and grounding discipline, house standard), read 2026-11-10"
-  - "Department knowledge base, read 2026-11-10"
-  - "Department knowledge base §4 (one shared value model bc-value-model; chain od-benefit-calculation → bc-assessment → od-capital-request; od-investment-input feeds bc-assessment), read 2026-11-10"
-  - "Department knowledge base (bc-assessment features), read 2026-11-10"
-  - "Department knowledge base (theme 7, business cases and IT cost planning), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # House business case standard
 

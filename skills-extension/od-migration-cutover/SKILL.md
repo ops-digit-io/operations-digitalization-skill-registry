@@ -20,17 +20,12 @@ metadata:
   authority_level: draft the assessment, the migration plan, the checklists and the back-out plan; recommend sequencing; the cutover, the back-out decision, Cyber Security sign-off and decommissioning are human
   status: draft
   origin: plan-draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-system-fit-check, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, od-requirements-breakdown, od-decision-routing, od-risk-watch, od-plant-onboarding, deploy-appstore]
-  derived_from:
-    - Operations Digitalization slide decks (legacy-application assessment and migration workshops, platform and server migration across plants, middleware retirement, back-out plan diagrams), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: Migration and cutover
     tags: [migration, cutover, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Migration and cutover

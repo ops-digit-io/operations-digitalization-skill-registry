@@ -4,9 +4,7 @@ title: Rituals and consumption
 description: The recurring formats in which the function's output is actually consumed (daily Gemba, shift checks, escalation, portfolio review, rollout waves), how to find the ritual behind a use case, and how the plant rituals relate to the department's own ladder of routines from shift to round.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, cadence, gemba]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Rituals and consumption
 

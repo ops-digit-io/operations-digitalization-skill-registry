@@ -4,9 +4,7 @@ title: Routing and handoff
 description: How the object profile becomes a route signal at chain steps 1b1, 22, 32 and 3b4 - decision rules, the handoff contract with neighbouring skills, pitfalls, questions to ask and the definition of done.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, routing, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Routing and handoff - the profile as a signal, not a verdict
 

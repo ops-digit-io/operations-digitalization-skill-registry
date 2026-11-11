@@ -4,9 +4,7 @@ title: Worked Grafana examples
 description: "Four complete dashboards demonstrating the skill's rules end to end, each in build-script and finished-JSON form."
 resource: ../../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, examples]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Worked examples
 

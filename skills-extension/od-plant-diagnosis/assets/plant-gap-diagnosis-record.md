@@ -4,9 +4,7 @@ title: Plant gap diagnosis record
 description: Record for one plant comparison - comparison set, facts, Ishikawa gaps with evidence, practice signature, tier with criteria, scaling test and open questions.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant gap diagnosis record

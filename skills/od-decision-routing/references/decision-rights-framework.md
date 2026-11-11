@@ -4,9 +4,7 @@ title: Decision rights framework
 description: Why Tandem, Consultation and Information are not ad hoc labels — each is one role pairing from a named decision-rights framework, cited so the vocabulary can be checked and extended.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, decision-rights]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Decision rights framework
 

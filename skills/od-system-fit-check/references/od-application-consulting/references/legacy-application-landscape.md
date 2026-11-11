@@ -4,9 +4,7 @@ title: Legacy application landscape
 description: Guidance, no figures. How to read the recorded plant-local applications (categories, functional mapping, support, licences, network placement) and use it when the question is replace, integrate or keep.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, aggregate]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Legacy application landscape
 

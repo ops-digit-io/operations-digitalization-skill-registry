@@ -4,11 +4,7 @@ title: Open items and conflicts
 description: "The refusal gate before compiling (when inputs are too thin, stop and return de-risk questions), the de-risk question bank, and the closing Open items and conflicts slide."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [capital-request, ecr, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ecr-builder.zip/reference/open-items-and-conflicts.md` (the master).
 

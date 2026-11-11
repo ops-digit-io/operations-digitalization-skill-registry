@@ -4,9 +4,7 @@ title: Object event reduction
 description: How to reduce a plant sentence to objects, events and time, why a sensor value is not an event, the event-log vocabulary, the object-relation check and the questions to ask.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Object and event reduction
 

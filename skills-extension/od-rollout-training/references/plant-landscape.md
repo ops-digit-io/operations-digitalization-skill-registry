@@ -4,9 +4,7 @@ title: Plant landscape
 description: Guidance, no figures - how a plant is organised for rollout training (roles, how to find the tools a plant actually has, what kinds of training and workshops the ODEC and COP decks record) and where to read the live data.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Plant landscape
 

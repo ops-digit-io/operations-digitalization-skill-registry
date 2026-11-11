@@ -4,9 +4,7 @@ title: Evaluation protocol
 description: The defined output of the method - driver profile, case ranking, per-area gap, sequencing and a total evaluation score, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Use-case solution evaluation — ⟨use case name⟩

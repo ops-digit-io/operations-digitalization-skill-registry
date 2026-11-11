@@ -4,9 +4,7 @@ title: Risk indicators
 description: The six registered risks with the source of each early indicator, how to read each indicator live, the trigger test and the kinds of gap that make an indicator unreadable.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Risk indicators

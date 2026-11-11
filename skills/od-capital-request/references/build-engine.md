@@ -4,11 +4,7 @@ title: Build engine
 description: "How the eCR management summary deck is filled and rendered with build_ecr.py on the neuwerk template; slide-type functions, brand rules, QA checklist."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [capital-request, ecr, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ecr-builder.zip/reference/build-engine.md` (the master).
 

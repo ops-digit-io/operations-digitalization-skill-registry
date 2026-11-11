@@ -4,9 +4,7 @@ title: Project order
 description: The project order (PREQ) template with fields, the short form for a small initiative and the pre-send check.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Project order - <project name>
 

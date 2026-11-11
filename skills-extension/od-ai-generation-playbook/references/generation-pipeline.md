@@ -4,9 +4,7 @@ title: Generation pipeline
 description: The seven-stage pipeline for a template-bound generated deliverable with its human gate and visual-QA loop, and the recipes for signal selection, dashboard generation, click-dummy, guided analyser and deployment set.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Generation pipeline
 

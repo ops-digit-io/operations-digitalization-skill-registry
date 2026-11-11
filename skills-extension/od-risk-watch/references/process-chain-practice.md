@@ -4,9 +4,7 @@ title: Process chain practice
 description: Additional early indicators the chain produces for risk watch - operations concept, ticket age, stale lists, savings-forecast gaps, preconditions and go-live gates, the blocker brief - plus the cadence formats and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

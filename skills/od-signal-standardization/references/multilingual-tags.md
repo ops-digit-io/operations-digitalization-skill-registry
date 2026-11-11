@@ -4,9 +4,7 @@ title: Multilingual tags
 description: "Tags in nine plant languages: the normalization before any comparison, the term table, and why the local name is an alias not a replacement."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [signals, translation, multilingual]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Multilingual tags — translating what the plant actually wrote
 

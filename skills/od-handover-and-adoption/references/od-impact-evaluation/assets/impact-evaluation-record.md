@@ -4,9 +4,7 @@ title: Impact evaluation record
 description: The output of od-impact-evaluation - the drafted evaluation of a live use case with each saving shown at its true firmness, plus the adoption confirmation block that the plant owner signs.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Impact evaluation and adoption confirmation — ⟨use case, plant, line⟩
 

@@ -4,9 +4,7 @@ title: Call for action and status
 description: Template for a CoP or other department round - agenda, plant status table with traffic light, numbered call for action and follow-up log.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Round pack - <format> · <round id>
 

@@ -4,9 +4,7 @@ title: Softing data targets
 description: How data leaves a dataFEED configuration - the data source and data target model, and which targets are in use.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, softing]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Softing dataFEED — how the data leaves
 

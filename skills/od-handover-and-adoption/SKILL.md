@@ -10,29 +10,16 @@ metadata:
   new_state_lane: "Lane 1a (1a3), Lane 1b (1b4), Lane 2 (26), Lane 3a (3a6)"
   new_state_step: "Guardrails, go live, confirm adoption; Standardized deployment, go live, confirm adoption; Implement, evaluate impact, ensure adoption, catalogue; Rollout and adoption; ownership on formal acceptance"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
-  author: Digital-Business-Value-Engineer (DBVE); the plant owns the adoption decision
   tags: [all, practice]
   authority_level: draft and report; the plant decides PRODUCTIVE
   status: stable
   origin: derived
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-acceptance-test, od-scorecard-reporting, od-use-case-standardization, it-demand-package, catalog-usecase]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/10-Department/Handover.md
-    - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
-    - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
-    - Prosci. The Prosci ADKAR Model. prosci.com/methodology/adkar. Retrieved 2026-10-22. Industry framework, not peer-reviewed — used for the individual-adoption diagnostic, not for the delivery-status facts above it.
-    - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
-    - "Department knowledge base, read 2026-11-10"
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
-    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Handover and adoption
     tags: [all, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Handover and adoption

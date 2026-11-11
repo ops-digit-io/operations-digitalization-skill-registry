@@ -10,28 +10,15 @@ metadata:
   new_state_lane: "Lane 4 (42, 43)"
   new_state_step: "Brief Internal Communications and draft; review and publish"
   owner_role: Digital-Business-Value-Engineer (DBVE); Internal Communications publishes
-  author: Digital-Business-Value-Engineer (DBVE); Internal Communications publishes
   tags: [lane-4, practice, draft]
   authority_level: draft the brief and the assets and run the check; nothing is published by OD; the plant owner, the OD lead and Internal Communications approve
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-showcase-selection, od-showcase-followup, catalog-usecase, od-benefit-calculation]
-  derived_from:
-    - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department; the Internal Communications brief is still to be supplied"
-    - "Department knowledge base (Teams channel, Use Case Library and SharePoint as the collaboration surface; reporting by execution), read 2026-11-10"
-    - "Department knowledge base (Lean and Digital with OPEX), read 2026-11-10"
-    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), Firstup frontline manufacturing survey (firstup.io, vendor survey, June 2026) and Sagefrog B2B case-study guide (sagefrog.com), read 2026-11-10"
-    - "Registry rules (no invented figures, roles not individuals, English deliverables): no invented figures, roles not individuals, English deliverables"
-    - "Department knowledge base Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md (appetizer template, marketing pairing; results slide empty), read 2026-11-10"
-    - "Department knowledge base (testimonial key aspects, slide 17), and Deck Texts/D-Operations Digitalization/2025 10-ODEC.md (story shapes, slides 9-11), read 2026-11-10"
-    - "Department knowledge base Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Communications brief
     tags: [lane-4, practice, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 
 # Communications brief

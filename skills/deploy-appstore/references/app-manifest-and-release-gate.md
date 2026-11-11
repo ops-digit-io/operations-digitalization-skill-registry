@@ -4,9 +4,7 @@ title: App manifest and release gate
 description: The fields an app should declare to join the platform, the interface and versioning rules the WIP design proposes, the security review triggers, and the release-gate checklist assembled from them. Open it when you assemble a deployment package or review one.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # App manifest and release gate
 

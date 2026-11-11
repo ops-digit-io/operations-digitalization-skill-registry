@@ -4,13 +4,7 @@ title: ECR management summary
 description: "The eCR management summary as the department recorded it (section map, governance conditionals, enum fields) and the house rules of its capital-request builder (od-capital-request, formerly ecr-builder): refusal / de-risk gate, grounding tags, open items and conflicts, maturity verdict."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [ecr, capital-request, department-standard, lane-2, lane-3]
-derived_from:
-  - "Department knowledge base (content inventory of the blank eCR management-summary template), read 2026-11-10"
-  - "Department knowledge base (od-capital-request features), read 2026-11-10"
-  - "Department knowledge base (ecr-builder renamed od-capital-request; chain od-benefit-calculation → bc-assessment → od-capital-request), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # eCR management summary
 

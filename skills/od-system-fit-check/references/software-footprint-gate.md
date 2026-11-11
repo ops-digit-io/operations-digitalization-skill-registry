@@ -4,11 +4,7 @@ title: Software footprint gate
 description: "The mandatory software / IT-footprint hard gate: the 8-point checklist every invest row passes before scoring."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [invest-screen, gate, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `investment-checking.zip/reference/software-footprint-gate.md` (the master).
 

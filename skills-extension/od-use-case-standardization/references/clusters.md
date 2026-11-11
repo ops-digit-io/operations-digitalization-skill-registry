@@ -4,9 +4,7 @@ title: Clusters
 description: The cluster tags' (C01-C12) standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, standardization]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # The clusters — definition, KPIs, requirements checklist
 

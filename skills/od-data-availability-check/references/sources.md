@@ -4,9 +4,7 @@ title: Sources
 description: The five sources this check reads, what each can genuinely answer, which fields and patterns to expect, and where each one stops. Guidance only; counts and fill rates are read live.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [data-availability, sources]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Sources

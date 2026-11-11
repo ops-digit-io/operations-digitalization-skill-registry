@@ -11,27 +11,15 @@ metadata:
   new_state_step: "Business case (value and cost), assessment, ranking; Business case, prioritization, capital request"
   department_names: ["bc-build", "bc-assess", "bc-value-model", "business-case-builder", "business-case-assessor", "bc-assessment"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  author: Digital-Business-Value-Engineer (DBVE)
   tags: [practice, use-case-support-service]
   authority_level: draft on the business case; recommend on prioritization; never assert proven
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-investment-input, od-capital-request]
-  derived_from:
-    - "Department knowledge base (skills/business-case/SKILL.md, references/savings-model.md, deck-structure.md), read 2026-11-10"
-    - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
-    - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-    - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
-    - Department knowledge base, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 3 (benefit-calculation review) from the department's own record.
-    - "Department knowledge base (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Benefit calculation and savings
     tags: [practice, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Benefit calculation and savings

@@ -4,9 +4,7 @@ title: Utilization review record
 description: The record of one utilization review - scope, verdicts, smells, no-saving decisions, paper reconciliation and the dated follow-up list.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Utilization review - <use case or sprint> · <site(s)>
 

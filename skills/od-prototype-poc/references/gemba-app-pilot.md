@@ -4,9 +4,7 @@ title: Gemba App pilot
 description: The Gemba App requirements-to-mockup pilot as a method to copy - the process, the click-dummy prompt system, what an initiative request for a prototype should contain, and what the sources do not show. No dates, budgets or status of the live initiative.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Gemba App pilot
 

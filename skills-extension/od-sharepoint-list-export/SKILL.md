@@ -20,21 +20,12 @@ metadata:
   authority_level: read-only on SharePoint
   status: stable
   delivered: 2026-08
-  sources_read: 2026-10-22
   requires: [od-context]
   composes: [od-portfolio-and-savings-analysis]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/20-Done/SharePoint list export procedure.md
-    - ops-knowledge-graph/_knowledge/90-Sources/sharepoint-export-playbook.md
-    - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
-    - ShortPoint (vendor documentation, not Microsoft), REST API filtering reference (Modified-field OData filter syntax), retrieved 2026-10-22
-    - Microsoft Learn, Synchronize SharePoint items using the REST service (GetListItemChangesSinceToken), retrieved 2026-10-22
   okf:
     type: Agent Skill
     title: SharePoint list export
     tags: [all, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # SharePoint list export

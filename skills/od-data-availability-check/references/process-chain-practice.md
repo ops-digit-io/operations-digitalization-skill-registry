@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the data check is run inside the new process chain - objects, events and time first, the missing-signal table up front, decision rules, the handoff contract to and from neighbouring skills, pitfalls, and what an AI agent may do at this step. Process guidance only; no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [data-availability, process-chain, ai-agent]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

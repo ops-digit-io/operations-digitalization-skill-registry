@@ -4,9 +4,7 @@ title: First aid request
 description: The structured problem-capture form for a Process First-Aid Kit request, with the S.M.A.R.T. restatement, data scenario, routing decision and hand-over - a working version of the template the lane documents leave open.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process First-Aid request — ⟨plant⟩ — ⟨date⟩
 

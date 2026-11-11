@@ -4,13 +4,7 @@ title: Barrier classes
 description: Which vendors/protocols are actually cheap vs. expensive to connect, the resolved Modbus/aggregation-route question, pre-assessment tells not in the Machine List, and blocker root causes behind the recorded free text.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [information-integration-service, connectability, elicited]
-derived_from:
-  - kg_nodes.csv and the Connector Overview export — integration-rate read by vendor and protocol
-  - interview with human:jakob.gabriel, 2026-09-17 — difficulty ranking, pre-assessment tells, blocker root causes
-  - general industry research, 2026-09-17 — brownfield-integration hurdles section, sourced inline
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Barrier classes

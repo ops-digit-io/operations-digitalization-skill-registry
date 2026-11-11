@@ -4,9 +4,7 @@ title: Process chain practice
 description: How equipment integration is run as a chain step (1b3, 3b4, 3b5) - the wave and its weekly capital-request micro-process with Cyber Security as a parallel go-live gate, the per-plant planning workflow, data classes with default hub and leading system, energy-monitoring and MES lessons, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - integration wave, planning workflow and lessons
 

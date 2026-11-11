@@ -4,9 +4,7 @@ title: Guidance protocol
 description: The defined output of Route B - one machine's gates answered in order, the connector and configuration chosen, and the fallback taken if a path blocked, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [information-integration-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Machine integration guidance — ⟨plant⟩ · ⟨machine⟩

@@ -4,9 +4,7 @@ title: Kickoff and reports
 description: The kick-off workshop structure, the milestone report, the closure report and checklist, traffic-light rules, the project phases, and the intake variant for a customer-mandated program.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Kick-off, milestone and closure
 

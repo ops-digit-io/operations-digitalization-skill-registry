@@ -4,9 +4,7 @@ title: Scorecard structure
 description: Why the scorecard's metrics are grouped the way they are, and the discipline a new metric must meet before it is added.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, scorecard]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Scorecard structure
 

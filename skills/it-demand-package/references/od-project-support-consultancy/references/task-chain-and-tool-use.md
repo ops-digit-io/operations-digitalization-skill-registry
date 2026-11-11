@@ -4,9 +4,7 @@ title: Task chain and tool use
 description: The consultancy lane's recurring tasks as a trigger chain with tool access rationale and metric hooks, plus the shape of the business case used in the organisation-level initiative analysis (business case, process, technology and data, impact, strategic fit).
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane, project-support-consultancy, tasks, business-case]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Task chain and tool use - Project Support and Application Consultancy
 

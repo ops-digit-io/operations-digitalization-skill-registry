@@ -4,9 +4,7 @@ title: Review checklist
 description: Why a saving row's methodology is usually missing, the smell test that follows from it, and the department's own three failed fixes before the current one — Phase-1 tacit-knowledge item #3, resolved from the department's own retrospective record.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Review checklist
 

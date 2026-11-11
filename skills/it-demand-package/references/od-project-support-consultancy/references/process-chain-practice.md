@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the project-support lane, abstracted from the Operations Digitalization slide decks - project order and plan structure, kick-off workshop, status colours, milestone and closure reports, equipment-integration workshop preparation, wave rules, application consultancy gates, handover lessons. Guidance only, no figures; approved masters come from the register.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - project order, kick-off and consultancy
 

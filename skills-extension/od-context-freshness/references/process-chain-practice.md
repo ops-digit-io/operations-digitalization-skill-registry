@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the freshness check, abstracted from the Operations Digitalization slide decks - time-stamped facts that change fastest (tool status, plant tier, forum status, vocabulary), copy residue, orphaned ownership, list clean-up. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, hygiene, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - what goes stale and who notices
 

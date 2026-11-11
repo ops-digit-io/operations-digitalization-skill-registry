@@ -4,9 +4,7 @@ title: Lane templates
 description: Which already-built skill's asset answers each happy-path step's template, so this lane routes to the real artefact instead of leaving a placeholder next to a skill that already has the answer.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [lane, use-case-support-service]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Lane templates — route to the real artefact
 

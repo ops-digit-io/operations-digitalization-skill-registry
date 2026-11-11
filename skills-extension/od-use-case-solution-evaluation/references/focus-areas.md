@@ -4,9 +4,7 @@ title: Focus areas
 description: The 16 IT/OT capability areas a use case's solution can depend on — levels, what each level looks like, and where to set the target from need rather than from the top of the scale.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-evaluation, maturity-model]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # The 16 focus areas
 

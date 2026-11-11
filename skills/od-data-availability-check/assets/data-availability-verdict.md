@@ -4,9 +4,7 @@ title: Data availability verdict
 description: The defined output of an availability check - the six steps, the gap named, the route, and what still has to be checked outside the bundle.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [data-availability, template, verdict]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Data availability verdict — ⟨plant⟩ ⟨· machine⟩

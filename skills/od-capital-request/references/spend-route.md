@@ -4,9 +4,7 @@ title: Spend route
 description: How to find the spend gate and approver for an OD investment, the ambiguity in the recorded thresholds to resolve with the OD lead, where the eCR sits in Lane 2 and Lane 3, and what a saving waiting on it looks like in the ledger. Guidance only, no amounts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Spend route
 

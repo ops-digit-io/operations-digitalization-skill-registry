@@ -4,11 +4,7 @@ title: Deck spec
 description: "The standard business-case one-pager deck (9 slides plus provenance backup): slide by slide content rules."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/deck-spec.md` (the master).
 

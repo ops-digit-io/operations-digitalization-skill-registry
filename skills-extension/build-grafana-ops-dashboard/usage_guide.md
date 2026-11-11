@@ -4,9 +4,7 @@ title: Usage guide
 description: How an assistant running with the Grafana skill installed should drive it end to end, from schema interview to delivered JSON.
 resource: SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, dashboards]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Usage Guide — How to use the `build-grafana-ops-dashboard` skill
 

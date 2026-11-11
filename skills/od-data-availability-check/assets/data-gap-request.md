@@ -4,9 +4,7 @@ title: Data gap request
 description: The named request a data gap becomes when it is routed to the Information Integration lane - which machines or sources, which signals, which plant, which use case is waiting, and what was already checked - so the lane can act without asking the requester again.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Data gap request

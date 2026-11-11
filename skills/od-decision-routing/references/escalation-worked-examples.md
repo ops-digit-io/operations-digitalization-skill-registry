@@ -4,9 +4,7 @@ title: Escalation worked examples
 description: Illustrative patterns, from the historical ODEC and COP records, where the forum was not obvious, how it was decided, and what happens when something lands at the wrong forum - guidance only, no plant names or figures.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, decision-rights]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Escalation worked examples
 

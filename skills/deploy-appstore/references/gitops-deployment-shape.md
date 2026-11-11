@@ -4,13 +4,7 @@ title: GitOps deployment shape
 description: "What the department records about its drafted App-Store deployment skill (Manufacturing-App-Store-Ops, renamed deploy-appstore): GitOps / ArgoCD, the Kubernetes manifest set, PostgreSQL with a migration job, sub-path-aware ingress, manual secrets, the HDAS reference instance, and the OD x IT CMO rules. Shape only, no commands."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-3a, deployment, cmo, gitops]
-derived_from:
-  - "Department knowledge base (deploy-appstore: traditional process, features, Copilot portability), read 2026-11-10"
-  - "Department knowledge base (Manufacturing-App-Store-Ops renamed deploy-appstore; GitOps / ArgoCD; reference instance HDAS), read 2026-11-10"
-  - "Department knowledge base (theme 2, CMO and standard manifests), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # GitOps deployment shape
 

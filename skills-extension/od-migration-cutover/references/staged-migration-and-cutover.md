@@ -4,9 +4,7 @@ title: Staged migration and cutover
 description: Staging logic, preconditions, per-location checklist with RAG, outage window, key-user verification, parallel run, licence check, middleware retirement flow, decommissioning and recurring pitfalls.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [migration, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Staged migration and cutover
 

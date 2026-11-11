@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for the catalog skill, abstracted from the Operations Digitalization slide decks - pick and graduation, standardized-system match, go-live self-check. Guidance only, no figures, no kit or price.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process chain practice
 

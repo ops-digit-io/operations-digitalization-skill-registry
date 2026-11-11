@@ -4,9 +4,7 @@ title: Archetype method etl
 description: Cross-process, per-process and unique use cases and the action for each, the category to method to ETL job chain, data classes with their hubs, the data-model choice and what to ask of the data platform.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Archetype, method and ETL mapping
 

@@ -4,9 +4,7 @@ title: Department formats
 description: The use-case story formats OD already has - the CSP appetizer fields, the use-case marketing pairing of method, digital standard use case and standard process, the plant testimonial template, the story shapes used at ODEC and the OPEX exchange call format - with source slides and the status of each. Open it when shaping a brief or a draft so the story looks like the department's own.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Department formats
 

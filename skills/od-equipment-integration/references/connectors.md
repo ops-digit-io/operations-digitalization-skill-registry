@@ -4,9 +4,7 @@ title: Connectors
 description: The connector catalogue with what each reaches, over which protocol, which PLCs, and - decisively - whether it is available at all.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, connectors, opc-ua]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Connectors

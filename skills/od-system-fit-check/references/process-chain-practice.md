@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the fit check is run as a step in the AI-driven process chain (i1 classify the demand, 32 tool decision) - tool boundaries and "recommended if" triggers as classifiers, demand shapes, the operations-concept check, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, system-fit, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - the fit check as an intake classifier
 

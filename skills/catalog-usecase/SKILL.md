@@ -13,40 +13,15 @@ metadata:
   department_names: ["catalog-usecase", "use-case-catalog"]
   formerly: od-catalog
   owner_role: human:jakob.gabriel
-  author: human:jakob.gabriel
   tags: [all, practice, new-state, draft, catalog]
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [catalog-systems, catalog-guardrails, od-use-case-standardization, od-use-case-intake-triage, od-data-availability-check, od-system-fit-check, od-handover-and-adoption, od-equipment-integration, od-decision-routing, od-acceptance-test]
-  derived_from:
-    - The new-state flow (docs/new-state-flow.md and the four diagrams in docs/new-state/), the Lane 1 steps "Pick from catalog", "Pick UC + std system" and "Validate and go live", the Lane 2 graduation and the gap register entries, read 2026-11-05
-    - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
-    - Skill od-use-case-standardization, which holds the eleven capability templates, the reference library and the CSP gate
-    - Department knowledge base Cases frontmatter (use_case_level, csp_decision, use_case_template, status, plant, scalable), read 2026-11-05
-    - Department knowledge base Case Views, the overview, the standardization note and the eleven template pages (delivery, standard data, boundaries), read 2026-11-05
-    - Department knowledge base Types and the library notes with a recorded CSP Yes, read 2026-11-05
-    - registry.yaml open_gaps, the integration routes marked TODO and the plants without an integration concept; Grafana is a local instance per plant while Databricks and the Azure Storage Account are the global layer
-    - ops-knowledge-graph/.../00-core/03-objectives.md
-    - ops-knowledge-graph/.../00-core/08-decision-rights.md
-    - ops-knowledge-graph/.../20-lanes/use-case-support-service/agent-brief.md
-    - Skill od-equipment-integration, references/decision-paths.md, the routes by controller and protocol
-    - Department knowledge base, the machine notes aggregated by controller vendor, model, protocol, integration status and method, read 2026-11-05
-    - Department knowledge base, Graph/Connectors and Graph/Legacy Applications (aggregated), read 2026-11-05
-    - Department knowledge base, the systems-of-record note
-    - Skill od-handover-and-adoption, the three-question test and the rule that the plant decides PRODUCTIVE
-    - Department knowledge base, SPEC-00 to SPEC-04 and the Hannover Stoecken KKA and Pulp Mixer requirements, all AI-drafted drafts, read 2026-11-05
-    - Department knowledge base, Knowledge base Gap Analysis - Working Items and Content Depth, _knowledge/20-Done and 10-Department (Decision rights, Handover, Use case standardization), read 2026-11-05
-    - Department knowledge base Case Views and the Microservice Apps (WIP) notes Cross-Cutting Platform Concerns and Platform Extensibility and Onboarding, read 2026-11-05
-    - Skills od-data-availability-check (failure modes), od-handover-and-adoption, od-decision-routing (escalation worked examples), read 2026-11-05
-    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: catalog-usecase
     tags: [all, practice, new-state, draft, catalog]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Catalog: use cases, standard systems, go-live guardrails

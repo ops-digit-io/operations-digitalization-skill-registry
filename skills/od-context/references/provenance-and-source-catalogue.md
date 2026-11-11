@@ -4,9 +4,7 @@ title: Provenance and source catalogue
 description: How to find content that lives in non-Markdown files via the source catalogues, how to use the verified reference library and published industry benchmarks without overclaiming, and how to record the provenance of any statement an agent produces.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, context, provenance]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Provenance and source catalogue
 

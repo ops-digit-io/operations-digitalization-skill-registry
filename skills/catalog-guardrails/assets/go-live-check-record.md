@@ -4,9 +4,7 @@ title: Go-live check record
 description: The record a plant fills before it declares a catalogued use case live - the seven seeded guardrails plus the candidate build guardrails, with result, evidence, date and who answered. Copy one per use case.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Go-live check record
 

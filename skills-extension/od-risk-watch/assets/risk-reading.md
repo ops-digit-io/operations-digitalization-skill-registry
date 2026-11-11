@@ -4,9 +4,7 @@ title: Risk reading
 description: Monthly risk reading template - one row per registered risk with indicator value, source and date, trigger test, status and routing.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Risk reading

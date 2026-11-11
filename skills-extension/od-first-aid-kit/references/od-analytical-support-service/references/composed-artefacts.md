@@ -4,9 +4,7 @@ title: Composed artefacts
 description: Which composed skill's real, built asset answers each happy-path step, now that those skills have gone deep — so this lane page routes to them instead of carrying its own unresolved placeholder for the same thing.
 resource: ../procedure.md
 status: stable
-owner: human:jakob.gabriel
 tags: [analytical-support-service, lane]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Composed artefacts
 

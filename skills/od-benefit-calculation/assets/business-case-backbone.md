@@ -4,11 +4,7 @@ title: Business case backbone
 description: "The department's business-case backbone template (value only), condensed: header, inputs inventory A-L, before/after process, lever register, contribution matrix, de-banked levers, gated value realization, scaling, assumptions, open questions."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, template, department-standard]
-derived_from:
-  - "Department knowledge base, read 2026-11-10 (condensed; the knowledge base file is the master)"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Business Case — ⟨case name⟩
 

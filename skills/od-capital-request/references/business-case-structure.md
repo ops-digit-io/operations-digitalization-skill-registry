@@ -4,9 +4,7 @@ title: Business case structure
 description: What a business case holds in the department's own records (the department knowledge base Business Cases folder) - fields, ranges, scores, cost split, validation plans, prerequisites and typical gaps - as a pattern for the capital request package. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Business case structure
 

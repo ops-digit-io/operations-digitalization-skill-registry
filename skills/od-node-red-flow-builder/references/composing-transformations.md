@@ -4,9 +4,7 @@ title: Composing transformations
 description: "What to do when the transformation you need is not one of the thirteen patterns: how to compose one and how to prove it works."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, transformation]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # When no pattern fits — composing a transformation
 

@@ -4,9 +4,7 @@ title: Public data models
 description: OPC UA for Machinery, EUROMAP and PackML - what each already standardizes, so a signal set is not invented twice.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [signals, opc-ua, euromap, packml]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Public data models — do not invent what is already standardized
 

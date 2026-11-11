@@ -4,9 +4,7 @@ title: Evidence and human decisions
 description: What an AI agent must cite at each process step, how it labels drafts, and the list of decisions and signatures that stay with a named human role.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Evidence and human decisions
 

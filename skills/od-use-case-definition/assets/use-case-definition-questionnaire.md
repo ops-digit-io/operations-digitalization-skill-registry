@@ -4,9 +4,7 @@ title: Use case definition questionnaire
 description: The actual questions to ask, in order, across the four phases - Is/Is-Not and 5 Whys for Analyse, a Benefits Dependency Network walk-through for Control - so a workshop produces a defined use case instead of a title and a savings guess.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, questionnaire, workshop]
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Use case definition questionnaire

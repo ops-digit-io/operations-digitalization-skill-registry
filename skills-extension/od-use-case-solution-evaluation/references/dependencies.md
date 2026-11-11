@@ -4,9 +4,7 @@ title: Dependencies
 description: Which focus-area levels require which others first, the source table's own reliability caveat, and the recommended backbone chain for sequencing a gap.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-evaluation, maturity-model]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Realization dependencies
 

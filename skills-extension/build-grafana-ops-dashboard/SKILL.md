@@ -27,17 +27,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: author the dashboard; publishing to a shared Grafana is human-approved
   status: stable
-  sources_read: 2026-08-25
   related: [od-analytics-asset-build, od-data-availability-check, od-handover-and-adoption]
   od_integration: skills-extension/build-grafana-ops-dashboard/OD-INTEGRATION.md
-  derived_from:
-    - vendored from the author's build-grafana-ops-dashboard skill (uploaded 2026-08-25)
   okf:
     type: Agent Skill
     title: Grafana ops dashboard builder
     tags: [analytical-support-service, portable, technical, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # build-grafana-ops-dashboard — Grafana JSON for Operations Data

@@ -4,9 +4,7 @@ title: Hygiene report
 description: The quarterly context-freshness report - script output pasted in, findings with owners and actions, the manual checks, and the gap-list comparison - drafted by the assistant, decided by the owners.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Context hygiene report - ⟨quarter⟩
 

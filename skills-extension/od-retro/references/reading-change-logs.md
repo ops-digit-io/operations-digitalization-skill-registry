@@ -4,9 +4,7 @@ title: Reading change logs
 description: What the generated use-case change logs record, what a line means, which kinds of change are signal and which are noise (bulk sweeps, tidy-ups, field-only edits), and how to turn a log into a retro learning item with evidence.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, retro, registers]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Reading change logs
 

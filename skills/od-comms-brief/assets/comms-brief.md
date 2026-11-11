@@ -4,9 +4,7 @@ title: Comms brief
 description: The brief OD hands to Internal Communications for one use-case story - message, proof points with evidence class and source, audience variants, call to action, channels, sensitivity screen and approvals. Copy one per story; check it with scripts/check_comms_brief.py.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane-4, practice, blank]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Brief: ⟨use case⟩ at ⟨plant⟩
 

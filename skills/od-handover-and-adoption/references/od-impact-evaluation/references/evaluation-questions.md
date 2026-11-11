@@ -4,9 +4,7 @@ title: Evaluation questions
 description: The questions to put to the plant owner and the records to read when evaluating a live use case, built from OD's own use case utilization template, the Use Case Canvas success criteria and the integration workshop utilization sessions.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Evaluation questions
 

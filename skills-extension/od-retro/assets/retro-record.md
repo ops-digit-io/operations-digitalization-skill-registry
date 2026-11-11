@@ -4,9 +4,7 @@ title: Retro record
 description: One-page monthly retro record with the check of last month's adjustment, the evidence list, exactly one decided adjustment and the parking list.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Retro record

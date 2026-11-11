@@ -4,11 +4,7 @@ title: Investment checking workflow
 description: "The department's investment-checking workflow (invest-screen): screen the whole list, footprint gate, scored gate, region-grouped verdicts, read-only autonomy."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [invest-screen, workflow, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `investment-checking.zip/SKILL.md` (the master).
 

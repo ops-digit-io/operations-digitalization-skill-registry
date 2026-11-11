@@ -4,9 +4,7 @@ title: Missing signal and binding table
 description: The two tables of AI signal selection - signals needed but not collecting, reported first, and the binding of each matched tag to a requirement and a dashboard panel.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Missing signal and binding table - <machine or equipment type> · <plant>
 

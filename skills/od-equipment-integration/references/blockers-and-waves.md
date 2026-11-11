@@ -4,9 +4,7 @@ title: Blockers and waves
 description: Guidance for reading the recorded integration blocker texts by kind, how integration waves and the eCR step are recorded, and where the department roadmap figures live - how to count and interpret, with no company figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Blockers and waves

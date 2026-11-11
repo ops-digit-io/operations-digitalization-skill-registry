@@ -4,11 +4,7 @@ title: Funnel business case
 description: "The department's business-case stage of the product funnel (bc-build): value model from the features and prototype, savings model, auditable deck."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, funnel, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/business-case/SKILL.md` (the master).
 

@@ -4,9 +4,7 @@ title: Data requirements statement
 description: What a use case asks of the data platform and the integration lane - identifiers, events, resolution, relation, data class and hub, master data, ETL jobs, retention, gaps.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Data requirements - <use case> · <plant>
 

@@ -4,9 +4,7 @@ title: Freshness
 description: The cadence of each source, and the rule that an analysis cannot be fresher than the slowest pipeline feeding it.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [data-availability, freshness, cadence]
-generated: { by: claude-code/1, at: 2026-08-26T00:00:00Z }
 ---
 
 # Freshness

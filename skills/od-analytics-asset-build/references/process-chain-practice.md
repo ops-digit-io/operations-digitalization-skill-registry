@@ -4,9 +4,7 @@ title: Process chain practice
 description: How an analytics asset is built inside the new process chain - the dashboard-without-action-owner smell, the generative-AI dashboard process (tag list, requirements, reference JSON), reconciling dashboards with paper records, sprint practice, the handoff contract, pitfalls, and AI agent operating notes. Process guidance only; no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytics-asset, process-chain, ai-agent, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

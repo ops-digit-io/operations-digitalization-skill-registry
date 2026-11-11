@@ -4,9 +4,7 @@ title: Approval route
 description: Who decides an investment input, how to find the current spend ladder and its ambiguity, the open budget threshold, and the gates and dependencies to record. Guidance only, no amounts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, decision-rights]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Approval route
 

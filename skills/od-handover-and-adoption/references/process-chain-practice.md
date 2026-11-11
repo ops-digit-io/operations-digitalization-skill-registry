@@ -4,9 +4,7 @@ title: Process chain practice
 description: How handover and adoption (steps 26 and 3a6) is run in the AI-driven chain - deployed is not used, the pre-go-live checklist from rollout lessons, the operations-concept gate, the pitfalls of handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, adoption, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

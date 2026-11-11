@@ -4,9 +4,7 @@ title: Sources and entry fields
 description: What the catalog and standard-system match build on today (sources, route-candidate pattern) and the field list a standardized-system entry must hold. Moved out of SKILL.md.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [catalog, new-state]
-generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 # Sources and entry fields
 

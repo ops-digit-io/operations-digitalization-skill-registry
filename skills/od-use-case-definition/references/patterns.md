@@ -4,11 +4,7 @@ title: Patterns
 description: The abstract rules this procedure runs on, each illustrated once against a real use case.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [use-case-support-service, patterns]
-derived_from:
-  - Department knowledge base Cases/*.md and Graph/Library Use Cases/*.md, read 2026-09-17
-generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Patterns

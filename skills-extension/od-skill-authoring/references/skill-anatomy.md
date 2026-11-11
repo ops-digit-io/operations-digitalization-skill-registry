@@ -4,9 +4,7 @@ title: Skill anatomy
 description: How an OD skill is built - folder layout, the frontmatter the registry validates, the sections every skill carries, size limits, naming, tiers, where the sources come from and the writing rules - each with the rule or source behind it. Open it while writing a skill.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [skills, practice, anatomy]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Skill anatomy
 

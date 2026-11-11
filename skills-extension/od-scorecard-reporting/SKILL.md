@@ -19,23 +19,13 @@ metadata:
   owner_role: OD lead; DBVE for use-case metrics, IIAE for equipment metrics
   authority_level: read-only on sources; draft on reports
   status: stable
-  sources_read: 2026-10-22
   valid_until: 2026-11-10
   requires: [od-context]
   composes: [od-benefit-calculation]
-  derived_from:
-    - ops-knowledge-graph/.../00-core/07-metrics.md
-    - ops-knowledge-graph/.../00-core/06-operating-rhythm.md
-    - ops-knowledge-graph/.../20-lanes/*/metrics.md
-    - "ISO 22400-2:2014, Automation systems and integration — Key performance indicators for manufacturing operations management — Part 2: Definitions and descriptions. The KPI-definition discipline (formula, elements, time behaviour, unit, user group); equipment KPIs reference IEC 62264 work units."
-    - Kaplan, R.S., Norton, D.P. (1992). The Balanced Scorecard — Measures That Drive Performance. Harvard Business Review, 70(1), 71-79. The four-perspective structure and the leading/lagging cause-effect chain.
-    - Department knowledge base Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
   okf:
     type: Agent Skill
     title: Scorecard and round reporting
     tags: [all, practice]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Scorecard and round reporting

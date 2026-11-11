@@ -4,9 +4,7 @@ title: Task chain and tool use
 description: The lane's recurring tasks as a trigger chain (what starts each, what it needs, which tool, what it leaves, which task and metric it feeds), and why each tool has the access it has. Basis for pre-filling and ticket creation.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [lane, use-case-support-service, tasks]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Task chain and tool use - Use Case Support Service
 

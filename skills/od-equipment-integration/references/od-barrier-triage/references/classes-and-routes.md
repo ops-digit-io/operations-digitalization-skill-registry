@@ -4,9 +4,7 @@ title: Classes and routes
 description: The seven root-cause classes of a machine that will not connect, the question that tells them apart, and for each the exit (roadmap, strategy, substitution), owner, forum and wait state.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Classes and routes
 

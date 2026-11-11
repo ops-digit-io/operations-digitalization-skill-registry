@@ -4,11 +4,7 @@ title: Provenance and conflicts
 description: "Provenance register and conflict log: every source listed, every conflict between sources resolved visibly with an owner."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/provenance-and-conflicts.md` (the master).
 

@@ -4,9 +4,7 @@ title: Roadmap templates
 description: Fields of the plant roadmap and the regional roadmap, the status colours and the call-for-action format, and how the calls consume them; open it to draft or refresh a roadmap.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant and regional roadmap templates

@@ -4,11 +4,7 @@ title: Decision criteria
 description: "The six scored decision criteria and the verdict taxonomy Go / PoC-first / Reduce-complexity / Hold / Reject / Blocked, with one decisive reason."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [invest-screen, gate, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `investment-checking.zip/reference/decision-criteria.md` (the master).
 

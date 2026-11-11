@@ -10,30 +10,16 @@ metadata:
   new_state_lane: "Lane 3a (3a5), Lane 3b (3b6)"
   new_state_step: "Deploy to the platform, acceptance, Cyber Security sign-off; Acceptance test, live on the data platform"
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  author: IIoT Interface & Automation Engineer (IIAE)
   tags: [information-integration-service, practice, project-support-consultancy]
   authority_level: draft the protocol; report the result; sign-off is human-only
   status: stable
   origin: derived
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-handover-and-adoption]
-  derived_from:
-    - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,tasks}.md
-    - ops-knowledge-graph/.../20-lanes/project-support-consultancy/{playbook,tasks,agent-brief}.md
-    - IEC 62381, Automation systems in the process industry — factory acceptance test (FAT), site acceptance test (SAT), and site integration test (SIT). Standard not opened directly; structure verified via automationforum.co's summary, 2026-10-22.
-    - "Standard ISO/IEC/IEEE 29119-1:2022, Software and systems engineering — Software testing — Part 1, Concepts and definitions (test case, pass/fail criteria). Verified via Wikipedia's summary of the standard, 2026-10-22."
-    - "BrowserStack, User Acceptance Testing (UAT): Templates and Examples. browserstack.com/guide/user-acceptance-testing-template. Retrieved 2026-10-22."
-    - Department knowledge base, Graph/Connectors and Graph/Tools (MIL 1.0, QFPR, RuleEngine 2.0, Energy Management 2.0 archive-evidence blocks), read 2026-11-05
-    - Department knowledge base cluster notes C01 to C12 and Case Groups (overview and CG-02), read 2026-11-05
-    - Department notes Use case lifecycle, Handover and Operating model (ops-knowledge-graph _knowledge 10-Department), read 2026-11-05
-    - Department knowledge base usecase-standardization-knowledgebase (cluster KPIs and requirements checklists, generated 2026-08-24), read 2026-11-05
   okf:
     type: Agent Skill
     title: Acceptance test
     tags: [information-integration-service, practice, project-support-consultancy]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Acceptance test

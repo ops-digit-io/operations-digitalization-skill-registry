@@ -4,9 +4,7 @@ title: Existing system worksheet
 description: Short worksheet for the fit check when the plant may already run a legacy application or a rolled-out tool that covers the need - what it is, how reachable and supported it is, and which of reuse, redesign or escalate follows.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Existing system worksheet

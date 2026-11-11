@@ -4,9 +4,7 @@ title: Data needs by capability
 description: For each of the eleven use case capability templates, what data it reads, the department's own standard for it, how to count live which recorded use cases name no machine, and what the capability and process epic records can and cannot tell you about data. No figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Data needs by capability

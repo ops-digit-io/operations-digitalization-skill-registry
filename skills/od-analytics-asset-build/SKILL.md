@@ -11,31 +11,15 @@ metadata:
   new_state_step: "Apply the standard template (self-service); Standardized deployment, go live, confirm adoption; Prototype / click-dummy, validated with the recipient; Implement, evaluate impact, ensure adoption, catalogue"
   department_names: ["ops-dashboard-datatron (self-service mode, external engine)"]
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  author: Digital-Business-Value-Engineer (DBVE)
   tags: [analytical-support-service, practice, use-case-support-service]
   authority_level: draft/author the asset; publishing externally is human-approved
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, od-data-availability-check, od-handover-and-adoption, od-use-case-standardization, catalog-usecase]
-  derived_from:
-    - "Department knowledge base (SKILL.md), read 2026-11-10"
-    - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
-    - ops-knowledge-graph/_knowledge/10-Department/Rituals.md
-    - ops-knowledge-graph/_knowledge/20-Done/Grafana dashboard screenshot automation.md
-    - ops-knowledge-graph/.../20-lanes/analytical-support-service/{playbook,skills}.md
-    - Kimball, R. and Ross, M. (2013). The Data Warehouse Toolkit / the Kimball Lifecycle (3rd ed.), Wiley — the requirements-track/data-track/BI-track structure and the deployment-readiness gate, adapted below to this registry's own upstream/downstream skills.
-    - "Few, S. (2006). Information Dashboard Design: The Effective Visual Communication of Data, O'Reilly — single-screen/at-a-glance design, reducing non-data pixels, the common design mistakes this skill's validation checklist is built from."
-    - Department knowledge base, Dashboard Exports specs SPEC-00 to SPEC-04 with their data files, the Dashboard Notes, the change reports, a sample of the JSON exports, Graph/Use Case Views (template views, template-standards, Dashboard Use Cases - Overview), the dashboard family notes in Graph/Use Cases, Case Groups - Overview, Knowledge base Gap Analysis - SharePoint and Grafana Full Text and Slide Index for the dashboard tool evaluation, read 2026-11-05
-    - "`build-grafana-ops-dashboard` (this registry, vendored) — the tool-specific build mechanics this skill routes into once \"Dashboard\" is chosen; not re-derived here."
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
-    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Analytics asset build
     tags: [analytical-support-service, practice, use-case-support-service]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 
 # Analytics asset build

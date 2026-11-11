@@ -4,9 +4,7 @@ title: Staleness signals
 description: How each layer of the OD knowledge system marks freshness - bundle file, skill, registry, knowledge base note - what each mark proves and what it does not, with the field names and the conventions behind them.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Staleness signals
 

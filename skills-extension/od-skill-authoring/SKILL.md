@@ -13,21 +13,12 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the OD lead approves publication
   authority_level: draft the brief, the skill and the checks; the owner reviews and decides; never marks a skill reviewed or verified
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-context-freshness, od-ai-generation-playbook, od-decision-routing]
-  derived_from:
-    - "Agent Skills project, best practices, evaluating skill output quality and optimizing skill descriptions (agentskills.io/skill-creation), read 2026-11-10"
-    - "Agent Skills specification (agentskills.io/specification), read 2026-11-10"
-    - "NVIDIA SkillEvaluator documentation and source, tier 1 quality-check (docs.nvidia.com/skills/skillevaluator, github.com/NVIDIA/SkillEvaluator, Apache-2.0), read 2026-11-10"
-    - "Registry conventions: docs/okf-conventions.md, docs/agent-skills-spec.md, the department naming convention (OD_Skill_Naming_Convention.md), PHASE1-ELICITATION.md, read 2026-11-10"
-    - "Quality rating run of 2026-11-10 on the 50 registry skills (docs/skill-quality.md): the findings that cost points"
   okf:
     type: Agent Skill
     title: Skill authoring
     tags: [practice, skills, quality]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 
 # Skill authoring

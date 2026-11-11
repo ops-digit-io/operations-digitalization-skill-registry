@@ -4,9 +4,7 @@ title: Capability template signal sets
 description: For each use case capability template, the kinds of signals, template variables and data sources the existing dashboards typically read, the template's boundary, the blocker themes to expect and how to look up reference solutions - to be set against the requirement sets in the signal catalogue. No counts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, signals]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Signal sets per capability template
 

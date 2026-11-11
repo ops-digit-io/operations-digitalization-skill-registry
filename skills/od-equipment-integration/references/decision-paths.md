@@ -4,9 +4,7 @@ title: Decision paths
 description: How a machine is routed to one of the three ingress variants, what the fallback is at each branch, and what decides it.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [integration, opc-ua, decision]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Decision paths
 

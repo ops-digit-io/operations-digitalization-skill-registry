@@ -4,9 +4,7 @@ title: Investment input pack
 description: The pack handed to the OD lead and BA Operations - scope, cost lines with sources, benefit side, gates, dependencies and open items; a proposed form until the lane confirms its investment plan template.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Investment input - ⟨plant · wave or system⟩
 

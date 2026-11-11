@@ -4,9 +4,7 @@ title: Scorecard update protocol
 description: The defined output of a periodic scorecard update - inputs from handover-and-adoption and portfolio-and-savings-analysis, the metrics refreshed with read dates, and the round-ready output, so the result is a reusable record rather than a one-off report.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Scorecard update — ⟨month/quarter⟩

@@ -4,9 +4,7 @@ title: Backout plan proposal
 description: PROPOSAL. Structure of a back-out plan for a migration stage - the decks hold only diagrams of the actors, so the content here is synthesis to be confirmed by the owner of the back-out process.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [migration, template, proposal]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Back-out plan (PROPOSAL)
 

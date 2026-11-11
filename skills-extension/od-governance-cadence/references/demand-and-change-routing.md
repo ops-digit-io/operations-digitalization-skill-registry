@@ -4,9 +4,7 @@ title: Demand and change routing
 description: Sorting a request into small change, project or governance board; the demand-management question list; wave allocation and first-mover rule; funding of an unfamiliar field.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Demand and change routing
 

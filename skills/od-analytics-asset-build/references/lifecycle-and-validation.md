@@ -4,9 +4,7 @@ title: Lifecycle and validation
 description: The build lifecycle mapped onto this registry's own upstream and downstream skills, and the checklist that separates an asset that renders from one that is correct.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [analytical-support-service, use-case-support-service, lifecycle]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Lifecycle and validation
 

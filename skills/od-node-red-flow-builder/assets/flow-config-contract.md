@@ -4,9 +4,7 @@ title: Flow config contract
 description: A one-page form a key user fills in before a flow is built - every UUID, limit, topic and shift setting the flow needs, using the key names the existing flows already use.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, technical, node-red]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Flow config contract
 

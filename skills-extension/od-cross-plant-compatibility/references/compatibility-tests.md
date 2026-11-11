@@ -4,9 +4,7 @@ title: Compatibility tests
 description: The tests to run per dimension in which plants differ, what a pass and a fail look like, and which existing skill supplies the evidence.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Compatibility tests

@@ -14,29 +14,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-use-case-intake-triage, od-use-case-definition, od-data-availability-check, od-requirements-breakdown, od-cybersec-gate, od-equipment-integration, od-decision-routing, od-system-fit-check]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/05-intake.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/14-glossary.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/tasks.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/playbook.md
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/tasks.md
-    - Department knowledge base, Slide Index and Split Slides of the Data Science Factory tool deck in 03-AMT_MI_Standard_Agenda_Use_Case_Workshop, slides 11 and 12 First AID Kit (dated 2024-07-14; repeated in decks of 2025-01-17 and 2025-05-07), read 2026-11-05
-    - Department knowledge base, Slide Index - 25-Adhoc_Analysis (two Waltershausen ad-hoc analyses of 2024), read 2026-11-05
-    - Skill od-analytical-support-service, SKILL.md and references/composed-artefacts.md (happy path, error paths, the open Process First-Aid Kit template)
-    - Skill od-use-case-definition, assets/use-case-definition-questionnaire.md (a need that surfaces once is a first-aid request)
-    - Skill od-use-case-definition, references/lane-templates.md (the first-aid template gap)
   okf:
     type: Agent Skill
     title: Process First-Aid Kit
     tags: [use-case-support-service, practice, first-aid, ad-hoc]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process First-Aid Kit
 

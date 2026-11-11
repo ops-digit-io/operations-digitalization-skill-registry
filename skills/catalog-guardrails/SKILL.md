@@ -11,21 +11,14 @@ metadata:
   new_state_step: "Guardrails, go live, confirm adoption"
   department_names: ["catalog-guardrails"]
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant runs the check
-  author: Digital-Business-Value-Engineer (DBVE); the plant runs the check
   tags: [department-core, lane-1]
   authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
-  derived_from:
-    - "Department knowledge base (skills table, gap), read 2026-11-10"
-    - "Split from catalog-usecase (formerly od-catalog), 2026-11-10"
   okf:
     type: Agent Skill
     title: Catalog guardrails
     tags: [department-core, lane-1]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Catalog guardrails
 

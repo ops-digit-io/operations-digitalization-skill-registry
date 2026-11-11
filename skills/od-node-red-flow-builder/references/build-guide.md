@@ -4,9 +4,7 @@ title: Build guide
 description: The detailed build rules for a Node-RED flow - the canonical seven-group layout, the PLCPacket message, standard function nodes, flow-variable configuration, topics, the transformation patterns and standards, the data structure, error handling, documentation discipline, guardrails and the review checklist.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [node-red, build]
-generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 
 # Build guide

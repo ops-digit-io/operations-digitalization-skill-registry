@@ -4,9 +4,7 @@ title: Rounds and escalation
 description: How to prepare and follow up a round - the recurring shape of past ODEC content (historical, a source) and of the COP, and where the escalation gaps actually sit.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, practice, scorecard]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Rounds and escalation
 

@@ -4,9 +4,7 @@ title: First aid offering
 description: Guidance on the Process First-Aid Kit - purpose, the two data scenarios, how to handle the cost question, and the shape of typical ad-hoc analyses that show how a plant issue becomes an analytical question. Guidance only, no company figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # First aid offering
 

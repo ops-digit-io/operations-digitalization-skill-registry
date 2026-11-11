@@ -4,9 +4,7 @@ title: Quality gates
 description: The gates a new or changed skill passes, in order, with the command for each, what a failure means and how to repair it - registry validator, specification export, OKF, figures check, the SkillEvaluator quality rating - plus the known conflicts between the tool and the specification. Open it at step 7 of the method.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [skills, practice, quality]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Quality gates
 

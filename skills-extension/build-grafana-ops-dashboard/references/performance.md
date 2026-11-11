@@ -4,9 +4,7 @@ title: Performance
 description: What makes an ops dashboard fast, what makes one slow enough that people stop opening it, and what to do about it.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, performance]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # performance.md — Making dashboards fast
 

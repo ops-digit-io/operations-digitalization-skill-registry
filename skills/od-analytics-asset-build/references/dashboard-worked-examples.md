@@ -4,9 +4,7 @@ title: Dashboard worked examples
 description: Fourteen illustrative dashboard patterns (not real dashboards), each with the template it falls under, what it reads, and the one lesson it teaches for a new build; plus how to pick real examples from the dashboard notes. No plant names, sizes, versions or dates.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard worked examples
 

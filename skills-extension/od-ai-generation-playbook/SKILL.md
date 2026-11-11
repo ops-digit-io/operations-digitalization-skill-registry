@@ -21,17 +21,12 @@ metadata:
   authority_level: recommend - drafts and checks only; every gate named here is a human gate
   status: draft
   origin: plan-draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-context-freshness, od-analytics-asset-build, od-signal-standardization, od-prototype-poc, od-cybersec-gate, deploy-appstore, od-data-availability-check, od-system-fit-check, od-template-resolution, od-handover-and-adoption]
-  derived_from:
-    - Operations Digitalization slide decks (AI usage and department context, dashboard generation, GenAI and agentic pilots, AI-built apps, assistants), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: AI generation playbook
     tags: [all, practice, new-state, draft, ai]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # AI generation playbook

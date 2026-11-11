@@ -4,9 +4,7 @@ title: Process chain practice
 description: Method, decision rules, handoff contract, pitfalls and agent notes for template resolution, abstracted from the Operations Digitalization slide decks - the template types the chain uses and at which step, the seven-step pipeline for a template-bound generated deliverable, placeholder-leak and residue checks. Names template types only; locations come from the register.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - which template at which step
 

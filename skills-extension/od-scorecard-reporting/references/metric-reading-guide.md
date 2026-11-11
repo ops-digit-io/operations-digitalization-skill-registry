@@ -4,9 +4,7 @@ title: Metric reading guide
 description: How to read each kind of department and lane metric (the rule behind an intervene-from column, the label for a missing target), definitions of the lane-level metrics including those not yet captured with a proposed start and stop event, and companion pairs that stop a single number from misleading.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, scorecard, metrics]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Metric reading guide
 

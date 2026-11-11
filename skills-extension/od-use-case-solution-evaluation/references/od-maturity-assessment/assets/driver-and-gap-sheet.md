@@ -4,9 +4,7 @@ title: Driver and gap sheet
 description: One page for the complexity driver ratings of an object, the candidate areas they point at, the gap chain with prerequisites and the route signal with the rule quoted.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [practice, maturity, template, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Drivers, gaps and route signal - ⟨object⟩ · ⟨plant⟩
 

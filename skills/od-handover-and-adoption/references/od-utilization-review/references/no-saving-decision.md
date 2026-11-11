@@ -4,9 +4,7 @@ title: No-saving decision
 description: What to do with a scaled-out use case that has deployments but no saving - the contradiction between decks (to be evaluated vs no potential), the safer reading, the decision rule, and the savings-forecast gate at the close of a sprint.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # No-saving decision
 

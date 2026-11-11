@@ -4,9 +4,7 @@ title: Cost lines
 description: The cost lines an investment input pack can carry, where each line's figure must come from, and how to size a wave from the live machine records. Guidance only - no prices or estate figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Cost lines
 

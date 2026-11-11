@@ -4,9 +4,7 @@ title: Cybersec signoff package
 description: The request package for a Cyber Security / OT sign-off of a machine connection or an app deployment, with a wait-state log and an answer record - fill once per case.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Cyber Security sign-off package - ⟨plant⟩ · ⟨machine or app⟩
 

@@ -4,11 +4,7 @@ title: Build engine
 description: "How the deck is rendered from the backbone with build_bc_short.py on the neuwerk template; QA before delivery."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/build-engine.md` (the master).
 

@@ -4,9 +4,7 @@ title: Gate rules
 description: Every rule that governs the Cyber Security sign-off gate, one line each with its source, plus what the sources do not give - open this to answer "is this allowed and who decides".
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Gate rules
 

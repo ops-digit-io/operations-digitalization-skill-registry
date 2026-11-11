@@ -4,9 +4,7 @@ title: Plant landscape
 description: Guidance, no figures - how to read the plant records (region, recorded machines, integration share, use cases, main controller and integration method), how to obtain them live, and the four starting profiles that decide where onboarding begins; open it to place a plant.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant landscape

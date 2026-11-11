@@ -4,9 +4,7 @@ title: Capital request package
 description: The package od-capital-request produces for the human who files the eCR - ask and route, need, evidence, value with firmness, cost, options, risks, dependencies, validation plan and approval fields.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, template, protocol]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Capital request package - ⟨use case or system name⟩
 

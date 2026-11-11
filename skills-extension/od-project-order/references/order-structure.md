@@ -4,9 +4,7 @@ title: Order structure
 description: The chapters of a project order (PREQ), the rule that applies to each chapter, the standard and extended variant, and the one-page short form for small initiatives.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Order structure
 

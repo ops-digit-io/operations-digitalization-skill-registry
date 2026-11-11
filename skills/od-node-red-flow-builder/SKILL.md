@@ -14,29 +14,16 @@ metadata:
   scope: od
   origin: derived
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  author: IIoT Interface & Automation Engineer (IIAE)
   tags: [information-integration-service, od, technical]
   authority_level: author flows and fixes on a test instance; read and diagnose only elsewhere; prod deploys are human-approved
   status: stable
-  sources_read: 2026-11-05
   corpus: the exported ct-oesl Node-RED flows (count live, do not quote a remembered figure)
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-data-availability-check]
-  derived_from:
-    - "Department knowledge base (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
-    - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (exported flow JSON and generated docs)
-    - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
-    - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
-    - Node-RED auto-docs flow JSON re-read 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs) for disabled flows, drivers, MQTT settings, timers and flow-config keys
-    - Department knowledge base profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
-    - Analyser re-run unchanged over all exported flow files on 2026-11-05 and the same files re-checked for disabled tabs, drivers and context keys
-    - Department knowledge base, DTQ-Beckhoff-Connector profile block, read 2026-11-05
   okf:
     type: Agent Skill
     title: od-node-red-flow-builder
     tags: [information-integration-service, od, technical]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-06T00:00:00Z }
 ---
 
 # Node-RED flows (build, troubleshoot, connect)

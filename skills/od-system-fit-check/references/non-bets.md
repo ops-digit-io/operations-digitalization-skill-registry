@@ -4,9 +4,7 @@ title: Non-bets
 description: The department's own choice architecture — what is deliberately not pursued, and the kill criteria attached to the bets that are, so a system-fit judgement can cite the actual policy rather than a remembered version of it.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [practice, system-fit]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Non-bets — the choice architecture behind this check
 

@@ -4,9 +4,7 @@ title: Signoff and rework
 description: Who signs off on each artefact type, what a failure actually means, and the rework loop it triggers rather than a quiet retry.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Sign-off and rework
 

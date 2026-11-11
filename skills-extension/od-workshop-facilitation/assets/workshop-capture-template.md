@@ -4,9 +4,7 @@ title: Workshop capture template
 description: The sheet to fill during a definition or integration workshop - use case demand with canvas fields, savings pre-evaluation, tool availability, machine demands, utilization and decisions - so output can be read by someone who was not in the room.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop capture — ⟨plant⟩ — ⟨format⟩ — ⟨dates⟩
 

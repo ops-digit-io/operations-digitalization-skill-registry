@@ -4,9 +4,7 @@ title: Worked examples
 description: Illustrative reductions of plant sentences to objects, events and archetypes, plus a cycle-time and a downtime case; invented, with placeholders.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Worked examples (illustrative)
 

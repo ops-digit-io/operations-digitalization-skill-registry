@@ -25,15 +25,21 @@
   "D": 60,
   "F": 0
  },
- "mean": 90.7,
- "mean_core": 98.1,
+ "mean": 89.9,
+ "mean_core": 96.4,
  "skills": {
   "bc-assessment": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "5f97d4dd5d1c660e",
+   "folder_hash": "4c80fd676b258f24",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -42,23 +48,23 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "build-grafana-ops-dashboard": {
    "score": 81.8,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "c2e5c9da866eb24a",
+   "folder_hash": "59cd15af325c7489",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 15,
-     "message": "Large skill (6596 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "message": "Large skill (6540 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
      "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
     },
     {
@@ -142,11 +148,17 @@
    }
   },
   "catalog-guardrails": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b4a7fff2ae63f9f7",
+   "folder_hash": "d6b94bb028644a22",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -155,19 +167,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "catalog-systems": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "0800b3bed336215e",
+   "folder_hash": "96e73f2fff84cc28",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -176,19 +194,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "catalog-usecase": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ce368788a0e0a5e3",
+   "folder_hash": "f6b0279d61359db8",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -197,18 +221,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "deploy-appstore": {
-   "score": 95.8,
+   "score": 94.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b174eefbe5cfee9b",
+   "folder_hash": "b482551a5fe75296",
    "findings": [
     {
      "dimension": "discoverability",
@@ -219,23 +243,29 @@
     {
      "dimension": "correctness",
      "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 90.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 92.0
+   "default_score": 90.2
   },
   "funnel-features": {
    "score": 77.2,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "07e2071b67381fb0",
+   "folder_hash": "17678a8ae549ad39",
    "findings": [
     {
      "dimension": "correctness",
@@ -318,11 +348,17 @@
    }
   },
   "it-demand-package": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "91ba67af42d95d11",
+   "folder_hash": "ff81dd33e03f5918",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -331,19 +367,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-acceptance-test": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "5735c1da27c478fc",
+   "folder_hash": "0a3b14fdc98b4319",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -352,18 +394,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-ai-generation-playbook": {
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "330d8093a9d76f25",
+   "folder_hash": "724eae14ad8326f1",
    "findings": [
     {
      "dimension": "efficiency",
@@ -446,11 +488,17 @@
    }
   },
   "od-analytics-asset-build": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "aeab6bb5ee99d5ed",
+   "folder_hash": "0af3ddf4df4ad6ff",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -459,19 +507,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-benefit-calculation": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "aee5d4f3be766ad1",
+   "folder_hash": "295d017cc3e8fd22",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -480,19 +534,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-capital-request": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "5d6cb2078ba496e0",
+   "folder_hash": "9ab67db20f1b4c65",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -501,19 +561,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-comms-brief": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "0dfb603a954b2c4d",
+   "folder_hash": "048b6d6066831fc2",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -522,19 +588,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-context": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "f6f259f7ba24c2e2",
+   "folder_hash": "571bd2013f5e10b3",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -543,18 +615,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-context-freshness": {
    "score": 77.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "f34fa555a9b0d7db",
+   "folder_hash": "e641568e5d6abe27",
    "findings": [
     {
      "dimension": "correctness",
@@ -640,7 +712,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "90b0185effb4e64f",
+   "folder_hash": "99e771eed2bc7094",
    "findings": [
     {
      "dimension": "discoverability",
@@ -726,7 +798,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "8e4727192ccc8f81",
+   "folder_hash": "bfa49dd32bd3225c",
    "findings": [
     {
      "dimension": "efficiency",
@@ -791,11 +863,17 @@
    }
   },
   "od-data-availability-check": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "7b4ee21e5beb1d39",
+   "folder_hash": "29334158a14c5484",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -804,19 +882,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-decision-routing": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "3e56fed92b7d7b2d",
+   "folder_hash": "7d6a210083148161",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -825,19 +909,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-equipment-integration": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "2ff657c5529cdcaa",
+   "folder_hash": "83c9c54179acc8cd",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -846,18 +936,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-event-object-modelling": {
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "7b29e563c634016e",
+   "folder_hash": "e771ee96cd37b350",
    "findings": [
     {
      "dimension": "efficiency",
@@ -925,7 +1015,7 @@
    "score": 86.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "3ccd341b0c08b599",
+   "folder_hash": "165567600bf5e0a3",
    "findings": [
     {
      "dimension": "correctness",
@@ -993,7 +1083,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "e378b979be4731fa",
+   "folder_hash": "d4c8b37125233372",
    "findings": [
     {
      "dimension": "correctness",
@@ -1064,11 +1154,17 @@
    }
   },
   "od-handover-and-adoption": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "f22945e6ef8e8a07",
+   "folder_hash": "fbbb96e461918479",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1077,18 +1173,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-investment-input": {
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "bb888c2ffefd131a",
+   "folder_hash": "18141fd036050955",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1162,7 +1258,7 @@
    "score": 85.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "4b2ab7b5130715c3",
+   "folder_hash": "419304983a9e4633",
    "findings": [
     {
      "dimension": "correctness",
@@ -1221,11 +1317,17 @@
    }
   },
   "od-node-red-flow-builder": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "3e3df2613cbd4998",
+   "folder_hash": "e93674b362de0b6c",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1234,18 +1336,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-plant-diagnosis": {
    "score": 87.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "1221e89d244c4cde",
+   "folder_hash": "cf1831da67636be1",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1307,7 +1409,7 @@
    "score": 81.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "18dd4a985bb1615d",
+   "folder_hash": "11a982954198c05a",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1393,7 +1495,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "0a8275378a269d20",
+   "folder_hash": "84ba44ac7179513b",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1473,7 +1575,7 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "69cf7d0ba9124f3e",
+   "folder_hash": "785c53af9552cdaf",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1550,11 +1652,17 @@
    }
   },
   "od-prototype-poc": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "27a4db57cd70f4b9",
+   "folder_hash": "897b5680bc877aa1",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1563,19 +1671,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-requirements-breakdown": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "d25cd5c20706a162",
+   "folder_hash": "66be4c2a9dde8399",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1584,18 +1698,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-retro": {
    "score": 81.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "73cbdc9e5428699b",
+   "folder_hash": "a64199340aa90211",
    "findings": [
     {
      "dimension": "correctness",
@@ -1675,7 +1789,7 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "73c101136afd3f36",
+   "folder_hash": "51c88aee7e2cffd6",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1749,7 +1863,7 @@
    "score": 83.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a4a139c6ed263d35",
+   "folder_hash": "aea891a80acb65c6",
    "findings": [
     {
      "dimension": "correctness",
@@ -1823,7 +1937,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "69cab253f2f09274",
+   "folder_hash": "58e5cd2861938668",
    "findings": [
     {
      "dimension": "reliability",
@@ -1897,7 +2011,7 @@
    "score": 78.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "d5d11b90aef561f5",
+   "folder_hash": "65c7a6776b04a7b8",
    "findings": [
     {
      "dimension": "correctness",
@@ -1980,11 +2094,17 @@
    }
   },
   "od-showcase-followup": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "714e344c0028db4c",
+   "folder_hash": "2eb3d4d3ef173fb5",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1993,19 +2113,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-showcase-selection": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "5c43e8a4b2f324c8",
+   "folder_hash": "845e8b4d2f22a8c7",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2014,19 +2140,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-signal-standardization": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "817f950f168fe72e",
+   "folder_hash": "c2c4d9477a6f19cb",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2035,18 +2167,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-skill-authoring": {
    "score": 87.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "deaa09a377b0abd2",
+   "folder_hash": "788777e7fa7024be",
    "findings": [
     {
      "dimension": "correctness",
@@ -2093,11 +2225,17 @@
    }
   },
   "od-system-fit-check": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "a1bf0b749de51d3b",
+   "folder_hash": "2272ceeed48062a7",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2106,18 +2244,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-template-resolution": {
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "dc2b67767ed4dbba",
+   "folder_hash": "cae1c321dde8f43e",
    "findings": [
     {
      "dimension": "reliability",
@@ -2182,11 +2320,17 @@
    }
   },
   "od-use-case-definition": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "99766549b74507dd",
+   "folder_hash": "6f9779a24b34ebcd",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2195,19 +2339,25 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-use-case-intake-triage": {
-   "score": 98.2,
+   "score": 96.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "d74d9d98aceadd29",
+   "folder_hash": "b214fafd2671f9bb",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2216,18 +2366,18 @@
     }
    ],
    "categories": {
-    "correctness": 95.0,
+    "correctness": 90.0,
     "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
-   "default_score": 94.5
+   "default_score": 92.8
   },
   "od-use-case-solution-evaluation": {
    "score": 86.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "ad3d220983d7612c",
+   "folder_hash": "3d35133671a21157",
    "findings": [
     {
      "dimension": "correctness",
@@ -2277,7 +2427,7 @@
    "score": 82.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "734f4676e19c67f4",
+   "folder_hash": "95593006b07e7cd7",
    "findings": [
     {
      "dimension": "discoverability",
@@ -2357,7 +2507,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "c8bcfee386f4046b",
+   "folder_hash": "33b45d60dbc0dffa",
    "findings": [
     {
      "dimension": "reliability",
@@ -2425,7 +2575,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "ba671bd7ec5cbc6a",
+   "folder_hash": "68a2b044f06ff26d",
    "findings": [
     {
      "dimension": "reliability",

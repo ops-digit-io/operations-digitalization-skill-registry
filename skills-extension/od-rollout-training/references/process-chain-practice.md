@@ -4,9 +4,7 @@ title: Process chain practice
 description: How rollout training (steps 1a3, 26, 3a6) is run in the AI-driven chain - the training offer process, plant hands-on training with central material as support, training-need capture, tools-before-pilots, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

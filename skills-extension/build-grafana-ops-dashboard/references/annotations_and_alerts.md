@@ -4,9 +4,7 @@ title: Annotations and alerts
 description: Two Grafana features that appear at the operations and analyst tiers but not in the main patterns, with the design constraints each imposes.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [grafana, alerts]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # annotations_and_alerts.md — Annotations and panel alerts
 

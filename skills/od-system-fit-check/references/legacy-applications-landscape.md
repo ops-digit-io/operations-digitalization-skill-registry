@@ -4,9 +4,7 @@ title: Legacy applications landscape
 description: Guidance, no figures. How to read the Legacy Application List (fields, blank-cell traps, cross-readings) and use it in a fit check to spot the plant that already runs a parallel MES, SCADA or dashboard system.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Legacy applications landscape

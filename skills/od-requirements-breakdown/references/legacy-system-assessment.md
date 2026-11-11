@@ -4,9 +4,7 @@ title: Legacy system assessment
 description: "Guidance, no figures. The other half of the requirement: checking the legacy applications a demand touches and whether it fits the lean footprint."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [requirements, legacy, it-systems]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The (legacy) MF IT system assessment
 

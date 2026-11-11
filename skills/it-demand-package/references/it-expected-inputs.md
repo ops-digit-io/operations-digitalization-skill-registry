@@ -4,11 +4,7 @@ title: It expected inputs
 description: "What IT asked OD to deliver with a demand in the OD x IT alignment of 2026-09-11, item by item, where each lands in the handover package, which items block a handover, and the open IT action items that will firm them."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [it-alignment, handover, transcript]
-derived_from:
-  - "Department knowledge base (AI-generated meeting notes and follow-up tasks; participants from IT, MPEE and OD, names withheld), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # What IT expects from OD
 

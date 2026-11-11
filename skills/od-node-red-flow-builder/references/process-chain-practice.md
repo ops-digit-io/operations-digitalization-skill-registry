@@ -4,9 +4,7 @@ title: Process chain practice
 description: How a flow is built, handed on and repaired inside the new process chain - placement of logic, the flow library classes, streaming against scheduled work, legacy-middleware migration, version control, handoff contracts for build (3b4) and troubleshoot (3b5), ownership signals, pitfalls, and AI agent operating notes. Process guidance only; no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [node-red, process-chain, troubleshooting, ai-agent]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

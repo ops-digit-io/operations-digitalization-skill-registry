@@ -4,11 +4,7 @@ title: Screening method
 description: "Whole-list screen of the MPEE Invest and Cost Planning list: involvement lexicon, classification OD-owned / touching / interlock / not, the de-noise rule."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [invest-screen, gate, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `investment-checking.zip/reference/screening-method.md` (the master).
 

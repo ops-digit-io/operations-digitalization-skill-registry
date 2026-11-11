@@ -4,9 +4,7 @@ title: Fact triage and generated registers
 description: A pattern for triaging a staging pile of extracted facts (verdict per bucket, why, order of work), the limits of text extraction, and how to keep generated registers honest, including the masking review that needs a human check.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, freshness, registers]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Fact triage and generated registers
 

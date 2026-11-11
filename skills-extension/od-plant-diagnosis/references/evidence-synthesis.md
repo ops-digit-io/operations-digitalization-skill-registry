@@ -4,9 +4,7 @@ title: Evidence synthesis
 description: How to turn interviews, workshops and gap-analysis notes into a plant diagnosis without over-claiming - grounding tags, coverage, the splitting variable, hard vs soft anchors and ranked open questions; open it before writing a diagnosis from interview notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Evidence synthesis from interviews

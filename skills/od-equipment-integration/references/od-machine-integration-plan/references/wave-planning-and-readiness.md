@@ -4,9 +4,7 @@ title: Wave planning and readiness
 description: The scale-known-types rule, wave allocation, the weekly capital-request micro-process, status taxonomy, phase sequence from machine list to flow design, and readiness criteria - process guidance, no figures.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Wave planning and readiness
 

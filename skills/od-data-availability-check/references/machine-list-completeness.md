@@ -4,9 +4,7 @@ title: Machine list completeness
 description: How to measure, live, how complete the Machine List is for a plant - which fields to count, which patterns to expect, and which plants cannot answer step 2 (is the machine integrated) from the list - so a blank is never read as a no. Guidance only; no fill rates or per-plant figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Machine list completeness

@@ -4,9 +4,7 @@ title: Standards
 description: "ISO 22400-2, VDI 3423, ISA-95 and ISO 22005 - which standard governs which cluster's KPIs, and what it requires of the signals."
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [signals, standards, kpi]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # The normative standards behind a signal set
 

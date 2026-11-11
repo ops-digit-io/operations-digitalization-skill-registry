@@ -4,28 +4,12 @@ title: Procedure
 description: Formerly the skill od-use-case-promotion, absorbed into od-use-case-standardization on 2026-11-10 to remove duplication against the department context. Decide whether a recurring ad-hoc asset (a dashboard, report, analytics workflow or app first built for one request) should become a standard use case, and if so assemble the promotion package - the recurrence and value evidence, the reproducibility check, the placement on capability template, process group and cluster, the handover record, and which of the catalog conditions are met - that feeds use case definition and the standardization gate. Refusing to promote is a valid result. Use when the same analytical request or asset comes back from more than one plant or more than once, when utili
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - analytical-support-service
 - practice
 - new-state
 - draft
 - absorbed
-derived_from:
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/playbook.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/tasks.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/agent-brief.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-- ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
-- ops-knowledge-graph/_knowledge/10-Department/Use case standardization.md
-- Skills catalog-usecase (the four conditions for "catalogued"), od-use-case-standardization, od-analytical-support-service, od-handover-and-adoption, od-analytics-asset-build and od-use-case-definition, read 2026-11-05
-- New-state flow (docs/new-state-flow.md and the VSM skill map), Lane 2 step 6 implement, adopt and graduate, read 2026-11-05
-- Department knowledge base, Case Groups - Overview and the group notes CG-03 and others, read 2026-11-05
-- Department knowledge base, the use case records and library use case records read as aggregates (category, handover, output asset, CSP decision), 2026-11-05
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Use-case promotion
 

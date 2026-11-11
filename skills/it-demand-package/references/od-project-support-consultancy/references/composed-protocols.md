@@ -4,9 +4,7 @@ title: Composed protocols
 description: Which real protocol in which composed skill answers each step of this lane's happy path, so a project is tracked against an actual document rather than a placeholder.
 resource: ../procedure.md
 status: stable
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, lane]
-generated: { by: claude-code/1, at: 2026-10-23T00:00:00Z }
 ---
 # Composed protocols
 

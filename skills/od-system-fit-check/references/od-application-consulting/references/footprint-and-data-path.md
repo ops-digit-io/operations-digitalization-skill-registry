@@ -4,9 +4,7 @@ title: Footprint and data path
 description: Guidance, no figures. The reference architecture and systems of record an app design must fit, how to read the rollout and use of the tools, how the lean footprint is bounded, and the discrepancies to confirm before citing a tool status.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [project-support-consultancy, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Footprint and data path
 

@@ -4,9 +4,7 @@ title: Export run log
 description: The defined output of a run - which list, when, how many rows, what the schema check found - so od-portfolio-and-savings-analysis reads a dated, checked export rather than a bare file.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, template, protocol]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 
 # Export run log — ⟨list name⟩

@@ -19,19 +19,12 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant key user in self-service mode
   authority_level: author the dashboard; publishing to a shared Grafana is human-approved
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [build-grafana-ops-dashboard, catalog-usecase, catalog-guardrails]
-  derived_from:
-    - "Department knowledge base (ops-dashboard-datatron: traditional process, features; Use Case Development roadmap: open to key users, coverage, datapoint-enablement intake, checklist as go-live gate, publish to the library), read 2026-11-10"
-    - "Department knowledge base §3-4 (ops-grafana-dashboards split into ops-dashboard-datatron and deck-stakeholder; value model coupled to the build), read 2026-11-10"
-    - "Department knowledge base (self-service mode, branch 1a), read 2026-11-10"
   okf:
     type: Agent Skill
     title: DATATRON dashboards
     tags: [department-core, lane-1, technical]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # DATATRON dashboards
 

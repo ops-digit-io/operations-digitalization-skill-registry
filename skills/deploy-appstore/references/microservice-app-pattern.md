@@ -4,9 +4,7 @@ title: Microservice app pattern
 description: The service-per-capability pattern from the knowledge base's work-in-progress microservice design - what each capability service does, its event contract, what a plant configures, how it degrades, which have a write path, and the shared kernel and composition services around them. A design proposal, not a running landscape. Open it when you package an app that implements a standard capability or decide whether a request is a new service.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Microservice app pattern
 

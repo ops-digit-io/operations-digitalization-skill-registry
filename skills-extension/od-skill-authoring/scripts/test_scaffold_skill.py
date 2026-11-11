@@ -33,7 +33,7 @@ class ScaffoldChecks(unittest.TestCase):
         self.assertEqual(fm["name"], "od-example-check")
         self.assertEqual(fm["metadata"]["id"], "od-example-check")
         self.assertTrue(120 <= len(" ".join(fm["description"].split())) <= 1024)
-        for field in ("tier", "lane", "owner_role", "authority_level", "status", "derived_from"):
+        for field in ("tier", "lane", "owner_role", "authority_level", "status"):
             self.assertTrue(fm["metadata"].get(field), field)
         self.assertEqual(fm["metadata"]["status"], "draft")
         self.assertIn("od-context", fm["metadata"]["requires"])

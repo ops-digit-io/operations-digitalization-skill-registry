@@ -4,9 +4,7 @@ title: Process chain practice
 description: How decision routing (steps 1b2, 25, 32) is run in the AI-driven chain - small change versus project, what may enter routing, decisions with risk of not doing, forum and board patterns, the operations-concept gate, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, decision-rights, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

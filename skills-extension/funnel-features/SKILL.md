@@ -19,18 +19,12 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE)
   authority_level: draft the epic and stories; run the check; the receiver accepts
   status: draft
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-requirements-breakdown, od-benefit-calculation, od-prototype-poc]
-  derived_from:
-    - "Department knowledge base (step 2 od-requirements-breakdown -> funnel-features), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md (product-funnel chain: handoff files, human gates), read 2026-11-10"
-    - "Split from od-requirements-breakdown (formerly od-requirements-breakdown), 2026-11-10"
   okf:
     type: Agent Skill
     title: Funnel features
     tags: [department-core, lane-2]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Funnel features
 

@@ -4,9 +4,7 @@ title: Skill brief
 description: The one-page brief written and agreed before a skill is written - the need, the users, the lane and step, the authority level, inputs and outputs, what the agent lacks, the sources opened and three test cases. Copy one per new skill.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [skills, practice, blank]
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Skill brief: ⟨skill name⟩
 

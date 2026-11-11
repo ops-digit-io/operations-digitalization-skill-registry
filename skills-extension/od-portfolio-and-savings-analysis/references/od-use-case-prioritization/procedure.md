@@ -4,29 +4,11 @@ title: Procedure
 description: Formerly the skill od-use-case-prioritization, absorbed into od-portfolio-and-savings-analysis on 2026-11-10 to remove duplication against the department context. Rank several competing candidate use cases for a plant or region into a recommended order, against the plant roadmap and strategic-plant scope, and write the ranking down as a prioritization record with the evidence behind each position. Uses OD's own criteria (saving potential, generalization potential, roadmap link, effort and dependencies) and keeps unscored use cases in a separate bucket. Use when more than one use case is waiting for the same capacity, after a definition workshop has collected demand, before a planning round or roadmap input, or when a plant asks which of its use cases OD
 resource: ../../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags:
 - use-case-support-service
 - practice
 - prioritization
 - absorbed
-derived_from:
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/05-intake.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/playbook.md
-- ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/agent-brief.md
-- Department knowledge base, Slide Index notes for 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (collection of demand, Use Case Canvas urgency and importance, value and risk slide) and for 50-Use_Case_Planning (Use Case Priorities decks, planning states), read 2026-11-05
-- Department knowledge base, Split Slides of 50-Use_Case_Planning 2025-03-10 UseCase_Priorities slides 2 to 7 (priority tiers and cluster table columns), read 2026-11-05
-- Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (rollout map, evidence gap, white space), read 2026-11-05
-- Department knowledge base, ODEC Facts - Department KPIs and Roadmap Status (use case upvoting slides 2025), read 2026-11-05
-- Department knowledge base Cases notes (portfolio tier and score fields; Catalog Maturity Sprint UC-Y; Cycle Time Optimization), read 2026-11-05
-- Skill od-portfolio-and-savings-analysis, references/prioritization.md (weighted scoring and the unscoreable bucket)
-- Skill od-use-case-intake-triage and od-use-case-definition, admission rule and control points
-generated:
-  by: claude-code/1
-  at: 2026-11-05 00:00:00+00:00
 ---
 # Use case prioritization
 

@@ -4,9 +4,7 @@ title: Process chain practice
 description: Where the retro gets its learning items in the AI-driven chain - issue-log loop, feedback forms, project-closure lessons, sprint and workshop recaps, a cause classification, clean-up and kill/hold hygiene, and what an agent may draft. Pattern only, no figures.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice
 

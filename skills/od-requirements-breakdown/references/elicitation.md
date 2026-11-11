@@ -4,9 +4,7 @@ title: Elicitation
 description: The question rounds that get the real problem out, and the five judgement calls the department names as the hard part.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [requirements, elicitation]
-generated: { by: claude-code/1, at: 2026-08-25T00:00:00Z }
 ---
 # Elicitation — getting from a stated problem to a requirement
 

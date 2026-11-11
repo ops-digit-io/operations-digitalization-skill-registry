@@ -4,9 +4,7 @@ title: Workshop agenda and preread
 description: Agenda skeletons for a definition workshop and an integration workshop, distilled from OD's past agendas, plus the pre-read checklist that goes out to the plant before the workshop.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [use-case-support-service, practice, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Workshop agenda and pre-read — ⟨plant⟩ — ⟨format⟩
 

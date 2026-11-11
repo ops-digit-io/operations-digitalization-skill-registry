@@ -4,9 +4,7 @@ title: Promotion criteria
 description: The six tests an ad-hoc asset must be put through before it is proposed as a standard use case, the evidence that answers each, the promote / keep / retire rule and the catalog conditions.
 resource: ../procedure.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Promotion criteria
 

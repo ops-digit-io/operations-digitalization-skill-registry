@@ -4,9 +4,7 @@ title: Process chain practice
 description: How the Cyber Security gate is run in the chain (1b3, 3a5, 3b6) as a parallel track that blocks only go-live - security-relevance questions, the request sequence, documentation completeness, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council notification, handoffs and agent notes.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice, process-chain, draft]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process-chain practice - the gate as a parallel go-live gate, plus the data-protection gate
 

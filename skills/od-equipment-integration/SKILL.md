@@ -11,31 +11,15 @@ metadata:
   new_state_step: "Order and connect; Cyber Security sign-off in parallel; Connector design and data pipeline (edge to data platform); Procure and connect; Cyber Security sign-off in parallel; execution supplier-dependent"
   department_names: ["mi-connector", "mi-roadmap", "mi-readiness", "connector-design"]
   owner_role: IIoT Interface & Automation Engineer (IIAE)
-  author: IIoT Interface & Automation Engineer (IIAE)
   tags: [information-integration-service, technical]
   authority_level: draft on assessments and roadmaps; recommend a route and a configuration; never connect, never approve an external connection
   status: stable
-  sources_read: 2026-11-10
   requires: [od-context]
   composes: [od-signal-standardization, od-acceptance-test, od-decision-routing, od-node-red-flow-builder]
-  derived_from:
-    - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
-    - ops-knowledge-graph/_knowledge/20-Done/Equipment integration guide.md
-    - ops-knowledge-graph/.../20-lanes/information-integration-service/{playbook,tasks}.md
-    - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules.json
-    - ops-knowledge-graph/_knowledge/_apps/machine-integration-guidance-app/rules-next.json
-    - ops-knowledge-graph/_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf (Softing dataFEED OPC Suite V5.70 manual, 2026-02-16)
-    - ops-knowledge-graph/_knowledge/90-Sources/generated/kg_nodes.csv
-    - interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation)
-    - Department knowledge base (Machine-List export 2026-08-21), Graph/Connectors, Graph/Plants and Graph/Tools, read 2026-11-05
-    - Department knowledge base, ODEC Facts staging notes (Triage, Department KPIs and Roadmap Status, Plant - Carei, Plant - Auburn), AI-extracted and unverified, read 2026-11-05
-    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Equipment integration — assessment and guidance
     tags: [information-integration-service, technical]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
 # Equipment integration

@@ -19,17 +19,12 @@ metadata:
   owner_role: human:jakob.gabriel
   authority_level: draft
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-use-case-intake-triage, od-use-case-definition, od-requirements-breakdown, od-signal-standardization, od-data-availability-check, od-analytics-asset-build, od-use-case-standardization, od-cross-plant-compatibility]
-  derived_from:
-    - Operations Digitalization slide decks (object-driven event mining, library to archetypes, data-type architecture, downtime-app requirements), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: Object and event modelling
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Object and event modelling

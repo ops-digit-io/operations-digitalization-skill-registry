@@ -21,17 +21,12 @@ metadata:
   authority_level: draft the diagnosis, tiering proposal and roadmap; recommend on sequencing and tier; tier assignment and roadmap approval are human
   status: draft
   origin: plan-draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-plant-onboarding, od-cross-plant-compatibility, od-portfolio-and-savings-analysis, od-scorecard-reporting, od-equipment-integration, od-decision-routing, od-risk-watch]
-  derived_from:
-    - Operations Digitalization slide decks (plant-to-plant gap analysis, plant tiering, roadmap and call-for-action formats, interview-based evidence updates), abstracted into process guidance; no figures.
   okf:
     type: Agent Skill
     title: Plant gap diagnosis, tiering and roadmap
     tags: [all, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Plant gap diagnosis, tiering and roadmap

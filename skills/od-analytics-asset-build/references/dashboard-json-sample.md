@@ -4,9 +4,7 @@ title: Dashboard JSON sample
 description: How to sample dashboard JSON exports to see their real structure, and the nine query patterns found (masked shapes) with what each tells a builder. Guidance only - no per-dashboard table, counts or plant names.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard JSON sample
 

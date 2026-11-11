@@ -4,9 +4,7 @@ title: Worked cases
 description: Guidance, no figures. Seven illustrative case patterns read as acceptance questions - what the record typically shows, what an acceptance would have to evidence, and what stays open - for protocol authors who want a concrete picture of a pass, a conditional pass or a fail. Plants and values are placeholders.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [information-integration-service, practice]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Worked cases

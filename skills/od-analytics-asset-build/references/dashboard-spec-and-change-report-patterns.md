@@ -4,9 +4,7 @@ title: Dashboard spec and change report patterns
 description: The structure of a dashboard specification set (hub, baseline, data contract, authoring standard, families) and of a dashboard-level requirements and summary pair, plus how to read and use the dashboard change reports. Structure and reading rules only; no estate counts.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [analytical-support-service, practice, dashboard, specification]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Dashboard spec and change report patterns
 

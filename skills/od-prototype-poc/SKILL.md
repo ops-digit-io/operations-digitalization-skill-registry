@@ -12,29 +12,15 @@ metadata:
   new_state_step: "Prototype / click-dummy, validated with the recipient"
   department_names: ["funnel-prototype", "prototype-builder", "click-dummy"]
   owner_role: human:jakob.gabriel
-  author: human:jakob.gabriel
   tags: [use-case-support-service, practice, new-state, draft]
   authority_level: draft the prototype and the validation record; the plant confirms the value
   status: draft
-  sources_read: 2026-11-05
   requires: [od-context]
   composes: [od-use-case-definition, od-requirements-breakdown, od-data-availability-check, od-analytics-asset-build, od-benefit-calculation, od-capital-request, od-acceptance-test, od-decision-routing, od-handover-and-adoption]
-  derived_from:
-    - "Department knowledge base (skills/click-dummy/SKILL.md, references/build-patterns.md), read 2026-11-10"
-    - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 3 and the gap register, read 2026-11-05
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Where_We_Apply_Today.pptx
-    - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Board_TwoPager.pptx
-    - Department knowledge base, Gemba App project folder (README, quick_start_guide, click_dummy_template_prompt, example_production_dashboard_spec), the Claude project export that holds the click-dummy prompt system, read 2026-11-05
-    - Department archive (read-only), 13-AI_Activities/2026-08-AI_Initiatives_Pitch/04-AI based Requirements Engineering Mockup Creation, the Gemba App initiative deck, read 2026-11-05
-    - Department knowledge base Cases, the validation plan and MVP scope of 29 AI business cases and the note AI Requirements Engineering Pipeline, read 2026-11-05
-    - Department knowledge base SPEC-00 and SPEC-03 and the Hannover Stoecken KKA and Pulp Mixer requirements and summary, and Graph/Use Case Views Dashboard Use Cases Overview and Andon Board, read 2026-11-05
-    - Skills od-analytics-asset-build, od-use-case-definition, od-requirements-breakdown, od-benefit-calculation and od-decision-routing, read 2026-11-05
   okf:
     type: Agent Skill
     title: Prototype and proof of concept
     tags: [use-case-support-service, practice, new-state, draft]
-    owner: human:jakob.gabriel
-    generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 
 # Prototype and proof of concept

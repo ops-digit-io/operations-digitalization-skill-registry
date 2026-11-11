@@ -4,9 +4,7 @@ title: Export procedure
 description: The runnable browser-console REST procedure for a full list export — items, version history, attachment metadata and binaries — verbatim from the proven playbook.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, sharepoint, export]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Export procedure
 

@@ -4,9 +4,7 @@ title: AI step card
 description: The card that admits an AI agent step (owner, data source, review point), records its inputs, evidence and open items, and names the human gate and the next skill.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai, template]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # AI step card - <step id> <step title> · <plant or scope>
 

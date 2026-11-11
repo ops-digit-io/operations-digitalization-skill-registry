@@ -4,11 +4,7 @@ title: Normalization in flows
 description: "How a standardization decision becomes running logic: the department's rule-engine patterns that normalize signals (machine mode, status codes, cycle time, scaled values, totals) and the production flows that show each one."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [signals, normalization, rule-engine, department-package]
-derived_from:
-  - "Department knowledge base (references/patterns.md, examples/*.json), read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Normalization in flows
 

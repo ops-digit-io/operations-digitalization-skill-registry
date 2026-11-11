@@ -4,9 +4,7 @@ title: Handover protocol
 description: The defined output of this gate - consumes od-acceptance-test's handover-readiness section as input, records the three-question test and the ADKAR barrier point, and its utilization-tracking section is what od-scorecard-reporting reads.
 resource: ../SKILL.md
 status: stable
-owner: human:jakob.gabriel
 tags: [all, template, protocol, adoption]
-generated: { by: claude-code/1, at: 2026-10-22T00:00:00Z }
 ---
 # Handover and adoption protocol — ⟨use case name⟩
 

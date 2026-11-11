@@ -4,11 +4,7 @@ title: Savings model
 description: "The savings model: lever types, formulas and drivers, ranges, and how each saving is made auditable."
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [business-case, value-model, department-package]
-derived_from:
-  - "Department knowledge base, read 2026-11-10"
-generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/business-case/references/savings-model.md` (the master).
 

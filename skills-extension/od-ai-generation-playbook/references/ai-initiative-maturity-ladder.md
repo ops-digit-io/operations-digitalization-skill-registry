@@ -4,9 +4,7 @@ title: AI initiative maturity ladder
 description: The evidence ladder for AI and agentic initiatives (idea, drafted case, prototype or PoC, validated pilot, productive, proven), what each rung may claim, the rule that PoC claims are not savings, and the failure modes the strategic business cases name. Not the data-maturity ladder of ai-governance. Pattern only, no values.
 resource: ../SKILL.md
 status: draft
-owner: human:jakob.gabriel
 tags: [all, practice, ai]
-generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # AI initiative maturity ladder
 
