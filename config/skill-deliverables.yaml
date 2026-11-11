@@ -1,0 +1,635 @@
+# What each skill ships (every file except SKILL.md and the generated index.md files). Checked by
+# scripts/validate_registry.py via scripts/skill_deliverables.py. Add a file to a skill, add it here.
+# `unlinked`: shipped files that SKILL.md and its references do not link to (scripts, examples, vendored
+# files); they are used by path. Keep this list short: link the file instead where you can.
+skills:
+  bc-assessment:
+    files:
+    - assets/use-case-input-questionnaire.md
+    - references/build-engine.md
+    - references/criteria-checklist.md
+    - references/deck-spec.md
+    - references/grounding-discipline.md
+    - references/lever-model.md
+    - references/provenance-and-conflicts.md
+    - references/worked-example-gemba.md
+    - scripts/build_bc_short.py
+  build-grafana-ops-dashboard:
+    files:
+    - OD-INTEGRATION.md
+    - references/annotations_and_alerts.md
+    - references/archetypes.md
+    - references/dashboard_builder.py
+    - references/dashboard_tiers.md
+    - references/echarts_templates.js
+    - references/examples/README.md
+    - references/examples/relational_analyst.json
+    - references/examples/relational_analyst.py
+    - references/examples/relational_manager.json
+    - references/examples/relational_manager.py
+    - references/examples/timeseries_analyst.json
+    - references/examples/timeseries_analyst.py
+    - references/examples/timeseries_manager.json
+    - references/examples/timeseries_manager.py
+    - references/performance.md
+    - references/portability_check.md
+    - references/relational_patterns.sql
+    - references/schema_interview.md
+    - references/signal_matching.md
+    - references/timeseries_patterns.sql
+    - references/troubleshooting.md
+    - references/variables.md
+    - usage_guide.md
+    unlinked:
+    - OD-INTEGRATION.md
+    - references/annotations_and_alerts.md
+    - references/archetypes.md
+    - references/dashboard_builder.py
+    - references/dashboard_tiers.md
+    - references/echarts_templates.js
+    - references/examples/README.md
+    - references/examples/relational_analyst.json
+    - references/examples/relational_analyst.py
+    - references/examples/relational_manager.json
+    - references/examples/relational_manager.py
+    - references/examples/timeseries_analyst.json
+    - references/examples/timeseries_analyst.py
+    - references/examples/timeseries_manager.json
+    - references/examples/timeseries_manager.py
+    - references/performance.md
+    - references/portability_check.md
+    - references/relational_patterns.sql
+    - references/schema_interview.md
+    - references/signal_matching.md
+    - references/timeseries_patterns.sql
+    - references/troubleshooting.md
+    - references/variables.md
+    - usage_guide.md
+  catalog-guardrails:
+    files:
+    - assets/go-live-check-record.md
+    - references/technical-guardrails.md
+  catalog-systems:
+    files:
+    - assets/standard-system-entry.md
+    - references/tool-boundaries-mda-mes-mil-msb-qfpr.md
+    - references/tools-and-footprint.md
+    - references/validated-routes.md
+  catalog-usecase:
+    files:
+    - assets/catalog-match-record.md
+    - references/failure-cases-and-routing.md
+    - references/legacy-application-position.md
+    - references/library-and-csp-state.md
+    - references/placement-traps-and-documentation.md
+    - references/process-chain-practice.md
+    - references/sources-and-entry-fields.md
+    - references/template-coverage.md
+  deploy-appstore:
+    files:
+    - assets/deployment-package.md
+    - references/app-manifest-and-release-gate.md
+    - references/gitops-deployment-shape.md
+    - references/microservice-app-pattern.md
+    - references/platform-and-pilot-status.md
+    - references/process-chain-practice.md
+  funnel-features:
+    files:
+    - assets/epic-and-stories.example.md
+    - assets/epic-and-stories.md
+    - references/epic-and-user-stories.md
+    - scripts/check_epic.py
+    unlinked:
+    - scripts/check_epic.py
+  it-demand-package:
+    files:
+    - assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/design.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example
+    - assets/openspec/change/.openspec.yaml.tmpl
+    - assets/openspec/change/design.md.tmpl
+    - assets/openspec/change/handover.md.tmpl
+    - assets/openspec/change/proposal.md.tmpl
+    - assets/openspec/change/specs/capability/spec.md.tmpl
+    - assets/openspec/change/tasks.md.tmpl
+    - assets/openspec/config.yaml.tmpl
+    - references/it-demand-package/assets/it-demand-package.md
+    - references/it-demand-package/procedure.md
+    - references/it-demand-package/references/external-build-and-foreign-app-inputs.md
+    - references/it-demand-package/references/it-touchpoints.md
+    - references/it-demand-package/references/process-chain-practice.md
+    - references/it-expected-inputs.md
+    - references/od-project-support-consultancy/procedure.md
+    - references/od-project-support-consultancy/references/composed-protocols.md
+    - references/od-project-support-consultancy/references/process-chain-practice.md
+    - references/od-project-support-consultancy/references/task-chain-and-tool-use.md
+    - references/openspec-format.md
+    - scripts/check_handover.py
+    - scripts/new_handover.py
+    unlinked:
+    - assets/example/openspec/changes/add-downtime-reason-capture/.openspec.yaml.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/design.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/handover.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/proposal.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/specs/downtime-reason-capture/spec.md.example
+    - assets/example/openspec/changes/add-downtime-reason-capture/tasks.md.example
+    - assets/openspec/change/.openspec.yaml.tmpl
+    - assets/openspec/change/design.md.tmpl
+    - assets/openspec/change/handover.md.tmpl
+    - assets/openspec/change/proposal.md.tmpl
+    - assets/openspec/change/specs/capability/spec.md.tmpl
+    - assets/openspec/change/tasks.md.tmpl
+    - assets/openspec/config.yaml.tmpl
+    - scripts/check_handover.py
+    - scripts/new_handover.py
+  od-acceptance-test:
+    files:
+    - assets/acceptance-test-protocol.md
+    - assets/prefilled-test-items.md
+    - references/acceptance-by-route.md
+    - references/cluster-acceptance-criteria.md
+    - references/process-chain-practice.md
+    - references/signoff-and-rework.md
+    - references/test-structure.md
+    - references/worked-cases.md
+  od-ai-generation-playbook:
+    files:
+    - assets/ai-step-card.md
+    - assets/missing-signal-and-binding-table.md
+    - references/ai-governance.md
+    - references/ai-initiative-maturity-ladder.md
+    - references/evidence-and-human-decisions.md
+    - references/generation-pipeline.md
+  od-analytics-asset-build:
+    files:
+    - assets/asset-build-protocol.md
+    - assets/dashboard-requirements-template.md
+    - assets/dashboard-review-checklist.md
+    - references/asset-type-and-tier.md
+    - references/capability-templates-and-placement.md
+    - references/dashboard-estate-baseline.md
+    - references/dashboard-families-catalogue.md
+    - references/dashboard-json-sample.md
+    - references/dashboard-spec-and-change-report-patterns.md
+    - references/dashboard-worked-examples.md
+    - references/lifecycle-and-validation.md
+    - references/ops-grafana-dashboards.md
+    - references/process-chain-practice.md
+  od-benefit-calculation:
+    files:
+    - assets/business-case-backbone.md
+    - references/deck-structure.md
+    - references/funnel-business-case.md
+    - references/house-business-case-standard.md
+    - references/process-chain-practice.md
+    - references/review-checklist.md
+    - references/savings-model.md
+  od-capital-request:
+    files:
+    - assets/capital-request-package.md
+    - references/backbone-and-conditionals.md
+    - references/build-engine.md
+    - references/business-case-structure.md
+    - references/ecr-approval-matrix.md
+    - references/ecr-builder-workflow.md
+    - references/ecr-management-summary.md
+    - references/grounding-and-color-coding.md
+    - references/open-items-and-conflicts.md
+    - references/process-chain-practice.md
+    - references/spend-route.md
+    - scripts/build_ecr.py
+    - scripts/render_qa.sh
+  od-comms-brief:
+    files:
+    - assets/comms-brief.md
+    - references/department-formats.md
+    - references/ic-handover.md
+    - references/message-and-claims.md
+    - scripts/check_comms_brief.py
+    - scripts/test_check_comms_brief.py
+    unlinked:
+    - scripts/test_check_comms_brief.py
+  od-context:
+    files:
+    - references/knowledge-graph-reading.md
+    - references/process-chain-practice.md
+    - references/provenance-and-source-catalogue.md
+    - references/swot-and-dependency-seams.md
+  od-context-freshness:
+    files:
+    - assets/hygiene-report.md
+    - references/fact-triage-and-generated-registers.md
+    - references/process-chain-practice.md
+    - references/staleness-signals.md
+    - references/triage-and-actions.md
+    - scripts/context_freshness.py
+  od-cross-plant-compatibility:
+    files:
+    - assets/compatibility-check.md
+    - references/compatibility-tests.md
+    - references/plant-differences.md
+    - references/process-chain-practice.md
+  od-cybersec-gate:
+    files:
+    - assets/cybersec-signoff-package.md
+    - references/gate-rules.md
+    - references/package-contents.md
+    - references/precedents.md
+    - references/process-chain-practice.md
+  od-data-availability-check:
+    files:
+    - assets/data-availability-verdict.md
+    - assets/data-gap-request.md
+    - references/data-needs-by-capability.md
+    - references/failure-modes.md
+    - references/freshness.md
+    - references/machine-list-completeness.md
+    - references/non-machine-data-sources.md
+    - references/plant-instance-map.md
+    - references/process-chain-practice.md
+    - references/sources.md
+    - scripts/check_availability.py
+  od-decision-routing:
+    files:
+    - assets/decision-request.md
+    - references/decision-rights-framework.md
+    - references/escalation-worked-examples.md
+    - references/process-chain-practice.md
+  od-equipment-integration:
+    files:
+    - assets/assessment-protocol.md
+    - assets/guidance-protocol.md
+    - assets/plant-readiness-brief.md
+    - references/barrier-classes.md
+    - references/blockers-and-waves.md
+    - references/connector-fact-sheets.md
+    - references/connectors.md
+    - references/decision-paths.md
+    - references/fallbacks.md
+    - references/iiot-edge-platform.md
+    - references/od-barrier-triage/assets/barrier-triage-record.md
+    - references/od-barrier-triage/procedure.md
+    - references/od-barrier-triage/references/classes-and-routes.md
+    - references/od-barrier-triage/references/estate-patterns.md
+    - references/od-barrier-triage/references/process-chain-practice.md
+    - references/od-information-integration-service/assets/plant-status-input.md
+    - references/od-information-integration-service/procedure.md
+    - references/od-information-integration-service/references/finding-decks.md
+    - references/od-information-integration-service/references/lane-handoffs.md
+    - references/od-information-integration-service/references/process-chain-practice.md
+    - references/od-information-integration-service/references/roles-and-support-model.md
+    - references/od-information-integration-service/references/task-chain-and-tool-use.md
+    - references/od-information-integration-service/references/tool-fact-sheets.md
+    - references/od-machine-integration-plan/assets/wave-plan-template.md
+    - references/od-machine-integration-plan/assets/workshop-prep-checklist.md
+    - references/od-machine-integration-plan/procedure.md
+    - references/od-machine-integration-plan/references/barrier-log-and-cost-of-non-decision.md
+    - references/od-machine-integration-plan/references/route-choice-per-machine-type.md
+    - references/od-machine-integration-plan/references/wave-planning-and-readiness.md
+    - references/plant-integration-status.md
+    - references/process-chain-practice.md
+    - references/routing-detail.md
+    - references/softing-data-targets.md
+    - references/softing-datafeed.md
+    - references/softing-tag-syntax.md
+    - references/vendor-protocol-routes.md
+  od-event-object-modelling:
+    files:
+    - assets/data-requirements-statement.md
+    - assets/event-definition-canvas.md
+    - references/archetype-method-etl.md
+    - references/object-event-reduction.md
+    - references/worked-examples.md
+  od-first-aid-kit:
+    files:
+    - assets/first-aid-request.md
+    - references/first-aid-offering.md
+    - references/od-analytical-support-service/procedure.md
+    - references/od-analytical-support-service/references/composed-artefacts.md
+    - references/od-analytical-support-service/references/process-chain-practice.md
+    - references/od-analytical-support-service/references/task-chain-and-tool-use.md
+    - references/process-chain-practice.md
+  od-governance-cadence:
+    files:
+    - assets/call-for-action-and-status.md
+    - assets/sprint-plan-and-review.md
+    - references/demand-and-change-routing.md
+    - references/forums-and-roadmap.md
+    - references/rituals-and-consumption.md
+    - references/sprint-runbook.md
+    - references/training-programme.md
+  od-handover-and-adoption:
+    files:
+    - assets/handover-protocol.md
+    - references/adkar-diagnostic.md
+    - references/evidence-of-adoption.md
+    - references/od-impact-evaluation/assets/impact-evaluation-record.md
+    - references/od-impact-evaluation/procedure.md
+    - references/od-impact-evaluation/references/evaluation-questions.md
+    - references/od-impact-evaluation/references/process-chain-practice.md
+    - references/od-impact-evaluation/references/savings-proof-path.md
+    - references/od-utilization-review/assets/utilization-review-record.md
+    - references/od-utilization-review/assets/utilization-table.md
+    - references/od-utilization-review/procedure.md
+    - references/od-utilization-review/references/no-saving-decision.md
+    - references/od-utilization-review/references/utilization-method.md
+    - references/ownership-and-handover-gates.md
+    - references/process-chain-practice.md
+  od-investment-input:
+    files:
+    - assets/investment-estimate.md
+    - assets/investment-input-pack.md
+    - references/approval-route.md
+    - references/cost-lines.md
+    - references/process-chain-practice.md
+  od-migration-cutover:
+    files:
+    - assets/cutover-checklist-and-backout.md
+    - assets/migration-assessment.md
+    - references/assessment-canvas-and-risk.md
+    - references/backout-plan-proposal.md
+    - references/staged-migration-and-cutover.md
+  od-node-red-flow-builder:
+    files:
+    - assets/flow-config-contract.md
+    - assets/protobuf-schema-bootstrap.flow.json
+    - assets/triage-record.md
+    - references/architecture.md
+    - references/artefacts.md
+    - references/build-guide.md
+    - references/composing-transformations.md
+    - references/corpus-census.md
+    - references/deployable-flow.md
+    - references/instances.md
+    - references/plc-packet.md
+    - references/process-chain-practice.md
+    - references/rule-engine-examples/12_ac402_machine_status_mapping.json
+    - references/rule-engine-examples/13_helium09_leakrate_BROKEN.json
+    - references/rule-engine-examples/13b_helium09_leakrate_FIXED.json
+    - references/rule-engine-examples/14_m1072_shift_part_counter.json
+    - references/rule-engine-examples/15_m1072_part_counter_trigger.json
+    - references/rule-engine-examples/16_m1072_machine_mode_normalization.json
+    - references/rule-engine-examples/17_m1072_alert_counter_trigger.json
+    - references/rule-engine-examples/18_m1072_cycle_time_normalization.json
+    - references/rule-engine-examples/19_blm_ast30_status_code_lookup.json
+    - references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json
+    - references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json
+    - references/rule-engine-examples/22_grazioli_downtime_duration.json
+    - references/rule-engine-examples/23_erlas2_nok_part_trigger.json
+    - references/rule-engine-examples/24_erlas2_ok_part_trigger.json
+    - references/rule-engine-patterns.md
+    - references/rule-engine-standard-flow.md
+    - references/rule-engine.md
+    - references/standard-functions.js
+    - references/streaming.md
+    - references/symptoms-extended.md
+    - references/symptoms.md
+    - references/topic-conventions.md
+    - references/transformation-patterns.md
+    - scripts/analyze_flow.py
+    - scripts/build_flow.py
+    - scripts/e2e_runner.js
+    - scripts/e2e_test.sh
+    - scripts/simulate.js
+    - scripts/test_plcschema.proto
+    unlinked:
+    - references/rule-engine-examples/12_ac402_machine_status_mapping.json
+    - references/rule-engine-examples/13_helium09_leakrate_BROKEN.json
+    - references/rule-engine-examples/13b_helium09_leakrate_FIXED.json
+    - references/rule-engine-examples/14_m1072_shift_part_counter.json
+    - references/rule-engine-examples/15_m1072_part_counter_trigger.json
+    - references/rule-engine-examples/16_m1072_machine_mode_normalization.json
+    - references/rule-engine-examples/17_m1072_alert_counter_trigger.json
+    - references/rule-engine-examples/18_m1072_cycle_time_normalization.json
+    - references/rule-engine-examples/19_blm_ast30_status_code_lookup.json
+    - references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json
+    - references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json
+    - references/rule-engine-examples/22_grazioli_downtime_duration.json
+    - references/rule-engine-examples/23_erlas2_nok_part_trigger.json
+    - references/rule-engine-examples/24_erlas2_ok_part_trigger.json
+    - references/rule-engine-patterns.md
+    - references/rule-engine-standard-flow.md
+    - scripts/analyze_flow.py
+    - scripts/e2e_runner.js
+    - scripts/test_plcschema.proto
+  od-plant-diagnosis:
+    files:
+    - assets/plant-gap-diagnosis-record.md
+    - assets/plant-roadmap-template.md
+    - references/evidence-synthesis.md
+    - references/ishikawa-gap-diagnosis.md
+    - references/roadmap-templates.md
+    - references/tiering-criteria.md
+  od-plant-onboarding:
+    files:
+    - assets/onboarding-path.md
+    - references/plant-landscape.md
+    - references/process-chain-practice.md
+  od-portfolio-and-savings-analysis:
+    files:
+    - assets/portfolio-review-protocol.md
+    - references/od-use-case-prioritization/assets/prioritization-record.md
+    - references/od-use-case-prioritization/procedure.md
+    - references/od-use-case-prioritization/references/business-case-archetypes.md
+    - references/od-use-case-prioritization/references/evidence-baselines.md
+    - references/od-use-case-prioritization/references/process-chain-practice.md
+    - references/od-use-case-prioritization/references/ranking-criteria.md
+    - references/prioritization.md
+    - references/process-chain-practice.md
+    - references/regional-handling.md
+    - references/rollup-method.md
+    - references/strategic-initiatives-and-savings.md
+  od-project-order:
+    files:
+    - assets/kickoff-milestone-closure.md
+    - assets/project-order.md
+    - references/kickoff-and-reports.md
+    - references/order-structure.md
+    - references/roles-risks-procurement.md
+  od-prototype-poc:
+    files:
+    - assets/click-dummy-brief.md
+    - assets/prototype-validation-record.md
+    - references/build-patterns.md
+    - references/click-dummy.md
+    - references/gemba-app-pilot.md
+    - references/process-chain-practice.md
+    - references/status-labels.md
+    - references/validation-patterns.md
+  od-requirements-breakdown:
+    files:
+    - assets/requirement-template.md
+    - references/elicitation.md
+    - references/handoff-schema.md
+    - references/legacy-system-assessment.md
+    - references/process-chain-practice.md
+    - references/requirement-template.md
+    - references/requirements-funnel.md
+    - scripts/check_requirement.py
+  od-retro:
+    files:
+    - assets/retro-record.md
+    - references/process-chain-practice.md
+    - references/reading-change-logs.md
+    - references/retro-inputs.md
+  od-risk-watch:
+    files:
+    - assets/risk-reading.md
+    - references/process-chain-practice.md
+    - references/risk-indicators.md
+  od-rollout-training:
+    files:
+    - assets/competence-checklist.md
+    - assets/training-package.md
+    - references/competence-and-sustainment.md
+    - references/curriculum-modules.md
+    - references/plant-landscape.md
+    - references/process-chain-practice.md
+  od-scorecard-reporting:
+    files:
+    - assets/scorecard-update-protocol.md
+    - references/metric-reading-guide.md
+    - references/process-chain-practice.md
+    - references/readiness-evidence.md
+    - references/rounds-and-escalation.md
+    - references/scorecard-structure.md
+  od-sharepoint-list-export:
+    files:
+    - assets/export-run-log.md
+    - references/export-procedure.md
+    - references/reliability-discipline.md
+    - scripts/check_export_schema.py
+    unlinked:
+    - scripts/check_export_schema.py
+  od-showcase-followup:
+    files:
+    - assets/followup-log.md
+    - references/feedback-routing.md
+  od-showcase-selection:
+    files:
+    - assets/selection-record.md
+    - references/readiness-gate.md
+  od-signal-standardization:
+    files:
+    - assets/signal-analysis-report.md
+    - assets/signal-binding-sheet.md
+    - references/capability-template-signal-sets.md
+    - references/clustering-signals.md
+    - references/field-signal-vocabulary.md
+    - references/machine-context.md
+    - references/machine-vendor-and-connector-landscape.md
+    - references/multilingual-tags.md
+    - references/normalization-in-flows.md
+    - references/procedure-detail.md
+    - references/process-chain-practice.md
+    - references/public-data-models.md
+    - references/signal-catalogue.md
+    - references/standards.md
+    - scripts/analyze_signals.py
+  od-skill-authoring:
+    files:
+    - assets/evals-template.json
+    - assets/release-checklist.md
+    - assets/skill-brief.md
+    - references/evaluation-design.md
+    - references/quality-gates.md
+    - references/skill-anatomy.md
+    - scripts/scaffold_skill.py
+    - scripts/test_scaffold_skill.py
+    unlinked:
+    - scripts/scaffold_skill.py
+    - scripts/test_scaffold_skill.py
+  od-system-fit-check:
+    files:
+    - assets/existing-system-worksheet.md
+    - assets/system-fit-check.md
+    - references/decision-criteria.md
+    - references/department-questions.md
+    - references/deployment-reality.md
+    - references/investment-checking-workflow.md
+    - references/legacy-applications-landscape.md
+    - references/maturity-profile-signals.md
+    - references/non-bets.md
+    - references/od-application-consulting/assets/design-recommendation.md
+    - references/od-application-consulting/procedure.md
+    - references/od-application-consulting/references/application-maturity-profile.md
+    - references/od-application-consulting/references/build-path-options.md
+    - references/od-application-consulting/references/footprint-and-data-path.md
+    - references/od-application-consulting/references/legacy-application-landscape.md
+    - references/od-application-consulting/references/process-chain-practice.md
+    - references/plant-tool-availability.md
+    - references/process-chain-practice.md
+    - references/review-template.md
+    - references/screening-method.md
+    - references/software-footprint-gate.md
+    - references/tool-boundaries.md
+    - references/tool-decision-gate.md
+  od-template-resolution:
+    files:
+    - assets/template-resolution-record.md
+    - references/master-register.md
+    - references/process-chain-practice.md
+  od-use-case-definition:
+    files:
+    - assets/idea-check.md
+    - assets/use-case-definition-protocol.md
+    - assets/use-case-definition-questionnaire.md
+    - references/benefit-theory.md
+    - references/lane-service-flow.md
+    - references/lane-templates.md
+    - references/library-catalog.md
+    - references/patterns.md
+    - references/process-chain-practice.md
+    - references/task-chain-and-tool-use.md
+    - references/vocabulary.md
+    - references/worked-examples.md
+  od-use-case-intake-triage:
+    files:
+    - references/process-chain-practice.md
+    - references/refusal-playbook.md
+  od-use-case-solution-evaluation:
+    files:
+    - assets/case-library.csv
+    - assets/evaluation-protocol.md
+    - assets/example-use-case.json
+    - references/case-library.md
+    - references/complexity-drivers.md
+    - references/dependencies.md
+    - references/focus-areas.md
+    - references/od-maturity-assessment/assets/driver-and-gap-sheet.md
+    - references/od-maturity-assessment/assets/maturity-assessment-record.md
+    - references/od-maturity-assessment/procedure.md
+    - references/od-maturity-assessment/references/drivers-and-dependencies.md
+    - references/od-maturity-assessment/references/model-caveats.md
+    - references/od-maturity-assessment/references/rating-rubric.md
+    - references/od-maturity-assessment/references/routing-and-handoff.md
+    - references/process-chain-practice.md
+    - scripts/evaluate_fit.py
+    - scripts/model_data.json
+    unlinked:
+    - assets/case-library.csv
+    - scripts/evaluate_fit.py
+    - scripts/model_data.json
+  od-use-case-standardization:
+    files:
+    - assets/standardization-review.md
+    - references/clusters.md
+    - references/od-use-case-promotion/assets/promotion-package.md
+    - references/od-use-case-promotion/procedure.md
+    - references/od-use-case-promotion/references/pattern-evidence.md
+    - references/od-use-case-promotion/references/process-chain-practice.md
+    - references/od-use-case-promotion/references/promotion-criteria.md
+    - references/process-chain-practice.md
+    - references/process-family-patterns.md
+  od-workshop-facilitation:
+    files:
+    - assets/workshop-agenda-and-preread.md
+    - assets/workshop-capture-template.md
+    - assets/workshop-follow-up-list.md
+    - references/process-chain-practice.md
+    - references/workshop-formats.md
+  ops-dashboard-datatron:
+    files: []
