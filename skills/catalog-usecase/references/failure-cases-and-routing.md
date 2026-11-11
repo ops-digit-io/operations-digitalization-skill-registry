@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Failure cases and routing
-description: The failure patterns the vault has recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. No figures. Open it to justify a guardrail or to decide what a failed check means.
+description: The failure patterns the knowledge base has recorded, each mapped to the guardrail it would have caught, plus the role to call and the lane to route to when a guardrail fails. No figures. Open it to justify a guardrail or to decide what a failed check means.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -30,7 +30,7 @@ A guardrail earns its place only if a failure has been recorded that it would ha
 | A dashboard copied from another plant breaks because signals are literal UUIDs in the SQL | SPEC-02 | G8, G11 |
 | Empty UUID bindings return no data silently | SPEC-02 | G9 |
 | Queries ignore the time picker | SPEC-02 | G10 |
-| A use case note carries an individual's name because a raw free-text export was not filtered; the vault records it as known and not yet fixed | WIP spec "Cross-Cutting Platform Concerns" | G17 |
+| A use case note carries an individual's name because a raw free-text export was not filtered; the knowledge base records it as known and not yet fixed | WIP spec "Cross-Cutting Platform Concerns" | G17 |
 | A browser profile with login cookies was once committed beside the dashboard screenshot script; the session it captured "should be treated as exposed" | `_knowledge/20-Done`, "Grafana dashboard screenshot automation" | proposed G19 below |
 | Staleness mistaken for non-use: usage is not recorded in the exports, so a dashboard that has not been saved for a long time cannot be called stale | SPEC-00 | do not use "not opened" as evidence in a check |
 
@@ -38,7 +38,7 @@ A guardrail earns its place only if a failure has been recorded that it would ha
 
 ## When a guardrail fails - who to call and where to route
 
-Roles come from `08-decision-rights.md` (DBVE, IIAE, OD lead, Plant ME, Plant IT) and the lane map; the vault records no named duty contact for this check.
+Roles come from `08-decision-rights.md` (DBVE, IIAE, OD lead, Plant ME, Plant IT) and the lane map; the knowledge base records no named duty contact for this check.
 
 | Failed guardrail | Route | Role to call |
 |---|---|---|
@@ -53,9 +53,9 @@ Roles come from `08-decision-rights.md` (DBVE, IIAE, OD lead, Plant ME, Plant IT
 | G8 to G16 (build quality) | fix in the plant, or ask OD for the class A/B template | DBVE; data platform contact for G8, G11 |
 | G17, G18, G19 | stop; G18 goes to Lane 3 | IIAE for G18; OD lead for a policy question |
 
-⟨A named contact or mailbox for "guardrail failed"⟩ stays open - OD lead. The roles above are the nearest the vault records.
+⟨A named contact or mailbox for "guardrail failed"⟩ stays open - OD lead. The roles above are the nearest the knowledge base records.
 
 ## The utilization expectation after go-live
 
 `od-handover-and-adoption` already fixes what is recorded: the use case's record carries its output asset, its business process and its **utilization expectation**; and it reports utilization against `DAILY`, `WEEKLY`, `MONTHLY`, `ON DEMAND`, `ONE-TIME` and `NEVER` as recorded values on the plant use cases. To see how many plants' use cases record a value, count the frontmatter live; most use cases record none, and the count in `od-handover-and-adoption` may differ from a fresh count of the frontmatter (⟨why they differ⟩, DBVE).
-For a self-served use case the check is therefore: **the expectation is written into the record before go-live, in one of those values**, and is read again at the first scorecard review. The vault gives no target (for example a share of `DAILY`) for self-served cases - ⟨utilization target for a self-served use case⟩, OD lead. The most common recorded moment for a use case is the daily Gemba walk (per `od-handover-and-adoption`).
+For a self-served use case the check is therefore: **the expectation is written into the record before go-live, in one of those values**, and is read again at the first scorecard review. The knowledge base gives no target (for example a share of `DAILY`) for self-served cases - ⟨utilization target for a self-served use case⟩, OD lead. The most common recorded moment for a use case is the daily Gemba walk (per `od-handover-and-adoption`).

@@ -20,8 +20,8 @@ before quoting any figure in a decision, and give the export date next to it.
 
 | Source | What it gives per plant |
 |---|---|
-| Machine List (SharePoint list; vault notes in `Graph/Machines`) | One row per machine or PLC: plant, vendor, PLC model, network protocol, `integration_status`, `integration_method`, `integration_approach`, `integration_blockers`, project reference, planned integration date |
-| Tool Overview (`ToolOverview-List`; vault notes in `Graph/Tools`) | Which integration concepts are rolled out at the plant, with status and comment |
+| Machine List (SharePoint list; knowledge base notes in `Graph/Machines`) | One row per machine or PLC: plant, vendor, PLC model, network protocol, `integration_status`, `integration_method`, `integration_approach`, `integration_blockers`, project reference, planned integration date |
+| Tool Overview (`ToolOverview-List`; knowledge base notes in `Graph/Tools`) | Which integration concepts are rolled out at the plant, with status and comment |
 | Legacy Application List | Which legacy applications are located at the plant |
 | Plant notes (`Graph/Plants`) | The plant profile; a plant note can exist with no machine row |
 

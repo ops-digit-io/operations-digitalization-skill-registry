@@ -47,5 +47,5 @@ policy; whether MDA/PDA or QFPR is *available right now* is a per-plant fact.
 ## Sources
 
 Internal evidence: per-plant Use Case Definition Workshop summaries in
-`Work-OpsDigit-Knowledge/Split Slides/10-Workshops--*`. Full citations in `SKILL.md`'s
+`Split Slides/10-Workshops--*`. Full citations in `SKILL.md`'s
 `metadata.derived_from`.

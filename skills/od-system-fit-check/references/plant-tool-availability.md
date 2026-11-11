@@ -18,7 +18,7 @@ export. It tells you how to read it and what traps to expect.
 
 ## Where the truth lives
 
-- Vault `Graph/Tools` notes (source: the `ToolOverview-List` export) and `Graph/Plants`
+- Knowledge base `Graph/Tools` notes (source: the `ToolOverview-List` export) and `Graph/Plants`
   rollout blocks. Note the export date every time you quote a cell.
 - Use cases naming a tool: the use case links in the `UseCase-List` export.
 - Machine-side readiness: `../../od-equipment-integration/references/plant-integration-status.md`.
@@ -87,5 +87,5 @@ workshop tool-availability tables. Who could supply it: OD lead.⟩
 
 ## Sources
 
-- Vault `Graph/Tools`, `Graph/Plants` rollout blocks.
+- Knowledge base `Graph/Tools`, `Graph/Plants` rollout blocks.
 - Registry reference `deployment-reality.md`.

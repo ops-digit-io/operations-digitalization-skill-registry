@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Decision routing and escalation](SKILL.md) | Agent Skill | Answer "am I allowed to do this, and if not who decides?" for OD work — map a decision to its owner, mode, approval requirement, reversibility, threshold and authority level; route spend through eCR, IT demand through demand management, rollout readiness through CSP, daily use through the plant and proven value through SPRINT; and escalate to the right forum. Use before committing spend, approving an integration or a connection, changing a standard or a rollout, or whenever it is unclear whether an action is recommend, execute-with-approval or execute-autonomously. Not for assigning a request to a lane (od-use-case-intake-triage). |
+| [Decision routing and escalation](SKILL.md) | Agent Skill | Answer "am I allowed to do this, and who decides?" for OD work: map a decision to its owner, approval and authority level. Not for assigning a request to a lane (od-use-case-intake-triage). |
 
 | Folder | Holds |
 |---|---|

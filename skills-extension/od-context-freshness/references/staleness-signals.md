@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Staleness signals
-description: How each layer of the OD knowledge system marks freshness - bundle file, skill, registry, vault note - what each mark proves and what it does not, with the field names and the conventions behind them.
+description: How each layer of the OD knowledge system marks freshness - bundle file, skill, registry, knowledge base note - what each mark proves and what it does not, with the field names and the conventions behind them.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -58,9 +58,9 @@ or that the skill still matches it.
 These three marks are what a figure inside a skill should be read against. A skill that quotes an equipment target
 is only as current as `data_as_of`.
 
-## 4. Vault notes (Work-OpsDigit-Knowledge)
+## 4. Knowledge base notes (department knowledge base)
 
-The vault is read-only for the registry. Its notes carry their own stamps, which the report should note when a
+The knowledge base is read-only for the registry. Its notes carry their own stamps, which the report should note when a
 skill relies on them:
 
 | Stamp | Example | Reading |
@@ -74,5 +74,5 @@ skill relies on them:
 
 - Whether any figure that slipped into prose is still the figure in the source. Find them with the figure finder and rewrite them.
 - Whether a role named in a skill still holds the job. Named owners are an open gap throughout.
-- Whether a statement the skills copy from the vault is still true on the shop floor.
+- Whether a statement the skills copy from the knowledge base is still true on the shop floor.
 - Whether a `stable` skill earned that status; the status is set by the registry owner.

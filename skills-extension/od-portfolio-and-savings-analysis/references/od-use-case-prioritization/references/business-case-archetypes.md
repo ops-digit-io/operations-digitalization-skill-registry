@@ -10,9 +10,9 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Business case archetypes
 
-Source: vault `Graph/Business Cases` (the strategic business-case list "AI at Operations", one note per case, AI-curated from the
+Source: knowledge base `Graph/Business Cases` (the strategic business-case list "AI at Operations", one note per case, AI-curated from the
 SharePoint list) and `Graph/Keynote Initiatives` and `Graph/Keynote Clusters` (the same cases as strategic initiatives with value
-domains). The vault states that this set is **different from** the plant use-case portfolio and the case groups: do not merge
+domains). The knowledge base states that this set is **different from** the plant use-case portfolio and the case groups: do not merge
 them and do not rank one against the other. Value ranges, costs, scores and tiers in these notes are the authors' own inputs and
 are not verified; this file carries none of them. Read them live when you need them, with the read date.
 
@@ -56,7 +56,7 @@ Missing fields are findings: a case without a falsifiable key risk or a pass cri
 
 ## Dependencies drive the order
 
-Cases in this set depend on each other in a chain, and the vault says so repeatedly:
+Cases in this set depend on each other in a chain, and the knowledge base says so repeatedly:
 
 - Enabling layers first: state labels and mined event patterns feed the predictive and optimization cases. If the label corpus is
   not consumed by its dependents, the enabler shrinks to engineering-hour savings.

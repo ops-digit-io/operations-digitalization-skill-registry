@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Routing and handoff - the profile as a signal, not a verdict
 
-All rules below are `PROPOSAL`: the vault gives the model, the rubric and the target guidance; the mapping onto the route decisions is this
+All rules below are `PROPOSAL`: the knowledge base gives the model, the rubric and the target guidance; the mapping onto the route decisions is this
 skill's synthesis, to be confirmed with the OD lead (`<to confirm>`). A signal is evidence for the neighbouring skill, which owns the verdict;
 quote the rule with the signal.
 

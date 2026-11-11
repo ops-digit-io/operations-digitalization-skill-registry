@@ -68,5 +68,5 @@ Detail and routing are in [`od-equipment-integration`](../../../SKILL.md).
 
 ## Sources
 
-- Vault `Graph/Tools` (one note per tool), including the archive-evidence blocks.
-- Vault `Slide Index` (deck `Operation Concept IIoT and Edge Computing`, slides 2 to 3).
+- Knowledge base `Graph/Tools` (one note per tool), including the archive-evidence blocks.
+- Knowledge base `Slide Index` (deck `Operation Concept IIoT and Edge Computing`, slides 2 to 3).

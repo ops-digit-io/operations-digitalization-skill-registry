@@ -17,7 +17,7 @@ image on a camera PC, a paper checklist, a kWh reading in the energy logger. For
 1 to 4 run through a different object. This reference says which, and how to read the records
 about each. It holds no counts: re-count on the live list and name the export date.
 
-**Where the live truth lives.** The Legacy Application List, as quoted in the vault's
+**Where the live truth lives.** The Legacy Application List, as quoted in the knowledge base's
 `Graph/Legacy Applications` notes; tool and connector facts in `Graph/Tools` and
 `Graph/Connectors`. "Reading" marks an interpretation of this analysis, not a record.
 
@@ -102,7 +102,7 @@ naming and the catalog layout of the data platform are not recorded
 
 ## Sources
 
-- Vault `Graph/Legacy Applications` (`LegacyApplication-List` export; take the date from the notes).
-- Vault `Graph/Connectors` and `Graph/Tools` (notes for MIL 1.0, QFPR, Energy Management 1.0 and 2.0).
-- Vault `Slide Index` (deck `OD Initiative - Quality Measurement Equipment Integration`, slide 1).
+- Knowledge base `Graph/Legacy Applications` (`LegacyApplication-List` export; take the date from the notes).
+- Knowledge base `Graph/Connectors` and `Graph/Tools` (notes for MIL 1.0, QFPR, Energy Management 1.0 and 2.0).
+- Knowledge base `Slide Index` (deck `OD Initiative - Quality Measurement Equipment Integration`, slide 1).
 - Department note *Systems of record* (`_knowledge/10-Department/Systems of record.md`).

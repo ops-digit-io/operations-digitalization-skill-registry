@@ -1,15 +1,7 @@
 ---
 name: deploy-appstore
 description: >-
-  Prepare and gate the deployment of a manufacturing app to the platform (new-state Lane
-  3a) - confirm the target and the sourcing route (reuse, self-developed, externally
-  developed, integrated foreign app), assemble the deployment package, run the release
-  gate including the Cyber Security sign-off, and hand over to rollout. Drafts the package
-  and the checklist; deploying to a shared platform is human-approved and the sign-off is
-  human-only. Use when an app is ready to go to the manufacturing app store on the IIoT
-  Edge platform or the container platform, when someone asks what must be true before a
-  deployment, or when the deploy step of a new system is planned. Checks the package against
-  the department's GitOps / ArgoCD deployment shape (standard manifests on CMO, reference instance HDAS).
+  Prepare and gate deployment of a manufacturing app (Lane 3a): sourcing route, deployment package, release gate with Cyber Security sign-off, handover to rollout. Sign-off human-only.
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -33,11 +25,11 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/project-support-consultancy/skills.md
     - ops-knowledge-graph/.../00-core/08-decision-rights.md
     - Department deck AI_Where_We_Apply_Today.pptx (one slide; the line "Manufacturing App Store - GitOps deployment (pilot)"), text extracted and read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Keynote Initiatives notes Manufacturing App Store (CMO), AI-Coding Assimilation, Cybersec Backlog Closure and AI Requirements Eng. Pipeline, read 2026-11-05
-    - Work vault, Microservice Apps (WIP), the notes Microservice Landscape, Platform Extensibility and Onboarding, Cross-Cutting Platform Concerns, Platform Services (Shared Kernel), Recipe Values Service, User Interfaces and Interaction Layer and Extension Services, AI-drafted and not reviewed, read 2026-11-05
-    - Work vault, Graph/Tools (Concept 3, IIoT Edge Computing Platform) and the skill od-equipment-integration reference iiot-edge-platform.md, read 2026-11-05
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - Department knowledge base Initiatives notes Manufacturing App Store (CMO), AI-Coding Assimilation, Cybersec Backlog Closure and AI Requirements Eng. Pipeline, read 2026-11-05
+    - Department knowledge base, Microservice Apps (WIP), the notes Microservice Landscape, Platform Extensibility and Onboarding, Cross-Cutting Platform Concerns, Platform Services (Shared Kernel), Recipe Values Service, User Interfaces and Interaction Layer and Extension Services, AI-drafted and not reviewed, read 2026-11-05
+    - Department knowledge base (Concept 3, IIoT Edge Computing Platform) and the skill od-equipment-integration reference iiot-edge-platform.md, read 2026-11-05
+    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: App deployment to the platform
@@ -101,7 +93,7 @@ running, pilot, planned or design-only and look the current status up in the sou
 | File | Use it for |
 |---|---|
 | [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md) | How to classify maturity (running, pilot, planned, design-only) and where to look the current status up; the two layers (edge runtime and app store / CMO); the three onboarding scenarios and their inferred match to routes 3a.1 to 3a.4 |
-| [`references/app-manifest-and-release-gate.md`](references/app-manifest-and-release-gate.md) | The proposed app manifest, interface and versioning rules, what the vault does NOT hold, and the release-gate checklist R1 to R11 |
+| [`references/app-manifest-and-release-gate.md`](references/app-manifest-and-release-gate.md) | The proposed app manifest, interface and versioning rules, what the knowledge base does NOT hold, and the release-gate checklist R1 to R11 |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | The deploy step in the chain: source-ownership scenarios, GitOps shape, local preparation checklist, migration and cutover pitfalls, pilot scope limits, back-out gap, handoffs, agent notes |
 | [`references/microservice-app-pattern.md`](references/microservice-app-pattern.md) | The service-per-capability pattern (design proposal): event envelope, what each capability service does, contract, config, degradation, shared kernel, composition, where a new request belongs |
 | [`assets/deployment-package.md`](assets/deployment-package.md) | The package and gate table to fill per app |

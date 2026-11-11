@@ -20,7 +20,7 @@ builds the asset.
 
 **Sizes are not held here.** The number of use cases, library entries and dashboard families per
 template, and the number of case groups, are in the `Use Case View` notes and `Case Groups -
-Overview` in the work vault. Re-count there and quote a figure only with its date.
+Overview` in the department knowledge base. Re-count there and quote a figure only with its date.
 
 ## 1. The 11 templates
 
@@ -110,6 +110,6 @@ the reference-solution link (`od-handover-and-adoption`).
 
 ## Sources
 
-`Work-OpsDigit-Knowledge/Graph/Use Case Views/` (`template-standards.json`, the 11 views),
+`Graph/Use Case Views/` (`template-standards.json`, the 11 views),
 `Case Groups/Case Groups - Overview.md`, `Dashboard Exports/Dashboard Notes/`. Read 2026-11-05; used
 for rules only.

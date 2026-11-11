@@ -102,3 +102,12 @@ named nodes are also why an error from this tab would not name its source.
 - UUID correctness: a wrong UUID looks like a correct one. Check against the live topic.
 - Anything inside a subflow, any config node, and global context contents.
 - The meaning of a threshold: `hardcoded-threshold` finds the literal, not whether it is right.
+
+## What the analyser cannot see
+
+It reads a static export: not the broker, edge platform, PLC or runtime state. Work
+`symptoms.md` (symptom, cause, layer to check) and the rest of this file (disabled-tab check, where findings
+concentrate, more rows, worked findings). **Walk the path outward from the machine** (machine,
+connector, ingress variant, edge, flow, offload, asset), not inward from the dashboard: most
+"dashboard is broken" reports are a machine that stopped publishing. After a platform or server
+migration the flow is rarely the cause (DNS, certificates, access, connector licence).

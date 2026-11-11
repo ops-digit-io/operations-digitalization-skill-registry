@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [business-case, funnel, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip/skills/business-case/SKILL.md, read 2026-11-10"
+  - "Department knowledge base, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `product-funnel-skills.zip/skills/business-case/SKILL.md` (the master).

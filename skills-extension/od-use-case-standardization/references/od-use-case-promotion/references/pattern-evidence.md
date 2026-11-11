@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Pattern evidence
 
-Sources: the bundle file `kg_nodes.csv` and the vault's Case Groups notes (labelled "AI-grouped from SharePoint list fields;
+Sources: the bundle file `kg_nodes.csv` and the knowledge base's Case Groups notes (labelled "AI-grouped from SharePoint list fields;
 indicative arithmetic only; not reviewed by a human"). They frame a decision; they never replace the evidence about the single
 asset. **This file carries no counts**: re-count on the live lists and quote the result with its source and date.
 

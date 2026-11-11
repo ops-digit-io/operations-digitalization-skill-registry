@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Model caveats - read before quoting the model
 
-Source: the vault's External Research note set on the IT/OT maturity model, compiled by AI from published papers and marked there as not
+Source: the knowledge base's External Research note set on the IT/OT maturity model, compiled by AI from published papers and marked there as not
 reviewed by a human. Cite the model as a literature framework, never as an internal standard.
 
 ## Provenance
@@ -18,14 +18,14 @@ reviewed by a human. Cite the model as a literature framework, never as an inter
 - **From the papers**: the level labels of the 16 areas, the 27 complexity drivers, the realization dependencies and the idea of choosing a target
   from need. The first-hand source of the area definitions (a 2017 book chapter, and a 2018 dissertation behind the tables) was **not available**
   to the compiler; only labels are published.
-- **From the vault (operationalization)**: the observable evidence per level, relevance for the namespace and AI work, assessment questions,
+- **From the knowledge base (operationalization)**: the observable evidence per level, relevance for the namespace and AI work, assessment questions,
   indicators, critique and target guidance, and the mapping of drivers to areas. This skill's rubric restates that layer; it is a working
   reading, not the paper's definition.
 - **From this skill**: the object-level rubric, the evidence grade, the route signals and the plausibility checks (marked `PROPOSAL`).
 
 ## Known weak points
 
-1. **Two numbering schemes.** The level tables count from 1, the case base counts from 0. The vault converts everything to the 1-based scale;
+1. **Two numbering schemes.** The level tables count from 1, the case base counts from 0. The knowledge base converts everything to the 1-based scale;
    do not mix tables from different sources without checking the base.
 2. **The dependency table does not reproduce the published development paths**, even read with the best-fit shift. Further, unpublished
    dependencies were evidently used. Treat it as a prompt for the sequence, validate the sequence against the own architecture in a pilot.
@@ -40,7 +40,7 @@ reviewed by a human. Cite the model as a literature framework, never as an inter
 
 ## What to do with that
 
-- Quote levels with their source layer ("paper label", "vault cue", "this skill's reading").
+- Quote levels with their source layer ("paper label", "knowledge base cue", "this skill's reading").
 - Keep the rating qualitative: levels, evidence grade, high-medium-low drivers. Do not add up levels into a score and do not rank objects by a
   total; the model offers no weighting.
 - Put an own validation on the open list: a pilot on one object type that checks whether the backbone order holds.

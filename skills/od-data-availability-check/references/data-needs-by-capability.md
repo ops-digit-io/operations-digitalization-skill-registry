@@ -19,7 +19,7 @@ means anything.
 
 **Grades.**
 
-- **Rule (department standard):** from the vault's `_knowledge/30-Nodes` cluster notes
+- **Rule (department standard):** from the knowledge base's `_knowledge/30-Nodes` cluster notes
   (C01 to C12), which state "the standard we hold a use case in this cluster to". These are
   the department's statements, not independent verification. Their KPI definitions rest on
   ISO 22400-2 (see the cluster notes for which parts are verified; the formulas are not).
@@ -102,7 +102,7 @@ state standards, not signal lists; the signal catalogue belongs to
 
 ## Data items named by the standardization knowledge base
 
-The vault's source note `_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase`
+The knowledge base's source note `_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase`
 (compiled from public references; its classification run is older than the cluster notes, so
 its groupings may differ) lists requirements per cluster. Those that name
 **data** are the ones to check at step 1 and step 5 (grade: published-literature-derived, not
@@ -124,7 +124,7 @@ IIAE; see `od-signal-standardization`.⟩
 
 ## Sources
 
-- Vault `_knowledge/30-Nodes` cluster notes C01 to C12 and the template notes.
-- Vault `Case Groups` (overview and group notes; need-and-scope rows; member and machine counts).
-- Vault `Graph/Capability Epics` and `Graph/Process Epics`.
+- Knowledge base `_knowledge/30-Nodes` cluster notes C01 to C12 and the template notes.
+- Knowledge base `Case Groups` (overview and group notes; need-and-scope rows; member and machine counts).
+- Knowledge base `Graph/Capability Epics` and `Graph/Process Epics`.
 - Department note *Use case standardization* (`_knowledge/10-Department`).

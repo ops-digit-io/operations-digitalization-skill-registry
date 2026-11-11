@@ -12,12 +12,12 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Finding decks
 
 Much of what the lane knows lives in slide decks of the department archive (read-only,
-outside the vault). The vault holds an index of them so a single slide can be found without
+outside the knowledge base). The knowledge base holds an index of them so a single slide can be found without
 opening hundreds of decks.
 
 ## The index and its limits (record)
 
-- **What it is:** `Slide Index/` in the vault: one folder note per archive folder plus a
+- **What it is:** `Slide Index/` in the knowledge base: one folder note per archive folder plus a
   master note `Slide Index`; two machine-readable files, `slide-decks.jsonl` (one row per
   deck: path, name, date from the file name, size, slide count) and `slide-manifest.jsonl`
   (one row per slide: number, title, text snippet, speaker notes, shape counts). Generated
@@ -27,7 +27,7 @@ opening hundreds of decks.
   file-level in the Archive Index); text is English only; no thumbnails; snippets are cut at
   a fixed length (so tables and long lists are not complete); the archive's students,
   OneNote, packed archives, commercial and offer files are never read.
-- **How to search:** search the vault for a topic, phrase or slide title; the folder note
+- **How to search:** search the knowledge base for a topic, phrase or slide title; the folder note
   shows the deck path and slide number. **Open the deck in the archive before relying on a
   slide and cite it as `Archive: <deck path>, slide N`.** To see how often a slide
   repeats, read the entry's "repeated" marker and prefer the canonical copy.
@@ -80,5 +80,5 @@ supply them: the IIAE.⟩
 
 ## Sources
 
-- Vault `Slide Index/Slide Index` and `slide-decks.jsonl`, `slide-manifest.jsonl`, read
+- Knowledge base `Slide Index/Slide Index` and `slide-decks.jsonl`, `slide-manifest.jsonl`, read
   2026-11-05 (this table lists the decks that bear on the lane).

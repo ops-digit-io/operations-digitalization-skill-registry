@@ -17,11 +17,11 @@ derived_from:
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/04-service-catalog.md
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/playbook.md
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/agent-brief.md
-- Work vault (Work-OpsDigit-Knowledge), Slide Index notes for 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (collection of demand, Use Case Canvas urgency and importance, value and risk slide) and for 50-Use_Case_Planning (Use Case Priorities decks, planning states), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Split Slides of 50-Use_Case_Planning 2025-03-10 UseCase_Priorities slides 2 to 7 (priority tiers and cluster table columns), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Case Groups overview and CG-03 Andon Board - Assembly (rollout map, evidence gap, white space), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), ODEC Facts - Department KPIs and Roadmap Status (use case upvoting slides 2025), read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases notes (portfolio tier and score fields; Catalog Maturity Sprint UC-Y; Cycle Time Optimization), read 2026-11-05
+- Department knowledge base, Slide Index notes for 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (collection of demand, Use Case Canvas urgency and importance, value and risk slide) and for 50-Use_Case_Planning (Use Case Priorities decks, planning states), read 2026-11-05
+- Department knowledge base, Split Slides of 50-Use_Case_Planning 2025-03-10 UseCase_Priorities slides 2 to 7 (priority tiers and cluster table columns), read 2026-11-05
+- Department knowledge base, Case Groups overview and CG-03 Andon Board - Assembly (rollout map, evidence gap, white space), read 2026-11-05
+- Department knowledge base, ODEC Facts - Department KPIs and Roadmap Status (use case upvoting slides 2025), read 2026-11-05
+- Department knowledge base Cases notes (portfolio tier and score fields; Catalog Maturity Sprint UC-Y; Cycle Time Optimization), read 2026-11-05
 - Skill od-portfolio-and-savings-analysis, references/prioritization.md (weighted scoring and the unscoreable bucket)
 - Skill od-use-case-intake-triage and od-use-case-definition, admission rule and control points
 generated:
@@ -55,7 +55,7 @@ cases sit in a separate bucket; the Plant ME has seen the list; the record is fi
 | File | Use it for |
 |---|---|
 | [`references/ranking-criteria.md`](references/ranking-criteria.md) | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
-| [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the vault can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
+| [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the knowledge base can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice for step 24: planning states, explicit ordering rule, foundation-first and dependency column, value tiers and grounding tags, kill/defer outcomes, handoff columns, agent notes |
 | [`references/business-case-archetypes.md`](references/business-case-archetypes.md) | Archetypes of the strategic business cases, what a complete case record contains, dependency-before-return ordering, keynote cluster maturity labels |
 | [`assets/prioritization-record.md`](assets/prioritization-record.md) | The output: candidate table, scoring sheet, unscored bucket, recommendation, sign-off |

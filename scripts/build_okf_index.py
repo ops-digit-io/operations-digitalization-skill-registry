@@ -86,7 +86,8 @@ def render(directory: pathlib.Path) -> str:
         lines += ["| Folder | Holds |", "|---|---|"]
         for d in subdirs:
             n = sum(1 for f in d.rglob("*.md") if f.name not in RESERVED)
-            lines.append(f"| [{d.name}/]({d.name}/index.md) | {n} concept(s) |")
+            cell = f"{d.name}/" if directory.name == "references" else f"[{d.name}/]({d.name}/index.md)"
+            lines.append(f"| {cell} | {n} concept(s) |")
         lines.append("")
     return "\n".join(lines)
 

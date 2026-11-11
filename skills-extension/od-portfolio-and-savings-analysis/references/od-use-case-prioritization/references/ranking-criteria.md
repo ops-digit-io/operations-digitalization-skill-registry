@@ -69,7 +69,7 @@ collected (`od-workshop-facilitation`), and what the plant says now.
 
 ## 6 · A portfolio pattern worth borrowing
 
-The vault's Business Cases notes (`Graph/Business Cases`) carry a
+The knowledge base's Business Cases notes (`Graph/Business Cases`) carry a
 "portfolio tier" such as Quick Win, Big Bet, Enabler, Platform and "Defer to Year 2+", plus score
 fields (strategic fit, synergy, value-effort score, confidence). They belong to a separate AI
 business case list, so do not copy their scores onto plant use cases. What transfers is the idea of

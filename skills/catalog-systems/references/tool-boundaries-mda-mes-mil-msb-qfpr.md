@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Tool boundaries: MDA/PDA, MES, MIL, MSB, QFPR
 
-Source: vault `Graph/Tools` (tool notes from the tool-overview list, each with a short definition from the department glossary and,
+Source: knowledge base `Graph/Tools` (tool notes from the tool-overview list, each with a short definition from the department glossary and,
 for MSB, MES, MIL and QFPR, archive evidence curated by AI and not reviewed by a human). The archive evidence is dated and partly
 planned or pilot state: a plan is not a deployed capability. **Rollout status per plant changes: read the tool note and the
 systems-of-record note live and time-stamp it** (see `tools-and-footprint.md`). This file carries the boundaries only.
@@ -21,7 +21,7 @@ The test for every entry, from `process-chain-practice.md` section 1: what the t
 | Tool | Is | Is not | Recommended if (trigger) |
 |---|---|---|---|
 | MDA/PDA (machine and process data acquisition; versions 1.0, 2.0, 3.0) | The data-acquisition tool family: reads machine and process data and holds the plant data model the earlier use cases were built on. Used heavily behind SPC, line monitoring and Andon cases | A service bus; an analytics or ML platform; a recipe or master-data store. Versions are generations, not sizes: they differ in data model and add-ons (one note records a dashboarding add-on with SQL) | The use case needs process or quality data from machines at a plant where this family is the standard acquisition route and the signals fit its model |
-| MES (1.0) | The shop-floor execution layer between ERP and the machines: detailed scheduling, production control and sequencing, quality management, maintenance management, materials and work-in-progress, most equipment-status data. The vault frames the split with ERP using VDI 5600 | An energy-management tool (energy is mapped separately); a dashboard tool; a data-acquisition gateway. In the vault no use case is linked to it | The request is really order or recipe execution, labels, batch genealogy, material validation or lot tracing: the "heavy request disguised as a dashboard" |
+| MES (1.0) | The shop-floor execution layer between ERP and the machines: detailed scheduling, production control and sequencing, quality management, maintenance management, materials and work-in-progress, most equipment-status data. The knowledge base frames the split with ERP using VDI 5600 | An energy-management tool (energy is mapped separately); a dashboard tool; a data-acquisition gateway. In the knowledge base no use case is linked to it | The request is really order or recipe execution, labels, batch genealogy, material validation or lot tracing: the "heavy request disguised as a dashboard" |
 | MIL (Manufacturing Image Library) | The store for inspection and process images with metadata, retrieval, and a path to the data lake; image acquisition is the enabling step for vision and defect use cases | A process-parameter store; a model-training platform; a viewer by itself (a separate image browser exists for review) | The use case needs images per part kept and searched (vision inspection, defect analysis, labelling), and the image-transfer path exists or is funded |
 | MSB (Manufacturing Service Bus; versions 1.0, 2.0, 4.0) | Middleware between the machine side (PLCs, edge devices, OPC UA servers, vendor protocols) and the IT side (ERP, MES, data acquisition, energy, cloud apps) with publish/subscribe and message interfaces; the integration backbone most use cases are deployed on. The archive describes the role for the family, not per version | A calculator or interpreter of signals; a dashboard; a substitute for the edge platform's acquisition and historisation; a data store | Several systems must exchange events; the use case is event-driven and cross-system; a machine's data must be offered to more than one consumer |
 | QFPR (Quality Feedback and Part Routing) | An app for quality data from machines or typed on a station screen: SPC charts from manually collected data, a reaction log for quality incidents, alerts on not-OK parts, scrap and part-issue collection; intended standard data model for manual quality data | A KPI calculator; a master-data store; an automated inline measurement system; an MES | The use case is paper or spreadsheet quality capture that should feed SPC and reaction handling, at a plant that is on the rollout list |
@@ -36,7 +36,7 @@ The test for every entry, from `process-chain-practice.md` section 1: what the t
 
 ### MES
 
-- The vault holds a target architecture where the edge platform owns acquisition and historisation, a recipe management system
+- The knowledge base holds a target architecture where the edge platform owns acquisition and historisation, a recipe management system
   owns recipe versions and release, and a cloud MES owns order tracking, traceability, shop-floor reporting and batch validation.
   It is a **design for one plant, scope-dated, not delivered**. Do not quote it as available.
 - MES rollout is ERP-dependent and was recorded as on hold in the systems-of-record note: a dependency on MES is blocked, not

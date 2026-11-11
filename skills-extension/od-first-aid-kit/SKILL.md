@@ -26,8 +26,8 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/tasks.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/playbook.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/analytical-support-service/tasks.md
-    - Work vault (Work-OpsDigit-Knowledge), Slide Index and Split Slides of the Data Science Factory tool deck in 03-AMT_MI_Standard_Agenda_Use_Case_Workshop, slides 11 and 12 First AID Kit (dated 2024-07-14; repeated in decks of 2025-01-17 and 2025-05-07), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Slide Index - 25-Adhoc_Analysis (two Waltershausen ad-hoc analyses of 2024), read 2026-11-05
+    - Department knowledge base, Slide Index and Split Slides of the Data Science Factory tool deck in 03-AMT_MI_Standard_Agenda_Use_Case_Workshop, slides 11 and 12 First AID Kit (dated 2024-07-14; repeated in decks of 2025-01-17 and 2025-05-07), read 2026-11-05
+    - Department knowledge base, Slide Index - 25-Adhoc_Analysis (two Waltershausen ad-hoc analyses of 2024), read 2026-11-05
     - Skill od-analytical-support-service, SKILL.md and references/composed-artefacts.md (happy path, error paths, the open Process First-Aid Kit template)
     - Skill od-use-case-definition, assets/use-case-definition-questionnaire.md (a need that surfaces once is a first-aid request)
     - Skill od-use-case-definition, references/lane-templates.md (the first-aid template gap)

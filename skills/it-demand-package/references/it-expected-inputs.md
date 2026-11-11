@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [it-alignment, handover, transcript]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt (AI-generated meeting notes and follow-up tasks; participants from IT, MPEE and OD, names withheld), read 2026-11-10"
+  - "Department knowledge base (AI-generated meeting notes and follow-up tasks; participants from IT, MPEE and OD, names withheld), read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # What IT expects from OD

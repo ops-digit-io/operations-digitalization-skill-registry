@@ -1,14 +1,7 @@
 ---
 name: bc-assessment
 description: >-
-  Score a business case against the OD house rubric and give its maturity-gate verdict - the
-  department's bc-assessment, the governance step between od-benefit-calculation (value) plus the cost estimate and
-  od-capital-request. Checks that every figure carries a grounding tag, value and cost stay apart,
-  the headline is the grounded expected value, high-impact low-confidence levers are de-banked, the
-  milestones are gated and SMART, and sources do not conflict; returns pass / partial / gap per
-  criterion, a ranked list of open questions and a verdict. Use when a business case is drafted and
-  before a capital request, when a reviewer asks whether a case is signable, or when two cases must be
-  compared on the same rubric.
+  Score a business case against the OD house rubric and return a pass/partial/gap verdict per criterion before a capital request. Not for building the value model (od-benefit-calculation).
 license: MIT
 metadata:
   id: bc-assessment
@@ -26,12 +19,12 @@ metadata:
   requires: [od-context]
   composes: [od-benefit-calculation, od-investment-input, od-capital-request]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/OD_Skill_Naming_Convention.md §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases (README house standard, _template), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/bc-assessment.zip (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/BC-Assessment-Skill/use-case-input-questionnaire.md, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases/gemba-app/bc-assessment-report.md, read 2026-11-10"
+    - "Department knowledge base (bc-assessment: traditional process, features, improvement vector), read 2026-11-10"
+    - "Department knowledge base §3-4 (bc-assessment renamed bc-assessment; chain od-benefit-calculation -> bc-assessment -> od-capital-request; od-investment-input feeds bc-assessment; governance separate from build), read 2026-11-10"
+    - "Department knowledge base (README house standard, _template), read 2026-11-10"
+    - "Department knowledge base (SKILL.md, reference/*, assets/build_bc_short.py), read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Business case assessment

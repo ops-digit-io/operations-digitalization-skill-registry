@@ -39,7 +39,7 @@ adds. Items Cyber Security adds are entered as `⟨…⟩` rows in the package.
 | Sourcing route | Reuse, self-developed, external, integrated foreign app | `deploy-appstore` route table |
 | Target | The platform as the requester names it; whether the container platform is the IIoT Edge runtime stays an open question | `deploy-appstore` "Which platform" |
 | Data read and written | Against the systems of record | `deploy-appstore` step 3 |
-| Functionality, network, dependencies | What the app does, how it is reached, what it depends on | precedent: the QFPR inputs for Group IT began with an explanation of the application (functionalities) and the network; the list is cut off in the vault note |
+| Functionality, network, dependencies | What the app does, how it is reached, what it depends on | precedent: the QFPR inputs for Group IT began with an explanation of the application (functionalities) and the network; the list is cut off in the knowledge base note |
 | Rollback owner | Named role | `deploy-appstore` step 3 |
 | Containerization, image, registry | ⟨requirements⟩ | not recorded (`deploy-appstore` open list) |
 | Acceptance protocol | Drafted | `od-acceptance-test` |

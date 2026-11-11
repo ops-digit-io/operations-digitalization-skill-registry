@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [od-node-red-flow-builder](SKILL.md) | Agent Skill | Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor estate does it - the seven-group canonical layout, the protobuf PLCPacket schema over MQTT, the datatroniq and CT topic conventions, the standard function nodes (sysTime unpack and re-pack, UUID filtering, flow-config debug), catch-based error handling and the naming the auto-documentation depends on; and diagnose a flow that is broken, silent or producing wrong values, starting from its exported JSON with a static analyser (sysTime, protobuf oneof, hardcoded secrets or thresholds, severed pipeline, UUIDs in function bodies, missing catch, unset flow context) plus a symptom-to-cause table. Use when writing or changing a flow for a machine or use case (step 3b4), reviewing a flow before a prod instance, porting a flow between plants, or when a flow publishes nothing, a wrong value or a nonsense timestamp, stops after a redeploy, or a dashboard has gone flat (step 3b5, also 3b6 when acceptance fails). |
+| [od-node-red-flow-builder](SKILL.md) | Agent Skill | Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf, topics, error handling). Not for choosing signal names (od-signal-standardization). |
 
 | Folder | Holds |
 |---|---|

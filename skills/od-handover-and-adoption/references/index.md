@@ -11,5 +11,5 @@
 
 | Folder | Holds |
 |---|---|
-| [od-impact-evaluation/](od-impact-evaluation/index.md) | 5 concept(s) |
-| [od-utilization-review/](od-utilization-review/index.md) | 5 concept(s) |
+| od-impact-evaluation/ | 5 concept(s) |
+| od-utilization-review/ | 5 concept(s) |

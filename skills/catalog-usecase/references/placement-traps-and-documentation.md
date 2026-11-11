@@ -10,13 +10,13 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Placement traps and documentation
 
-Source: vault `Graph/Use Case Views/Use Case Views - Standardization` (placement rules R1 to R13, review lists), the eleven template
-pages, and the vault's microservice-landscape draft (`Microservice Apps (WIP)`, "Extension Services"). AI-drafted, not reviewed by a
-human; the vault changes only through its generator, so state the export date. No counts here: read them live.
+Source: knowledge base `Graph/Use Case Views/Use Case Views - Standardization` (placement rules R1 to R13, review lists), the eleven template
+pages, and the knowledge base's microservice-landscape draft (`Microservice Apps (WIP)`, "Extension Services"). AI-drafted, not reviewed by a
+human; the knowledge base changes only through its generator, so state the export date. No counts here: read them live.
 
 ## Why placement is the first catalog risk
 
-A match is only as good as the template the request was placed on. The vault itself says the recorded placements are not fully
+A match is only as good as the template the request was placed on. The knowledge base itself says the recorded placements are not fully
 consistent and that its own review lists are "review candidates, the graph is not changed". Three recurring shapes:
 
 | Shape | What it looks like | What to do |
@@ -25,9 +25,9 @@ consistent and that its own review lists are "review candidates, the graph is no
 | Same title, different templates | Generic titles ("Andon Board", "Process Values", "Traceability", "Machine Errors", "Availability for Machines") placed in more than one template | Never match on title alone. Read the purpose and the data source; the less common recorded placement is the one to question first |
 | Dashboard family names a solution of another template | A board shows status, stops and OEE together; the family spans templates by design | A family may show several templates: a mismatch is a question, not an error. Match each function to its own template |
 
-The vault warns that its own keyword check against the recorded placement disagrees with the record often enough that a sizeable
+The knowledge base warns that its own keyword check against the recorded placement disagrees with the record often enough that a sizeable
 share of its flags are the rule's mistake. So a flag is a prompt to look, not a verdict. Hand-fixing a placement is not allowed:
-curated placements live in the generator input, not in the generated block. Raise the correction to the vault owner.
+curated placements live in the generator input, not in the generated block. Raise the correction to the knowledge base owner.
 
 ## The boundary pairs that are mixed up most
 
@@ -44,7 +44,7 @@ curated placements live in the generator input, not in the generated block. Rais
 
 ## What "Other Use Cases" resolves into
 
-The vault's microservice draft read the whole residual item by item and found that most of it is not formless. For matching, treat
+The knowledge base's microservice draft read the whole residual item by item and found that most of it is not formless. For matching, treat
 "Other Use Cases" as five recurring sub-patterns plus a small number of true one-offs, and some records that belong elsewhere:
 
 | Sub-pattern | Typical content | Catalog reading |
@@ -62,7 +62,7 @@ request, not to promise a service.
 
 ## Documentation standard: when is a peer a usable match?
 
-The vault defines, per plant and template, how well a delivered use case is described:
+The knowledge base defines, per plant and template, how well a delivered use case is described:
 
 | Level | Meaning | Consequence for a match |
 |---|---|---|
@@ -86,7 +86,7 @@ Recipe Values has been the thinnest. Check the live figures before you quote a l
 - Matching a title. Titles are generic and repeated; read purpose, data source, and who sees it.
 - Counting a template as covered because a use case exists: delivered, documented and used are three separate states.
 - Calling a catch-all hit a match. An "Other" record is a pointer to a conversation, not a standard.
-- Taking a family or a placement set by curation as recorded: the vault marks curated placements and their confidence; low-confidence
+- Taking a family or a placement set by curation as recorded: the knowledge base marks curated placements and their confidence; low-confidence
   ones are the first to check.
 
 ## AI agent notes

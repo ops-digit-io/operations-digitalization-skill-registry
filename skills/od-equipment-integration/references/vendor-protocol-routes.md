@@ -107,9 +107,9 @@ Who could supply it: OD lead or regional IIAE, from the eCR calculation template
 
 ## Sources
 
-- Vault `Graph/Machines` (notes quoting the `Machine-List` SharePoint export).
-- Vault `Graph/Connectors` (`ConnectorOverview-List`) for connector names and states.
-- Vault `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified) for the one cost
+- Knowledge base `Graph/Machines` (notes quoting the `Machine-List` SharePoint export).
+- Knowledge base `Graph/Connectors` (`ConnectorOverview-List`) for connector names and states.
+- Knowledge base `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified) for the one cost
   slide.
 - Registry references `barrier-classes.md` and
   `connectors.md` for the rules cited.

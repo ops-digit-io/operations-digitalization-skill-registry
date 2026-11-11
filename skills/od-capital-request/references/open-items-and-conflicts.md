@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [capital-request, ecr, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/ecr-builder.zip/reference/open-items-and-conflicts.md, read 2026-11-10"
+  - "Department knowledge base, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `ecr-builder.zip/reference/open-items-and-conflicts.md` (the master).

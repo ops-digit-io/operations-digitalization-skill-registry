@@ -25,14 +25,14 @@
   "D": 60,
   "F": 0
  },
- "mean": 89.6,
- "mean_core": 96.0,
+ "mean": 90.2,
+ "mean_core": 97.0,
  "skills": {
   "bc-assessment": {
    "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "5d5b9c5a5abbc761",
+   "folder_hash": "e1926d2dc5f7c11e",
    "findings": [
     {
      "dimension": "correctness",
@@ -56,22 +56,16 @@
    "default_score": 78.2
   },
   "build-grafana-ops-dashboard": {
-   "score": 80.2,
+   "score": 81.8,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "8129a137a31229b6",
+   "folder_hash": "c2e5c9da866eb24a",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 15,
      "message": "Large skill (6596 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
      "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -150,14 +144,14 @@
     "correctness": 85.0,
     "discoverability": 85.0,
     "reliability": 75.0,
-    "efficiency": 70.0
+    "efficiency": 80.0
    }
   },
   "catalog-guardrails": {
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "f6b10ed48a349dca",
+   "folder_hash": "23a04590cf179e04",
    "findings": [
     {
      "dimension": "correctness",
@@ -184,7 +178,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "9685b8960f2e8527",
+   "folder_hash": "dbec1f4294bb067f",
    "findings": [
     {
      "dimension": "correctness",
@@ -211,7 +205,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "690eca38762a6f6e",
+   "folder_hash": "0941544ff1a88df9",
    "findings": [
     {
      "dimension": "correctness",
@@ -238,7 +232,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "49368e17bf16d672",
+   "folder_hash": "b31267e8bee5ce1d",
    "findings": [
     {
      "dimension": "correctness",
@@ -265,7 +259,7 @@
    "score": 77.2,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "788226c68ff10f46",
+   "folder_hash": "08a74ba94a1c7df5",
    "findings": [
     {
      "dimension": "correctness",
@@ -348,17 +342,11 @@
    }
   },
   "it-demand-package": {
-   "score": 94.2,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "6083def259b66c03",
+   "folder_hash": "d2e63df79f294930",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -368,21 +356,15 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (1013 chars, recommend 50-150)",
+     "message": "Description very long (977 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 90.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 78.2
   },
@@ -390,7 +372,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "e634bd56bfbd3350",
+   "folder_hash": "cc9330057c4322a3",
    "findings": [
     {
      "dimension": "correctness",
@@ -417,7 +399,7 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "dd131566100e1c16",
+   "folder_hash": "330d8093a9d76f25",
    "findings": [
     {
      "dimension": "efficiency",
@@ -503,7 +485,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "e2bbec73d4364fb4",
+   "folder_hash": "70ee9b10931d616e",
    "findings": [
     {
      "dimension": "correctness",
@@ -527,17 +509,11 @@
    "default_score": 85.2
   },
   "od-benefit-calculation": {
-   "score": 93.5,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b5a80fccd6bd328a",
+   "folder_hash": "1fc7e9a2c206a8b2",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Resource-based skill lacks documentation of available resources",
-     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -552,7 +528,7 @@
     }
    ],
    "categories": {
-    "correctness": 85.0,
+    "correctness": 95.0,
     "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
@@ -563,7 +539,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "b7d97321604344ca",
+   "folder_hash": "e334c3d43f683f0b",
    "findings": [
     {
      "dimension": "correctness",
@@ -590,7 +566,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "1fd02c5f020e144e",
+   "folder_hash": "a8a2b595e1454c34",
    "findings": [
     {
      "dimension": "correctness",
@@ -617,7 +593,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "d0219964c3f083e2",
+   "folder_hash": "72c73cc6912960b0",
    "findings": [
     {
      "dimension": "correctness",
@@ -644,7 +620,7 @@
    "score": 77.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "87c46a1f69bd1e52",
+   "folder_hash": "f34fa555a9b0d7db",
    "findings": [
     {
      "dimension": "correctness",
@@ -730,7 +706,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a47ba910c8e5e6a2",
+   "folder_hash": "7e534e3ad38c3d15",
    "findings": [
     {
      "dimension": "discoverability",
@@ -816,7 +792,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "36c87158ae1097c9",
+   "folder_hash": "9668dabb7fb26314",
    "findings": [
     {
      "dimension": "efficiency",
@@ -881,10 +857,10 @@
    }
   },
   "od-data-availability-check": {
-   "score": 95.8,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "48135e70509774c3",
+   "folder_hash": "747d920834b57583",
    "findings": [
     {
      "dimension": "correctness",
@@ -895,19 +871,13 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (760 chars, recommend 50-150)",
+     "message": "Description very long (825 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 90.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
@@ -917,7 +887,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ba403c055c3ec6b4",
+   "folder_hash": "77f2d8fcb4e55d45",
    "findings": [
     {
      "dimension": "correctness",
@@ -941,17 +911,11 @@
    "default_score": 85.2
   },
   "od-equipment-integration": {
-   "score": 95.5,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b48b02005743cf3b",
+   "folder_hash": "327061bd14a800a8",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -969,7 +933,7 @@
     "correctness": 95.0,
     "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 84.0
   },
@@ -1042,17 +1006,11 @@
    }
   },
   "od-first-aid-kit": {
-   "score": 85.2,
+   "score": 86.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "4efbea2b657acb88",
+   "folder_hash": "3ccd341b0c08b599",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1112,14 +1070,14 @@
     "correctness": 80.0,
     "discoverability": 85.0,
     "reliability": 90.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-governance-cadence": {
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "b3a25c2e487377c1",
+   "folder_hash": "e378b979be4731fa",
    "findings": [
     {
      "dimension": "correctness",
@@ -1190,17 +1148,11 @@
    }
   },
   "od-handover-and-adoption": {
-   "score": 95.5,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "c602b0963c0911c8",
+   "folder_hash": "835d3956ffee0b8d",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1218,7 +1170,7 @@
     "correctness": 95.0,
     "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 81.5
   },
@@ -1226,7 +1178,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "c3d9e8f062a68fbc",
+   "folder_hash": "a6b39249b475a893",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1359,17 +1311,11 @@
    }
   },
   "od-node-red-flow-builder": {
-   "score": 94.8,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "5874cc313945d5c3",
+   "folder_hash": "8d896160877c04dc",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 15,
-     "message": "Large skill (5615 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
-     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1379,7 +1325,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (1002 chars, recommend 50-150)",
+     "message": "Description very long (780 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
@@ -1387,7 +1333,7 @@
     "correctness": 95.0,
     "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 85.0
+    "efficiency": 100.0
    },
    "default_score": 80.0
   },
@@ -1457,7 +1403,7 @@
    "score": 81.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "3eca61ea3d89a66f",
+   "folder_hash": "e51fd020fadc00f1",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1543,12 +1489,12 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "e09951974a28b932",
+   "folder_hash": "94cd1f66884319d4",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
-     "message": "Deeply nested references in index.md",
+     "message": "Deeply nested references in process-chain-practice.md",
      "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
@@ -1703,7 +1649,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "cec56ac97accb0d6",
+   "folder_hash": "45f8f0c80c3c727e",
    "findings": [
     {
      "dimension": "correctness",
@@ -1727,10 +1673,10 @@
    "default_score": 84.0
   },
   "od-requirements-breakdown": {
-   "score": 95.8,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "bdb048f67803b8a8",
+   "folder_hash": "cfa16d4b94924790",
    "findings": [
     {
      "dimension": "correctness",
@@ -1741,19 +1687,13 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (769 chars, recommend 50-150)",
+     "message": "Description very long (818 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 90.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
@@ -1763,7 +1703,7 @@
    "score": 81.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "072a70b7a075ea9a",
+   "folder_hash": "f67c32e3a25d2e57",
    "findings": [
     {
      "dimension": "correctness",
@@ -1843,7 +1783,7 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "6a1c371cbd4e6530",
+   "folder_hash": "b43cebc55a2564e1",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1917,7 +1857,7 @@
    "score": 83.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "50c038429e0f04f5",
+   "folder_hash": "a4a139c6ed263d35",
    "findings": [
     {
      "dimension": "correctness",
@@ -1991,7 +1931,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "19fd643b4818e4ee",
+   "folder_hash": "d1448f430435c929",
    "findings": [
     {
      "dimension": "reliability",
@@ -2148,17 +2088,11 @@
    }
   },
   "od-showcase-followup": {
-   "score": 93.5,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "e7c795295dd1a589",
+   "folder_hash": "ff3dbafe8dddc572",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Resource-based skill lacks documentation of available resources",
-     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2173,7 +2107,7 @@
     }
    ],
    "categories": {
-    "correctness": 85.0,
+    "correctness": 95.0,
     "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
@@ -2181,17 +2115,11 @@
    "default_score": 79.2
   },
   "od-showcase-selection": {
-   "score": 92.2,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "f82b575f237028a4",
+   "folder_hash": "890d957cd9216e53",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Resource-based skill lacks documentation of available resources",
-     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2201,19 +2129,13 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (683 chars, recommend 50-150)",
+     "message": "Description very long (727 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
-    "correctness": 85.0,
-    "discoverability": 90.0,
+    "correctness": 95.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
    },
@@ -2223,7 +2145,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "de3703ab7833efcf",
+   "folder_hash": "06f7fb611c8bfbad",
    "findings": [
     {
      "dimension": "correctness",
@@ -2250,7 +2172,7 @@
    "score": 87.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "c1e5ef6cbc7c69ad",
+   "folder_hash": "deaa09a377b0abd2",
    "findings": [
     {
      "dimension": "correctness",
@@ -2297,17 +2219,11 @@
    }
   },
   "od-system-fit-check": {
-   "score": 94.2,
+   "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "04ba2ed0f86ddca4",
+   "folder_hash": "55b82b3054dba53e",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2317,21 +2233,15 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (951 chars, recommend 50-150)",
+     "message": "Description very long (975 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 95.0,
-    "discoverability": 90.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    },
    "default_score": 84.0
   },
@@ -2339,7 +2249,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "d1e1c41e71fad011",
+   "folder_hash": "dc2b67767ed4dbba",
    "findings": [
     {
      "dimension": "reliability",
@@ -2407,7 +2317,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "d83ea237dfca008e",
+   "folder_hash": "de99074aae0ce263",
    "findings": [
     {
      "dimension": "correctness",
@@ -2434,7 +2344,7 @@
    "score": 97.0,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "f336faac81566cc3",
+   "folder_hash": "d11f5713c055dc15",
    "findings": [
     {
      "dimension": "correctness",
@@ -2458,10 +2368,10 @@
    "default_score": 84.5
   },
   "od-use-case-solution-evaluation": {
-   "score": 85.0,
+   "score": 86.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "ce7e7706e08994d8",
+   "folder_hash": "ad3d220983d7612c",
    "findings": [
     {
      "dimension": "correctness",
@@ -2474,12 +2384,6 @@
      "deduction": 10,
      "message": "No documented scripts in table format",
      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -2510,26 +2414,20 @@
     "correctness": 65.0,
     "discoverability": 95.0,
     "reliability": 100.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "od-use-case-standardization": {
-   "score": 80.8,
+   "score": 82.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "116cc4e5f471b529",
+   "folder_hash": "bc2817e94ae2b323",
    "findings": [
     {
      "dimension": "discoverability",
      "deduction": 15,
      "message": "Description contains vague words",
      "suggestion": "Be specific about what this skill does"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in index.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -2596,14 +2494,14 @@
     "correctness": 80.0,
     "discoverability": 75.0,
     "reliability": 85.0,
-    "efficiency": 85.0
+    "efficiency": 95.0
    }
   },
   "od-workshop-facilitation": {
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "43040fb8cb92d843",
+   "folder_hash": "c8bcfee386f4046b",
    "findings": [
     {
      "dimension": "reliability",
@@ -2671,7 +2569,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "43a4025547ba9540",
+   "folder_hash": "ea998e225dca242c",
    "findings": [
     {
      "dimension": "reliability",

@@ -1,11 +1,7 @@
 ---
 name: od-context
 description: >-
-  Shared ground truth for MPEE Operations Digitalization (OD): vocabulary, the three
-  new-state lanes (and the retired four service lines), who decides what, where the truth lives, and the honesty rules every OD skill
-  inherits. Load before any OD work, before quoting any OD number, before routing a request,
-  and whenever terms like use case, asset, MSB, MES, ODEC, COP, DBVE, IIAE, CSP, eCR or SPRINT
-  must resolve to one meaning. Not for deciding a specific request (od-decision-routing).
+  Shared ground truth for OD work: vocabulary, the three lanes, who decides what, honesty rules. Load before any OD work or quoting an OD number. Not for deciding a request (od-decision-routing).
 license: MIT
 metadata:
   id: od-context
@@ -28,7 +24,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Operating model.md
     - ops-knowledge-graph/_knowledge/10-Department/Systems of record.md
     - ops-knowledge-graph/_knowledge/10-Department/Roles and organization.md
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
   okf:
     type: Agent Skill
     title: OD context
@@ -65,7 +61,7 @@ tool-center operations; ERP / S4HANA ownership. OD supports these digitally but 
 ## The three lanes (new state)
 
 The department segments demand by effort, ownership and novelty into **three branched lanes**
-(`OD-instance/20-lanes-newstate-DRAFT/`, status DRAFT: the department is being transformed, the
+(the new-state lane drafts, status DRAFT: the department is being transformed, the
 model is the plan of record for this registry but not yet locked). Each demand is classified into
 exactly one lane at intake (`od-use-case-intake-triage`); branches chain afterwards.
 

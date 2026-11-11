@@ -1,14 +1,7 @@
 ---
 name: od-prototype-poc
 description: >-
-  Prototype or prove a new use case cheaply before the business case and the build - decide whether the
-  open question needs a click-dummy (does the user understand and want it), a proof of concept (does the
-  data or model work) or neither, build or brief it, run it against a pass criterion written first, and
-  record the result as a validation record that feeds the business case. Keeps pilot, PoC and rollout
-  apart so a prototype is never reported as proven value. Use when a defined, data-checked Lane 2 use
-  case needs its value or usability confirmed before it is costed, when a plant asks for a mock-up, when
-  a requirement is to be turned into a clickable mock-up, or when someone calls a pilot proven.
-  Not for costing the value (od-benefit-calculation) or building a dashboard (od-analytics-asset-build).
+  Prove a new use case cheaply before the business case: choose click-dummy, proof of concept or neither, and record the result. Not for costing value (od-benefit-calculation) or dashboards.
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -27,14 +20,14 @@ metadata:
   requires: [od-context]
   composes: [od-use-case-definition, od-requirements-breakdown, od-data-availability-check, od-analytics-asset-build, od-benefit-calculation, od-capital-request, od-acceptance-test, od-decision-routing, od-handover-and-adoption]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/click-dummy/SKILL.md, references/build-patterns.md), read 2026-11-10"
+    - "Department knowledge base (skills/click-dummy/SKILL.md, references/build-patterns.md), read 2026-11-10"
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Where_We_Apply_Today.pptx
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/AI_Board_TwoPager.pptx
-    - Personal vault, AI-Brain/Claude Projects/Gemba App (README, quick_start_guide, click_dummy_template_prompt, example_production_dashboard_spec), the Claude project export that holds the click-dummy prompt system, read 2026-11-05
+    - Department knowledge base, Gemba App project folder (README, quick_start_guide, click_dummy_template_prompt, example_production_dashboard_spec), the Claude project export that holds the click-dummy prompt system, read 2026-11-05
     - Department archive (read-only), 13-AI_Activities/2026-08-AI_Initiatives_Pitch/04-AI based Requirements Engineering Mockup Creation, the Gemba App initiative deck, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases, the validation plan and MVP scope of 29 AI business cases and the note AI Requirements Engineering Pipeline, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Dashboard Exports/specs SPEC-00 and SPEC-03 and the Hannover Stoecken KKA and Pulp Mixer requirements and summary, and Graph/Use Case Views Dashboard Use Cases Overview and Andon Board, read 2026-11-05
+    - Department knowledge base Cases, the validation plan and MVP scope of 29 AI business cases and the note AI Requirements Engineering Pipeline, read 2026-11-05
+    - Department knowledge base SPEC-00 and SPEC-03 and the Hannover Stoecken KKA and Pulp Mixer requirements and summary, and Graph/Use Case Views Dashboard Use Cases Overview and Andon Board, read 2026-11-05
     - Skills od-analytics-asset-build, od-use-case-definition, od-requirements-breakdown, od-benefit-calculation and od-decision-routing, read 2026-11-05
   okf:
     type: Agent Skill
@@ -50,7 +43,7 @@ Read `od-context` first.
 
 **Status: draft.** The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot. It credits
 `od-analytics-asset-build` with "click-dummy only", but that skill has no prototype, click-dummy or
-proof-of-concept content (`docs/new-state-conformance.md`). This skill is grounded in what the vault actually
+proof-of-concept content (`docs/new-state-conformance.md`). This skill is grounded in what the knowledge base actually
 holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a
 validation plan, and the dashboard specs. It is **not** a validated OD method: nothing in the sources says
 OD has run this step to a stated standard.
@@ -169,7 +162,7 @@ representative has confirmed or declined the value in writing. Nothing in it say
 
 - ⟨Whether OD has a standard prototype time box, budget or sign-off rule⟩: not in any source. OD lead.
 - ⟨Where finished mock-ups are stored and who can open them⟩: not stated. OD lead.
-- ⟨Whether the Gemba App pilot reached a result⟩: the vault holds the brief and the initiative request, not an
+- ⟨Whether the Gemba App pilot reached a result⟩: the knowledge base holds the brief and the initiative request, not an
   outcome ([`references/gemba-app-pilot.md`](references/gemba-app-pilot.md)). Gemba App initiative owner.
 - ⟨Touch time and queue time of this step⟩: placeholders in the skill-map table. OD data.
 - Whether the click-dummy stack in the Gemba App export (React with Tailwind) fits the department's small

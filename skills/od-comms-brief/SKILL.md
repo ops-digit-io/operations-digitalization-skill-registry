@@ -1,12 +1,7 @@
 ---
 name: od-comms-brief
 description: >-
-  Turn a selected use case into the brief and the draft pack that Internal Communications can publish
-  (new-state Lane 4, steps 42 and 43): one message, proof points that each carry a source and an evidence class,
-  audience variants (other plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), a call to
-  action that leads back into Lane 1, drafts of the article, one-pager, slide and short post in English, and the list of
-  approvals. Checks the brief with a script before it leaves OD. Use after od-showcase-selection returns go, when a
-  use-case story must be written for the company, or when a draft story needs its claims checked.
+  Turn a selected use case into a brief and draft pack Internal Communications can publish (Lane 4): message, sourced proof points, audiences, call to action. Use after od-showcase-selection says go.
 license: MIT
 metadata:
   id: od-comms-brief
@@ -24,13 +19,13 @@ metadata:
   composes: [od-showcase-selection, od-showcase-followup, catalog-usecase, od-benefit-calculation]
   derived_from:
     - "Owner request, 2026-11-10: a new outbound service lane for use-case marketing via the internal communications department; the Internal Communications brief is still to be supplied"
-    - "Work vault, OD Department Knowledge/OD-instance/use-case-development-transformation.md (Teams channel, Use Case Library and SharePoint as the collaboration surface; reporting by execution), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/00-core/03-objectives.md (Lean and Digital with OPEX), read 2026-11-10"
-    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), Firstup frontline manufacturing survey (firstup.io, vendor survey, June 2026) and Sagefrog B2B case-study guide (sagefrog.com), read 2026-11-10; Vault note Agentic-OS/30_Knowledge/Internal Communication and Marketing Research"
-    - "Vault rules (CLAUDE.md sections 1.5 and 3): no invented figures, roles not individuals, English deliverables"
-    - "Work vault, Deck Texts/D-Operations Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md (appetizer template, marketing pairing; results slide empty), read 2026-11-10"
-    - "Work vault, Deck Texts/03-AMT_MI_Standard_Agenda_Use_Case_Works/9.0-Marketing_Slides-WIP.md (testimonial key aspects, slide 17), and Deck Texts/D-Operations Digitalization/2025 10-ODEC.md (story shapes, slides 9-11), read 2026-11-10"
-    - "Work vault, Deck Texts/Smart Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022), read 2026-11-10"
+    - "Department knowledge base (Teams channel, Use Case Library and SharePoint as the collaboration surface; reporting by execution), read 2026-11-10"
+    - "Department knowledge base (Lean and Digital with OPEX), read 2026-11-10"
+    - "Public research note, 2026-11-10: AMEC Integrated Evaluation Framework (amecorg.com/amecframework), Firstup frontline manufacturing survey (firstup.io, vendor survey, June 2026) and Sagefrog B2B case-study guide (sagefrog.com), read 2026-11-10"
+    - "Registry rules (no invented figures, roles not individuals, English deliverables): no invented figures, roles not individuals, English deliverables"
+    - "Department knowledge base Digitalization/OD Initiative - Creation of Marketing Template for Use Cases.md (appetizer template, marketing pairing; results slide empty), read 2026-11-10"
+    - "Department knowledge base (testimonial key aspects, slide 17), and Deck Texts/D-Operations Digitalization/2025 10-ODEC.md (story shapes, slides 9-11), read 2026-11-10"
+    - "Department knowledge base Factory - Tools and Architecture/Berechtigtes Interesse.md (balancing of interests for employee photos, worked example of 2022), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Communications brief
@@ -73,7 +68,7 @@ A proof point without a source, a figure without an evidence class, a saving wor
 
 - **Agent may:** draft the brief and assets, run the check, list what is missing. **Humans decide:** every approval, the channel, the date, whether to publish.
 - **Evidence to cite:** the source per proof point, the check output, the approvals received.
-- IC's own process, templates and lead times are not recorded in the vault. Do not describe them from memory; ask for the IC brief.
+- IC's own process, templates and lead times are not recorded in the knowledge base. Do not describe them from memory; ask for the IC brief.
 
 ## Pitfalls
 

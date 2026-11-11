@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Precedents
 
-Read from the work vault (`Work-OpsDigit-Knowledge`). The ODEC Facts notes are extracts of call
+Read from the department knowledge base (`department knowledge base`). The ODEC Facts notes are extracts of call
 slides and some lines are cut off in the export. This file keeps the patterns and drops dates,
 deadlines, counts and current statuses; look those up at the source. Nothing below is a rule: the
 rules are in [`gate-rules.md`](gate-rules.md).
@@ -26,7 +26,7 @@ rules are in [`gate-rules.md`](gate-rules.md).
   quote a programme date from a skill; read the current report.
 - Use for the gate: Groot2B carries cybersecurity implementation to the plants and is tracked in COP.
   ⟨How a plant's Groot2B status relates to the sign-off for a new connection⟩ is not in the sources.
-- The vault triage note rates these slides low value because most are bare headers; the status
+- The knowledge base triage note rates these slides low value because most are bare headers; the status
   probably lived in images that did not extract.
 
 ## 2. An app that waited on approval (pattern from the QFPR case)
@@ -64,7 +64,7 @@ ODEC slide on the Shopfloor Application List names it among the key inputs, with
 criticality, customer impact and service concept. Machines have the same field; check on the live
 Machine List whether it is filled. The legacy-application notes also cite two standards by name,
 ISA/IEC 62443 and NIST SP 800-82, as OT security references. They are reference material in the
-vault, not a recorded department requirement.
+knowledge base, not a recorded department requirement.
 
 ## 5. Security in blocker records
 
@@ -81,9 +81,9 @@ and take it to the deciding role or forum named in the current approval policy (
 
 ## 7. What the platform's operations concept adds (Graph/Tools Concept 3)
 
-The operations-concept deck summarised in the vault defines roles (Local Key User, BA/BU Key User,
+The operations-concept deck summarised in the knowledge base defines roles (Local Key User, BA/BU Key User,
 Governance Board, Central Key User, Divisional Engineering Support, Divisional IT, Local IT, platform
 service provider) and has security-incident-management process flows. It states that interfaces
 between a divisional-standard application and a local application need governance-board approval.
-The vault note does not tie this to the Cyber Security sign-off: ⟨whether the governance board
+The knowledge base note does not tie this to the Cyber Security sign-off: ⟨whether the governance board
 approval and the sign-off are one step or two⟩.

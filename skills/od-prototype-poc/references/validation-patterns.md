@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Validation patterns
-description: How the AI business cases in the work vault define a validation plan and a pass criterion, grouped into wording patterns a key user can copy when writing the criterion for a prototype or PoC - patterns only, with placeholder thresholds.
+description: How the AI business cases in the department knowledge base define a validation plan and a pass criterion, grouped into wording patterns a key user can copy when writing the criterion for a prototype or PoC - patterns only, with placeholder thresholds.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Validation patterns
 
-Source: the "Validation Plan" and "MVP scope" fields of the notes in the work vault, `Graph/Business Cases` (SharePoint list
+Source: the "Validation Plan" and "MVP scope" fields of the notes in the department knowledge base, `Graph/Business Cases` (SharePoint list
 "BusinessCasesAIatOperations"). Almost every case carries a validation plan and most state a "pass criterion". These are
 **proposed** plans in a portfolio of AI ideas, not results. None records an outcome. Use them as wording patterns, not as
 evidence that a method works. Re-read the list for the current wording; this file carries no case counts and only

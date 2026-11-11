@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Drivers and dependencies - from profile to candidate areas to gap chain
 
 Drivers are coded `a1` to `a27` as in the published problem model (Schott et al. 2020, Table 4); the mapping of drivers to areas is
-the vault's, not the paper's. The complete list and mapping is in `od-use-case-solution-evaluation` (`references/complexity-drivers.md`).
+the knowledge base's, not the paper's. The complete list and mapping is in `od-use-case-solution-evaluation` (`references/complexity-drivers.md`).
 `PROPOSAL` = synthesis of this skill.
 
 ## 1 Rate the drivers (problem side)
@@ -43,9 +43,9 @@ not discriminate: redo step 1. Typical objects touch a handful of areas, not all
 
 ## 3 Prerequisite backbone (solution side)
 
-The published dependency table (JMTM Table 10) is incomplete and inconsistent in its own indexing; the vault reads it with prerequisite
+The published dependency table (JMTM Table 10) is incomplete and inconsistent in its own indexing; the knowledge base reads it with prerequisite
 levels shifted by one (the "best-fit reading") and still finds that it does not reproduce the published development paths. Use the
-**backbone** below to order gaps, and the table only as a prompt. The order is the vault's recommendation for the UNS and AI roadmap
+**backbone** below to order gaps, and the table only as a prompt. The order is the knowledge base's recommendation for the UNS and AI roadmap
 (PROPOSAL until validated internally):
 
 1. **Connectivity and segmentation**: F9, every relevant asset on a segmented OT network.

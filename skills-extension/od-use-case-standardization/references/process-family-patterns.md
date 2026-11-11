@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Process family patterns
 
-Source: vault `Graph/Process Groups` (one note per process group, with an authored definition and the target types aimed at it),
+Source: knowledge base `Graph/Process Groups` (one note per process group, with an authored definition and the target types aimed at it),
 `Graph/Use Case Views` (the capability pages and `Use Case Views - Standardization`), `Case Groups` (including `Process Family
 Inference`) and the workshop requirement note for the shared vulcanization use case (cited on the Rubber Vulcanization
 process-group note). All AI-drafted or authored domain knowledge, not reviewed by a human. This file holds **no counts, plant lists
@@ -23,7 +23,7 @@ A plant use case sits on a **capability** (eleven templates, see `catalog-usecas
 Standardization potential comes from the combination: a capability that does not depend on the process (a status board) travels
 across families; a capability that reads process parameters travels only inside one process group.
 
-| Family | Process groups in the template (names as in the vault) |
+| Family | Process groups in the template (names as in the knowledge base) |
 |---|---|
 | Rubber | Calendering and wrapping; Extrusion braided; Extrusion knitted; Injection molding; Ultraflex line; Vulcanization; Others |
 | Plastic | Blow molding; Extrusion; Extrusion over a knitted layer; Injection molding automated and complex; Injection molding non-automated and simple; Thermoforming automated; Thermoforming non-automated; Welding; Others |
@@ -32,7 +32,7 @@ across families; a capability that reads process parameters travels only inside 
 | Cross-process | no family recorded and none inferable: the use case is a pattern, not a property of one process |
 
 The "Others" groups are catch-alls, like the capability "Other Use Cases". Do not create a new process group to fit one plant.
-Several groups have no use case recorded directly against them in the vault: that means "not recorded", not "no demand".
+Several groups have no use case recorded directly against them in the knowledge base: that means "not recorded", not "no demand".
 
 ## Pattern per family
 
@@ -44,7 +44,7 @@ Read the columns as a prior for an undocumented use case, to be checked against 
 |---|---|
 | Typical capabilities | Process Values (ovens, autoclaves, extruders), Machine Alerts (tolerance deviation), Andon Board per machine of a line, Cycle Time of the curing cycle, Recipe Values, energy and utility monitoring |
 | Data needed | Vulcanization: temperature, pressure, a generated cycle id and the cut of each cycle into phases (pre-heating, main heating, cooling, optional water cooling) with start, end and duration; set values against recipe values with soft and specification limits; a rating of violations by a rule set. Extrusion and braiding: line speed, zone temperatures, per-machine states along the line, yarn or break events, inline images where a camera exists. Energy: meter values, steam and pressure readings |
-| Standardization potential | Highest for vulcanization and extrusion: the vault's workshop material proposes a process-specific data model per core process, so that the same views serve all machines of one process at several plants. Equipment of the same kind (an oven type, an autoclave) repeats inside a plant: build once per equipment type, then instantiate |
+| Standardization potential | Highest for vulcanization and extrusion: the knowledge base's workshop material proposes a process-specific data model per core process, so that the same views serve all machines of one process at several plants. Equipment of the same kind (an oven type, an autoclave) repeats inside a plant: build once per equipment type, then instantiate |
 | Traps | One use case recorded per oven or per autoclave (the same pattern counted many times): group by equipment type before you judge breadth. Batch curing (cycle-based) and continuous ovens (time-based) need different cycle definitions: do not reuse one. The autoclave start precondition (inner temperature below a limit or a pre-heating program without product) is a process rule, not a dashboard detail: ask for it. Energy monitoring versus energy analysis is split between Process Values and Analytics by rule R5 |
 
 ### Plastic
@@ -82,8 +82,8 @@ where the pattern is deployed, not a property of the pattern; say so when you qu
 
 ## What the family inference is worth
 
-The vault infers a family for use cases that have none recorded, from title, outcome, machine names and dashboard content, with a
-probability threshold. Its cross-validation accuracy on recorded cases is high but, as the vault notes say, it is not verification
+The knowledge base infers a family for use cases that have none recorded, from title, outcome, machine names and dashboard content, with a
+probability threshold. Its cross-validation accuracy on recorded cases is high but, as the knowledge base notes say, it is not verification
 of a single case. Rules for use:
 
 - Treat an inferred family as a pointer; mark it "inferred" in any record and confirm with the Plant ME before it drives a decision.
@@ -92,7 +92,7 @@ of a single case. Rules for use:
 
 ## What recurs as a blocker, by capability (themes, not counts)
 
-Use this to ask the right question early (step 21 intake, step 3 requirements). Themes are the vault's keyword reading of recorded
+Use this to ask the right question early (step 21 intake, step 3 requirements). Themes are the knowledge base's keyword reading of recorded
 blocker texts, not verified.
 
 | Capability | Blocker themes to expect | First question |

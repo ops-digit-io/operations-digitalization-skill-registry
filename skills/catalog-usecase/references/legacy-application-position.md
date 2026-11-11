@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Legacy application position
 
-This file holds **no counts**. Source to read live: vault `Graph/Legacy Applications` (notes from the SharePoint list
+This file holds **no counts**. Source to read live: knowledge base `Graph/Legacy Applications` (notes from the SharePoint list
 `LegacyApplication-List`; fields and "Support and licensing" lines). Export it with `od-sharepoint-list-export` and
 aggregate; use it as an aggregate, not note by note. The list holds the applications plants run beside the standard tools
 (mostly programming, laboratory, configuration and camera software), not a catalog of recommended systems. Basic

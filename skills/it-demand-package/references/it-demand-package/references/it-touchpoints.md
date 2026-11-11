@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: IT touchpoints
-description: What the vault records about where OD meets IT - the rule for which demands go through demand management, the asks OD has put to IT per initiative (by role), the IT roles of the platform operations concept, and what stays unknown. Open it before you write the IT-facing part of a package.
+description: What the knowledge base records about where OD meets IT - the rule for which demands go through demand management, the asks OD has put to IT per initiative (by role), the IT roles of the platform operations concept, and what stays unknown. Open it before you write the IT-facing part of a package.
 resource: ../procedure.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # IT touchpoints
 
-Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and `Roles and organization` (`_knowledge/10-Department`); `00-core/08-decision-rights.md`; the department deck `AI_Initiatives_IT_Contact_Points.pptx` (one slide, text extracted); vault `Graph/Keynote Initiatives`; vault `Graph/Tools`, note "Concept 3 - IIoT Edge Computing Platform" (archive section on the platform operations concept); skills `od-decision-routing`, `od-requirements-breakdown`. Roles only; no names.
+Sources, read 2026-11-05: bundle notes `Decision rights`, `Operating model` and `Roles and organization` (`_knowledge/10-Department`); `00-core/08-decision-rights.md`; the department deck `AI_Initiatives_IT_Contact_Points.pptx` (one slide, text extracted); knowledge base `Graph/Keynote Initiatives`; knowledge base `Graph/Tools`, note "Concept 3 - IIoT Edge Computing Platform" (archive section on the platform operations concept); skills `od-decision-routing`, `od-requirements-breakdown`. Roles only; no names.
 
 ## When a demand belongs here
 
@@ -76,5 +76,5 @@ If a demand is a camera, quality, SCADA or custom MES application in the legacy 
 
 ## Open
 
-- ⟨IT's demand form fields⟩, ⟨the evaluation board's criteria and rhythm⟩ and ⟨the usual lead time⟩ - not in any source read. The deck, the bundle and the vault carry the *route*, not the form. Owner: OD lead, with the IT demand management contact.
+- ⟨IT's demand form fields⟩, ⟨the evaluation board's criteria and rhythm⟩ and ⟨the usual lead time⟩ - not in any source read. The deck, the bundle and the knowledge base carry the *route*, not the form. Owner: OD lead, with the IT demand management contact.
 - ⟨The IT contact in demand management⟩ - no source names a role or a mailbox for it.

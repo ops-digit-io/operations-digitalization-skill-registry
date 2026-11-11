@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Tools and footprint
 
-This file holds **no counts, plant lists or status snapshots**. Read the live sources: vault `Graph/Tools` (notes from the
+This file holds **no counts, plant lists or status snapshots**. Read the live sources: knowledge base `Graph/Tools` (notes from the
 SharePoint list `ToolOverview-List`, with rollout records per plant and "used by" links), the department's
 systems-of-record note (`_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/systems-of-record.md`,
 which carries its own verification and validity dates: re-read it, and check its validity before quoting), and skill
@@ -84,4 +84,4 @@ itself - IIAE.
 
 - ⟨Which plants have no edge platform at all⟩ - a plant with no row in the tool overview is unknown, not a "No".
 - ⟨Licence position of the aggregation server per PLC family⟩: the product needs a licence per family unless the extended
-  suite is in place (`od-equipment-integration`, `softing-datafeed.md`); the vault does not say which plants hold which.
+  suite is in place (`od-equipment-integration`, `softing-datafeed.md`); the knowledge base does not say which plants hold which.

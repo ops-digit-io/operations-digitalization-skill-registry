@@ -10,12 +10,12 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # External build and foreign app inputs
 
-Sources, read 2026-11-05: vault `Graph/Legacy Applications` (notes with the columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `od-requirements-breakdown` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, vault `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
+Sources, read 2026-11-05: knowledge base `Graph/Legacy Applications` (notes with the columns of the SharePoint list `LegacyApplication-List`, aggregated), skill `od-requirements-breakdown` (`references/legacy-system-assessment.md`, `assets/requirement-template.md`, `references/epic-and-user-stories.md`), skill `od-decision-routing`, knowledge base `Graph/Keynote Initiatives` (X1 to X4), and the WIP notes on the app manifest (see `deploy-appstore`).
 The IT demand form is not in any source. This note therefore gives OD's side: what OD can describe about the demand, in the vocabulary the legacy list already uses, so that IT's own fields can be added later without rework.
 
 ## Describe the foreign app (3a.4) in the list's own columns
 
-The legacy application list is the only place the vault records third-party and plant-local applications. Its columns are a ready description frame. For each foreign app ask the requester to fill them; whatever is not given stays ⟨missing⟩.
+The legacy application list is the only place the knowledge base records third-party and plant-local applications. Its columns are a ready description frame. For each foreign app ask the requester to fill them; whatever is not given stays ⟨missing⟩.
 
 | Column in the list | Values the list uses | Why IT and Cyber Security ask |
 |---|---|---|

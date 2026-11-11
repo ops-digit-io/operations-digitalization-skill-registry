@@ -11,9 +11,9 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 # Platform and pilot status
 
 Sources to read for the *current* picture (this file does not copy their content): the department deck
-`AI_Where_We_Apply_Today.pptx` (the "MPEE / OD" slide), vault `Graph/Keynote Initiatives` (note "Manufacturing App Store (CMO)" and the
+`AI_Where_We_Apply_Today.pptx` (the "MPEE / OD" slide), knowledge base `Graph/Keynote Initiatives` (note "Manufacturing App Store (CMO)" and the
 notes X2, X3, X4), `Graph/Tools` (Concept 3), `_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/systems-of-record.md`,
-and the vault folder `Microservice Apps (WIP)` (AI-drafted, not reviewed by a human). Note each source's own date when you quote it.
+and the knowledge base folder `Microservice Apps (WIP)` (AI-drafted, not reviewed by a human). Note each source's own date when you quote it.
 
 ## The rule
 

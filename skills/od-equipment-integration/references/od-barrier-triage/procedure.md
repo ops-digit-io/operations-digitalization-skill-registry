@@ -19,8 +19,8 @@ derived_from:
 - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/02-strategy.md
 - Skill od-equipment-integration, its references barrier-classes, fallbacks, decision-paths and connectors, and its assessment protocol, read 2026-11-05
 - Skill od-decision-routing, escalation forums and the risk triggers, read 2026-11-05
-- Work vault bundle file kg_nodes.csv, the Machine records read as an aggregate (status, vendor, protocol, blocker text) and the Connector records, 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases notes PLC Evergreening and Sensor-Upgrade Decision Frame, read 2026-11-05
+- Department knowledge base, the Machine records read as an aggregate (status, vendor, protocol, blocker text) and the Connector records, 2026-11-05
+- Department knowledge base Cases notes PLC Evergreening and Sensor-Upgrade Decision Frame, read 2026-11-05
 - New-state flow (docs/new-state-flow.md, VSM skill map), Lane 3b step 4b connector design, read 2026-11-05
 generated:
   by: claude-code/1

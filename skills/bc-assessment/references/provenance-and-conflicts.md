@@ -7,7 +7,7 @@ status: draft
 owner: human:jakob.gabriel
 tags: [business-case, assessment, department-package]
 derived_from:
-  - "Work vault, OD Department Knowledge/OD-instance/30-skills/bc-assessment.zip/reference/provenance-and-conflicts.md, read 2026-11-10"
+  - "Department knowledge base, read 2026-11-10"
 generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 > Transcribed from the department package `bc-assessment.zip/reference/provenance-and-conflicts.md` (the master).

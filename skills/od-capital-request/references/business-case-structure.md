@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Business case structure
-description: What a business case holds in the department's own records (the work vault Business Cases folder) - fields, ranges, scores, cost split, validation plans, prerequisites and typical gaps - as a pattern for the capital request package. Guidance only, no figures.
+description: What a business case holds in the department's own records (the department knowledge base Business Cases folder) - fields, ranges, scores, cost split, validation plans, prerequisites and typical gaps - as a pattern for the capital request package. Guidance only, no figures.
 resource: ../SKILL.md
 status: draft
 owner: human:jakob.gabriel
@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Business case structure
 
-Source: `Work-OpsDigit-Knowledge/Graph/Business Cases`, notes from the SharePoint list
+Source: `Graph/Business Cases`, notes from the SharePoint list
 "BusinessCasesAIatOperations". Re-read the folder before relying on this file: the set of cases changes.
 
 **What these are, and are not.** They are business cases for an **AI-at-operations portfolio** (predictive

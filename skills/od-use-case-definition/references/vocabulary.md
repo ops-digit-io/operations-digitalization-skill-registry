@@ -7,7 +7,7 @@ status: stable
 owner: human:jakob.gabriel
 tags: [use-case-support-service, vocabulary]
 derived_from:
-  - personal vault, Graph/Use Cases/*.md, read 2026-09-17
+  - Department knowledge base Cases/*.md, read 2026-09-17
 generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 

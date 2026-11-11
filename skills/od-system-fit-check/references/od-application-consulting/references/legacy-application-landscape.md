@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Legacy application landscape
 
-The `LegacyApplication` records (bundle file `kg_nodes.csv`; the work vault keeps one note per
+The `LegacyApplication` records (bundle file `kg_nodes.csv`; the department knowledge base keeps one note per
 application) are read here as a pattern, not one by one. Many fields are blank; blanks are shown as
 blanks, never guessed. Plant and region may be missing on many records. Re-count on the live list and
 quote the export date when a figure is needed; none is kept here.
@@ -60,7 +60,7 @@ the order of magnitude with the AI-at-operations business case before quoting ei
 
 ## Business-case context (proposals, not decisions)
 
-The AI-at-operations business case list carries cases about this stock (work vault, Graph/Business
+The AI-at-operations business case list carries cases about this stock (department knowledge base, Graph/Business
 Cases): one on assimilating plant-local apps (such as Mendix apps and spreadsheet macro chains) into a
 containerised app catalogue, and one on closing the cyber-security backlog by running catalogued apps
 through a conformance gate, tied to a regulatory deadline. Cost, value and confidence ranges are in the

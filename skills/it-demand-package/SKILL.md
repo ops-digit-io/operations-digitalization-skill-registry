@@ -1,17 +1,7 @@
 ---
 name: it-demand-package
 description: >-
-  Hand a clear demand over to IT or an external developer as an OpenSpec change package they can
-  work with directly - proposal, delta specs with SHALL requirements and WHEN/THEN scenarios, design,
-  tasks - plus an OD handover annex with every artefact IT asked for in the OD x IT alignment
-  (requirements, source-code ownership, deployment assumptions, Cyber Security inputs, access rights,
-  data models, data and interface catalog entries), the business case with bankable value, investment
-  envelope, rollout scenarios and TCO, the approval status, and the ownership terms (build-and-run,
-  formal acceptance, handover checklist). The last step of the Lane 3 front-end and the route for 3a.3
-  external build and 3a.4 foreign-app integration; also packages an IT demand for the evaluation board
-  (formerly it-demand-package). Use when a Lane 3 demand has passed requirements, the tool-decision
-  gate and the business case, when IT or an external developer must take over a build, or when someone
-  asks what IT needs from OD.
+  Hand a cleared Lane 3 demand to IT or an outside developer as an OpenSpec change package plus OD handover annex. Not for requirements (od-requirements-breakdown) or tool choice (od-system-fit-check).
 license: MIT
 metadata:
   id: it-demand-package
@@ -29,9 +19,9 @@ metadata:
   requires: [od-context]
   composes: [od-requirements-breakdown, od-system-fit-check, od-benefit-calculation, od-investment-input, od-capital-request, od-decision-routing, od-cybersec-gate, od-acceptance-test, od-handover-and-adoption, deploy-appstore, od-data-availability-check, od-signal-standardization]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt and INDEX.md (OD x IT alignment: artefacts IT expects, catalogs, Cyber Security pre-evaluation, ownership and handover, guardrails, sourcing, business cases, legacy, Gemba lessons), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-3-new-system-or-connector.md (front-end step 5 handover once the demand is clear; it-demand-package named as gap; error path: do not push an under-specified demand), read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/README.md (Project Support & Application Consultancy transformed into the Lane 3 front-end), read 2026-11-10"
+    - "Department knowledge base and INDEX.md (OD x IT alignment: artefacts IT expects, catalogs, Cyber Security pre-evaluation, ownership and handover, guardrails, sourcing, business cases, legacy, Gemba lessons), read 2026-11-10"
+    - "Department knowledge base (front-end step 5 handover once the demand is clear; it-demand-package named as gap; error path: do not push an under-specified demand), read 2026-11-10"
+    - "Department knowledge base (Project Support & Application Consultancy transformed into the Lane 3 front-end), read 2026-11-10"
     - "OpenSpec (github.com/Fission-AI/OpenSpec, public): schemas/spec-driven/schema.yaml and templates, src/core/validation/constants.ts, docs/team-workflow.md, read 2026-11-10"
     - "Absorbed skills it-demand-package and od-project-support-consultancy (see references/), 2026-11-10"
   okf:

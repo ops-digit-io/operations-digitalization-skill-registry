@@ -22,10 +22,10 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/playbook.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/20-lanes/use-case-support-service/agent-brief.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/05-intake.md
-    - Work vault (Work-OpsDigit-Knowledge), Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (AMT_MI_UC-Standard_Agenda slides 2 to 5, 55 to 96; Workshop_Summary; OESL Standard Agenda with Interactive Session; Use Case Canvas and Use Case Utilization templates; Creation Process intro), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Slide Index of 10-Workshops (Carei 2024 agenda, canvas and summary; Carei 2025 and Dolne Vestenice 2025 integration workshops; Korbach 2025 equipment integration workshop agenda and summary; Mako and Vac 2023 seven-day agenda), read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Slide Index of 01-Smart_Factory_Use_Case_Support_Service_Workflow, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Case Groups overview (white space and delivered-without-saving case groups), read 2026-11-05
+    - Department knowledge base, Slide Index and Split Slides of 03-AMT_MI_Standard_Agenda_Use_Case_Workshop (AMT_MI_UC-Standard_Agenda slides 2 to 5, 55 to 96; Workshop_Summary; OESL Standard Agenda with Interactive Session; Use Case Canvas and Use Case Utilization templates; Creation Process intro), read 2026-11-05
+    - Department knowledge base, Slide Index of 10-Workshops (Carei 2024 agenda, canvas and summary; Carei 2025 and Dolne Vestenice 2025 integration workshops; Korbach 2025 equipment integration workshop agenda and summary; Mako and Vac 2023 seven-day agenda), read 2026-11-05
+    - Department knowledge base, Slide Index of 01-Smart_Factory_Use_Case_Support_Service_Workflow, read 2026-11-05
+    - Department knowledge base, Case Groups overview (white space and delivered-without-saving case groups), read 2026-11-05
     - Skill od-use-case-definition, SKILL.md and assets (questionnaire and protocol that run inside a definition workshop)
     - Skill od-use-case-intake-triage, refusal playbook (tool-availability check before accepting a use case)
   okf:

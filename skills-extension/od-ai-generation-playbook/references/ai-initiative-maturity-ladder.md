@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # AI initiative maturity ladder
 
-Source: vault `Graph/Keynote Initiatives` (initiatives with a "(PoC)" marker or an agentic proof of concept and their archive
+Source: knowledge base `Graph/Keynote Initiatives` (initiatives with a "(PoC)" marker or an agentic proof of concept and their archive
 evidence), `Graph/Keynote Clusters` and `Graph/Business Cases` (key risk, validation plan and sensitivity fields). AI-curated and
 not reviewed by a human. Not to be confused with the **data-maturity** ladder in `ai-governance.md` section 1 (data anarchy to data
 economy), which says whether a plant is ready for AI at all. This ladder says **how much an initiative has proved**.
@@ -20,7 +20,7 @@ economy), which says whether a plant is ready for AI at all. This ladder says **
 | Rung | Name | What exists | What it may claim | What it may not claim |
 |---|---|---|---|---|
 | 0 | Idea | A named initiative or keynote entry; sometimes no business case linked | A direction and an owner question | Any value |
-| 1 | Drafted case | A business case with authors' inputs: value anchors, key risk, validation plan | A range with its arithmetic shown, as an **estimate** | A saving; the vault says the case-study figures are not verified against the reference library |
+| 1 | Drafted case | A business case with authors' inputs: value anchors, key risk, validation plan | A range with its arithmetic shown, as an **estimate** | A saving; the knowledge base says the case-study figures are not verified against the reference library |
 | 2 | Prototype / PoC | A running prototype or pilot-scale tool, often on one plant or a sample; "prompt-to-prototype" is a demo | That the method works on the sample; a possible lead time or effort effect, stated with its test conditions | A saving. A PoC result is a **claim**, not a recorded saving |
 | 3 | Validated pilot | The pilot met the pass criterion that was written **before** it ran (recognition rate by domain leads, lead time and false-positive limit, latency target) at plants chosen to include a sceptical and a complex one | That the method works under plant conditions; adoption is plausible | A fleet-wide saving; scaling needs the organisation, not only the model |
 | 4 | Productive | Used in daily operation at one or more plants with utilization recorded; container app or configurable service | A deployment; utilization | Value, unless a baseline and a measured effect exist |

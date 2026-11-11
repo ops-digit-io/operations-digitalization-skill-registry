@@ -17,7 +17,7 @@ that before it recommends a redesign or an escalation: it changes the question f
 build this" to "what does the existing application do, who supports it, and what would retiring
 it take".
 
-**Where it lives.** The Legacy Application List, as quoted in the vault's `Graph/Legacy
+**Where it lives.** The Legacy Application List, as quoted in the knowledge base's `Graph/Legacy
 Applications` notes (one note per application; `LegacyApplication-List` export). The department
 describes it as "what each one is, where it runs, which function it serves, and what would have
 to happen to retire it" (*Legacy application inventory*, `_knowledge/20-Done`). Re-count on
@@ -102,9 +102,9 @@ supply it: the owner of the Legacy Application List.⟩
 
 ## Sources
 
-- Vault `Graph/Legacy Applications`.
+- Knowledge base `Graph/Legacy Applications`.
 - Department note *Legacy application inventory* (`_knowledge/20-Done`).
-- Vault `Slide Index` (deck `OD Initiative - CS Legacy Application As_Is_Analysis`).
-- Vault `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified).
-- Vault `Graph/Tools/MES 1.0` archive-evidence block (AI-drafted from archive slides).
+- Knowledge base `Slide Index` (deck `OD Initiative - CS Legacy Application As_Is_Analysis`).
+- Knowledge base `ODEC Facts - Department KPIs and Roadmap Status` (staging, unverified).
+- Knowledge base `Graph/Tools/MES 1.0` archive-evidence block (AI-drafted from archive slides).
 - Registry reference `non-bets.md`.

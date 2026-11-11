@@ -84,7 +84,7 @@ Every file other than `SKILL.md` carries ordinary OKF frontmatter: `type` (Skill
 
 ## Sources: where the content comes from
 
-Follow the vault's order: the vault first, then the archive, then external sources (vault rules, `AGENTS.md` Part B section 6.1). Cite only what you opened in the session; label what is internal evidence, external evidence and your own inference; never invent a figure, a name, a date or a source; refer to roles, not individuals; write in English. The registry's own tacit-knowledge practice (`PHASE1-ELICITATION.md`): resolve what you can from the department's record first, then ask the owner only the open questions, and keep what is still open visible in the skill as `to confirm` with the person who can answer.
+Follow the knowledge base's order: the knowledge base first, then the archive, then external sources (knowledge base rules, `AGENTS.md` Part B section 6.1). Cite only what you opened in the session; label what is internal evidence, external evidence and your own inference; never invent a figure, a name, a date or a source; refer to roles, not individuals; write in English. The registry's own tacit-knowledge practice (`PHASE1-ELICITATION.md`): resolve what you can from the department's record first, then ask the owner only the open questions, and keep what is still open visible in the skill as `to confirm` with the person who can answer.
 
 ## Where it is placed
 

@@ -29,7 +29,7 @@ metadata:
     - ops-knowledge-graph/.../20-lanes/*/metrics.md
     - "ISO 22400-2:2014, Automation systems and integration — Key performance indicators for manufacturing operations management — Part 2: Definitions and descriptions. The KPI-definition discipline (formula, elements, time behaviour, unit, user group); equipment KPIs reference IEC 62264 work units."
     - Kaplan, R.S., Norton, D.P. (1992). The Balanced Scorecard — Measures That Drive Performance. Harvard Business Review, 70(1), 71-79. The four-perspective structure and the leading/lagging cause-effect chain.
-    - personal vault, Work-OpsDigit-Knowledge/ODEC Facts/ODEC Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
+    - Department knowledge base Facts - Department KPIs and Roadmap Status.md (AI-extracted archive staging, not human-reviewed; used only for the recurring regional-breakout report shape, not for any specific figure, which the live Scorecard supersedes)
   okf:
     type: Agent Skill
     title: Scorecard and round reporting

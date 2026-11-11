@@ -1,17 +1,7 @@
 ---
 name: od-benefit-calculation
 description: >-
-  Build, assess and record the value side of an OD business case (the department's od-benefit-calculation and
-  bc-assessment, one shared value model) and keep the savings ledger honest — a value-only backbone
-  with grounded, tagged figures, an expected / min / potential headline, bankable value kept apart
-  from assumption-dependent value, investment envelope, minimum viable rollout and maximum
-  scale-out; write saving rows with their amount, year, category, business rationale and
-  calculation methodology; classify each as calculation or estimation; record what the
-  money is waiting on; and never merge tracked euros with finance-proven ones. Use when a
-  use case is being prioritized and needs a business case, when a saving needs recording
-  or defending, when someone asks what a use case or the portfolio is worth, or when a
-  savings figure is about to leave the department.
-  Not for the capital request itself (od-capital-request) or the cost side (od-investment-input).
+  Build the value side of an OD business case and keep the savings ledger honest: grounded figures, bankable vs assumed value, saving rows. Not for the capital request (od-capital-request) or costs.
 license: MIT
 metadata:
   id: od-benefit-calculation
@@ -29,13 +19,13 @@ metadata:
   requires: [od-context]
   composes: [od-decision-routing, od-portfolio-and-savings-analysis, od-investment-input, od-capital-request]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/product-funnel-skills.zip (skills/business-case/SKILL.md, references/savings-model.md, deck-structure.md), read 2026-11-10"
+    - "Department knowledge base (skills/business-case/SKILL.md, references/savings-model.md, deck-structure.md), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/.../20-lanes/use-case-support-service/{playbook,tasks}.md
-    - personal vault, Work-OpsDigit-Knowledge/Split Slides/10-Workshops--2025-01-21-2.1-What_are_UseCases-Overview_Reporting_Bondaries*.pptx and --2024_04_04_Summary_Carei_SmartFactory_UseCase_Definition_Workshop*.pptx, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 3 (benefit-calculation review) from the department's own record.
-    - "Work vault, OD Department Knowledge/OD-instance/Business-Cases (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
+    - Department knowledge base, read 2026-10-22 — resolves PHASE1-ELICITATION.md topic 3 (benefit-calculation review) from the department's own record.
+    - "Department knowledge base (README, _template), OD_Skill_Naming_Convention.md, skills-inventory-and-roadmap.md, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Benefit calculation and savings
@@ -70,6 +60,8 @@ You can make a rough estimate of what an idea might be worth before OD is involv
 **Fictional illustration of the arithmetic.** *This shows the method; the numbers are invented and are not a company figure. Never copy them into a ledger or a deck.* Fictional line F: 12 minutes saved per shift `[assumption]` × 3 shifts `[input]` × 220 working days `[assumption]` = 7,920 minutes = 132 hours a year; × a cost of 40 per hour `[market]` = 5,280 per year. Conservative (half the minutes): 2,640. Optimistic (one and a half times): 7,920. Cost to build and run: `[unknown]`, so no payback can be stated yet.
 
 ## The references are the substance
+
+Each template, asset and other resource of this skill is listed here.
 
 | File | Use it for |
 |---|---|

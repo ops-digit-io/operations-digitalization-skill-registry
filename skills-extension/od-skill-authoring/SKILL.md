@@ -40,13 +40,13 @@ A skill is worth building when a department procedure recurs, the judgement in i
 
 ## Inputs and output
 
-- **In:** a recurring OD procedure and the person who owns it; the department record about it (vault, then archive); the registry, to check that no skill already covers it.
+- **In:** a recurring OD procedure and the person who owns it; the department record about it (knowledge base, then archive); the registry, to check that no skill already covers it.
 - **Out:** a skill folder that passes the gates, a one-page brief ([`assets/skill-brief.md`](assets/skill-brief.md)), the registry entries, a quality rating, and a pull request for the department owner's review.
 
 ## Procedure
 
 1. **Check that it is needed.** Search the registry first (`README.md`, `registry.yaml`). If a skill covers the topic, extend that skill; one capability per name. Name the owner (a role) and the trigger. Control point: no existing skill covers it and an owner is named.
-2. **Start from real expertise, not from general knowledge.** Mine the department record in the vault's order (vault, then archive, then external sources) for the steps that worked, the corrections people made, the input and output formats, and the context they supplied; ask the owner only for what the record does not hold ([`references/skill-anatomy.md`](references/skill-anatomy.md), section Sources). Cite only what you opened.
+2. **Start from real expertise, not from general knowledge.** Mine the department record in the knowledge base's order (knowledge base, then archive, then external sources) for the steps that worked, the corrections people made, the input and output formats, and the context they supplied; ask the owner only for what the record does not hold ([`references/skill-anatomy.md`](references/skill-anatomy.md), section Sources). Cite only what you opened.
 3. **Design on one page.** Fill [`assets/skill-brief.md`](assets/skill-brief.md): the need, the users, the lane and step (or `all`), the tier, the authority level, inputs and outputs, what the agent lacks without the skill, the sources, and three test cases. Control point: the owner agrees the brief before the skill is written.
 4. **Scaffold.** `python3 scripts/scaffold_skill.py <name> --tier practice --lane all --owner-role "<role>" --authority "<what the agent may do>"` creates the folder to the registry's anatomy and prints the registry entry to add.
 5. **Write it.** Description first: what it does and when to use it, in third person, with a "not for" boundary. Then procedures rather than declarations, defaults rather than menus, a gotchas list, one worked example, references one level deep from `SKILL.md`, scripts with a test. Add only what the agent would get wrong without it ([`references/skill-anatomy.md`](references/skill-anatomy.md)).

@@ -18,9 +18,9 @@ recorded.
 
 | Source | What it is |
 |---|---|
-| Personal vault, `AI-Brain/Claude Projects/Gemba App/` (README, quick start guide, click-dummy template prompt, example production dashboard spec) | A Claude project export: a prompt system for generating click-dummies |
+| Department knowledge base project folder (README, quick start guide, click-dummy template prompt, example production dashboard spec) | A Claude project export: a prompt system for generating click-dummies |
 | Department archive (read-only), `13-AI_Activities/2026-08-AI_Initiatives_Pitch/04-AI based Requirements Engineering Mockup Creation/` | The initiative deck and a generated HTML mock-up. Read it for the current problem, target, plan and budget state; do not copy them into a skill |
-| Work vault, `Graph/Business Cases/AI Requirements Engineering Pipeline.md` (AI-curated) | Describes the process in an AI usage deck |
+| Department knowledge base (AI-curated) | Describes the process in an AI usage deck |
 
 ## The process (as described, not as measured)
 
@@ -50,7 +50,7 @@ That is `od-requirements-breakdown` followed by a mock-up. The skill that owns s
 - **Risks named:** budget availability, acceptance by locations, involvement of location management; dependencies on
   budget and IT.
 
-## The click-dummy prompt system (vault export)
+## The click-dummy prompt system (knowledge base export)
 
 A template (`click_dummy_template_prompt`) and a worked example (`example_production_dashboard_spec`: a production
 monitoring dashboard with overview, machine detail, a downtime-logging modal and a history view). What it fixes:

@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Reading change logs
 
-Derived from the vault's register hub and the yearly use-case change logs. Method only: no counts of changes, use cases or plants,
+Derived from the knowledge base's register hub and the yearly use-case change logs. Method only: no counts of changes, use cases or plants,
 and no dated events from the logs are carried. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`.
 
 ## What a change log is

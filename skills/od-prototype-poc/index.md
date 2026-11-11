@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Prototype and proof of concept](SKILL.md) | Agent Skill | Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, build or brief it, run it against a pass criterion written first, and record the result as a validation record that feeds the business case. Keeps pilot, PoC and rollout apart so a prototype is never reported as proven value. Use when a defined, data-checked Lane 2 use case needs its value or usability confirmed before it is costed, when a plant asks for a mock-up, when a requirement is to be turned into a clickable mock-up, or when someone calls a pilot proven. Not for costing the value (od-benefit-calculation) or building a dashboard (od-analytics-asset-build). |
+| [Prototype and proof of concept](SKILL.md) | Agent Skill | Prove a new use case cheaply before the business case: choose click-dummy, proof of concept or neither, and record the result. Not for costing value (od-benefit-calculation) or dashboards. |
 
 | Folder | Holds |
 |---|---|

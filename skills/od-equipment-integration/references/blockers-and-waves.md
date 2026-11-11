@@ -21,7 +21,7 @@ go stale. Count live on the Machine List (and read the cited slides at their sou
 **Evidence grades used here.**
 
 - **Record**: read from the `Graph/Machines` notes or the live Machine List export.
-- **Staging (unverified)**: facts from the vault's `ODEC Facts` folder, extracted by AI from
+- **Staging (unverified)**: facts from the knowledge base's `ODEC Facts` folder, extracted by AI from
   ODEC and CoP call slides, "not reviewed by a human". Open the cited slide in the archive
   before relying on it.
 - **Rule**: marked as such, with its source.
@@ -108,7 +108,7 @@ What this means for a key user: the eCR is the approved-budget step before execu
 wave slides show that the Local OT Expert is the plant's counterpart for choosing the
 machines. ⟨The eCR template and the cost calculator. The Triage note records "a
 machine-integration eCR cost calculator" among the unclassified slides; the file itself is not
-in the vault areas read. Who could supply it: OD lead.⟩
+in the knowledge base areas read. Who could supply it: OD lead.⟩
 
 ## 4. Department numbers next to the Machine List (where they live)
 
@@ -137,7 +137,7 @@ when a machine depends on it.
 
 ## Sources
 
-- Vault `Graph/Machines`, `Graph/Plants`, `Graph/Tools`, read 2026-11-05.
-- Vault `ODEC Facts` folder: `Triage`, `Department KPIs and Roadmap Status`, `Plant - Carei`,
+- Knowledge base `Graph/Machines`, `Graph/Plants`, `Graph/Tools`, read 2026-11-05.
+- Knowledge base `ODEC Facts` folder: `Triage`, `Department KPIs and Roadmap Status`, `Plant - Carei`,
   `Plant - Auburn`, `Other` (staging, AI-extracted, not human-reviewed).
 - Registry reference `barrier-classes.md` for the symptom-versus-root-cause rule.

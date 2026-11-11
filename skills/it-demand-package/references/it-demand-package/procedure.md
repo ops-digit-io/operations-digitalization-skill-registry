@@ -17,7 +17,7 @@ derived_from:
 - Skill od-decision-routing, which routes IT demand through demand management and does not package it
 - Skill od-requirements-breakdown, the requirement and the epic with its stories
 - Department deck AI_Initiatives_IT_Contact_Points.pptx (one slide, the asks to IT per initiative, roles only), text extracted and read 2026-11-05
-- Work vault (Work-OpsDigit-Knowledge), Graph/Legacy Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
+- Department knowledge base Applications (aggregated), Graph/Keynote Initiatives (X1 to X4) and Graph/Tools Concept 3 archive section, read 2026-11-05
 - Knowledge bundle, 00-core decision rights (08-decision-rights.md) and the 10-Department notes Operating model and Roles and organization, read 2026-11-05
 generated:
   by: claude-code/1
@@ -57,7 +57,7 @@ that follows as weeks (IT commitment and approval).
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | The package at chain step 3a4: demand-management question list, request flow, small change versus project, supplier-built app practice, commercial consistency check, decision pairs, agent notes |
 | [`assets/it-demand-package.md`](assets/it-demand-package.md) | The package to fill: parts 0 to 12, with the pre-wired skills and the checks before hand-over |
 
-What stays open after mining the vault: IT's own demand form, the board's criteria and rhythm, the contact and the lead time are in none of the sources read.
+What stays open after mining the knowledge base: IT's own demand form, the board's criteria and rhythm, the contact and the lead time are in none of the sources read.
 
 ## What OD can put into the package
 
@@ -91,7 +91,7 @@ with owners; a line "Submitted by a human on ⟨date⟩ - not yet".
 
 ## Open - what only the OD lead can supply
 
-- ⟨IT's demand form⟩ and ⟨the evaluation board's criteria and rhythm⟩ - searched in the bundle, the vault's AI decks and the initiatives on 2026-11-05; the sources carry the route and OD's asks, not the form.
+- ⟨IT's demand form⟩ and ⟨the evaluation board's criteria and rhythm⟩ - searched in the bundle, the knowledge base's AI decks and the initiatives on 2026-11-05; the sources carry the route and OD's asks, not the form.
 - ⟨Who the contact in IT demand management is⟩ and ⟨the usual lead time⟩ beyond the flow's "weeks".
 - ⟨What an external developer must receive⟩ (spec format, environment access, security terms).
 

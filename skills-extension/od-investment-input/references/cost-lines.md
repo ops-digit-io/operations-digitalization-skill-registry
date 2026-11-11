@@ -43,8 +43,8 @@ and copy them only with scope and date; never carry a figure from memory or from
 |---|---|---|
 | Tool catalogue cost notes (app development per plant, deployment, one-time connectors for camera systems) | the tool catalogue as recorded in `od-system-fit-check` (tool boundaries) | Scope per plant or per tool; check the date; the tool's status can be a live discrepancy in the registry, so confirm status first |
 | Energy-system rollout examples | same source | A rollout example at one plant, not a price list |
-| Sensor-retrofit heuristic per machine, with a stated real range depending on PLC vendor, sensor type and edge-connectivity needs | Work vault `Graph/Business Cases/Sensor-Upgrade Decision Frame` | An internal heuristic marked "refine per machine class"; a proposal in the AI-at-Operations list, not an approved budget |
-| Legacy PLC migration programme range | Work vault `Graph/Business Cases/PLC Evergreening` | A business-case proposal with a confidence label; not approved |
+| Sensor-retrofit heuristic per machine, with a stated real range depending on PLC vendor, sensor type and edge-connectivity needs | Department knowledge base | An internal heuristic marked "refine per machine class"; a proposal in the AI-at-Operations list, not an approved budget |
+| Legacy PLC migration programme range | Department knowledge base | A business-case proposal with a confidence label; not approved |
 
 The business-case entries belong to a separate portfolio ("AI at operations"); the Case Groups overview says that
 set was not merged with the plant use cases. Use them to show the order of magnitude of a substitution or

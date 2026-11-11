@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 
 # Benefit theory
 
-> **Sourcing.** External methodology, not vault-derived — cited inline. The Benefits
+> **Sourcing.** External methodology, not knowledge base-derived — cited inline. The Benefits
 > Dependency Network is Cranfield School of Management's model for IT-enabled change
 > (Peppard, Ward & Daniel, 2007, *"Managing the Realization of Business Benefits from IT
 > Investments"*); the options discipline is PRINCE2's Business Case practice. Both are

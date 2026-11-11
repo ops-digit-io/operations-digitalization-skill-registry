@@ -1,7 +1,7 @@
 ---
 name: catalog-systems
 description: >-
-  Match a catalogued use case to a standardized system or connection kit a plant can order itself (new-state Lane 1b, the department's catalog-systems): check the plant's machine against the validated routes and tool boundaries, fill the standard-system entry, and hand over to the cost template and to ordering and connecting (od-equipment-integration); anything non-standard falls through to Lane 3. Use when a plant wants a catalogued use case on a machine that is not connected yet. Not for choosing the use case itself (catalog-usecase) or for cost approval (od-investment-input).
+  Match a catalogued use case to a standard system or connection kit a plant can order itself (Lane 1b); non-standard falls to Lane 3. Not for choosing the use case (catalog-usecase) or cost approval.
 license: MIT
 metadata:
   id: catalog-systems
@@ -18,7 +18,7 @@ metadata:
   sources_read: 2026-11-10
   requires: [od-context]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/lane-1-run-known-uc.md (skills table, gap), read 2026-11-10"
+    - "Department knowledge base (skills table, gap), read 2026-11-10"
     - "Split from catalog-usecase (formerly od-catalog), 2026-11-10"
   okf:
     type: Agent Skill

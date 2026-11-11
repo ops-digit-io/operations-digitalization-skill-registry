@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Handover and adoption](SKILL.md) | Agent Skill | Close a use case properly — run the handover to the plant against its definition of done, confirm real adoption rather than delivery, and act on the gap between implemented and productive. Covers the three-question handover test, the utilization expectation, an asset nobody opens, and handing over the function itself. Use when a use case is being handed to a plant, when someone asks whether a use case is actually in use, when utilization is low or `NEVER`, or when a role or portfolio is changing hands. Also covers the OD x IT ownership rules (build-and-run, formal acceptance, handover checklist, self-assessment), the impact evaluation and adoption confirmation record of a live use case (formerly od-impact-evaluation) and the utilization review "deployed is not used" per site (formerly od-utilization-review). Not for building the use case (od-analytics-asset-build) or cataloguing a proven result (od-use-case-standardization, catalog-usecase). |
+| [Handover and adoption](SKILL.md) | Agent Skill | Close a use case: hand over to the plant against its definition of done, confirm real adoption, act on low utilization. Not for building (od-analytics-asset-build) or cataloguing (catalog-usecase). |
 
 | Folder | Holds |
 |---|---|

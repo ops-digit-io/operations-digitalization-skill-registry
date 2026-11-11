@@ -51,7 +51,7 @@ confirm the current position.
 
 ## The tools: how to read rollout and use
 
-Source: the work vault `Graph/Tools` notes (rollout records and the use cases that name each tool). Tools:
+Source: the department knowledge base `Graph/Tools` notes (rollout records and the use cases that name each tool). Tools:
 Concept 1 central OPC-UA server, Concept 2 container-based machine integration, Concept 3 IIoT Edge
 Computing Platform, RuleEngine 2.0, MSB 1.0 / 2.0 / 4.0, MDA/PDA 1.0 / 2.0 / 3.0, QFPR, MIL 1.0,
 Energy Management 1.0 / 2.0, Data Science Factory, MES 1.0. Do not copy a table of counts into a

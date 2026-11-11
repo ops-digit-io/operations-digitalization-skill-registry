@@ -1,7 +1,7 @@
 ---
 type: Design Record
 title: Department context conformance
-description: "The 53 skills checked against the OD Department Knowledge folder (new-state lane drafts, decision rights, intake, the 2026-09-11 OD x IT alignment, the skill naming convention): where the skills follow the department flows, where they do not, and where the department material contradicts itself or the owner's decisions."
+description: "The 53 skills checked against the department knowledge base (new-state lane drafts, decision rights, intake, the 2026-09-11 OD x IT alignment, the skill naming convention): where the skills follow the department flows, where they do not, and where the department material contradicts itself or the owner's decisions."
 status: draft
 owner: human:jakob.gabriel
 tags: [process-flow, lanes, conformance, department-os]
@@ -9,7 +9,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 ---
 # Department context conformance
 
-**Source checked against.** Personal vault, `Work-OpsDigit-Knowledge/OD Department Knowledge/OD-instance/`, read
+**Source checked against.** Department knowledge base, read
 2026-11-10: `20-lanes-newstate-DRAFT/` (README, lane 1, 2 and 3, `Transcripts/INDEX.md` for the 2026-09-11 OD x IT
 alignment), `00-core/04-service-catalog.md`, `05-intake.md`, `08-decision-rights.md`,
 `10-modules/smart-factory-use-case/systems-of-record.md`, `OD_Skill_Naming_Convention.md`,

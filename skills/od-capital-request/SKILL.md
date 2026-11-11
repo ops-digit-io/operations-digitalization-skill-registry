@@ -1,13 +1,7 @@
 ---
 name: od-capital-request
 description: >-
-  Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work
-  out which spend gate and approver the amount hits, assemble the evidence, the value rows from
-  od-benefit-calculation with their firmness, the cost side, options, risks, dependencies and a validation plan
-  for the funded phase, and record the dependency and the outcome. Drafts only: submission and approval are human.
-  Use when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector
-  needs funding before demand is handed to IT, or when a saving is waiting on ECR CREATION or ECR APPROVAL.
-  Not for calculating the value (od-benefit-calculation) or the investment input pack (od-investment-input).
+  Package a use case's value and cost into a capital request (eCR) for human approvers: spend gate, evidence, options, risks. Drafts only. Not for calculating value (od-benefit-calculation).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -26,8 +20,8 @@ metadata:
   requires: [od-context]
   composes: [od-benefit-calculation, od-decision-routing, od-prototype-poc, od-portfolio-and-savings-analysis, od-use-case-solution-evaluation, od-system-fit-check, od-investment-input, od-cybersec-gate, it-demand-package, od-handover-and-adoption]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ecr-builder.zip (SKILL.md, reference/*, assets/build_ecr.py, render_qa.sh), read 2026-11-10"
-    - "Work vault, Document Texts/Department Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md, read 2026-11-10"
+    - "Department knowledge base (SKILL.md, reference/*, assets/build_ecr.py, render_qa.sh), read 2026-11-10"
+    - "Department knowledge base Documents/OESL 'stand-alone'- eCR Approval Flow 2026.03.02.md, read 2026-11-10"
     - The new-state flow (docs/new-state-flow.md, docs/new-state-conformance.md and the skill-map table docs/new-state/OD_NewState_VSM_SkillMap.html), Lane 2 step 5, Lane 3 step 3 and the gap register, read 2026-11-05
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md
@@ -35,11 +29,11 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Decision rights.md
     - ops-knowledge-graph/_knowledge/10-Department/Savings and value tracking.md
     - ops-knowledge-graph/_knowledge/90-Sources/du-overview/OneDrive_1_21.8.2026/260818_DU_Setup_Timeplan.md
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Business Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Registers Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
+    - Department knowledge base Cases, all notes mined as a pattern for what a business case holds, read 2026-11-05
+    - Department knowledge base Blocker Register and Savings Basis Register, the eCR mentions, read 2026-11-05
     - Skills od-decision-routing and od-benefit-calculation, read 2026-11-05
-    - "Work vault, OD Department Knowledge/OD-instance/eCR_Management_Summary_inventory.md, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/skills-inventory-and-roadmap.md and OD_Skill_Naming_Convention.md, read 2026-11-10"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base and OD_Skill_Naming_Convention.md, read 2026-11-10"
   okf:
     type: Agent Skill
     title: Capital request
@@ -86,7 +80,7 @@ type). Still not in the sources: the system the eCR is filed in, who files it, h
 | [`references/ecr-builder-workflow.md`](references/ecr-builder-workflow.md) and its four references | The department's builder: ingest, refusal gate, grounded backbone, honesty deck, verdict, rendering |
 | [`references/ecr-approval-matrix.md`](references/ecr-approval-matrix.md) | The approver chain by amount tier and case type (IT invest, expansion, R&D, real estate) |
 | [`references/spend-route.md`](references/spend-route.md) | How to find the spend gate and approver for an amount, the ambiguity to resolve with the OD lead, how it sits in Lane 2 and Lane 3, what a booked saving waits on |
-| [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the vault notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
+| [`references/business-case-structure.md`](references/business-case-structure.md) | What a business case holds, mined from the knowledge base notes: sections, ranges, scores, validation plans, prerequisites, what is typically missing (no figures) |
 | [`assets/capital-request-package.md`](assets/capital-request-package.md) | The package this skill produces and the human submits |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Management-summary shape, decisions with risk of not doing, pilot and scope-limiting patterns, mandatory sensitivity, the offer-eCR-contract consistency check, and what an agent may draft |
 
@@ -184,7 +178,7 @@ has been submitted or approved by the agent.
 - ⟨System the eCR is filed in and who may file⟩: not in any source; the form content is the builder's backbone. OD lead with BA Operations / Finance.
 - ⟨Whether the 2026-03-02 approval matrix (OESL stand-alone) still applies under neuwerk⟩. Finance.
 - ⟨Approval lead time⟩: the skill-map queue is a placeholder. OD data.
-- ⟨Cost rates (people, hardware, compute) the department should use⟩: the vault cases use their own FTE rates; none is
+- ⟨Cost rates (people, hardware, compute) the department should use⟩: the knowledge base cases use their own FTE rates; none is
   an OD standard. Finance.
 - ⟨The investment planning template⟩ and ⟨the use-case business-case template⟩ (`00-core/15-resources.md`). DBVE / OD lead.
 - ⟨Whether this skill and `od-investment-input` merge⟩. OD lead.

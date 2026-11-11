@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [IT handover](SKILL.md) | Agent Skill | Hand a clear demand over to IT or an external developer as an OpenSpec change package they can work with directly - proposal, delta specs with SHALL requirements and WHEN/THEN scenarios, design, tasks - plus an OD handover annex with every artefact IT asked for in the OD x IT alignment (requirements, source-code ownership, deployment assumptions, Cyber Security inputs, access rights, data models, data and interface catalog entries), the business case with bankable value, investment envelope, rollout scenarios and TCO, the approval status, and the ownership terms (build-and-run, formal acceptance, handover checklist). The last step of the Lane 3 front-end and the route for 3a.3 external build and 3a.4 foreign-app integration; also packages an IT demand for the evaluation board (formerly it-demand-package). Use when a Lane 3 demand has passed requirements, the tool-decision gate and the business case, when IT or an external developer must take over a build, or when someone asks what IT needs from OD. |
+| [IT handover](SKILL.md) | Agent Skill | Hand a cleared Lane 3 demand to IT or an outside developer as an OpenSpec change package plus OD handover annex. Not for requirements (od-requirements-breakdown) or tool choice (od-system-fit-check). |
 
 | Folder | Holds |
 |---|---|

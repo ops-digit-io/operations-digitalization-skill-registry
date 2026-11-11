@@ -1,6 +1,6 @@
 ---
 type: Design Record
-title: Vault alignment
+title: Knowledge base alignment
 description: Cross-check of this registry's 24 skills against the department's own 33-skill build plan and gap analysis, with the resulting build order.
 resource: ../registry.yaml
 status: stable
@@ -9,13 +9,13 @@ tags: [derivation, roadmap]
 generated: { by: claude-code/1, at: 2026-09-17T00:00:00Z }
 ---
 
-# Vault alignment
+# Knowledge base alignment
 
 This registry was derived from the `ops-knowledge-graph` bundle (see
 [`derivation.md`](derivation.md)). Separately, and earlier, the same knowledge base carried
 its own build plan for an OD skill repository —
 `OperationsDigitalization-Department/OD_Skill_Map.md` — under different skill IDs (`UC-01`,
-`II-04`, `P-02`, `O-08`...) and a working checklist, `Vault Gap Analysis — Working Items.md`
+`II-04`, `P-02`, `O-08`...) and a working checklist, `Knowledge base Gap Analysis — Working Items.md`
 (2026-09-16), that names the tacit knowledge blocking it. Neither document names or is aware
 of this registry by its actual skill names. This note reconciles the three: what the plan
 called for, what got built, and what is still missing — so the divergence is recorded rather
@@ -90,7 +90,7 @@ recorded in `od-equipment-integration/references/barrier-classes.md`; and three 
 ODEC-vs-COP routing (P-05), refusal in practice (UC-01, partially), and
 benefit-calculation review (UC-04, partially) — were resolved on 2026-10-22 not by
 interview but by mining the department's own call decks and workshop retrospectives
-directly in `Work-OpsDigit-Knowledge/Split Slides/`. Each of those three still carries one
+directly in `Split Slides/`. Each of those three still carries one
 narrower residual question the mined record does not answer (see each reference file's own
 "what is still open" section) — real evidence closed most of the gap, not all of it.
 
@@ -143,7 +143,7 @@ machine estate with no skill attached.
 ## Constraint carried into every phase
 
 Every skill in this registry must read as a standalone procedure — nothing in a `SKILL.md`
-or its `references/` names the knowledge base it was derived from, an Obsidian vault, or any
+or its `references/` names the knowledge base it was derived from, a personal notes folder, or any
 file path outside this repository. Provenance belongs in `metadata.derived_from` (machine-
 readable, in the frontmatter a person does not read as prose) and in this doc, never in the
 skill body. Content elicited directly rather than mined from a written source is marked

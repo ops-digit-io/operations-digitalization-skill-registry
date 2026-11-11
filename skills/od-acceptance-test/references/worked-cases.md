@@ -11,8 +11,8 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 # Worked cases
 
-These are **illustrative patterns**, drawn from kinds of records the vault holds. They are not
-acceptance protocols from the department: none exists in the vault (see the open item in
+These are **illustrative patterns**, drawn from kinds of records the knowledge base holds. They are not
+acceptance protocols from the department: none exists in the knowledge base (see the open item in
 `acceptance-by-route.md`). Plants, counts and dates are placeholders
 (`<plant>`, `<n>`); look up the real record before applying a case. Each case says what the
 **record pattern** looks like and what the **reading** is.
@@ -111,6 +111,6 @@ acceptance protocols from the department: none exists in the vault (see the open
 
 ## Sources
 
-- Vault `Graph/Plants`, `Graph/Machines`, `Case Groups/CG-02`, and `Graph/Tools` notes `MIL 1.0`,
+- Knowledge base `Graph/Plants`, `Graph/Machines`, `Case Groups/CG-02`, and `Graph/Tools` notes `MIL 1.0`,
   `QFPR`, `RuleEngine 2.0`, `Energy Management 2.0`, read 2026-11-05.
 - Department note *Handover* (`_knowledge/10-Department`).

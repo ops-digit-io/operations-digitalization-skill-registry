@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Fact triage and generated registers
 
-Derived from the vault's ODEC-facts triage note, the register hub and the full-text masking review. The per-plant fact notes
+Derived from the knowledge base's ODEC-facts triage note, the register hub and the full-text masking review. The per-plant fact notes
 themselves are company facts and are **not** used here; only the structure of the triage and the register hygiene are.
 No counts, savings values or per-plant status are carried. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`.
 

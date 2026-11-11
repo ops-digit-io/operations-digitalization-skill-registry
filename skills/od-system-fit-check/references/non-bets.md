@@ -47,7 +47,7 @@ scheduling with full order genealogy," which is the same thing in different word
 
 ## Sources
 
-Internal evidence, read 2026-10-22/23: `Work-OpsDigit-Knowledge/_knowledge/
+Internal evidence, read 2026-10-22/23: `_knowledge/
 OperationsDigitalization-Department/00-core/02-strategy.md` (the non-bets, bets and kill
 criteria, verbatim) and `_knowledge/OperationsDigitalization-Department/OD_Skill_Map.md`
 (P-02's own scope statement: *"Does this require a system outside the lean footprint?

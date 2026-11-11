@@ -32,7 +32,7 @@ metadata:
     - ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/08-decision-rights.md
     - Skills od-handover-and-adoption (three-question test, ADKAR actions, evidence tiers), od-acceptance-test (witness rule), od-equipment-integration (guidance protocol gates), od-decision-routing, od-context, deploy-appstore, read 2026-11-05
     - Registry docs/new-state-flow.md and docs/new-state diagrams, the Lane 3a step "Rollout and adopt" and the Lane 1 and Lane 2 go-live steps, read 2026-11-05
-    - Work vault (Work-OpsDigit-Knowledge), ODEC Facts notes Department KPIs and Roadmap Status, plant notes (training and workshop history), Other (key users, Secure Critical Automation Software); Graph/Tools and Concept 3 (roles of the operations concept); Graph/Plants (plant-profile pattern); Case Groups, read 2026-11-05
+    - Department knowledge base, ODEC Facts notes Department KPIs and Roadmap Status, plant notes (training and workshop history), Other (key users, Secure Critical Automation Software); Graph/Tools and Concept 3 (roles of the operations concept); Graph/Plants (plant-profile pattern); Case Groups, read 2026-11-05
   okf:
     type: Agent Skill
     title: Rollout training

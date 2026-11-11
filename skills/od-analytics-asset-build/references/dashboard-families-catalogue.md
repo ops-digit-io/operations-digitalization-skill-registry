@@ -15,7 +15,7 @@ lines, machines, plants or versions". If one exists at another plant, adopt it
 (`od-use-case-standardization`, and `SKILL.md` "When not to build").
 
 This file holds no figures. The live list of families, titles, plants and counts is in the work
-vault (`Graph/Use Cases`, the "Dashboard Use Case" family notes, and the JSON export under
+knowledge base (`Graph/Use Cases`, the "Dashboard Use Case" family notes, and the JSON export under
 `Dashboard Exports`). Re-count there and quote a number only with its source and date.
 
 ## 1. Where to look, and the two counting bases

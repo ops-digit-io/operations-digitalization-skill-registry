@@ -42,9 +42,9 @@ Lane 4 reuses what OD already has: the CSP appetizer fields, the pairing of an O
 
 ## Rules the lane enforces
 
-- **No invented figures** (vault `CLAUDE.md` 1.5). Every figure carries an evidence class: `CALCULATION`, `ESTIMATION` or `not yet assessed`.
+- **No invented figures** (knowledge base `CLAUDE.md` 1.5). Every figure carries an evidence class: `CALCULATION`, `ESTIMATION` or `not yet assessed`.
 - **A saving is a claim until it is registered.** It counts as a result only with a registered plant savings project and a baseline (registry rule in `od-use-case-definition`).
-- **Roles, not individuals** (vault `CLAUDE.md` 3); no host names, addresses or links to internal systems.
+- **Roles, not individuals** (knowledge base `CLAUDE.md` 3); no host names, addresses or links to internal systems.
 - **OD never publishes.** The agent drafts and checks; every approval is human; IC publishes.
 - English deliverables.
 

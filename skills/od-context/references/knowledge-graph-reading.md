@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Knowledge graph reading
 
-Derived from the vault's delivered-work note on the graph, its node notes and the research notes behind the descriptions. No
+Derived from the knowledge base's delivered-work note on the graph, its node notes and the research notes behind the descriptions. No
 counts of nodes, plants or use cases are carried: they change with each rebuild; read them from the graph. Own synthesis is marked
 `PROPOSAL`; unknowns are `<...>`.
 

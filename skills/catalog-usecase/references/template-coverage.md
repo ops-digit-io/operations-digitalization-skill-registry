@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 ---
 # Template coverage
 
-This file holds **no counts, plant lists or rankings**. Sources to read live: vault `Graph/Use Cases` (plant use cases;
+This file holds **no counts, plant lists or rankings**. Sources to read live: knowledge base `Graph/Use Cases` (plant use cases;
 frontmatter fields `use_case_template`, `status`, `plant`, `scalable`), `Graph/Use Case Views` (the eleven template pages,
 `Use Case Views.md`, `Use Case Views - Standardization.md`) and `Graph/Target Types`. The template pages are AI-drafted from a
 graph export and not reviewed by a human; state the export date when you quote them.

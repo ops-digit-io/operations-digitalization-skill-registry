@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Communications brief](SKILL.md) | Agent Skill | Turn a selected use case into the brief and the draft pack that Internal Communications can publish (new-state Lane 4, steps 42 and 43): one message, proof points that each carry a source and an evidence class, audience variants (other plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), a call to action that leads back into Lane 1, drafts of the article, one-pager, slide and short post in English, and the list of approvals. Checks the brief with a script before it leaves OD. Use after od-showcase-selection returns go, when a use-case story must be written for the company, or when a draft story needs its claims checked. |
+| [Communications brief](SKILL.md) | Agent Skill | Turn a selected use case into a brief and draft pack Internal Communications can publish (Lane 4): message, sourced proof points, audiences, call to action. Use after od-showcase-selection says go. |
 
 | Folder | Holds |
 |---|---|

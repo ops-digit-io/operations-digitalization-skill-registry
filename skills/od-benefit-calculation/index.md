@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Benefit calculation and savings](SKILL.md) | Agent Skill | Build, assess and record the value side of an OD business case (the department's od-benefit-calculation and bc-assessment, one shared value model) and keep the savings ledger honest — a value-only backbone with grounded, tagged figures, an expected / min / potential headline, bankable value kept apart from assumption-dependent value, investment envelope, minimum viable rollout and maximum scale-out; write saving rows with their amount, year, category, business rationale and calculation methodology; classify each as calculation or estimation; record what the money is waiting on; and never merge tracked euros with finance-proven ones. Use when a use case is being prioritized and needs a business case, when a saving needs recording or defending, when someone asks what a use case or the portfolio is worth, or when a savings figure is about to leave the department. Not for the capital request itself (od-capital-request) or the cost side (od-investment-input). |
+| [Benefit calculation and savings](SKILL.md) | Agent Skill | Build the value side of an OD business case and keep the savings ledger honest: grounded figures, bankable vs assumed value, saving rows. Not for the capital request (od-capital-request) or costs. |
 
 | Folder | Holds |
 |---|---|

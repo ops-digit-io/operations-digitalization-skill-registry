@@ -12,7 +12,7 @@ tags:
 - draft
 - absorbed
 derived_from:
-- Work vault (Work-OpsDigit-Knowledge), External Research, IT-IoT-Maturity-Model (overview, the focus-area notes F01 to F16, dependencies, complexity drivers, assessment template, references), generalized from three peer-reviewed publications by Schott and co-authors (2017, 2017b, 2020), read 2026-11-05; the papers' case study and literature case base are not carried over.
+- Department knowledge base, External Research, IT-IoT-Maturity-Model (overview, the focus-area notes F01 to F16, dependencies, complexity drivers, assessment template, references), generalized from three peer-reviewed publications by Schott and co-authors (2017, 2017b, 2020), read 2026-11-05; the papers' case study and literature case base are not carried over.
 generated:
   by: claude-code/1
   at: 2026-11-05 00:00:00+00:00

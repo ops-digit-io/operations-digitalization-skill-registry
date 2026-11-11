@@ -10,7 +10,7 @@ generated: { by: claude-code/1, at: 2026-11-10T00:00:00Z }
 # Phase 1 — tacit knowledge elicitation
 
 Working file, not part of the registry — outside `skills/` and `docs/` on purpose, same
-reason the vault keeps its own working notes outside `_knowledge/`: this is a plan/answer
+reason the knowledge base keeps its own working notes outside `_knowledge/`: this is a plan/answer
 draft, not a derived concept, and it isn't OKF-validated. Delete it (or move it somewhere
 else) once each topic has been folded into its skill.
 
@@ -27,7 +27,7 @@ the shared skill entirely.
 → `skills/od-use-case-intake-triage/references/refusal-playbook.md`
 
 Resolved from the department's own retrospective workshop record
-(`Work-OpsDigit-Knowledge/Split Slides/10-Workshops--...`) instead of interview: three
+(`Split Slides/10-Workshops--...`) instead of interview: three
 real "looked legitimate but refused" patterns (cosmetic dashboard requests, a use case
 riding on infrastructure not yet planned for that plant, an approval gate OD doesn't
 control) and one "accepted something regretted" (difficult machines taken on first,
@@ -151,7 +151,7 @@ directly if you have it.
 ## 4. ODEC vs. COP in practice — RESOLVED 2026-10-22
 → `skills/od-decision-routing/references/escalation-worked-examples.md`
 
-Resolved from the department's own ODEC/CoP call decks (`Work-OpsDigit-Knowledge/Split
+Resolved from the department's own ODEC/CoP call decks (`Split
 Slides/`) instead of interview — the Groot2B cybersecurity item split cleanly into a
 strategic ODEC half and a technical COP half, a platform-access blocker that stayed at COP
 without ever reaching ODEC, and the eCR Calculator as a cross-plant pattern raised at ODEC
@@ -186,7 +186,7 @@ before you write those answers.*
 ## 6. Internal Communications handover (Lane 4) — OPEN
 → `skills/od-comms-brief/references/ic-handover.md`
 
-The owner asked for an outbound lane that promotes live, adopted use cases through Internal Communications. The vault holds no description of the Internal Communications process (it records only that the role exists, central, in HR and Communications), so the skill leaves its details open. OD's own January 2026 marketing-template initiative (appetizer template, testimonial, story shapes) is now the basis of the formats in `od-comms-brief`. **To be supplied by the owner (the Internal Communications brief):** the intake channel or role, the channels per audience (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), the lead time, any IC template or review route that replaces `comms-brief.md`, brand and tone rules, a second approval or language, and what reach or response data IC returns.
+The owner asked for an outbound lane that promotes live, adopted use cases through Internal Communications. The knowledge base holds no description of the Internal Communications process (it records only that the role exists, central, in HR and Communications), so the skill leaves its details open. OD's own January 2026 marketing-template initiative (appetizer template, testimonial, story shapes) is now the basis of the formats in `od-comms-brief`. **To be supplied by the owner (the Internal Communications brief):** the intake channel or role, the channels per audience (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), the lead time, any IC template or review route that replaces `comms-brief.md`, brand and tone rules, a second approval or language, and what reach or response data IC returns.
 
 **Your answer:**
 

@@ -29,7 +29,7 @@ metadata:
     - Schott, P., Lederer, M., Eigner, I., Bodendorf, F. (2020). Case-based reasoning for complexity management in Industry 4.0. Journal of Manufacturing Technology Management, 31(5). DOI 10.1108/JMTM-08-2018-0262. Tables 4, 5, 7, 10, 11 — the driver set, the focus-area levels, the 70-case literature base and the realization-dependency table.
     - Schott, P., Schaft, T., Thomas, S., Bodendorf, F. (2017). Making IoT Run — Opportunities and Challenges for Manufacturing Companies. International Journal of Hyperconnectivity and the Internet of Things, 1(2), 25-44. DOI 10.4018/IJHIoT.2017070103.
     - Schott, P., Lederer, M., Niedermaier, S., Bodendorf, F., Hafner, M. (2017b). A Maturity Model to Organize the Multidimensionality of Digitalization in Smart Factories. In Handbook of Research on Applied Optimization Methodologies in Manufacturing Systems, IGI Global, pp. 354-374. Book DOI 10.4018/978-1-5225-2944-6. Original source of the 16 focus areas; not reviewed directly.
-    - external literature review commissioned by human:jakob.gabriel, 2026-10-22, kept in the personal Obsidian vault under Work-OpsDigit-Knowledge/External Research/IT-IoT-Maturity-Model/. Generalized the papers' tables into this skill's method; the papers' own three-plant case study and its company attribution are not carried into this skill — only the method is.
+    - external literature review commissioned by human:jakob.gabriel, 2026-10-22, kept in the department documents/External Research/IT-IoT-Maturity-Model/. Generalized the papers' tables into this skill's method; the papers' own three-plant case study and its company attribution are not carried into this skill — only the method is.
   okf:
     type: Agent Skill
     title: Use-case solution evaluation

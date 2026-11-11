@@ -1,15 +1,7 @@
 ---
 name: od-handover-and-adoption
 description: >-
-  Close a use case properly — run the handover to the plant against its definition of
-  done, confirm real adoption rather than delivery, and act on the gap between
-  implemented and productive. Covers the three-question handover test, the utilization expectation, an asset nobody opens, and handing over the function itself. Use when a use case is being handed to a plant,
-  when someone asks whether a use case is actually in use, when utilization is low or
-  `NEVER`, or when a role or portfolio is changing hands. Also covers the OD x IT ownership rules
-  (build-and-run, formal acceptance, handover checklist, self-assessment), the impact evaluation and adoption confirmation record of a live use case
-  (formerly od-impact-evaluation) and the utilization review "deployed is not used" per site
-  (formerly od-utilization-review).
-  Not for building the use case (od-analytics-asset-build) or cataloguing a proven result (od-use-case-standardization, catalog-usecase).
+  Close a use case: hand over to the plant against its definition of done, confirm real adoption, act on low utilization. Not for building (od-analytics-asset-build) or cataloguing (catalog-usecase).
 license: MIT
 metadata:
   id: od-handover-and-adoption
@@ -32,9 +24,9 @@ metadata:
     - ops-knowledge-graph/_knowledge/10-Department/Use case lifecycle.md
     - Prosci. The Prosci ADKAR Model. prosci.com/methodology/adkar. Retrieved 2026-10-22. Industry framework, not peer-reviewed — used for the individual-adoption diagnostic, not for the delivery-status facts above it.
     - Prosci. Individual Barriers to Change and What to Do About Them. prosci.com/blog/individual-barriers-to-change-and-what-to-do-about-them. Retrieved 2026-10-22. Source of the "barrier point" diagnostic.
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT/Transcripts/2026-09-11_OD-IT-alignment_meeting-notes.txt, read 2026-11-10"
-    - "Work vault, OD Department Knowledge/OD-instance/20-lanes-newstate-DRAFT (README, lane 1-3), read 2026-11-10"
-    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10; Vault note Agentic-OS/30_Knowledge/Internal Communication and Marketing Research"
+    - "Department knowledge base, read 2026-11-10"
+    - "Department knowledge base (README, lane 1-3), read 2026-11-10"
+    - "Public research note, 2026-11-10: Firstup frontline manufacturing survey (firstup.io, vendor survey of 1,000 U.S. workers, June 2026), read 2026-11-10"
   okf:
     type: Agent Skill
     title: Handover and adoption

@@ -13,7 +13,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 The machine notes carry **no signal names** - the data-point list lives on the edge platform and
 in the flows (see `field-signal-vocabulary.md`). What they do carry
 is the controller, the field network and the integration route, which decide what a tag export
-will look like and which skill route applies. Source: `Work-OpsDigit-Knowledge/Graph/Machines`
+will look like and which skill route applies. Source: `Graph/Machines`
 front matter and `Graph/Connectors` profile blocks. "Not recorded" means the field is absent on
 the note; it is a gap in the record, not a finding that the machine has none.
 
@@ -105,5 +105,5 @@ key user which connector a topic belongs to.
 
 ## Sources
 
-`Work-OpsDigit-Knowledge/Graph/Machines/` front matter and `Graph/Connectors/` profile blocks.
+`Graph/Machines/` front matter and `Graph/Connectors/` profile blocks.
 Connector counts, where quoted, are the notes' own.

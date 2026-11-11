@@ -21,6 +21,6 @@
 
 | Folder | Holds |
 |---|---|
-| [od-barrier-triage/](od-barrier-triage/index.md) | 5 concept(s) |
-| [od-information-integration-service/](od-information-integration-service/index.md) | 8 concept(s) |
-| [od-machine-integration-plan/](od-machine-integration-plan/index.md) | 6 concept(s) |
+| od-barrier-triage/ | 5 concept(s) |
+| od-information-integration-service/ | 8 concept(s) |
+| od-machine-integration-plan/ | 6 concept(s) |

@@ -105,12 +105,12 @@ Filter the Machine List export by the blocker text, by status `INTEGRATED` with 
 model or protocol, and by integration date; count per plant; quote the export date with any
 figure. See `../../../skills/od-equipment-integration/references/plant-integration-status.md`.
 
-⟨Acceptance results of past integrations. The vault carries no acceptance protocol, no pass or
+⟨Acceptance results of past integrations. The knowledge base carries no acceptance protocol, no pass or
 fail record per machine, and the lane's acceptance/rework rate is "not captured in any system"
 (`od-equipment-integration` (`../../../skills/od-equipment-integration/references/od-information-integration-service/procedure.md`)).
 Who could supply it: the IIAEs, from their own files.⟩
 
 ## Sources
 
-- Vault `Graph/Machines`, `Graph/Connectors`, `Graph/Tools`, read 2026-11-05.
+- Knowledge base `Graph/Machines`, `Graph/Connectors`, `Graph/Tools`, read 2026-11-05.
 - Registry references `../../../skills/od-equipment-integration/references/connectors.md` and the guardrails in `od-equipment-integration` (`../../../skills/od-equipment-integration/SKILL.md`).

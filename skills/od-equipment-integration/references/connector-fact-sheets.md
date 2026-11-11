@@ -16,7 +16,7 @@ the Connector Overview records **beyond availability**: the technical limits tha
 connector fits a machine, the kind of endpoint each reaches, and the build or enhancement requests
 somebody wrote on the item.
 
-**Source.** Vault `Graph/Connectors` notes, quoting the `ConnectorOverview-List` SharePoint
+**Source.** Knowledge base `Graph/Connectors` notes, quoting the `ConnectorOverview-List` SharePoint
 export; machine links from `Graph/Machines`; read 2026-11-05. Texts below are paraphrases of the
 Overview's own fields. **No machine counts, plant spreads or prices are carried here**: count on
 the live lists, and read any written estimate on the Overview item itself.
@@ -108,8 +108,8 @@ Who could supply it: IIAE with the connector vendor's account owner.⟩
 
 ## Sources
 
-- Vault `Graph/Connectors/*.md` (including the `SharePoint record (full text)` blocks), read
+- Knowledge base `Graph/Connectors/*.md` (including the `SharePoint record (full text)` blocks), read
   2026-11-05.
-- Vault `Graph/Machines` links.
+- Knowledge base `Graph/Machines` links.
 - Registry reference `connectors.md` (availability) and
   `vendor-protocol-routes.md`.

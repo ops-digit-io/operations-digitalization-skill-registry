@@ -1,17 +1,7 @@
 ---
 name: od-node-red-flow-builder
 description: >-
-  Build, review, document, troubleshoot and port Node-RED flows the way the OESL shop-floor
-  estate does it - the seven-group canonical layout, the protobuf PLCPacket schema over MQTT,
-  the datatroniq and CT topic conventions, the standard function nodes (sysTime unpack and
-  re-pack, UUID filtering, flow-config debug), catch-based error handling and the naming the
-  auto-documentation depends on; and diagnose a flow that is broken, silent or producing wrong
-  values, starting from its exported JSON with a static analyser (sysTime, protobuf oneof,
-  hardcoded secrets or thresholds, severed pipeline, UUIDs in function bodies, missing catch,
-  unset flow context) plus a symptom-to-cause table. Use when writing or changing a flow for a
-  machine or use case (step 3b4), reviewing a flow before a prod instance, porting a flow
-  between plants, or when a flow publishes nothing, a wrong value or a nonsense timestamp, stops
-  after a redeploy, or a dashboard has gone flat (step 3b5, also 3b6 when acceptance fails).
+  Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf, topics, error handling). Not for choosing signal names (od-signal-standardization).
 license: MIT
 allowed-tools: Read Grep Glob Write Edit Bash(python3 scripts/analyze_flow.py:*)
 metadata:
@@ -33,14 +23,14 @@ metadata:
   requires: [od-context]
   composes: [od-equipment-integration, od-signal-standardization, od-acceptance-test, od-analytics-asset-build, od-data-availability-check]
   derived_from:
-    - "Work vault, OD Department Knowledge/OD-instance/30-skills/ops-rule-engine.skill (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
+    - "Department knowledge base (SKILL.md, references/patterns.md, standard-flow.md, examples/*.json, scripts/*), read 2026-11-10"
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/docs/** (exported flow JSON and generated docs)
     - ops-knowledge-graph/_knowledge/node-red-auto-docs/generate_docs.py
     - ops-knowledge-graph/_knowledge/10-Department/Machine integration.md
     - Node-RED auto-docs flow JSON re-read 2026-11-05 (ops-knowledge-graph/_knowledge/node-red-auto-docs/docs) for disabled flows, drivers, MQTT settings, timers and flow-config keys
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
+    - Department knowledge base profile blocks for the TIA, S7, Beckhoff, Allen-Bradley and Omron connectors, read 2026-11-05
     - Analyser re-run unchanged over all exported flow files on 2026-11-05 and the same files re-checked for disabled tabs, drivers and context keys
-    - Work vault (Work-OpsDigit-Knowledge), Graph/Connectors, DTQ-Beckhoff-Connector profile block, read 2026-11-05
+    - Department knowledge base, DTQ-Beckhoff-Connector profile block, read 2026-11-05
   okf:
     type: Agent Skill
     title: od-node-red-flow-builder
@@ -176,24 +166,7 @@ Review of someone else's flow: eight questions and standards table in
 
 ## Calculated datapoints - the rule engine (steps 1a2, 1b4, 3b4)
 
-A new value derived from existing DATATRON datapoints (parts per shift, machine mode, cycle time, status text,
-downtime, OK + NOK totals, tool-to-part lookup) is built as a **rule-engine flow**, the department's
-`ops-rule-engine` package (master; transcribed in [`references/rule-engine.md`](references/rule-engine.md)):
-
-1. **Collect the requirement** per input datapoint (PascalCase name, UUID, value field), the output datapoint (it must
-   already exist in DATATRON; never invent a UUID), the logic, the MQTT input topic (the user gives it) and output topic.
-2. **Pick the pattern** ([`rule-engine-patterns.md`](references/rule-engine-patterns.md)): arithmetic, status mapping,
-   lookup, event trigger, counter with cron reset, duration, sawtooth peak, scaled value. Core rule: store each
-   input's latest value in flow context and calculate from the stored values - DATATRON publishes on change.
-3. **Write the spec and generate** with [`scripts/build_flow.py`](scripts/build_flow.py); never hand-write the flow JSON.
-   Anatomy, PLCPacket fields, topics, timestamps and naming: [`rule-engine-standard-flow.md`](references/rule-engine-standard-flow.md).
-4. **Test before delivering**: offline dry-run with [`scripts/simulate.js`](scripts/simulate.js), optionally the full run
-   in Node-RED with a local broker ([`scripts/e2e_test.sh`](scripts/e2e_test.sh)).
-5. **Deliver** the importable flow plus the spec; then the shared rules and the analyser below apply as to any flow.
-
-Thirteen production flows are the reference cases ([`references/rule-engine-examples/`](references/rule-engine-examples/));
-`13_helium09_leakrate_BROKEN.json` and `13b_..._FIXED.json` show the classic wait-for-all-inputs bug and its fix.
-Signal naming and normalization rules for the output stay with `od-signal-standardization`.
+A new value derived from existing DATATRON datapoints is built as a **rule-engine flow** with `scripts/build_flow.py`, never by hand-writing the flow JSON. The five-step workflow (collect the requirement, pick the pattern, write the spec and generate, test before delivering, deliver) is in [`references/rule-engine.md`](references/rule-engine.md), section "Workflow for calculated datapoints".
 
 ## Troubleshoot (step 3b5)
 
@@ -240,13 +213,7 @@ Standard library only. Exit **2** on any blocker, **1** on any warning, **0** ot
 
 ### Step C - what the analyser cannot see
 
-It reads a static export: not the broker, edge platform, PLC or runtime state. Work
-[`references/symptoms.md`](references/symptoms.md) (symptom, cause, layer to check) and
-[`symptoms-extended.md`](references/symptoms-extended.md) (disabled-tab check, where findings
-concentrate, more rows, worked findings). **Walk the path outward from the machine** (machine,
-connector, ingress variant, edge, flow, offload, asset), not inward from the dashboard: most
-"dashboard is broken" reports are a machine that stopped publishing. After a platform or server
-migration the flow is rarely the cause (DNS, certificates, access, connector licence).
+It reads a static export, not the broker, edge platform, PLC or runtime state. Walk the path outward from the machine, not inward from the dashboard; the symptom tables and the full method are in [`references/symptoms-extended.md`](references/symptoms-extended.md), section "What the analyser cannot see".
 
 ### Silent corruptions and fast triage
 
@@ -309,11 +276,6 @@ fix tested on `test`; triage record filled; plant key user confirmed correct val
 | Path | Use |
 |---|---|
 | `references/build-guide.md` | Layout, message, standard functions, config, topics, standards, error handling, documentation, review checklist |
-| `references/artefacts.md`, `transformation-patterns.md`, `composing-transformations.md`, `streaming.md`, `architecture.md` | Build depth |
 | `references/plc-packet.md`, `topic-conventions.md`, `standard-functions.js`, `deployable-flow.md`, `instances.md`, `corpus-census.md` | Wire, topics, functions, deployable file, instances, live census |
-| `references/symptoms.md`, `symptoms-extended.md` | Troubleshoot depth |
-| `references/process-chain-practice.md` | Chain role, handoffs, agent notes (sections: Build, Troubleshoot) |
 | `assets/flow-config-contract.md`, `protobuf-schema-bootstrap.flow.json`, `triage-record.md` | Config form, importable schema flow, triage record |
-| `scripts/analyze_flow.py` | Static analyser |
 | `references/rule-engine.md`, `rule-engine-patterns.md`, `rule-engine-standard-flow.md`, `rule-engine-examples/` | Calculated datapoints: the department's rule-engine workflow, patterns, standard flow, production examples |
-| `scripts/build_flow.py`, `simulate.js`, `e2e_runner.js`, `e2e_test.sh`, `test_plcschema.proto` | Rule-engine generator and tests |
