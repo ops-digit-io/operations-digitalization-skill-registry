@@ -1,0 +1,37 @@
+---
+type: Skill Asset
+title: Export run log
+description: The defined output of a run - which list, when, how many rows, what the schema check found - so bc-portfolio reads a dated, checked export rather than a bare file.
+resource: ../SKILL.md
+status: stable
+tags: [all, template, protocol]
+---
+
+# Export run log — ⟨list name⟩
+
+One entry per run, appended, never overwritten — the history of captures is itself
+evidence (it is what lets `bc-portfolio` or `bc-build`
+answer "as of when" for any figure they quote).
+
+| Run date | List | Items | Attachments | Mode | Schema check | Notes |
+|---|---|--:|--:|---|---|---|
+| ⟨YYYY-MM-DD⟩ | ⟨list name⟩ | ⟨item count⟩ | ⟨attachment count⟩ | ⟨full / incremental since YYYY-MM-DD⟩ | ⟨OK / columns added: … / columns removed: …⟩ | ⟨anything that needed a second attempt⟩ |
+
+**Mode** is `full` for the first run against a list and every run after a schema-removal
+finding (an incremental run cannot be trusted to have seen everything once a column it
+might have filtered or branched on has changed shape). Otherwise `incremental since
+<checkpoint>`, reading the checkpoint from `<list>.checkpoint.json` per
+`references/reliability-discipline.md`.
+
+**Schema check** is `scripts/check_export_schema.py`'s verdict, pasted in, not
+re-summarized — a "columns removed" entry here is the signal `bc-portfolio`
+and `bc-build` need to re-check whether a field they depend on still exists
+before quoting a figure from this run.
+
+## Hand-off
+
+The file this run produced (`SharePoint-FullExport.json`, landed under
+`90-Sources/sharepoint/<list>/` per the export procedure) plus this log's latest row **is**
+the input `bc-portfolio` reads as "the list" — it should never need to
+re-derive the capture date or the row counts from the export file itself; both are already
+here.

@@ -1,7 +1,7 @@
 # The new-state process flow as data: the owner's process flow (OD_NewState_ProcessFlow.html, new-state service lanes
 # with skills & gaps). Core = exactly the skills drawn on its steps (skills/); the net-new builds it lists (catalog-usecase,
-# catalog-systems, catalog-guardrails, deploy-appstore, it-demand-package, prototype/PoC = od-prototype-poc,
-# capital-request = od-capital-request) are placed on their steps. `proposed` = extension skills (skills-extension/), not drawn.
+# catalog-systems, catalog-guardrails, deploy-appstore, deploy-it-demand, prototype/PoC = funnel-prototype,
+# capital-request = bc-capital-request) are placed on their steps. `proposed` = extension skills (skills-extension/), not drawn.
 # Step ids are stable keys that skills cite.
 intake:
   title: Intake
@@ -11,11 +11,11 @@ intake:
   - id: i1
     title: Known use case?
     skills:
-    - od-use-case-intake-triage
-    - od-system-fit-check
+    - dept-intake
+    - invest-screen
     proposed:
-    - od-first-aid-kit
-    - od-event-object-modelling
+    - funnel-first-aid
+    - ops-event-model
 lanes:
 - id: lane1
   title: Run a known use case
@@ -33,17 +33,17 @@ lanes:
     - id: 1a2
       title: Apply template
       skills:
-      - od-analytics-asset-build
+      - ops-analytics-asset
+      - ops-dashboard-engine
       proposed:
-      - od-template-resolution
+      - catalog-template
       - ops-dashboard-datatron
-      - build-grafana-ops-dashboard
     - id: 1a3
       title: Validate & go live
       skills:
       - catalog-guardrails
       proposed:
-      - od-rollout-training
+      - know-training
   - id: 1b
     title: 'Not connected: standardized-system onboarding (predictable spend via cost template)'
     steps:
@@ -58,21 +58,22 @@ lanes:
       title: Cost template + approval
       wait: ~wks
       skills:
-      - od-decision-routing
+      - dept-decision-rights
       proposed:
-      - od-investment-input
+      - bc-cost
     - id: 1b3
       title: Order & connect system
       skills:
-      - od-equipment-integration
+      - mi-equipment
       proposed:
-      - od-cybersec-gate
+      - deploy-cybersec
     - id: 1b4
       title: Apply template & go live
       skills:
-      - od-analytics-asset-build
+      - ops-analytics-asset
+      - ops-dashboard-engine
       proposed:
-      - od-rollout-training
+      - know-training
       - ops-dashboard-datatron
 - id: lane2
   title: Develop a new use case
@@ -85,53 +86,53 @@ lanes:
     - id: '21'
       title: Define & diagnose
       skills:
-      - od-use-case-definition
+      - funnel-use-case
       proposed:
-      - od-workshop-facilitation
-      - od-first-aid-kit
-      - od-event-object-modelling
+      - funnel-workshop
+      - funnel-first-aid
+      - ops-event-model
     - id: '22'
       title: Features + data check
       skills:
-      - od-requirements-breakdown
-      - od-data-availability-check
+      - funnel-requirements
+      - mi-data-availability
       proposed:
-      - od-use-case-solution-evaluation
-      - od-event-object-modelling
+      - funnel-evaluation
+      - ops-event-model
       - funnel-features
     - id: '23'
       title: Prototype / validate
       skills:
-      - od-analytics-asset-build
-      - od-prototype-poc
+      - ops-analytics-asset
+      - funnel-prototype
       proposed:
-      - od-governance-cadence
+      - dept-governance
     - id: '24'
       title: Business case + rank
       wait: ~wks
       skills:
-      - od-benefit-calculation
-      - bc-assessment
+      - bc-build
+      - bc-assess
       proposed:
-      - od-portfolio-and-savings-analysis
-      - od-plant-diagnosis
-      - od-investment-input
+      - bc-portfolio
+      - dept-plant-diagnosis
+      - bc-cost
     - id: '25'
       title: Capital request
       skills:
-      - od-decision-routing
-      - od-capital-request
+      - dept-decision-rights
+      - bc-capital-request
       proposed:
-      - od-project-order
+      - deploy-project-order
     - id: '26'
       title: Implement & graduate
       skills:
-      - od-handover-and-adoption
+      - deploy-handover
       - catalog-usecase
       proposed:
-      - od-use-case-standardization
-      - od-rollout-training
-      - od-project-order
+      - catalog-standardization
+      - know-training
+      - deploy-project-order
       - ops-dashboard-datatron
 - id: lane3
   title: New system or connector
@@ -144,24 +145,24 @@ lanes:
     - id: '31'
       title: Requirements
       skills:
-      - od-requirements-breakdown
+      - funnel-requirements
       proposed:
-      - od-workshop-facilitation
+      - funnel-workshop
     - id: '32'
       title: Tool-decision gate
       wait: ~wks
       skills:
-      - od-system-fit-check
-      - od-decision-routing
+      - invest-screen
+      - dept-decision-rights
       proposed:
-      - od-migration-cutover
+      - deploy-migration
     - id: '33'
       title: Business case + capital
       skills:
-      - od-benefit-calculation
-      - od-capital-request
+      - bc-build
+      - bc-capital-request
       proposed:
-      - od-project-order
+      - deploy-project-order
   - id: 3a
     title: 'New system: make / buy / integrate'
     steps:
@@ -169,9 +170,9 @@ lanes:
       title: Package / build
       wait: CS ~wks
       skills:
-      - it-demand-package
+      - deploy-it-demand
       proposed:
-      - od-project-order
+      - deploy-project-order
       options:
       - id: 3a.1
         owner: OD + Ext
@@ -184,35 +185,35 @@ lanes:
         title: New codebase (self dev)
         text: OD/internal builds the app, then deploys.
         skills:
-        - od-equipment-integration
+        - mi-equipment
         - deploy-appstore
       - id: 3a.3
         owner: External
         title: New codebase (external dev)
         text: Spec in-house, build with an external partner (DevOps via externals).
         skills:
-        - it-demand-package
+        - deploy-it-demand
         note: + ext dev
       - id: 3a.4
         owner: IT·CS
         title: Integrate a foreign app
         text: Integrate a third-party app via IT Demand + Cyber Security. The integrate-only path.
         skills:
-        - it-demand-package
+        - deploy-it-demand
     - id: 3a5
       title: Deploy to platform + CS
       skills:
       - deploy-appstore
       proposed:
-      - od-cybersec-gate
-      - od-migration-cutover
+      - deploy-cybersec
+      - deploy-migration
     - id: 3a6
       title: Rollout & adopt
       skills:
-      - od-handover-and-adoption
+      - deploy-handover
       proposed:
-      - od-rollout-training
-      - od-migration-cutover
+      - know-training
+      - deploy-migration
   - id: 3b
     title: New connector for a new machine
     steps:
@@ -220,22 +221,22 @@ lanes:
       title: Connector + pipeline to MDL
       wait: proc ~wks
       skills:
-      - od-equipment-integration
-      - od-signal-standardization
-      - od-node-red-flow-builder
+      - mi-equipment
+      - mi-signals
+      - mi-flow
       proposed:
-      - od-cross-plant-compatibility
+      - catalog-compatibility
     - id: 3b5
       title: Procure & connect machine
       wait: CS ~wks
       skills:
-      - od-equipment-integration
+      - mi-equipment
       proposed:
-      - od-cybersec-gate
+      - deploy-cybersec
     - id: 3b6
       title: Acceptance + CS → live
       skills:
-      - od-acceptance-test
+      - deploy-acceptance
       proposed: []
 - id: lane4
   title: Promote a proven use case
@@ -248,41 +249,41 @@ lanes:
     - id: '41'
       title: Select + check story
       skills:
-      - od-showcase-selection
+      - comms-showcase
       proposed: []
     - id: '42'
       title: Brief Internal Communications
       skills:
-      - od-comms-brief
+      - comms-brief
       proposed: []
     - id: '43'
       title: Review + publish (IC)
       wait: IC
       skills:
-      - od-comms-brief
+      - comms-brief
       proposed: []
     - id: '44'
       title: Follow up + feed back
       skills:
-      - od-showcase-followup
+      - comms-followup
       proposed: []
 spine:
   title: Foundation
   summary: Not a step; every skill reads it first.
   skills:
-  - od-context
+  - dept-context
   proposed:
-  - od-ai-generation-playbook
-  - od-skill-authoring
-  - od-scorecard-reporting
-  - od-context-freshness
-  - od-template-resolution
-  - od-retro
-  - od-risk-watch
-  - od-plant-onboarding
-  - od-governance-cadence
-  - od-plant-diagnosis
-  - od-sharepoint-list-export
+  - know-ai-generation
+  - know-skill-authoring
+  - metrics-scorecard
+  - dept-context-freshness
+  - catalog-template
+  - dept-retro
+  - dept-risk
+  - dept-plant-onboarding
+  - dept-governance
+  - dept-plant-diagnosis
+  - know-sharepoint-export
 unplaced:
   title: Not placed in the flow
   summary: Registry skills the flow does not place. Empty since the merge of 2026-11-10; the three old lane orchestrators were absorbed (see log.md).

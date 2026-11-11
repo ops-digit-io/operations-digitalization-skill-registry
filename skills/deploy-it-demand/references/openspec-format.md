@@ -1,0 +1,89 @@
+---
+type: Skill Reference
+title: Openspec format
+description: "The OpenSpec rules an OD handover package must meet (structure, proposal sections, delta spec format, validation thresholds) and which OD skill fills which artefact."
+resource: ../SKILL.md
+status: draft
+tags: [openspec, handover, format]
+---
+# OpenSpec format
+
+OpenSpec is a public, plain-markdown way to plan a change before code: a change folder holds *why*
+(proposal), *what* (delta specs), *how* (design) and the *work* (tasks). It never touches Git; the folder is
+committed and reviewed like code, and archived into the main specs once shipped.
+
+## Structure
+
+OpenSpec's skills write the change; OD adds two things to it. Everything sits in the OD store, a folder (Git
+repository) with `openspec/`; with the CLI it can also be registered as a store (see the
+[store guide](openspec/docs/stores-beta/user-guide.md)).
+
+```
+<od-store>/
+├── .openspec-store/store.yaml      the store's identity (only where the CLI registered it)
+└── openspec/
+    ├── config.yaml                 OD context and per-artifact rules (assets/openspec/config.yaml.tmpl)
+    ├── specs/                      the main specs, built up by archiving changes
+    └── changes/<change-id>/        created by OpenSpec's skills (openspec-propose, or new-change + continue-change);
+                                    without the CLI via scripts/openspec_offline.py
+        ├── .openspec.yaml          OpenSpec
+        ├── proposal.md             OpenSpec: Why · What Changes · Capabilities · Impact
+        ├── specs/<capability>/spec.md   OpenSpec: delta spec per capability
+        ├── design.md               OpenSpec: Context · Goals / Non-Goals · Decisions · Risks / Trade-offs
+        ├── tasks.md                OpenSpec: numbered checkbox groups
+        ├── handover.md             OD annex (not an OpenSpec artefact; added by scripts/new_handover.py)
+        └── attachments/            the user's files, registered in section 14 of handover.md
+```
+
+The shapes of OpenSpec's own files are not described here: they come from OpenSpec's schema and templates
+([`schema.yaml`](openspec/schemas/spec-driven/schema.yaml), [`templates/`](openspec/schemas/spec-driven/templates/proposal.md)),
+which its skills read through `openspec instructions`.
+
+## Authority: OpenSpec itself
+
+This skill follows OpenSpec release **1.17.0** (github.com/Fission-AI/OpenSpec, npm `@fission-ai/openspec`). The
+OpenSpec's rules decide, and no CLI is needed to apply them: `check_handover.py` applies them offline and, where the
+CLI is installed, also runs `openspec validate <change-id> --strict`; CI proves the offline check never passes what
+the CLI of the pinned release rejects. OD keeps no templates of its own for OpenSpec's files: OpenSpec's skills write them from its schema, with
+OD's context and rules from `config.yaml`. The table below is a summary, not the full rule set: OpenSpec also rejects, for
+example, a task numbered into the wrong group and a duplicated task id. To move to a newer OpenSpec release, change
+`OPENSPEC_PINNED` in `scripts/check_handover.py` and run `python3 scripts/check_openspec_conformance.py --require`.
+
+## Rules the check enforces (from OpenSpec's validator)
+
+| Rule | Level |
+|---|---|
+| `proposal.md` has `## Why` of 50 to 1000 characters and a non-empty `## What Changes` | error |
+| At least one delta spec (or `skip_specs: true` in `.openspec.yaml`, never for an OD handover) | error |
+| More than ten deltas → split the change | warning |
+| A delta spec uses `## ADDED / MODIFIED / REMOVED / RENAMED Requirements` | error |
+| Every `### Requirement:` body contains SHALL or MUST | error |
+| Every requirement has at least one `#### Scenario:` (exactly four hashes) | error |
+| Every scenario has a WHEN (or GIVEN) and a THEN step | warning (strict: error) |
+| Requirement description at most 500 characters | warning (strict: error) |
+| New capability: `## Purpose` of 50+ characters | warning (strict: error) |
+| Capability path segments kebab-case | error |
+| Tasks are `- [ ] n.m description` under `## n. Group` | error |
+
+The OD check runs these in strict mode: a handover package passes only with no warnings left.
+
+## Which OD skill fills which artefact
+
+| Artefact | Section | Filled from |
+|---|---|---|
+| proposal.md | Why | Problem and bankable value: `bc-build`; objective: `funnel-requirements` |
+| | What Changes | Requirement scope and growth boundaries: `funnel-requirements` |
+| | Capabilities | The epic's durable behaviours: `funnel-requirements` |
+| | Impact | Plants, systems, interfaces, data: `mi-data-availability`, `invest-screen` |
+| specs/ | Requirements and scenarios | User stories and acceptance criteria: `funnel-requirements`, `deploy-acceptance`; data contract: `mi-signals` |
+| design.md | Decisions | Route and sourcing: `invest-screen` (tool-decision gate); platform and manifests: `deploy-appstore`; Cyber Security: `deploy-cybersec`; legacy: `funnel-requirements` (legacy assessment) |
+| | Non-Goals | Growth boundaries |
+| tasks.md | — | Build tasks, plus logging, observability, manifests, acceptance test, Cyber Security sign-off, handover checklist |
+| handover.md | all | `references/it-expected-inputs.md` |
+
+## Writing style IT will expect
+
+- Specs describe observable behaviour; "The system SHALL …". Framework, library and class names go in
+  `design.md`.
+- One behaviour per requirement; examples and edge cases become scenarios.
+- English only in every file (department rule for deliverables).

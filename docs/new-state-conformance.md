@@ -29,35 +29,35 @@ files that the registry does not support, so the flow needs correcting as much a
 
 | Skill | Flow says | The skill |
 |---|---|---|
-| `od-use-case-intake-triage` | Built. Intake classifies a demand into Lane 1, 2 or 3 | Its description admits a request "into one of the four service lines" and routes by DBVE / IIAE owner. It does not mention Lane 1, 2 or 3, a known-use-case path, a catalog or self-service. It is built for the old model |
-| `od-analytics-asset-build` (prototype, Lane 2 step 3) | Partial, "click-dummy only" | No click-dummy, prototype, proof-of-concept or mock-up wording in the skill or its references. Prototype / PoC is closer to a gap than to a partial |
+| `dept-intake` | Built. Intake classifies a demand into Lane 1, 2 or 3 | Its description admits a request "into one of the four service lines" and routes by DBVE / IIAE owner. It does not mention Lane 1, 2 or 3, a known-use-case path, a catalog or self-service. It is built for the old model |
+| `ops-analytics-asset` (prototype, Lane 2 step 3) | Partial, "click-dummy only" | No click-dummy, prototype, proof-of-concept or mock-up wording in the skill or its references. Prototype / PoC is closer to a gap than to a partial |
 
 ## Partial
 
 | Skill and step | Flow says | The skill |
 |---|---|---|
-| `od-analytics-asset-build`, `build-grafana-ops-dashboard` (Lane 1, apply the template, "self-service mode") | Built | They build assets from templates, but **no skill in the registry mentions self-service** or a plant applying a template itself. The mode the flow assumes is written nowhere |
-| `od-acceptance-test` (Lane 3 6b, "acceptance + CS sign-off") | Built, "acceptance / CS-gate is Built" | Acceptance protocol and human-only sign-off are there. **Cyber Security is not mentioned.** The gate is written in `od-equipment-integration` (9 mentions) and `od-decision-routing` (4) |
-| `od-system-fit-check` (Intake / Lane 3 tool-decision gate) | Built | Screens the lean-footprint fit with three verdicts: fits, redesign, escalate. The make / buy / integrate / connect split into 3a and 3b is not in it, and the check could not confirm it in `od-decision-routing` either |
-| `od-benefit-calculation` (Lane 2 step 4, Lane 3 step 3) | Built, "value + cost" | The savings and benefit side is deep (23 mentions). The cost side appears once |
+| `ops-analytics-asset`, `ops-dashboard-engine` (Lane 1, apply the template, "self-service mode") | Built | They build assets from templates, but **no skill in the registry mentions self-service** or a plant applying a template itself. The mode the flow assumes is written nowhere |
+| `deploy-acceptance` (Lane 3 6b, "acceptance + CS sign-off") | Built, "acceptance / CS-gate is Built" | Acceptance protocol and human-only sign-off are there. **Cyber Security is not mentioned.** The gate is written in `mi-equipment` (9 mentions) and `dept-decision-rights` (4) |
+| `invest-screen` (Intake / Lane 3 tool-decision gate) | Built | Screens the lean-footprint fit with three verdicts: fits, redesign, escalate. The make / buy / integrate / connect split into 3a and 3b is not in it, and the check could not confirm it in `dept-decision-rights` either |
+| `bc-build` (Lane 2 step 4, Lane 3 step 3) | Built, "value + cost" | The savings and benefit side is deep (23 mentions). The cost side appears once |
 
 ## Match
 
 | Flow step | Skill | Note |
 |---|---|---|
-| Lane 1b, cost template and lightweight approval | `od-decision-routing` | Routes spend with thresholds; the cost template is an artifact, not a skill. The flow rates it Partial and the skill agrees |
-| Lane 1b, order and connect; Lane 3b connector | `od-equipment-integration` | Procurement, connectors, standards. Also holds the Cyber Security gate |
-| Lane 2, define and diagnose | `od-use-case-definition` | Process diagnostics, definition lane end to end |
-| Lane 2 and Lane 3, requirements | `od-requirements-breakdown` | Says requirement, epic and story; the word "feature" in the flow's wording is not used |
-| Lane 2, data check | `od-data-availability-check` | Verdict naming the step the request dies at |
-| Lane 2, solution evaluation | `od-use-case-solution-evaluation` | Complexity drivers and the 16 capability areas |
-| Lane 2, portfolio and ranking | `od-portfolio-and-savings-analysis` | |
-| Lane 2, capital request | `od-decision-routing` | Routes the eCR, no packaging; the flow rates it Partial and the skill agrees |
-| Lane 2 step 6, Lane 3a rollout | `od-handover-and-adoption` | Handover and adoption yes; **no graduation into a catalog** (zero mentions), which is what the flow rates as Partial |
-| Lane 2 step 6, graduate | `od-use-case-standardization` | Catalogue, reference library, CSP gate. Run by OD, not by plants, as the flow says |
-| Lane 3b, signals and pipeline | `od-signal-standardization`, `od-node-red-flows` | |
+| Lane 1b, cost template and lightweight approval | `dept-decision-rights` | Routes spend with thresholds; the cost template is an artifact, not a skill. The flow rates it Partial and the skill agrees |
+| Lane 1b, order and connect; Lane 3b connector | `mi-equipment` | Procurement, connectors, standards. Also holds the Cyber Security gate |
+| Lane 2, define and diagnose | `funnel-use-case` | Process diagnostics, definition lane end to end |
+| Lane 2 and Lane 3, requirements | `funnel-requirements` | Says requirement, epic and story; the word "feature" in the flow's wording is not used |
+| Lane 2, data check | `mi-data-availability` | Verdict naming the step the request dies at |
+| Lane 2, solution evaluation | `funnel-evaluation` | Complexity drivers and the 16 capability areas |
+| Lane 2, portfolio and ranking | `bc-portfolio` | |
+| Lane 2, capital request | `dept-decision-rights` | Routes the eCR, no packaging; the flow rates it Partial and the skill agrees |
+| Lane 2 step 6, Lane 3a rollout | `deploy-handover` | Handover and adoption yes; **no graduation into a catalog** (zero mentions), which is what the flow rates as Partial |
+| Lane 2 step 6, graduate | `catalog-standardization` | Catalogue, reference library, CSP gate. Run by OD, not by plants, as the flow says |
+| Lane 3b, signals and pipeline | `mi-signals`, `od-node-red-flows` | |
 | Lane 3b, connect the machine | `od-node-red-flows` | |
-| Spine | `od-context`, `od-scorecard-reporting`, `od-sharepoint-list-export` | `od-context` still frames the department as "four service lines" |
+| Spine | `dept-context`, `metrics-scorecard`, `know-sharepoint-export` | `dept-context` still frames the department as "four service lines" |
 
 ## Not placed on the flow
 
@@ -68,11 +68,11 @@ files that the registry does not support, so the flow needs correcting as much a
 
 ## What to do about it
 
-1. Decide where Cyber Security lives in the flow: move the chip to `od-equipment-integration` and `od-decision-routing`, or add the
-   gate to `od-acceptance-test`. Until then the flow's claim is not supported.
+1. Decide where Cyber Security lives in the flow: move the chip to `mi-equipment` and `dept-decision-rights`, or add the
+   gate to `deploy-acceptance`. Until then the flow's claim is not supported.
 2. Correct the flow's prototype claim, or decide that prototype / PoC is a missing skill.
-3. When the three-lane model is adopted, change `od-use-case-intake-triage` and the framing in `od-context` from four service lines to
+3. When the three-lane model is adopted, change `dept-intake` and the framing in `dept-context` from four service lines to
    the three lanes. They are also the places the old lane model is written down.
-4. Write the self-service mode somewhere: in `od-analytics-asset-build`, or through the new `od-catalog`.
-5. Decide whether `od-benefit-calculation` should carry a cost side, or accept the flow's rating as too generous.
+4. Write the self-service mode somewhere: in `ops-analytics-asset`, or through the new `od-catalog`.
+5. Decide whether `bc-build` should carry a cost side, or accept the flow's rating as too generous.
 6. Re-home or retire the three lane orchestrators. Then regenerate [`process-overview.html`](process-overview.html), which still draws four lanes.

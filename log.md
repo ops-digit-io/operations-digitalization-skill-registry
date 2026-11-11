@@ -3,6 +3,20 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-11 — Skills renamed to the department's naming convention; Grafana engine moves to core
+
+- Every skill name now follows the department's naming convention (`<family>-<object>[-<variant>]`). Where the convention
+  names a skill, that name is used (for example `bc-assess`, `bc-capital-request`, `bc-build`, `funnel-requirements`,
+  `funnel-prototype`, `invest-screen`, `bc-cost`, `ops-dashboard-engine`); the other skills were mapped to a family.
+  The full old-to-new map is `config/skill-renames-2026-11-11.yaml`; each skill keeps its old name in
+  `metadata.aliases`. Entries below this one use the old names.
+- New family `comms-` for Lane 4 (use-case promotion), which came after the convention. The families are listed in
+  `registry.yaml`; the validator and the scaffold reject a name outside them or with a `-builder`/`-tool`/`-skill` suffix.
+- The Grafana dashboard skill (`ops-dashboard-engine`, formerly `build-grafana-ops-dashboard`) moves from the extension
+  library to core, on steps 1a2 (Apply template) and 1b4 (Apply template & go live) of the process flow. Its rules and
+  references are unchanged; core sections and file links were added.
+- `deploy-handover` (formerly `od-handover-and-adoption`) carries two capabilities; the convention would split it.
+
 ## 2026-11-11 — Citations reduced, core descriptions shortened
 
 - Source citations now read "Department knowledge base, read <date>": document paths and titles removed.

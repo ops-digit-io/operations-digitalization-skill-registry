@@ -1,0 +1,196 @@
+---
+name: invest-screen
+description: >-
+  Intake fit check and Lane 3 tool-decision gate: catch requests needing a system outside the lean footprint; route make/buy/integrate/connect. Not for requirements (funnel-requirements).
+license: MIT
+metadata:
+  id: invest-screen
+  aliases: [od-system-fit-check]   # former name (naming convention, 2026-11-11)
+  tier: practice
+  lane: all
+  new_state_lane: "Intake (i1), Lane 3 front-end (32)"
+  new_state_step: "Classify the demand into exactly one lane; Tool-decision / IT-footprint gate (make, buy, integrate or connect)"
+  department_names: ["invest-screen", "investment-screening", "investment-checking"]
+  owner_role: Digital-Business-Value-Engineer (DBVE) / IIoT Interface & Automation Engineer (IIAE), whichever lane the request entered through
+  tags: [practice, all]
+  authority_level: recommend — flags the fit risk and proposes a redesign or an escalation; never approves a system change or a rollout exception itself
+  status: stable
+  origin: derived
+  requires: [dept-context]
+  composes: [dept-decision-rights, funnel-evaluation, deploy-it-demand, deploy-appstore, mi-equipment, funnel-prototype]
+  okf:
+    type: Agent Skill
+    title: System fit check
+    tags: [practice, all]
+---
+
+# System fit check
+
+Read `dept-context` first. This is the cross-cutting check `dept-intake` and
+`funnel-requirements` both call before a request is scoped any further: **does this
+quietly need a system outside the lean footprint?**
+
+A request rarely names a system. It says "we need live cross-process scheduling with full
+order genealogy," which is MES in different words — and by the time a use case is already
+scoped around it, redesigning is a much bigger conversation than catching it at intake.
+
+## Purpose
+
+Checks whether a request quietly needs a system outside the lean footprint (MES, EMS or similar), and, in Lane 3, runs the tool-decision / IT-footprint gate that routes a demand to reuse, self-develop, external build, integrate or connector. Use it at intake, during requirements breakdown, at Lane 3 step 32, and whenever someone asks make, buy, integrate or connect.
+- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+
+## Inputs and output
+
+- **In:** the request or demand as the requester worded it, the plant, and for Lane 3 the purchase or tool in question.
+- **Out:** the filled [`assets/system-fit-check.md`](assets/system-fit-check.md) with one verdict (fits, redesign, escalate; in Lane 3 also the route and a Go / PoC-first / Reduce-complexity / Hold / Blocked verdict) and a named next step.
+
+Example (fictional; the request and plant are invented for illustration):
+
+```text
+Request: "Live cross-process scheduling with full order genealogy" (plant X)
+Need restated: schedule across processes and trace every order end to end
+Boundaries crossed: no lightweight tool covers it (see references/tool-boundaries.md)
+Plant availability: checked, dated
+Verdict: Escalate as exception -> dept-decision-rights, "Tool/system rollout"
+```
+
+## Procedure
+
+1. State the need, not the request (step 1 of "The check").
+2. Walk the tool boundaries in order (step 2).
+3. Check this plant's actual availability (step 3).
+4. Give the verdict and next step ("Verdict and next step").
+5. In Lane 3, run the footprint hard gate, route, score and verdict ("Lane 3 tool-decision gate").
+6. Fill the assets and hand over ("Definition of done").
+
+If a step fails (no boundary line can be named, two sources disagree, the plant status is unknown), the check is not finished: see the guardrails and the discrepancy section below.
+
+## The references are the substance
+
+| File | Use it for |
+|---|---|
+| [`references/tool-decision-gate.md`](references/tool-decision-gate.md) | The Lane 3 gate: IT-footprint hard gate, route to 3a.1-3a.4 or 3b, OD x IT sourcing principles, verdict words |
+| [`references/software-footprint-gate.md`](references/software-footprint-gate.md), [`decision-criteria.md`](references/decision-criteria.md) | The department package's 8-point footprint gate, six scored criteria and verdict taxonomy |
+| [`references/investment-checking-workflow.md`](references/investment-checking-workflow.md), [`screening-method.md`](references/screening-method.md), [`department-questions.md`](references/department-questions.md), [`review-template.md`](references/review-template.md) | The whole-list investment screen of the department package `investment-checking` (the master) |
+| [`references/od-application-consulting/procedure.md`](references/od-application-consulting/procedure.md) | Absorbed: the solution design recommendation for an application question (formerly `od-application-consulting`) |
+| [`references/non-bets.md`](references/non-bets.md) | The department's own choice architecture — what is deliberately not pursued, the trade-offs behind it, and the kill criteria attached to what *is* pursued |
+| [`references/tool-boundaries.md`](references/tool-boundaries.md) | What each lightweight tool (QFPR, MDA/PDA, MIL, Camline, WiriTec) is and is not for, in the department's own words — the actual tell, per tool |
+| [`references/deployment-reality.md`](references/deployment-reality.md) | Why the same tool catalogue is in different states at different plants, and how to read a plant's own tool-availability table — check this plant, not the estate average |
+| [`references/plant-tool-availability.md`](references/plant-tool-availability.md) | How to read the live Tool Overview for a plant (status codes, what an empty cell means), how to count use cases naming a tool, and how to handle disagreement with workshop tables. Guidance only, no figures |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How the check runs as chain step i1 / 32: boundary and "recommended if" lines as intake classifiers, demand shapes, the operations-concept precondition, handoff contract, agent notes |
+| [`references/maturity-profile-signals.md`](references/maturity-profile-signals.md) | Which maturity-model levels on a requested or existing system act as fit-check signals (MES shape, edge need, reporting before AI, integration cost); profile from `funnel-evaluation`, evidence next to the boundary line, never a verdict |
+| [`references/legacy-applications-landscape.md`](references/legacy-applications-landscape.md) | How to read the Legacy Application List (fields, blank-cell traps) and how to spot the plant that already runs a parallel MES, SCADA or dashboard system. Guidance only, no figures |
+
+## The check — three steps
+
+### 1 · State the need, not the request
+
+Restate what the request is actually asking the data or process layer to do, independent of
+whatever system or dashboard name the requester used. This is the step most often skipped,
+and skipping it is why a request "sounds like a normal ask" in the first place — the
+requester's own framing is doing the disguising, not lying.
+
+### 2 · Walk the tool boundaries in order
+
+Check the need against each lightweight tool's own **"is not"** line
+(`references/tool-boundaries.md`): QFPR (quality feedback, not KPI calculation or master
+data), MDA/PDA (machine/asset data, the "lightweight MES" for automation data), the
+Manufacturing Image Library (images and DL inspection, not process-parameter storage or
+model training itself), Recipe Management / Camline (recipe master data, not live value
+storage or alerting), the Energy Management System (energy data only).
+
+Test each tool's "integration recommended if" trigger as well: it says when the tool earns a
+rollout, and the tool's cost class (never a number) goes on the record.
+
+**If none of them cover it, the need is MES- or EMS-shaped.** That is the actual tell this
+skill resolves to — not a vibe, a specific boundary line the need crosses.
+
+### 3 · Check this plant's actual availability, not the estate average
+
+The same tool can be "not necessary" at one plant and "needed for multiple use cases" at
+another at the same time — see `references/deployment-reality.md`. A tool being the
+right answer in principle and a tool being deployed *here* are two different facts; check
+both before concluding anything.
+
+## Verdict and next step
+
+| Verdict | When | Next |
+|---|---|---|
+| **Fits the lean footprint** | A covering tool exists and is available at this plant | Hand back to the calling skill — no further action |
+| **Redesign onto a lighter tool** | The need is covered by a lighter tool than the request assumed | Re-scope the request onto that tool before defining it any further |
+| **Escalate as exception** | The need is genuinely MES/EMS-shaped, or needs a tool not yet deployed here with no substitute | `dept-decision-rights`'s "Tool/system rollout" decision row — the OD lead decides in tandem with the IT-responsible role of the business side |
+
+Fill [`assets/system-fit-check.md`](assets/system-fit-check.md) as the check happens — five
+minutes, not a workshop. When the plant may already run a legacy application or a tool that covers
+the need, add [`assets/existing-system-worksheet.md`](assets/existing-system-worksheet.md). A request that resolves to "escalate" and also has a large,
+multi-area capability gap in `funnel-evaluation`'s own gap analysis is the
+same finding seen from two angles; check whether that evaluation has already been run
+before escalating twice for one request.
+
+## Lane 3 tool-decision gate (step 32)
+
+In Lane 3 this skill is the department's mandatory **tool-decision / IT-footprint gate**
+(`investment-screening`). No demand leaves the front-end without it. Run the intake check above first,
+then [`references/tool-decision-gate.md`](references/tool-decision-gate.md):
+
+1. **Software and IT-footprint hard gate** - the department's 8-point checklist in
+   [`software-footprint-gate.md`](references/software-footprint-gate.md). Any open point blocks.
+2. **Route** to 3a.1 reuse, 3a.2 self-develop, 3a.3 external build (guided buy), 3a.4 integrate a
+   foreign app, or 3b new connector, using the OD x IT sourcing principles (solution-design stage
+   first; build in-house only where the know-how is manufacturing's own; prefer cloud services, open
+   source and the CMO deployment path; judge external builds on multi-year TCO).
+3. **Score** the six decision criteria ([`decision-criteria.md`](references/decision-criteria.md)) with the sub-scores
+   visible, then give the **verdict** in the department's words: Go, PoC-first, Reduce-complexity, Hold, Reject,
+   Blocked (Engage where OD should join an equipment invest), with one decisive reason.
+
+**Whole-list investment screen.** When the input is the MPEE Invest and Cost Planning list rather than one demand,
+run the department's `investment-checking` workflow ([`investment-checking-workflow.md`](references/investment-checking-workflow.md)):
+classify every row OD-owned / touching / interlock / not with the involvement lexicon and de-noise rule
+([`screening-method.md`](references/screening-method.md)), run the footprint gate and the scored gate per relevant row,
+put the open points to the department ([`department-questions.md`](references/department-questions.md)), and write the
+review grouped by region, one controlling cycle per region ([`review-template.md`](references/review-template.md)).
+Read-only: recommend, never decide.
+
+For an application question that needs a full solution design recommendation (which existing tool or
+app covers it, how the data reaches it, who runs it afterwards), run the absorbed procedure in
+[`references/od-application-consulting/procedure.md`](references/od-application-consulting/procedure.md).
+The route goes to `deploy-it-demand` (3a.3, 3a.4), `deploy-appstore` (3a.1, 3a.2) or
+`mi-equipment` (3b).
+
+## A live discrepancy this skill surfaces rather than hides
+
+`references/non-bets.md` records the strategy position on EMS rollout. `references/tool-boundaries.md`'s
+own tool catalogue can describe WiriTec (the EMS) as rolled out and in active use. When the written
+position and the catalogue disagree, **confirm current status before citing
+either version** — this is exactly the kind of policy-vs-practice drift the check exists to
+catch, including in its own source material. Do not silently pick one.
+
+## Guardrails
+
+- **Never conclude "MES-shaped" from a feeling.** Name the specific tool boundary the need
+  crosses; if you cannot name one, the check is not finished.
+- **Never treat an available tool as not available, or vice versa, from the estate average.**
+  Check the specific plant.
+- **Never return "fits" for a tool nobody runs.** A tool with no named operations owner and
+  support level is a service gap, not a fit: escalate (`references/process-chain-practice.md`).
+- **Never let this check itself approve a rollout exception.** It recommends; the "Tool /
+  system rollout" gate in `dept-decision-rights` decides.
+- **Never silently resolve the EMS discrepancy above by picking the version that is more
+  convenient for the request in front of you.** Ask.
+
+## Human gate and AI-agent notes
+
+- **Agent may:** restate the need, walk the boundaries, read the plant tool availability, draft the check and the Lane 3 screen, flag open footprint points. **Humans decide:** the OD lead and the IT-responsible role of the business side decide every rollout exception and every Lane 3 verdict; the plant's operations owner confirms what is deployed.
+- **Evidence to cite:** the boundary line crossed, the dated plant availability, the footprint gate points.
+
+## Pitfalls
+
+The guardrails above are the pitfalls: concluding "MES-shaped" without a named boundary, using the estate average instead of this plant, returning "fits" for a tool nobody runs, approving an exception inside the check, and silently picking one side of the EMS discrepancy.
+
+## Definition of done
+
+The actual need is stated independent of the request's own framing; each lightweight tool's
+boundary has been checked against it with a stated reason, not a guess; this plant's actual
+availability has been checked, dated; and the verdict is one of the three above, with a
+named next step. In Lane 3, additionally: the IT-footprint gate has no open point (or the verdict is
+Blocked), and the demand carries one route (3a.1-3a.4 or 3b) with its next skill.

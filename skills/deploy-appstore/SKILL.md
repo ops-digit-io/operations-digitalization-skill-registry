@@ -15,8 +15,8 @@ metadata:
   tags: [project-support-consultancy, practice, new-state, draft]
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
-  requires: [od-context]
-  composes: [od-system-fit-check, od-decision-routing, od-acceptance-test, od-handover-and-adoption, it-demand-package, od-cybersec-gate]
+  requires: [dept-context]
+  composes: [invest-screen, dept-decision-rights, deploy-acceptance, deploy-handover, deploy-it-demand, deploy-cybersec]
   okf:
     type: Agent Skill
     title: App deployment to the platform
@@ -25,14 +25,14 @@ metadata:
 
 # App deployment to the platform
 
-Read `od-context` first.
+Read `dept-context` first.
 
 **Status: draft.** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
 GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance); its shape and the
 OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
 This skill defines the gates and the package and checks a package against that shape. It contains **no
 deployment commands**; the department's package is the master for those. Serves 3a.1 and 3a.2, and 3a.3
-once the external build is delivered (`it-demand-package`).
+once the external build is delivered (`deploy-it-demand`).
 
 ## Purpose
 
@@ -92,22 +92,22 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 |---|---|---|
 | 3a.1 Reuse | Deploy an existing codebase or app | Package and gate |
 | 3a.2 Self-developed | Build in OD, then deploy | Package and gate; the build is not covered here |
-| 3a.3 External | Spec in-house, build externally | Starts with `it-demand-package`, then package and gate |
-| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with `it-demand-package`, then package and gate |
+| 3a.3 External | Spec in-house, build externally | Starts with `deploy-it-demand`, then package and gate |
+| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with `deploy-it-demand`, then package and gate |
 
 ## Procedure
 
-1. **Precondition.** The front-end is done: requirement (`od-requirements-breakdown`), tool decision (`od-system-fit-check`,
-   `od-decision-routing`), business case (`od-benefit-calculation`), capital approved where needed.
+1. **Precondition.** The front-end is done: requirement (`funnel-requirements`), tool decision (`invest-screen`,
+   `dept-decision-rights`), business case (`bc-build`), capital approved where needed.
 2. **Confirm the target and the route** (above). Record both.
 3. **Assemble the deployment package** (ask for source ownership in the supplier contract; otherwise the highest-effort scenario applies, see `references/process-chain-practice.md`): what the app is and who owns it; the plant sponsor; the target; the sourcing route;
    the data it reads and writes (against `systems-of-record`); the dependencies; the rollback owner; the acceptance protocol.
    ⟨Containerization requirements, image and registry rules, resource limits⟩ - to be supplied. A proposed manifest (name, owner, topics consumed and published,
    API description, whether it writes to a machine, identity, Cyber Security review state) is in `references/app-manifest-and-release-gate.md`; it is a design proposal, not the pilot's procedure.
-4. **Release gate.** Draft the acceptance protocol with `od-acceptance-test`. Cyber Security sign-off is requested through the
-   approval route (`od-decision-routing`) and is **human-only**. Wait state: ⟨lead time, to be supplied⟩ (the flow marks it as weeks).
+4. **Release gate.** Draft the acceptance protocol with `deploy-acceptance`. Cyber Security sign-off is requested through the
+   approval route (`dept-decision-rights`) and is **human-only**. Wait state: ⟨lead time, to be supplied⟩ (the flow marks it as weeks).
 5. **Deploy.** A human with deploy rights on the platform does it. This skill does not deploy.
-6. **Hand over** to rollout and adoption (`od-handover-and-adoption`).
+6. **Hand over** to rollout and adoption (`deploy-handover`).
 
 ## Output - the deployment package
 
@@ -128,7 +128,7 @@ route), and the open questions with their owners.
 
 ## Definition of done
 
-The package is complete, the release gate is passed or its gaps are named with owners, a human with deploy rights has deployed, and the hand-over to `od-handover-and-adoption` is made.
+The package is complete, the release gate is passed or its gaps are named with owners, a human with deploy rights has deployed, and the hand-over to `deploy-handover` is made.
 
 ## Do not
 

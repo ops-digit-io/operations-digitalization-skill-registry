@@ -163,7 +163,7 @@ a.chip{text-decoration:none;}
       </div>
       <div class="body" style="background:#f2f5fb;">
         <div class="track">
-          <div class="node q0" style="flex:2;"><div class="t">Known use case?</div><span class="chip q0">od-use-case-intake-triage</span><span class="chip q0">od-system-fit-check</span></div>
+          <div class="node q0" style="flex:2;"><div class="t">Known use case?</div><span class="chip q0">dept-intake</span><span class="chip q0">invest-screen</span></div>
           <div class="arr"></div>
           <div class="node q0"><div class="t">YES &rarr; run it</div><span class="chip q0">Lane&nbsp;1</span></div>
           <div class="arr"></div>
@@ -186,7 +186,7 @@ a.chip{text-decoration:none;}
           <div class="track">
             <div class="node q0"><span class="state"></span><div class="t">Pick from catalog</div><span class="chip q0">catalog-usecase</span></div>
             <div class="arr"></div>
-            <div class="node q0"><span class="state"></span><div class="t">Apply template</div><span class="chip q0">od-analytics-asset-build</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Apply template</div><span class="chip q0">ops-analytics-asset</span><span class="chip q0">ops-dashboard-engine</span></div>
             <div class="arr"></div>
             <div class="node q0"><span class="state"></span><div class="t">Validate &amp; go live</div><span class="chip q0">catalog-guardrails</span></div>
           </div>
@@ -196,11 +196,11 @@ a.chip{text-decoration:none;}
           <div class="track">
             <div class="node q0"><span class="state"></span><div class="t">Pick UC + std system</div><span class="chip q0">catalog-usecase</span><span class="chip q0">catalog-systems</span></div>
             <div class="arr wait"><span class="wlab">~d</span></div>
-            <div class="node q0"><span class="state"></span><div class="t">Cost template + approval</div><span class="chip q0">od-decision-routing</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Cost template + approval</div><span class="chip q0">dept-decision-rights</span></div>
             <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node q0"><span class="state"></span><div class="t">Order &amp; connect system</div><span class="chip q0">od-equipment-integration</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Order &amp; connect system</div><span class="chip q0">mi-equipment</span></div>
             <div class="arr"></div>
-            <div class="node q0"><span class="state"></span><div class="t">Apply template &amp; go live</div><span class="chip q0">od-analytics-asset-build</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Apply template &amp; go live</div><span class="chip q0">ops-analytics-asset</span><span class="chip q0">ops-dashboard-engine</span></div>
           </div>
         </div>
         <div class="fallnote">Fall-through: not truly catalogued &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; no standard system fits &rarr; <b>Lane&nbsp;3</b></div>
@@ -215,17 +215,17 @@ a.chip{text-decoration:none;}
       </div>
       <div class="body">
         <div class="track">
-          <div class="node q0"><span class="state"></span><div class="t">Define &amp; diagnose</div><span class="chip q0">od-use-case-definition</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Define &amp; diagnose</div><span class="chip q0">funnel-use-case</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Features + data check</div><span class="chip q0">od-requirements-breakdown</span><span class="chip q0">od-data-availability-check</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Features + data check</div><span class="chip q0">funnel-requirements</span><span class="chip q0">mi-data-availability</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Prototype / validate</div><span class="chip q0">od-analytics-asset-build</span><span class="chip q0">od-prototype-poc</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Prototype / validate</div><span class="chip q0">ops-analytics-asset</span><span class="chip q0">funnel-prototype</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Business case + rank</div><span class="chip q0">od-benefit-calculation</span><span class="chip q0">bc-assessment</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Business case + rank</div><span class="chip q0">bc-build</span><span class="chip q0">bc-assess</span></div>
           <div class="arr wait"><span class="wlab">~wks</span></div>
-          <div class="node q0"><span class="state"></span><div class="t">Capital request</div><span class="chip q0">od-decision-routing</span><span class="chip q0">od-capital-request</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Capital request</div><span class="chip q0">dept-decision-rights</span><span class="chip q0">bc-capital-request</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Implement &amp; graduate</div><span class="chip q0">od-handover-and-adoption</span><span class="chip q0">catalog-usecase</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Implement &amp; graduate</div><span class="chip q0">deploy-handover</span><span class="chip q0">catalog-usecase</span></div>
         </div>
         <div class="fallnote">Chains out: needs new software &rarr; <b>Lane&nbsp;3&middot;3a</b> &nbsp;&middot;&nbsp; needs new connection &rarr; <b>Lane&nbsp;3&middot;3b</b> &nbsp;&middot;&nbsp; proven &amp; repeatable &rarr; <b>catalog &rarr; Lane&nbsp;1</b></div>
       </div>
@@ -242,11 +242,11 @@ a.chip{text-decoration:none;}
         <div class="brow">
           <div class="btag">Front&#8209;end<span>shared</span></div>
           <div class="track">
-            <div class="node q0"><span class="state"></span><div class="t">Requirements</div><span class="chip q0">od-requirements-breakdown</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Requirements</div><span class="chip q0">funnel-requirements</span></div>
             <div class="arr"></div>
-            <div class="node q0"><span class="state"></span><div class="t">Tool-decision gate</div><span class="chip q0">od-system-fit-check</span><span class="chip q0">od-decision-routing</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Tool-decision gate</div><span class="chip q0">invest-screen</span><span class="chip q0">dept-decision-rights</span></div>
             <div class="arr wait"><span class="wlab">~wks</span></div>
-            <div class="node q0"><span class="state"></span><div class="t">Business case + capital</div><span class="chip q0">od-benefit-calculation</span><span class="chip q0">od-capital-request</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Business case + capital</div><span class="chip q0">bc-build</span><span class="chip q0">bc-capital-request</span></div>
             <div class="fork">&#9666;</div>
           </div>
         </div>
@@ -261,22 +261,22 @@ a.chip{text-decoration:none;}
         <div class="brow">
           <div class="btag">3a<span>new system</span></div>
           <div class="track">
-            <div class="node q0"><span class="state"></span><div class="t">Package / build</div><span class="chip q0">it-demand-package</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Package / build</div><span class="chip q0">deploy-it-demand</span></div>
             <div class="arr wait"><span class="wlab">CS ~wks</span></div>
             <div class="node q0"><span class="state"></span><div class="t">Deploy to platform + CS</div><span class="chip q0">deploy-appstore</span></div>
             <div class="arr"></div>
-            <div class="node q0"><span class="state"></span><div class="t">Rollout &amp; adopt</div><span class="chip q0">od-handover-and-adoption</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Rollout &amp; adopt</div><span class="chip q0">deploy-handover</span></div>
           </div>
         </div>
         <!-- 3b flow -->
         <div class="brow">
           <div class="btag">3b<span>new connector</span></div>
           <div class="track">
-            <div class="node q0"><span class="state"></span><div class="t">Connector + pipeline to MDL</div><span class="chip q0">od-equipment-integration</span><span class="chip q0">od-signal-standardization</span><span class="chip q0">od-node-red-flow-builder</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Connector + pipeline to MDL</div><span class="chip q0">mi-equipment</span><span class="chip q0">mi-signals</span><span class="chip q0">mi-flow</span></div>
             <div class="arr wait"><span class="wlab">proc ~wks</span></div>
-            <div class="node q0"><span class="state"></span><div class="t">Procure &amp; connect machine</div><span class="chip q0">od-equipment-integration</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Procure &amp; connect machine</div><span class="chip q0">mi-equipment</span></div>
             <div class="arr wait"><span class="wlab">CS ~wks</span></div>
-            <div class="node q0"><span class="state"></span><div class="t">Acceptance + CS &rarr; live</div><span class="chip q0">od-acceptance-test</span></div>
+            <div class="node q0"><span class="state"></span><div class="t">Acceptance + CS &rarr; live</div><span class="chip q0">deploy-acceptance</span></div>
           </div>
         </div>
       </div>
@@ -291,13 +291,13 @@ a.chip{text-decoration:none;}
       </div>
       <div class="body">
         <div class="track">
-          <div class="node q0"><span class="state"></span><div class="t">Select + check story</div><span class="chip q0">od-showcase-selection</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Select + check story</div><span class="chip q0">comms-showcase</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Brief Internal Communications</div><span class="chip q0">od-comms-brief</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Brief Internal Communications</div><span class="chip q0">comms-brief</span></div>
           <div class="arr wait"><span class="wlab">IC</span></div>
-          <div class="node q0"><span class="state"></span><div class="t">Review + publish</div><span class="chip q0">od-comms-brief</span><span class="chip q0">IC publishes</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Review + publish</div><span class="chip q0">comms-brief</span><span class="chip q0">IC publishes</span></div>
           <div class="arr"></div>
-          <div class="node q0"><span class="state"></span><div class="t">Follow up + feed back</div><span class="chip q0">od-showcase-followup</span></div>
+          <div class="node q0"><span class="state"></span><div class="t">Follow up + feed back</div><span class="chip q0">comms-followup</span></div>
         </div>
         <div class="fallnote">Entry: use case <b>live &amp; adopted</b> (Lane&nbsp;1 go-live or Lane&nbsp;2 graduation), never from intake &nbsp;&middot;&nbsp; Feeds back: catalogued &rarr; <b>Lane&nbsp;1</b> &nbsp;&middot;&nbsp; new need &rarr; <b>Lane&nbsp;2</b> &nbsp;&middot;&nbsp; needs a system &rarr; <b>Lane&nbsp;3</b></div>
       </div>

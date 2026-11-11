@@ -12,7 +12,7 @@ This file holds **no counts, plant lists or status snapshots**. Read the live so
 SharePoint list `ToolOverview-List`, with rollout records per plant and "used by" links), the department's
 systems-of-record note (`_knowledge/OperationsDigitalization-Department/10-modules/smart-factory-use-case/systems-of-record.md`,
 which carries its own verification and validity dates: re-read it, and check its validity before quoting), and skill
-`od-requirements-breakdown` `references/legacy-system-assessment.md` for the footprint rule.
+`funnel-requirements` `references/legacy-system-assessment.md` for the footprint rule.
 
 ## The three integration concepts (the "where does the data go" choice)
 
@@ -28,7 +28,7 @@ whose tool note does not record it as `Available`. Treat that mismatch as a ques
 rollout was recorded, or rollout records not updated), not as a fact either way.
 
 An aggregation-server (Concept 1) route **also needs the edge platform behind it**: the server concentrates, it is not a
-destination (`od-equipment-integration`, `decision-paths.md`). So before offering a Concept 1 route, confirm for the plant
+destination (`mi-equipment`, `decision-paths.md`). So before offering a Concept 1 route, confirm for the plant
 that Concept 3 is `Available`. A plant with a Concept 1 record but only a planned, not-started or missing Concept 3 record
 cannot be offered a Concept 1 route until the edge is confirmed (IIAE).
 
@@ -65,9 +65,9 @@ The note has its own validity window; if it has expired, re-read the underlying 
 ## Lean footprint - what the sources actually fix
 
 The bundle says the aim is a **lean, standardized system footprint**, measured as the number of systems in operation (target
-still to be confirmed; `00-core/03-objectives.md`). In practice the footprint rule of `od-requirements-breakdown` applies: a
+still to be confirmed; `00-core/03-objectives.md`). In practice the footprint rule of `funnel-requirements` applies: a
 requirement that needs a system outside the tools above is not a use case but a tool-rollout decision, routed to the OD lead
-(`od-decision-routing`). For a standard-system entry that means: the kit may use Concept 1, 2 or 3 and the connectors in the
+(`dept-decision-rights`). For a standard-system entry that means: the kit may use Concept 1, 2 or 3 and the connectors in the
 Connector Overview; it may not require MES, MIL or an extension of Energy Management, and it may not add a new tool.
 
 ## Data layer a standard system feeds
@@ -82,4 +82,4 @@ itself - IIAE.
 
 - ⟨Which plants have no edge platform at all⟩ - a plant with no row in the tool overview is unknown, not a "No".
 - ⟨Licence position of the aggregation server per PLC family⟩: the product needs a licence per family unless the extended
-  suite is in place (`od-equipment-integration`, `softing-datafeed.md`); the knowledge base does not say which plants hold which.
+  suite is in place (`mi-equipment`, `softing-datafeed.md`); the knowledge base does not say which plants hold which.

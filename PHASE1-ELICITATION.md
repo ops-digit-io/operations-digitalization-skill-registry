@@ -24,7 +24,7 @@ the shared skill entirely.
 ---
 
 ## 1. Refusal in practice — RESOLVED 2026-10-22 (partially)
-→ `skills/od-use-case-intake-triage/references/refusal-playbook.md`
+→ `skills/dept-intake/references/refusal-playbook.md`
 
 Resolved from the department's own retrospective workshop record
 (`Split Slides/10-Workshops--...`) instead of interview: three
@@ -37,7 +37,7 @@ to it — not in the mined record; add directly if you have it.
 ---
 
 ## 2. Connectability judgement
-→ `skills/od-equipment-integration/references/barrier-classes.md`
+→ `skills/mi-equipment/references/barrier-classes.md`
 
 ### What the estate already shows
 
@@ -136,7 +136,7 @@ barrier class; it's a recording gap.
 ---
 
 ## 3. Benefit-calculation review — RESOLVED 2026-10-22 (partially)
-→ `skills/od-benefit-calculation/references/review-checklist.md`
+→ `skills/bc-build/references/review-checklist.md`
 
 Resolved from the department's own retrospective workshop record instead of interview:
 why the methodology field is usually the one missing (plants avoid self-originating a
@@ -149,7 +149,7 @@ directly if you have it.
 ---
 
 ## 4. ODEC vs. COP in practice — RESOLVED 2026-10-22
-→ `skills/od-decision-routing/references/escalation-worked-examples.md`
+→ `skills/dept-decision-rights/references/escalation-worked-examples.md`
 
 Resolved from the department's own ODEC/CoP call decks (`Split
 Slides/`) instead of interview — the Groot2B cybersecurity item split cleanly into a
@@ -161,13 +161,13 @@ write-up and citations.
 ---
 
 ## 5. Non-bet system-fit judgement — RESOLVED 2026-10-22 (partially)
-→ `skills/od-system-fit-check/` (built)
+→ `skills/invest-screen/` (built)
 
 Resolved from the department's own tool catalogue and per-plant Smart Factory Tool
 Availability snapshots instead of interview: the tell (walk each lightweight tool's own
 "is not" boundary — QFPR, MDA/PDA, MIL, Camline, WiriTec — none covering the need means
 MES/EMS-shaped) and what you do once caught (redesign onto the lighter tool, or escalate
-via `od-decision-routing`'s tool/system-rollout gate). Also surfaced a live discrepancy the
+via `dept-decision-rights`'s tool/system-rollout gate). Also surfaced a live discrepancy the
 mined record itself contains: the written non-bets say EMS rollout is stopped, while a
 January 2025 deck shows WiriTec mostly rolled out — flagged, not resolved either way.
 **Still open:** 2-3 *named, real* requests that looked like a normal ask but secretly
@@ -184,9 +184,9 @@ before you write those answers.*
 ---
 
 ## 6. Internal Communications handover (Lane 4) — OPEN
-→ `skills/od-comms-brief/references/ic-handover.md`
+→ `skills/comms-brief/references/ic-handover.md`
 
-The owner asked for an outbound lane that promotes live, adopted use cases through Internal Communications. The knowledge base holds no description of the Internal Communications process (it records only that the role exists, central, in HR and Communications), so the skill leaves its details open. OD's own January 2026 marketing-template initiative (appetizer template, testimonial, story shapes) is now the basis of the formats in `od-comms-brief`. **To be supplied by the owner (the Internal Communications brief):** the intake channel or role, the channels per audience (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), the lead time, any IC template or review route that replaces `comms-brief.md`, brand and tone rules, a second approval or language, and what reach or response data IC returns.
+The owner asked for an outbound lane that promotes live, adopted use cases through Internal Communications. The knowledge base holds no description of the Internal Communications process (it records only that the role exists, central, in HR and Communications), so the skill leaves its details open. OD's own January 2026 marketing-template initiative (appetizer template, testimonial, story shapes) is now the basis of the formats in `comms-brief`. **To be supplied by the owner (the Internal Communications brief):** the intake channel or role, the channels per audience (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME), the lead time, any IC template or review route that replaces `comms-brief.md`, brand and tone rules, a second approval or language, and what reach or response data IC returns.
 
 **Your answer:**
 

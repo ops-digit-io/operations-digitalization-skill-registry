@@ -80,29 +80,29 @@ is derived from that material.
 
 | Skill | Primary sources |
 |---|---|
-| `od-context` | `00-core/01-charter`, `04-service-catalog`, `08-decision-rights`, `14-glossary`; `10-Department/Operating model`, `Systems of record`, `Roles and organization` |
+| `dept-context` | `00-core/01-charter`, `04-service-catalog`, `08-decision-rights`, `14-glossary`; `10-Department/Operating model`, `Systems of record`, `Roles and organization` |
 | `od-use-case-support-service` | `20-lanes/use-case-support-service/*`; `10-Department/Use case lifecycle` |
 | `od-information-integration-service` | `20-lanes/information-integration-service/*`; `10-Department/Machine integration` |
 | `od-project-support-consultancy` | `20-lanes/project-support-consultancy/*`; `00-core/12-portfolio` |
 | `od-analytical-support-service` | `20-lanes/analytical-support-service/*` |
-| `od-use-case-intake-triage` | `00-core/05-intake`, `04-service-catalog`, `01-charter`, `13-swot` |
-| `od-use-case-definition` | `20-lanes/use-case-support-service/{playbook,tasks}`; `10-Department/Use case lifecycle`, `Use case standardization` |
-| `od-benefit-calculation` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
-| `od-use-case-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
-| `od-equipment-integration` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*`; `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation) |
-| `od-requirements-breakdown` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across the use cases, the latent heading grammar inside `target_text`/`blockers`, and the legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
-| `od-signal-standardization` | `node-red-auto-docs/docs/**` (the signal names in use across the flows); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
-| `od-acceptance-test` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
-| `od-handover-and-adoption` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
-| `od-data-availability-check` | `20-lanes/analytical-support-service/{playbook,tasks}`; `10-Department/Machine integration`; `10-modules/.../systems-of-record` |
-| `od-analytics-asset-build` | `10-Department/Operating model`, `Rituals`; `20-Done/Grafana dashboard screenshot automation`; `20-lanes/analytical-support-service/*` |
-| `od-scorecard-reporting` | `00-core/07-metrics`, `06-operating-rhythm`; all four `20-lanes/*/metrics.md` |
-| `od-portfolio-and-savings-analysis` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
-| `od-decision-routing` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
-| `od-sharepoint-list-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
-| `od-node-red-flow-builder` | `node-red-auto-docs/docs/**` (the flow corpus); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
+| `dept-intake` | `00-core/05-intake`, `04-service-catalog`, `01-charter`, `13-swot` |
+| `funnel-use-case` | `20-lanes/use-case-support-service/{playbook,tasks}`; `10-Department/Use case lifecycle`, `Use case standardization` |
+| `bc-build` | `10-Department/Savings and value tracking`, `Decision rights`; `20-lanes/use-case-support-service/*` |
+| `catalog-standardization` | `10-Department/Use case standardization`; `20-Done/AI cluster classification`, `Use case portfolio analysis` |
+| `mi-equipment` | `10-Department/Machine integration`; `20-Done/Equipment integration guide`; `20-lanes/information-integration-service/*`; `machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf` (Softing dataFEED OPC Suite V5.70 manual); `_apps/machine-integration-guidance-app/{rules,rules-next}.json`; `90-Sources/generated/kg_nodes.csv`; interview with human:jakob.gabriel, 2026-09-17 (barrier-classes elicitation) |
+| `funnel-requirements` | `OperationsDigitalization-Department/OD_Skill_Map.md` (UC-03, P-04); the four `20-lanes/*/playbook.md` step 3; `90-Sources/generated/kg_nodes.csv` — field population across the use cases, the latent heading grammar inside `target_text`/`blockers`, and the legacy applications; `usecase-standardization-knowledgebase.md`; `00-core/05-intake` and `15-resources` |
+| `mi-signals` | `node-red-auto-docs/docs/**` (the signal names in use across the flows); `90-Sources/org-analysis/usecase-standardization-knowledgebase.md` (ISO 22400-2, VDI 3423, ISA-95, ISO 22005); `10-Department/Use case standardization`; `20-lanes/information-integration-service/*`; `10-modules/.../systems-of-record` |
+| `deploy-acceptance` | `20-lanes/{information-integration-service,project-support-consultancy}/{playbook,tasks,agent-brief}` |
+| `deploy-handover` | `10-Department/Handover`, `Rituals`, `Use case lifecycle` |
+| `mi-data-availability` | `20-lanes/analytical-support-service/{playbook,tasks}`; `10-Department/Machine integration`; `10-modules/.../systems-of-record` |
+| `ops-analytics-asset` | `10-Department/Operating model`, `Rituals`; `20-Done/Grafana dashboard screenshot automation`; `20-lanes/analytical-support-service/*` |
+| `metrics-scorecard` | `00-core/07-metrics`, `06-operating-rhythm`; all four `20-lanes/*/metrics.md` |
+| `bc-portfolio` | `20-Done/Use case portfolio analysis`; `10-Department/Savings and value tracking`, `Use case lifecycle`, `Systems of record` |
+| `dept-decision-rights` | `00-core/08-decision-rights`, `09-risks`; `10-Department/Decision rights` |
+| `know-sharepoint-export` | `20-Done/SharePoint list export procedure`; `90-Sources/sharepoint-export-playbook.md` |
+| `mi-flow` | `node-red-auto-docs/docs/**` (the flow corpus); `node-red-auto-docs/generate_docs.py`; `10-Department/Machine integration` |
 | `od-node-red-flow-troubleshooting` | `node-red-auto-docs/docs/**` — every check is validated against the whole flow corpus |
-| `build-grafana-ops-dashboard` | **not derived** — vendored from the author's skill, 2026-08-25 |
+| `ops-dashboard-engine` | **not derived** — vendored from the author's skill, 2026-08-25 |
 
 ## Where this registry deliberately contradicts the bundle
 
@@ -124,7 +124,7 @@ What was **kept**, deliberately, because they are live identifiers rather than r
 - the `ct-oesl-*-nodered-*` **repository names** — the doc generator matches on
   `^ct-oesl-.*-nodered-(prod|test).*`, so renaming them makes the flows undocumentable;
 - the **`CT/…` MQTT topic root** and its `OESL` / `MFS` segments — a topic is an interface
-  and every subscriber breaks; both are marked as legacy in `od-node-red-flow-builder`;
+  and every subscriber breaks; both are marked as legacy in `mi-flow`;
 - **CT Base** as the recorded name of the data-model blocker on 23 machines — the estate
   says that, so the estate is quoted, with the current model name marked `⟨confirm⟩`.
 
@@ -145,7 +145,7 @@ emerges from the tasks and playbooks: procedures that several lanes run identica
 (acceptance testing, handover, data availability). Flattening them would duplicate the
 guardrails into every skill, and duplicated guardrails drift.
 
-**`od-context` is a skill, not a preamble.** The glossary and the honesty rules are the
+**`dept-context` is a skill, not a preamble.** The glossary and the honesty rules are the
 part of the source that most changes an answer, and the source itself says why:
 *inconsistent vocabulary is a top agent-failure cause*. Making it loadable means the rules
 arrive with the work rather than being restated per skill.
@@ -177,7 +177,7 @@ palette module named and the config-node shapes taken from the flow that actuall
 also a caution about derivation in general: a corpus can be complete for what it shows and
 silently missing a whole layer.
 
-**`od-signal-standardization` was promoted from practice to technical, because the evidence
+**`mi-signals` was promoted from practice to technical, because the evidence
 turned it into a real analysis job.** Mining the flow corpus for `datapoint*` config keys
 found **many distinct signal names for a far smaller set of concepts** — several for machine state alone,
 several for part number, and a misspelled name that is referenced widely and is
@@ -274,7 +274,7 @@ bought by breaking the artefact.
 So a skill carries its OKF fields under `metadata`, which the spec defines as a free-form map
 "read by your own tooling" — precisely this case. Every other concept carries ordinary
 top-level frontmatter. Checking that constraint also turned up a live defect:
-`build-grafana-ops-dashboard/SKILL.md` carried `argument-hint`, which is the exact key the
+`ops-dashboard-engine/SKILL.md` carried `argument-hint`, which is the exact key the
 error message names, so that skill would have failed upload today.
 
 Two of the knowledge-graph bundle's rules could not be copied unchanged. `title` must equal
@@ -423,11 +423,11 @@ which drift; every check was computed over the corpus, and the computation is re
 the traceability table. Where the corpus is inconsistent, the skill says so rather than
 picking a winner.
 
-**One skill is vendored, and it kept its name.** `build-grafana-ops-dashboard` is
+**One skill is vendored, and it kept its name.** `ops-dashboard-engine` is
 domain-generic and already had an identity, including a cross-reference to `/build-dashboard`
 that would break under a rename. Its body and its 22 reference files are unchanged; the only
 edit is an added `metadata:` block in the frontmatter. That made a second scope necessary:
-`od` skills inherit the department's vocabulary and must require `od-context`, while a
+`od` skills inherit the department's vocabulary and must require `dept-context`, while a
 `portable` skill instead ships an `od_integration` note saying what changes when it is used
 for OD work. The validator enforces both halves, so a future vendored skill cannot quietly
 skip the integration note.
@@ -478,7 +478,7 @@ variants, one terminus", because the earlier phrasing was itself carrying the er
 the Equipment integration guide says *IIoT Edge Platform* and *Central Aggregation Server*,
 the department notes say *IIoT edge computing platform* and *central OPC-UA server*, and the
 recommendation bodies add *Softing OPC-UA Aggregation Server* and *Softing DataFeed*. Rather
-than pick one and silently rewrite the others, `od-equipment-integration` carries a
+than pick one and silently rewrite the others, `mi-equipment` carries a
 Terminology table mapping canonical name to alias to what the thing actually is, states that
 the concept and the route are the same thing seen from two sides, and the adjacent skill
 (`od-information-integration-service`) names both and points here for per-machine routing.
@@ -501,12 +501,12 @@ skill, 2026-09-17.** The two were already sequential in practice — the guidanc
 body said "for a whole plant or wave, start at `od-equipment-integration-assessment` and come
 back here per machine" — which made them one procedure described as two skills composing each
 other, the same shape `derivation.md` already names for acceptance testing ("one protocol,
-referenced twice"). The merge makes that explicit: `od-equipment-integration` opens with two
+referenced twice"). The merge makes that explicit: `mi-equipment` opens with two
 entry routes (assessment — no plant/wave inventory exists yet; guidance — a specific machine's
 route is needed and the assessment already happened) instead of routing a reader through a
 `composes` edge to find out. Both routes now write into a structured, reusable protocol
 document (`assets/`) rather than leaving the output as prose. Every skill that referenced
-either old id by name was repointed to `od-equipment-integration`, with `(assessment route)`
+either old id by name was repointed to `mi-equipment`, with `(assessment route)`
 or `(guidance route)` added in prose wherever the distinction still matters to the reader.
 
 The knowledge graph is the source; this registry is derived. When a lane pack, a core file
@@ -521,11 +521,11 @@ or a `10-Department` concept changes:
 4. Run `python3 scripts/validate_registry.py`.
 
 Corrections to the underlying facts do not belong here or in the graph — they go to the
-SharePoint list that owns them. See `od-context`, "Where the truth lives".
+SharePoint list that owns them. See `dept-context`, "Where the truth lives".
 
 ## Verification status
 
 **Unverified.** Every derived skill was drafted from the bundle; nobody has read them line
-by line against the source systems. `build-grafana-ops-dashboard` is vendored and carries
+by line against the source systems. `ops-dashboard-engine` is vendored and carries
 its author's own status. That is accurate, not modest — it matches the source bundle's
 own trust statement. Add a verification note to a skill's frontmatter once somebody has.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prove that the IT handover (skills/it-demand-package) follows OpenSpec, without users needing OpenSpec's CLI.
+"""Prove that the IT handover (skills/deploy-it-demand) follows OpenSpec, without users needing OpenSpec's CLI.
 
     python3 scripts/check_openspec_conformance.py [--require]
 
@@ -27,7 +27,7 @@ import sys
 import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKILL = ROOT / "skills" / "it-demand-package"
+SKILL = ROOT / "skills" / "deploy-it-demand"
 CHECK = SKILL / "scripts" / "check_handover.py"
 NEW = SKILL / "scripts" / "new_handover.py"
 OFFLINE = SKILL / "scripts" / "openspec_offline.py"

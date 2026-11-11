@@ -16,8 +16,8 @@ metadata:
   tags: [all, practice, new-state, draft, catalog]
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
   status: draft
-  requires: [od-context]
-  composes: [catalog-systems, catalog-guardrails, od-use-case-standardization, od-use-case-intake-triage, od-data-availability-check, od-system-fit-check, od-handover-and-adoption, od-equipment-integration, od-decision-routing, od-acceptance-test]
+  requires: [dept-context]
+  composes: [catalog-systems, catalog-guardrails, catalog-standardization, dept-intake, mi-data-availability, invest-screen, deploy-handover, mi-equipment, dept-decision-rights, deploy-acceptance]
   okf:
     type: Agent Skill
     title: catalog-usecase
@@ -26,7 +26,7 @@ metadata:
 
 # Catalog: use cases, standard systems, go-live guardrails
 
-Read `od-context` first.
+Read `dept-context` first.
 
 Merged from: `catalog-usecase`.
 
@@ -58,7 +58,7 @@ If it fails: a candidate without a recorded CSP `Yes`, or a precondition that fa
 |---|---|---|---|
 | 1a1 | Lane 1, machine connected | "Pick from catalog": match the request to an entry, check preconditions | A |
 | 1b1 | Lane 1, machine not connected | "Pick UC + std system": entry, then a standardized system or no fit | A, B |
-| 1b2, 1b3 | Lane 1b | Cost template and lightweight approval (`od-decision-routing`), then order and connect (`od-equipment-integration`); this skill hands over | B |
+| 1b2, 1b3 | Lane 1b | Cost template and lightweight approval (`dept-decision-rights`), then order and connect (`mi-equipment`); this skill hands over | B |
 | 1a3 (and 1b4) | Lane 1 | "Validate and go live": the plant's self-check | C |
 | 26 | end of Lane 2 | A proven, repeatable result graduates into the catalog and becomes a future Lane 1 case | A |
 
@@ -66,8 +66,8 @@ If no catalogued entry fits: Lane 2 (OD-led). If no standard system fits: Lane 3
 
 ## Shared rules (stated once)
 
-- The **plant decides** what it runs, owns the use case and decides daily use and `PRODUCTIVE`. The **CSP decision** (is a solution standard enough to roll out across plants) stays with its owner (`od-decision-routing`). Ordering and connecting stay with the integration owner and the approval route. **Cyber Security sign-off for an external connection is human-only.**
-- Footprint: keep the **lean, standardized system footprint** (measured as the number of systems in operation; the target is to be confirmed). Anything outside it goes through `od-system-fit-check`.
+- The **plant decides** what it runs, owns the use case and decides daily use and `PRODUCTIVE`. The **CSP decision** (is a solution standard enough to roll out across plants) stays with its owner (`dept-decision-rights`). Ordering and connecting stay with the integration owner and the approval route. **Cyber Security sign-off for an external connection is human-only.**
+- Footprint: keep the **lean, standardized system footprint** (measured as the number of systems in operation; the target is to be confirmed). Anything outside it goes through `invest-screen`.
 - No invented entries, counts, kits, prices, lead times, savings or impact figures. Mark what is to be collected; every status carries its source and read date. Counts and statuses are re-derived live, never copied.
 - A "Yes" without evidence counts as "not checked".
 
@@ -83,25 +83,25 @@ All must hold. Points 1 and 4 come from the sources; **2 and 3 are proposals** t
 
 1. A **CSP decision `Yes`** is recorded for it.
 2. It maps to one of the eleven **capability templates**.
-3. Its **signals are standardized** (`od-signal-standardization`), so a second plant can consume them.
-4. It has a **plant owner** and a handover record that passed the three-question test (`od-handover-and-adoption`).
+3. Its **signals are standardized** (`mi-signals`), so a second plant can consume them.
+4. It has a **plant owner** and a handover record that passed the three-question test (`deploy-handover`).
 
 A library entry without a recorded CSP `Yes` is not catalogued: route it to Lane 2.
 
 ## Procedure - pick
 
-1. **Load `od-context`.** Run `od-use-case-intake-triage` if the request is not yet classified. Reduce the plant's sentence to object, event and time axis.
-2. **Find the capability template**, then the matching reference-library entries (`od-use-case-standardization`). Check the template page and the entry, not the title ([`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md)).
+1. **Load `dept-context`.** Run `dept-intake` if the request is not yet classified. Reduce the plant's sentence to object, event and time axis.
+2. **Find the capability template**, then the matching reference-library entries (`catalog-standardization`). Check the template page and the entry, not the title ([`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md)).
 3. **Check the CSP status** of each candidate. No recorded `Yes` - stop, fall through to Lane 2.
-4. **Check preconditions** (`od-data-availability-check`): machine connected, signals present. Connected - branch **1a**. Not connected - branch **1b** (Part B).
-5. **Footprint.** A need outside the lean footprint: `od-system-fit-check` first. A plant does not self-serve such a use case.
-6. **Write the match record** ([`assets/catalog-match-record.md`](assets/catalog-match-record.md)) and hand over: 1a to `od-analytics-asset-build`; 1b to Part B; fall-through to Lane 2 or Lane 3. Name the plant's **utilization moment** (who opens it, in which meeting, which action follows) or mark it `<to confirm>`.
+4. **Check preconditions** (`mi-data-availability`): machine connected, signals present. Connected - branch **1a**. Not connected - branch **1b** (Part B).
+5. **Footprint.** A need outside the lean footprint: `invest-screen` first. A plant does not self-serve such a use case.
+6. **Write the match record** ([`assets/catalog-match-record.md`](assets/catalog-match-record.md)) and hand over: 1a to `ops-analytics-asset`; 1b to Part B; fall-through to Lane 2 or Lane 3. Name the plant's **utilization moment** (who opens it, in which meeting, which action follows) or mark it `<to confirm>`.
 
 Match record fields: request, plant, plant owner; candidate entry (library id, capability template); CSP status (`Yes` / `No` / not decided, with source); preconditions with the data-availability verdict; branch (1a / 1b / Lane 2 / Lane 3); next skill.
 
 ## Graduation into the catalog (step 26)
 
-Use `od-use-case-standardization` for template, cluster and CSP step and `od-handover-and-adoption` for the plant handover.
+Use `catalog-standardization` for template, cluster and CSP step and `deploy-handover` for the plant handover.
 Propose the entry only when the four conditions hold. A validated prototype alone is a **candidate**, not an entry:
 graduation means the prototype has become a configurable, packaged application. A *unique* (site-specific) use case does not
 graduate. Record the plant's utilization moment in the entry; a deployed but unused use case is not a success.
@@ -141,7 +141,7 @@ The match record names the branch and the next skill, with the CSP status and it
 - Present a reference-library entry as catalogued without a recorded CSP `Yes`.
 - Invent entries, counts, kits, prices, lead times, savings or impact figures. Do not accept an unsourced figure to pass G4.
 - Treat a route marked TODO or stub as a standard system. Beckhoff on the edge platform is the standing example.
-- Let a plant self-serve a use case, or propose a system, outside the lean footprint without `od-system-fit-check`.
+- Let a plant self-serve a use case, or propose a system, outside the lean footprint without `invest-screen`.
 - Take the CSP decision, approve a connection, sign off Cyber Security, or decide go-live for the plant.
 - Let a plant go live with a failed or unchecked guardrail, or present G1 to G7 as complete.
 

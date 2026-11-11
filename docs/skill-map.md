@@ -50,7 +50,7 @@ Source: `_knowledge/OperationsDigitalization-Department/20-lanes/*/skills.md`, v
 **The data platform is the seam of the whole department.** Information Integration writes it
 through the edge offload — Databricks to an Azure Storage Account, Parquet — and Use Case
 Support and Analytical Support read it. Every "where is my data?" question is a question
-about that seam, which is why `od-data-availability-check` exists as its own skill rather
+about that seam, which is why `mi-data-availability` exists as its own skill rather
 than a paragraph in two lanes.
 
 **Write rights are the real lane boundary.** Use Case Support may write pipelines only
@@ -59,15 +59,15 @@ rule — one trigger, one definition of done, one autonomy profile — shows up 
 write right per system per lane.
 
 **Two lanes author acceptance protocols and neither may sign one.** That asymmetry is
-deliberate and is the reason `od-acceptance-test` states sign-off as human-only at every
+deliberate and is the reason `deploy-acceptance` states sign-off as human-only at every
 authority level.
 
 **Three of the four lanes touch the Scorecard, each on a different surface** — utilization,
-readiness, counts. `od-scorecard-reporting` collects those into one place so that a single
+readiness, counts. `metrics-scorecard` collects those into one place so that a single
 figure does not get reported three ways.
 
 **Three lanes carry a Cyber Security gate.** It is a constraint, not a task, which is why it
-lives in `od-context` and is inherited rather than restated per skill.
+lives in `dept-context` and is inherited rather than restated per skill.
 
 ## Capability bottlenecks and skill gaps
 
@@ -85,7 +85,7 @@ department cannot currently do at volume:
 Global staffing: open positions planned in Asia and the Americas; Europe partly staffed.
 
 These are the entries a registry cannot fix. A skill makes a procedure repeatable; it does
-not add an IIAE. Where a skill sits on top of a named bottleneck — `od-signal-standardization`
-on the data-platform / MSB operations-concept gap, `od-equipment-integration` on IIAE
+not add an IIAE. Where a skill sits on top of a named bottleneck — `mi-signals`
+on the data-platform / MSB operations-concept gap, `mi-equipment` on IIAE
 capacity — it says so in the body, so the reader knows the constraint is real and not a
 process failure.
