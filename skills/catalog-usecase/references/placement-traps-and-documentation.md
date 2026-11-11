@@ -47,7 +47,7 @@ The knowledge base's microservice draft read the whole residual item by item and
 
 | Sub-pattern | Typical content | Catalog reading |
 |---|---|---|
-| AI knowledge and document assistant | LLM helpers for work instructions, IT problem solving, lessons learned | Not production data. Route through `od-ai-generation-playbook` governance, not as a template match |
+| AI knowledge and document assistant | LLM helpers for work instructions, IT problem solving, lessons learned | Not production data. Route through `know-ai-generation` governance, not as a template match |
 | Workplace and operator administration | Work instruction visualisation, shopfloor change management (4M), HR and safety administration | Office or workplace app; a peer may exist, the data is not machine data |
 | Production-to-ERP integration | Booking scrap or output to the ERP, label printing automation | Integration work; follows the systems-of-record rule of one source per data object |
 | Mold and tool lifecycle | Tool cycle counts and service due | Tool management; often a small shared app |

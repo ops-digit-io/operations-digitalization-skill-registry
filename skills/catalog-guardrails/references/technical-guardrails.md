@@ -35,7 +35,7 @@ None of these says "a plant must not go live unless...". The block-or-warn setti
 | G15 | **A missing value is shown as missing,** never as 0; the age of the newest value is visible and stale data (beyond a threshold the screen's owner sets) is marked | plant requirements G-10, G-11 | Trend lines end well before "now" with no sign of it | warn; ties to G1 (a silent number is the quiet failure) |
 | G16 | **Refresh and range follow the use:** live status short range and short refresh; trends hours and minute-level; shift reports shift-aligned. A very short refresh needs a note on query cost | SPEC-03 S-14 | Very short refresh on heavy queries; refresh switched off on live screens | warn |
 | G17 | **Free text stays free of names and is not forwarded.** A reason or comment field is never summarised, enriched or sent on by an automated pipeline without filtering | WIP microservice spec "Cross-Cutting Platform Concerns", citing the knowledge base's own rule on names and an existing note that carries an individual's name from an unfiltered export | A recorded case of a name leaking through an unfiltered free-text export | block where a self-served screen has a free-text field |
-| G18 | **No write-back to a machine from a self-served use case.** Anything that sets values in a control system is not Lane 1 | WIP spec "Platform Extensibility": `writes_to_machines: true` routes through the ISA/IEC 62443 and NIST SP 800-82 segmentation review; `od-decision-routing`: an agent never writes to a production system | n/a | block; hand to Lane 3 and `od-cybersec-gate` |
+| G18 | **No write-back to a machine from a self-served use case.** Anything that sets values in a control system is not Lane 1 | WIP spec "Platform Extensibility": `writes_to_machines: true` routes through the ISA/IEC 62443 and NIST SP 800-82 segmentation review; `dept-decision-rights`: an agent never writes to a production system | n/a | block; hand to Lane 3 and `deploy-cybersec` |
 
 Two further rules from the specs concern central operators rather than a plant, and are left out: class A tool dashboards are maintained once and deployed to all plants (SPEC-04 F-01), and the signal record is the system of record for unit and scale (D-01). A plant that wants to change a class A dashboard asks OD instead of editing its copy.
 
@@ -60,8 +60,8 @@ or self-developed app against the agreed direction and mark the rule ⟨to confi
 | Interfaces | Approved OT interfaces (MQTT to the edge platform where applicable); reuse existing infrastructure and central data stores across locations |
 | Observability | Logging and health visible before go-live |
 | Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item) |
-| Self-assessment | The production owner reassesses every six or twelve months (`od-handover-and-adoption`) |
-| Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`od-requirements-breakdown`) |
+| Self-assessment | The production owner reassesses every six or twelve months (`deploy-handover`) |
+| Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`funnel-requirements`) |
 
 ## Open
 

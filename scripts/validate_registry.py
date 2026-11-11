@@ -70,6 +70,7 @@ def main() -> int:
     registry = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
     listed = {entry["id"] for entry in registry.get("skills", [])}
     tiers = set(registry.get("tiers", {}))
+    families = set(registry.get("families", {}))
 
     on_disk = set(skillpaths.all_ids())
     for entry in registry.get("skills", []):
@@ -102,6 +103,12 @@ def main() -> int:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name '{declared}' does not match its directory")
         if declared and not NAME_RE.match(str(declared)):
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name must be lowercase, digits and hyphens")
+        # the department's naming convention: <family>-<object>[-<variant>], family from registry.yaml `families`
+        if declared and families and (str(declared).split("-")[0] not in families or "-" not in str(declared)):
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name must be <family>-<object>[-<variant>] with a family "
+                 f"from registry.yaml ({', '.join(sorted(families))})")
+        if declared and re.search(r"-(builder|tool|skill)$", str(declared)):
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: drop the -builder/-tool/-skill suffix (naming convention)")
         if declared and len(str(declared)) > MAX_NAME:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: name exceeds {MAX_NAME} characters")
 
@@ -130,9 +137,9 @@ def main() -> int:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.scope '{scope}' is not 'od' or 'portable'")
         # OD-scoped skills inherit the department's vocabulary and honesty rules. A
         # portable skill is domain-generic and must instead say how it plugs in.
-        if scope == "od" and name != "od-context":
-            if "od-context" not in (meta.get("requires") or []):
-                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: every od-scoped skill must require od-context")
+        if scope == "od" and name != "dept-context":
+            if "dept-context" not in (meta.get("requires") or []):
+                fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: every od-scoped skill must require dept-context")
         if scope == "portable":
             note = meta.get("od_integration")
             if not note:

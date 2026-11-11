@@ -11,7 +11,7 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 The registry's skills are measured against this flow: each step of it names the skill that
 serves the step and whether that skill is built, partial or missing. Four files in
-[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_ProcessFlow.html` is the owner's process flow (new-state service lanes with skills & gaps) and the reference for the registry (2026-11-10).** Its step skills are the core library under the names it uses; the net-new builds it lists are now drafts on their steps (`od-prototype-poc` on Prototype / validate, `od-capital-request` on both capital steps, `catalog-usecase` as the graduation target). `OD_NewState_Flow.mermaid` and `process.yaml` draw the same flow. The BPMN and VSM files keep the 2026-11-05 state.
+[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_ProcessFlow.html` is the owner's process flow (new-state service lanes with skills & gaps) and the reference for the registry (2026-11-10).** Its step skills are the core library under the names it uses; the net-new builds it lists are now drafts on their steps (`funnel-prototype` on Prototype / validate, `bc-capital-request` on both capital steps, `catalog-usecase` as the graduation target). `OD_NewState_Flow.mermaid` and `process.yaml` draw the same flow. The BPMN and VSM files keep the 2026-11-05 state.
 
 | File | What it shows |
 |---|---|
@@ -22,7 +22,7 @@ serves the step and whether that skill is built, partial or missing. Four files 
 
 ## The flow in short
 
-One lane per demand, decided at intake by `od-use-case-intake-triage` and `od-system-fit-check`:
+One lane per demand, decided at intake by `dept-intake` and `invest-screen`:
 
 - **Lane 1, run a known use case** (self-service). 1a: machine already connected. 1b: not connected, standardized-system onboarding.
 - **Lane 2, develop a new use case** (OD-led). Definition, features and data check, prototype, business case, capital request, implement and graduate into the catalog.
@@ -33,9 +33,9 @@ A proven, repeatable Lane 2 result graduates into the catalog and becomes a Lane
 ## What the flow says is missing
 
 Five net-new skills: `catalog-usecase` (the Lane 1
-self-service layer), `deploy-appstore` and `it-demand-package` (Lane 3a). They were not in the
+self-service layer), `deploy-appstore` and `deploy-it-demand` (Lane 3a). They were not in the
 registry when the flow was drawn and now exist as draft scaffolds. Two spots are thin: prototype / proof of concept, and capital-request packaging.
-The business-case assessment rubric `bc-assessment` is named as living outside the registry.
+The business-case assessment rubric `bc-assess` is named as living outside the registry.
 
 The skill-map file also records one open decision: `od-analytical-support-service`
 orchestrates the Analytics lane that the new state dissolves, so it needs to be re-homed
@@ -46,7 +46,7 @@ into Lane 1 or Lane 2, or retired.
 Skill names in the four files compared with the 53 skills in the two libraries (`skills/`, `skills-extension/`; 23 existing, 30 drafts written from this flow, the department's plan and the slide-deck practice review):
 
 - Most skills are named in at least one file; the ones the files do not name are placed on the flow by this registry alone (the extension library plus the merged skills, whose old names the files still use). Where each skill sits: see the skill map.
-- Every name the flow marks as Built exists in the registry, directly or inside a merged skill: `catalog-usecase`, `catalog-systems` and `catalog-guardrails` are parts of `catalog-usecase`; `od-node-red-flow-builder` and `od-node-red-flow-troubleshooting` are parts of `od-node-red-flow-builder`; `od-use-case-support-service` is part of `od-use-case-definition`. The one name that is not a registry skill is `bc-assessment`, which the
+- Every name the flow marks as Built exists in the registry, directly or inside a merged skill: `catalog-usecase`, `catalog-systems` and `catalog-guardrails` are parts of `catalog-usecase`; `mi-flow` and `od-node-red-flow-troubleshooting` are parts of `mi-flow`; `od-use-case-support-service` is part of `funnel-use-case`. The one name that is not a registry skill is `bc-assess`, which the
   flow itself places outside the registry.
 - The existing [`process-overview.html`](process-overview.html) draws **four** service lanes; the new
   state has **three** branched lanes. The two disagree until that overview is regenerated.
@@ -62,8 +62,8 @@ and the registry should account for every skill in it.
 
 | Skill | Old lane and owner role | Trigger and definition of done (from `registry.yaml`) | Where its work is served in the flow (inferred) |
 |---|---|---|---|
-| `od-information-integration-service` | Information Integration Service, IIoT Interface & Automation Engineer | Equipment integration or data-model harmonization need per roadmap; machine integrated, signals standardized, data on the data platform | Lane 3b: `od-equipment-integration`, `od-signal-standardization`, `od-node-red-flow-builder` |
-| `od-project-support-consultancy` | Project Support & Application Consultancy, IIoT Interface & Automation Engineer | Digital investment project kick-off; integration project managed to acceptance test, application consulted and accepted | Lane 3: `od-acceptance-test`, `od-handover-and-adoption`; application consultancy has no skill of its own |
+| `od-information-integration-service` | Information Integration Service, IIoT Interface & Automation Engineer | Equipment integration or data-model harmonization need per roadmap; machine integrated, signals standardized, data on the data platform | Lane 3b: `mi-equipment`, `mi-signals`, `mi-flow` |
+| `od-project-support-consultancy` | Project Support & Application Consultancy, IIoT Interface & Automation Engineer | Digital investment project kick-off; integration project managed to acceptance test, application consulted and accepted | Lane 3: `deploy-acceptance`, `deploy-handover`; application consultancy has no skill of its own |
 
 Open: whether each lane orchestrator is re-homed into the new lanes or retired. The flow says nothing about it.
 
@@ -71,17 +71,17 @@ Open: whether each lane orchestrator is re-homed into the new lanes or retired. 
 
 | Skill | Where the skill-map table puts it | Missing from |
 |---|---|---|
-| `od-context` | Foundation, applies to every step | Flow, ProcessFlow, BPMN |
-| `od-use-case-definition` | Lane 2, step 1 (definition) | Flow, ProcessFlow, BPMN |
-| `od-use-case-solution-evaluation` | Lane 2, step 2 (features and data check) | Flow, ProcessFlow, BPMN |
-| `od-portfolio-and-savings-analysis` | Lane 2, step 4, and the supporting spine | Flow, ProcessFlow, BPMN |
-| `od-use-case-standardization` | Lane 2, step 6 (graduate to the catalog) | Flow, ProcessFlow, BPMN |
-| `build-grafana-ops-dashboard` | Lane 1, branch 1a, step 2 (self-service mode) | Flow, ProcessFlow, BPMN |
-| `od-node-red-flow-builder` | Lane 3b, step 5b (partial) | Flow, ProcessFlow, BPMN |
-| `od-scorecard-reporting` | Supporting spine, not drawn as a step | Flow, ProcessFlow, BPMN |
-| `od-sharepoint-list-export` | Supporting spine, not drawn as a step | Flow, ProcessFlow, BPMN |
+| `dept-context` | Foundation, applies to every step | Flow, ProcessFlow, BPMN |
+| `funnel-use-case` | Lane 2, step 1 (definition) | Flow, ProcessFlow, BPMN |
+| `funnel-evaluation` | Lane 2, step 2 (features and data check) | Flow, ProcessFlow, BPMN |
+| `bc-portfolio` | Lane 2, step 4, and the supporting spine | Flow, ProcessFlow, BPMN |
+| `catalog-standardization` | Lane 2, step 6 (graduate to the catalog) | Flow, ProcessFlow, BPMN |
+| `ops-dashboard-engine` | Lane 1, branch 1a, step 2 (self-service mode) | Flow, ProcessFlow, BPMN |
+| `mi-flow` | Lane 3b, step 5b (partial) | Flow, ProcessFlow, BPMN |
+| `metrics-scorecard` | Supporting spine, not drawn as a step | Flow, ProcessFlow, BPMN |
+| `know-sharepoint-export` | Supporting spine, not drawn as a step | Flow, ProcessFlow, BPMN |
 | `od-analytical-support-service` | Supporting spine: the open decision, the lane the new state dissolves | Flow, ProcessFlow, BPMN |
-| `od-use-case-intake-triage` | Intake classifier | Flow (the Mermaid file only) |
+| `dept-intake` | Intake classifier | Flow (the Mermaid file only) |
 
 The four files are kept exactly as supplied. To make the diagrams agree with the table, these skills have to be drawn into them.
 

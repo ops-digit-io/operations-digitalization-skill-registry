@@ -33,14 +33,14 @@ consumes / publishes / api description / version / identity / health and metrics
 Container, image and registry rules, resource limits:   ⟨to be supplied⟩ (OD lead, IT platform)
 
 DEPENDENCIES
-Systems outside the lean footprint?  no / yes -> od-system-fit-check
+Systems outside the lean footprint?  no / yes -> invest-screen
 Legacy applications touched (legacy-application-position in catalog-usecase):
 
 ROLLBACK
 Rollback owner (role):       Rollback step:
 
 ACCEPTANCE
-Protocol drafted (od-acceptance-test):  yes / no       Link:
+Protocol drafted (deploy-acceptance):  yes / no       Link:
 
 OPEN QUESTIONS with owners
 ```
@@ -51,10 +51,10 @@ OPEN QUESTIONS with owners
 |---|---|---|---|---|
 | Front-end complete (requirement, tool decision, business case, capital) | | | | approvals |
 | Acceptance protocol drafted | | | | sign-off |
-| Cyber Security sign-off requested (`od-cybersec-gate`) | requested / granted | | Cyber Security | **yes** |
+| Cyber Security sign-off requested (`deploy-cybersec`) | requested / granted | | Cyber Security | **yes** |
 | Segmentation review (only if it writes to a machine) | n/a / requested / granted | | Cyber Security / OT | **yes** |
-| Deployment approval for a shared platform (`od-decision-routing`) | | | named approver | **yes** |
+| Deployment approval for a shared platform (`dept-decision-rights`) | | | named approver | **yes** |
 | Deploy done | not started | | a human with deploy rights | **yes** |
-| Handover to rollout (`od-handover-and-adoption`) | | | plant owner | the plant decides |
+| Handover to rollout (`deploy-handover`) | | | plant owner | the plant decides |
 
 Wait state at the Cyber Security gate: "weeks" per the flow; ⟨lead time⟩ not recorded. Line at the foot, always: "Deployed by a human on ⟨date⟩ - not yet".

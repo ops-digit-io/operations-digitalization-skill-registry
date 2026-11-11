@@ -49,12 +49,12 @@ top-level OKF frontmatter.
 ```yaml
 # SKILL.md — the six spec keys only
 ---
-name: od-signal-standardization          # equals the directory; this is the identity
+name: mi-signals          # equals the directory; this is the identity
 description: >-
   ...                                    # serves both the loader and OKF
 license: MIT
 metadata:
-  id: od-signal-standardization
+  id: mi-signals
   tier: technical
   ...
   okf:

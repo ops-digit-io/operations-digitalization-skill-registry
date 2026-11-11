@@ -64,7 +64,7 @@ def build(reports: list[Path], default_report: Path | None, tool_commit: str, ru
     skills = {}
     registry = set(skp.all_ids())
     for name, v in sorted(main["skills"].items()):
-        if name not in registry:   # a skill copied unchanged inside another one (e.g. OpenSpec's in it-demand-package) is not rated
+        if name not in registry:   # a skill copied unchanged inside another one (e.g. OpenSpec's in deploy-it-demand) is not rated
             continue
         dims = collections.defaultdict(float)
         for f in v["findings"]:

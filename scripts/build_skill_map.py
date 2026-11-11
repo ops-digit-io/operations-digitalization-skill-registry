@@ -22,28 +22,28 @@ OUT = ROOT / "docs" / "skill-state-map.md"
 
 # Short labels: the node text, kept terse so the diagram stays readable.
 LABEL = {
-    "od-context": "OD context",
-    "od-use-case-intake-triage": "Intake triage",
-    "od-system-fit-check": "System fit check",
-    "od-use-case-definition": "Use-case definition",
-    "od-use-case-solution-evaluation": "Solution evaluation",
-    "od-use-case-standardization": "Use-case standardization",
-    "od-requirements-breakdown": "Requirements breakdown",
-    "od-benefit-calculation": "Benefit calculation",
-    "od-data-availability-check": "Data availability check",
-    "od-equipment-integration": "Equipment integration",
-    "od-signal-standardization": "Signal standardization",
-    "od-node-red-flow-builder": "Node-RED flow builder",
-    "od-node-red-flow-builder": "Node-RED troubleshooting",
-    "od-analytics-asset-build": "Analytics asset build",
-    "build-grafana-ops-dashboard": "Grafana dashboards",
-    "od-portfolio-and-savings-analysis": "Portfolio and savings",
-    "od-acceptance-test": "Acceptance test",
-    "od-handover-and-adoption": "Handover and adoption",
-    "od-scorecard-reporting": "Scorecard reporting",
-    "od-sharepoint-list-export": "SharePoint export",
-    "od-decision-routing": "Decision routing",
-    "od-use-case-definition": "Use Case Support",
+    "dept-context": "OD context",
+    "dept-intake": "Intake triage",
+    "invest-screen": "System fit check",
+    "funnel-use-case": "Use-case definition",
+    "funnel-evaluation": "Solution evaluation",
+    "catalog-standardization": "Use-case standardization",
+    "funnel-requirements": "Requirements breakdown",
+    "bc-build": "Benefit calculation",
+    "mi-data-availability": "Data availability check",
+    "mi-equipment": "Equipment integration",
+    "mi-signals": "Signal standardization",
+    "mi-flow": "Node-RED flow builder",
+    "mi-flow": "Node-RED troubleshooting",
+    "ops-analytics-asset": "Analytics asset build",
+    "ops-dashboard-engine": "Grafana dashboards",
+    "bc-portfolio": "Portfolio and savings",
+    "deploy-acceptance": "Acceptance test",
+    "deploy-handover": "Handover and adoption",
+    "metrics-scorecard": "Scorecard reporting",
+    "know-sharepoint-export": "SharePoint export",
+    "dept-decision-rights": "Decision routing",
+    "funnel-use-case": "Use Case Support",
     "od-information-integration-service": "Information Integration",
     "od-project-support-consultancy": "Project Support",
     "od-analytical-support-service": "Analytical Support",
@@ -52,57 +52,57 @@ LABEL = {
 # The order work actually moves, per the four lane playbooks. Editorial, and the part of
 # this file a person maintains.
 FLOW: list[tuple[str, str, str]] = [
-    ("od-use-case-intake-triage", "od-system-fit-check", "fit risk"),
-    ("od-use-case-intake-triage", "od-requirements-breakdown", "accepted"),
-    ("od-requirements-breakdown", "od-use-case-definition", "scoped"),
-    ("od-requirements-breakdown", "od-data-availability-check", "signals named"),
-    ("od-use-case-definition", "od-use-case-standardization", "library check"),
-    ("od-use-case-definition", "od-use-case-solution-evaluation", "scoped"),
-    ("od-use-case-solution-evaluation", "od-benefit-calculation", "fits as scoped"),
-    ("od-data-availability-check", "od-equipment-integration", "not integrated"),
-    ("od-data-availability-check", "od-signal-standardization", "not standardized"),
-    ("od-equipment-integration", "od-signal-standardization", "connected"),
-    ("od-signal-standardization", "od-node-red-flow-builder", "named signals"),
-    ("od-node-red-flow-builder", "od-node-red-flow-builder", "when it breaks"),
-    ("od-node-red-flow-builder", "od-analytics-asset-build", "data flowing"),
-    ("od-analytics-asset-build", "build-grafana-ops-dashboard", "dashboards"),
-    ("od-analytics-asset-build", "od-acceptance-test", "built"),
-    ("od-node-red-flow-builder", "od-acceptance-test", "built"),
-    ("od-acceptance-test", "od-handover-and-adoption", "accepted"),
-    ("od-handover-and-adoption", "od-scorecard-reporting", "in use"),
-    ("od-benefit-calculation", "od-portfolio-and-savings-analysis", "value"),
-    ("od-sharepoint-list-export", "od-portfolio-and-savings-analysis", "the list"),
-    ("od-portfolio-and-savings-analysis", "od-scorecard-reporting", "the numbers"),
-    ("od-use-case-standardization", "od-decision-routing", "adopt or build"),
+    ("dept-intake", "invest-screen", "fit risk"),
+    ("dept-intake", "funnel-requirements", "accepted"),
+    ("funnel-requirements", "funnel-use-case", "scoped"),
+    ("funnel-requirements", "mi-data-availability", "signals named"),
+    ("funnel-use-case", "catalog-standardization", "library check"),
+    ("funnel-use-case", "funnel-evaluation", "scoped"),
+    ("funnel-evaluation", "bc-build", "fits as scoped"),
+    ("mi-data-availability", "mi-equipment", "not integrated"),
+    ("mi-data-availability", "mi-signals", "not standardized"),
+    ("mi-equipment", "mi-signals", "connected"),
+    ("mi-signals", "mi-flow", "named signals"),
+    ("mi-flow", "mi-flow", "when it breaks"),
+    ("mi-flow", "ops-analytics-asset", "data flowing"),
+    ("ops-analytics-asset", "ops-dashboard-engine", "dashboards"),
+    ("ops-analytics-asset", "deploy-acceptance", "built"),
+    ("mi-flow", "deploy-acceptance", "built"),
+    ("deploy-acceptance", "deploy-handover", "accepted"),
+    ("deploy-handover", "metrics-scorecard", "in use"),
+    ("bc-build", "bc-portfolio", "value"),
+    ("know-sharepoint-export", "bc-portfolio", "the list"),
+    ("bc-portfolio", "metrics-scorecard", "the numbers"),
+    ("catalog-standardization", "dept-decision-rights", "adopt or build"),
 ]
 
 LANES = [
-    ("UC", "Use Case Support", ["od-use-case-intake-triage", "od-system-fit-check",
-                                "od-requirements-breakdown",
-                                "od-use-case-definition", "od-use-case-solution-evaluation",
-                                "od-use-case-standardization", "od-benefit-calculation"]),
-    ("II", "Information Integration", ["od-data-availability-check",
-                                       "od-equipment-integration",
-                                       "od-signal-standardization",
-                                       "od-node-red-flow-builder",
-                                       "od-node-red-flow-builder"]),
-    ("AS", "Analytical Support", ["od-analytics-asset-build", "build-grafana-ops-dashboard",
-                                  "od-portfolio-and-savings-analysis",
-                                  "od-sharepoint-list-export"]),
-    ("PS", "Project Support and closing out", ["od-acceptance-test", "od-handover-and-adoption",
-                                             "od-scorecard-reporting", "od-decision-routing"]),
+    ("UC", "Use Case Support", ["dept-intake", "invest-screen",
+                                "funnel-requirements",
+                                "funnel-use-case", "funnel-evaluation",
+                                "catalog-standardization", "bc-build"]),
+    ("II", "Information Integration", ["mi-data-availability",
+                                       "mi-equipment",
+                                       "mi-signals",
+                                       "mi-flow",
+                                       "mi-flow"]),
+    ("AS", "Analytical Support", ["ops-analytics-asset", "ops-dashboard-engine",
+                                  "bc-portfolio",
+                                  "know-sharepoint-export"]),
+    ("PS", "Project Support and closing out", ["deploy-acceptance", "deploy-handover",
+                                             "metrics-scorecard", "dept-decision-rights"]),
 ]
 
 # What is recommended next, and why. Editorial; keep it to three so it is a decision, not a
 # backlog.
 NEXT = {
-    "od-acceptance-test": "**8 inbound — the most-composed skill in the registry, and the "
+    "deploy-acceptance": "**8 inbound — the most-composed skill in the registry, and the "
                           "thinnest at 468 words.** It is the gate between *delivered* and "
                           "*accepted*, which every lane's definition of done turns on",
-    "od-use-case-standardization": "5 inbound · adoption is the shortfall the department "
+    "catalog-standardization": "5 inbound · adoption is the shortfall the department "
                                    "names itself, and 100 library use cases already exist to "
                                    "check against",
-    "od-handover-and-adoption": "5 inbound · the IMPLEMENTED-vs-PRODUCTIVE gap lives here, "
+    "deploy-handover": "5 inbound · the IMPLEMENTED-vs-PRODUCTIVE gap lives here, "
                                 "and 129 use cases sit on the wrong side of it",
 }
 
@@ -139,7 +139,7 @@ def render() -> str:
     c = counts(states)
     placed = {s for _, _, members in LANES for s in members}
     unplaced = [i for i in ids if i not in placed and i not in
-                ("od-context", "od-use-case-definition",
+                ("dept-context", "funnel-use-case",
                  "od-information-integration-service", "od-project-support-consultancy",
                  "od-analytical-support-service")]
 
@@ -234,7 +234,7 @@ def render() -> str:
                 "delivery order.", ""]
     else:
         L += ["## Not on the map", "",
-              "The four lane skills (`od-use-case-definition`, "
+              "The four lane skills (`funnel-use-case`, "
               "`od-information-integration-service`, `od-project-support-consultancy`, "
               "`od-analytical-support-service`) are entry points rather than steps: each one "
               "names the skills its lane calls, so they sit above this diagram rather than in "

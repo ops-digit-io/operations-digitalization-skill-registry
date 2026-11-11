@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import skillpaths  # noqa: E402
 
 TEXT = {".md", ".yaml", ".yml", ".py", ".html", ".json", ".mermaid", ".txt", ".js", ".sh", ".tmpl", ".example", ".csv"}
-SKIP = {"log.md"}
+SKIP = {"log.md", "rename_skills.py"}   # and every config/skill-renames-*.yaml map (see main)
 
 
 def main(argv: list[str]) -> int:
@@ -41,7 +41,7 @@ def main(argv: list[str]) -> int:
     changed = 0
     for rel in files:
         p = ROOT / rel
-        if p.name in SKIP or p.suffix not in TEXT or skillpaths.is_vendored(p) or not p.is_file():
+        if p.name in SKIP or p.name.startswith("skill-renames-") or p.suffix not in TEXT or skillpaths.is_vendored(p) or not p.is_file():
             continue
         b = p.read_bytes()
         try:

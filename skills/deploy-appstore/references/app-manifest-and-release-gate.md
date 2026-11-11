@@ -42,20 +42,20 @@ No containerization requirements, no image or registry rules, no resource limits
 
 ## The release gate - checklist
 
-Use with `od-acceptance-test`, `od-cybersec-gate` and `od-decision-routing`. A box needs evidence and a date.
+Use with `deploy-acceptance`, `deploy-cybersec` and `dept-decision-rights`. A box needs evidence and a date.
 
 | # | Gate | Evidence | Owner role | Human-only? |
 |---|---|---|---|---|
-| R1 | Front-end done: requirement (`od-requirements-breakdown`), tool decision (`od-system-fit-check`), business case (`od-benefit-calculation`), capital approved where needed | links | OD lead / DBVE | the approvals are |
+| R1 | Front-end done: requirement (`funnel-requirements`), tool decision (`invest-screen`), business case (`bc-build`), capital approved where needed | links | OD lead / DBVE | the approvals are |
 | R2 | Target named as the requester names it, both layers recorded (edge runtime and app store / CMO), and the sourcing route 3a.1 to 3a.4 | package fields 1 and 2 | DBVE | no |
 | R3 | Manifest complete; `writes_to_machines` stated | manifest | app owner | no |
 | R4 | Interfaces described (OpenAPI, AsyncAPI) and versioned | documents | app owner | no |
 | R5 | Data read and written matches `systems-of-record` (one source per data object); no second source for the same object | table | IIAE | no |
-| R6 | Acceptance protocol drafted before the build (`od-acceptance-test`) | protocol | DBVE | the sign-off is |
-| R7 | Cyber Security sign-off requested via `od-cybersec-gate`; if the app writes to a machine, segmentation review requested | request, date | IIAE with Plant IT | **yes** |
-| R8 | Approval for deployment to a shared platform named (`od-decision-routing`): who approves, when | decision record | OD lead | **yes** |
+| R6 | Acceptance protocol drafted before the build (`deploy-acceptance`) | protocol | DBVE | the sign-off is |
+| R7 | Cyber Security sign-off requested via `deploy-cybersec`; if the app writes to a machine, segmentation review requested | request, date | IIAE with Plant IT | **yes** |
+| R8 | Approval for deployment to a shared platform named (`dept-decision-rights`): who approves, when | decision record | OD lead | **yes** |
 | R9 | Rollback owner and rollback step named | package | app owner | no |
-| R10 | Plant sponsor and plant owner named; handover planned (`od-handover-and-adoption`) | package | plant | the plant decides daily use |
+| R10 | Plant sponsor and plant owner named; handover planned (`deploy-handover`) | package | plant | the plant decides daily use |
 | R11 | Free-text and name check (G17); no credentials or sessions in the package (G19 in `catalog-usecase`) | check | DBVE | no |
 
 The wait for R7 is "weeks" in the flow; the knowledge base gives no figure. Do not quote one. For a foreign app (3a.4) the planned IEC 62443-4-2 conformance gate of initiative X4 would apply once it exists; today it is a plan, not a gate.

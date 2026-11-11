@@ -31,11 +31,11 @@ jobs:
           node-version: "22"
       - name: The IT handover follows OpenSpec (real CLI, pinned release)
         run: |
-          npm install -g @fission-ai/openspec@$(grep -o 'OPENSPEC_PINNED = "[^"]*"' skills/it-demand-package/scripts/check_handover.py | cut -d'"' -f2)
+          npm install -g @fission-ai/openspec@$(grep -o 'OPENSPEC_PINNED = "[^"]*"' skills/deploy-it-demand/scripts/check_handover.py | cut -d'"' -f2)
           python3 scripts/check_openspec_conformance.py --require
-      - name: The OpenSpec copy in it-demand-package equals the pinned release
+      - name: The OpenSpec copy in deploy-it-demand equals the pinned release
         run: |
-          PIN=$(grep -o 'OPENSPEC_PINNED = "[^"]*"' skills/it-demand-package/scripts/check_handover.py | cut -d'"' -f2)
+          PIN=$(grep -o 'OPENSPEC_PINNED = "[^"]*"' skills/deploy-it-demand/scripts/check_handover.py | cut -d'"' -f2)
           git clone --depth 1 --branch "v$PIN" https://github.com/Fission-AI/OpenSpec.git /tmp/openspec-src
           python3 scripts/sync_openspec_vendor.py --check --from /tmp/openspec-src
       - name: Build the documentation site

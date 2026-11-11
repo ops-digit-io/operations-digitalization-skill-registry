@@ -44,7 +44,7 @@ not recorded, standard procedure not recorded, capability link not recorded). Th
 - whether the entry describes the screen and purpose only, or also a procedure (an entry that only says "add more lines" as
   the next step does not hold a procedure);
 - the savings-estimate field: it can be filled in with no currency stated. Treat it as an unaudited entry, never as a saving
-  (`od-benefit-calculation`).
+  (`bc-build`).
 
 ## Do the entries meet the four conditions of "catalogued"?
 
@@ -54,7 +54,7 @@ The SKILL.md lists four conditions. Against what the knowledge base records:
 |---|---|
 | 1 CSP Yes recorded | the entry's `csp_decision` |
 | 2 maps to one of the eleven templates | the template recorded on the entry (recorded in the graph, not curated) |
-| 3 signals standardized (`od-signal-standardization`) | typically not recorded in the entry - ⟨whether the signals behind the entry are standardized⟩ (IIAE) |
+| 3 signals standardized (`mi-signals`) | typically not recorded in the entry - ⟨whether the signals behind the entry are standardized⟩ (IIAE) |
 | 4 plant owner and a handover that passed the three-question test | typically not recorded in the library entry - ⟨plant owner and handover record per entry⟩ (plant, DBVE) |
 
 So the knowledge base can name the entries that clear the first threshold. It does **not** show that a second plant can take any of
@@ -67,7 +67,7 @@ branch 1a/1b, not a finished catalog hit.
   deployable artefact per entry.
 - For a match, open the library note, then the dashboard family note it links (screenshots, panels), then the template page
   in `Graph/Use Case Views` (see `template-coverage.md`).
-- For the dashboard build itself the registry has `build-grafana-ops-dashboard` and `od-analytics-asset-build`.
+- For the dashboard build itself the registry has `ops-dashboard-engine` and `ops-analytics-asset`.
 
 ## Pre-screen signals that are not a CSP decision
 
@@ -79,4 +79,4 @@ and status `IMPLEMENTED` or `PRODUCTIVE`, per template (see `template-coverage.m
 
 - ⟨Whether library entries without a recorded decision are undecided, not applied, or lost in the export⟩ - OD lead.
 - ⟨Why only library entries carry the CSP field⟩ and whether a dashboard family can be put through the gate - OD lead.
-- ⟨The date and forum of each CSP decision⟩ - not in the notes read; the CSP call (see `od-decision-routing`) would hold them.
+- ⟨The date and forum of each CSP decision⟩ - not in the notes read; the CSP call (see `dept-decision-rights`) would hold them.

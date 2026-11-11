@@ -75,7 +75,7 @@ questions:
 
 | Axis | The epic is | Use it as the epic when |
 |---|---|---|
-| **Capability** (`OESL-Process_Values`, `OESL-Andon_Board`, from the capability template list) | this plant's instance of a digital capability | **Default.** Reuse across plants happens here — this is the axis `od-use-case-standardization` reads |
+| **Capability** (`OESL-Process_Values`, `OESL-Andon_Board`, from the capability template list) | this plant's instance of a digital capability | **Default.** Reuse across plants happens here — this is the axis `catalog-standardization` reads |
 | **Process** (`OESL-Rubber-Vulcanization`, from the process template list) | this plant's instance of a manufacturing process | The demand came from a process owner and covers several capabilities on one process |
 
 **Record both.** The source data shows what happens when you do not: many leaves carry only a
@@ -92,7 +92,7 @@ integration and the last three often do not:
    escape are two stories even when they read the same number. This is the department's own
    first judgement call: *different people, different moments → different use cases.*
 2. **By signal availability.** The strongest cut in this estate. Split what is deliverable
-   from signals that **exist today** (verified via `od-data-availability-check`) from what
+   from signals that **exist today** (verified via `mi-data-availability`) from what
    waits on machine integration. The first story delivers while the second sits behind a
    connectivity blocker — and **machine connectivity is a recurring blocker class**,
    so this cut is the difference between shipping something and shipping nothing.

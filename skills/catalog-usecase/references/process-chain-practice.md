@@ -19,7 +19,7 @@ Where the decks disagree the safer reading is written and tagged `<to confirm>`.
 
 **Picking (Lane 1).**
 1. The plant states the need in its own words. Reduce the sentence to **object** (part, order, tool, recipe, batch, carrier), **event** (error, change, stop, NOK part) and **time axis**.
-   Many "unique" requests collapse to a few shapes this way; ask for object and event before judging uniqueness (`od-use-case-intake-triage`).
+   Many "unique" requests collapse to a few shapes this way; ask for object and event before judging uniqueness (`dept-intake`).
 2. Match the shape to a capability template and a library entry. A request that only changes the look of an existing screen is not a catalog match.
 3. Check the two preconditions the decks repeat: **the machine is connected** and **the needed signals are selected**. A use case is available only for machines that are already connected;
    a requirement beyond the agreed timeframe becomes an additional use-case phase, not scope creep.
@@ -57,7 +57,7 @@ no new development; *go forward* - continue or integrate an earlier proof of con
 
 **Plant tiering decides capacity, not eligibility.** A first-mover plant gets central support first; a fast follower picks from the catalog with central help only when capacity allows.
 First-mover criteria in the decks: high estimated value-add, coverage of regions, segments and technologies, capacity and knowledge in the plant, integration synergies, and a dedicated, staffed key user.
-The tier is a property of the plant, looked up live (`od-context-freshness`); never copy a plant list into a skill.
+The tier is a property of the plant, looked up live (`dept-context-freshness`); never copy a plant list into a skill.
 
 **Zero-saving scaled entries.** Where an entry is deployed widely and reports no saving, do not write "no potential" - write "to be evaluated" and list three things: where it saved, where it was deployed without saving, where it still has potential.
 Until investigated the entry stays "to be evaluated". Only a human (the OD lead with the plant owner) may decide "no potential" or retirement; an agent never writes it.
@@ -66,13 +66,13 @@ Until investigated the entry stays "to be evaluated". Only a human (the OD lead 
 
 | From | Must hand over | Receives from this skill |
 |---|---|---|
-| `od-use-case-intake-triage` | object / event / time, archetype guess, machine-connected flag | - |
-| `od-data-availability-check` | verdict on signals, per plant | - |
-| `od-use-case-standardization` / `od-use-case-standardization` | template, cluster, CSP status, graduation checklist | - |
-| to `od-analytics-asset-build` (1a) | match record, entry id, reference plant, deltas to record | the baseline to copy |
+| `dept-intake` | object / event / time, archetype guess, machine-connected flag | - |
+| `mi-data-availability` | verdict on signals, per plant | - |
+| `catalog-standardization` / `catalog-standardization` | template, cluster, CSP status, graduation checklist | - |
+| to `ops-analytics-asset` (1a) | match record, entry id, reference plant, deltas to record | the baseline to copy |
 | to the system part (1b) | match record, machine class, where the data should land | - |
 | to Lane 2 / Lane 3 | reason for fall-through, what was missing | - |
-| to `od-handover-and-adoption` | **named utilization moment** (who opens it, in which meeting, which action follows) | - |
+| to `deploy-handover` | **named utilization moment** (who opens it, in which meeting, which action follows) | - |
 
 ### 4. Pitfalls and lessons
 
@@ -118,7 +118,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
    - service bus: carries and routes signals; it does not calculate or interpret them; edge platform: not a substitute for data acquisition or an execution system.
 3. **Heavy request disguised as a dashboard.** Order or recipe execution, labels, batch genealogy, material validation are execution-system territory. Map the asked functions onto the shop-floor function list
    (data acquisition, scheduling, equipment, materials, information, performance analysis, energy) before choosing a system. Where performance analysis overlaps with an execution system (MES), choose the lighter solution and name the overlap explicitly; do not build in parallel what the execution system already does.
-4. **Pick the route by data class** (feeds `od-equipment-integration`, `od-signal-standardization`):
+4. **Pick the route by data class** (feeds `mi-equipment`, `mi-signals`):
 
    | Data class | Examples | Default hub | Note |
    |---|---|---|---|
@@ -131,7 +131,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
    For cameras prefer the per-camera edge connector (cheap, quick) over a vendor turnkey adjustment of third-party software; extract features on the edge and forward features or images only.
 6. **Where logic lives.** Keep in the PLC what controls the process or depends on equipment condition or safety. Put in the rule engine what needs context across machines or systems, a single-source naming concept, or logic likely to be iterated.
 7. **Low-cost reuse option.** Where data frequency is low, one existing edge device or switch with address translation can serve many machines with a single configuration (PLC and screen addresses unchanged). Trial one low-cost device on one machine before ordering more.
-8. Hand the cost-template inputs to `od-decision-routing`; write the system match record.
+8. Hand the cost-template inputs to `dept-decision-rights`; write the system match record.
 
 ### 2. Decision rules
 
@@ -139,7 +139,7 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
 - **Use one controlled recommendation vocabulary.** The scale is: recommended / recommended if ⟨condition⟩ / not recommended / not available. The decks use other words for the same tool (planned, needed for several use cases, not necessary, stop / continue); translate them to this scale. Every status carries its date and its source.
 - **Operations-concept gate.** A tool without an operations concept (named operations owner, service level, support level, change and incident process) is not matched for rollout. The decks name "operations concept missing" as the most repeated barrier;
   rollout needs an operations concept and a named run owner; without both, stop until they exist. A request that is really a service gap on an existing tool is not a use-case match - route it to the system and operations-concept discussion.
-- **Security-relevant?** Indicators: connects to central systems or holds relevant data; profound effect on manufacturing; holds operational or customer data (exports, pictures, quality data). Yes means the cyber-security route applies (`od-cybersec-gate`), including patch and update management; two paths: substitute the solution, or approve it.
+- **Security-relevant?** Indicators: connects to central systems or holds relevant data; profound effect on manufacturing; holds operational or customer data (exports, pictures, quality data). Yes means the cyber-security route applies (`deploy-cybersec`), including patch and update management; two paths: substitute the solution, or approve it.
 - **Known machine types first.** Scaling known machine types, with at most one unknown type per new deployment, worked; connecting the most difficult machines first burned reputation. Scale known machine types first.
 - **Wave size follows budget class and local resources.** Check the plant's staffing and skill for the connection, not only budget. Patch status of installed controllers is a **precondition** on the plan, not a later gate.
 - **Layout stability.** Check that the area will not be re-arranged repeatedly before committing an integration wave.
@@ -154,9 +154,9 @@ Tool status changes over time: **look it up live, time-stamp it, never copy a st
 
 | Hands on | To |
 |---|---|
-| system match record; cost-template inputs marked given or `<missing>`; security-relevance answer | `od-decision-routing` (1b2) |
-| route, tag-list intent per data class, machine "CV" (program, version history, vendor) | `od-equipment-integration` (1b3) |
-| no standard system: reason and missing item | `od-system-fit-check`, Lane 3 front-end |
+| system match record; cost-template inputs marked given or `<missing>`; security-relevance answer | `dept-decision-rights` (1b2) |
+| route, tag-list intent per data class, machine "CV" (program, version history, vendor) | `mi-equipment` (1b3) |
+| no standard system: reason and missing item | `invest-screen`, Lane 3 front-end |
 
 ### 4. Pitfalls and lessons
 
@@ -216,21 +216,21 @@ and **savings forecast and registered project present** (a use case implemented 
 - **Go-live = all G1 to G7 passed, evidence cited.** "Yes" without evidence counts as not checked.
 - **Requirements still moving?** A first delivery is not fully right. Plan the requirements-iteration loop after first delivery; it is not a reason to withhold go-live and not a reason to let scope grow silently.
 - **Change of look is not a guardrail topic.** Requests about fonts, colours and headlines are capacity burners: route by cost-saving impact and time-box them.
-- **Failed guardrail routes back:** data to `od-data-availability-check`; footprint to `od-system-fit-check`; handover to `od-handover-and-adoption`; security to `od-cybersec-gate`. Say which.
+- **Failed guardrail routes back:** data to `mi-data-availability`; footprint to `invest-screen`; handover to `deploy-handover`; security to `deploy-cybersec`. Say which.
 - **Human-dependent automation caps what a screen can show** (for example a machine that works one item at a time without fast-forward during breaks). Check for organizational loss before proposing technology.
 
 ### 4. Handoff contract
 
 | Receives | From |
 |---|---|
-| match record, system match record, data verdict, security status | the use-case part, the system part, `od-data-availability-check` |
-| deltas the plant recorded against the baseline | `od-analytics-asset-build` |
+| match record, system match record, data verdict, security status | the use-case part, the system part, `mi-data-availability` |
+| deltas the plant recorded against the baseline | `ops-analytics-asset` |
 
 | Hands on | To |
 |---|---|
-| go-live check record with the final line "go-live decision: the plant's", utilization ritual, action owner, savings-forecast status | `od-handover-and-adoption`, `od-rollout-training` (1a3) |
+| go-live check record with the final line "go-live decision: the plant's", utilization ritual, action owner, savings-forecast status | `deploy-handover`, `know-training` (1a3) |
 | failed guardrail and its route | the skill named in section 3 |
-| utilization expectation | `od-scorecard-reporting` (utilization is reported next to the count of deliveries) |
+| utilization expectation | `metrics-scorecard` (utilization is reported next to the count of deliveries) |
 
 ### 5. Pitfalls and lessons
 

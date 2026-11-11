@@ -155,8 +155,8 @@
         <div class="track" style="grid-template-columns:30px 34px repeat(3,minmax(150px,1fr));">
           <div class="ev"><span class="elbl">request</span>&#9679;</div>
           <div class="dia-node" style="width:26px;height:26px;transform:rotate(45deg);border:2px solid var(--sun);background:#fff;margin:25px auto 0;position:relative;"></div>
-          <div class="task built"><span class="st-lbl">Built</span><div class="t">Known use case &rarr; run it</div><div class="chips"><span class="chip built">od-use-case-intake-triage</span><span class="chip built">Lane&nbsp;1</span></div></div>
-          <div class="task built"><span class="st-lbl">Built</span><div class="t">New UC, machine connected</div><div class="chips"><span class="chip built">od-system-fit-check</span><span class="chip built">Lane&nbsp;2</span></div></div>
+          <div class="task built"><span class="st-lbl">Built</span><div class="t">Known use case &rarr; run it</div><div class="chips"><span class="chip built">dept-intake</span><span class="chip built">Lane&nbsp;1</span></div></div>
+          <div class="task built"><span class="st-lbl">Built</span><div class="t">New UC, machine connected</div><div class="chips"><span class="chip built">invest-screen</span><span class="chip built">Lane&nbsp;2</span></div></div>
           <div class="task built last"><span class="st-lbl">Built</span><div class="t">New system / connector</div><div class="chips"><span class="chip built">Lane&nbsp;3</span></div></div>
         </div>
       </div>
@@ -177,7 +177,7 @@
         <div class="track" style="grid-template-columns:30px repeat(3,minmax(170px,1fr)) 30px;">
           <div class="ev"><span class="elbl">1a</span>&#9679;</div>
           <div class="task gap"><span class="n">1</span><span class="st-lbl">Gap</span><div class="t">Pick from catalog</div><div class="chips"><span class="chip gap">catalog-usecase</span></div></div>
-          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Apply standardized template</div><div class="chips"><span class="chip built">od-analytics-asset-build</span><span class="chip built">build-grafana-ops-dashboard</span></div></div>
+          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Apply standardized template</div><div class="chips"><span class="chip built">ops-analytics-asset</span><span class="chip built">ops-dashboard-engine</span></div></div>
           <div class="task gap"><span class="n">3</span><span class="st-lbl">Gap</span><div class="t">Validate &amp; go live</div><div class="chips"><span class="chip gap">catalog-guardrails</span></div></div>
           <div class="ev end last"><span class="elbl">live</span>&#9679;</div>
         </div>
@@ -186,9 +186,9 @@
         <div class="track" style="grid-template-columns:30px repeat(4,minmax(150px,1fr)) 30px;">
           <div class="ev"><span class="elbl">1b</span>&#9679;</div>
           <div class="task gap"><span class="n">1</span><span class="st-lbl">Gap</span><div class="t">Pick UC + std system</div><div class="chips"><span class="chip gap">catalog-usecase</span><span class="chip gap">catalog-systems</span></div></div>
-          <div class="task part wait"><span class="n">2</span><span class="st-lbl">Part</span><div class="t">Cost template + approval</div><div class="chips"><span class="chip part">od-decision-routing</span></div><div class="wflag">~d</div></div>
-          <div class="task built wait"><span class="n">3</span><span class="st-lbl">Built</span><div class="t">Order &amp; connect system</div><div class="chips"><span class="chip built">od-equipment-integration</span></div><div class="wflag">~wks</div></div>
-          <div class="task built"><span class="n">4</span><span class="st-lbl">Built</span><div class="t">Apply template &amp; go live</div><div class="chips"><span class="chip built">od-analytics-asset-build</span><span class="chip built">build-grafana-ops-dashboard</span></div></div>
+          <div class="task part wait"><span class="n">2</span><span class="st-lbl">Part</span><div class="t">Cost template + approval</div><div class="chips"><span class="chip part">dept-decision-rights</span></div><div class="wflag">~d</div></div>
+          <div class="task built wait"><span class="n">3</span><span class="st-lbl">Built</span><div class="t">Order &amp; connect system</div><div class="chips"><span class="chip built">mi-equipment</span></div><div class="wflag">~wks</div></div>
+          <div class="task built"><span class="n">4</span><span class="st-lbl">Built</span><div class="t">Apply template &amp; go live</div><div class="chips"><span class="chip built">ops-analytics-asset</span><span class="chip built">ops-dashboard-engine</span></div></div>
           <div class="ev end last"><span class="elbl">live</span>&#9679;</div>
         </div>
 
@@ -204,12 +204,12 @@
 
         <div class="track" style="grid-template-columns:30px repeat(6,minmax(150px,1fr)) 30px;">
           <div class="ev"><span class="elbl">new UC</span>&#9679;</div>
-          <div class="task built"><span class="n">1</span><span class="st-lbl">Built</span><div class="t">Define &amp; diagnose</div><div class="chips"><span class="chip built">od-use-case-definition</span></div></div>
-          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Features + data check</div><div class="chips"><span class="chip built">od-requirements-breakdown</span><span class="chip built">od-data-availability-check</span></div></div>
-          <div class="task part"><span class="n">3</span><span class="st-lbl">Part</span><div class="t">Prototype / validate</div><div class="chips"><span class="chip part">od-analytics-asset-build</span><span class="chip gap">PoC skill</span></div></div>
-          <div class="task built"><span class="n">4</span><span class="st-lbl">Built</span><div class="t">Business case + rank</div><div class="chips"><span class="chip built">od-benefit-calculation</span><span class="chip part">bc-assessment</span></div></div>
-          <div class="task part wait"><span class="n">5</span><span class="st-lbl">Part</span><div class="t">Capital request</div><div class="chips"><span class="chip part">od-decision-routing</span></div><div class="wflag">~wks</div></div>
-          <div class="task part"><span class="n">6</span><span class="st-lbl">Part</span><div class="t">Implement &amp; graduate</div><div class="chips"><span class="chip built">od-handover-and-adoption</span><span class="chip gap">&rarr;catalog</span></div></div>
+          <div class="task built"><span class="n">1</span><span class="st-lbl">Built</span><div class="t">Define &amp; diagnose</div><div class="chips"><span class="chip built">funnel-use-case</span></div></div>
+          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Features + data check</div><div class="chips"><span class="chip built">funnel-requirements</span><span class="chip built">mi-data-availability</span></div></div>
+          <div class="task part"><span class="n">3</span><span class="st-lbl">Part</span><div class="t">Prototype / validate</div><div class="chips"><span class="chip part">ops-analytics-asset</span><span class="chip gap">PoC skill</span></div></div>
+          <div class="task built"><span class="n">4</span><span class="st-lbl">Built</span><div class="t">Business case + rank</div><div class="chips"><span class="chip built">bc-build</span><span class="chip part">bc-assess</span></div></div>
+          <div class="task part wait"><span class="n">5</span><span class="st-lbl">Part</span><div class="t">Capital request</div><div class="chips"><span class="chip part">dept-decision-rights</span></div><div class="wflag">~wks</div></div>
+          <div class="task part"><span class="n">6</span><span class="st-lbl">Part</span><div class="t">Implement &amp; graduate</div><div class="chips"><span class="chip built">deploy-handover</span><span class="chip gap">&rarr;catalog</span></div></div>
           <div class="ev end last"><span class="elbl">in catalog</span>&#9679;</div>
         </div>
         <div class="gaterow" style="grid-template-columns:30px repeat(6,minmax(150px,1fr)) 30px;">
@@ -232,30 +232,30 @@
         <div class="btag">Shared front-end &mdash; consultancy</div>
         <div class="track" style="grid-template-columns:30px repeat(3,minmax(170px,1fr)) 34px;">
           <div class="ev"><span class="elbl">demand</span>&#9679;</div>
-          <div class="task built"><span class="n">1</span><span class="st-lbl">Built</span><div class="t">Requirements engineering</div><div class="chips"><span class="chip built">od-requirements-breakdown</span></div></div>
-          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Tool-decision / IT gate</div><div class="chips"><span class="chip built">od-system-fit-check</span><span class="chip built">od-decision-routing</span></div></div>
-          <div class="task built wait"><span class="n">3</span><span class="st-lbl">Built</span><div class="t">Business case + capital</div><div class="chips"><span class="chip built">od-benefit-calculation</span></div><div class="wflag">~wks</div></div>
+          <div class="task built"><span class="n">1</span><span class="st-lbl">Built</span><div class="t">Requirements engineering</div><div class="chips"><span class="chip built">funnel-requirements</span></div></div>
+          <div class="task built"><span class="n">2</span><span class="st-lbl">Built</span><div class="t">Tool-decision / IT gate</div><div class="chips"><span class="chip built">invest-screen</span><span class="chip built">dept-decision-rights</span></div></div>
+          <div class="task built wait"><span class="n">3</span><span class="st-lbl">Built</span><div class="t">Business case + capital</div><div class="chips"><span class="chip built">bc-build</span></div><div class="wflag">~wks</div></div>
           <div class="dia-node" style="width:26px;height:26px;transform:rotate(45deg);border:2px solid var(--sun);background:#fff;margin:25px auto 0;"></div>
         </div>
 
         <div class="btag"><span class="yn">3a</span> new system &mdash; make / buy / integrate <span class="d">&middot; routed by the gate (3a.1 reuse / 3a.2 self-dev / 3a.3 ext-dev / 3a.4 integrate)</span></div>
         <div class="track" style="grid-template-columns:30px repeat(3,minmax(170px,1fr)) 30px;">
           <div class="ev"><span class="elbl">3a</span>&#9679;</div>
-          <div class="task gap"><span class="n">4a</span><span class="st-lbl">Gap</span><div class="t">Package / build app</div><div class="chips"><span class="chip gap">it-demand-package</span></div></div>
+          <div class="task gap"><span class="n">4a</span><span class="st-lbl">Gap</span><div class="t">Package / build app</div><div class="chips"><span class="chip gap">deploy-it-demand</span></div></div>
           <div class="task gap wait"><span class="n">5a</span><span class="st-lbl">Gap</span><div class="t">Deploy to platform + CS</div><div class="chips"><span class="chip gap">deploy-appstore</span></div><div class="wflag">CS&nbsp;~wks</div></div>
-          <div class="task built"><span class="n">6a</span><span class="st-lbl">Built</span><div class="t">Rollout &amp; adopt</div><div class="chips"><span class="chip built">od-handover-and-adoption</span></div></div>
+          <div class="task built"><span class="n">6a</span><span class="st-lbl">Built</span><div class="t">Rollout &amp; adopt</div><div class="chips"><span class="chip built">deploy-handover</span></div></div>
           <div class="ev end last"><span class="elbl">live</span>&#9679;</div>
         </div>
 
         <div class="btag"><span class="yn">3b</span> new connector for a new machine <span class="d">&middot; wait-dominated by procurement + CS + supplier</span></div>
         <div class="track" style="grid-template-columns:30px repeat(3,minmax(170px,1fr)) 30px;">
           <div class="ev"><span class="elbl">3b</span>&#9679;</div>
-          <div class="task built"><span class="n">4b</span><span class="st-lbl">Built</span><div class="t">Connector + pipeline to MDL</div><div class="chips"><span class="chip built">od-equipment-integration</span><span class="chip built">od-signal-standardization</span><span class="chip built">od-node-red-flow-builder</span></div></div>
-          <div class="task built wait"><span class="n">5b</span><span class="st-lbl">Built</span><div class="t">Procure &amp; connect machine</div><div class="chips"><span class="chip built">od-equipment-integration</span></div><div class="wflag">proc&nbsp;~wks</div></div>
-          <div class="task built wait"><span class="n">6b</span><span class="st-lbl">Built</span><div class="t">Acceptance + CS &rarr; live on MDL</div><div class="chips"><span class="chip built">od-acceptance-test</span></div><div class="wflag">CS&nbsp;~wks</div></div>
+          <div class="task built"><span class="n">4b</span><span class="st-lbl">Built</span><div class="t">Connector + pipeline to MDL</div><div class="chips"><span class="chip built">mi-equipment</span><span class="chip built">mi-signals</span><span class="chip built">mi-flow</span></div></div>
+          <div class="task built wait"><span class="n">5b</span><span class="st-lbl">Built</span><div class="t">Procure &amp; connect machine</div><div class="chips"><span class="chip built">mi-equipment</span></div><div class="wflag">proc&nbsp;~wks</div></div>
+          <div class="task built wait"><span class="n">6b</span><span class="st-lbl">Built</span><div class="t">Acceptance + CS &rarr; live on MDL</div><div class="chips"><span class="chip built">deploy-acceptance</span></div><div class="wflag">CS&nbsp;~wks</div></div>
           <div class="ev end last"><span class="elbl">on MDL</span>&#9679;</div>
         </div>
-        <div class="fall"><b>Corrected vs draft:</b> branch 3b, rollout (6a) and acceptance (6b) are <b>Built</b>, not gaps &mdash; the only true Lane&nbsp;3 gaps are <b>deploy-appstore</b> and <b>it-demand-package</b> on 3a.</div>
+        <div class="fall"><b>Corrected vs draft:</b> branch 3b, rollout (6a) and acceptance (6b) are <b>Built</b>, not gaps &mdash; the only true Lane&nbsp;3 gaps are <b>deploy-appstore</b> and <b>deploy-it-demand</b> on 3a.</div>
       </div>
     </div>
 
@@ -269,7 +269,7 @@
       <div class="gcard"><div class="gn">catalog-systems</div><div class="gl">Lane 1b</div><div class="gd">Standardized connection-kit list to match &amp; order.</div></div>
       <div class="gcard"><div class="gn">catalog-guardrails</div><div class="gl">Lane 1</div><div class="gd">Self-check to go live without OD labour.</div></div>
       <div class="gcard"><div class="gn">deploy-appstore</div><div class="gl">Lane 3a</div><div class="gd">Containerize &amp; deploy to platform + CS sign-off.</div></div>
-      <div class="gcard"><div class="gn">it-demand-package</div><div class="gl">Lane 3a</div><div class="gd">Package a demand for IT Demand / external dev.</div></div>
+      <div class="gcard"><div class="gn">deploy-it-demand</div><div class="gl">Lane 3a</div><div class="gd">Package a demand for IT Demand / external dev.</div></div>
       <div class="gcard thin"><div class="gn">prototype / PoC</div><div class="gl">Lane 2 &middot; thin</div><div class="gd">Only partial today via asset-build.</div></div>
       <div class="gcard thin"><div class="gn">capital-request</div><div class="gl">Lane 2 &amp; 3 &middot; thin</div><div class="gd">Routing only; no packaging skill.</div></div>
     </div>

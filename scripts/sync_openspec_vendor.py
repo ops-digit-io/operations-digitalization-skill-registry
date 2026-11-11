@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Keep the OpenSpec copy inside skills/it-demand-package identical to the pinned OpenSpec release.
+"""Keep the OpenSpec copy inside skills/deploy-it-demand identical to the pinned OpenSpec release.
 
     python3 scripts/sync_openspec_vendor.py --from <OpenSpec checkout at the pinned tag>           # copy + rewrite VENDORED.md
     python3 scripts/sync_openspec_vendor.py --check --from <OpenSpec checkout at the pinned tag>   # fail on any drift
 
 The copy is OpenSpec's own agent skills (skills/), the workflow schema they follow (schemas/spec-driven/), the
 documentation they and the store guide point to (docs/), README.md and LICENSE (MIT), byte for byte apart from line
-endings. The release is OPENSPEC_PINNED in skills/it-demand-package/scripts/check_handover.py; check out the matching
+endings. The release is OPENSPEC_PINNED in skills/deploy-it-demand/scripts/check_handover.py; check out the matching
 tag first: git clone --depth 1 --branch v<pin> https://github.com/Fission-AI/OpenSpec.
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKILL = ROOT / "skills" / "it-demand-package"
+SKILL = ROOT / "skills" / "deploy-it-demand"
 DEST = SKILL / "references" / "openspec"
 MANIFEST = DEST / "VENDORED.md"
 SETS = ["skills", "schemas/spec-driven", "docs", "README.md", "LICENSE"]

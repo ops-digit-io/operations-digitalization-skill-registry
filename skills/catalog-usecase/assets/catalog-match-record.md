@@ -28,27 +28,27 @@ Date:
 3  CONDITIONS FOR "CATALOGUED"
    a CSP Yes recorded:                          met / not met
    b maps to a template:                        met / not met
-   c signals standardized (od-signal-standardization):   met / not met / not checked
+   c signals standardized (mi-signals):   met / not met / not checked
    d plant owner + handover passed three-question test:   met / not met / not checked
 
-4  PRECONDITIONS AT THIS PLANT (od-data-availability-check)
+4  PRECONDITIONS AT THIS PLANT (mi-data-availability)
    Target types needed (template-coverage.md):      
    Machine(s) / controller:                          Integration status (Machine List):  INTEGRATED / NOT INTEGRATED / no status recorded
    Signals present and fresh:                        Verdict step reached: 1-6
 
 5  FOOTPRINT
-   Systems needed:                                   Inside lean footprint?  yes / no -> od-system-fit-check
+   Systems needed:                                   Inside lean footprint?  yes / no -> invest-screen
 
 6  BRANCH AND NEXT SKILL
-   1a connected  -> od-analytics-asset-build (dashboard) / build-grafana-ops-dashboard
+   1a connected  -> ops-analytics-asset (dashboard) / ops-dashboard-engine
    1b not connected -> catalog-usecase (system match)
-   falls through -> Lane 2 (od-use-case-definition) or Lane 3 (od-system-fit-check)
+   falls through -> Lane 2 (funnel-use-case) or Lane 3 (invest-screen)
    Reason for the branch:
 
 7  OPEN POINTS (each with an owner role)
 ```
 
-A blank in "integration status" is not a "No": many machines carry no status (`od-data-availability-check`). Ask the IIAE.
+A blank in "integration status" is not a "No": many machines carry no status (`mi-data-availability`). Ask the IIAE.
 
 ## Worked example (illustrative - the request and entry are invented to show the steps; all values are placeholders)
 

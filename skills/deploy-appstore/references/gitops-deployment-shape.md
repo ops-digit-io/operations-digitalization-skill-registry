@@ -32,7 +32,7 @@ expert-bound and not repeatable by key users.
 - **Standard manifests.** Apps entering the cluster use the standardized manifests, giving a consistent
   deployment structure; a supplier or internal app that conforms is accepted faster.
 - **CMO compliance is the preferred route**, because Cyber Security can approve at platform level
-  (`od-cybersec-gate`) instead of reviewing every similar app.
+  (`deploy-cybersec`) instead of reviewing every similar app.
 - **Keep the capability in house**: CMO knowledge is worth retaining given distributed plants and central
   governance. The CMO target blueprint (scope across plants, hybrid scenarios) is an open IT item
   (IT).

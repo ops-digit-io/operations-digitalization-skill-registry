@@ -45,7 +45,7 @@ delivered: plants with a plant use case in the template and none delivered.
 ## What each template needs - the preconditions for branch 1a
 
 From the "standard data and realization" block of each template page (target types and machine links counted by the graph;
-keyword counts, not verified). Use with `od-data-availability-check`; read the actual counts and controller vendors on the
+keyword counts, not verified). Use with `mi-data-availability`; read the actual counts and controller vendors on the
 page, they are not repeated here.
 
 | Template | Target types it needs to see (typical) |

@@ -1,10 +1,10 @@
 %% OD New-State Service Lanes - process flow with skills
 %% Drawn from the owner's process flow (OD_NewState_ProcessFlow.html). docs/new-state/process.yaml holds the same as data.
 %% Every core skill (skills/) is on a step; extension skills (skills-extension/) are not drawn.
-%% Foundation, not a step (every skill reads it first): od-context
+%% Foundation, not a step (every skill reads it first): dept-context
 %% Shapes: (( )) start/end · { } gateway · [ ] task · [( )] catalog · red dashed = external wait (approval / CS / procurement)
 flowchart TD
-    START((Demand)) --> CLS{"Known use case?<br/><i>od-use-case-intake-triage, od-system-fit-check</i>"}
+    START((Demand)) --> CLS{"Known use case?<br/><i>dept-intake, invest-screen</i>"}
     CLS -->|YES · run it| L1G{Machine<br/>connected?}
     CLS -->|NEW use case, machine connected| C1
     CLS -->|NEW system / connector| D1
@@ -12,13 +12,13 @@ flowchart TD
     subgraph LANE1 [Lane 1 - Run a known use case · Self-service]
         direction TB
         L1G -->|1a connected| A1["Pick from catalog<br/><i>catalog-usecase</i>"]
-        A1 --> A2["Apply template<br/><i>od-analytics-asset-build, build-grafana-ops-dashboard</i>"]
+        A1 --> A2["Apply template<br/><i>ops-analytics-asset, ops-dashboard-engine</i>"]
         A2 --> A3["Validate & go live<br/><i>catalog-guardrails</i>"]
         A3 --> L1END(((Live)))
         L1G -->|1b not connected| B1["Pick UC + std system<br/><i>catalog-usecase, catalog-systems</i>"]
-        B1 -.->|~d| B2["Cost template + approval<br/><i>od-decision-routing</i>"]
-        B2 -.->|~wks| B3["Order & connect system<br/><i>od-equipment-integration</i>"]
-        B3 --> B4["Apply template & go live<br/><i>od-analytics-asset-build, build-grafana-ops-dashboard</i>"]
+        B1 -.->|~d| B2["Cost template + approval<br/><i>dept-decision-rights</i>"]
+        B2 -.->|~wks| B3["Order & connect system<br/><i>mi-equipment</i>"]
+        B3 --> B4["Apply template & go live<br/><i>ops-analytics-asset, ops-dashboard-engine</i>"]
         B4 --> L1END
     end
     LANE1 -.->|not truly catalogued| C1
@@ -26,11 +26,11 @@ flowchart TD
 
     subgraph LANE2 [Lane 2 - Develop a new use case · OD-led]
         direction TB
-        C1["Define & diagnose<br/><i>od-use-case-definition</i>"] --> C2["Features + data check<br/><i>od-requirements-breakdown, od-data-availability-check</i>"]
-        C2 --> C3["Prototype / validate<br/><i>od-analytics-asset-build, od-prototype-poc</i>"]
-        C3 --> C4["Business case + rank<br/><i>od-benefit-calculation, bc-assessment</i>"]
-        C4 -.->|~wks| C5["Capital request<br/><i>od-decision-routing, od-capital-request</i>"]
-        C5 --> C6["Implement & graduate<br/><i>od-handover-and-adoption → catalog-usecase</i>"]
+        C1["Define & diagnose<br/><i>funnel-use-case</i>"] --> C2["Features + data check<br/><i>funnel-requirements, mi-data-availability</i>"]
+        C2 --> C3["Prototype / validate<br/><i>ops-analytics-asset, funnel-prototype</i>"]
+        C3 --> C4["Business case + rank<br/><i>bc-build, bc-assess</i>"]
+        C4 -.->|~wks| C5["Capital request<br/><i>dept-decision-rights, bc-capital-request</i>"]
+        C5 --> C6["Implement & graduate<br/><i>deploy-handover → catalog-usecase</i>"]
         C6 --> CAT[(Catalog)]
     end
     CAT -.->|proven & repeatable → Lane 1| L1G
@@ -38,23 +38,23 @@ flowchart TD
 
     subgraph LANE3 [Lane 3 - New system or connector · OD / Ext / IT-CS]
         direction TB
-        D1["Requirements<br/><i>od-requirements-breakdown</i>"] --> D2{"Tool-decision gate<br/><i>od-system-fit-check, od-decision-routing</i>"}
-        D2 -.->|~wks| D3["Business case + capital<br/><i>od-benefit-calculation, od-capital-request</i>"]
-        D3 -->|3a.1 reuse app · 3a.2 self dev<br/>3a.3 external dev · 3a.4 integrate via IT-CS| E1["Package / build<br/><i>it-demand-package</i>"]
+        D1["Requirements<br/><i>funnel-requirements</i>"] --> D2{"Tool-decision gate<br/><i>invest-screen, dept-decision-rights</i>"}
+        D2 -.->|~wks| D3["Business case + capital<br/><i>bc-build, bc-capital-request</i>"]
+        D3 -->|3a.1 reuse app · 3a.2 self dev<br/>3a.3 external dev · 3a.4 integrate via IT-CS| E1["Package / build<br/><i>deploy-it-demand</i>"]
         E1 -.->|CS ~wks| E2["Deploy to platform + CS<br/><i>deploy-appstore</i>"]
-        E2 --> E3["Rollout & adopt<br/><i>od-handover-and-adoption</i>"]
+        E2 --> E3["Rollout & adopt<br/><i>deploy-handover</i>"]
         E3 --> L3AEND(((Live)))
-        D3 -->|3b new connector| F1["Connector + pipeline to MDL<br/><i>od-equipment-integration, od-signal-standardization, od-node-red-flow-builder</i>"]
-        F1 -.->|proc ~wks| F2["Procure & connect machine<br/><i>od-equipment-integration</i>"]
-        F2 -.->|CS ~wks| F3["Acceptance + CS → live<br/><i>od-acceptance-test</i>"]
+        D3 -->|3b new connector| F1["Connector + pipeline to MDL<br/><i>mi-equipment, mi-signals, mi-flow</i>"]
+        F1 -.->|proc ~wks| F2["Procure & connect machine<br/><i>mi-equipment</i>"]
+        F2 -.->|CS ~wks| F3["Acceptance + CS → live<br/><i>deploy-acceptance</i>"]
         F3 --> L3BEND(((Live on MDL)))
     end
 
     subgraph LANE4 [Lane 4 - Promote a proven use case · OD-led, IC publishes]
         direction TB
-        G1["Select + check story<br/><i>od-showcase-selection</i>"] --> G2["Brief Internal Communications<br/><i>od-comms-brief</i>"]
-        G2 -.->|IC| G3["Review + publish (IC)<br/><i>od-comms-brief</i>"]
-        G3 --> G4["Follow up + feed back<br/><i>od-showcase-followup</i>"]
+        G1["Select + check story<br/><i>comms-showcase</i>"] --> G2["Brief Internal Communications<br/><i>comms-brief</i>"]
+        G2 -.->|IC| G3["Review + publish (IC)<br/><i>comms-brief</i>"]
+        G3 --> G4["Follow up + feed back<br/><i>comms-followup</i>"]
     end
     L1END -.->|live and adopted| G1
     CAT -.->|live and adopted| G1

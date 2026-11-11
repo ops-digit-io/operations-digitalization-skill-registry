@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Catalog guardrails](SKILL.md) | Agent Skill | Run the go-live self-check and technology guardrails on a use case a plant applied itself (Lane 1). Not for deciding go-live (the plant decides) or data checks (od-data-availability-check). |
+| [Catalog guardrails](SKILL.md) | Agent Skill | Run the go-live self-check and technology guardrails on a use case a plant applied itself (Lane 1). Not for deciding go-live (the plant decides) or data checks (mi-data-availability). |
 
 | Folder | Holds |
 |---|---|

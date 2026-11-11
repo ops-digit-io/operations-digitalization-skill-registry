@@ -251,7 +251,7 @@ def analyze(path: str) -> list[dict]:
                 if len(cells) >= 3 and not EXISTS_VERDICT.search(cells[2]):
                     add(findings, "BLOCKER", "signal-unverified",
                         f"{short}: signal '{cells[0]}' has no existence verdict.",
-                        fix="Verify via od-data-availability-check. Assumed signals are the "
+                        fix="Verify via mi-data-availability. Assumed signals are the "
                             "most common late failure — machine connectivity is a "
                             "recurring blocker class in the estate.")
                     break

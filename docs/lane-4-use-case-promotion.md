@@ -29,32 +29,32 @@ Lanes 1 to 3 bring demand in and deliver. Lane 4 sends results out: it tells the
 
 | Step | Flow id | Skill | Control point | Who |
 |---|---|---|---|---|
-| Select and check the story | 41 | `od-showcase-selection` | Gate passed: live and adopted, plant owner agrees, claims carry evidence, nothing sensitive, people content handled (consent or a documented balancing, otherwise roles and screenshots only), audience named | DBVE; plant owner decides |
-| Brief Internal Communications | 42 | `od-comms-brief` | Brief checked by `check_comms_brief.py` | DBVE |
-| Review and publish | 43 | `od-comms-brief` (approvals list) | Approvals: plant owner, OD lead, IC | Humans; IC publishes. External wait: IC |
-| Follow up and feed back | 44 | `od-showcase-followup` | Each reaction routed; review date set | DBVE |
+| Select and check the story | 41 | `comms-showcase` | Gate passed: live and adopted, plant owner agrees, claims carry evidence, nothing sensitive, people content handled (consent or a documented balancing, otherwise roles and screenshots only), audience named | DBVE; plant owner decides |
+| Brief Internal Communications | 42 | `comms-brief` | Brief checked by `check_comms_brief.py` | DBVE |
+| Review and publish | 43 | `comms-brief` (approvals list) | Approvals: plant owner, OD lead, IC | Humans; IC publishes. External wait: IC |
+| Follow up and feed back | 44 | `comms-followup` | Each reaction routed; review date set | DBVE |
 
 Feed-back routes: a request for a catalogued use case goes to Lane 1, a new recurring need to intake and Lane 2, a need for a system or connector to intake and Lane 3.
 
 ## Built on the department's own material
 
-Lane 4 reuses what OD already has: the CSP appetizer fields, the pairing of an OPEX method with a digital standard use case, the plant testimonial template and the story shapes used at ODEC (`od-comms-brief`, `references/department-formats.md`), and it lists the peer-sharing channels that exist (ODEC use-case slot, CoP best-practice slot, the OPEX exchange call, the Yokoten database) as options to confirm. The January 2026 marketing-template initiative planned a marketing process and communication channels but left its results slide empty: Lane 4 is the first attempt to finish it, and its status is to be confirmed by the owner.
+Lane 4 reuses what OD already has: the CSP appetizer fields, the pairing of an OPEX method with a digital standard use case, the plant testimonial template and the story shapes used at ODEC (`comms-brief`, `references/department-formats.md`), and it lists the peer-sharing channels that exist (ODEC use-case slot, CoP best-practice slot, the OPEX exchange call, the Yokoten database) as options to confirm. The January 2026 marketing-template initiative planned a marketing process and communication channels but left its results slide empty: Lane 4 is the first attempt to finish it, and its status is to be confirmed by the owner.
 
 ## Rules the lane enforces
 
 - **No invented figures** (knowledge base `CLAUDE.md` 1.5). Every figure carries an evidence class: `CALCULATION`, `ESTIMATION` or `not yet assessed`.
-- **A saving is a claim until it is registered.** It counts as a result only with a registered plant savings project and a baseline (registry rule in `od-use-case-definition`).
+- **A saving is a claim until it is registered.** It counts as a result only with a registered plant savings project and a baseline (registry rule in `funnel-use-case`).
 - **Roles, not individuals** (knowledge base `CLAUDE.md` 3); no host names, addresses or links to internal systems.
 - **OD never publishes.** The agent drafts and checks; every approval is human; IC publishes.
 - English deliverables.
 
 ## Authority
 
-No row for outbound communication exists in `08-decision-rights.md`. `od-decision-routing` carries a **proposed** row (DBVE with the plant owner and IC, tandem, approval yes, not reversible once published, `recommend`). The OD lead has to confirm it.
+No row for outbound communication exists in `08-decision-rights.md`. `dept-decision-rights` carries a **proposed** row (DBVE with the plant owner and IC, tandem, approval yes, not reversible once published, `recommend`). The OD lead has to confirm it.
 
 ## Measures (definitions only, no targets)
 
-Time to story; requests from stories; story-to-request rate; stale stories. Defined in `od-showcase-followup`. The department sets targets.
+Time to story; requests from stories; story-to-request rate; stale stories. Defined in `comms-followup`. The department sets targets.
 
 ## Risks
 
@@ -62,14 +62,14 @@ Time to story; requests from stories; story-to-request rate; stale stories. Defi
 |---|---|
 | Claims run ahead of evidence | The gate (step 41) and the check script (step 42); savings stay claims until registered |
 | A plant is named without consent | Written consent of the plant owner is a gate criterion |
-| A published story ages or is restated | Review date; IC corrects or withdraws; `od-showcase-followup` |
+| A published story ages or is restated | Review date; IC corrects or withdraws; `comms-followup` |
 | IC's process differs from the generic brief | The brief is a hand-over, not a template IC must adopt; IC's own form replaces it once supplied |
 | Marketing load pulls OD into a communications role | OD drafts for IC and does not publish; the lane is limited to live, adopted use cases |
 
 ## Open points (waiting for the Internal Communications brief)
 
-Intake channel or role at IC; channels per audience; lead time; an IC template or review route; brand and tone rules and the neuwerk template; a second approval or language; the reach or response data IC returns. Recorded as topic 6 of `PHASE1-ELICITATION.md` and in `skills/od-comms-brief/references/ic-handover.md`.
+Intake channel or role at IC; channels per audience; lead time; an IC template or review route; brand and tone rules and the neuwerk template; a second approval or language; the reach or response data IC returns. Recorded as topic 6 of `PHASE1-ELICITATION.md` and in `skills/comms-brief/references/ic-handover.md`.
 
 ## What was added to the registry
 
-Three core skills (draft): `od-showcase-selection`, `od-comms-brief` (with `check_comms_brief.py` and tests), `od-showcase-followup`. Lane 4 in `process.yaml`, the Mermaid flow, the owner's process diagram (a Lane 4 block in the same style, the three skills in the net-new strip) and the site. A paragraph in `od-context` and a proposed row in `od-decision-routing`.
+Three core skills (draft): `comms-showcase`, `comms-brief` (with `check_comms_brief.py` and tests), `comms-followup`. Lane 4 in `process.yaml`, the Mermaid flow, the owner's process diagram (a Lane 4 block in the same style, the three skills in the net-new strip) and the site. A paragraph in `dept-context` and a proposed row in `dept-decision-rights`.

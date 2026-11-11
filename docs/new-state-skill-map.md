@@ -18,7 +18,7 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Known use case? | [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md), [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | - |
+| Known use case? | [`dept-intake`](../skills/dept-intake/SKILL.md), [`invest-screen`](../skills/invest-screen/SKILL.md) | - |
 
 ## Run a known use case
 
@@ -29,7 +29,7 @@ The process flow with the core skills that serve each step. The interactive vers
 | Step | Skills | Wait |
 |---|---|---|
 | Pick from catalog | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)* | - |
-| Apply template | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | - |
+| Apply template | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md), [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | - |
 | Validate & go live | [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | - |
 
 **Not connected: standardized-system onboarding (predictable spend via cost template)**
@@ -37,9 +37,9 @@ The process flow with the core skills that serve each step. The interactive vers
 | Step | Skills | Wait |
 |---|---|---|
 | Pick UC + std system | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)*, [`catalog-systems`](../skills/catalog-systems/SKILL.md) | ~d |
-| Cost template + approval | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | ~wks |
-| Order & connect system | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | - |
-| Apply template & go live | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | - |
+| Cost template + approval | [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md) | ~wks |
+| Order & connect system | [`mi-equipment`](../skills/mi-equipment/SKILL.md) | - |
+| Apply template & go live | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md), [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | - |
 
 ## Develop a new use case
 
@@ -49,12 +49,12 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Define & diagnose | [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | - |
-| Features + data check | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md), [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | - |
-| Prototype / validate | [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md), [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) *(draft)* | - |
-| Business case + rank | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md), [`bc-assessment`](../skills/bc-assessment/SKILL.md) | ~wks |
-| Capital request | [`od-decision-routing`](../skills/od-decision-routing/SKILL.md), [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | - |
-| Implement & graduate | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md), [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)* | - |
+| Define & diagnose | [`funnel-use-case`](../skills/funnel-use-case/SKILL.md) | - |
+| Features + data check | [`funnel-requirements`](../skills/funnel-requirements/SKILL.md), [`mi-data-availability`](../skills/mi-data-availability/SKILL.md) | - |
+| Prototype / validate | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md), [`funnel-prototype`](../skills/funnel-prototype/SKILL.md) *(draft)* | - |
+| Business case + rank | [`bc-build`](../skills/bc-build/SKILL.md), [`bc-assess`](../skills/bc-assess/SKILL.md) | ~wks |
+| Capital request | [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md), [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) *(draft)* | - |
+| Implement & graduate | [`deploy-handover`](../skills/deploy-handover/SKILL.md), [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)* | - |
 
 ## New system or connector
 
@@ -64,25 +64,25 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Requirements | [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | - |
-| Tool-decision gate | [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md), [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | ~wks |
-| Business case + capital | [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md), [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | - |
+| Requirements | [`funnel-requirements`](../skills/funnel-requirements/SKILL.md) | - |
+| Tool-decision gate | [`invest-screen`](../skills/invest-screen/SKILL.md), [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md) | ~wks |
+| Business case + capital | [`bc-build`](../skills/bc-build/SKILL.md), [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) *(draft)* | - |
 
 **New system: make / buy / integrate**
 
 | Step | Skills | Wait |
 |---|---|---|
-| Package / build | [`it-demand-package`](../skills/it-demand-package/SKILL.md) | CS ~wks |
+| Package / build | [`deploy-it-demand`](../skills/deploy-it-demand/SKILL.md) | CS ~wks |
 | Deploy to platform + CS | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) *(draft)* | - |
-| Rollout & adopt | [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | - |
+| Rollout & adopt | [`deploy-handover`](../skills/deploy-handover/SKILL.md) | - |
 
 **New connector for a new machine**
 
 | Step | Skills | Wait |
 |---|---|---|
-| Connector + pipeline to MDL | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md), [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md), [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | proc ~wks |
-| Procure & connect machine | [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | CS ~wks |
-| Acceptance + CS → live | [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | - |
+| Connector + pipeline to MDL | [`mi-equipment`](../skills/mi-equipment/SKILL.md), [`mi-signals`](../skills/mi-signals/SKILL.md), [`mi-flow`](../skills/mi-flow/SKILL.md) | proc ~wks |
+| Procure & connect machine | [`mi-equipment`](../skills/mi-equipment/SKILL.md) | CS ~wks |
+| Acceptance + CS → live | [`deploy-acceptance`](../skills/deploy-acceptance/SKILL.md) | - |
 
 ## Promote a proven use case
 
@@ -92,10 +92,10 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Select + check story | [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | - |
-| Brief Internal Communications | [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | - |
-| Review + publish (IC) | [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | IC |
-| Follow up + feed back | [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | - |
+| Select + check story | [`comms-showcase`](../skills/comms-showcase/SKILL.md) | - |
+| Brief Internal Communications | [`comms-brief`](../skills/comms-brief/SKILL.md) | - |
+| Review + publish (IC) | [`comms-brief`](../skills/comms-brief/SKILL.md) | IC |
+| Follow up + feed back | [`comms-followup`](../skills/comms-followup/SKILL.md) | - |
 
 ## Foundation
 
@@ -103,36 +103,37 @@ Not a step; every skill reads it first.
 
 | Skills |
 |---|
-| [`od-context`](../skills/od-context/SKILL.md) |
+| [`dept-context`](../skills/dept-context/SKILL.md) |
 
 ## All skills
 
-25 core skills. 'Files' lists which of the four New-State files name the skill.
+26 core skills. 'Files' lists which of the four New-State files name the skill.
 
 | Skill | State | Tier | Steps | Files |
 |---|---|---|---|---|
-| [`bc-assessment`](../skills/bc-assessment/SKILL.md) | in use | practice | Develop a new use case: Business case + rank | Flow, Process flow, BPMN, VSM |
+| [`bc-assess`](../skills/bc-assess/SKILL.md) | in use | practice | Develop a new use case: Business case + rank | Flow, Process flow, BPMN, VSM |
+| [`bc-build`](../skills/bc-build/SKILL.md) | in use | practice | Develop a new use case: Business case + rank; New system or connector: Business case + capital | Flow, Process flow, BPMN, VSM |
+| [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow, Process flow |
 | [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | in use | practice | Run a known use case: Validate & go live | Flow, Process flow, BPMN, VSM |
 | [`catalog-systems`](../skills/catalog-systems/SKILL.md) | in use | practice | Run a known use case: Pick UC + std system | Flow, Process flow, BPMN, VSM |
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)* | draft | practice | Run a known use case: Pick from catalog; Run a known use case: Pick UC + std system; Develop a new use case: Implement & graduate | Flow, Process flow, BPMN, VSM |
+| [`comms-brief`](../skills/comms-brief/SKILL.md) | in use | practice | Promote a proven use case: Brief Internal Communications; Promote a proven use case: Review + publish (IC) | Flow, Process flow |
+| [`comms-followup`](../skills/comms-followup/SKILL.md) | in use | practice | Promote a proven use case: Follow up + feed back | Flow, Process flow |
+| [`comms-showcase`](../skills/comms-showcase/SKILL.md) | in use | practice | Promote a proven use case: Select + check story | Flow, Process flow |
+| [`deploy-acceptance`](../skills/deploy-acceptance/SKILL.md) | in use | practice | New system or connector: Acceptance + CS → live | Flow, Process flow, BPMN, VSM |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) *(draft)* | draft | practice | New system or connector: Deploy to platform + CS | Flow, Process flow, BPMN, VSM |
-| [`it-demand-package`](../skills/it-demand-package/SKILL.md) | in use | practice | New system or connector: Package / build | Flow, Process flow, BPMN, VSM |
-| [`od-acceptance-test`](../skills/od-acceptance-test/SKILL.md) | in use | practice | New system or connector: Acceptance + CS → live | Flow, Process flow, BPMN, VSM |
-| [`od-analytics-asset-build`](../skills/od-analytics-asset-build/SKILL.md) | in use | practice | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |
-| [`od-benefit-calculation`](../skills/od-benefit-calculation/SKILL.md) | in use | practice | Develop a new use case: Business case + rank; New system or connector: Business case + capital | Flow, Process flow, BPMN, VSM |
-| [`od-capital-request`](../skills/od-capital-request/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Capital request; New system or connector: Business case + capital | Flow, Process flow |
-| [`od-comms-brief`](../skills/od-comms-brief/SKILL.md) | in use | practice | Promote a proven use case: Brief Internal Communications; Promote a proven use case: Review + publish (IC) | Flow, Process flow |
-| [`od-context`](../skills/od-context/SKILL.md) | in use | foundation | Foundation | Flow, VSM |
-| [`od-data-availability-check`](../skills/od-data-availability-check/SKILL.md) | in use | practice | Develop a new use case: Features + data check | Flow, Process flow, BPMN, VSM |
-| [`od-decision-routing`](../skills/od-decision-routing/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
-| [`od-equipment-integration`](../skills/od-equipment-integration/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to MDL; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
-| [`od-handover-and-adoption`](../skills/od-handover-and-adoption/SKILL.md) | in use | practice | Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | Flow, Process flow, BPMN, VSM |
-| [`od-node-red-flow-builder`](../skills/od-node-red-flow-builder/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
-| [`od-prototype-poc`](../skills/od-prototype-poc/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Prototype / validate | Flow, Process flow |
-| [`od-requirements-breakdown`](../skills/od-requirements-breakdown/SKILL.md) | in use | practice | Develop a new use case: Features + data check; New system or connector: Requirements | Flow, Process flow, BPMN, VSM |
-| [`od-showcase-followup`](../skills/od-showcase-followup/SKILL.md) | in use | practice | Promote a proven use case: Follow up + feed back | Flow, Process flow |
-| [`od-showcase-selection`](../skills/od-showcase-selection/SKILL.md) | in use | practice | Promote a proven use case: Select + check story | Flow, Process flow |
-| [`od-signal-standardization`](../skills/od-signal-standardization/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
-| [`od-system-fit-check`](../skills/od-system-fit-check/SKILL.md) | in use | practice | Intake: Known use case?; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
-| [`od-use-case-definition`](../skills/od-use-case-definition/SKILL.md) | in use | technical | Develop a new use case: Define & diagnose | Flow, Process flow, BPMN, VSM |
-| [`od-use-case-intake-triage`](../skills/od-use-case-intake-triage/SKILL.md) | in use | practice | Intake: Known use case? | Flow, Process flow, BPMN, VSM |
+| [`deploy-handover`](../skills/deploy-handover/SKILL.md) | in use | practice | Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | Flow, Process flow, BPMN, VSM |
+| [`deploy-it-demand`](../skills/deploy-it-demand/SKILL.md) | in use | practice | New system or connector: Package / build | Flow, Process flow, BPMN, VSM |
+| [`dept-context`](../skills/dept-context/SKILL.md) | in use | foundation | Foundation | Flow, VSM |
+| [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
+| [`dept-intake`](../skills/dept-intake/SKILL.md) | in use | practice | Intake: Known use case? | Flow, Process flow, BPMN, VSM |
+| [`funnel-prototype`](../skills/funnel-prototype/SKILL.md) *(draft)* | draft | practice | Develop a new use case: Prototype / validate | Flow, Process flow |
+| [`funnel-requirements`](../skills/funnel-requirements/SKILL.md) | in use | practice | Develop a new use case: Features + data check; New system or connector: Requirements | Flow, Process flow, BPMN, VSM |
+| [`funnel-use-case`](../skills/funnel-use-case/SKILL.md) | in use | technical | Develop a new use case: Define & diagnose | Flow, Process flow, BPMN, VSM |
+| [`invest-screen`](../skills/invest-screen/SKILL.md) | in use | practice | Intake: Known use case?; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
+| [`mi-data-availability`](../skills/mi-data-availability/SKILL.md) | in use | practice | Develop a new use case: Features + data check | Flow, Process flow, BPMN, VSM |
+| [`mi-equipment`](../skills/mi-equipment/SKILL.md) | in use | technical | Run a known use case: Order & connect system; New system or connector: Connector + pipeline to MDL; New system or connector: Procure & connect machine | Flow, Process flow, BPMN, VSM |
+| [`mi-flow`](../skills/mi-flow/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
+| [`mi-signals`](../skills/mi-signals/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
+| [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md) | in use | practice | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |
+| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | in use | technical | Run a known use case: Apply template; Run a known use case: Apply template & go live | Flow, Process flow, BPMN, VSM |
