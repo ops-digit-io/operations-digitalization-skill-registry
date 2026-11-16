@@ -212,7 +212,7 @@ def build(out: Path, repo_url: str) -> None:
         info[n]["github"] = f"{repo_url}/blob/main/{skp.folder_of(n)}/{n}/SKILL.md"
 
     # ---- map page
-    data = json.dumps({"lanes": lanes, "skills": info}, ensure_ascii=False).replace("</", "<\\/")
+    data = json.dumps({"lanes": lanes, "skills": info, "repo": repo_url}, ensure_ascii=False).replace("</", "<\\/")
     body = f"""
 <p>{len(ids)} core skills ordered along the new-state process flow: pick a lane, a step, then a skill. Each skill shows its quality grade and score ([how they are rated](../docs/skill-quality.html)).
 </p>
@@ -235,7 +235,7 @@ function render(){{
         const all=[...(st.skills||[]).map(i=>[i,false]),...(showProp?(st.proposed||[]).map(i=>[i,true]):[])];
         const hit=!q||(st.title+' '+(st.text||'')).toLowerCase().includes(q)||all.some(([i])=>(i+' '+D.skills[i].short).toLowerCase().includes(q));
         if(!hit)return '';
-        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}${{st.substeps?`<ul class="sub">${{st.substeps.map(x=>`<li><b>${{esc(x.id)}} ${{esc(x.title)}}</b><small>${{esc(x.owner)}}</small>${{(x.skills||[]).map(i=>chip(i,false)).join('')}}${{(x.openspec||[]).map(o=>`<span class="chip ext" title="OpenSpec skill, carried unchanged inside deploy-it-demand">${{esc(o)}}</span>`).join('')}}</li>`).join('')}}</ul>`:''}}</div>`}}).join('');
+        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}${{st.substeps?`<ul class="sub">${{st.substeps.map(x=>`<li><b>${{esc(x.id)}} ${{esc(x.title)}}</b><small>${{esc(x.owner)}}</small>${{(x.skills||[]).map(i=>chip(i,false)).join('')}}${{(x.openspec||[]).map(o=>`<a class="chip ext" href="${{D.repo}}/blob/main/skills/deploy-it-demand/references/openspec/skills/${{esc(o)}}/SKILL.md" target="_blank" rel="noopener" title="OpenSpec skill (external, OpenSpec 1.17.0); the IT demand follows the OpenSpec process">${{esc(o)}}</a>`).join('')}}</li>`).join('')}}</ul>`:''}}</div>`}}).join('');
       return steps?`<div class="branch">${{b.title?`<h3>${{esc(b.title)}}</h3>`:''}}<div class="steps">${{steps}}</div></div>`:''}}).join('');
     if(!br)return '';
     return `<section class="lane" id="${{l.id}}"><h2>${{esc(l.title)}} <small>${{esc(l.who)}}</small><a class="zip" href="${{l.zip}}">Download ${{l.count}} skills (.zip)</a></h2><p>${{esc(l.summary)}}</p>${{br}}</section>`}}).join('')||'<p>No match.</p>';
