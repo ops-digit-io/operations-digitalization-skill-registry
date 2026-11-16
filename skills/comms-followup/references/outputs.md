@@ -15,7 +15,7 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | follow-up-log | `assets/followup-log.md`, one per story | OD lead | Publication recorded (use case, plant, channel, date, audiences, claims as published); Reach figures copied exactly as Internal Communications reports them, or "not reported" |
-| routed-reactions | Entries in the follow-up log | `catalog-usecase`, `dept-intake`, (catalogued use case, Lane 1), (new need, or a need for a new system or connector, via intake) | Every reaction has a route; Answers stay within the story's promise; No delivery date promised |
+| routed-reactions | Entries in the follow-up log | `catalog-usecase`, `dept-intake` | Every reaction has a route; Answers stay within the story's promise; No delivery date promised |
 | review-date-and-correction-notice | Review date in the log; notice when the use case changes | Internal Communications | Review date set; On a changed use case or restated saving, the log is updated and Internal Communications told, who decides on correcting or withdrawing |
 | retro-line | One line per promotion in the log | OD lead | What worked, what did not, one change, ready for the monthly retro |
 
@@ -24,7 +24,7 @@ tags: [outputs, handoff]
 | Output | Check | Sign-off |
 |---|---|---|
 | follow-up-log | structure of `assets/followup-log.md` | OD lead |
-| routed-reactions | manual | (catalogued use case |
+| routed-reactions | manual | OD lead |
 | review-date-and-correction-notice | manual | Internal Communications |
 | retro-line | manual | OD lead |
 

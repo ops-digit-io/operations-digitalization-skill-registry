@@ -16,7 +16,7 @@ tags: [outputs, handoff]
 |---|---|---|---|
 | evaluation-protocol | `assets/evaluation-protocol.md`, filled, one per use case | `bc-build`, `dept-decision-rights`, the owning skill of a gap, or  (by verdict) | Step 0 case ranking is pasted; The script output (gap chart, score) is pasted, not re-described from memory |
 | per-area-assessment | Section of the protocol | Receiver of the verdict | Every candidate area has an evidenced as-is level and a target with its driver; No target stands without a named driver or business need |
-| sequenced-gaps-with-owner | Section of the protocol | `mi-equipment`, `mi-data-availability`, `mi-signals`, (F9, F10), (F11, F2), the use case itself for the rest | Every gap is sequenced and classified with an owner and next skill; Gaps staying with the use case are named for the scope and cost of `bc-build` |
+| sequenced-gaps-with-owner | Section of the protocol | `mi-equipment`, `mi-data-availability`, `mi-signals`, Use case owner | Every gap is sequenced and classified with an owner and next skill; Gaps staying with the use case are named for the scope and cost of `bc-build` |
 | verdict-and-total-score | Verdict and score in the protocol | `bc-build`, `funnel-use-case`, `dept-decision-rights`, owning skill (capability first) | One of the four verdicts is stated with the score recorded; The tool boundary sentence and operations-concept status sit next to it |
 
 ## Checks
@@ -25,7 +25,7 @@ tags: [outputs, handoff]
 |---|---|---|
 | evaluation-protocol | structure of `assets/evaluation-protocol.md` | the owning skill of a gap |
 | per-area-assessment | manual | Receiver of the verdict |
-| sequenced-gaps-with-owner | manual | (F9 |
+| sequenced-gaps-with-owner | manual | Use case owner |
 | verdict-and-total-score | manual | owning skill (capability first) |
 
 ## Handoff

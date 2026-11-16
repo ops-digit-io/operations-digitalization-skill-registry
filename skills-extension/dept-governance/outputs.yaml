@@ -21,12 +21,12 @@ outputs:
   - dept-decision-rights
   - dept-retro
   to_roles:
-  - Owners named in
+  - Owners named in the decision rights
   done_when:
   - Q&A classified and routed to the owning service line
   - Open homework chased
   - Unresolved items carried with the label "carried"
-  signoff: Owners named in
+  signoff: Owners named in the decision rights
 - id: use-case-sprint-plan-and-review
   form: "`assets/sprint-plan-and-review.md`: preconditions, deliverable board, IT-issue log, sprint-end review"
   template: assets/sprint-plan-and-review.md

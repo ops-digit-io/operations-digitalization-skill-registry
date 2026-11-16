@@ -46,10 +46,10 @@ outputs:
   to_skills:
   - mi-equipment
   to_roles:
-  - Information integration lane via
+  - Information integration lane
   done_when:
   - Every needed signal not yet collecting is listed with its reason
-  signoff: Information integration lane via
+  signoff: Information integration lane
 receives_from:
 - ops-event-model
 - catalog-usecase

@@ -5,12 +5,11 @@ outputs:
   form: List produced before the build starts
   to_skills: []
   to_roles:
-  - Plant (switches the signals on
-  - via datapoint-enablement intake)
+  - Plant (switches the signals on, via datapoint-enablement intake)
   done_when:
   - Every disabled signal the dashboard needs is listed by UUID before the build
   - No build rests on a disabled signal
-  signoff: Plant (switches the signals on
+  signoff: Plant
 - id: dashboard
   form: Grafana dashboard built from the catalog entry's template through `ops-dashboard-engine`
   to_skills:

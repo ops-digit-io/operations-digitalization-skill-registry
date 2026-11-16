@@ -21,7 +21,6 @@ outputs:
   - deploy-handover
   to_roles:
   - Plant owner
-  - then
   done_when:
   - "Stated in the record: who uses the screen, in which meeting, which action follows"
   signoff: Plant owner
@@ -32,13 +31,11 @@ outputs:
   - invest-screen
   - deploy-handover
   - deploy-cybersec
-  to_roles:
-  - or
-  - as the failure says
+  to_roles: []
   done_when:
   - Each failure is routed back with the target skill named
   - None is passed as a warning where it is marked block
-  signoff: or
+  signoff: Plant owner
 receives_from:
 - ops-dashboard-datatron
 - catalog-usecase

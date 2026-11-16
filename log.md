@@ -3,6 +3,12 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - skills reviewed against Anthropic's best practices
+
+- New `docs/skill-review-rubric.md`: 10 measured facts and 16 judged criteria, each with its source quote, taken from Anthropic's skill authoring best practices and overview, Anthropic's engineering post and the open Agent Skills specification and guides (all opened 2026-11-16). `scripts/skill_facts.py` measures the facts; `scripts/build_skill_review.py` builds `docs/skill-review.md` from `docs/new-state/skill-review.json`.
+- All 51 skills were reviewed by AI reviewers reading the skill text, each rating with a quote as evidence (741 of 762 quotes found word for word by a script). This is not a human review and not a behavioural test: no skill has evaluations.
+- Findings: 23 of 26 core descriptions say what the skill does but not when to use it (they were kept short for the SkillEvaluator convention of 50 to 150 characters; Anthropic allows 1,024); examples are the weakest criterion (14 skills have none); the SkillEvaluator grade does not track the review. The reviewers also found 17 parser artefacts in `outputs.yaml` from the migration (roles like 'then'); fixed in 9 skills.
+
 ## 2026-11-16 - skill output contract: SKILL.md without prose, outputs.yaml, run records
 
 - Every ``SKILL.md`` is now structure only (headings, tables, list items of at most 40 words, code blocks). 121 lines of pure context (purpose detail, examples, placement) moved unchanged to ``references/background.md``; instructions that were prose (steps, rules, gates, pitfalls) became short list items in place. ``scripts/migrate_skill_form.py --verify`` confirms nothing was lost; ``scripts/skill_form.py`` is part of ``validate_registry.py``.

@@ -17,7 +17,7 @@ tags: [outputs, handoff]
 | requirement-with-lane-variant | `assets/requirement-template.md`, filled, with the variant section for the lane (`use-case`, `integration`, `project` or `analytical`) | `invest-screen`, `mi-equipment`, OpenSpec IT demand (external), receiving lane | Sections 1-6, 6a and 10 complete; Variant present; Every signal has a verdict from `mi-data-availability`; Acceptance is testable with a real-shift adoption criterion; Blockers classified with owners; Legacy assessment and value label done; Growth boundary stated |
 | epic-with-stories | Epic with at least two stories, cut by moment and role | `funnel-features` | Epic check reports zero blockers; No story cut by technical layer; Each story has a use-in-a-real-shift criterion |
 | funnel-handoff-file | File per `references/handoff-schema.md`: `frame`, `riskiest_assumption`, `problems`, `candidates` | `funnel-features`, `funnel-prototype` | The next stage can resume without re-asking |
-| missing-signal-table | Table `signal id / label / why needed` in the requirement | `mi-equipment`, Information integration lane via | Every needed signal not yet collecting is listed with its reason |
+| missing-signal-table | Table `signal id / label / why needed` in the requirement | `mi-equipment`, Information integration lane | Every needed signal not yet collecting is listed with its reason |
 
 ## Checks
 
@@ -26,7 +26,7 @@ tags: [outputs, handoff]
 | requirement-with-lane-variant | `python scripts/check_requirement.py {file}` | OpenSpec IT demand (external) |
 | epic-with-stories | manual | OD lead |
 | funnel-handoff-file | manual | OD lead |
-| missing-signal-table | manual | Information integration lane via |
+| missing-signal-table | manual | Information integration lane |
 
 ## Handoff
 

@@ -7,15 +7,14 @@ outputs:
   to_skills:
   - bc-assess
   - bc-capital-request
-  to_roles:
-  - then
+  to_roles: []
   done_when:
   - Expected / min / potential headline
   - Bankable and assumption-dependent value apart
   - Investment envelope
   - Minimum viable rollout and maximum scale-out
   - Every figure tagged
-  signoff: then
+  signoff: OD lead
   check:
     structure: true
 - id: saving-rows-one-per-mechanism
