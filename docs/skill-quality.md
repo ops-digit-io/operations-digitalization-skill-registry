@@ -29,7 +29,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 93.4)
+## Scores of the core skills (mean 93.6)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
@@ -51,13 +51,13 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`mi-flow`](../skills/mi-flow/SKILL.md) | A | 93.0 | 90.0 | 95.0 | 100.0 | 85.0 | Large skill (6370 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 | [`bc-assess`](../skills/bc-assess/SKILL.md) | A | 91.8 | 80.0 | 95.0 | 100.0 | 100.0 | Instructions don't mention 'run_script' (-10) |
 | [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) | A | 91.8 | 80.0 | 95.0 | 100.0 | 100.0 | Instructions don't mention 'run_script' (-10) |
+| [`comms-brief`](../skills/comms-brief/SKILL.md) | A | 91.8 | 80.0 | 95.0 | 100.0 | 100.0 | Instructions don't mention 'run_script' (-10) |
+| [`comms-followup`](../skills/comms-followup/SKILL.md) | A | 91.8 | 80.0 | 95.0 | 100.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
 | [`mi-data-availability`](../skills/mi-data-availability/SKILL.md) | A | 91.8 | 80.0 | 95.0 | 100.0 | 100.0 | Instructions don't mention 'run_script' (-10) |
 | [`dept-context`](../skills/dept-context/SKILL.md) | A | 91.5 | 90.0 | 80.0 | 100.0 | 100.0 | Description contains vague words (-15) |
 | [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md) | A | 91.5 | 90.0 | 80.0 | 100.0 | 100.0 | Description contains vague words (-15) |
 | [`dept-intake`](../skills/dept-intake/SKILL.md) | A | 91.5 | 90.0 | 80.0 | 100.0 | 100.0 | Description contains vague words (-15) |
 | [`bc-build`](../skills/bc-build/SKILL.md) | B | 89.2 | 80.0 | 95.0 | 90.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
-| [`comms-brief`](../skills/comms-brief/SKILL.md) | B | 89.2 | 80.0 | 95.0 | 90.0 | 100.0 | Instructions don't mention 'run_script' (-10) |
-| [`comms-followup`](../skills/comms-followup/SKILL.md) | B | 89.2 | 80.0 | 95.0 | 90.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
 | [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | B | 89.2 | 85.0 | 90.0 | 100.0 | 80.0 | Large skill (5195 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 
 ## Where the points go
@@ -68,7 +68,6 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | SKILL_SPEC recommended field missing: 'version' | 26 of 26 | 5 |
 | Instructions don't mention 'run_script' | 4 of 26 | 10 |
 | Description contains vague words | 3 of 26 | 15 |
-| No mention of error handling or validation | 3 of 26 | 10 |
 | Description very long (598 chars, recommend 50-150) | 2 of 26 | 5 |
 | Resource-based skill lacks documentation of available resources | 2 of 26 | 10 |
 | Description very long (514 chars, recommend 50-150) | 1 of 26 | 5 |
@@ -76,6 +75,7 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | Description very long (612 chars, recommend 50-150) | 1 of 26 | 5 |
 | Description very long (618 chars, recommend 50-150) | 1 of 26 | 5 |
 | Description very long (625 chars, recommend 50-150) | 1 of 26 | 5 |
+| Description very long (627 chars, recommend 50-150) | 1 of 26 | 5 |
 
 ## Sources
 

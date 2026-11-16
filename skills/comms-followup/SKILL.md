@@ -99,6 +99,12 @@ Review date: set; retro line: one change
 - Leaving a story up after the savings were restated: readers keep quoting the old figure.
 - Naming the person who reacted: log the role, not the name.
 
+## Errors and validation
+
+- **A reaction fits no lane:** record it in the log as unrouted with the date and ask the OD lead; do not guess a lane.
+- **The published text differs from the approved brief:** record the difference, stop further reuse of the story and tell the owner of the brief.
+- **A measure has no source:** leave it empty and say why; the log never carries an invented figure or a target.
+
 ## Definition of done
 
 - The publication is recorded, every reaction has a route, the answers stay within the story's promise, a review date is set, and the log is filled.

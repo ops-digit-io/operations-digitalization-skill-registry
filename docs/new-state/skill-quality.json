@@ -25,8 +25,8 @@
   "D": 60,
   "F": 0
  },
- "mean": 91.3,
- "mean_core": 93.4,
+ "mean": 91.4,
+ "mean_core": 93.6,
  "skills": {
   "bc-assess": {
    "score": 91.8,
@@ -501,22 +501,16 @@
    }
   },
   "comms-brief": {
-   "score": 89.2,
-   "grade": "B",
+   "score": 91.8,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "ff79fd122ac2eef8",
+   "folder_hash": "31e4ace57065c00f",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Instructions don't mention 'run_script'",
      "suggestion": "Add explicit run_script() call examples"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
     },
     {
      "dimension": "correctness",
@@ -540,27 +534,21 @@
    "categories": {
     "correctness": 80.0,
     "discoverability": 95.0,
-    "reliability": 90.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
   "comms-followup": {
-   "score": 89.2,
-   "grade": "B",
+   "score": 91.8,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "6d620516254f9d84",
+   "folder_hash": "b7e0027b41ee2006",
    "findings": [
     {
      "dimension": "correctness",
      "deduction": 10,
      "message": "Resource-based skill lacks documentation of available resources",
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
     },
     {
      "dimension": "correctness",
@@ -584,7 +572,7 @@
    "categories": {
     "correctness": 80.0,
     "discoverability": 95.0,
-    "reliability": 90.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },

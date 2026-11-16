@@ -115,6 +115,12 @@ Weak version: "Downtime is slashed" - no source, no class, superlative: blocked.
 
 - An agent runs a script with its code or shell tool and reads the exit code and output.
 
+## Errors and validation
+
+- **Check exits 1 (blockers):** fix the named line in the brief and run the check again; do not hand over a brief with a blocker.
+- **Check exits 3 (file unreadable or wrong usage):** pass the path of the brief file as the only argument; `--help` shows the usage.
+- **A figure has no source or evidence class:** remove the claim or mark it a claim; never round it up to pass the check.
+
 ## Definition of done
 
 - The check exits 0 (or reports only warnings that are explained).
