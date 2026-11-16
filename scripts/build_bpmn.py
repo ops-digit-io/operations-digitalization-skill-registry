@@ -261,7 +261,7 @@ class Builder:
         self.row(sub, ["1b1", "1b2", "1b3", "1b4"], "No machine connection", "Live", id_prefix="1b_")
 
     def inner_2(self, sub):
-        s, e = self.row(sub, ["21", "22", "23", "24", "25", "26"], "Plant use-case demand", "Graduated", id_prefix="2_")
+        s, e = self.row(sub, ["21", "22", "23", "23a", "24", "25", "26"], "Plant use-case demand", "Graduated", id_prefix="2_")
         sub.notes.append({"id": "Note_chain2", "text": "Chains out of Lane 2: needs new software to Lane 3a, needs a new connection to Lane 3b, proven and repeatable to the catalog, then Lane 1.",
                           "x": e.x - 90, "y": e.bottom + 175, "w": 250, "h": 64, "ref": e, "ref_mode": "down"})
 

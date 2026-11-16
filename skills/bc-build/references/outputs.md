@@ -25,6 +25,7 @@ it. The skill is not done until every output below exists in the stated form and
 - **Also receives from:** `catalog-standardization`: Standardization review; Cluster tag, baseline and plant deltas.
 - **Also receives from:** `funnel-evaluation`: Evaluation protocol; Verdict and total score.
 - **Also receives from:** `funnel-features`: Epic with background; Handoff file.
+- **Also receives from:** `process-derivation` (step 23a): the change effort and the redesign effects, as evidence for the rows and never as a result.
 - **Receives from:** `funnel-use-case` (the scoped use case), `bc-cost` (the cost side, kept apart from the value).
 - **Next in the flow:** `bc-assess` (step 24), then `bc-capital-request` (step 25). The capital request takes the value
   rows with their firmness from here; it never recomputes them.

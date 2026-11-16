@@ -313,6 +313,17 @@ skills:
     - references/process-chain-practice.md
     - references/status-labels.md
     - references/validation-patterns.md
+  process-derivation:
+    files:
+    - assets/process-derivation-package.md
+    - assets/to-be-process.example.bpmn
+    - references/adoption-and-embedding.md
+    - references/derivation-method.md
+    - references/landscape-and-monitoring.md
+    - references/outputs.md
+    - references/public-methods.md
+    - scripts/check_derivation.py
+    - scripts/test_check_derivation.py
   funnel-requirements:
     files:
     - assets/requirement-template.md
