@@ -32,7 +32,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 KG = ROOT.parent / "ops-knowledge-graph"
 
 RESERVED = {"index.md", "log.md"}
-STATUSES = {"draft", "stable", "deprecated"}
+STATUSES = {"draft", "ready", "stable", "deprecated"}     # `ready` extends OKF's three: see docs/okf-conventions.md
 TYPES = {"Agent Skill", "Skill Reference", "Skill Asset", "Skill Guide",
          "Map of Content", "Design Record"}
 # The six fields the Agent Skills spec allows at the top level of a SKILL.md. Anything else

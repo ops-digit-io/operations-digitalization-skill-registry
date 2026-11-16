@@ -11,15 +11,15 @@ metadata:
   new_state_lane: "Lane 4 (41)"
   new_state_step: "Select the use case and check the story"
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant owner agrees
-  tags: [lane-4, practice, draft]
+  tags: [lane-4, practice, ready]
   authority_level: draft the selection record and recommend go, hold or no; the plant owner and the OD lead decide
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [deploy-handover, bc-build, catalog-usecase, comms-brief]
   okf:
     type: Agent Skill
     title: Showcase selection
-    tags: [lane-4, practice, draft]
+    tags: [lane-4, practice, ready]
 ---
 
 # Showcase selection

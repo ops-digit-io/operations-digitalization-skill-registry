@@ -12,22 +12,22 @@ metadata:
   new_state_step: "Build or integrate (3a.1 reuse, 3a.2 self-develop, 3a.3 external build, 3a.4 foreign app); Deploy to the platform, acceptance, Cyber Security sign-off"
   department_names: ["deploy-appstore", "Manufacturing-App-Store-Ops", "container-deploy", "deploy-entrygate", "deploy-exitgate"]
   owner_role: human:jakob.gabriel
-  tags: [project-support-consultancy, practice, new-state, draft]
+  tags: [project-support-consultancy, practice, new-state, ready]
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [invest-screen, dept-decision-rights, deploy-acceptance, deploy-handover, deploy-cybersec]
   okf:
     type: Agent Skill
     title: App deployment to the platform
-    tags: [project-support-consultancy, practice, new-state, draft]
+    tags: [project-support-consultancy, practice, new-state, ready]
 ---
 
 # App deployment to the platform
 
 Read `dept-context` first.
 
-**Status: draft.** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
+**Status: ready (awaiting sign-off).** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
 GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance); its shape and the
 OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
 This skill defines the gates and the package and checks a package against that shape. It contains **no

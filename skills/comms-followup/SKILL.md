@@ -11,15 +11,15 @@ metadata:
   new_state_lane: "Lane 4 (44)"
   new_state_step: "Follow up and feed back into Lanes 1 to 3"
   owner_role: Digital-Business-Value-Engineer (DBVE)
-  tags: [lane-4, practice, draft]
+  tags: [lane-4, practice, ready]
   authority_level: draft the follow-up log and the routing and recommend; OD lead and plant owners decide; Internal Communications owns any correction of a published item
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [comms-brief, catalog-usecase, dept-intake, deploy-handover]
   okf:
     type: Agent Skill
     title: Showcase follow-up
-    tags: [lane-4, practice, draft]
+    tags: [lane-4, practice, ready]
 ---
 
 # Showcase follow-up

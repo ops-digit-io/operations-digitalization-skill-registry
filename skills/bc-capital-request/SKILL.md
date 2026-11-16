@@ -13,15 +13,15 @@ metadata:
   new_state_step: "Capital request if investment is needed; Business case, prioritization, capital request"
   department_names: ["bc-capital-request", "ecr-builder", "capital-request-builder", "eCR"]
   owner_role: human:jakob.gabriel
-  tags: [use-case-support-service, practice, new-state, draft]
+  tags: [use-case-support-service, practice, new-state, ready]
   authority_level: draft the request; submission and approval are human
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [bc-build, dept-decision-rights, funnel-prototype, bc-portfolio, funnel-evaluation, invest-screen, bc-cost, deploy-cybersec, deploy-handover]
   okf:
     type: Agent Skill
     title: Capital request
-    tags: [use-case-support-service, practice, new-state, draft]
+    tags: [use-case-support-service, practice, new-state, ready]
 ---
 
 # Capital request

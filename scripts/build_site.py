@@ -126,6 +126,7 @@ def build(out: Path, repo_url: str) -> None:
     reg = yaml.safe_load((ROOT / "registry.yaml").read_text(encoding="utf-8"))
     proc = yaml.safe_load((ROOT / "docs/new-state/process.yaml").read_text(encoding="utf-8"))
     ids = [n for n in skp.all_ids() if skp.library_of(n) == "core"]   # core only: the extension library is not documented here
+    status_note = reg.get("statuses", {})
 
     # ---- spec-strict export + zips
     export = out / "_export"
@@ -166,7 +167,7 @@ def build(out: Path, repo_url: str) -> None:
         files = {k: sorted(p.name for p in (skp.skill_dir(n) / k).glob("*") if p.is_file() and p.name != "index.md")
                  for k in ("references", "assets", "scripts") if (skp.skill_dir(n) / k).is_dir()}
         info[n] = {"id": n, "desc": " ".join(str(fm.get("description", "")).split()), "short": first_sentences(fm.get("description", ""), 1),
-                   "state": "draft" if str(meta.get("status")) == "draft" else "built", "tier": meta.get("tier", ""), "lane": meta.get("lane", ""),
+                   "state": str(meta.get("status")), "status": str(meta.get("status")), "tier": meta.get("tier", ""), "lane": meta.get("lane", ""),
                    "authority": meta.get("authority_level", ""), "summary": regmap.get(n, {}).get("summary", ""), "files": files,
                    "words": len(body.split()), "steps": [], "library": skp.library_of(n),
                    "q": {"grade": quality[n]["grade"], "score": quality[n]["score"], "stale": qstale(n)}}
@@ -243,7 +244,7 @@ def build(out: Path, repo_url: str) -> None:
                  f'{"<table><tr><th>Category</th><th>Score</th><th>Weight</th></tr>" + cats + "</table>" if cats else ""}'
                  f'{"<p>Findings that cost points:</p><ul>" + finds + "</ul>" if finds else ""}')
         head = (f'<div class="card"><span class="badge {qcls}">Quality {qd["grade"]} {qd["score"]:g}</span> '
-                f'<span class="badge b-grey">{esc(i["tier"])}</span> <span class="badge b-grey">{esc(i["lane"])}</span><p>{esc(i["desc"])}</p>'
+                f'<span class="badge b-grey">{esc(i["tier"])}</span> <span class="badge b-grey">{esc(i["lane"])}</span> <span class="badge {"b-ok" if i["status"] == "stable" else "b-warn"}" title="{esc(status_note.get(i["status"], ""))}">status {esc(i["status"])}</span><p>{esc(i["desc"])}</p>'
                 f'<p><b>Authority:</b> {esc(i["authority"])}</p><p><a class="btn primary" href="../../{i["zip"]}">Download this skill (.zip)</a>'
                 f'<a class="btn" href="{esc(i["github"])}">On GitHub</a></p><h3>Where it sits in the process</h3><ul>{where}</ul>{qcard}<h3>Files</h3><ul>{files or "<li>SKILL.md only</li>"}</ul></div>')
         (od / "index.html").write_text(page(n, head + '<div class="card md">' + md_to_html(text, od, out) + "</div>", 2), encoding="utf-8")

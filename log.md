@@ -7,6 +7,10 @@ not a concept.
 
 - Every extension skill listed as `proposed` on a step of `docs/new-state/process.yaml` (34 step entries) is drawn under that step's box on the BPMN map, below the core skills, under a caption `<extension> · optional`, as a dotted italic chip with an `ext` tag that links to the skill on GitHub. The 11 extension skills of the foundation (`spine`) sit in one note in the intake lane (any step, optional). The three-level view is: core skill (solid chip), OpenSpec skill (dashed, external), extension skill (dotted, optional).
 - `validate_registry.py` fails if an extension skill named on a step is not drawn on the map. `build_site.py` still refuses extension skills on the docs pages and the specification page, but allows them on the map (front page), which shows them on purpose.
+## 2026-11-16 - skill status: `ready` added, the 10 core drafts promoted
+
+- New status `ready` (`statuses` in `registry.yaml`): a core skill that passes every check (`validate_registry.py`, quality grade A, drawn on the BPMN map, spec-valid export) and awaits human sign-off. It is not a review. `validate_registry.py` enforces the vocabulary, that `ready` is core only, and that a `ready` skill is graded A; `verify_okf.py` and `docs/okf-conventions.md` list it as an addition to OKF's three statuses.
+- Promoted from `draft` to `ready`: bc-assess, bc-capital-request, catalog-guardrails, catalog-systems, catalog-usecase, comms-brief, comms-followup, comms-showcase, deploy-appstore, funnel-prototype (frontmatter, tag, registry entry and the status sentence in the text). The 20 extension skills stay `draft`; the 20 `stable` skills are unchanged. Skill pages on the site show the status.
 
 ## 2026-11-16 - BPMN labels are placed without overlaps
 
