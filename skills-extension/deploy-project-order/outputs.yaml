@@ -1,0 +1,87 @@
+skill: deploy-project-order
+gate: []
+outputs:
+- id: project-order-preq
+  form: "`assets/project-order.md`, filled, with the pre-send check run"
+  template: assets/project-order.md
+  to_skills: []
+  to_roles:
+  - Steering committee
+  - sponsor
+  done_when:
+  - 30-second main target
+  - Budget estimate never blank
+  - Timing minimum
+  - Out-of-scope list
+  - Classified risks
+  - Named roles on both sides
+  - Unknowns written as `<...>`
+  - Approval documented with date
+  signoff: Steering committee
+  check:
+    structure: true
+- id: flag-list
+  form: List at the top of the draft
+  to_skills: []
+  to_roles:
+  - Project manager
+  - sponsor
+  done_when:
+  - Every empty sponsor, lead, team, budget and out-of-scope field is listed, none filled by invention
+  signoff: Project manager
+- id: kick-off-milestone-report-and-closure-ch
+  form: "`assets/kickoff-milestone-closure.md`, filled"
+  template: assets/kickoff-milestone-closure.md
+  to_skills: []
+  to_roles:
+  - Steering committee
+  done_when:
+  - Kick-off yields a plan the steering committee approved
+  - A milestone report at each milestone
+  - Closure checklist filled with "handover completed" answered yes or no
+  signoff: Steering committee
+  check:
+    structure: true
+- id: risks-with-owner-and-due-date
+  form: Risk section of the order
+  to_skills:
+  - dept-risk
+  to_roles: []
+  done_when:
+  - Every high risk has a treatment reflected in plan and budget
+  signoff: OD lead
+- id: lessons-learned
+  form: Closure report entries (topic, experience, proven solution, originator)
+  to_skills:
+  - dept-retro
+  to_roles: []
+  done_when:
+  - Entries written at closure
+  signoff: OD lead
+- id: handover-check
+  form: Closure checklist
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Handover check handed over at closure
+  signoff: OD lead
+receives_from:
+- funnel-use-case
+- bc-portfolio
+- bc-build
+- bc-cost
+- bc-capital-request
+- dept-decision-rights
+- invest-screen
+next:
+- when: bc-capital-request (step 25, funding trail where money follows; also 33), OpenSpec IT demand (external) (step 3a4), deploy-handover (step 26, closure), dept-retro, dept-risk, dept-decision-rights for open questions to the steering committee.
+  to:
+  - bc-capital-request
+  - deploy-handover
+  - dept-retro
+  - dept-risk
+  - dept-decision-rights
+stops_when:
+- the work is a small change (few days of effort, budget available, standard interface), which goes through the ticket and change process with no order
+- Nothing is sent with a silent blank, and the order is not approved or signed by the skill

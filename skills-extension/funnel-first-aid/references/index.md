@@ -4,8 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | First aid offering (`first-aid-offering.md`) | Skill Reference | Guidance on the Process First-Aid Kit - purpose, the two data scenarios, how to handle the cost question, and the shape of typical ad-hoc analyses that show how a plant issue becomes an analytical question. Guidance only, no company figures. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-first-aid must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-first-aid must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for the first-aid step, abstracted from the Operations Digitalization slide decks - the SMART test with a good and a bad pair, object and event reduction, organizational versus technical split, diagnosis templates (loss tree, error top list, control loop), preconditions for an explainable-model claim. Guidance only, no figures. |
 
 | Folder | Holds |

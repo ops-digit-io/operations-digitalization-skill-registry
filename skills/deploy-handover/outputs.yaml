@@ -1,0 +1,70 @@
+skill: deploy-handover
+gate: []
+outputs:
+- id: handover-protocol
+  form: "`assets/handover-protocol.md`, filled once per use case"
+  template: assets/handover-protocol.md
+  to_skills:
+  - metrics-scorecard
+  to_roles:
+  - Plant owner
+  - reads it back on every cadence
+  done_when:
+  - Three-question test answered by the receiving side without asking the builder
+  - ADKAR barrier point and evidence-of-adoption tier recorded
+  - Acceptance result pulled from `deploy-acceptance`, not re-asked
+  signoff: Plant owner
+  check:
+    structure: true
+- id: definition-of-done-fields-on-the-record
+  form: Use case record
+  to_skills: []
+  to_roles:
+  - Plant owner
+  done_when:
+  - Output asset, business process and utilization expectation present
+  - Data path written to the machine
+  - Plant owner named and has used it in a real shift
+  - Affected people told before go-live (by whom, when)
+  - Open items recorded as dependencies
+  signoff: Plant owner
+- id: adoption-tier
+  form: Entry in the protocol
+  to_skills: []
+  to_roles:
+  - Plant owner
+  - DBVE
+  done_when:
+  - Tier no stronger than the evidence available (system usage log, named owner's dated statement, or third-party observation)
+  - Never "handover marked DONE"
+  signoff: Plant owner
+- id: low-utilization-action
+  form: Entry in the protocol
+  to_skills: []
+  to_roles:
+  - Plant owner
+  - OD lead
+  done_when:
+  - "For low or `NEVER` utilization: ADKAR diagnostic run and an action recorded (review with requester, fix at the barrier point, or retire)"
+  signoff: Plant owner
+receives_from:
+- deploy-project-order
+- deploy-migration
+- deploy-appstore
+- catalog-guardrails
+- ops-dashboard-engine
+- process-derivation
+- deploy-acceptance
+- bc-capital-request
+- funnel-use-case
+next:
+- when: metrics-scorecard (reads the protocol on every cadence); a proven, repeatable result goes to catalog-standardization and catalog-usecase.
+  to:
+  - metrics-scorecard
+  - catalog-standardization
+  - catalog-usecase
+stops_when:
+- a test question cannot be answered or the plant owner is unnamed
+- The handover is invalid and stays ONGOING
+- never mark it DONE because delivery happened
+- The plant, not OD, decides PRODUCTIVE

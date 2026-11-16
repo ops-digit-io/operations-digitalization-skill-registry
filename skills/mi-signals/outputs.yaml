@@ -1,0 +1,72 @@
+skill: mi-signals
+gate: []
+outputs:
+- id: signal-analysis-report
+  form: "`assets/signal-analysis-report.md`, filled"
+  template: assets/signal-analysis-report.md
+  to_skills:
+  - deploy-acceptance
+  - catalog-compatibility
+  to_roles: []
+  done_when:
+  - How the machine works written down
+  - Context sources used and confidence recorded
+  - No analyser blockers
+  - Capability requirement set covered
+  - A second plant's instance can consume it
+  signoff: OD lead
+  check:
+    structure: true
+- id: signal-binding-sheet
+  form: "`assets/signal-binding-sheet.md`, one row per signal"
+  template: assets/signal-binding-sheet.md
+  to_skills:
+  - mi-flow
+  - deploy-acceptance
+  to_roles: []
+  done_when:
+  - Each row carries canonical name, unit, scale, value type, delta meaning, setpoint or actual, consumers and collection method
+  signoff: OD lead
+  check:
+    structure: true
+- id: derived-output-spec
+  form: Rule-engine spec (pattern, inputs, output name and unit, priority order for states)
+  to_skills:
+  - mi-flow
+  to_roles: []
+  done_when:
+  - Each derived signal has a new UUID registered on the edge platform first
+  - Raw and derived named explicitly
+  signoff: OD lead
+- id: signals-the-plc-must-expose-machine-spec
+  form: List with class and owner
+  to_skills:
+  - mi-equipment
+  to_roles: []
+  done_when:
+  - Each gap names its owner (machine or engineering vs edge configuration)
+  signoff: OD lead
+- id: proposed-standard-change
+  form: Proposal
+  to_skills: []
+  to_roles:
+  - IIAE (consultation)
+  done_when:
+  - "Evidence cited: analyser check id, context source and confidence, standard clause"
+  signoff: IIAE (consultation)
+receives_from:
+- funnel-evaluation
+- ops-event-model
+- mi-equipment
+- mi-data-availability
+- funnel-requirements
+next:
+- when: mi-flow (step 3b4), then deploy-acceptance (step 3b6); catalog-compatibility receives the report and binding sheet.
+  to:
+  - mi-flow
+  - deploy-acceptance
+  - catalog-compatibility
+stops_when:
+- the analyser reports blockers (raw PLC tag, name collision, mixed script, missing or duplicate UUID, capability gap), or only a tag list exists without machine context
+- Not standardizing is a valid outcome, recorded as a decision
+- Do not fix a gap downstream in a flow or query

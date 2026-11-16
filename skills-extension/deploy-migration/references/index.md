@@ -5,6 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | Assessment, canvas and risk (`assessment-canvas-and-risk.md`) | Skill Reference | How a legacy application or platform is assessed before migration - workshop pattern, as-is/to-be canvas, component inventory, per-component risk and recovery-impact tables, OT application inventory with qualitative rubrics. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Backout plan proposal (`backout-plan-proposal.md`) | Skill Reference | PROPOSAL. Structure of a back-out plan for a migration stage - the decks hold only diagrams of the actors, so the content here is synthesis to be confirmed by the owner of the back-out process. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-migration must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-migration must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Staged migration and cutover (`staged-migration-and-cutover.md`) | Skill Reference | Staging logic, preconditions, per-location checklist with RAG, outage window, key-user verification, parallel run, licence check, middleware retirement flow, decommissioning and recurring pitfalls. |

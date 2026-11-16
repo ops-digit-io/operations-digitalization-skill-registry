@@ -34,11 +34,8 @@ metadata:
 
 ## Purpose and where it sits
 
-Answers the question `funnel-use-case` does not: does the envisioned solution fit what the plant has and the
-problem needs, or does it quietly require more capability than anyone named? It serves Lane 2 step **22** (features
-and data check), before the business case (step 24), and feeds the Lane 3 fit test. Key user: DBVE; an AI agent can
-run the script and draft the protocol. It always ends in a visualized ranking and one evaluation score, never prose
-alone. Read `dept-context` first.
+- Answers the question funnel-use-case does not: does the envisioned solution fit what the plant has and the problem needs, or does it quietly require more capability than anyone named?
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
@@ -48,10 +45,16 @@ alone. Read `dept-context` first.
 
 ## Procedure
 
-0. **Pre-evaluate by case ranking.** Run what you know through `scripts/evaluate_fit.py` (top-5 of the 70-case library by configuration similarity). Triage, not a verdict: a close match (about 80% or more) means move faster through steps 1-4; no close match means a genuinely novel case, budget the full method. Always continue to step 1 ([`case-library.md`](references/case-library.md)).
-1. **Profile the problem, not the solution.** Rate the 27 complexity drivers ([`complexity-drivers.md`](references/complexity-drivers.md)): none, little, medium, high, dominant. Requester and DBVE/IIAE rate independently, then reconcile. Only high or dominant drivers count for step 2; seven drivers are organizational or market factors with no IT/OT lever.
+0. **Pre-evaluate by case ranking.** Run what you know through `scripts/evaluate_fit.py` (top-5 of the 70-case library by configuration similarity).
+   - Triage, not a verdict: a close match (about 80% or more) means move faster through steps 1-4; no close match means a genuinely novel case, budget the full method.
+   - Always continue to step 1 ([`case-library.md`](references/case-library.md)).
+1. **Profile the problem, not the solution.** Rate the 27 complexity drivers ([`complexity-drivers.md`](references/complexity-drivers.md)): none, little, medium, high, dominant.
+   - Requester and DBVE/IIAE rate independently, then reconcile.
+   - Only high or dominant drivers count for step 2; seven drivers are organizational or market factors with no IT/OT lever.
 2. **Find the capability areas the solution depends on.** Each high/dominant driver maps to one or more of 16 focus areas ([`focus-areas.md`](references/focus-areas.md)). Most use cases touch three to six; if every area is a candidate, redo step 1.
-3. **Assess as-is with evidence, set the target from need, per candidate area only.** A target above as-is needs a named driver or business need; "the platform supports it" is no reason. Gap = target minus as-is. No gap: ready, go to `bc-build`.
+3. **Assess as-is with evidence, set the target from need, per candidate area only.** A target above as-is needs a named driver or business need; "the platform supports it" is no reason.
+   - Gap = target minus as-is.
+   - No gap: ready, go to `bc-build`.
 4. **Sequence and classify any gap** using [`dependencies.md`](references/dependencies.md) (a target can be planned only once its prerequisites exist), then pick the verdict below.
 
 ```bash
@@ -60,7 +63,11 @@ python3 scripts/evaluate_fit.py my-use-case.json --json
 python3 scripts/evaluate_fit.py --demo               # built-in worked example
 ```
 
-The script mechanizes steps 0 and 2-4 and prints, in order: candidate areas with the drivers behind each, a ranked top-5 bar chart (step 0), a gap chart per area marked ready-now or blocked-on-a-named-prerequisite, and a **total evaluation score out of 100**: case-fit confidence (0-40, best match), driver-justified targets (0-30, share of set targets landing on a candidate area), gap feasibility (0-30, share of gaps ready or fully sequenceable). The score resolves to a verdict; the target itself stays a human judgement. Paste the output into the protocol, do not re-describe it from memory.
+- The script mechanizes steps 0 and 2-4 and prints, in order:
+- candidate areas with the drivers behind each, a ranked top-5 bar chart (step 0), a gap chart per area marked ready-now or blocked-on-a-named-prerequisite, and a **total evaluation score out of 100**:
+- case-fit confidence (0-40, best match), driver-justified targets (0-30, share of set targets landing on a candidate area), gap feasibility (0-30, share of gaps ready or fully sequenceable).
+- The score resolves to a verdict; the target itself stays a human judgement.
+- Paste the output into the protocol, do not re-describe it from memory.
 
 ## Decision rules
 
@@ -71,13 +78,17 @@ The script mechanizes steps 0 and 2-4 and prints, in order: candidate areas with
 | **Over-engineered** | A target exceeds every driver rated high or dominant | Lower the target to what the drivers justify, or name the previously unrated business need; never leave an unjustified target standing |
 | **Escalate as platform investment** | The gap spans several areas, several use cases share it, or a dependency chain has no closeable end here | `dept-decision-rights`; a roadmap decision, not one use case's business case |
 
-**Gap owner:** F9 (interfaces), F10 (protocols) go to `mi-equipment`; F11 (data collection) and F2 (communication, push/poll half) to `mi-data-availability`; F16 (information-model continuity) to `mi-signals`; F1, F3, F6-F8, F12-F15 and anything unowned stay with the use case: name it in the protocol and carry it into the scope and cost of `bc-build`.
+- **Gap owner:** F9 (interfaces), F10 (protocols) go to `mi-equipment`; F11 (data collection) and F2 (communication, push/poll half) to `mi-data-availability`; F16 (information-model continuity) to `mi-signals`;
+- F1, F3, F6-F8, F12-F15 and anything unowned stay with the use case: name it in the protocol and carry it into the scope and cost of `bc-build`.
 
-**Operations-concept gate:** a tool without an operations concept (owner, service level, support level) is never "ready to build" whatever the levels say; the verdict is escalate. Put the tool boundary sentence and the concept status next to the verdict ([`process-chain-practice.md`](references/process-chain-practice.md)).
+- **Operations-concept gate:** a tool without an operations concept (owner, service level, support level) is never "ready to build" whatever the levels say; the verdict is escalate.
+- Put the tool boundary sentence and the concept status next to the verdict ([`process-chain-practice.md`](references/process-chain-practice.md)).
 
 ## Handoff
 
-Verdict, score and protocol go to `bc-build` (ready), to the owning skill (capability first), back to the definition (over-engineered) or to `dept-decision-rights` (escalate). The receiver needs: per candidate area the as-is level with evidence, the target with its driver, the sequenced gaps with owner, the score. Done when step 0 is pasted, every candidate area has evidenced as-is and reasoned target, every gap is sequenced and classified with an owner and next skill, and the score is recorded.
+- Verdict, score and protocol go to `bc-build` (ready), to the owning skill (capability first), back to the definition (over-engineered) or to `dept-decision-rights` (escalate).
+- The receiver needs: per candidate area the as-is level with evidence, the target with its driver, the sequenced gaps with owner, the score.
+- Done when step 0 is pasted, every candidate area has evidenced as-is and reasoned target, every gap is sequenced and classified with an owner and next skill, and the score is recorded.
 
 ## Human gate and AI-agent notes
 
@@ -96,6 +107,11 @@ Verdict, score and protocol go to `bc-build` (ready), to the owning skill (capab
 - Using the library's literature statistics (2006-2017) as a benchmark for real plants; use it for ranking only.
 - **Open points:** none recorded.
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
 ## References
 
 | File | Open when |
@@ -107,7 +123,17 @@ Verdict, score and protocol go to `bc-build` (ready), to the owning skill (capab
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Quick fit tests, operations-concept gate, handoff, agent notes |
 | [`assets/evaluation-protocol.md`](assets/evaluation-protocol.md) | The protocol to fill |
 | [`assets/example-use-case.json`](assets/example-use-case.json) | Filled input for the script |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/od-maturity-assessment/assets/driver-and-gap-sheet.md`](references/od-maturity-assessment/assets/driver-and-gap-sheet.md) | One page for the complexity driver ratings of an object, the candidate areas they point at, the gap chain with prerequisites and the route signal with the rule quoted. |
+| [`references/od-maturity-assessment/assets/maturity-assessment-record.md`](references/od-maturity-assessment/assets/maturity-assessment-record.md) | The as-is profile of one machine, system or application on the 16 focus areas - level, evidence grade, source, owner - with plausibility notes; a draft for the DBVE or… |
+| [`references/od-maturity-assessment/references/drivers-and-dependencies.md`](references/od-maturity-assessment/references/drivers-and-dependencies.md) | How an object profile becomes complexity drivers and candidate areas, the prerequisite chain between areas as a backbone, plausibility checks on a profile, and how to sequence gaps without trusting… |
+| [`references/od-maturity-assessment/references/model-caveats.md`](references/od-maturity-assessment/references/model-caveats.md) | What the IT/OT maturity model is and is not - provenance of levels and dependencies, the numbering reconciliation, the undefined levels, the architecture-choice areas, and why the literature distributions are… |
+| [`references/od-maturity-assessment/references/rating-rubric.md`](references/od-maturity-assessment/references/rating-rubric.md) | The 16 IT/OT focus areas read as a qualitative rating rubric for one machine, system or application - level cues, the question to ask, the evidence that counts, the route… |
+| [`references/od-maturity-assessment/references/routing-and-handoff.md`](references/od-maturity-assessment/references/routing-and-handoff.md) | How the object profile becomes a route signal at chain steps 1b1, 22, 32 and 3b4 - decision rules, the handoff contract with neighbouring skills, pitfalls, questions to ask and… |
+| [`assets/case-library.csv`](assets/case-library.csv) | Shipped file of this skill |
+| [`scripts/model_data.json`](scripts/model_data.json) | Shipped file of this skill |
 
 ## Absorbed: As-is maturity and complexity profile of one machine, system or application on the 16 IT/OT focus areas (formerly od-maturity-assessment)
 
-Run [`references/od-maturity-assessment/procedure.md`](references/od-maturity-assessment/procedure.md) when you need the as-is profile of one machine, system or application rather than the fit of a use case's solution. It keeps its own references and assets under that folder and the authority it had.
+- Run [`references/od-maturity-assessment/procedure.md`](references/od-maturity-assessment/procedure.md) when you need the as-is profile of one machine, system or application rather than the fit of a use case's solution.
+- It keeps its own references and assets under that folder and the authority it had.

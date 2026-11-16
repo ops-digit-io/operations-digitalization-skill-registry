@@ -24,25 +24,21 @@ metadata:
 ---
 # Process First-Aid Kit
 
-Read `dept-context` first. The service catalogue lists the Smart Factory Use Case Support Service
-"(incl. Process First-Aid Kit)"; the glossary calls it a "rapid diagnostic offering within Use Case
-Support Service", next to Ad-Hoc Analytics in the Analytical Support Service. The lane's recurring
-tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with the template marked
-"to confirm", and two registry pages (`funnel-first-aid`, `funnel-use-case`)
-record that no dedicated template exists. This skill supplies the **working version of that
-template** and the routing rule. It is a draft for the DBVE to adopt or replace.
+- Read `dept-context` first.
+- The service catalogue lists the Smart Factory Use Case Support Service "(incl.
+- Process First-Aid Kit)"; the glossary calls it a "rapid diagnostic offering within Use Case Support Service", next to Ad-Hoc Analytics in the Analytical Support Service.
+- The lane's recurring tasks list "Process First-Aid Kit request — ad-hoc plant process issue" with the template marked "to confirm", and two registry pages (`funnel-first-aid`, `funnel-use-case`) record that no dedicated template exists.
+- This skill supplies the **working version of that template** and the routing rule.
+- It is a draft for the DBVE to adopt or replace.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## What the offering is, in OD's words
 
-From the IIoT Edge platform tool deck: purpose is **process or product
-ramp-up support** and **process or product trouble shooting**. What OD does: prepare process data
-acquisition that fulfils the analytics requirements, **make problems S.M.A.R.T.**, generate
-insights. Details, the two data scenarios, how to talk about cost, and the shape of two typical ad-hoc
-analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md). How the step is run in
-practice (SMART test with a good and a bad pair, object and event reduction, organizational versus technical
-split, diagnosis patterns, handoff contract, agent notes): [`references/process-chain-practice.md`](references/process-chain-practice.md).
+- From the IIoT Edge platform tool deck: purpose is **process or product ramp-up support** and **process or product trouble shooting**.
+- What OD does: prepare process data acquisition that fulfils the analytics requirements, **make problems S.M.A.R.T.**, generate insights.
+- Details, the two data scenarios, how to talk about cost, and the shape of two typical ad-hoc analyses: [`references/first-aid-offering.md`](references/first-aid-offering.md).
+- How the step is run in practice (SMART test with a good and a bad pair, object and event reduction, organizational versus technical split, diagnosis patterns, handoff contract, agent notes): [`references/process-chain-practice.md`](references/process-chain-practice.md).
 
 ## When it applies, and when it does not
 
@@ -59,31 +55,20 @@ split, diagnosis patterns, handoff contract, agent notes): [`references/process-
 1. **Receive and log the request** (channel: "ad-hoc analytics / Process First-Aid Kit requests",
    `05-intake.md`). Note date, plant, requester role. ⟨Central queue or mailbox — "to confirm" in
    `05-intake.md`⟩.
-2. **Fill the first-aid request**
-   ([`assets/first-aid-request.md`](assets/first-aid-request.md)) with the requester, in this order:
-   the symptom in plain words; where and since when; the process and machine; what is already
-   measured; what has been tried; what decision the answer will inform; who at the plant owns the
-   answer. If the requester cannot state a question, run the S.M.A.R.T. step of the form before
-   anything else.
-3. **Make it S.M.A.R.T.** Restate the problem so that it has a measurable symptom, a defined scope,
-   a question the data can answer, a reason it matters and a time frame. The workshop decks give the test
-   as: specific purpose, clear objective, a real problem, a timeframe, and a named stakeholder who needs it;
-   a precise date and a quantified target **without a baseline** still fail, because the target is invented.
-   (The acronym's own expansion is still not written out in the decks.) Use the examples in the offering
-   reference and in `references/process-chain-practice.md` to see the difference between "diameter oscillates"
-   and a question a dataset can answer, and reduce the sentence to object and event.
-4. **Check the data** with `mi-data-availability`: is the signal readable, at what
-   resolution, for what period? Classify into the two scenarios of the offering (A: edge platform
-   and compliant network available; B: no way to connect the machine to an available edge
-   installation). Scenario B means a device on the machine and manual transfer of data; any
-   live connection to a machine needs the `deploy-cybersec` sign-off before go-live (start the package early; it
-   runs in parallel) and is not committed by this skill.
+2. **Fill the first-aid request** ([`assets/first-aid-request.md`](assets/first-aid-request.md)) with the requester, in this order: the symptom in plain words; where and since when; the process and machine; what is already measured; what has been tried; what decision the answer will inform;
+   - who at the plant owns the answer.
+   - If the requester cannot state a question, run the S.M.A.R.T. step of the form before anything else.
+3. **Make it S.M.A.R.T.** Restate the problem so that it has a measurable symptom, a defined scope, a question the data can answer, a reason it matters and a time frame.
+   - The workshop decks give the test as: specific purpose, clear objective, a real problem, a timeframe, and a named stakeholder who needs it; a precise date and a quantified target **without a baseline** still fail, because the target is invented.
+   - (The acronym's own expansion is still not written out in the decks.) Use the examples in the offering reference and in `references/process-chain-practice.md` to see the difference between "diameter oscillates" and a question a dataset can answer,
+   - and reduce the sentence to object and event.
+4. **Check the data** with `mi-data-availability`: is the signal readable, at what resolution, for what period?
+   - Classify into the two scenarios of the offering (A: edge platform and compliant network available; B: no way to connect the machine to an available edge installation).
+   - Scenario B means a device on the machine and manual transfer of data; any live connection to a machine needs the `deploy-cybersec` sign-off before go-live (start the package early; it runs in parallel) and is not committed by this skill.
 5. **Decide the route** with the table below, and write the reason on the form.
-6. **State the cost question honestly.** First aid can carry an additional investment (device,
-   reconfiguration, analytical template) that depends on the preconditions. Any indication in a
-   tool deck is not a quote and is not for this skill to offer. Look up the current indication
-   with the OD lead; cost goes to the OD lead (`dept-decision-rights`; investment is not a draft
-   decision).
+6. **State the cost question honestly.** First aid can carry an additional investment (device, reconfiguration, analytical template) that depends on the preconditions.
+   - Any indication in a tool deck is not a quote and is not for this skill to offer.
+   - Look up the current indication with the OD lead; cost goes to the OD lead (`dept-decision-rights`; investment is not a draft decision).
 7. **Hand over with the form.** The form travels with the request so the next skill does not
    re-ask. Close the loop with the requester (what was routed where and why).
 
@@ -99,15 +84,13 @@ split, diagnosis patterns, handoff contract, agent notes): [`references/process-
 | Needs new connectivity or a Cyber Security decision | `deploy-cybersec`, Information Integration lane | Wait state in the lane playbook |
 | Plant cannot name a question or an owner | Back to requester with the missing items | |
 
-⟨Whether the roadmap-link and business-case refusal rule of `05-intake.md` also applies to a
-first-aid request — the source states it for requests in general; first aid is not mentioned
-there. Supplier: OD lead.⟩
+- ⟨Whether the roadmap-link and business-case refusal rule of `05-intake.md` also applies to a first-aid request — the source states it for requests in general; first aid is not mentioned there.
+- Supplier: OD lead.⟩
 
 ## Definition of done
 
-The request form is complete or lists exactly what is missing; the problem is restated S.M.A.R.T.;
-data availability and scenario are recorded; the route is chosen with a written reason; the
-requester has been told; no cost or connection has been promised.
+- The request form is complete or lists exactly what is missing; the problem is restated S.M.A.R.T.; data availability and scenario are recorded; the route is chosen with a written reason; the requester has been told;
+- no cost or connection has been promised.
 
 ## What is still open
 
@@ -122,7 +105,8 @@ requester has been told; no cost or connection has been promised.
 
 ## Absorbed: Ad-hoc analytics delivery (formerly the Analytical Support Service lane, retired in the new state)
 
-Run [`references/od-analytical-support-service/procedure.md`](references/od-analytical-support-service/procedure.md) when an ad-hoc analytical request needs the old lane's composed artefacts and task chain; route recurring needs to Lane 2 and catalogued ones to Lane 1 self-service. It keeps its own references and assets under that folder and the authority it had.
+- Run [`references/od-analytical-support-service/procedure.md`](references/od-analytical-support-service/procedure.md) when an ad-hoc analytical request needs the old lane's composed artefacts and task chain; route recurring needs to Lane 2 and catalogued ones to Lane 1 self-service.
+- It keeps its own references and assets under that folder and the authority it had.
 
 ## Do not
 
@@ -132,3 +116,17 @@ Run [`references/od-analytical-support-service/procedure.md`](references/od-anal
   Security gate.
 - Do not invent missing data or fill gaps by interpolation (Analytical Support error path).
 - Do not name people in the form; use roles. No hostnames, addresses or credentials.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/od-analytical-support-service/references/composed-artefacts.md`](references/od-analytical-support-service/references/composed-artefacts.md) | Which composed skill's real, built asset answers each happy-path step, now that those skills have gone deep — so this lane page routes to them instead of carrying its own… |
+| [`references/od-analytical-support-service/references/process-chain-practice.md`](references/od-analytical-support-service/references/process-chain-practice.md) | Method, decision rules, handoff contract, pitfalls and agent notes for the analytical lane, abstracted from the Operations Digitalization slide decks - ad-hoc, standard and custom analytics, plausibility before explainability, local-versus-global… |
+| [`references/od-analytical-support-service/references/task-chain-and-tool-use.md`](references/od-analytical-support-service/references/task-chain-and-tool-use.md) | The analytical lane's recurring tasks as a trigger chain (what starts each, what it needs, which tool, what it leaves, which task and metric it feeds), why each tool has… |

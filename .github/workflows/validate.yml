@@ -17,6 +17,12 @@ jobs:
       - run: pip install pyyaml markdown
       - name: Registry, frontmatter and cross-references
         run: python3 scripts/validate_registry.py
+      - name: Skill output contract and run record (tests)
+        run: |
+          python3 scripts/skill_outputs.py --check
+          python3 scripts/skill_form.py
+          python3 -m unittest discover -s scripts -p "test_skill_contract.py"
+          python3 -m unittest discover -s skills/process-derivation/scripts -p "test_*.py"
       - name: Generated pages are current
         run: |
           python3 scripts/build_okf_index.py --check

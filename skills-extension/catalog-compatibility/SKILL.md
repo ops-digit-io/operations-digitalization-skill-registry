@@ -31,16 +31,14 @@ metadata:
 
 # Cross-plant compatibility check
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-Plan item P-08 of the department's skill map. The decision-rights table gives the rule in one line: data-model and
-signal standardization (IIAE, consultation, no approval, reversible) carries the threshold **"must stay
-consumable by every plant's instance of the capability"**, authority level `recommend`. This skill is how that threshold
-is tested instead of assumed.
+- Plan item P-08 of the department's skill map.
+- The decision-rights table gives the rule in one line: data-model and signal standardization (IIAE, consultation, no approval, reversible) carries the threshold **"must stay consumable by every plant's instance of the capability"**, authority level `recommend`.
+- This skill is how that threshold is tested instead of assumed.
 
-It composes, it does not repeat: `mi-signals` defines the standard signal set for one machine;
-`catalog-standardization` places a use case on a capability template and runs the CSP gate. This skill
-asks the question neither asks: *does the thing still work at the plants that are not the first plant?*
+- It composes, it does not repeat: `mi-signals` defines the standard signal set for one machine; `catalog-standardization` places a use case on a capability template and runs the CSP gate.
+- This skill asks the question neither asks: *does the thing still work at the plants that are not the first plant?*
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -48,13 +46,11 @@ asks the question neither asks: *does the thing still work at the plants that ar
 
 - A capability is not a one-off. Each of the eleven cross-plant capability templates has an instance at
   (nearly) every plant (read the Capability Epics notes). The standard has to serve all of them.
-- The plants are not uniform underneath. The grid in [`references/plant-differences.md`](references/plant-differences.md)
-  shows that most plants have Siemens controllers but several also run Rockwell, Mitsubishi, Beckhoff and others, and that
-  there are three different integration paths to the platform (IIoT Edge, central OPC UA aggregation server, "evaluation
-  ongoing"). A name or mapping that holds for the first plant's path may not hold for another.
-- The foundation data model does not fit every machine: it was found suitable for greenfield, discrete,
-  time-series-centric machines, while brownfield and continuous processes need other models
-  (`references/process-chain-practice.md`). The base model applies to discrete manufacturing; a standard for continuous processes must be checked for fit first.
+- The plants are not uniform underneath.
+   - The grid in [`references/plant-differences.md`](references/plant-differences.md) shows that most plants have Siemens controllers but several also run Rockwell, Mitsubishi, Beckhoff and others, and that there are three different integration paths to the platform (IIoT Edge, central OPC UA aggregation server, "evaluation ongoing").
+   - A name or mapping that holds for the first plant's path may not hold for another.
+- The foundation data model does not fit every machine: it was found suitable for greenfield, discrete, time-series-centric machines, while brownfield and continuous processes need other models (`references/process-chain-practice.md`).
+   - The base model applies to discrete manufacturing; a standard for continuous processes must be checked for fit first.
 - Naming already drifts without a check: many distinct signal names for a much smaller set of concepts, several names for
   machine state alone (`mi-signals`). Plant languages are a further source of variance.
 
@@ -69,15 +65,12 @@ asks the question neither asks: *does the thing still work at the plants that ar
 
 ## Procedure
 
-1. **Fix the subject.** Name the capability (one of the eleven), the standard under test (signal set, data model,
-   flow, dashboard, library entry) and the first plant it was built at. Take the standard itself from the
-   `mi-signals` report or the `catalog-standardization` review; do not restate it.
+1. **Fix the subject.** Name the capability (one of the eleven), the standard under test (signal set, data model, flow, dashboard, library entry) and the first plant it was built at.
+   - Take the standard itself from the `mi-signals` report or the `catalog-standardization` review; do not restate it.
 2. **List the plants in scope.** Default: every plant that instantiates the capability, from the Capability Epics
    notes. If the standard is proposed for a subset, say which and why; the rule is written for every plant.
-3. **Build the plant grid** using [`plant-differences.md`](references/plant-differences.md): for each plant in scope fill
-   controller vendor, field network, ingress variant, tool versions available, plant language of tags, and the state
-   of its instance. Refresh any figure from the live lists (Machine List, Tool Overview) if you rely on it for a
-   verdict; the reference holds no figures.
+3. **Build the plant grid** using [`plant-differences.md`](references/plant-differences.md): for each plant in scope fill controller vendor, field network, ingress variant, tool versions available, plant language of tags, and the state of its instance.
+   - Refresh any figure from the live lists (Machine List, Tool Overview) if you rely on it for a verdict; the reference holds no figures.
 4. **Run the tests** in [`compatibility-tests.md`](references/compatibility-tests.md) for each dimension in which at
    least one plant differs from the first plant. Use `mi-data-availability` to learn what the platform really
    receives per plant instance.
@@ -88,13 +81,12 @@ asks the question neither asks: *does the thing still work at the plants that ar
      `mi-signals`, multilingual tags).
    - *Not consumable*: the standard would need a plant-specific branch. This is a finding against the standard.
    - *Unknown*: no evidence either way. This is never rounded to "consumable".
-6. **Decide what the standard does about a "not consumable".** Options, in order of preference: change the standard
-   so it holds (a COP matter, see below); add a mapping rule to the standard; narrow the stated scope of the standard
-   and say which plants it does not cover. Never add a plant-specific branch inside the standard.
-7. **Write the recommendation** in [`assets/compatibility-check.md`](assets/compatibility-check.md) and route it with
-   `dept-decision-rights`. The decision is IIAE's by consultation; for a tool or system rollout the
-   IIAE decides in tandem with the IT-responsible role of the business side (`08-decision-rights.md`). A change to a data model or connector
-   is taken to the COP (monthly, technical), which is where the operating rhythm puts datamodel and connector updates.
+6. **Decide what the standard does about a "not consumable".** Options, in order of preference: change the standard so it holds (a COP matter, see below); add a mapping rule to the standard;
+   - narrow the stated scope of the standard and say which plants it does not cover.
+   - Never add a plant-specific branch inside the standard.
+7. **Write the recommendation** in [`assets/compatibility-check.md`](assets/compatibility-check.md) and route it with `dept-decision-rights`.
+   - The decision is IIAE's by consultation; for a tool or system rollout the IIAE decides in tandem with the IT-responsible role of the business side (`08-decision-rights.md`).
+   - A change to a data model or connector is taken to the COP (monthly, technical), which is where the operating rhythm puts datamodel and connector updates.
 8. **If the standard feeds the catalog**, hand the verdict grid to `catalog-usecase` so a plant picking the entry sees
    which plants it was checked at and which not.
 
@@ -125,3 +117,14 @@ asks the question neither asks: *does the thing still work at the plants that ar
 - Do not edit the standard to fit one plant; map the plant to the standard.
 - Do not call a standard cross-plant on the evidence of the plant that built it.
 - Do not decide the data-model change yourself: you recommend; the decision route is in `dept-decision-rights`.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

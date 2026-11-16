@@ -30,7 +30,7 @@ metadata:
 
 # Portfolio and savings analysis
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -44,14 +44,11 @@ Read `dept-context` first.
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Order of ranking criteria, numbered planning states, the where-saved matrix, dependency versus return ordering, kill and hold hygiene, and what an agent may draft |
 | [`references/strategic-initiatives-and-savings.md`](references/strategic-initiatives-and-savings.md) | How to read strategic business cases next to plant savings: addressable vs realistic, anchors, no double counting, what may enter the portfolio |
 
-Output: [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) — one
-document per review round, built from `know-sharepoint-export`'s capture and
-`bc-build`'s ledger, feeding `metrics-scorecard`'s round prep.
-
 ## The shape of the portfolio: how to read it, not what it is
 
-This skill carries no counts. Every figure comes from a live read of the use case list
-(`know-sharepoint-export`) with its capture date. The cuts to take, and what each field means:
+- This skill carries no counts.
+- Every figure comes from a live read of the use case list (`know-sharepoint-export`) with its capture date.
+- The cuts to take, and what each field means:
 
 | Delivery status | Means |
 |---|---|
@@ -61,9 +58,8 @@ This skill carries no counts. Every figure comes from a live read of the use cas
 | `PRODUCTIVE` | In daily use |
 | `STOPPED` | Deliberately discontinued |
 
-The share of what has been asked for that has been built is `IMPLEMENTED` plus `PRODUCTIVE`
-over all use cases; the rest is a queue with a known shape rather than a wish list. Always
-state the denominator.
+- The share of what has been asked for that has been built is `IMPLEMENTED` plus `PRODUCTIVE` over all use cases; the rest is a queue with a known shape rather than a wish list.
+- Always state the denominator.
 
 - **Workflow state** (Development, Implementation, Handover, each `DONE` or `ONGOING`):
   read it as a funnel, and cross-check it against the delivery status before quoting either;
@@ -78,22 +74,18 @@ state the denominator.
 
 ## Regional shape: the finding that matters most
 
-Cut use cases, productive use cases and conversion (productive over all) per region, live.
-Expect the regions to differ sharply, and never blend them (`references/regional-handling.md`).
-**A low-converting region is a different problem from a high-converting one, not a smaller
-one.** Any plan that treats the regions as scaled copies of each other will fail in the
-weakest one. The best-converting region's rate is the one worth interrogating for what it
-does differently.
+- Cut use cases, productive use cases and conversion (productive over all) per region, live.
+- Expect the regions to differ sharply, and never blend them (`references/regional-handling.md`).
+- **A low-converting region is a different problem from a high-converting one, not a smaller one.** Any plan that treats the regions as scaled copies of each other will fail in the weakest one.
+- The best-converting region's rate is the one worth interrogating for what it does differently.
 
 ## The savings ledger
 
-Read the ledger live: row count, tracked euros, proven euros and proven rows, the split by
-reliability (`CALCULATION`, `ESTIMATION`, not recorded), automated versus manual rows, and
-the number of use cases that carry a saving figure of any kind. Quote each with its capture
-date. Pattern to expect: the tracker was actively maintained for a period and then largely
-abandoned, so the reliability field is mostly empty and few use cases carry a figure. Treat
-the total as a **floor on what has been captured**. See `bc-build` for how a
-row is built and what may be added to what.
+- Read the ledger live: row count, tracked euros, proven euros and proven rows, the split by reliability (`CALCULATION`, `ESTIMATION`, not recorded), automated versus manual rows, and the number of use cases that carry a saving figure of any kind.
+- Quote each with its capture date.
+- Pattern to expect: the tracker was actively maintained for a period and then largely abandoned, so the reliability field is mostly empty and few use cases carry a figure.
+- Treat the total as a **floor on what has been captured**.
+- See `bc-build` for how a row is built and what may be added to what.
 
 ## The three ways this data misleads
 
@@ -104,10 +96,8 @@ row is built and what may be added to what.
 3. **`IMPLEMENTED` read as in use.** It is not; that is what `PRODUCTIVE` and the
    utilization field are for.
 
-And one about provenance: **version history carries text the current record does not.**
-Rationale, blockers and comments were written during active work and later tidied back to
-`-`. An analysis over the current snapshot alone is missing a large part of the narrative
-— export versions, not just items (`know-sharepoint-export`).
+- And one about provenance: **version history carries text the current record does not.** Rationale, blockers and comments were written during active work and later tidied back to `-`.
+- An analysis over the current snapshot alone is missing a large part of the narrative — export versions, not just items (`know-sharepoint-export`).
 
 ## Standing findings to check an analysis against
 
@@ -136,7 +126,8 @@ Rationale, blockers and comments were written during active work and later tidie
 
 ## Absorbed: Rank competing candidate use cases into a prioritization record (formerly od-use-case-prioritization)
 
-Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-case-prioritization/procedure.md) when several candidate use cases compete for a plant or region and need a recommended order (Lane 2 step 4). It keeps its own references and assets under that folder and the authority it had.
+- Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-case-prioritization/procedure.md) when several candidate use cases compete for a plant or region and need a recommended order (Lane 2 step 4).
+- It keeps its own references and assets under that folder and the authority it had.
 
 ## Do not
 
@@ -145,3 +136,19 @@ Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-cas
 - Do not roll up savings across reliability classes into one headline.
 - Do not compare regional counts without their conversion rates.
 - Do not present a portfolio figure without the date it was read.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/od-use-case-prioritization/assets/prioritization-record.md`](references/od-use-case-prioritization/assets/prioritization-record.md) | The output of od-use-case-prioritization - one record per plant round holding the candidates, the agreed criteria and weights, the scores with evidence, the unscored bucket and the Plant ME sign-off. |
+| [`references/od-use-case-prioritization/references/business-case-archetypes.md`](references/od-use-case-prioritization/references/business-case-archetypes.md) | The archetypes of the strategic AI and operations business cases (foundation, enabling layer, value layer, attribution, bundle, compliance, big bet, defer), what a complete business-case record contains, how the cases… |
+| [`references/od-use-case-prioritization/references/evidence-baselines.md`](references/od-use-case-prioritization/references/evidence-baselines.md) | How to read the knowledge base's case groups, rollout maps and savings basis for a candidate use case, and the other demand signals - a reading guide with live-count recipes,… |
+| [`references/od-use-case-prioritization/references/process-chain-practice.md`](references/od-use-case-prioritization/references/process-chain-practice.md) | How ranking is run at step 24 of the AI-driven chain - planning states, an explicit ordering rule, cluster-first ranking, dependency and foundation-first logic, value tiers and grounding tags, kill… |
+| [`references/od-use-case-prioritization/references/ranking-criteria.md`](references/od-use-case-prioritization/references/ranking-criteria.md) | Every criterion OD has itself used to rank or classify use cases, each with its source and its limit, so a ranking can be built from the department's own language… |

@@ -29,12 +29,12 @@ metadata:
 
 # Context freshness
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-The skill map names this skill "the skill that keeps every other skill honest": a skill repository whose context
-layer has silently expired gives confident wrong answers. Every other skill copies facts from the Department OS
-(decision rights, risks, targets) and from the knowledge base. This skill checks, once a quarter, whether those sources
-and the skills' own dates are still current, and writes down what is not. It **repairs nothing**.
+- The skill map names this skill "the skill that keeps every other skill honest": a skill repository whose context layer has silently expired gives confident wrong answers.
+- Every other skill copies facts from the Department OS (decision rights, risks, targets) and from the knowledge base.
+- This skill checks, once a quarter, whether those sources and the skills' own dates are still current, and writes down what is not.
+- It **repairs nothing**.
 
 ## Purpose, trigger, done
 
@@ -57,10 +57,10 @@ and the skills' own dates are still current, and writes down what is not. It **r
 
 ## The rule
 
-**A date is a claim about a read, not about the world.** `sources_read` records when the source data was read. It says
-nothing about whether that source had been re-verified. A skill read on one date from a bundle file last verified
-months earlier is only as fresh as that earlier verification. The report therefore checks *both*: the skill's own date and the dates of
-the sources it names (`--cross`).
+- **A date is a claim about a read, not about the world.** `sources_read` records when the source data was read.
+- It says nothing about whether that source had been re-verified.
+- A skill read on one date from a bundle file last verified months earlier is only as fresh as that earlier verification.
+- The report therefore checks *both*: the skill's own date and the dates of the sources it names (`--cross`).
 
 ## Procedure
 
@@ -71,26 +71,24 @@ the sources it names (`--cross`).
      --bundle <path to>/ops-knowledge-graph/_knowledge/OperationsDigitalization-Department \
      --cross <folder that holds ops-knowledge-graph>
    ```
-   Add `--today YYYY-MM-DD` for a repeatable report; `--threshold` (default 90 days, about one quarter) and
-   `--soon` (default 30 days). Windows: set `PYTHONIOENCODING=utf-8`.
 2. **Read the bundle table.** `EXPIRED` and `EXPIRES SOON` come from `valid-until`, which only the critical files
    carry; `REVIEW OVERDUE` comes from `last-verified` plus `review-cadence`
    (weekly 7, monthly 31, quarterly 92, yearly 366 days). Cadence lengths are the script's own convention.
 3. **Read the skills table.** The priority list is skills that are both stale and carry unresolved `⟨…⟩` markers in
    SKILL.md or references. Templates under `assets/` are excluded because placeholders are their purpose.
-4. **Read the cross table.** A skill whose named source is expired or overdue needs a human to re-read the source
-   before its figures or tables are trusted. List which skill copies which file, so the owner of the file sees what
-   depends on it.
+4. **Read the cross table.** A skill whose named source is expired or overdue needs a human to re-read the source before its figures or tables are trusted.
+   - List which skill copies which file, so the owner of the file sees what depends on it.
 5. **Read the registry marks.** `data_as_of` (Scorecard / Power BI figures), `graph_as_of` (portfolio and ledger
    figures), `flows_as_of` (Node-RED corpus and machine estate), and the number of `open_gaps`.
-6. **Do the checks the script cannot.** (a) Run the figure finder (`scripts/check_no_figures.py`): skills should
-   quote no company figures, so any hit is a finding (rewrite it, or record it as a technical
-   constant or method value), and any dated figure that slipped in is compared with the registry marks. (b) Compare the bundle README's open-gap list with `open_gaps` in `registry.yaml`: which entries
-   are closed, which are new. (c) Note the date stamps of knowledge base notes you relied on (`enriched:`, `generated:`,
-   export dates, `review_status`).
+6. **Do the checks the script cannot.** (a) Run the figure finder (`scripts/check_no_figures.py`):
+   - skills should quote no company figures, so any hit is a finding (rewrite it, or record it as a technical constant or method value), and any dated figure that slipped in is compared with the registry marks.
+   - (b) Compare the bundle README's open-gap list with `open_gaps` in `registry.yaml`: which entries are closed, which are new.
+   - (c) Note the date stamps of knowledge base notes you relied on (`enriched:`, `generated:`, export dates, `review_status`).
 7. **Draft the report** and name an owner per finding (table in `references/triage-and-actions.md`).
 8. **Hand over.** Bundle files go to the OD lead (owner of the Department OS); skills and registry marks go to the
    registry owner (`human:jakob.gabriel`). Nothing is changed by this skill.
+- Add `--today YYYY-MM-DD` for a repeatable report; `--threshold` (default 90 days, about one quarter) and `--soon` (default 30 days).
+- Windows: set `PYTHONIOENCODING=utf-8`.
 
 ## Decision table
 
@@ -121,3 +119,14 @@ the sources it names (`--cross`).
 - Do not mark anything verified, expired or stable on the script's say-so alone: the report recommends.
 - Do not open knowledge base or registry files for writing; the script has no write path.
 - Do not fix the findings in the same pass; report first, then let the owners decide.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

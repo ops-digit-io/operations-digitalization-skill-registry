@@ -30,13 +30,12 @@ metadata:
 
 # Template resolution
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-Plan item P-06 of the department's skill map: **every deliverable starts from the approved master
-listed in the resource register, never from an ad-hoc copy.** The register (`15-resources.md`) says
-its own reason: when an agent produces a deliverable "it must start from the approved template and
-cite the canonical source, not invent one". This skill is the lookup that makes that rule usable at the
-moment of need. It points; it never decides which template is approved.
+- Plan item P-06 of the department's skill map: **every deliverable starts from the approved master listed in the resource register, never from an ad-hoc copy.** The register (`15-resources.md`) says its own reason:
+- when an agent produces a deliverable "it must start from the approved template and cite the canonical source, not invent one".
+- This skill is the lookup that makes that rule usable at the moment of need.
+- It points; it never decides which template is approved.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -51,10 +50,8 @@ moment of need. It points; it never decides which template is approved.
 
 ## Definition of done
 
-A resolution record ([`assets/template-resolution-record.md`](assets/template-resolution-record.md)) that states,
-for one deliverable: the master chosen, its location, its owner, the register's verification date, and one of
-four outcomes: **use the master**, **use the master and flag its age**, **the master is not collected yet:
-stop and route**, or **no master exists: route to creation**.
+- A resolution record ([`assets/template-resolution-record.md`](assets/template-resolution-record.md)) that states, for one deliverable: the master chosen, its location, its owner, the register's verification date, and one of four outcomes:
+- **use the master**, **use the master and flag its age**, **the master is not collected yet: stop and route**, or **no master exists: route to creation**.
 
 ## The references
 
@@ -77,16 +74,15 @@ stop and route**, or **no master exists: route to creation**.
    - `⟨... to collect⟩`: the master exists somewhere but is not yet in the register. Stop, ask the owner.
    - A location and a version date: usable. Note the date; the register itself is reviewed quarterly, so a
      date older than one quarter at the time of use gets the flag "register row not re-verified".
-4. **Open the master at the location given** (the SharePoint library or Power BI report named in the row),
-   not a copy in an e-mail or a plant folder. If you cannot open it, you do not have it: say so, do not recreate it.
+4. **Open the master at the location given** (the SharePoint library or Power BI report named in the row), not a copy in an e-mail or a plant folder.
+   - If you cannot open it, you do not have it: say so, do not recreate it.
 5. **Check the master is the master.** Compare the title and the version date with the register row. A copy that
    differs from the master is a fork; record it and tell the owner, do not merge it silently.
-6. **Fill the record** and attach it to the deliverable. Cite the register row in the deliverable's source line.
-   Before it leaves your hands, check that no placeholder text and no sample figure from the master remains
-   (the leak check in `references/process-chain-practice.md`).
-7. **If the outcome is "stop" or "route"**, write the one sentence that says who can supply the master (the owner
-   column) and carry on only with the parts of the work that do not depend on it. Do not substitute a plausible
-   structure; an empty section beats an invented one.
+6. **Fill the record** and attach it to the deliverable.
+   - Cite the register row in the deliverable's source line.
+   - Before it leaves your hands, check that no placeholder text and no sample figure from the master remains (the leak check in `references/process-chain-practice.md`).
+7. **If the outcome is "stop" or "route"**, write the one sentence that says who can supply the master (the owner column) and carry on only with the parts of the work that do not depend on it.
+   - Do not substitute a plausible structure; an empty section beats an invented one.
 
 ## Decision table
 
@@ -101,19 +97,19 @@ stop and route**, or **no master exists: route to creation**.
 
 ## Who is the owner
 
-The register names owners as roles or as the OD lead; this skill uses roles only. Where a row has a role
-(DBVE, IIAE, Engineering Standards, OESL IT Digital Platforms) that role is who you ask. Where the owner cell is itself
-a gap marker, the OD lead role is the fallback question, but the register has no rule saying so:
-⟨fallback owner for unowned rows, to confirm with the OD lead⟩.
+- The register names owners as roles or as the OD lead; this skill uses roles only.
+- Where a row has a role (DBVE, IIAE, Engineering Standards, OESL IT Digital Platforms) that role is who you ask.
+- Where the owner cell is itself a gap marker, the OD lead role is the fallback question, but the register has no rule saying so: ⟨fallback owner for unowned rows, to confirm with the OD lead⟩.
 
 ## Output
 
-The filled [`assets/template-resolution-record.md`](assets/template-resolution-record.md). It authorises nothing:
-the skill is read-only, and the record is evidence that the master was looked up, not that the deliverable is approved.
+- The filled [`assets/template-resolution-record.md`](assets/template-resolution-record.md).
+- It authorises nothing: the skill is read-only, and the record is evidence that the master was looked up, not that the deliverable is approved.
 
 ## Kinds of gap to expect
 
-These are patterns, not a status report. Whether a gap is open today is read from the register on the day.
+- These are patterns, not a status report.
+- Whether a gap is open today is read from the register on the day.
 
 - The use-case one-pager and business-case template has been a gap row (`to confirm or create`, owner role DBVE).
   While it is a gap, `bc-build` and `funnel-use-case` carry their own protocols and those are the
@@ -134,3 +130,14 @@ These are patterns, not a status report. Whether a gap is open today is read fro
 - Do not fill a gap row with a plausible template. The gap is information.
 - Do not decide that a master is approved. Approval is the owner's; you report what the register says.
 - Do not paste the master's content into a skill or a plant folder; point to the location.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

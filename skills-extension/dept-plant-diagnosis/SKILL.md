@@ -32,21 +32,15 @@ metadata:
 
 # Plant gap diagnosis, tiering and roadmap
 
-Read `dept-context` first. This skill holds **no figures** about plants or savings. It is a method; the numbers
-come live from the lists and the scorecard (`bc-portfolio`, `metrics-scorecard`).
-Statements marked `PROPOSAL` are this skill's own synthesis, not a decision of the department.
+- Read `dept-context` first.
+- This skill holds **no figures** about plants or savings.
+- It is a method; the numbers come live from the lists and the scorecard (`bc-portfolio`, `metrics-scorecard`).
+- Statements marked `PROPOSAL` are this skill's own synthesis, not a decision of the department.
 
 ## Purpose and definition of done
 
-Two plants can connect a similar number of machines on a similar system landscape and still show very
-different savings. The decks' working rule: **equal integration effort with little or no saving points to
-people and method, not to technology**. This skill makes that visible per plant, decides how much central
-support the plant gets, and writes the plant's next steps into a roadmap that a call can track.
+- Two plants can connect a similar number of machines on a similar system landscape and still show very different savings.
 
-Done when: (1) the comparison set is fair (procedure step 1); (2) each gap is placed on an Ishikawa branch
-with evidence and a confidence label; (3) the plant has a tier (first mover or fast follower) with each
-criterion answered; (4) the plant roadmap has one row per workstream with status and a call-for-action cell;
-(5) the regional roadmap is updated from the plant rows; (6) open unknowns are listed with an owner role.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits in the chain
@@ -58,7 +52,10 @@ criterion answered; (4) the plant roadmap has one row per workstream with status
 | Spine, rhythm (`metrics-scorecard`) | Feeds the status and call-for-action cells of the plant status table in the community-of-practice call and the regional roadmap in the strategy round |
 | Lane 3b step 3b4 (`catalog-compatibility`) | Receives its verdict when a gap is technical (a plant cannot consume a standard) |
 
-Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References and assets
 
@@ -70,33 +67,28 @@ Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
 | [`references/evidence-synthesis.md`](references/evidence-synthesis.md) | Turning interviews and workshops into a diagnosis: grounding tags, coverage, splitting variable, open questions |
 | [`assets/plant-gap-diagnosis-record.md`](assets/plant-gap-diagnosis-record.md) | The record: comparison set, Ishikawa, signature, tier, evidence, open questions |
 | [`assets/plant-roadmap-template.md`](assets/plant-roadmap-template.md) | Plant roadmap and regional roll-up tables with status and call-for-action cells |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
-Not repeated here: starting profiles and the onboarding path (`dept-plant-onboarding`), whether a standard is
-consumable at a plant (`catalog-compatibility`), rollup rules and the three misleading readings of the
-data (`bc-portfolio`), ranking of use cases (`bc-portfolio`), classifying a
-machine that will not connect (`mi-equipment`).
+- Not repeated here:
+- starting profiles and the onboarding path (`dept-plant-onboarding`), whether a standard is consumable at a plant (`catalog-compatibility`), rollup rules and the three misleading readings of the data (`bc-portfolio`), ranking of use cases (`bc-portfolio`), classifying a machine that will not connect (`mi-equipment`).
 
 ## Procedure
 
-1. **Build a fair comparison set.** Pick plants with a similar system landscape and a similar machine and
-   integration position; read the live lists on the day (`know-sharepoint-export`). If the plants differ in
-   a splitting variable (for example whether the plant owns its machine programs in-house), compare within the
-   segment, not across it (`references/evidence-synthesis.md`). Absence of a record is not zero
-   (`bc-portfolio`).
+1. **Build a fair comparison set.** Pick plants with a similar system landscape and a similar machine and integration position; read the live lists on the day (`know-sharepoint-export`).
+   - If the plants differ in a splitting variable (for example whether the plant owns its machine programs in-house), compare within the segment, not across it (`references/evidence-synthesis.md`).
+   - Absence of a record is not zero (`bc-portfolio`).
 2. **Collect the observable facts per plant**: integration status, systems deployed, use cases deployed,
    use cases with a registered saving project, utilisation, key user staffing, open barriers, ticket age for
    IT issues. Missing fields stay `<unknown>`.
-3. **Diagnose with the four branches** (`references/ishikawa-gap-diagnosis.md`): people, method, machine and
-   IT, environment. For each gap name the branch, the cause, the evidence and a confidence label. Check the
-   technology branch last: it is the least likely cause when effort is equal.
-4. **Read the signature.** Does production proactively drive ideas, does the plant ask for blueprints from
-   others, are requirements formalised with OD, are savings calculated with controlling and registered before
-   the next wave? Or is the plant contact "only responsible for the technical part", the production demand
-   unknown, standards ignored, savings not calculated? The signature decides which branch to start with.
-5. **Run the scaling test** for any use case deployed in several plants with zero saving somewhere: three
-   lists - where it saved, where it was deployed without savings, where it still has potential. A
-   deployment without savings means *to be evaluated until investigated*, not *no potential*. Only a human
-   (the OD lead with the plant owner) may decide "no potential"; an agent never writes it.
+3. **Diagnose with the four branches** (`references/ishikawa-gap-diagnosis.md`): people, method, machine and IT, environment.
+   - For each gap name the branch, the cause, the evidence and a confidence label.
+   - Check the technology branch last: it is the least likely cause when effort is equal.
+4. **Read the signature.** Does production proactively drive ideas, does the plant ask for blueprints from others, are requirements formalised with OD, are savings calculated with controlling and registered before the next wave?
+   - Or is the plant contact "only responsible for the technical part", the production demand unknown, standards ignored, savings not calculated?
+   - The signature decides which branch to start with.
+5. **Run the scaling test** for any use case deployed in several plants with zero saving somewhere: three lists - where it saved, where it was deployed without savings, where it still has potential.
+   - A deployment without savings means *to be evaluated until investigated*, not *no potential*.
+   - Only a human (the OD lead with the plant owner) may decide "no potential"; an agent never writes it.
 6. **Tier the plant** with `references/tiering-criteria.md`. Tier decides central capacity, not eligibility.
 7. **Write the roadmap rows** from the gaps: one row per workstream, owner role, target date, status colour,
    call-for-action text (`references/roadmap-templates.md`). Fix people and method gaps before adding
@@ -123,7 +115,7 @@ machine that will not connect (`mi-equipment`).
 | Open risks (staffing, central IT commitment, key user loss) | `dept-risk` |
 | Confirmed lessons | `dept-retro` |
 
-Nobody should re-ask the plant for: the facts in step 2, the tier criteria answers, the owner per roadmap row.
+- Nobody should re-ask the plant for: the facts in step 2, the tier criteria answers, the owner per roadmap row.
 
 ## Questions to ask the plant key user
 
@@ -151,22 +143,17 @@ Nobody should re-ask the plant for: the facts in step 2, the tier criteria answe
 
 ## AI agent operating notes
 
-An agent can: read the live lists and build the comparison set; compute per-plant facts; draft the Ishikawa
-table from interview notes, citing the source line per cause; pre-fill the tier criteria from the lists and flag
-the ones it cannot answer (key user staffing, local knowledge); draft roadmap rows, status colours and
-call-for-action text; roll plant rows into the regional table; list overdue rows and ageing tickets (`PROPOSAL`).
+- An agent can: read the live lists and build the comparison set; compute per-plant facts; draft the Ishikawa table from interview notes, citing the source line per cause;
+- pre-fill the tier criteria from the lists and flag the ones it cannot answer (key user staffing, local knowledge); draft roadmap rows, status colours and call-for-action text; roll plant rows into the regional table;
+- list overdue rows and ageing tickets (`PROPOSAL`).
 
-Required inputs: plant list reads dated that day, savings view from `bc-portfolio`,
-barrier log, interview or workshop notes, previous roadmap.
+- Required inputs: plant list reads dated that day, savings view from `bc-portfolio`, barrier log, interview or workshop notes, previous roadmap.
 
-**Human gate.** The OD lead (with the regional lead) assigns the tier and approves the roadmap; the local key
-user confirms the facts and the owner per row; a tier or wave exception goes to `dept-decision-rights`. The
-agent never changes a tier, never marks a row green without the evidence named in the status rule, and never
-shares a plant comparison outside the department without approval.
+- **Human gate.** The OD lead (with the regional lead) assigns the tier and approves the roadmap; the local key user confirms the facts and the owner per row; a tier or wave exception goes to `dept-decision-rights`.
+- The agent never changes a tier, never marks a row green without the evidence named in the status rule, and never shares a plant comparison outside the department without approval.
 
-Evidence to cite: list name and read date, deck or interview source role, grounding tag
-(`references/evidence-synthesis.md`). Hand over by filing the record and the roadmap tables and naming the
-rows that need a decision.
+- Evidence to cite: list name and read date, deck or interview source role, grounding tag (`references/evidence-synthesis.md`).
+- Hand over by filing the record and the roadmap tables and naming the rows that need a decision.
 
 ## Still open
 

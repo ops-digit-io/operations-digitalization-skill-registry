@@ -1,0 +1,62 @@
+skill: deploy-cybersec
+gate: []
+outputs:
+- id: sign-off-package
+  form: "`assets/cybersec-signoff-package.md`, filled"
+  template: assets/cybersec-signoff-package.md
+  to_skills: []
+  to_roles:
+  - IIAE or Plant IT
+  - who submit it to Cyber Security
+  done_when:
+  - Case classified (machine connection or app deployment)
+  - Contents follow `references/package-contents.md` and come from existing outputs
+  - Credentials, addresses, certificates and tokens are listed as existing, never pasted
+  signoff: IIAE or Plant IT
+  check:
+    structure: true
+- id: routed-decision-request
+  form: A request on the row "Equipment integration go-ahead", using the decision request template of `dept-decision-rights`
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Opened
+  - The sign-off is recorded as a dependency on the use case or machine record
+  signoff: OD lead
+- id: wait-state-record
+  form: Section of the package
+  to_skills: []
+  to_roles:
+  - OD lead (escalation)
+  done_when:
+  - Submission date, follow-up owner and next check recorded
+  - No go-live date promised
+  signoff: OD lead (escalation)
+- id: recorded-answer
+  form: Section of the package
+  to_skills:
+  - deploy-acceptance
+  - mi-equipment
+  - deploy-appstore
+  to_roles: []
+  done_when:
+  - Names who answered, date, scope, conditions and validity
+  - Outcome is granted, granted with conditions (conditions become open items) or refused (barrier routed)
+  - Or the case is held with an owner and an escalation date
+  signoff: OD lead
+receives_from:
+- deploy-migration
+- funnel-first-aid
+- catalog-guardrails
+- mi-equipment
+- deploy-appstore
+- deploy-acceptance
+next:
+- when: dept-decision-rights, then deploy-acceptance and go-live once the sign-off is recorded.
+  to:
+  - dept-decision-rights
+  - deploy-acceptance
+stops_when:
+- no named answer is on record
+- "A missing sign-off holds the case: no expedited path, no machine connected, no app deployed live on an unanswered request, and \"implied\", \"verbal\" or \"covered\" is not a sign-off"

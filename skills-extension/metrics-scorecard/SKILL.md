@@ -31,10 +31,10 @@ metadata:
 
 # Scorecard and round reporting
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-A metric without a nameable source is not measured but felt. Every figure below carries
-its source, its target and the value at which somebody intervenes.
+- A metric without a nameable source is not measured but felt.
+- Every figure below carries its source, its target and the value at which somebody intervenes.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -56,16 +56,14 @@ its source, its target and the value at which somebody intervenes.
 | `OD-Report-Use_Case_Integration` | Use-case counts by month, region and process; asset mix |
 | `OD-Report-Equipment_Integration` | Equipment counts by month, region and process |
 
-Where they disagree, **the Scorecard "Actual Year" figures are authoritative.** A known
-trap of this kind: a report gauge filtered to the current year can show a different count
-than the Scorecard's year figure because the two apply different filters or scopes. Report
-the Scorecard figure and say which filter the other came from.
+- Where they disagree, **the Scorecard "Actual Year" figures are authoritative.** A known trap of this kind:
+- a report gauge filtered to the current year can show a different count than the Scorecard's year figure because the two apply different filters or scopes.
+- Report the Scorecard figure and say which filter the other came from.
 
 ## The metrics
 
-This table holds **no values**. Targets, actuals and read dates live in the Scorecard and
-the two reports; refetch from Power BI before acting, and state the read date and source
-with any figure you publish.
+- This table holds **no values**.
+- Targets, actuals and read dates live in the Scorecard and the two reports; refetch from Power BI before acting, and state the read date and source with any figure you publish.
 
 | Metric | Formula | Source | Target (look up) | Intervene from | Cadence |
 |---|---|---|---|---|---|
@@ -78,11 +76,9 @@ with any figure you publish.
 | Use-case asset mix | Share by asset | Use_Case_Integration · asset pie | No target - descriptive portfolio indicator | portfolio indicator | quarterly |
 | Value delivery cycle | Demand → live use case | Not captured in any system today | No target - nothing to measure against yet | — | — |
 
-**The honest headline rule:** report the leading and the lagging metrics side by side,
-including whichever is behind. A summary that leads with only the favourable number
-(typically the one that is on target) is the version that gets found out. A count of delivered
-use cases is a delivery figure, not a value figure: show utilization next to it, and state the basis
-(system landscape, filter, date) a count was made on.
+- **The honest headline rule:** report the leading and the lagging metrics side by side, including whichever is behind.
+- A summary that leads with only the favourable number (typically the one that is on target) is the version that gets found out.
+- A count of delivered use cases is a delivery figure, not a value figure: show utilization next to it, and state the basis (system landscape, filter, date) a count was made on.
 
 ## Recipient feedback — the loop acceptance does not cover
 
@@ -93,7 +89,9 @@ use cases is a delivery figure, not a value figure: show utilization next to it,
 
 ## The rounds
 
-Reporting happens on request or on the department's own schedule; no fixed ODEC month cycle is claimed. ODEC met monthly only until 2025-12 and no longer does (no fixed replacement forum); its past reports are a source of information. The metric cadence column below is the data granularity of a source, not a meeting rhythm.
+- Reporting happens on request or on the department's own schedule; no fixed ODEC month cycle is claimed.
+- ODEC met monthly only until 2025-12 and no longer does (no fixed replacement forum); its past reports are a source of information.
+- The metric cadence column below is the data granularity of a source, not a meeting rhythm.
 
 | Round | What | Input | Output |
 |---|---|---|---|
@@ -102,17 +100,14 @@ Reporting happens on request or on the department's own schedule; no fixed ODEC 
 | **Retro** (on the department's own schedule) | What did we learn → **one** change | Incidents, metrics, COP feedback | 1 decided adjustment |
 | Use Case Definition / Integration Workshops | Define and integrate with plant teams | Plant demand, process diagnostics | Prioritized use cases; integration plan |
 
-**Escalation window: one round.** An item unresolved at one round escalates into the next:
-"escalate" means it carries forward with that label, not that it waits past the next
-occurrence of its own round. Where no round is scheduled, the item goes to the OD lead
-directly.
+- **Escalation window: one round.** An item unresolved at one round escalates into the next: "escalate" means it carries forward with that label, not that it waits past the next occurrence of its own round.
+- Where no round is scheduled, the item goes to the OD lead directly.
 
-Preparing and following up a round is the most rewarding agent task here, because each has
-a named input and a named output. Prepare against the input column; follow up against the
-output column.
+- Preparing and following up a round is the most rewarding agent task here, because each has a named input and a named output.
+- Prepare against the input column; follow up against the output column.
 
-The retro is **mandatory, not optional**, and its output is exactly one decided
-adjustment. A retro that produces a list has not produced a decision.
+- The retro is **mandatory, not optional**, and its output is exactly one decided adjustment.
+- A retro that produces a list has not produced a decision.
 
 ## Procedure
 
@@ -126,12 +121,9 @@ adjustment. A retro that produces a list has not produced a decision.
 
 ## Output — the protocol
 
-Fill [`assets/scorecard-update-protocol.md`](assets/scorecard-update-protocol.md) once per
-cycle. It takes `deploy-handover`'s adoption/utilization findings and
-`bc-portfolio`'s savings roll-up as its two named inputs, refreshes
-every metric with a read date, and produces the round-ready regional breakout and headline
-— the document that is actually handed to the round (or requester), not a summary reconstructed from memory
-afterward.
+- Fill [`assets/scorecard-update-protocol.md`](assets/scorecard-update-protocol.md) once per cycle.
+- It takes `deploy-handover`'s adoption/utilization findings and `bc-portfolio`'s savings roll-up as its two named inputs, refreshes every metric with a read date, and produces the round-ready regional breakout and headline
+- — the document that is actually handed to the round (or requester), not a summary reconstructed from memory afterward.
 
 ## Do not
 
@@ -139,3 +131,14 @@ afterward.
 - Do not reconcile two reports by picking the more favourable one.
 - Do not report the annual target as though it were the position today.
 - Do not fill in `⟨to confirm⟩` targets with plausible numbers.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

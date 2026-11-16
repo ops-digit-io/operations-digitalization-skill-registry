@@ -1,0 +1,79 @@
+skill: mi-equipment
+gate: []
+outputs:
+- id: plant-readiness-brief
+  form: "`assets/plant-readiness-brief.md`, filled before either route"
+  template: assets/plant-readiness-brief.md
+  to_skills: []
+  to_roles:
+  - Plant ME
+  - Plant IT
+  done_when:
+  - Plant row, flags and plant-only questions are filled from the Machine List and Tool Overview
+  signoff: Plant ME
+  check:
+    structure: true
+- id: assessment-protocol-route-a
+  form: "`assets/assessment-protocol.md`, one per plant or wave"
+  template: assets/assessment-protocol.md
+  to_skills: []
+  to_roles:
+  - Plant ME
+  - Plant IT
+  - then Route B per machine
+  done_when:
+  - Inventory and roadmap agreed
+  - Each machine in scope carries concept, connector and sequence position
+  - Barriers logged
+  - Investment planned
+  - Cyber Security gate identified
+  signoff: Plant ME
+  check:
+    structure: true
+- id: guidance-protocol-route-b
+  form: "`assets/guidance-protocol.md`, one per machine"
+  template: assets/guidance-protocol.md
+  to_skills:
+  - mi-signals
+  - deploy-acceptance
+  - mi-flow
+  to_roles: []
+  done_when:
+  - Gates 0 to 4 recorded in order
+  - Concept, connector, sequence position, logged barriers and Cyber Security status stated
+  signoff: OD lead
+  check:
+    structure: true
+- id: records-updated
+  form: Machine List, Machine CV and Edge Device List
+  to_skills: []
+  to_roles:
+  - MPEE OD (informed)
+  done_when:
+  - All three updated
+  - "`INTEGRATED` set only after `deploy-acceptance` passes"
+  signoff: MPEE OD (informed)
+- id: investment-for-approval
+  form: Sized investment from Route A step 6
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Investment sized and taken through integration investment planning
+  signoff: OD lead
+receives_from:
+- funnel-evaluation
+- catalog-systems
+- dept-context
+- mi-data-availability
+- dept-decision-rights
+next:
+- when: mi-signals (tag list, PLC program version, Machine CV), mi-flow (pipeline, step 3b4) and deploy-acceptance (step 3b6).
+  to:
+  - mi-signals
+  - mi-flow
+  - deploy-acceptance
+stops_when:
+- no route exists (log the barrier and escalate into the roadmap, never omit the machine silently), a guide branch is TODO (say which, take the other platform's route if written, else escalate to the IIAE), or Cyber Security sign-off is…
+- Only a human connects a machine
+- never mark INTEGRATED before acceptance passes

@@ -1,0 +1,58 @@
+skill: funnel-first-aid
+gate: []
+outputs:
+- id: first-aid-request
+  form: "`assets/first-aid-request.md`, filled"
+  template: assets/first-aid-request.md
+  to_skills: []
+  to_roles:
+  - Next skill in the route (travels with the request)
+  done_when:
+  - Complete, or lists exactly what is missing
+  - Problem restated S.M.A.R.T
+  - Plant owner named by role
+  signoff: Next skill in the route (travels with the request)
+  check:
+    structure: true
+- id: data-check-and-scenario
+  form: Section 4 of the form
+  to_skills:
+  - mi-data-availability
+  to_roles: []
+  done_when:
+  - Signal readability and period recorded
+  - Scenario A or B classified
+  signoff: OD lead
+- id: route-with-reason
+  form: Section 5 of the form
+  to_skills:
+  - dept-intake
+  - deploy-cybersec
+  to_roles:
+  - Analytical Support or Lane 1 self-service (one-off)
+  - information-integration lane (data gap)
+  done_when:
+  - Route chosen from the routing table with a written reason
+  signoff: Analytical Support or Lane 1 self-service (one-off)
+- id: closing-message-to-the-requester
+  form: Reply to the requester
+  to_skills: []
+  to_roles:
+  - Plant requester
+  done_when:
+  - States what was routed where and why
+  signoff: Plant requester
+receives_from:
+- funnel-workshop
+- dept-intake
+next:
+- when: dept-intake then funnel-use-case for a recurring need; mi-data-availability for the data check; deploy-cybersec for new connectivity; dept-decision-rights for cost.
+  to:
+  - dept-intake
+  - funnel-use-case
+  - mi-data-availability
+  - deploy-cybersec
+  - dept-decision-rights
+stops_when:
+- the plant cannot name a question or an owner (back to the requester with the missing items), the need is outside the lean standardized footprint (refuse and say why), or the data is not readable (mark a data gap, never…
+- No price indication is quoted as an offer and nothing is connected or installed

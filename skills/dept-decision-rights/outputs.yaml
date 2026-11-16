@@ -1,0 +1,64 @@
+skill: dept-decision-rights
+gate: []
+outputs:
+- id: decision-request
+  form: "`assets/decision-request.md`, filled"
+  template: assets/decision-request.md
+  to_skills: []
+  to_roles:
+  - The deciding role named in the table (for example DBVE
+  - IIAE
+  - OD lead
+  - plant budget owner
+  - plant owner
+  - Cyber Security)
+  done_when:
+  - Names the row or gate, the deciding role, the mode, the authority level and the outcome
+  signoff: The deciding role named in the table (for example DBVE
+  check:
+    structure: true
+- id: gate-recorded-as-a-dependency
+  form: Dependency on the use case or saving row
+  to_skills:
+  - bc-build
+  - bc-capital-request
+  to_roles:
+  - Owner of the use case or saving row
+  - for saving rows
+  done_when:
+  - The gate (for example ECR creation) is recorded with a named owner, and the decision is written as decision, proposal, risk of not doing
+  signoff: Owner of the use case or saving row
+- id: escalation
+  form: Message to the named role or forum
+  to_skills: []
+  to_roles:
+  - OD lead
+  - or COP for technical matters
+  done_when:
+  - Sent when a trigger from the risk list was met, inside the agreed window
+  signoff: OD lead
+receives_from:
+- catalog-standardization
+- funnel-evaluation
+- dept-risk
+- dept-retro
+- bc-portfolio
+- dept-plant-diagnosis
+- deploy-migration
+- dept-governance
+- catalog-compatibility
+- deploy-appstore
+- dept-intake
+- catalog-systems
+- invest-screen
+- bc-build
+next:
+- when: step 1b2 to mi-equipment (1b3) once the cost template is approved; step 25 to bc-capital-request; step 32 (tool-decision gate) to the route chosen by the OD lead.
+  to:
+  - mi-equipment
+  - bc-capital-request
+stops_when:
+- no row or gate fits, or the decision rights look out of date
+- Write "decision rights pending re-verification" and validate with the OD lead
+- every row is used at most at recommend
+- Do not act on a row above that, and do not treat urgency as a substitute for the deciding role

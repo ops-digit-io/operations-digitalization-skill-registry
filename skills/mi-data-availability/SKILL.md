@@ -25,19 +25,18 @@ metadata:
 
 # Data availability check
 
-Read `dept-context` first. This is step 2 of the Analytical lane and a precondition of any
-use-case scope. It exists to stop the most expensive mistake in the function: promising an
-answer the data cannot support.
+- Read `dept-context` first.
+- This is step 2 of the Analytical lane and a precondition of any use-case scope.
+- It exists to stop the most expensive mistake in the function: promising an answer the data cannot support.
 
-**The output is not "available" or "not available".** It is *which of the six steps the
-request dies at*, because the shortfalls at steps 2, 4 and 5 look identical from a dashboard
-and are three different problems with three different owners and costs between an afternoon
-and two quarters.
+- **The output is not "available" or "not available".** It is *which of the six steps the request dies at*,
+- because the shortfalls at steps 2, 4 and 5 look identical from a dashboard and are three different problems with three different owners and costs between an afternoon and two quarters.
 
 ## Purpose
 
-Finds out which of the six availability steps a data request dies at, before anyone promises an answer the data cannot support. Use it at step 2 of the Analytical lane, before a use-case scope is agreed.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Finds out which of the six availability steps a data request dies at, before anyone promises an answer the data cannot support.
+- Use it at step 2 of the Analytical lane, before a use-case scope is agreed.
 
 ## Inputs and output
 
@@ -75,17 +74,17 @@ python3 scripts/check_availability.py --plant Mako --signals TotalPartCounter,Ma
 python3 scripts/check_availability.py --plant Karben --machine "Lean Cell" --report
 ```
 
-Exit **2** if a step blocks, **1** if a step is unproven, **0** if all six are answered. It
-reads the Machine List, the Connector Overview and the flow corpus from the knowledge-graph
-checkout (`--kg`, default `../ops-knowledge-graph`).
+- Exit **2** if a step blocks, **1** if a step is unproven, **0** if all six are answered.
+- It reads the Machine List, the Connector Overview and the flow corpus from the knowledge-graph checkout (`--kg`, default `../ops-knowledge-graph`).
 
-The script never guesses. Where a source cannot answer, it says *unproven* rather than
-*absent* — and **step 5 comes back unproven every time**, deliberately, because nothing in
-the bundle records fitness for use.
+- The script never guesses.
+- Where a source cannot answer, it says *unproven* rather than *absent* — and **step 5 comes back unproven every time**, deliberately, because nothing in the bundle records fitness for use.
 
 ## Walk the path, in this order
 
-First translate the request into the **objects** it is about, the **events** that happen to them and the **time** axis; a sensor value is not an event, and a missing relation to the product or order is a data gap, not something to approximate ([`process-chain-practice.md`](references/process-chain-practice.md)). Report anything needed but not collecting **up front** as a missing-signal table (`signal id | label | why needed`).
+- First translate the request into the **objects** it is about, the **events** that happen to them and the **time** axis;
+- a sensor value is not an event, and a missing relation to the product or order is a data gap, not something to approximate ([`process-chain-practice.md`](references/process-chain-practice.md)).
+- Report anything needed but not collecting **up front** as a missing-signal table (`signal id | label | why needed`).
 
 | # | Question | Where to look | If no |
 |---|---|---|---|
@@ -96,53 +95,37 @@ First translate the request into the **objects** it is about, the **events** tha
 | 5 | Is the data **fit for use** — right granularity, freshness, completeness? | Databricks / the Azure Storage Account | Data gap, with the reason named |
 | 6 | Does an **existing asset** already answer this? | Use-case portfolio; the reference library | Do not rebuild it |
 
-The three failures at steps 2, 4 and 5 look identical from a dashboard and are entirely
-different problems. Name which one you have →
-[`failure-modes.md`](references/failure-modes.md).
+- The three failures at steps 2, 4 and 5 look identical from a dashboard and are entirely different problems.
+- Name which one you have → [`failure-modes.md`](references/failure-modes.md).
 
 ## Three traps the sources set
 
-**A blank is not a no.** Machines are `INTEGRATED`, `NOT INTEGRATED` or ongoing — and a
-sizeable block carries **no status at all** (count it live). Reading a blank as "not
-integrated" fabricates a gap across part of the estate, and the fabricated gap gets routed to
-a lane that then finds nothing to do.
+- **A blank is not a no.** Machines are `INTEGRATED`, `NOT INTEGRATED` or ongoing — and a sizeable block carries **no status at all** (count it live).
+- Reading a blank as "not integrated" fabricates a gap across part of the estate, and the fabricated gap gets routed to a lane that then finds nothing to do.
 
-**A connector existing is not a connector you may use.** Only connectors that are `Productive`
-and marked `USE` count; `NOT AVAILABLE` and `DO NOT USE` do not. An `Idea` connector is a
-roadmap item, not a route to data.
+- **A connector existing is not a connector you may use.** Only connectors that are `Productive` and marked `USE` count; `NOT AVAILABLE` and `DO NOT USE` do not.
+- An `Idea` connector is a roadmap item, not a route to data.
 
-**A flow proves presence, never absence.** A signal can be published with nothing consuming
-it, so "not in any flow" is a prompt to check the edge platform — not a verdict. And for
-plants with no Node-RED instance in the corpus (derive the list as in
-[`plant-instance-map.md`](references/plant-instance-map.md)), step 4 cannot be answered from
-the bundle at all.
+- **A flow proves presence, never absence.** A signal can be published with nothing consuming it, so "not in any flow" is a prompt to check the edge platform — not a verdict.
+- And for plants with no Node-RED instance in the corpus (derive the list as in [`plant-instance-map.md`](references/plant-instance-map.md)), step 4 cannot be answered from the bundle at all.
 
 ## Two more traps
 
-**Some plants cannot answer step 2 at all.** Some plants have no status on any row, and others
-on most rows (find them by counting status per plant on the current export). Say "not
-recorded" for those, and see
-[`machine-list-completeness.md`](references/machine-list-completeness.md).
+- **Some plants cannot answer step 2 at all.** Some plants have no status on any row, and others on most rows (find them by counting status per plant on the current export).
+- Say "not recorded" for those, and see [`machine-list-completeness.md`](references/machine-list-completeness.md).
 
-**Not every request is a machine request.** Many legacy applications are standalone and many
-hold the data a use case wants (laboratory, camera, PLC programs). Use
-[`non-machine-data-sources.md`](references/non-machine-data-sources.md) when the data is not a
-PLC signal, and [`data-needs-by-capability.md`](references/data-needs-by-capability.md) to see
-which agreement (reason catalogue, ideal cycle time, recipient) the capability needs before
-the data means anything.
+- **Not every request is a machine request.** Many legacy applications are standalone and many hold the data a use case wants (laboratory, camera, PLC programs).
+- Use [`non-machine-data-sources.md`](references/non-machine-data-sources.md) when the data is not a PLC signal, and [`data-needs-by-capability.md`](references/data-needs-by-capability.md) to see which agreement (reason catalogue, ideal cycle time, recipient) the capability needs before the data means anything.
 
 ## Freshness expectations
 
-Machine signals arrive **near real-time** at the edge; data platform history lands **per
-offload**;
-MSB exchange is **event-driven**; the Digitalization Scorecard refreshes **monthly**. An
-analysis whose conclusion depends on data being fresher than its pipeline delivers is not
-supportable — check the cadence before the query, not after.
+- Machine signals arrive **near real-time** at the edge; data platform history lands **per offload**; MSB exchange is **event-driven**; the Digitalization Scorecard refreshes **monthly**.
+- An analysis whose conclusion depends on data being fresher than its pipeline delivers is not supportable — check the cadence before the query, not after.
 
 ## What to do with a shortfall
 
-**Flag the data gap rather than filling it.** That is a standing guardrail of the
-Analytical lane. Concretely:
+- **Flag the data gap rather than filling it.** That is a standing guardrail of the Analytical lane.
+- Concretely:
 
 - Route it to the Information Integration lane as a named request — which machines, which
   signals, which plant, which use case is waiting.
@@ -163,11 +146,9 @@ Analytical lane. Concretely:
 |---|---|---|
 | `scripts/check_availability.py` | Walk the six steps against the Machine List, Connector Overview and flow corpus and say which step blocks. Exit 2 blocked, 1 unproven, 0 answered | `--plant <name>` (required), `--machine <name>`, `--signals <comma list>`, `--kg <path>` (default `../ops-knowledge-graph`), `--report`, `--json`, `-h` |
 
-An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+- An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
 ## Example
-
-Fictional example; plant, signal and output are made up for illustration.
 
 ```text
 $ python3 scripts/check_availability.py --plant ExamplePlant --signals PartCounter
@@ -176,8 +157,6 @@ step 2 machine integrated        BLOCKED (status NOT INTEGRATED)
 step 5 fit for use               UNPROVEN (no source records it)
 exit 2   -> verdict: dies at step 2; route to mi-equipment
 ```
-
-If the script cannot read a source, it reports the step as unproven, not absent; check the `--kg` path first.
 
 ## Do not
 
@@ -194,4 +173,15 @@ If the script cannot read a source, it reports the step as unproven, not absent;
 
 ## Definition of done
 
-The verdict names the step where the request stops, with the evidence and the owner; each shortfall is routed or recorded as a dependency on the use case; the requester knows what can and cannot be answered now.
+- The verdict names the step where the request stops, with the evidence and the owner; each shortfall is routed or recorded as a dependency on the use case; the requester knows what can and cannot be answered now.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

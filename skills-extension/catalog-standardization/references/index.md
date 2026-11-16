@@ -4,8 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Clusters (`clusters.md`) | Skill Reference | The cluster tags' (C01-C12) standard definition, KPI set and requirements checklist each — the default baseline an undocumented use case is built to instead of being re-invented locally. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-standardization must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-standardization must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | Method, decision rules, handoff contract, pitfalls and agent notes for standardization, abstracted from the Operations Digitalization slide decks - archetypes, category to method to data-job mapping, graduation from validated prototype to configurable container app, the library tree, and why a scaled use case needs utilization rather than a rollout count. Guidance only, no figures. |
 | Process family patterns (`process-family-patterns.md`) | Skill Reference | What a use case looks like per process family (rubber, plastic, metal, assembly, cross-process) - the process groups, the capabilities that usually apply, the data needed, how much standardization to expect and the traps. Pattern only, no counts. Open it when you place a use case, judge whether it can be a standard, or brief a plant on what peers usually ask for. |
 

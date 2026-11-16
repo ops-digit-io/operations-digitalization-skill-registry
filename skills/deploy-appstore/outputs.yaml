@@ -1,0 +1,64 @@
+skill: deploy-appstore
+gate: []
+outputs:
+- id: deployment-package
+  form: "`assets/deployment-package.md`, filled"
+  template: assets/deployment-package.md
+  to_skills: []
+  to_roles:
+  - Human with deploy rights on the platform
+  done_when:
+  - App, owner, plant sponsor, target, sourcing route, data read and written, dependencies, rollback owner and acceptance protocol are all stated
+  signoff: Human with deploy rights on the platform
+  check:
+    structure: true
+- id: release-gate-table
+  form: Gate table in the deployment package
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - Cyber Security (sign-off)
+  done_when:
+  - Protocol drafted
+  - Cyber Security sign-off shown as requested or granted, by whom and when
+  - Approval route named
+  signoff: Cyber Security (sign-off)
+- id: acceptance-protocol
+  form: Drafted with `deploy-acceptance`, referenced from the package
+  to_skills:
+  - deploy-acceptance
+  to_roles: []
+  done_when:
+  - Protocol exists before release and is named in the package
+  signoff: OD lead
+- id: open-questions-with-owners
+  form: List in the deployment package
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Each gap (for example lead time, deploy rights, Cyber Security requirements) has a named owner
+  signoff: OD lead
+- id: hand-over-to-rollout
+  form: The package with the gate result
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - A human has deployed and the hand-over is made
+  signoff: OD lead
+receives_from:
+- deploy-migration
+- funnel-requirements
+- invest-screen
+- dept-decision-rights
+- bc-build
+- bc-capital-request
+next:
+- when: deploy-handover (step 3a6, rollout and adoption).
+  to:
+  - deploy-handover
+stops_when:
+- a package field is missing or the Cyber Security sign-off is not granted
+- "Then the package is invalid for release: list the gap with its owner and stop"
+- No deployment to a shared platform without the named human approval

@@ -4,10 +4,11 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Build patterns (`build-patterns.md`) | Skill Reference | Build patterns for the click-dummy: layout, navigation, states, data stubs, design tokens and the verification pass. |
 | Click dummy (`click-dummy.md`) | Skill Reference | The department's click-dummy stage (funnel-prototype): turn the selected features into a verified clickable prototype traceable problem to feature to screen. |
 | Gemba App pilot (`gemba-app-pilot.md`) | Skill Reference | The Gemba App requirements-to-mockup pilot as a method to copy - the process, the click-dummy prompt system, what an initiative request for a prototype should contain, and what the sources do not show. No dates, budgets or status of the live initiative. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-prototype must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-prototype must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How the prototype step is run inside the new process chain - the PoC to prototype to pilot to rollout maturity stages, scope-limiting as a gate strategy, AI-assisted mock-ups and dashboards, decision rules, handoff contract, pitfalls, and AI agent operating notes. Process guidance only; no figures. |
 | Status labels (`status-labels.md`) | Skill Reference | How the department's AI decks label items (pilot, PoC, PoC proven, rollout), the ways labels mislead, and the rule for quoting one - no list of which item carries which label today. |
 | Validation patterns (`validation-patterns.md`) | Skill Reference | How the AI business cases in the department knowledge base define a validation plan and a pass criterion, grouped into wording patterns a key user can copy when writing the criterion for a prototype or PoC - patterns only, with placeholder thresholds. |

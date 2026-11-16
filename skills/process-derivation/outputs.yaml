@@ -1,0 +1,76 @@
+skill: process-derivation
+gate: []
+outputs:
+- id: process-derivation-package
+  form: "`assets/process-derivation-package.md`, filled"
+  template: assets/process-derivation-package.md
+  to_skills:
+  - bc-build
+  to_roles:
+  - (the change effort
+  - the baseline for the business case)
+  - the process owner (a role)
+  done_when:
+  - The gate record names the request, the demand and the validated prototype with their records
+  - Sections 1 to 9 are filled or say `⟨not recorded⟩` with who supplies it
+  - Every design change has evidence or is listed as an open item
+  signoff: (the change effort
+  check:
+    structure: true
+    cmd: python scripts/check_derivation.py {file}
+- id: to-be-process-model
+  form: "A BPMN 2.0 file (pattern: `assets/to-be-process.example.bpmn`)"
+  template: assets/to-be-process.example.bpmn
+  to_skills:
+  - deploy-handover
+  to_roles:
+  - the process owner
+  done_when:
+  - "`scripts/check_derivation.py` reports no findings"
+  - Start and end events, named gateways, every task in a lane, an exception path shown
+  signoff: the process owner
+  check:
+    cmd: python scripts/check_derivation.py {file}
+- id: adoption-and-embedding-plan
+  form: Section 6 of the package
+  to_skills:
+  - deploy-handover
+  to_roles:
+  - the plant representative
+  done_when:
+  - Every role group of the model has an ADKAR row with evidence, the owner role is named, the review date is set
+  signoff: the plant representative
+- id: landscape-entry
+  form: Section 7 of the package
+  to_skills: []
+  to_roles:
+  - The owner of the process landscape (a role)
+  done_when:
+  - The fields of the entry are filled, the interfaces name the object that crosses, a human owner has accepted it (until then it is a proposal)
+  signoff: The owner of the process landscape (a role)
+- id: refusal-note
+  form: One paragraph in the package
+  to_skills: []
+  to_roles:
+  - The role that owns the missing input (use case
+  - demand or prototype)
+  done_when:
+  - Names which of the three gate items is missing and what would fill it
+  signoff: The role that owns the missing input (use case
+receives_from:
+- funnel-prototype
+- funnel-use-case
+- funnel-requirements
+next:
+- when: "the package goes to bc-build (step 24): the change effort and the redesign effects are evidence for the benefit rows, not a result."
+  to:
+  - bc-build
+- when: The model, the adoption plan and the landscape entry wait for the approval route (bc-capital-request, dept-decision-rights) and are carried out in step 26 with deploy-handover; the use case then enters the catalog with catalog-usecase.
+  to:
+  - bc-capital-request
+  - dept-decision-rights
+  - deploy-handover
+  - catalog-usecase
+stops_when:
+- one of the three gate items is missing, the prototype result is failed or inconclusive, no role can be named for the process, or a decision that belongs to the OD lead or the Plant ME has not been taken
+- A refusal is a result, not a failure

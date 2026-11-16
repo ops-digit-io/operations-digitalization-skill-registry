@@ -4,7 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs dept-retro must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs dept-retro must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | Where the retro gets its learning items in the AI-driven chain - issue-log loop, feedback forms, project-closure lessons, sprint and workshop recaps, a cause classification, clean-up and kill/hold hygiene, and what an agent may draft. Pattern only, no figures. |
 | Reading change logs (`reading-change-logs.md`) | Skill Reference | What the generated use-case change logs record, what a line means, which kinds of change are signal and which are noise (bulk sweeps, tidy-ups, field-only edits), and how to turn a log into a retro learning item with evidence. |
 | Retro inputs (`retro-inputs.md`) | Skill Reference | Where each of the three retro inputs (incidents, metrics, COP feedback and the historical ODEC record) is read from, which usable signals the sources already carry, and the limits of each; open it when preparing a monthly retro. |

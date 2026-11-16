@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs dept-intake must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs dept-intake must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How the intake step (i1) is run in the AI-driven chain - the SMART test and object/event reduction of a request, standard versus special, the three-way triage (just do, go forward, lead change), lane by demand shape, handoff record, pitfalls and agent operating notes. |
 | Refusal playbook (`refusal-playbook.md`) | Skill Reference | Request patterns that look legitimate but should be refused or re-scoped, what the tell is, and one pattern accepted that should have been refused - guidance distilled from the department's retrospectives, no plant names or figures. |

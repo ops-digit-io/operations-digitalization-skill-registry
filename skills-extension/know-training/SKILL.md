@@ -30,20 +30,18 @@ metadata:
 
 # Rollout training
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-**Status: draft, and the thinnest-sourced skill in the registry.** The skill map calls this "the decentralization skill"
-and says it "is under-specified in the current Department OS and needs the most new content". The sources give the
-control point ("rollout-ready; plant trained"), a few training facts from call decks, and the plant roles. They do
-**not** give a training standard, a list of modules or a competence model. This skill assembles a package from what
-the neighbouring skills already teach, and every proposal that is not a recorded fact is labelled **proposal**.
+- **Status: draft, and the thinnest-sourced skill in the registry.** The skill map calls this "the decentralization skill" and says it "is under-specified in the current Department OS and needs the most new content".
+- The sources give the control point ("rollout-ready; plant trained"), a few training facts from call decks, and the plant roles.
+- They do **not** give a training standard, a list of modules or a competence model.
+- This skill assembles a package from what the neighbouring skills already teach, and every proposal that is not a recorded fact is labelled **proposal**.
 
 ## Purpose, trigger, done
 
-- **Trigger.** A solution is rollout-ready: acceptance passed (`deploy-acceptance`), Cyber Security cleared where it
-  applies (`deploy-cybersec`), and the plant is to run it. Also: a new integration wave starts, or a key user is to
-  be enabled. Playbook step 6 of the Information Integration lane: "Prepare Manufacturing Software Suite rollout;
-  equipment integration training - Human (IIAE) - Rollout-ready; plant trained".
+- **Trigger.** A solution is rollout-ready: acceptance passed (`deploy-acceptance`), Cyber Security cleared where it applies (`deploy-cybersec`), and the plant is to run it.
+   - Also: a new integration wave starts, or a key user is to be enabled.
+   - Playbook step 6 of the Information Integration lane: "Prepare Manufacturing Software Suite rollout; equipment integration training - Human (IIAE) - Rollout-ready; plant trained".
 - **Output.** A filled [`assets/training-package.md`](assets/training-package.md) and a filled
   [`assets/competence-checklist.md`](assets/competence-checklist.md) for one plant and one solution.
 - **Done.** Each competence on the checklist is confirmed **by the plant** with evidence, and no critical skill rests on
@@ -61,29 +59,25 @@ the neighbouring skills already teach, and every proposal that is not a recorded
 
 ## What this skill does not repeat
 
-`deploy-handover` already holds the handover test, the ADKAR diagnostic for a stalled use case and the
-evidence tiers. This skill starts **before** that: it produces the people who can pass the three-question test
-without the builder. Where a module needs that content it links there; it does not copy it.
+- `deploy-handover` already holds the handover test, the ADKAR diagnostic for a stalled use case and the evidence tiers.
+- This skill starts **before** that: it produces the people who can pass the three-question test without the builder.
+- Where a module needs that content it links there; it does not copy it.
 
 ## Procedure
 
 1. **Fix the scope.** One plant, one solution (use case, machine connection, or app), one rollout moment. Name the
    plant owner and the plant roles in play (Plant ME, Plant IT, shift lead, key user). Roles only, never names.
-2. **Check readiness.** Rollout-ready means acceptance passed, the data path is written down to the machine, the
-   sign-off gate is answered, and the plant infrastructure is live. Infrastructure is a recorded cause of delay:
-   call decks give "infrastructure harmonization" (China) and delayed infrastructure from hardware suppliers
-   (Americas) as blocking points. If not ready, say so in the package and do not schedule training on a
-   demo environment (`deploy-handover`: Ability is confirmed at the point of use).
+2. **Check readiness.** Rollout-ready means acceptance passed, the data path is written down to the machine, the sign-off gate is answered, and the plant infrastructure is live.
+   - Infrastructure is a recorded cause of delay: call decks give "infrastructure harmonization" (China) and delayed infrastructure from hardware suppliers (Americas) as blocking points.
+   - If not ready, say so in the package and do not schedule training on a demo environment (`deploy-handover`: Ability is confirmed at the point of use).
 3. **Find who must be able to do what.** Per role, from [`references/curriculum-modules.md`](references/curriculum-modules.md).
    Start from the decisions the plant will take alone and the gates it must route
    (`dept-decision-rights`); a competence for a gate is "stops and routes", not "does it".
-4. **Choose modules and the hands-on form.** Every module ends in something the trainee does on the real screen,
-   the real machine or in a real shift. Durations, formats and trainers are `⟨…⟩` until the OD lead supplies the
-   standard training formats (the call decks report that content exists for a set of formats; their titles are not in the
-   sources).
-5. **Check the trainer capacity honestly.** The Information Integration lane has a small number of IIAE roles, some positions open
-   (`capabilities.md`; check the current staffing). A plan that needs the IIAE in every session is not decentralized.
-   Use the hand-down rule in `references/competence-and-sustainment.md` (a proposal).
+4. **Choose modules and the hands-on form.** Every module ends in something the trainee does on the real screen, the real machine or in a real shift.
+   - Durations, formats and trainers are `⟨…⟩` until the OD lead supplies the standard training formats (the call decks report that content exists for a set of formats; their titles are not in the sources).
+5. **Check the trainer capacity honestly.** The Information Integration lane has a small number of IIAE roles, some positions open (`capabilities.md`; check the current staffing).
+   - A plan that needs the IIAE in every session is not decentralized.
+   - Use the hand-down rule in `references/competence-and-sustainment.md` (a proposal).
 6. **Draft the package and the checklist.** Fill both assets. Mark every duration, date and trainer `⟨…⟩` unless a
    source gives it.
 7. **Run, then let the plant confirm.** The trainer role delivers; the **plant owner** confirms each competence
@@ -124,3 +118,14 @@ without the builder. Where a module needs that content it links there; it does n
 - Do not copy the handover or ADKAR content; link to `deploy-handover`.
 - Do not train anyone to connect a machine or approve an external connection alone: both are human
   `execute-with-approval` with Cyber Security sign-off first.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

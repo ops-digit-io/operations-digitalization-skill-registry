@@ -1,0 +1,54 @@
+skill: ops-dashboard-datatron
+gate: []
+outputs:
+- id: datapoint-uuid-list
+  form: List produced before the build starts
+  to_skills: []
+  to_roles:
+  - Plant (switches the signals on
+  - via datapoint-enablement intake)
+  done_when:
+  - Every disabled signal the dashboard needs is listed by UUID before the build
+  - No build rests on a disabled signal
+  signoff: Plant (switches the signals on
+- id: dashboard
+  form: Grafana dashboard built from the catalog entry's template through `ops-dashboard-engine`
+  to_skills:
+  - catalog-usecase
+  to_roles:
+  - Plant key user (self-service)
+  done_when:
+  - Built on selected DATATRON tags with the proven query and variable patterns and scaled-PLC handling
+  - Nothing outside the template added locally
+  signoff: Plant key user (self-service)
+- id: qa-checklist-result
+  form: Checklist pass recorded against the dashboard
+  to_skills:
+  - catalog-guardrails
+  to_roles:
+  - Plant key user
+  done_when:
+  - The QA checklist is passed
+  - This is the objective go-live gate
+  signoff: Plant key user
+- id: published-example
+  form: Approved dashboard published to the use-case library
+  to_skills:
+  - catalog-usecase
+  to_roles:
+  - DBVE
+  done_when:
+  - Published as a reusable example only after the QA pass
+  - Publishing to a shared Grafana is human-approved
+  signoff: DBVE
+receives_from:
+- catalog-usecase
+- catalog-guardrails
+- ops-dashboard-engine
+next:
+- when: Lane 1 step 1a2 (apply template) and 1b4 (apply template and go live), and Lane 2 step 26 (implement and graduate); on 1b4 the dashboard is accompanied by know-training.
+  to:
+  - know-training
+stops_when:
+- a required signal is disabled (list its UUID and stop), the QA checklist has not passed, or the need extends the catalogued template (route it to Lane 2, do not extend locally)
+- Do not publish without the QA pass

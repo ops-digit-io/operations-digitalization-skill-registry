@@ -30,12 +30,8 @@ metadata:
 
 ## Purpose and where it sits
 
-Turns an accepted demand into a requirement another lane can act on, plus one epic with its user stories. It serves
-Lane 2 step **22** (features and data check) and the Lane 3 front-end step **31** (requirements). The lane variant is
-the artefact that crosses a lane boundary; it makes tacit judgement explicit. Key user: DBVE (use case, analytics) or
-IIAE (integration, project). An AI agent drafts; the receiving lane accepts or says what is missing. Read `dept-context`
-first. The template is not new: its headings already appear in the estate's `target_text` and `blockers` fields
-(`references/requirement-template.md`).
+- Turns an accepted demand into a requirement another lane can act on, plus one epic with its user stories.
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
@@ -45,25 +41,34 @@ first. The template is not new: its headings already appear in the estate's `tar
 
 ## Procedure
 
-0. **Pick the entry and frame it** - the department's requirements funnel ([`requirements-funnel.md`](references/requirements-funnel.md)): idea mode or as-is mode; in as-is mode map the current process, find where the time actually goes, propose the to-be and derive requirements from the delta. Frame the need and name the **riskiest assumption** first.
+0. **Pick the entry and frame it** - the department's requirements funnel ([`requirements-funnel.md`](references/requirements-funnel.md)): idea mode or as-is mode; in as-is mode map the current process, find where the time actually goes, propose the to-be and derive requirements from the delta.
+   - Frame the need and name the **riskiest assumption** first.
 1. **Elicit the problem, not the solution.** Five rounds in [`elicitation.md`](references/elicitation.md), then decompose and converge (funnel stages 2-4). A stated problem that names a technology is a solution: ask again.
 2. **Check the library.** If another plant built it, the requirement is an adoption, not a build: `catalog-standardization`.
 3. **Set the standard baseline.** Take the cluster's KPI set and checklist; record only this plant's deltas; check for a public data model (`mi-signals`).
-4. **Name and verify the signals.** Canonical name, direction in/out, existence verdict per signal from `mi-data-availability` (verified, not assumed). An `out` signal is registered on the edge platform before anything publishes. A sensor value is not an event: state how each event is derived and whether production metadata (order, part, batch) is needed; a missing relation is a data gap, not approximated. Missing signals go into a `signal id | label | why needed` table for the information-integration lane.
+4. **Name and verify the signals.** Canonical name, direction in/out, existence verdict per signal from `mi-data-availability` (verified, not assumed).
+   - An `out` signal is registered on the edge platform before anything publishes.
+   - A sensor value is not an event: state how each event is derived and whether production metadata (order, part, batch) is needed; a missing relation is a data gap, not approximated.
+   - Missing signals go into a `signal id | label | why needed` table for the information-integration lane.
 5. **Write testable acceptance criteria**, including one that requires use in a real shift by a named plant role.
-5a. **Fix the boundaries** (§6a, from the OD x IT alignment of 2026-09-11): objective, in and out of scope, approved interfaces, a **growth boundary** (the plants, machines, users or data volume it must not grow past) and the change rule. Anything beyond the line is a new requirement through intake, not an edit; this is the guard against mission creep, which AI-assisted building makes easy.
 6. **Assess legacy systems and footprint** ([`legacy-system-assessment.md`](references/legacy-system-assessment.md)). If the spec implies more than the lightweight tools cover (cross-process scheduling, full order genealogy, heavier image/recipe/energy reads), run `invest-screen` before specifying further.
 7. **Classify the blockers.** *Method undefined* and *parameter selection open* are the requirement's own work, not an escalation.
 8. **Value it honestly.** Label every figure `CALCULATION`, `ESTIMATION` or *not yet assessed* (`bc-build`).
 9. **Cut one epic with at least two stories** (`funnel-features`); by moment and role or by existing signals, never by technical layer.
 10. **Check both**, then hand over:
+- 5a.
+- **Fix the boundaries** (§6a, from the OD x IT alignment of 2026-09-11): objective, in and out of scope, approved interfaces, a **growth boundary** (the plants, machines, users or data volume it must not grow past) and the change rule.
+- Anything beyond the line is a new requirement through intake, not an edit; this is the guard against mission creep, which AI-assisted building makes easy.
 
 ```bash
 python3 scripts/check_requirement.py MyRequirement.md --lane use-case
 python3 ../../skills-extension/funnel-features/scripts/check_epic.py MyEpic.md
 ```
 
-Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a missing growth boundary, a placeholder role, a generic "so that", an epic with one story, a story without a use-in-a-real-shift criterion.
+- Exit **2** blockers, **1** warnings, **0** ready.
+- Together they catch:
+- a problem naming a technology, prose acceptance, a figure without a reliability label, an unverified signal list, a missing lane section, a missing growth boundary, a placeholder role, a generic "so that", an epic with one story,
+- a story without a use-in-a-real-shift criterion.
 
 ## Available Scripts
 
@@ -71,11 +76,12 @@ Exit **2** blockers, **1** warnings, **0** ready. Together they catch: a problem
 |---|---|---|
 | [`scripts/check_requirement.py`](scripts/check_requirement.py) | Completeness check of a requirement document before it crosses a lane boundary | `REQUIREMENT.md` (file), `--lane use-case`, `integration`, `project` or `analytical`, `--json` |
 
-An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output: 2 blockers, 1 warnings, 0 ready.
+- An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output: 2 blockers, 1 warnings, 0 ready.
 
 ## The epic
 
-The epic and its user stories are the department's next funnel stage, **`funnel-features`**: hand the accepted requirement there. This skill stops at the requirement and its lane variant.
+- The epic and its user stories are the department's next funnel stage, **`funnel-features`**: hand the accepted requirement there.
+- This skill stops at the requirement and its lane variant.
 
 ## Decision rules
 
@@ -93,12 +99,17 @@ The epic and its user stories are the department's next funnel stage, **`funnel-
 - **Standard or specific?** Standard is declared at intake; adopt before specifying.
 - **Signal or decision missing?** A missing parameter selection is the requirement's job, not engineering's.
 - **Worth doing?** Fail it here, cheaply, not at the business case.
-- **Refuse with a named route and a written reason** when: no roadmap link or nameable business case, needs a system outside the lean footprint, owned by a sibling function, one-off without recurring value, already exists elsewhere. A refusal beats a thin requirement that takes an integration slot and stalls.
+- **Refuse with a named route and a written reason** when: no roadmap link or nameable business case, needs a system outside the lean footprint, owned by a sibling function, one-off without recurring value, already exists elsewhere.
+   - A refusal beats a thin requirement that takes an integration slot and stalls.
 - One story that will not split is a story, not an epic.
 
 ## Handoff
 
-Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-schema.md): `frame`, `riskiest_assumption`, `problems`, `candidates`, with the rules the next stage relies on) so `funnel-features` and `funnel-prototype` resume without re-asking. The lane variant goes to the receiving lane (integration, `invest-screen` at step 32, project, analytics); the epic goes into the backlog. Done when sections 1-6, 6a and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done, both checks report zero blockers, and the receiver accepts.
+- Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-schema.md): `frame`, `riskiest_assumption`, `problems`, `candidates`, with the rules the next stage relies on) so `funnel-features` and `funnel-prototype` resume without re-asking.
+- The lane variant goes to the receiving lane (integration, `invest-screen` at step 32, project, analytics); the epic goes into the backlog.
+- Done when sections 1-6, 6a and 10 are complete, the variant is present, every signal has a verdict, acceptance is testable with an adoption criterion, blockers are classified with owners, legacy assessment and value label are done,
+- both checks report zero blockers,
+- and the receiver accepts.
 
 ## Human gate and AI-agent notes
 
@@ -108,15 +119,11 @@ Write the funnel's **handoff file** ([`handoff-schema.md`](references/handoff-sc
 
 ## Example
 
-Fictional example (requirement and output invented for illustration):
-
 ```text
 $ python3 scripts/check_requirement.py MyRequirement.md --lane use-case
 BLOCKER: signal list not verified (fictional output)
 exit code 2 -> fix, then re-run
 ```
-
-If the check reports a blocker, validate the named section against [`requirement-template.md`](references/requirement-template.md) and re-run; do not hand over with a failed check.
 
 ## Pitfalls
 
@@ -128,6 +135,11 @@ If the check reports a blocker, validate the named section against [`requirement
 - Handing over without the lane variant, the only part the receiver acts on.
 - "So that the process gains transparency": generated on every story, tells nobody anything.
 - Cutting by technical layer (connect the PLC, build the flow, build the dashboard): tasks, none usable alone.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
@@ -141,3 +153,4 @@ If the check reports a blocker, validate the named section against [`requirement
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Steps 22 and 31 chain practice, signal handoff, agent notes |
 | [`assets/requirement-template.md`](assets/requirement-template.md) | The blank requirement |
 | [`scripts/check_requirement.py`](scripts/check_requirement.py) | Completeness check before handover (the epic check is in `funnel-features`) |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

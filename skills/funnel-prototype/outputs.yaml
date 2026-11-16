@@ -1,0 +1,67 @@
+skill: funnel-prototype
+gate: []
+outputs:
+- id: prototype-validation-record
+  form: "`assets/prototype-validation-record.md`, filled"
+  template: assets/prototype-validation-record.md
+  to_skills:
+  - process-derivation
+  - bc-build
+  - bc-capital-request
+  to_roles:
+  - plant representative
+  done_when:
+  - Holds the question, the type, the criterion written before the build, the validator (a role), the result (passed, failed or inconclusive), the status label (mock-up, PoC or pilot) and the open items
+  - Nothing in it says "proven"
+  signoff: plant representative
+  check:
+    structure: true
+- id: click-dummy-brief
+  form: "`assets/click-dummy-brief.md`, written before the build"
+  template: assets/click-dummy-brief.md
+  to_skills: []
+  to_roles:
+  - Plant representative (validator)
+  done_when:
+  - Filled before anyone builds
+  - Needed for a click-dummy only
+  signoff: Plant representative (validator)
+  check:
+    structure: true
+- id: click-dummy-and-handover-note
+  form: The mock-up and its handover note
+  to_skills: []
+  to_roles:
+  - Plant representative
+  done_when:
+  - Mock-up carries invented example values marked as such
+  - Handover document written
+  signoff: Plant representative
+- id: plant-confirmation-of-value
+  form: Written statement in the record
+  to_skills:
+  - bc-build
+  to_roles: []
+  done_when:
+  - The plant representative has confirmed or declined the value in writing
+  signoff: OD lead
+receives_from:
+- funnel-features
+- funnel-use-case
+- funnel-requirements
+- mi-data-availability
+next:
+- when: "passed: process-derivation (step 23a) derives the process, then bc-build (step 24) takes the evidence for the rows, and bc-capital-request if money is needed."
+  to:
+  - process-derivation
+  - bc-build
+  - bc-capital-request
+- when: "Failed: back to funnel-use-case, or close the use case."
+  to:
+  - funnel-use-case
+- when: Acceptance of a later build stays with deploy-acceptance.
+  to:
+  - deploy-acceptance
+stops_when:
+- the data verdict says the data is not there, a proven library solution answers the need (catalog-standardization), no pass criterion or named plant validator exists, or the open question is a value question
+- A prototype answers usability and data questions only

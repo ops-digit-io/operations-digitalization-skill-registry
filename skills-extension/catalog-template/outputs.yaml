@@ -1,0 +1,53 @@
+skill: catalog-template
+gate: []
+outputs:
+- id: template-resolution-record
+  form: "`assets/template-resolution-record.md`, filled and attached to the deliverable"
+  template: assets/template-resolution-record.md
+  to_skills: []
+  to_roles:
+  - The person producing the deliverable
+  - the skill that asked which template to fill
+  done_when:
+  - "States the master chosen, its location, its owner, the register's verification date, and one of four outcomes: use the master, use the master and flag its age, master not collected yet (stop and route), or no master exists (route to…"
+  signoff: The person producing the deliverable
+  check:
+    structure: true
+- id: register-row-citation
+  form: Source line in the deliverable
+  to_skills: []
+  to_roles:
+  - Reader of the deliverable
+  done_when:
+  - The register row is cited and no placeholder text or sample figure from the master remains (leak check)
+  signoff: Reader of the deliverable
+- id: route-for-a-missing-master
+  form: One sentence in the record
+  to_skills: []
+  to_roles:
+  - Owner role named in the register (DBVE
+  - IIAE
+  - Engineering Standards
+  - OESL IT Digital Platforms)
+  - OD lead
+  done_when:
+  - When the outcome is "stop" or "route", the sentence names who can supply the master
+  - Any draft is labelled draft, not as the template
+  signoff: Owner role named in the register (DBVE
+receives_from:
+- dept-intake
+- dept-decision-rights
+- funnel-requirements
+- bc-build
+- metrics-scorecard
+- deploy-handover
+next:
+- when: Lane 1 step 1a2 (apply template, with ops-analytics-asset) and the supporting spine.
+  to:
+  - ops-analytics-asset
+- when: Two conflicting masters go to dept-decision-rights.
+  to:
+  - dept-decision-rights
+stops_when:
+- the register row says to collect or to confirm or create, the master cannot be opened at its stated location, or two files claim to be the master
+- Do not substitute a plausible structure and do not decide that a master is approved

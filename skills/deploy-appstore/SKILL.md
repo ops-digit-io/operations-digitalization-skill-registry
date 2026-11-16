@@ -25,26 +25,28 @@ metadata:
 
 # App deployment to the platform
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-**Status: ready (awaiting sign-off).** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`,
-GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance); its shape and the
-OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
-This skill defines the gates and the package and checks a package against that shape. It contains **no
-deployment commands**; the department's package is the master for those. Serves 3a.1 and 3a.2, and 3a.3
-once the external build is delivered (OpenSpec IT demand, external).
+- **Status: ready (awaiting sign-off).** The department has a drafted engine skill for this step (`Manufacturing-App-Store-Ops`, GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference instance);
+- its shape and the OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
+- This skill defines the gates and the package and checks a package against that shape.
+- It contains **no deployment commands**; the department's package is the master for those.
+- Serves 3a.1 and 3a.2, and 3a.3 once the external build is delivered (OpenSpec IT demand, external).
 
 ## Purpose
 
-Defines the gates and the deployment package for putting an app on the platform (routes 3a.1 and 3a.2, and 3a.3 once the external build is delivered), and checks a package against the department's GitOps shape. Use it after the Lane 3 front-end is done and before rollout. It does not deploy.
+- It does not deploy.
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Defines the gates and the deployment package for putting an app on the platform (routes 3a.1 and 3a.2, and 3a.3 once the external build is delivered), and checks a package against the department's GitOps shape.
+- Use it after the Lane 3 front-end is done and before rollout.
 
 ## Inputs and output
 
 - **In:** the accepted requirement, the tool decision, the business case, the sourcing route and the app's owner and sponsor.
 - **Out:** the deployment package ([`assets/deployment-package.md`](assets/deployment-package.md)): app, owner, target, route, data, dependencies, rollback owner, acceptance protocol, gate table and open questions.
 
-Fictional example (names invented for illustration):
+- Fictional example (names invented for illustration):
 
 ```text
 App: demo-dashboard, owner role: DBVE, sponsor: plant X (fictional)
@@ -53,24 +55,23 @@ Gate table: protocol drafted; Cyber Security sign-off requested, not granted
 Open: lead time, deploy rights (OD lead to supply)
 ```
 
-If a field is missing or the sign-off is not granted, the package is invalid for release: list the gap with its owner and stop.
+- If a field is missing or the sign-off is not granted, the package is invalid for release: list the gap with its owner and stop.
 
 ## Which platform
 
-How the sources name the target:
+- How the sources name the target:
 
-- The knowledge bundle records manufacturing apps and dashboards in the **manufacturing app store on the IIoT Edge
-  platform** (the plant Kubernetes runtime), written by the dev team, per release, data owner OD. The Project Support lane
-  lists "Manufacturing Apps / app store (IIoT Edge)" with the access "deploy".
+- The knowledge bundle records manufacturing apps and dashboards in the **manufacturing app store on the IIoT Edge platform** (the plant Kubernetes runtime), written by the dev team, per release, data owner OD.
+   - The Project Support lane lists "Manufacturing Apps / app store (IIoT Edge)" with the access "deploy".
 - The new-state flow says **"Container Orchestration Platform"**: that is the edge runtime of the IIoT Edge platform (Concept 3); use both terms as synonyms.
 
-Two layers: the app store initiative calls its platform CMO (Container Management and Orchestration: registry, source host, GitOps catalog) and lists the IIoT edge
-runtime as a prerequisite that is already deployed; the edge runtime is where the app runs, CMO is how it gets there. Record both in the package.
-See `references/platform-and-pilot-status.md`.
+- Two layers: the app store initiative calls its platform CMO (Container Management and Orchestration: registry, source host, GitOps catalog) and lists the IIoT edge runtime as a prerequisite that is already deployed;
+- the edge runtime is where the app runs, CMO is how it gets there.
+- Record both in the package.
+- See `references/platform-and-pilot-status.md`.
 
-**Maturity, checked every time.** Never describe the app store or the platform as more mature than it is. Classify each element as
-running, pilot, planned or design-only and look the current status up in the sources named in
-[`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md); this skill does not carry a status snapshot.
+- **Maturity, checked every time.** Never describe the app store or the platform as more mature than it is.
+- Classify each element as running, pilot, planned or design-only and look the current status up in the sources named in [`references/platform-and-pilot-status.md`](references/platform-and-pilot-status.md); this skill does not carry a status snapshot.
 
 ## The references
 
@@ -86,8 +87,6 @@ running, pilot, planned or design-only and look the current status up in the sou
 
 ## Where the flow puts it
 
-Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-decision gate, business case). Four sourcing routes:
-
 | Route | Meaning | What this skill does |
 |---|---|---|
 | 3a.1 Reuse | Deploy an existing codebase or app | Package and gate |
@@ -101,9 +100,8 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
    `dept-decision-rights`), business case (`bc-build`), capital approved where needed.
 2. **Confirm the target and the route** (above). Record both.
 3. **Assemble the deployment package** (ask for source ownership in the supplier contract; otherwise the highest-effort scenario applies, see `references/process-chain-practice.md`): what the app is and who owns it; the plant sponsor; the target; the sourcing route;
-   the data it reads and writes (against `systems-of-record`); the dependencies; the rollback owner; the acceptance protocol.
-   ⟨Containerization requirements, image and registry rules, resource limits⟩ - to be supplied. A proposed manifest (name, owner, topics consumed and published,
-   API description, whether it writes to a machine, identity, Cyber Security review state) is in `references/app-manifest-and-release-gate.md`; it is a design proposal, not the pilot's procedure.
+   - the data it reads and writes (against `systems-of-record`); the dependencies; the rollback owner; the acceptance protocol. ⟨Containerization requirements, image and registry rules, resource limits⟩ - to be supplied.
+   - A proposed manifest (name, owner, topics consumed and published, API description, whether it writes to a machine, identity, Cyber Security review state) is in `references/app-manifest-and-release-gate.md`; it is a design proposal, not the pilot's procedure.
 4. **Release gate.** Draft the acceptance protocol with `deploy-acceptance`. Cyber Security sign-off is requested through the
    approval route (`dept-decision-rights`) and is **human-only**. Wait state: ⟨lead time, to be supplied⟩ (the flow marks it as weeks).
 5. **Deploy.** A human with deploy rights on the platform does it. This skill does not deploy.
@@ -111,8 +109,7 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 
 ## Output - the deployment package
 
-Fields of step 3, a gate table (protocol drafted, Cyber Security sign-off requested / granted by whom and when, approval
-route), and the open questions with their owners.
+- Fields of step 3, a gate table (protocol drafted, Cyber Security sign-off requested / granted by whom and when, approval route), and the open questions with their owners.
 
 ## Human gate and AI-agent notes
 
@@ -121,7 +118,7 @@ route), and the open questions with their owners.
 
 ## Definition of done
 
-The package is complete, the release gate is passed or its gaps are named with owners, a human with deploy rights has deployed, and the hand-over to `deploy-handover` is made.
+- The package is complete, the release gate is passed or its gaps are named with owners, a human with deploy rights has deployed, and the hand-over to `deploy-handover` is made.
 
 ## Do not
 
@@ -129,3 +126,14 @@ The package is complete, the release gate is passed or its gaps are named with o
 - Treat a missing Cyber Security sign-off as optional, or grant it.
 - Deploy to a shared platform without the named human approval.
 - Assume the container platform of the flow is the IIoT Edge runtime.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

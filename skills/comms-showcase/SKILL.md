@@ -24,7 +24,10 @@ metadata:
 
 # Showcase selection
 
-Read `dept-context` first. Lane 4 is the outbound lane: it tells other plants, leadership and colleagues what a use case delivered, through Internal Communications (IC). It is entered only from a use case that is **live and adopted** (Lane 1 go-live, or Lane 2 graduation), never from intake. This skill is step 41: choose what is worth telling and what may be said.
+- Read `dept-context` first.
+- Lane 4 is the outbound lane: it tells other plants, leadership and colleagues what a use case delivered, through Internal Communications (IC).
+- It is entered only from a use case that is **live and adopted** (Lane 1 go-live, or Lane 2 graduation), never from intake.
+- This skill is step 41: choose what is worth telling and what may be said.
 
 ## Inputs and output
 
@@ -34,15 +37,19 @@ Read `dept-context` first. Lane 4 is the outbound lane: it tells other plants, l
 
 ## Purpose
 
-Decides whether a live, adopted use case is ready to be told to the rest of the company, and which claims it may carry. Use it when a use case has gone productive, when someone asks to publicise a result, or before any story is briefed to Internal Communications (step 41).
+- Decides whether a live, adopted use case is ready to be told to the rest of the company, and which claims it may carry.
+- Use it when a use case has gone productive, when someone asks to publicise a result, or before any story is briefed to Internal Communications (step 41).
 
 ## The gate, in order
 
 1. **Live and adopted.** Delivery status `PRODUCTIVE`, and the recipient confirmed adoption into the daily process. Implemented is not adopted; a use case with utilization `NEVER` is not a story yet.
 2. **The plant owner agrees,** in writing, to be named as the plant (not as a person) and to the claims.
-3. **Evidence per claim.** Every figure gets one class: `CALCULATION` (with its method), `ESTIMATION`, or `not yet assessed`. A saving counts as a **result** only when a plant savings project and a baseline are registered; before that it is a **claim** and is worded as one. Never invent or round up a figure.
+3. **Evidence per claim.** Every figure gets one class: `CALCULATION` (with its method), `ESTIMATION`, or `not yet assessed`.
+   - A saving counts as a **result** only when a plant savings project and a baseline are registered; before that it is a **claim** and is worded as one.
+   - Never invent or round up a figure.
 4. **Sensitivity screen.** No individual named, no host name, address or credential, no supplier or customer detail, nothing that exposes the cyber posture of a plant ([`references/readiness-gate.md`](references/readiness-gate.md)).
-5. **People content.** A photo, video or quote of a member of staff needs that person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only. A balancing of interests lists the employer's reasons, the employees' counter-reasons and the weighing ([`references/readiness-gate.md`](references/readiness-gate.md)).
+5. **People content.** A photo, video or quote of a member of staff needs that person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only.
+   - A balancing of interests lists the employer's reasons, the employees' counter-reasons and the weighing ([`references/readiness-gate.md`](references/readiness-gate.md)).
 6. **Audience fit.** Name the audiences the story is for and what each should do next ([`references/readiness-gate.md`](references/readiness-gate.md)).
 
 ## Verdicts
@@ -55,9 +62,10 @@ Decides whether a live, adopted use case is ready to be told to the rest of the 
 
 ## Procedure
 
-Work the six gate steps in order ("The gate, in order"), fill the selection record, and give one verdict from the table above. If a gate step fails validation (a failure, not a pass), the verdict is Hold (something is missing) or No (the owner declines or a sensitive detail cannot be removed); record the reason either way.
+- Work the six gate steps in order ("The gate, in order"), fill the selection record, and give one verdict from the table above.
+- If a gate step fails validation (a failure, not a pass), the verdict is Hold (something is missing) or No (the owner declines or a sensitive detail cannot be removed); record the reason either way.
 
-Fictional example (plant and figures invented for illustration):
+- Fictional example (plant and figures invented for illustration):
 
 ```text
 Use case: U at plant X, status PRODUCTIVE, adoption confirmed
@@ -81,13 +89,20 @@ Verdict: Go -> comms-brief
 
 ## Definition of done
 
-The selection record is filled: verdict, audiences, claims with their evidence class, open points and owners. A Go has been handed to `comms-brief`.
+- The selection record is filled: verdict, audiences, claims with their evidence class, open points and owners.
+- A Go has been handed to `comms-brief`.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
-Each template, asset and other resource of this skill is listed here:
+- Each template, asset and other resource of this skill is listed here:
 
 | File | Open when |
 |---|---|
 | [`references/readiness-gate.md`](references/readiness-gate.md) | The gate criteria, the sensitivity screen, the audience table, refusal patterns |
 | [`assets/selection-record.md`](assets/selection-record.md) | The record to fill, one per use case |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

@@ -1,0 +1,69 @@
+skill: funnel-requirements
+gate: []
+outputs:
+- id: requirement-with-lane-variant
+  form: "`assets/requirement-template.md`, filled, with the variant section for the lane (`use-case`, `integration`, `project` or `analytical`)"
+  template: assets/requirement-template.md
+  to_skills:
+  - invest-screen
+  - mi-equipment
+  to_roles:
+  - OpenSpec IT demand (external)
+  - receiving lane
+  done_when:
+  - Sections 1-6, 6a and 10 complete
+  - Variant present
+  - Every signal has a verdict from `mi-data-availability`
+  - Acceptance is testable with a real-shift adoption criterion
+  - Blockers classified with owners
+  - Legacy assessment and value label done
+  - Growth boundary stated
+  signoff: OpenSpec IT demand (external)
+  check:
+    structure: true
+    cmd: python scripts/check_requirement.py {file}
+- id: epic-with-stories
+  form: Epic with at least two stories, cut by moment and role
+  to_skills:
+  - funnel-features
+  to_roles: []
+  done_when:
+  - Epic check reports zero blockers
+  - No story cut by technical layer
+  - Each story has a use-in-a-real-shift criterion
+  signoff: OD lead
+- id: funnel-handoff-file
+  form: "File per `references/handoff-schema.md`: `frame`, `riskiest_assumption`, `problems`, `candidates`"
+  to_skills:
+  - funnel-features
+  - funnel-prototype
+  to_roles: []
+  done_when:
+  - The next stage can resume without re-asking
+  signoff: OD lead
+- id: missing-signal-table
+  form: Table `signal id / label / why needed` in the requirement
+  to_skills:
+  - mi-equipment
+  to_roles:
+  - Information integration lane via
+  done_when:
+  - Every needed signal not yet collecting is listed with its reason
+  signoff: Information integration lane via
+receives_from:
+- ops-event-model
+- catalog-usecase
+- dept-intake
+- funnel-use-case
+- mi-data-availability
+- mi-signals
+next:
+- when: funnel-features (the epic), funnel-prototype (step 23), invest-screen (step 32 in Lane 3), then bc-build (steps 24 and 33).
+  to:
+  - funnel-features
+  - funnel-prototype
+  - invest-screen
+  - bc-build
+stops_when:
+- either check reports blockers (do not hand over with a failed check), there is no roadmap link or nameable business case, the need needs a system outside the lean footprint, it is owned by a sibling function, it is a…
+- Refuse with a named route and a written reason

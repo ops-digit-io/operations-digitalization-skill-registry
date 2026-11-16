@@ -1,0 +1,68 @@
+skill: ops-event-model
+gate: []
+outputs:
+- id: event-definition-canvas
+  form: "`assets/event-definition-canvas.md`, one per use case"
+  template: assets/event-definition-canvas.md
+  to_skills:
+  - funnel-use-case
+  - funnel-requirements
+  to_roles: []
+  done_when:
+  - Request restated as object(s), event(s) and time axis
+  - Every event marked source event or derived event with the method named
+  - Every signal classified as sensor value, event or object identifier
+  signoff: OD lead
+  check:
+    structure: true
+- id: object-relation
+  form: Section of the canvas
+  to_skills:
+  - mi-data-availability
+  to_roles: []
+  done_when:
+  - Identifier source for serial, order, part, batch or recipe is named, or the relation is routed as a data gap, never approximated from timestamps
+  signoff: OD lead
+- id: archetype-class-category-method-etl-list
+  form: Section of the canvas
+  to_skills:
+  - catalog-standardization
+  - ops-analytics-asset
+  - mi-flow
+  to_roles: []
+  done_when:
+  - Class is cross-process, per-process or unique
+  - Category to method to ETL mapping drafted
+  - New ETL work stated
+  signoff: OD lead
+- id: data-requirements-statement
+  form: "`assets/data-requirements-statement.md`, filled"
+  template: assets/data-requirements-statement.md
+  to_skills:
+  - mi-signals
+  to_roles:
+  - Data platform
+  - information-integration lane
+  done_when:
+  - Written and handed on
+  - Open questions for the plant listed
+  signoff: Data platform
+  check:
+    structure: true
+receives_from:
+- dept-intake
+- funnel-use-case
+- mi-data-availability
+- mi-equipment
+next:
+- when: funnel-use-case, funnel-requirements and mi-signals; mi-data-availability for a missing relation; catalog-standardization and ops-analytics-asset for archetype and method.
+  to:
+  - funnel-use-case
+  - funnel-requirements
+  - mi-signals
+  - mi-data-availability
+  - catalog-standardization
+  - ops-analytics-asset
+stops_when:
+- purpose, objective, timeframe or a named stakeholder is missing (back to dept-intake), the case is unique (impact analysis first, the OD lead or DBVE decides), or a derived event has no named method
+- Do not promise a trace or per-order analysis without the object relation

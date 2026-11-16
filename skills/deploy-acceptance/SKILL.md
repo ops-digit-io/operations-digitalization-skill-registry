@@ -25,19 +25,17 @@ metadata:
 
 # Acceptance test
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-Acceptance is the gate between "we built it" and "it is yours". It is the control point
-on step 5 of both the Information Integration and the Project Support playbooks, and it
-is the one an agent may prepare but never pass. Every kind of work composing into this
-gate — a connected machine, a Node-RED flow, a dashboard, an evaluated use case — passes
-through the same gate, but not the same test: see `references/test-structure.md`.
+- Acceptance is the gate between "we built it" and "it is yours".
+- It is the control point on step 5 of both the Information Integration and the Project Support playbooks, and it is the one an agent may prepare but never pass.
+- Every kind of work composing into this gate — a connected machine, a Node-RED flow, a dashboard, an evaluated use case — passes through the same gate, but not the same test: see `references/test-structure.md`.
 
 ## Purpose
 
-Use this skill when an integration or a delivered solution is ready to be declared done. It defines what "passed"
-means before the build, checks the result against it, and routes a failure into the right rework loop.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Use this skill when an integration or a delivered solution is ready to be declared done.
+- It defines what "passed" means before the build, checks the result against it, and routes a failure into the right rework loop.
 
 ## Inputs and output
 
@@ -45,7 +43,7 @@ means before the build, checks the result against it, and routes a failure into 
 - **Out:** a filled [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) with every result recorded,
   a sign-off by a human on the receiving side, and section 6 for `deploy-handover`.
 
-Short example of one protocol item (fictional example; the signal and values are invented):
+- Short example of one protocol item (fictional example; the signal and values are invented):
 
 ```text
 Item 3   Signal: spindle_temp (fictional)   Path: machine -> connector -> edge -> offload -> data platform -> dashboard
@@ -53,8 +51,7 @@ Expected: value within the stated tolerance at the dashboard   Witness: plant ME
 Result:   passed | failed   Finding (if failed): written in section 4, rework loop named
 ```
 
-If an item fails or the data stops short of the asset the plant opens, the acceptance is not valid: record the
-finding and follow the rework loop below.
+- If an item fails or the data stops short of the asset the plant opens, the acceptance is not valid: record the finding and follow the rework loop below.
 
 ## The references are the substance
 
@@ -69,8 +66,9 @@ finding and follow the rework loop below.
 
 ## Write the protocol before the build, not after
 
-An acceptance protocol written after delivery tests what was built. Written before, it
-tests what was asked for. It states:
+- An acceptance protocol written after delivery tests what was built.
+- Written before, it tests what was asked for.
+- It states:
 
 1. **The signals or functions in scope**, named individually.
 2. **The expected value or behaviour** for each, with its tolerance.
@@ -88,16 +86,13 @@ tests what was asked for. It states:
 | Solution fails acceptance (Project Support lane) | Back to step 3, integration project management |
 | Use case fails acceptance after handover to integration (Use Case Support lane) | Rework loop back to the integration hand-off |
 
-A failure is recorded, not retried quietly. The **acceptance / rework rate** is a lane
-metric precisely so that repeated failures become visible — see
-`references/signoff-and-rework.md` for why the protocol itself, once enough exist, is the
-source system rather than a separate tool waiting to be built.
+- A failure is recorded, not retried quietly.
+- The **acceptance / rework rate** is a lane metric precisely so that repeated failures become visible — see `references/signoff-and-rework.md` for why the protocol itself, once enough exist, is the source system rather than a separate tool waiting to be built.
 
 ## Procedure
 
-Copy the items for the route or cluster from [`assets/prefilled-test-items.md`](assets/prefilled-test-items.md)
-into §1 to §3 first. Fill [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) as the work
-happens — one document per artefact, its six sections matching the steps below:
+- Copy the items for the route or cluster from [`assets/prefilled-test-items.md`](assets/prefilled-test-items.md) into §1 to §3 first.
+- Fill [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) as the work happens — one document per artefact, its six sections matching the steps below:
 
 1. Draft the protocol from the requirement breakdown and the signal standard — §1-2,
    **before** the build is tested.
@@ -120,11 +115,8 @@ happens — one document per artefact, its six sections matching the steps below
 
 ## Definition of done
 
-Acceptance test passed, witnessed and signed by a named human on the receiving side; every
-item's result recorded, passes included; on the Information Integration side, the readiness
-dimension moved with evidence; §6 of the protocol filled so `deploy-handover` can
-read the output asset, business process, utilization expectation, data path and named plant
-owner straight off it.
+- Acceptance test passed, witnessed and signed by a named human on the receiving side; every item's result recorded, passes included; on the Information Integration side, the readiness dimension moved with evidence;
+- §6 of the protocol filled so `deploy-handover` can read the output asset, business process, utilization expectation, data path and named plant owner straight off it.
 
 ## Do not
 
@@ -136,3 +128,14 @@ owner straight off it.
   whose old process has no named switch-off owner (`references/process-chain-practice.md`).
 - Do not treat a demonstration as an acceptance test. The plant owner has to have used it
   in a real shift; see `deploy-handover`.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

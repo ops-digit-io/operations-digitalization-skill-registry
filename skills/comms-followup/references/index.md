@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Feedback routing (`feedback-routing.md`) | Skill Reference | How a reaction to a published use-case story is routed into Lane 1, Lane 2 or Lane 3, how to answer without promising delivery, and when to refresh or retire a story. Open it when a plant reacts to a story or a story is due for review. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs comms-followup must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs comms-followup must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |

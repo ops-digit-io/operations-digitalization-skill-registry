@@ -28,15 +28,12 @@ metadata:
 ---
 # Funnel features
 
-Read `dept-context` first. Stage 2 of the department's product funnel (`funnel-requirements` → **`funnel-features`**
-→ `bc-build` → `funnel-prototype`). The funnel's pattern: each stage writes a **handoff file** the next stage
-reads, a stage does not start until the human approves or the handoff file exists, and the reasoning stays
-visible.
+- Read `dept-context` first.
+- Stage 2 of the department's product funnel (`funnel-requirements` → **`funnel-features`** → `bc-build` → `funnel-prototype`).
+- The funnel's pattern: each stage writes a **handoff file** the next stage reads, a stage does not start until the human approves or the handoff file exists, and the reasoning stays visible.
 
-**Input:** the accepted requirement from `funnel-requirements`. **Output:** one epic with at least two stories
-([`assets/epic-and-stories.md`](assets/epic-and-stories.md); passing worked example:
-[`assets/epic-and-stories.example.md`](assets/epic-and-stories.example.md), read it before the blank), checked by
-`python3 scripts/check_epic.py MyEpic.md` (exit 2 blockers, 1 warnings, 0 ready).
+- **Input:** the accepted requirement from `funnel-requirements`.
+- **Output:** one epic with at least two stories ([`assets/epic-and-stories.md`](assets/epic-and-stories.md); passing worked example: [`assets/epic-and-stories.example.md`](assets/epic-and-stories.example.md), read it before the blank), checked by `python3 scripts/check_epic.py MyEpic.md` (exit 2 blockers, 1 warnings, 0 ready).
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -50,8 +47,8 @@ visible.
 | At least two stories | Each with its own background, signals with verdict, Given/When/Then incl. one use-in-a-real-shift criterion, blockers, dependencies |
 | Epic acceptance | What is only true across the whole epic, or "all stories accepted" if honest |
 
-The estate's story layer is hollow (generated stories share one "so that" sentence, few carry acceptance); detail in `epic-and-user-stories.md`. A "so that" that fits another plant's epic is the generated one with new words.
-
+- The estate's story layer is hollow (generated stories share one "so that" sentence, few carry acceptance); detail in `epic-and-user-stories.md`.
+- A "so that" that fits another plant's epic is the generated one with new words.
 
 ## Procedure
 
@@ -66,3 +63,14 @@ The estate's story layer is hollow (generated stories share one "so that" senten
 - Do not cut stories by technical layer.
 - Do not reuse a generated "so that" sentence; one that fits another plant's epic is the generated one.
 - Do not hand over an epic with one story; one story that will not split is a story, not an epic.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

@@ -29,20 +29,20 @@ metadata:
 
 # Risk watch
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-Plan item O-07 of the department's skill map. The risk register (`09-risks.md`, review cadence **monthly**) is built
-so that an agent can watch it: "an early indicator is a monitorable value - a register an agent can watch, not a table
-opened once a year". It deliberately has **no probability x damage matrix** ("false precision; the early indicator does
-more"). This skill therefore never scores risks; it reads indicators and tests triggers.
+- Plan item O-07 of the department's skill map.
+- The risk register (`09-risks.md`, review cadence **monthly**) is built so that an agent can watch it: "an early indicator is a monitorable value - a register an agent can watch, not a table opened once a year".
+- It deliberately has **no probability x damage matrix** ("false precision; the early indicator does more").
+- This skill therefore never scores risks; it reads indicators and tests triggers.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## What it produces
 
-A dated **risk reading**: for each of the six registered risks, the indicator value with its source and read date, the
-escalation trigger, and a status. Then the triggers hit, with the forum they go to. The draft goes to the OD lead role,
-who owns five of the six risks (the sixth, value not materializing, is owned by the DBVE role).
+- A dated **risk reading**: for each of the six registered risks, the indicator value with its source and read date, the escalation trigger, and a status.
+- Then the triggers hit, with the forum they go to.
+- The draft goes to the OD lead role, who owns five of the six risks (the sixth, value not materializing, is owned by the DBVE role).
 
 ## The references
 
@@ -61,8 +61,8 @@ who owns five of the six risks (the sixth, value not materializing, is owned by 
 | **Clear** | The indicator is read from a source and the trigger is not met |
 | **Unreadable** | No source for the indicator, or the trigger parameter is `⟨n⟩` (undefined). This is a finding, not a pass |
 
-"Unreadable" is not "clear". Some indicators typically have no named source or an undefined parameter (see the
-reference); reporting them as clear would be the exact failure the honesty rules forbid.
+- "Unreadable" is not "clear".
+- Some indicators typically have no named source or an undefined parameter (see the reference); reporting them as clear would be the exact failure the honesty rules forbid.
 
 ## Procedure
 
@@ -74,9 +74,9 @@ reference); reporting them as clear would be the exact failure the honesty rules
 3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩
    months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
 4. **Classify** per the statuses above. Write the evidence in one sentence.
-5. **List triggers hit** and route each: the risk owner is given in the register; the forum is the OD lead or the deciding role named in the current approval policy (look up) for strategy, priority
-   and rollout matters, COP for technical ones (`06-operating-rhythm.md`); use `dept-decision-rights` for any decision
-   outside OD. Cyber Security items go through the gate in `deploy-cybersec` (planned).
+5. **List triggers hit** and route each: the risk owner is given in the register;
+   - the forum is the OD lead or the deciding role named in the current approval policy (look up) for strategy, priority and rollout matters, COP for technical ones (`06-operating-rhythm.md`); use `dept-decision-rights` for any decision outside OD.
+   - Cyber Security items go through the gate in `deploy-cybersec` (planned).
 6. **Name the countermeasure in the register** next to each triggered or on-watch risk. The register already lists it;
    do not invent others. A new countermeasure is a proposal for the OD lead and is marked as one.
 7. **Hand to the retro.** The reading is an input of `dept-retro`. A trigger hit two months running is a candidate for the
@@ -111,3 +111,14 @@ reference); reporting them as clear would be the exact failure the honesty rules
 - Do not take a knowledge base aggregate as a live reading; label the snapshot date.
 - Do not add risks to the register; propose them to the OD lead.
 - Do not escalate by e-mail or by name; use the round and the role.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

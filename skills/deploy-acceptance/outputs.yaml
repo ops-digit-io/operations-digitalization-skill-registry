@@ -1,0 +1,69 @@
+skill: deploy-acceptance
+gate: []
+outputs:
+- id: acceptance-test-protocol
+  form: "`assets/acceptance-test-protocol.md`, one per artefact, items from `assets/prefilled-test-items.md`"
+  template: assets/acceptance-test-protocol.md
+  to_skills: []
+  to_roles:
+  - Plant witness
+  - receiving owner
+  done_when:
+  - "Drafted before the build is tested: signals or functions in scope, expected value with tolerance, the full data path to the asset the plant opens, named witness, rework loop on failure"
+  signoff: Plant witness
+  check:
+    structure: true
+- id: recorded-results
+  form: Sections 3 and 4 of the protocol
+  to_skills: []
+  to_roles:
+  - Receiving owner
+  done_when:
+  - Every item's result recorded, passes included
+  - Each failure has a finding and a named rework loop
+  signoff: Receiving owner
+- id: sign-off
+  form: Section 5 of the protocol
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Signed by a named human on the receiving side, not the builder alone and never an agent
+  signoff: OD lead
+- id: handover-readiness
+  form: Section 6 of the protocol
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Output asset, business process, utilization expectation, data path and named plant owner can be read straight off it
+  - The old process has a named switch-off owner
+  signoff: OD lead
+- id: readiness-evidence
+  form: Machine List and readiness dimension update
+  to_skills:
+  - mi-equipment
+  to_roles:
+  - IIAE
+  done_when:
+  - On the integration side, the readiness dimension moved with evidence
+  - "`INTEGRATED` set only after the pass"
+  signoff: IIAE
+receives_from:
+- deploy-migration
+- funnel-requirements
+- mi-signals
+- mi-equipment
+- mi-flow
+- ops-analytics-asset
+next:
+- when: deploy-handover (steps 3a6 and 26) on a pass.
+  to:
+  - deploy-handover
+- when: For deploy-appstore, the protocol is part of the release gate.
+  to:
+  - deploy-appstore
+stops_when:
+- any item fails, the data stops short of the asset the plant opens, no human has signed, or a dashboard disagrees with the paper record the plant trusts
+- Record the finding and follow the rework loop
+- do not retry quietly or mark a machine INTEGRATED

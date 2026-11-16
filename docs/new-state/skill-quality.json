@@ -25,14 +25,14 @@
   "D": 60,
   "F": 0
  },
- "mean": 90.0,
- "mean_core": 96.0,
+ "mean": 89.8,
+ "mean_core": 95.6,
  "skills": {
   "bc-assess": {
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "31cc548b673791e7",
+   "folder_hash": "c928b9eedac1767b",
    "findings": [
     {
      "dimension": "correctness",
@@ -56,11 +56,23 @@
    "default_score": 92.8
   },
   "bc-build": {
-   "score": 96.5,
+   "score": 90.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "1d39df47593aafc1",
+   "folder_hash": "19dc3a3b422ff973",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 10,
+     "message": "Resource-based skill lacks documentation of available resources",
+     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
+    },
+    {
+     "dimension": "reliability",
+     "deduction": 10,
+     "message": "No mention of error handling or validation",
+     "suggestion": "Document expected errors and how to handle them"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -75,18 +87,18 @@
     }
    ],
    "categories": {
-    "correctness": 90.0,
+    "correctness": 80.0,
     "discoverability": 100.0,
-    "reliability": 100.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    },
-   "default_score": 92.8
+   "default_score": 86.8
   },
   "bc-capital-request": {
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "c432581dbcbad01a",
+   "folder_hash": "76a893aea96e24e0",
    "findings": [
     {
      "dimension": "correctness",
@@ -113,7 +125,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "027c808b8b0ab133",
+   "folder_hash": "d13a29c6b5dccfb5",
    "findings": [
     {
      "dimension": "efficiency",
@@ -187,7 +199,7 @@
    "score": 84.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "49e0b654f72bf369",
+   "folder_hash": "455107716be98a6e",
    "findings": [
     {
      "dimension": "efficiency",
@@ -267,7 +279,7 @@
    "score": 80.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a193958a774a39d1",
+   "folder_hash": "1593a364ed854781",
    "findings": [
     {
      "dimension": "discoverability",
@@ -353,7 +365,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "dca85571b5b19f25",
+   "folder_hash": "bed37265ae68b25d",
    "findings": [
     {
      "dimension": "correctness",
@@ -380,7 +392,7 @@
    "score": 82.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "46c3ca5b3e17e6df",
+   "folder_hash": "df65e48c72e8eb28",
    "findings": [
     {
      "dimension": "discoverability",
@@ -460,7 +472,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "318df0aac729cc7a",
+   "folder_hash": "7efd2e298e906417",
    "findings": [
     {
      "dimension": "correctness",
@@ -487,7 +499,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "7a3ae419fe317f0a",
+   "folder_hash": "dd9b6416a5708842",
    "findings": [
     {
      "dimension": "reliability",
@@ -555,7 +567,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "2219b6996590223c",
+   "folder_hash": "dbcbf94c6da0fb71",
    "findings": [
     {
      "dimension": "correctness",
@@ -579,11 +591,17 @@
    "default_score": 92.8
   },
   "comms-brief": {
-   "score": 96.5,
+   "score": 94.0,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "7fa8efad5f94a274",
+   "folder_hash": "0c981923f579ce78",
    "findings": [
+    {
+     "dimension": "reliability",
+     "deduction": 10,
+     "message": "No mention of error handling or validation",
+     "suggestion": "Document expected errors and how to handle them"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -600,17 +618,23 @@
    "categories": {
     "correctness": 90.0,
     "discoverability": 100.0,
-    "reliability": 100.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    },
-   "default_score": 92.8
+   "default_score": 90.2
   },
   "comms-followup": {
-   "score": 96.5,
+   "score": 94.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "b4eed529e64305bd",
+   "folder_hash": "993eb51d970877f0",
    "findings": [
+    {
+     "dimension": "reliability",
+     "deduction": 10,
+     "message": "No mention of error handling or validation",
+     "suggestion": "Document expected errors and how to handle them"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -627,16 +651,16 @@
    "categories": {
     "correctness": 90.0,
     "discoverability": 100.0,
-    "reliability": 100.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    },
-   "default_score": 92.8
+   "default_score": 90.2
   },
   "comms-showcase": {
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "f939f39d15b0adf3",
+   "folder_hash": "b2b042a246d8da1c",
    "findings": [
     {
      "dimension": "correctness",
@@ -663,7 +687,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "52cd49732441b28a",
+   "folder_hash": "4d0d6bb52a7dbc86",
    "findings": [
     {
      "dimension": "correctness",
@@ -690,7 +714,7 @@
    "score": 94.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "89c4f6f630841cdf",
+   "folder_hash": "67917a06a6a18ec0",
    "findings": [
     {
      "dimension": "discoverability",
@@ -723,7 +747,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "79d64a399ef24498",
+   "folder_hash": "0f16505d03a7e643",
    "findings": [
     {
      "dimension": "efficiency",
@@ -791,7 +815,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "49d6bb3be688e777",
+   "folder_hash": "96cc3744c4c138b3",
    "findings": [
     {
      "dimension": "correctness",
@@ -818,7 +842,7 @@
    "score": 85.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a794388a4ffebb14",
+   "folder_hash": "2cc7f74fbd71500d",
    "findings": [
     {
      "dimension": "correctness",
@@ -880,7 +904,7 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "188fd63be550a74b",
+   "folder_hash": "991d8eb8617a3374",
    "findings": [
     {
      "dimension": "efficiency",
@@ -960,7 +984,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "b3d0f0f03f0b859f",
+   "folder_hash": "129075c15a9f9cb0",
    "findings": [
     {
      "dimension": "correctness",
@@ -987,7 +1011,7 @@
    "score": 77.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "4cd0d320ac78ed45",
+   "folder_hash": "5ffb4ddebdb8030d",
    "findings": [
     {
      "dimension": "correctness",
@@ -1073,7 +1097,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "d8cf14703efc0c1d",
+   "folder_hash": "61b7918f48901a11",
    "findings": [
     {
      "dimension": "correctness",
@@ -1100,7 +1124,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "d545fe35e59f2599",
+   "folder_hash": "ef39e4ce2cc7ff03",
    "findings": [
     {
      "dimension": "correctness",
@@ -1174,7 +1198,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "f638da999c11439e",
+   "folder_hash": "1983817c03d6adbb",
    "findings": [
     {
      "dimension": "correctness",
@@ -1201,7 +1225,7 @@
    "score": 87.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "0b7afd11197112cc",
+   "folder_hash": "5993209c48ed1231",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1263,7 +1287,7 @@
    "score": 81.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "a12631498b74f4e4",
+   "folder_hash": "dcc6396fad3612e9",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1349,7 +1373,7 @@
    "score": 81.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "88aa215c93a82f03",
+   "folder_hash": "b30d0047d38cc18a",
    "findings": [
     {
      "dimension": "correctness",
@@ -1429,7 +1453,7 @@
    "score": 85.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "561f3381820f0339",
+   "folder_hash": "9897a60699b61754",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1503,7 +1527,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "b1cdfd6ad6819899",
+   "folder_hash": "d0c1b3804f24c3c1",
    "findings": [
     {
      "dimension": "correctness",
@@ -1553,7 +1577,7 @@
    "score": 77.2,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "321ce1e1cddd191b",
+   "folder_hash": "f713fad090f864c0",
    "findings": [
     {
      "dimension": "correctness",
@@ -1639,7 +1663,7 @@
    "score": 86.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "8830f9977cd78924",
+   "folder_hash": "1cc1905ef8cab00e",
    "findings": [
     {
      "dimension": "correctness",
@@ -1707,7 +1731,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "86b98adfaa8f558e",
+   "folder_hash": "58765a8ba769f406",
    "findings": [
     {
      "dimension": "correctness",
@@ -1734,7 +1758,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "46c4dd26ff2a54d3",
+   "folder_hash": "55c9430ec0848764",
    "findings": [
     {
      "dimension": "correctness",
@@ -1761,7 +1785,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "5542e26420cf20af",
+   "folder_hash": "ea2243ca83dfe0e1",
    "findings": [
     {
      "dimension": "correctness",
@@ -1788,7 +1812,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "d37ebbf9daec01b4",
+   "folder_hash": "4154729e964c5d97",
    "findings": [
     {
      "dimension": "reliability",
@@ -1856,7 +1880,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "742fba02c0335026",
+   "folder_hash": "8765b23322f88d93",
    "findings": [
     {
      "dimension": "correctness",
@@ -1883,7 +1907,7 @@
    "score": 82.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "e9f91ffb91f78e0d",
+   "folder_hash": "89d1005355c68020",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1969,7 +1993,7 @@
    "score": 78.5,
    "grade": "C",
    "skill_type": "hybrid",
-   "folder_hash": "caf6aa20d5fc306f",
+   "folder_hash": "23b992916b843067",
    "findings": [
     {
      "dimension": "correctness",
@@ -2055,7 +2079,7 @@
    "score": 87.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "1505061d19d94334",
+   "folder_hash": "492964ef09eee14b",
    "findings": [
     {
      "dimension": "correctness",
@@ -2105,7 +2129,7 @@
    "score": 83.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "57c133d3602020cd",
+   "folder_hash": "a04fc37435dda285",
    "findings": [
     {
      "dimension": "correctness",
@@ -2179,7 +2203,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "2c9cb6cb07bfc7f1",
+   "folder_hash": "7a623ecc0ce587dc",
    "findings": [
     {
      "dimension": "reliability",
@@ -2253,7 +2277,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "fb4ca888cbf58c89",
+   "folder_hash": "ddd9b65a7b49ebe9",
    "findings": [
     {
      "dimension": "correctness",
@@ -2280,7 +2304,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "2623952c053cf2f3",
+   "folder_hash": "46e953967a2fb204",
    "findings": [
     {
      "dimension": "correctness",
@@ -2307,12 +2331,12 @@
    "score": 94.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "923685a7156ad1c1",
+   "folder_hash": "e1a33b518b76c0b2",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 15,
-     "message": "Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "message": "Large skill (5285 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
      "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
     },
     {
@@ -2340,7 +2364,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "49fc7c683d2c20bd",
+   "folder_hash": "8329d15ad70c24b0",
    "findings": [
     {
      "dimension": "correctness",
@@ -2367,7 +2391,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "6d5a369a68e95849",
+   "folder_hash": "aec2840bb517514b",
    "findings": [
     {
      "dimension": "correctness",
@@ -2394,7 +2418,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "56b6886a4be96645",
+   "folder_hash": "53d83866c1dbe5df",
    "findings": [
     {
      "dimension": "reliability",
@@ -2468,12 +2492,12 @@
    "score": 90.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "6535575b382cbe86",
+   "folder_hash": "bb8aad4dc1522b7e",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 15,
-     "message": "Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "message": "Large skill (7610 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
      "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
     },
     {
@@ -2519,7 +2543,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "f7eadfefa5a4683a",
+   "folder_hash": "0c91ce0eeb3a12cd",
    "findings": [
     {
      "dimension": "efficiency",
@@ -2587,7 +2611,7 @@
    "score": 95.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "13a00d2b890beb69",
+   "folder_hash": "379f03702a698bb1",
    "findings": [
     {
      "dimension": "correctness",

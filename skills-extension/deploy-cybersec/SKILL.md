@@ -30,12 +30,12 @@ metadata:
 
 # Cyber Security sign-off gate
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-**Status: draft.** The department's own sources fix *that* the gate exists and *who* may not pass it, but
-the sign-off standard itself is not collected (`15-resources.md` lists it as `⟨standard doc - to collect, with
-Cyber Security⟩`). This skill therefore builds the **request package** and the **wait-state record**. It does
-not state what Cyber Security requires, how long it takes, or how to ask. Those are marked `⟨…⟩` below.
+- **Status: draft.** The department's own sources fix *that* the gate exists and *who* may not pass it, but the sign-off standard itself is not collected (`15-resources.md` lists it as `⟨standard doc - to collect, with Cyber Security⟩`).
+- This skill therefore builds the **request package** and the **wait-state record**.
+- It does not state what Cyber Security requires, how long it takes, or how to ask.
+- Those are marked `⟨…⟩` below.
 
 ## Purpose, trigger, done
 
@@ -58,47 +58,36 @@ not state what Cyber Security requires, how long it takes, or how to ask. Those 
 
 ## The rule
 
-**A missing sign-off holds the case. There is no expedited path and no authority level that shortens it.**
-(`mi-equipment` guardrail; `mi-equipment` error paths.) An agent never
-connects, never approves an external connection, and never records "signed off" on its own say-so.
+- **A missing sign-off holds the case.
+- There is no expedited path and no authority level that shortens it.** (`mi-equipment` guardrail; `mi-equipment` error paths.) An agent never connects, never approves an external connection, and never records "signed off" on its own say-so.
 
-The gate is **decoupled and runs in parallel**: start the package alongside planning and build. It blocks only go-live
-(the live connection and live operation), not planning, build or an integration wave's preparation.
+- The gate is **decoupled and runs in parallel**: start the package alongside planning and build.
+- It blocks only go-live (the live connection and live operation), not planning, build or an integration wave's preparation.
 
 ## Procedure
 
 1. **Classify the case.** Machine connection (A) or app deployment (B). Name the plant, the machine or app, and
    the lane step. For an app, the target platform is itself open - see `deploy-appstore` ("Which platform").
-2. **Decide whether it is external - ask, do not assume.** The sources use "external connection" without
-   defining it. ⟨Definition of "external connection" for a machine, and of the cases that need a sign-off for an
-   app⟩ - to be supplied by the OD lead with Cyber Security. Working rule of this skill (not from a source):
-   when in doubt, treat the case as needing the gate and let Cyber Security say otherwise.
-3. **Look for an existing cover first.** The department's own strategy bet is to bundle the sign-off with the
-   wave or with the MSB rollout at strategic plants rather than ask per machine
-   (`mi-equipment` `references/fallbacks.md` section 4; `09-risks.md`). Check whether a
-   wave-level sign-off exists for this plant and whether this machine or app falls inside its scope.
-   ⟨Where wave-level sign-offs are recorded⟩ is not known.
-   For a pilot, keep the scope small enough to stay off the heavy OT path and list what is
-   deferred (`references/process-chain-practice.md`).
-4. **Fill the package** from existing outputs, not from memory: the data path and the integration concept from
-   `mi-equipment` (assessment or guidance protocol), the app package from `deploy-appstore`, the
-   acceptance protocol from `deploy-acceptance`. Use `references/package-contents.md` as the checklist. Leave
-   credentials, addresses, certificates and tokens **out of the package**: list that they exist and who holds
-   them, never their values.
-5. **Route it.** Open a decision request ([`dept-decision-rights`](../../skills/dept-decision-rights/assets/decision-request.md))
-   on the row "Equipment integration go-ahead" (Tandem IIAE with Plant ME / Plant IT, approval yes,
-   `execute-with-approval`). Record the sign-off as a **dependency** on the use case or the machine record.
-   Where the case involves personal data, worker-performance measurement or a new platform
-   record the data-protection and works-council items next to the package (same file).
+2. **Decide whether it is external - ask, do not assume.** The sources use "external connection" without defining it. ⟨Definition of "external connection" for a machine, and of the cases that need a sign-off for an app⟩
+   - - to be supplied by the OD lead with Cyber Security.
+   - Working rule of this skill (not from a source): when in doubt, treat the case as needing the gate and let Cyber Security say otherwise.
+3. **Look for an existing cover first.** The department's own strategy bet is to bundle the sign-off with the wave or with the MSB rollout at strategic plants rather than ask per machine (`mi-equipment` `references/fallbacks.md` section 4; `09-risks.md`).
+   - Check whether a wave-level sign-off exists for this plant and whether this machine or app falls inside its scope. ⟨Where wave-level sign-offs are recorded⟩ is not known.
+   - For a pilot, keep the scope small enough to stay off the heavy OT path and list what is deferred (`references/process-chain-practice.md`).
+4. **Fill the package** from existing outputs, not from memory: the data path and the integration concept from `mi-equipment` (assessment or guidance protocol), the app package from `deploy-appstore`, the acceptance protocol from `deploy-acceptance`.
+   - Use `references/package-contents.md` as the checklist.
+   - Leave credentials, addresses, certificates and tokens **out of the package**: list that they exist and who holds them, never their values.
+5. **Route it.** Open a decision request ([`dept-decision-rights`](../../skills/dept-decision-rights/assets/decision-request.md)) on the row "Equipment integration go-ahead" (Tandem IIAE with Plant ME / Plant IT, approval yes, `execute-with-approval`).
+   - Record the sign-off as a **dependency** on the use case or the machine record.
+   - Where the case involves personal data, worker-performance measurement or a new platform record the data-protection and works-council items next to the package (same file).
 6. **Submit - by a human.** This skill hands the package to the IIAE or Plant IT.
    ⟨Submission channel, form and the Cyber Security contact role⟩ are not in the sources.
-7. **Hold at the wait state.** Record the submission date, the owner of the follow-up and the next check.
-   ⟨Typical lead time⟩ is not recorded; the new-state flow marks the step only as "weeks". While waiting, no
-   machine goes live, no app is deployed live, no go-live date is promised to the plant; planning and build continue.
-8. **Escalate on the triggers**, not on impatience. Technical items stuck beyond one COP cycle go to the OD lead; the
-   strategic half of cyber topics (the standard, the posture) goes to the deciding role or forum named in the current approval policy (look up), the project half is COP's
-   (`dept-decision-rights` `references/escalation-worked-examples.md`). A security gap on a connected asset is
-   an immediate escalation to the OD lead and Cyber Security (`09-risks.md`).
+7. **Hold at the wait state.** Record the submission date, the owner of the follow-up and the next check. ⟨Typical lead time⟩ is not recorded; the new-state flow marks the step only as "weeks".
+   - While waiting, no machine goes live, no app is deployed live, no go-live date is promised to the plant; planning and build continue.
+8. **Escalate on the triggers**, not on impatience.
+   - Technical items stuck beyond one COP cycle go to the OD lead;
+   - the strategic half of cyber topics (the standard, the posture) goes to the deciding role or forum named in the current approval policy (look up), the project half is COP's (`dept-decision-rights` `references/escalation-worked-examples.md`).
+   - A security gap on a connected asset is an immediate escalation to the OD lead and Cyber Security (`09-risks.md`).
 9. **Record the answer** in the package: who answered, date, scope (machines or apps covered), conditions,
    validity. Three outcomes:
    - *Granted* - attach it to the acceptance protocol evidence (`deploy-acceptance`), then proceed.
@@ -110,14 +99,11 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
 
 ## Pre-evaluation and platform-level approval (OD x IT, 2026-09-11)
 
-- **Pre-evaluate before the formal review.** Run this skill's package as a repeatable pre-evaluation that
-  names every missing input before Cyber Security sees it: fewer round trips, a team that learns the
-  process, less load on Cyber Security. The approach is an open action item (OD lead and IT, aligned with
-  Cyber Security); until it is agreed, the package is the pre-evaluation.
-- **Approve at platform level where possible.** Once a platform or connectivity pattern (Grafana,
-  connectivity, the CMO deployment structure) is approved, an app using the same pattern should not need a
-  full review only because it runs on another machine or at another location. The model is an open IT item
-  (IT): record which approved pattern a case reuses and ask, do not assume the shortcut.
+- **Pre-evaluate before the formal review.** Run this skill's package as a repeatable pre-evaluation that names every missing input before Cyber Security sees it: fewer round trips, a team that learns the process, less load on Cyber Security.
+   - The approach is an open action item (OD lead and IT, aligned with Cyber Security); until it is agreed, the package is the pre-evaluation.
+- **Approve at platform level where possible.** Once a platform or connectivity pattern (Grafana, connectivity, the CMO deployment structure) is approved,
+   - an app using the same pattern should not need a full review only because it runs on another machine or at another location.
+   - The model is an open IT item (IT): record which approved pattern a case reuses and ask, do not assume the shortcut.
 - **CMO compliance is the preferred route** for apps (`deploy-appstore`).
 
 ## Decision table - what blocks what
@@ -148,3 +134,14 @@ The gate is **decoupled and runs in parallel**: start the package alongside plan
 - Do not send package contents to an external AI tool: the department's own AI session carried the line
   "Do not Share/Upload company data without Cyber Security approval" (ODEC Facts - Other).
 - Do not restate what Cyber Security requires; the standard is not collected. Point to it once it is.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

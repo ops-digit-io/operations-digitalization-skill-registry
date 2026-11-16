@@ -31,21 +31,19 @@ metadata:
 
 # Migration and cutover
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-No existing skill owns the move itself. `invest-screen` and `invest-screen` decide
-*whether* to replace, integrate or keep an application; `deploy-cybersec` decides whether the target may go
-live; `deploy-acceptance` proves it works; `deploy-handover` hands it to the operating model. This
-skill sits between them: it turns "replace it" into an inventory, a risk-rated plan, a staged cutover
-per location, a way back, and a retirement of the old thing.
+- No existing skill owns the move itself.
+- `invest-screen` and `invest-screen` decide *whether* to replace, integrate or keep an application; `deploy-cybersec` decides whether the target may go live; `deploy-acceptance` proves it works; `deploy-handover` hands it to the operating model.
+- This skill sits between them: it turns "replace it" into an inventory, a risk-rated plan, a staged cutover per location, a way back, and a retirement of the old thing.
 
-Provenance: the assessment and per-location parts come from workshop and migration decks. The **back-out plan
-content is a `PROPOSAL`**: the decks hold only diagrams of who does what, no content. Everything marked
-`PROPOSAL` is synthesis, to be confirmed by the owner of the back-out process.
+- Provenance: the assessment and per-location parts come from workshop and migration decks.
+- The **back-out plan content is a `PROPOSAL`**: the decks hold only diagrams of who does what, no content.
+- Everything marked `PROPOSAL` is synthesis, to be confirmed by the owner of the back-out process.
 
 ## Purpose and definition of done
 
-Done when, for one migration:
+- Done when, for one migration:
 
 - every component and interface of the old system is inventoried and each use case it serves is listed as "must be preserved", "can be dropped" or "replace later";
 - each component has a risk row and a recovery-impact class; each OT application has a production-criticality and customer-impact rating **confirmed by its local owner**;
@@ -65,6 +63,11 @@ Done when, for one migration:
 | 3a6 (`deploy-handover`, `know-training`) | Per-location cutover, parallel run, key-user verification, then decommissioning; hands the operating model over |
 | Spine (`dept-plant-onboarding`, `dept-risk`) | A platform or server migration across plants runs as a series of per-location cutovers; risks are watched through `dept-risk` |
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
 ## References and assets
 
 | File | Use it for |
@@ -74,13 +77,18 @@ Done when, for one migration:
 | [`references/backout-plan-proposal.md`](references/backout-plan-proposal.md) | `PROPOSAL`: the structure of a back-out plan, its triggers, the points of no return and the rehearsal |
 | [`assets/migration-assessment.md`](assets/migration-assessment.md) | Canvas, inventory, risk and impact tables, target mapping, staged plan |
 | [`assets/cutover-checklist-and-backout.md`](assets/cutover-checklist-and-backout.md) | Per-location checklist with RAG, verification record, back-out plan, decommissioning record |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Procedure
 
-1. **Frame and decide the scenario.** Take the decision from `invest-screen` / `invest-screen` (replace, integrate, keep). Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support). `PROPOSAL`: no decision package without that baseline.
-2. **Assess.** Run the assessment workshop or desk assessment (reference 1): use cases of the old system, component inventory focused on interfaces, impact per use case, as-is/to-be status of security, bus, recipe management and MES where relevant. For an application estate, fill the OT application inventory and rate it.
+1. **Frame and decide the scenario.** Take the decision from `invest-screen` / `invest-screen` (replace, integrate, keep).
+   - Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support).
+   - `PROPOSAL`: no decision package without that baseline.
+2. **Assess.** Run the assessment workshop or desk assessment (reference 1): use cases of the old system, component inventory focused on interfaces, impact per use case, as-is/to-be status of security, bus, recipe management and MES where relevant.
+   - For an application estate, fill the OT application inventory and rate it.
 3. **Rate risk and recovery impact** per component; map each as-is component to its to-be component.
-4. **Stage the migration.** Start with the lowest-risk machine or location; replicate the existing reporting on the new platform as the requirement baseline; move the high-impact component last and with minimal downtime. Aim at parallel functionality, not a one-to-one copy; "low barrier, high impact" first.
+4. **Stage the migration.** Start with the lowest-risk machine or location; replicate the existing reporting on the new platform as the requirement baseline; move the high-impact component last and with minimal downtime.
+   - Aim at parallel functionality, not a one-to-one copy; "low barrier, high impact" first.
 5. **Check preconditions** (artifact registry, source-code host, firewall changes, cloud-system approval, licences, security approval) before any stage starts. Missing ones are the first blockers, not later surprises.
 6. **Plan per location**: scope assessment by the central server team with the application owner, time plan, announcement two weeks ahead, outage window, checklist with RAG, key-user meeting.
 7. **Write the back-out plan** per stage (reference 3) and agree its trigger and decision owner before the outage window opens.
@@ -93,7 +101,8 @@ Done when, for one migration:
 - **Hold** if a customer audit or similar fixed external deadline falls near: a migration must not take a customer-facing line down before it. Fixed external deadlines outrank internal plans.
 - **Do not migrate big-bang** a high-impact application; prefer risk-based prioritisation, evergreening or redeployment of the application to the target app platform, staged.
 - **Hardest case**: a "new installation" location without a legacy baseline is a special site; plan extra time and support.
-- **Missing ownership is the signal**, not a technical puzzle: no reply to follow-ups, nobody owns access to a registry, nobody asks why other sites worked. Ask who is responsible for the connection, what the other sites do, and what the alternative is if it never works.
+- **Missing ownership is the signal**, not a technical puzzle: no reply to follow-ups, nobody owns access to a registry, nobody asks why other sites worked.
+   - Ask who is responsible for the connection, what the other sites do, and what the alternative is if it never works.
 - If the old stack carries customer-driven projects, a migration that pauses it stops benefits and use-case development at once: treat the pause as a cost in the plan.
 
 ## Handoff contract
@@ -122,13 +131,18 @@ Done when, for one migration:
 
 ## AI agent operating notes
 
-An agent can: inventory components from architecture exports and interface documentation; pre-fill application description, category and functional mapping from supplier pages; generate risk tables from the recurring risk classes; draft the as-is to-be mapping, the staged plan, the per-location checklist and the communication text; track checklist RAG and chase open items; list unknown flows or applications.
+- An agent can: inventory components from architecture exports and interface documentation; pre-fill application description, category and functional mapping from supplier pages; generate risk tables from the recurring risk classes;
+- draft the as-is to-be mapping, the staged plan, the per-location checklist and the communication text; track checklist RAG and chase open items; list unknown flows or applications.
 
-Required inputs: architecture or application list, interface documentation, support and licence status, the replace/integrate/keep decision.
+- Required inputs: architecture or application list, interface documentation, support and licence status, the replace/integrate/keep decision.
 
-**Human gates:** the local owner confirms every production-criticality and customer-impact rating; the OD lead and plant decide the target architecture, the scenario, budget and the staging; Cyber Security sign-off is human-only; the cutover, the back-out decision and the decommissioning are executed and approved by people. An agent never runs a migration, changes a firewall or system, or switches anything off.
+- **Human gates:** the local owner confirms every production-criticality and customer-impact rating; the OD lead and plant decide the target architecture, the scenario, budget and the staging; Cyber Security sign-off is human-only;
+- the cutover, the back-out decision and the decommissioning are executed and approved by people.
+- An agent never runs a migration, changes a firewall or system, or switches anything off.
 
-Evidence to cite: source of the component list, interface documentation, support status, licence model, date of the key-user confirmation. Mark unknown as `<...>`; do not infer a rating. Hand over as the filled assets plus an open-items list per location.
+- Evidence to cite: source of the component list, interface documentation, support status, licence model, date of the key-user confirmation.
+- Mark unknown as `<...>`; do not infer a rating.
+- Hand over as the filled assets plus an open-items list per location.
 
 ## Still open
 

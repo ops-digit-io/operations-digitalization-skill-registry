@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Export procedure (`export-procedure.md`) | Skill Reference | The runnable browser-console REST procedure for a full list export — items, version history, attachment metadata and binaries — verbatim from the proven playbook. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs know-sharepoint-export must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs know-sharepoint-export must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Reliability discipline (`reliability-discipline.md`) | Skill Reference | What a full re-export does not give you — an incremental pattern for daily use, the list-view-threshold trap it walks into, schema-drift detection, and the checkpoint a resumed run needs. |

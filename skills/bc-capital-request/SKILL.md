@@ -26,34 +26,29 @@ metadata:
 
 # Capital request
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
 ## Purpose
 
-Packages a use case's value and cost into a draft capital request (eCR) so the human approvers can decide. Use it when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector needs funding, or when a saving waits on `ECR CREATION` or `ECR APPROVAL`.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Packages a use case's value and cost into a draft capital request (eCR) so the human approvers can decide.
+- Use it when a Lane 2 use case has passed its business case and needs investment, when a Lane 3 system or connector needs funding, or when a saving waits on `ECR CREATION` or `ECR APPROVAL`.
 
 ## Inputs and output
 
 - **Inputs**: the use case record, the saving rows from `bc-build`, the cost side from `bc-cost`, the validation record from `funnel-prototype`, the solution-evaluation verdict, and the Plant ME agreement on priority.
 - **Output**: the package [`assets/capital-request-package.md`](assets/capital-request-package.md) and the management summary deck from the builder, closed with the open items and one maturity verdict. A human reviews and submits.
 
-This is the department's `bc-capital-request` (its package `ecr-builder`), the last link of
-its business-case chain: value from `bc-build`, cost from `bc-cost`, assessment
-verdict, then this package for the approval route. It does not recalculate value, set thresholds or approve.
+- This is the department's `bc-capital-request` (its package `ecr-builder`), the last link of its business-case chain: value from `bc-build`, cost from `bc-cost`, assessment verdict, then this package for the approval route.
+- It does not recalculate value, set thresholds or approve.
 
-**The form and the builder.** The department's inventory of the eCR management summary (sections, enums, governance
-conditionals) is in [`references/ecr-management-summary.md`](references/ecr-management-summary.md); the department's
-eCR builder package (`30-skills/ecr-builder.zip`, the master) is transcribed in full: its five-step workflow
-([`ecr-builder-workflow.md`](references/ecr-builder-workflow.md)), the backbone and conditional rules
-([`backbone-and-conditionals.md`](references/backbone-and-conditionals.md)), the colour-coded honesty layer
-([`grounding-and-color-coding.md`](references/grounding-and-color-coding.md)), the refusal gate, de-risk question bank
-and closing slide ([`open-items-and-conflicts.md`](references/open-items-and-conflicts.md)) and the renderer
-([`build-engine.md`](references/build-engine.md), [`scripts/build_ecr.py`](scripts/build_ecr.py),
-[`scripts/render_qa.sh`](scripts/render_qa.sh); the neuwerk template `_nw_template.pptx` comes from the package).
-**Who approves** is in [`references/ecr-approval-matrix.md`](references/ecr-approval-matrix.md) (by role, tier and case
-type). Still not in the sources: the system the eCR is filed in, who files it, how long approval takes. The investment planning template that the project-support lane lists as an asset is
-⟨to confirm or create⟩ in the resources registry (`00-core/15-resources.md`).
+- **The form and the builder.** The department's inventory of the eCR management summary (sections, enums, governance conditionals) is in [`references/ecr-management-summary.md`](references/ecr-management-summary.md);
+- the department's eCR builder package (`30-skills/ecr-builder.zip`, the master) is transcribed in full:
+- its five-step workflow ([`ecr-builder-workflow.md`](references/ecr-builder-workflow.md)), the backbone and conditional rules ([`backbone-and-conditionals.md`](references/backbone-and-conditionals.md)), the colour-coded honesty layer ([`grounding-and-color-coding.md`](references/grounding-and-color-coding.md)), the refusal gate, de-risk question bank and closing slide ([`open-items-and-conflicts.md`](references/open-items-and-conflicts.md)) and the renderer ([`build-engine.md`](references/build-engine.md), [`scripts/build_ecr.py`](scripts/build_ecr.py), [`scripts/render_qa.sh`](scripts/render_qa.sh);
+- the neuwerk template `_nw_template.pptx` comes from the package).
+- **Who approves** is in [`references/ecr-approval-matrix.md`](references/ecr-approval-matrix.md) (by role, tier and case type).
+- Still not in the sources: the system the eCR is filed in, who files it, how long approval takes.
+- The investment planning template that the project-support lane lists as an asset is ⟨to confirm or create⟩ in the resources registry (`00-core/15-resources.md`).
 
 ## The references are the substance
 
@@ -74,7 +69,8 @@ type). Still not in the sources: the system the eCR is filed in, who files it, h
 | `scripts/build_ecr.py` | Render the eCR management summary as a neuwerk-branded pptx from the `CASE` dict inside the file | None on the command line; edit the `CASE` dict, then run `python build_ecr.py` (writes `eCR_<slug>_neuwerk.pptx`) |
 | `scripts/render_qa.sh` | Render a pptx to one jpeg per slide so the result can be looked at | `deck.pptx [dpi]` (dpi defaults to 100) |
 
-An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output. If a build fails, check that `python-pptx` is installed and that the template is in `assets/`.
+- An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+- If a build fails, check that `python-pptx` is installed and that the template is in `assets/`.
 
 ## Where it sits
 
@@ -92,25 +88,18 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
 
 1. **Confirm a request is needed.** Is there money to commit (hardware, licences, external work, headcount)? If
    the work is within the plant roadmap and spends nothing new, no capital request: record that and stop.
-1b. **Refusal / de-risk gate** ([`open-items-and-conflicts.md`](references/open-items-and-conflicts.md)). If the value
-   backbone, the investment estimate or the assessment verdict is missing or too thin to carry the amount, stop and
-   return the de-risk questions from its question bank, not a package.
 2. **Collect the inputs.** The use case record, the benefit rows (`bc-build`), the validation
    record (`funnel-prototype`), the solution-evaluation verdict, the Plant ME agreement on priority.
-3. **Route first** (`dept-decision-rights`): read the amount against the tiers of the approval matrix
-   ([`ecr-approval-matrix.md`](references/ecr-approval-matrix.md)), classify the case (IT invest, expansion, R&D, real
-   estate) and list the approvers by role. If the recorded
-   ladder is ambiguous for the amount, do not pick a side silently
-   ([`references/spend-route.md`](references/spend-route.md)). Also name the other gates the spend touches: IT
-   demand (OpenSpec IT demand, external), Cyber Security (`deploy-cybersec`, `mi-equipment`).
+3. **Route first** (`dept-decision-rights`): read the amount against the tiers of the approval matrix ([`ecr-approval-matrix.md`](references/ecr-approval-matrix.md)), classify the case (IT invest, expansion, R&D, real estate) and list the approvers by role.
+   - If the recorded ladder is ambiguous for the amount, do not pick a side silently ([`references/spend-route.md`](references/spend-route.md)).
+   - Also name the other gates the spend touches: IT demand (OpenSpec IT demand, external), Cyber Security (`deploy-cybersec`, `mi-equipment`).
 4. **State the ask** in one line: amount, what it buys, what phase it funds, by when it must be decided.
-5. **Pull the value in, do not rebuild it.** Take each saving row with amount, year, category, rationale,
-   methodology, reliability and dependency. Show **tracked and proven separately, never summed**
-   (`bc-build`). Where a row has no methodology it is an estimation: label it so.
-6. **Write the cost side.** One-time and recurring, split into people, hardware, licences, external, compute and
-   IT demand ([`references/business-case-structure.md`](references/business-case-structure.md)). Every figure has a source
-   and a date, or is ⟨to be collected⟩ with the role who supplies it. `bc-build` is thin on cost
-   (the conformance page notes it once); this section is where the cost side lives.
+5. **Pull the value in, do not rebuild it.** Take each saving row with amount, year, category, rationale, methodology, reliability and dependency.
+   - Show **tracked and proven separately, never summed** (`bc-build`).
+   - Where a row has no methodology it is an estimation: label it so.
+6. **Write the cost side.** One-time and recurring, split into people, hardware, licences, external, compute and IT demand ([`references/business-case-structure.md`](references/business-case-structure.md)).
+   - Every figure has a source and a date, or is ⟨to be collected⟩ with the role who supplies it.
+   - `bc-build` is thin on cost (the conformance page notes it once); this section is where the cost side lives.
 7. **Give options and the do-nothing case**, and for each decision its risk of not doing. At least: the request, a smaller or staged version, and not acting.
    Include the library alternative (adopt a proven solution) if one exists.
 8. **State risks, sensitivity and dependencies.** The one assumption the case fails on, a range not a point where
@@ -119,24 +108,26 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
    with a pass criterion, a validator and a date (pattern in `funnel-prototype`).
 10. **Record the gate as a dependency** on the use case and on each affected saving row (`ECR CREATION` while
     drafting, `ECR APPROVAL` once filed), with the owner (`bc-build` dependency list).
-10b. **Render** the management summary with the builder ([`build-engine.md`](references/build-engine.md)): every figure
-    carries its grounding chip, the last slide is Open items and conflicts, and the reply mirrors it in one line.
 11. **Hand the package to the human** to review and submit. Stop there. After the decision, record the outcome
     in the package and update the dependency.
+- 1b.
+- **Refusal / de-risk gate** ([`open-items-and-conflicts.md`](references/open-items-and-conflicts.md)).
+- If the value backbone, the investment estimate or the assessment verdict is missing or too thin to carry the amount, stop and return the de-risk questions from its question bank, not a package.
+- 10b.
+- **Render** the management summary with the builder ([`build-engine.md`](references/build-engine.md)): every figure carries its grounding chip, the last slide is Open items and conflicts, and the reply mirrors it in one line.
 
 ## Maturity verdict
 
-Close every package with the open items and conflicts and one verdict: **Ready to sign**, **Sign the
-floor** (approve the grounded part only) or **Not ready**. Recommendation only.
+- Close every package with the open items and conflicts and one verdict: **Ready to sign**, **Sign the floor** (approve the grounded part only) or **Not ready**.
+- Recommendation only.
 
 ## Human gate and AI-agent notes
 
 - **An agent may**: check whether a request is needed, read the amount against the approval matrix, collect the inputs, draft the package and the deck, list open items, and propose the maturity verdict.
-- **Stays with roles**: the OD lead confirms the route when the ladder is ambiguous; the approvers named in the approval matrix (by role, tier and case type) decide; Finance confirms rates and whether the matrix still applies; a human submits. The agent never submits, signs or approves.
+- **Stays with roles**: the OD lead confirms the route when the ladder is ambiguous; the approvers named in the approval matrix (by role, tier and case type) decide; Finance confirms rates and whether the matrix still applies; a human submits.
+   - The agent never submits, signs or approves.
 
 ## Example
-
-Fictional example (invented numbers, not a company figure):
 
 ```text
 Input : ask = 100 (fictional units) for a pilot phase; value rows = 2 (tracked, none proven);
@@ -147,14 +138,11 @@ Output: route = tier by amount and case type, approvers listed by role
         last slide: Open items and conflicts; verdict: Sign the floor
 ```
 
-If it fails: when the value backbone, the estimate or the verdict is missing, the refusal gate returns the de-risk questions, not a package. An invalid or unsourced figure is marked ⟨to be collected⟩ with the role who supplies it.
-
 ## Definition of done
 
-The package in [`assets/capital-request-package.md`](assets/capital-request-package.md) is complete or its gaps are
-named with a role who closes them; the route and approver are written next to the amount; tracked and proven
-euros are separate; the dependency is recorded on the saving rows; a human has been handed the package. Nothing
-has been submitted or approved by the agent.
+- The package in [`assets/capital-request-package.md`](assets/capital-request-package.md) is complete or its gaps are named with a role who closes them; the route and approver are written next to the amount; tracked and proven euros are separate;
+- the dependency is recorded on the saving rows; a human has been handed the package.
+- Nothing has been submitted or approved by the agent.
 
 ## Do not
 
@@ -168,3 +156,14 @@ has been submitted or approved by the agent.
 - Do not invent cost lines or rates; mark them ⟨to be collected⟩.
 - Do not duplicate `bc-build`: reference its rows, do not re-derive them.
 - Do not split one investment into several requests to land under a threshold (a proposed rule, not stated in the sources).
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

@@ -1,0 +1,68 @@
+skill: funnel-evaluation
+gate: []
+outputs:
+- id: evaluation-protocol
+  form: "`assets/evaluation-protocol.md`, filled, one per use case"
+  template: assets/evaluation-protocol.md
+  to_skills:
+  - bc-build
+  - dept-decision-rights
+  to_roles:
+  - the owning skill of a gap
+  - or  (by verdict)
+  done_when:
+  - Step 0 case ranking is pasted
+  - The script output (gap chart, score) is pasted, not re-described from memory
+  signoff: the owning skill of a gap
+  check:
+    structure: true
+- id: per-area-assessment
+  form: Section of the protocol
+  to_skills: []
+  to_roles:
+  - Receiver of the verdict
+  done_when:
+  - Every candidate area has an evidenced as-is level and a target with its driver
+  - No target stands without a named driver or business need
+  signoff: Receiver of the verdict
+- id: sequenced-gaps-with-owner
+  form: Section of the protocol
+  to_skills:
+  - mi-equipment
+  - mi-data-availability
+  - mi-signals
+  to_roles:
+  - (F9
+  - F10)
+  - (F11
+  - F2)
+  - the use case itself for the rest
+  done_when:
+  - Every gap is sequenced and classified with an owner and next skill
+  - Gaps staying with the use case are named for the scope and cost of `bc-build`
+  signoff: (F9
+- id: verdict-and-total-score
+  form: Verdict and score in the protocol
+  to_skills:
+  - bc-build
+  - funnel-use-case
+  - dept-decision-rights
+  to_roles:
+  - owning skill (capability first)
+  done_when:
+  - One of the four verdicts is stated with the score recorded
+  - The tool boundary sentence and operations-concept status sit next to it
+  signoff: owning skill (capability first)
+receives_from:
+- funnel-use-case
+- funnel-requirements
+- mi-data-availability
+next:
+- when: Ready goes to bc-build; a capability gap goes to its owning skill and returns here before the business case; over-engineered goes back to the definition; escalate goes to dept-decision-rights.
+  to:
+  - bc-build
+  - dept-decision-rights
+stops_when:
+- a tool has no operations concept (owner, service level, support level), because the verdict is then escalate and never "ready to build"
+- or a target exceeds every driver rated high or dominant
+- Do not hand over a ready verdict on it

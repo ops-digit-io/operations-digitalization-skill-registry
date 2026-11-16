@@ -1,0 +1,50 @@
+skill: dept-context
+gate: []
+outputs:
+- id: resolved-term-lane-or-gate
+  form: Chat reply, taken from the vocabulary table or its reference
+  to_skills: []
+  to_roles:
+  - The calling skill
+  - its user
+  done_when:
+  - Each term has one meaning
+  - Where two sources disagree, the SharePoint list wins
+  signoff: The calling skill
+- id: source-for-a-figure
+  form: Chat reply naming the list and export date
+  to_skills: []
+  to_roles:
+  - The calling skill
+  done_when:
+  - The figure is read live from the named list
+  - No figure is stated without a nameable source
+  signoff: The calling skill
+- id: gate-route
+  form: Chat reply pointing to `dept-decision-rights`
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - The gate is routed through "Who decides"
+  - The decision stays with the named role
+  signoff: OD lead
+- id: unresolved-marker
+  form: '"to confirm" marker in the calling skill''s output'
+  to_skills: []
+  to_roles:
+  - The calling skill
+  - the OD lead
+  done_when:
+  - A figure with no source or a term that does not resolve is marked and work stops there
+  - The gap is not filled
+  signoff: The calling skill
+receives_from: []
+next:
+- when: The spine serves every step; gates go to dept-decision-rights, and blocked work goes to the OD lead.
+  to:
+  - dept-decision-rights
+stops_when:
+- a term does not resolve or a figure has no source
+- Mark it to confirm and stop
+- It never writes to the knowledge graph or acts on an external machine connection

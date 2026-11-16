@@ -1,0 +1,63 @@
+skill: know-skill-authoring
+gate: []
+outputs:
+- id: skill-brief
+  form: "`assets/skill-brief.md`, filled"
+  template: assets/skill-brief.md
+  to_skills: []
+  to_roles:
+  - Department owner
+  done_when:
+  - Need, users, lane and step, tier, authority level, inputs and outputs, sources and three test cases are written, and the owner agreed the brief before the skill was written
+  signoff: Department owner
+  check:
+    structure: true
+- id: skill-folder
+  form: Folder written to the registry's anatomy
+  to_skills: []
+  to_roles:
+  - Department owner (DBVE
+  - the OD lead approves publication)
+  done_when:
+  - Passes the registry validator, the specification export, the OKF check and the figures check
+  - Status stays `draft`
+  signoff: Department owner (DBVE
+- id: registry-flow-and-readme-entries
+  form: "`registry.yaml` entry (authority level equal to the `SKILL.md`), placement on `docs/new-state/process.yaml`, README row"
+  to_skills: []
+  to_roles:
+  - Department owner
+  done_when:
+  - All three entries exist and the generated pages are regenerated
+  signoff: Department owner
+- id: quality-rating-and-test-record
+  form: Rating from the SkillEvaluator; test cases and trigger queries
+  to_skills: []
+  to_roles:
+  - Department owner
+  done_when:
+  - Rating is recorded (proposed target B or higher)
+  - Cases and trigger queries are written and run, or stated as not run
+  signoff: Department owner
+- id: pull-request
+  form: Pull request using `assets/release-checklist.md`
+  template: assets/release-checklist.md
+  to_skills: []
+  to_roles:
+  - Department owner
+  done_when:
+  - Carries the rating and the open points
+  - Owner has reviewed it
+  signoff: Department owner
+  check:
+    structure: true
+receives_from:
+- dept-context
+- dept-context-freshness
+- know-ai-generation
+- dept-decision-rights
+next: []
+stops_when:
+- an existing skill already covers the topic (extend it instead), no owner is named, the owner has not agreed the brief, or a gate fails
+- Never invent a figure, name or source to make a skill look finished
+- mark the gap to confirm and name who can fill it

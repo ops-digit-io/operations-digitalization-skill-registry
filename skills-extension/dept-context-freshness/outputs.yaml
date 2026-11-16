@@ -1,0 +1,44 @@
+skill: dept-context-freshness
+gate: []
+outputs:
+- id: hygiene-report
+  form: "`assets/hygiene-report.md`, with the script's tables pasted in"
+  template: assets/hygiene-report.md
+  to_skills: []
+  to_roles:
+  - OD lead (bundle files)
+  - registry owner (skills
+  - registry marks)
+  done_when:
+  - Dated
+  - The exact command line and thresholds recorded
+  - Bundle, skills, cross and registry-mark tables included
+  signoff: OD lead (bundle files)
+  check:
+    structure: true
+- id: findings-with-owner-and-action
+  form: Decision per finding in the report
+  to_skills: []
+  to_roles:
+  - OD lead
+  - registry owner
+  done_when:
+  - Every finding has an owner and an action per the decision table
+  - Nothing was edited to make a date look newer
+  signoff: OD lead
+- id: manual-check-results
+  form: Section of the report
+  to_skills: []
+  to_roles:
+  - Registry owner
+  done_when:
+  - Figure-finder hits, the comparison of the bundle README open-gap list with `open_gaps` in `registry.yaml`, and the dates of knowledge notes relied on are recorded
+  signoff: Registry owner
+receives_from:
+- dept-context
+- know-ai-generation
+next: []
+stops_when:
+- a finding would have to be cleared by editing last-verified, valid-until, sources_read or an _as_of value, or by marking something verified on the script's say-so alone
+- Report
+- do not fix in the same pass

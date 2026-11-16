@@ -1,0 +1,55 @@
+skill: bc-portfolio
+gate: []
+outputs:
+- id: portfolio-review-protocol
+  form: "`assets/portfolio-review-protocol.md`, filled"
+  template: assets/portfolio-review-protocol.md
+  to_skills:
+  - metrics-scorecard
+  to_roles:
+  - DBVE
+  done_when:
+  - Surface and capture date stated
+  - Cuts by more than one dimension for any scale claim
+  - Every empty field stated as unknown or nil
+  - Every euro figure labelled tracked or proven
+  - Denominator on every rate
+  signoff: DBVE
+  check:
+    structure: true
+- id: savings-read
+  form: Section of the protocol
+  to_skills:
+  - metrics-scorecard
+  - bc-build
+  to_roles: []
+  done_when:
+  - Tracked and proven euros never added
+  - Reliability classes not rolled into one headline
+  - Regions not blended
+  signoff: OD lead
+- id: prioritization-record
+  form: Record built with `references/od-use-case-prioritization/procedure.md`
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - OD lead
+  done_when:
+  - Ranking only within a category
+  - The order of criteria and the planning state named
+  - The unscoreable bucket kept visible
+  signoff: OD lead
+receives_from:
+- know-sharepoint-export
+- bc-build
+next:
+- when: metrics-scorecard (round prep), dept-plant-diagnosis (savings by plant, status cut), catalog-standardization, deploy-project-order (use case, scope, demand); the ranking feeds step 24 and dept-decision-rights.
+  to:
+  - metrics-scorecard
+  - dept-plant-diagnosis
+  - catalog-standardization
+  - deploy-project-order
+  - dept-decision-rights
+stops_when:
+- a figure has no read date, a rate has no denominator, or a "no potential" conclusion would rest on zero reported saving for a scaled use case
+- Mark it for further investigation instead of publishing the number

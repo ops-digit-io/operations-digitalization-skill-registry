@@ -232,6 +232,12 @@ scripts/build_okf_index.py       regenerates the directory indexes
 scripts/build_bpmn.py            regenerates the BPMN 2.0 process map (the only map) from docs/new-state/process.yaml
 scripts/agent_skills_spec.py     checks every skill against the open Agent Skills specification; --export writes spec-strict packages
 scripts/build_site.py            builds the static documentation site: process map, skill pages, specification page, downloads
+skills*/<skill>/outputs.yaml     the output contract of a skill (gate, outputs, criteria, checks, sign-offs); references/outputs.md is generated from it
+scripts/skill_outputs.py         validates every outputs.yaml and generates references/outputs.md
+scripts/skill_form.py            lint: SKILL.md is structure only, no prose (context lives in references/background.md)
+scripts/run_record.py            one run record per skill call, with the checklist; refuses to close without evidence
+scripts/check_output_structure.py  an output keeps the sections of its template, no open placeholder
+scripts/stop_hook.py             Claude Code Stop hook: no session end with an open run record (docs/skill-output-contract.md)
 ```
 
 ## Validating a change
