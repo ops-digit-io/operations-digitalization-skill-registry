@@ -48,3 +48,7 @@ next funnel stage resumes from. Nothing crosses a lane boundary without its vari
 - **Stops here when:** either check reports blockers (do not hand over with a failed check), there is no roadmap link or
   nameable business case, the need needs a system outside the lean footprint, it is owned by a sibling function, it is a
   one-off, or it already exists elsewhere. Refuse with a named route and a written reason.
+
+## Provenance moved out of SKILL.md
+
+The boundary section (§6a: objective, in and out of scope, approved interfaces, growth boundary, change rule) comes from the OD x IT alignment meeting of 2026-09-11. The date is kept here, not in the procedure, because it is provenance and not an instruction.

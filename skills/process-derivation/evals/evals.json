@@ -1,0 +1,47 @@
+{
+  "skill": "process-derivation",
+  "cases": [
+    {
+      "id": "passed-prototype-derive-process",
+      "type": "should-trigger",
+      "prompt": "Our click-dummy for recording downtime reasons passed the plant test last week, with the request, the requirement and the validation record all filed. What process changes now and how do we get the plant to actually run it?",
+      "expected_output": "Checks the three gate records first and copies their references. Names the process as verb and object and an owner role, never a person. Writes the change in one sentence and redesigns only with evidence. Produces a BPMN to-be model checked by the script, an adoption row per role group, a landscape entry and monitoring questions. Does not write a saving or mark anything proven or accepted.",
+      "files": []
+    },
+    {
+      "id": "gate-refusal-inconclusive-prototype",
+      "type": "edge",
+      "prompt": "The prototype test for the shift handover screen was inconclusive, but management wants the new handover process drawn up anyway so we can start. Can you do it?",
+      "expected_output": "Refuses to derive the process because the prototype result is not passed. Writes a refusal note naming the missing gate item and the role or skill that closes it. Draws no model and states a failed or inconclusive result stops here.",
+      "files": []
+    },
+    {
+      "id": "bpmn-without-exception-path",
+      "type": "should-trigger",
+      "prompt": "Here is the BPMN model we drew for the new quality hold process. Is it ready to hand to the plant?",
+      "expected_output": "Runs the structure check and reports findings such as a missing exception path, unnamed gateway or tasks outside a lane. Does not call it ready until the check reports READY. Notes that READY covers structure, not that the records are true. Process owner acceptance stays human.",
+      "files": []
+    },
+    {
+      "id": "near-miss-build-prototype",
+      "type": "near-miss",
+      "prompt": "We have an idea for a downtime screen. Please build a click-dummy we can show the shift leads.",
+      "expected_output": "Does not derive a process. Routes the request to the prototype skill because no validated prototype exists yet, and names the gate this skill requires.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "The prototype passed, which business process do we have to change and who owns it?",
+      "Draw the to-be process in BPMN for the new reason-code recording and check it",
+      "Make an adoption plan per role group for the new downtime process",
+      "How do we hook the new process into the process landscape and monitor it?"
+    ],
+    "should_not_trigger": [
+      "Build a click-dummy for the new line screen",
+      "Calculate the savings of this use case for the business case",
+      "Write the acceptance protocol for the integrated machine",
+      "Hand over the finished dashboard to the plant and check adoption"
+    ]
+  }
+}

@@ -8,6 +8,16 @@ tags: [project-support-consultancy, practice, process-chain, draft]
 ---
 # Process-chain practice - deployment to the platform
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules
+- 3 Handoff contract
+- 4 Pitfalls and lessons
+- 5 Questions to ask and definition of done
+- 6 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (app-store architecture, platform rollout, migration and community-call decks),
 abstracted into process guidance. No figures. The decks hold the shape and the pitfalls of deployment, not commands; this file adds
 no commands either. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown.

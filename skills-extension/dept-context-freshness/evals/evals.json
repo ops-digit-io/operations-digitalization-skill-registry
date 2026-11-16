@@ -1,0 +1,47 @@
+{
+ "skill": "dept-context-freshness",
+ "cases": [
+  {
+   "id": "quarterly-check",
+   "type": "should-trigger",
+   "prompt": "It is the start of the quarter. Can you check whether the context behind our OD skills is still current and write up what needs attention?",
+   "expected_output": "Runs the freshness script read-only with skills, registry and bundle paths. Reads the bundle, skills, cross and registry tables. Drafts a hygiene report with an owner and action per finding. Edits no date and marks nothing verified.",
+   "files": []
+  },
+  {
+   "id": "fixture-one-expired-file",
+   "type": "edge",
+   "prompt": "I made a small test folder with three knowledge notes, one of which has a valid-until in the past (fictional). Run the freshness check on that folder only and tell me what comes out.",
+   "expected_output": "Runs the script with only the bundle flag and the date override for a repeatable result. Reports the one expired file as EXPIRED and the others as fine. Names the OD lead as owner of the action. Does not edit the file.",
+   "files": []
+  },
+  {
+   "id": "missing-path",
+   "type": "edge",
+   "prompt": "Run the staleness check but the knowledge folder path I gave you is probably wrong.",
+   "expected_output": "Notes the script exits with code 2 and a message naming the bad flag. Asks for the correct path instead of reporting from a partial run. Does not guess a path.",
+   "files": []
+  },
+  {
+   "id": "term-question-near-miss",
+   "type": "near-miss",
+   "prompt": "What does the abbreviation CSP mean in our department?",
+   "expected_output": "Recognises this as a vocabulary question for the shared context skill, not a freshness check. Does not run the script.",
+   "files": []
+  }
+ ],
+ "trigger_queries": {
+  "should_trigger": [
+   "Which of our skills still rely on an expired source?",
+   "A valid-until date is coming up next month, what depends on that file?",
+   "Is the decision table we quote still true or has it gone stale?",
+   "Draft this quarter's hygiene report for the skill registry."
+  ],
+  "should_not_trigger": [
+   "Who is allowed to approve the new connection?",
+   "Update the sources_read date on the skill so it looks current.",
+   "Run the monthly risk reading against the register.",
+   "What is the difference between tracked and proven savings?"
+  ]
+ }
+}

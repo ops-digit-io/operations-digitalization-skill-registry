@@ -8,6 +8,15 @@ tags: [all, practice, context, provenance]
 ---
 # Provenance and source catalogue
 
+## Contents
+
+- 1. Where content hides, and how to find it
+- 2. Raw versus produced material
+- 3. The reference library: tiers and safe to claim
+- 4. Using published benchmarks
+- 5. Stating provenance in what you produce
+- AI agent operating notes
+
 Derived from the knowledge base's source-catalogue notes, the sources README, the research notes behind the graph descriptions and the
 reference-library index. Method only: file counts, source counts and benchmark figures are not reproduced. Own synthesis is marked
 `PROPOSAL`; unknowns are `<...>`.

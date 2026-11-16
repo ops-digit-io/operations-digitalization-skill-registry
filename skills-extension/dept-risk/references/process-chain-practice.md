@@ -9,7 +9,7 @@ tags: [all, practice, process-chain, draft]
 # Process-chain practice
 
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
-marks a synthesis; `<...>` is unknown. It adds to [`risk-indicators.md`](risk-indicators.md). The register stays the authority
+marks a synthesis; `<...>` is unknown. It adds to `risk-indicators.md`. The register stays the authority
 on the six risks, their triggers and their absence of scoring.
 
 ## 1. Method in practice

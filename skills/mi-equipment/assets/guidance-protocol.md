@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Guidance protocol
-description: The defined output of Route B - one machine's gates answered in order, the connector and configuration chosen, and the fallback taken if a path blocked, so the result is a reusable record rather than prose.
+description: The defined output of Mode B - one machine's gates answered in order, the connector and configuration chosen, and the fallback taken if a path blocked, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
 tags: [information-integration-service, template, protocol]
@@ -13,7 +13,7 @@ tags: [information-integration-service, template, protocol]
 |---|---|
 | **Plant** | ⟨plant⟩ |
 | **Machine** | ⟨name⟩ ⟨(EQ id)⟩ · ⟨vendor⟩ ⟨PLC model⟩ |
-| **From assessment** | ⟨assessment-protocol.md reference, if a Route A already covered this machine — otherwise: assessment not yet done, scope confirmed here⟩ |
+| **From assessment** | ⟨assessment-protocol.md reference, if a Mode A already covered this machine — otherwise: assessment not yet done, scope confirmed here⟩ |
 | **Engineer / date** | ⟨name⟩ · ⟨date⟩ |
 | **Overall verdict** | ⟨connected · blocked, pending ⟨item⟩ · configuration in progress⟩ |
 

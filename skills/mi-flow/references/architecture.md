@@ -8,6 +8,18 @@ tags: [node-red, architecture]
 ---
 # A canonical flow, node by node
 
+## Contents
+
+- What it does
+- Group 1 — `config flow` (+ `set inputs for config flow`)
+- Group 2 — `mqtt connection and message decoding`
+- Group 3 — `set message filters`
+- Group 4 — `lookup uuid to label, including postprocessing`
+- Group 5 — `prepare and convert payload`
+- Group 6 — `message encoding and connection`
+- Error handling — ungrouped, by convention
+- The shape in one line
+
 Walkthrough of an illustrative flow, `<asset> - Part Counter Trigger` on `ct-oesl-<site>-nodered-<prod|test>`,
 representative of the house pattern. Values are placeholders, not real identifiers. Read alongside
 [`standard-functions.js`](standard-functions.js) and `plc-packet.md`.

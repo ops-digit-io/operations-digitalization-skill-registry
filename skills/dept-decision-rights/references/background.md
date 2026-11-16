@@ -48,3 +48,9 @@ If it fails: when no row or gate fits, or the rights look out of date, validate 
 - **Receives from:** the calling skill with the decision in question, for example `dept-intake` (expected gate), `catalog-systems` (cost-template inputs), `invest-screen` (exception to escalate), `bc-build` (open dependencies).
 - **Next in the flow:** step 1b2 to `mi-equipment` (1b3) once the cost template is approved; step 25 to `bc-capital-request`; step 32 (tool-decision gate) to the route chosen by the OD lead.
 - **Stops here when:** no row or gate fits, or the decision rights look out of date. Write "decision rights pending re-verification" and validate with the OD lead; every row is used at most at `recommend`. Do not act on a row above that, and do not treat urgency as a substitute for the deciding role.
+
+## Dates moved out of SKILL.md
+
+- The OD x IT alignment that added three rows is dated 2026-09-11.
+- The decision-rights note (`08-decision-rights.md`) had `valid-until` 2026-11-10, which has passed; re-verification by the OD lead is open.
+- Pre-approval bands for Lane 1b were recorded in 2026 (below 25 kEUR and 25 to 100 kEUR through an automated workflow, central approval at 25 kEUR per a review note, local approval first); owner to confirm, see `bc-capital-request`.

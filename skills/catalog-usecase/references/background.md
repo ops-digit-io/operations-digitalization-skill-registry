@@ -32,3 +32,14 @@ If no catalogued entry fits: Lane 2 (OD-led). If no standard system fits: Lane 3
 - **Receives from:** `dept-intake` (the classified request), `mi-data-availability` (machine connected, signals present), `deploy-handover` (the handover record, at step 26).
 - **Next in the flow:** step 1a1 to `ops-analytics-asset` (step 1a2); step 1b1 to `catalog-systems`, then `dept-decision-rights` (1b2); a result that falls through goes to Lane 2 (`funnel-use-case`) or Lane 3 (`funnel-requirements`). At step 26 the entry becomes a future Lane 1 case.
 - **Stops here when:** the candidate has no recorded CSP `Yes`, a precondition fails, or the need sits outside the lean footprint and `invest-screen` has not run. Do not present it as catalogued or let the plant self-serve it; the CSP decision itself stays with its owner.
+
+## Split history and scope (moved out of SKILL.md)
+
+- This skill once held Part A (use cases), Part B (standardized systems) and Part C (go-live guardrails). Part B is now `catalog-systems` and Part C is `catalog-guardrails`; this skill keeps matching and graduation.
+- Some reference files in this folder (`sources-and-entry-fields.md`, `legacy-application-position.md`, `failure-cases-and-routing.md`, Parts B and C of `process-chain-practice.md`) still serve the sibling skills and are shared; they stay here so existing links keep working.
+- The new-state flow needs a plant-facing catalog of proven use cases, a standardized connection-kit list and a go-live self-check. No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources, so this skill defines how a request is matched, not any entry.
+- Source status of the four conditions: conditions 1 (CSP Yes) and 4 (plant owner, handover) come from the sources and are read live from the library note and the handover record; conditions 2 (capability template) and 3 (standardized signals) are proposals awaiting the OD lead.
+
+## Sources used in the improvement run
+
+- None added; no vault or archive claim was introduced in this run.

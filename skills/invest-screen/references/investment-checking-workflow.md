@@ -10,6 +10,17 @@ tags: [invest-screen, workflow, department-package]
 
 # Investment Checking (OD involvement screen + decision gate)
 
+## Contents
+
+- Bundled references — read on demand
+- The principle in four sentences
+- Scope: check ALL investments
+- Workflow
+- The six criteria (full rubric in `decision-criteria.md`)
+- Anchor to OD strategy (so verdicts stay consistent)
+- Output conventions
+
+
 Screen the **entire** MPEE Invest & Cost Planning list — not only the rows OD owns — and surface **every investment where Operations Digitalization is, or should be, involved**. Then put each involved item through a scored decision gate that ends in a clear verdict, and a mandatory software / IT-footprint gate.
 
 Two failure modes this skill exists to prevent:

@@ -10,6 +10,15 @@ tags: [capital-request, ecr, workflow, department-package]
 
 # eCR builder
 
+## Contents
+
+- Setup — where the files live
+- The five-step workflow
+- What "grounding" means in practice
+- The two things this skill adds beyond a normal deck
+- Reference files — read the one you need
+- Delivering
+
 Turn whatever material exists for a capital request — a folder of quotes, a
 savings spreadsheet, an e-mail thread, meeting notes, a rough business case — into
 a clean, auditable eCR **Management Summary** deck in the neuwerk brand. The point

@@ -1,0 +1,47 @@
+{
+  "skill": "catalog-compatibility",
+  "cases": [
+    {
+      "id": "state-signals-for-all-plants",
+      "type": "should-trigger",
+      "prompt": "Plant A (fictional) built a machine-state signal set for presses and we want to recommend it as the standard for all plants. Three other plants run presses with different controllers and tag languages. Will it hold?",
+      "expected_output": "A plant grid with controller vendor, field network, ingress variant, tool versions, tag language and instance state per plant.\nEach plant gets exactly one verdict: consumable, consumable with mapping, not consumable or unknown.\nA plant with no evidence is unknown and is not rounded up to consumable.\nThe recommendation follows the decision table and says a first-plant-only proof is a proposal, not a standard.",
+      "files": []
+    },
+    {
+      "id": "plant-specific-name-in-dashboard",
+      "type": "should-trigger",
+      "prompt": "The dashboard for the packaging line hard-codes the line name and a German tag name. We want to roll it out to two other plants. What should we change?",
+      "expected_output": "The hard-coded plant, line and tag names are identified as compatibility risks.\nThe assistant recommends mapping the other plants' names to the standard (alias) rather than adding a plant-specific branch to the standard.\nIt builds or asks for the plant differences needed to give verdicts per plant.\nIt recommends only; the decision route (IIAE, COP for a data-model change) is named.",
+      "files": []
+    },
+    {
+      "id": "continuous-process-edge",
+      "type": "edge",
+      "prompt": "Can we use the same base data model for the chemical mixing line at Plant D? It is a continuous process and was never connected before.",
+      "expected_output": "The assistant flags that the base data model was found suitable for discrete, time-series-centric machines and needs a fit check for continuous processes.\nThe plant's verdict is unknown unless evidence exists; it is not assumed consumable.\nIt names the evidence that would resolve the unknown.",
+      "files": []
+    },
+    {
+      "id": "define-signals-near-miss",
+      "type": "near-miss",
+      "prompt": "Which signals should we collect from this new injection moulding machine and what should we call them?",
+      "expected_output": "The assistant recognises this as defining the signal set for one machine, not testing cross-plant compatibility.\nIt routes to the signals step (mi-signals) and does not build a plant grid.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Will this signal standard work at all our other plants?",
+      "We want to roll this dashboard out to another plant, is it compatible?",
+      "Check whether our data model change breaks any plant's instance",
+      "Build the plant grid for controller vendors and ingress variants and give a verdict per plant"
+    ],
+    "should_not_trigger": [
+      "Define the standard signal list for a new machine",
+      "Which catalogued use case matches this plant request?",
+      "Are the signals for this machine available on the platform right now?",
+      "Assign a cluster tag C01-C12 to this use case"
+    ]
+  }
+}

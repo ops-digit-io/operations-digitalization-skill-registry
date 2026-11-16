@@ -41,7 +41,7 @@ The profile decides which stage of the path begins the onboarding. Place the pla
 | A. No machines recorded | Machines = 0 | Stage 1: record the plant first. Nothing can be graded or compared yet. A plant may have workshop material in the archive but no machine or use-case records: that does not make it profile B or C |
 | B. Machines recorded, none integrated | Integrated = 0 | Stage 2 (assessment and roadmap), then Lane 1b / Lane 3b. Typical trap: most machines carry the integration method "evaluation ongoing"; choosing the ingress variant is then part of stage 2 |
 | C. Partly integrated | 0 < share < 100% | Stage 3 (Lane 1 first wins for connected machines), with Stage 2 for the remainder. Read the share against the size of the estate: low share with a large estate means stages 2 and 5 dominate |
-| D. Fully integrated | Share = 100% | Stage 3 and 5: the use-case catalog and Lane 2; no integration roadmap needed for recorded machines. Check that "100%" is not simply a small recorded subset |
+| D. Fully integrated | Share = 100% | Stage 3, 4 and 6: the use-case catalog and Lane 2; no integration roadmap needed for recorded machines. Check that "100%" is not simply a small recorded subset |
 
 ## What differs underneath
 

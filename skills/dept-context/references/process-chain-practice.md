@@ -8,6 +8,17 @@ tags: [all, foundation]
 ---
 # Process-chain practice - the context layer and plant tiering
 
+## Contents
+
+- 1. Method in practice
+- 2. Decision rules
+- 3. Handoff contract
+- 4. Pitfalls and lessons
+- 5. Questions to ask and definition of done
+- 6. AI agent operating notes
+- Vocabulary, second part
+- Step ids and skill names
+
 Deck-derived practice for the spine. `PROPOSAL` = registry synthesis; `<to confirm>` = decks disagree.
 
 ## 1. Method in practice

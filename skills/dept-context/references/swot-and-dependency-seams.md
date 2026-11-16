@@ -8,6 +8,16 @@ tags: [all, practice, context, strategy]
 ---
 # SWOT and dependency seams
 
+## Contents
+
+- 1. The SWOT as a filter, not a poster
+- 2. What belongs in each box (shape, not content)
+- 3. Exclusions the SWOT keeps on purpose
+- 4. Dependency seams (operating context)
+- 5. Corrections recorded against the source decks
+- AI agent operating notes
+- Resolved gaps (moved from the skill body)
+
 Derived from the department OS notes (SWOT, operating context, README of the filled instance). This file holds the **method of
 reading**. The current entries, their evidence and the numbers cited as evidence change quarterly: read them from the live note
 (`00-core/13-swot.md`, `10-modules/smart-factory-use-case/operating-context.md`) and quote them with their `last-verified` date.

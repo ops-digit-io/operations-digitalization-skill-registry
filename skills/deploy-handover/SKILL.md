@@ -1,7 +1,7 @@
 ---
 name: deploy-handover
 description: >-
-  Close a use case: hand over to the plant against its definition of done, confirm real adoption, act on low utilization. Not for building (ops-analytics-asset) or cataloguing (catalog-usecase).
+  Closes a use case: runs the handover to the plant against its definition of done (three-question test, named owner, data path to the machine), confirms real adoption with the strongest available evidence, and acts when utilization is low or NEVER (ADKAR diagnostic, review or retire). Use when a use case is handed to a plant, when someone asks whether it is really in use, when the dashboard is delivered but nobody opens it, when an owner or role changes, or when an application moves to IT. Drafts and reports; the plant decides PRODUCTIVE. Not for building (ops-analytics-asset), cataloguing (catalog-usecase) or the acceptance test (deploy-acceptance).
 license: MIT
 metadata:
   id: deploy-handover
@@ -26,6 +26,7 @@ metadata:
 # Handover and adoption
 
 - Read `dept-context` first.
+- Three kinds of handover, named apart: **use-case handover** (to a plant, the main procedure here), **application transfer** (to IT or another team) and **function succession** (a successor takes over the department's work).
 
 ## Purpose
 
@@ -44,7 +45,7 @@ metadata:
 2. Run the three-question test (section below) with the receiving side.
 3. Check that the people the change affects (the shift, the line, their supervisors) were told **before** go-live what changes for them and what they do, not after it took effect.
    - Record who told them, when and how; if nobody did, that is the first action and the Awareness barrier in the ADKAR diagnostic.
-   - (A public vendor survey of 1,000 U.S. frontline manufacturing workers found 79% learned of updates only after they went into effect; it is directional, not a department figure.)
+   - People told only after the change took effect do not adopt it, so a use case that goes live without them stalls at Awareness.
 4. Check the definition of done (section below): data path to the machine, named plant owner, use in a real shift, dependencies on the record.
 5. Record the adoption tier with the strongest evidence available ([`references/evidence-of-adoption.md`](references/evidence-of-adoption.md)).
 6. If utilization is low or `NEVER`, follow the section "When utilization is low or `NEVER`".
@@ -53,14 +54,14 @@ metadata:
 
 ## The references are the substance
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/adkar-diagnostic.md`](references/adkar-diagnostic.md) | Why a use case stalls between `IMPLEMENTED` and `PRODUCTIVE` — the ADKAR barrier-point diagnostic, mapped onto this function's own lifecycle, with a worked example |
-| [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | What counts as evidence of adoption, strongest first — confirmed 2026-10-22, closing "how is adoption confirmed and recorded" |
-| [`references/ownership-and-handover-gates.md`](references/ownership-and-handover-gates.md) | Who runs it and when ownership moves (OD x IT, 2026-09-11): build-and-run, formal acceptance, handover checklist, shared responsibility, criticality gates, self-assessment |
-| [`references/od-impact-evaluation/procedure.md`](references/od-impact-evaluation/procedure.md) | Absorbed: evaluate the impact of a live use case and prepare the adoption confirmation record, with the saving's firmness (formerly `od-impact-evaluation`) |
-| [`references/od-utilization-review/procedure.md`](references/od-utilization-review/procedure.md) | Absorbed: the utilization table per use case and site, the no-saving decision route (formerly `od-utilization-review`) |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Pre-go-live checklist from rollout lessons, the operations-concept gate, handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft |
+| [`references/adkar-diagnostic.md`](references/adkar-diagnostic.md) | A use case sits between `IMPLEMENTED` and `PRODUCTIVE` or utilization is low: why it stalls between `IMPLEMENTED` and `PRODUCTIVE` — the ADKAR barrier-point diagnostic, mapped onto this function's own lifecycle, with a worked example |
+| [`references/evidence-of-adoption.md`](references/evidence-of-adoption.md) | You record the adoption tier: what counts as evidence of adoption, strongest first |
+| [`references/ownership-and-handover-gates.md`](references/ownership-and-handover-gates.md) | An application or the function changes owner: who runs it and when ownership moves (OD x IT): build-and-run, formal acceptance, handover checklist, shared responsibility, criticality gates, self-assessment |
+| [`references/od-impact-evaluation/procedure.md`](references/od-impact-evaluation/procedure.md) | Step 26 or Lane 1 step 6 closes: absorbed, evaluate the impact of a live use case and prepare the adoption confirmation record, with the saving's firmness (formerly `od-impact-evaluation`) |
+| [`references/od-utilization-review/procedure.md`](references/od-utilization-review/procedure.md) | Something is deployed but not used: absorbed, the utilization table per use case and site, the no-saving decision route (formerly `od-utilization-review`) |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | You prepare go-live or hand over a dashboard: pre-go-live checklist from rollout lessons, the operations-concept gate, handing over a dashboard or data product, the use-case exchange with OPEX, and what an agent may draft |
 
 ## The rule
 
@@ -96,7 +97,7 @@ metadata:
 - OD can deliver something and hand it over; **only the plant can make it productive.** That is why `IMPLEMENTED` and `PRODUCTIVE` are separate statuses and why utilization is tracked at all.
 - The recipient-feedback loop for this lane is the utilization rate on the Digitalization Scorecard.
 
-- **How plant adoption is confirmed and recorded, closed 2026-10-22:** `references/evidence-of-adoption.md`'s three-tier evidence ranking (system usage log, named owner's dated statement, third-party observation) is confirmed — none of which is "handover marked `DONE`."
+- **How plant adoption is confirmed and recorded:** `references/evidence-of-adoption.md`'s three-tier evidence ranking (system usage log, named owner's dated statement, third-party observation) is confirmed — none of which is "handover marked `DONE`."
 
 ## When utilization is low or `NEVER`
 
@@ -109,10 +110,9 @@ metadata:
 4. If the same asset is used at another plant, the gap is adoption, not the asset →
    `catalog-standardization`.
 
-## Handing over an application to IT or another team
+## Application transfer to IT or another team
 
-- When an application (not a use case to a plant) changes owner, the OD x IT rules apply ([`references/ownership-and-handover-gates.md`](references/ownership-and-handover-gates.md)): the team that builds it runs it; ownership moves only on **formal acceptance**; until then the builder supports it;
-- the builder closes missing logging or observability first; the receiving team checks legacy status, backlog, version currency, architecture, business logic, logging and observability.
+- When an application (not a use case to a plant) changes owner, the builder runs it until **formal acceptance** and closes missing logging first; rules in `references/ownership-and-handover-gates.md`.
 - The OpenSpec package that carries this into IT is OpenSpec IT demand (external).
 
 ## Impact and utilization after go-live
@@ -120,15 +120,10 @@ metadata:
 - Lane 2 step 7 and Lane 1 step 6 end with "adopted": run the absorbed [impact evaluation](references/od-impact-evaluation/procedure.md) for the adoption confirmation record and the saving's firmness, and the absorbed [utilization review](references/od-utilization-review/procedure.md) per site when something is deployed but not used.
 - A proven, repeatable result then goes to `catalog-standardization` and `catalog-usecase` for cataloguing.
 
-## Handing over the function, not a use case
+## Function succession
 
-- The same rule applies one level up.
-- A successor does not need a task list — stale within a week, and it lives in the source systems anyway.
-- They need two things: **how the department works** and **what has already been delivered**.
-- The knowledge graph is the index into both: open a plant and it shows what exists there; open a capability and it shows which plants have it and which do not.
-
-- Anything genuinely in flight — open decisions, current status, this week's queue — is looked up live in the systems of record.
-- It is deliberately **not** written into the knowledge base, because a frozen copy of a moving thing is worse than no copy: it is a copy people trust.
+- A successor needs how the department works and what has been delivered, not a task list; the knowledge graph indexes both.
+- Anything in flight is looked up live in the systems of record, never frozen into the knowledge base; details in `references/ownership-and-handover-gates.md`.
 
 ## Output — the protocol
 
@@ -154,10 +149,10 @@ Output: three-question test: Q1 pass, Q2 fail (data path not written to the mach
 
 - Do not accept a handover without a named operations owner; for a dashboard or data product also without documented transformation, an owned workspace, access control and a named successor.
 - Do not let old and new process run in parallel without an end date and a person assigned to switch the old one off.
-- Do not record handover `DONE` because delivery happened.
+- Do not record handover `DONE` because delivery happened: built, handed over and in use fail separately.
 - Do not report `IMPLEMENTED` counts as adoption.
 - Do not close a handover with an unnamed plant owner.
-- Do not hide a `NEVER` utilization row.
+- Do not hide a `NEVER` utilization row: it is the finding the function acts on, and a hidden row hides the adoption gap from the scorecard.
 - Do not apply a Knowledge-element fix (more training) to a Desire-element barrier point
   (nobody wanted it) — see `references/adkar-diagnostic.md`.
 - Do not record an adoption tier stronger than the evidence actually available.
@@ -180,3 +175,4 @@ Output: three-question test: Q1 pass, Q2 fail (data path not written to the mach
 | [`references/od-utilization-review/assets/utilization-table.md`](references/od-utilization-review/assets/utilization-table.md) | The utilization table, one row per use case and site, with the columns used in the decks plus verdict and basis. |
 | [`references/od-utilization-review/references/no-saving-decision.md`](references/od-utilization-review/references/no-saving-decision.md) | What to do with a scaled-out use case that has deployments but no saving - the contradiction between decks (to be evaluated vs no potential), the safer reading, the decision… |
 | [`references/od-utilization-review/references/utilization-method.md`](references/od-utilization-review/references/utilization-method.md) | The utilization table columns, the questions that find out what makes a use case utilized, the dashboard-without-action-owner smell, dashboard-to-paper reconciliation and the follow-up list. |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

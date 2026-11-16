@@ -1,0 +1,47 @@
+{
+  "skill": "dept-context",
+  "cases": [
+    {
+      "id": "figure-needs-source",
+      "type": "should-trigger",
+      "prompt": "I'm putting together a slide for the plant manager. Can you tell me how much OD has saved so far across all plants? Just give me one number.",
+      "expected_output": "Does not state a figure from memory. Names the SharePoint lists the saving figures come from and asks for or cites the export date. Keeps tracked and proven savings apart and does not add them into one number. Marks anything unreadable as to confirm.",
+      "files": []
+    },
+    {
+      "id": "unknown-priority-not-low",
+      "type": "should-trigger",
+      "prompt": "A lot of the use cases in our list show UNKNOWN priority. Can I just treat them as low priority and drop them from the roadmap?",
+      "expected_output": "Says absence is not a zero and UNKNOWN must not be read as low. Suggests counting them live and getting the priority confirmed. Does not drop them. Points to the list as the place to fix the value.",
+      "files": []
+    },
+    {
+      "id": "grafana-global-mixup",
+      "type": "edge",
+      "prompt": "We want one Grafana dashboard that compares line availability across all our plants. Which Grafana should we build it on?",
+      "expected_output": "Explains that Grafana is a local instance per plant and the cross-plant layer is the global data platform. Advises not to build a cross-plant view on a local instance. Names the data path through the IIoT Edge Platform, Databricks and the storage account.",
+      "files": []
+    },
+    {
+      "id": "who-approves-spend",
+      "type": "near-miss",
+      "prompt": "Can the plant buy a new gateway for 20 thousand without asking anyone? Who has to sign off?",
+      "expected_output": "Does not decide the question itself. Hands the approval question to the decision-rights skill and names the capital request route as the spend gate. Does not invent a threshold and says it is looked up in the current approval policy.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "What does cluster tag mean and how is it different from a capability?",
+      "Before I quote the number of use cases in our portfolio, where does that number come from?",
+      "What is the difference between MSB and the data platform?",
+      "Remind me what the three lanes are and what Lane 4 is for."
+    ],
+    "should_not_trigger": [
+      "Is this new request from plant Y a Lane 1 or a Lane 2 case?",
+      "Who has the authority to approve a capital request above the plant limit?",
+      "Check which skills have a stale source and write the quarterly hygiene report.",
+      "Draft the project order for the new connector at plant Z."
+    ]
+  }
+}

@@ -26,3 +26,7 @@ tags: [background]
 - **Receives from:** `funnel-requirements` (the accepted requirement and its handoff). `dept-context` is read first.
 - **Next in the flow:** `bc-build` (step 24) and `funnel-prototype` (step 23). The skill is proposed on step 22 of `docs/new-state/process.yaml`.
 - **Stops here when:** the requirement's handoff is not accepted, or the epic has one story only (one story that will not split is a story, not an epic), or the check shows blockers. A generated "so that" sentence that fits another plant's epic is not an outcome.
+
+## Sources used in the improvement run
+
+- None beyond the existing skill material; no vault or archive claim was added.

@@ -16,12 +16,11 @@ outputs:
   form: Folder written to the registry's anatomy
   to_skills: []
   to_roles:
-  - Department owner (DBVE
-  - the OD lead approves publication)
+  - Department owner (DBVE; the OD lead approves publication)
   done_when:
   - Passes the registry validator, the specification export, the OKF check and the figures check
   - Status stays `draft`
-  signoff: Department owner (DBVE
+  signoff: Department owner (DBVE; the OD lead approves publication)
 - id: registry-flow-and-readme-entries
   form: "`registry.yaml` entry (authority level equal to the `SKILL.md`), placement on `docs/new-state/process.yaml`, README row"
   to_skills: []

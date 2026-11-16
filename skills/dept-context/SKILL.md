@@ -1,7 +1,7 @@
 ---
 name: dept-context
 description: >-
-  Shared ground truth for OD work: vocabulary, the three lanes, who decides what, honesty rules. Load before any OD work or quoting an OD number. Not for deciding a request (dept-decision-rights).
+  Gives every OD skill the same ground truth: the department vocabulary (use case, asset, capability, cluster tag, IIoT Edge, data platform, MSB, COP), the three lanes plus the outbound Lane 4, which SharePoint list holds which figure, and the honesty rules (tracked is not proven, absence is not zero, no figure without a source). Use before any OD work, when a term, lane, gate or list name is unclear, or before quoting an OD number such as savings, use-case counts or machine counts. Not for who may approve something (dept-decision-rights) or for sorting a new request into a lane (dept-intake).
 license: MIT
 metadata:
   id: dept-context
@@ -55,14 +55,7 @@ metadata:
 - Lane 2 chains to 3a (needs software) or 3b (needs a connection), and a proven, repeatable Lane 2 result is catalogued and becomes a Lane 1 case.
 - Lane 3's front-end (requirements → tool-decision gate → business case → capital request → handover) routes to 3a or 3b and hands over to IT or external delivery only once the demand is clear (OpenSpec IT demand, external).
 
-- **Old to new.** The four functional service lines are retired:
-
-| Old service line (owner) | New state |
-|---|---|
-| Smart Factory Use Case Support Service, incl. Process First-Aid Kit (DBVE) | Known use cases → Lane 1; genuinely new → Lane 2 |
-| Analytical Support Service, incl. Ad-Hoc Analytics (DBVE) | Retired as a standing lane; ad-hoc analytics routes to Lane 1 self-service, Lane 2, or external support (`funnel-first-aid`) |
-| Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`mi-equipment`) |
-| Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (OpenSpec IT demand, external) |
+- **Old to new.** The four functional service lines are retired; a requester who names one is translated with the crosswalk in `dept-intake` (also in `references/background.md`).
 
 - Step ids, route options and department skill names: `references/process-chain-practice.md`, "Step ids and skill names".
 
@@ -74,7 +67,7 @@ metadata:
 
 - Lane cut rule: **one lane = one trigger + one definition of done + one autonomy profile.**
 
-- **Lane 4, the outbound lane (added 2026-11-10 on the owner's request).** Lane 4 promotes a proven use case to other plants, leadership and colleagues through Internal Communications (IC).
+- **Lane 4, the outbound lane.** Lane 4 promotes a proven use case to other plants, leadership and colleagues through Internal Communications (IC).
 - It is not an intake lane: no demand is classified into it.
 - It is entered from a use case that is live and adopted (Lane 1 go-live or Lane 2 graduation) through `comms-showcase`, continues with `comms-brief` and `comms-followup`, and feeds reactions back into Lanes 1 to 3.
 - OD drafts; the plant owner, the OD lead and IC approve; IC publishes.
@@ -90,10 +83,7 @@ metadata:
 | Capability | One of the cross-plant templates a use case hangs off | Cluster tag (a classification, not a template) |
 | Cluster tag | One of the C01–C12 tags assigned by a deterministic classifier | Capability |
 | IIoT Edge | Plant Kubernetes runtime for data acquisition and app deployment | The data platform it offloads to |
-| Data platform | Where shopfloor data lands for analysis — the IIoT Edge Platform offloads through **Databricks** to an **Azure Storage Account**, main file format **Parquet** | MSB, the bus |
-| Databricks | The data platform the edge offloads through | The storage account it writes to |
-| Azure Storage Account | The offload target | Databricks, which writes it |
-| Parquet | The main file format on the storage account | — |
+| Data platform | Where shopfloor data lands for analysis: the IIoT Edge Platform offloads through Databricks to an Azure Storage Account, main file format Parquet | MSB, the bus; the IIoT Edge runtime |
 | MDL | "OESL Manufacturing Data Lake" in older department files, including the new-state lane drafts. **Not used** (owner decision, `docs/derivation.md`): read every MDL in a source as the data platform above | A separate system |
 | ContiTech | Named in older department files (lane drafts, decision rights) as shared-service partner and counterpart. **Not used** (owner decision, `docs/derivation.md`): where a decision names ContiTech, the counterpart is the IT-responsible role of the business side | — |
 | MSB | Manufacturing Service Bus — use-case enabler / integration backbone | The data platform |
@@ -101,7 +91,7 @@ metadata:
 | MDA/PDA | Machine Data Acquisition / Process Data Acquisition | MES |
 | Digitalization Scorecard | The authoritative Power BI report of OD targets vs. actuals and readiness | The Use Case / Equipment Integration reports, which feed it |
 | Readiness (RAG) | System integration & availability per dimension × location — red not available, yellow in rollout, green available | — |
-| ODEC | Operations Digitalization Exchange Call — **historical** strategy forum (monthly only until 2025-12, no longer held, no fixed replacement forum); a source of information (past decisions, decks, facts) | COP |
+| ODEC | Operations Digitalization Exchange Call — **historical** strategy forum (no longer held, no fixed replacement forum; held monthly before it ended); a source of information (past decisions, decks, facts) | COP |
 | COP | Community of Practice Call — **technical** round | ODEC (historical) |
 | DBVE | Digital-Business-Value-Engineer — owns use-case value | IIAE |
 | IIAE | IIoT Interface & Automation Engineer — owns integration | DBVE |
@@ -156,27 +146,38 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
 ## Procedure
 
 1. Load this skill before any OD work; take terms only from the vocabulary table or its reference.
-2. Resolve each term, lane and gate to one meaning; if two sources disagree, the SharePoint list wins.
+2. Resolve each term, lane and gate to one meaning; if two sources disagree, the SharePoint list wins, because the lists are the write surface.
 3. Find the source in "Where the truth lives" and read the figure live from the list (cite list and export date).
-4. Route a gate through "Who decides" (`dept-decision-rights`); a decision stays with the named role.
+4. Route a gate through `dept-decision-rights`; a decision stays with the named role.
 5. If a figure has no source or a term does not resolve, mark it `⟨… — to confirm⟩` and stop; do not fill the gap.
+6. Answer in the reply template below; nothing else leaves this skill.
+
+### Reply template
+
+```text
+Term / gate / figure: <what was asked>
+Meaning or route:     <one meaning, or the owning role and skill>
+Source and date:      <list name, export date>  |  ⟨… — to confirm⟩
+```
+
+### Example: a quoted figure (fictional)
+
+```text
+Request:  "How many use cases are proven at plant X?"
+Term:     "proven" = value proven after a SPRINT portfolio review (not tracked, not implemented)
+Source:   SmartFactory UseCase Savings + UseCase SavingCalculation, export 2026-01-15 (fictional)
+Reply:    Term / gate / figure: proven use cases, plant X
+          Meaning or route:     saving rows marked proven after SPRINT review; tracked is reported beside it
+          Source and date:      UseCase SavingCalculation, export 2026-01-15 (fictional)
+No export date given -> Source and date: ⟨export date — to confirm⟩, no number stated.
+```
 
 ## Who decides
 
-- The function proposes; other people decide.
-- Most gates sit outside OD.
-
-| Gate | Route | Threshold |
-|---|---|---|
-| Spend | eCR | Per the current approval policy (look up: Controlling / the eCR process owner) |
-| Demand on IT platforms | IT demand management + demand evaluation board | anything OD does not own |
-| Standard enough to roll out | CSP decision per library entry | Decision recorded per entry in the library |
-| Into daily use | The plant | plant owns `PRODUCTIVE` |
-| Value is proven | SPRINT portfolio review | Saving row marked proven after review |
-
-- `authority_level` ∈ { `read-only`, `draft`, `recommend`, `execute-with-approval`, `execute-autonomously` }.
-- Modes at seams: **Tandem** (both must agree) · **Consultation** (hear, then decide alone) · **Information**.
-- Full routing: `dept-decision-rights`.
+- The function proposes; other people decide. Most gates sit outside OD, because OD does not own spend, IT platforms or the plant's daily use.
+- The five gates: spend (eCR), demand on IT platforms, CSP (standard enough to roll out), into daily use (the plant owns `PRODUCTIVE`), value proven (SPRINT review).
+- Thresholds are looked up, never guessed: ask Controlling or the eCR process owner for the current approval policy.
+- Routes, authority levels and modes (Tandem, Consultation, Information): `dept-decision-rights` owns them.
 
 ## The honesty rules — non-negotiable, inherited by every OD skill
 
@@ -200,11 +201,16 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
 
 - An agent may resolve terms, quote a figure only from a live list (cite list and export date), and route.
 - It never states an unsourced figure, writes to the graph, or acts on an external machine connection.
-- Humans decide every gate in the table above.
+- Humans decide every gate named under "Who decides".
 
 ## Pitfalls
 
-- Recurring errors: honesty rules 1, 3 and 6, and mixing the local Grafana with the global platform.
+- Adding tracked and proven savings into one number; quote both, separately (rule 1).
+- Reading `UNKNOWN` priority or an empty reliability as low or zero; count them as unknown (rule 3).
+- Correcting the knowledge graph instead of the SharePoint list; the graph does not pass corrections back (rule 6).
+- Mixing the local Grafana with the global platform: a line-side view is local, a cross-plant question is global.
+- Quoting a figure from memory or from an old deck; read it live and cite list and export date.
+- Treating a historical forum (ODEC) as a route; it is a source of past decisions only.
 
 ## Outputs
 
@@ -226,8 +232,9 @@ PLC ──(one of three ingress variants)──► IIoT Edge Platform ──MQTT
 
 | File | Open when |
 |---|---|
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Currency rules per field, three demand shapes, plant tiering, AI maturity check, handoff contract |
-| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Testing an action against the SWOT; dependency seams and their mode; corrections table; resolved gaps |
-| [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | Reading the knowledge graph: node kinds, relations, provenance of descriptions |
-| [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | Finding content in non-Markdown sources; reference library tiers; benchmarks without overclaiming; provenance tags |
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | You need the currency rule for a field, the three demand shapes, plant tiering, the AI maturity check or the handoff contract |
+| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | You test an action against the SWOT, need a dependency seam and its mode, or look for a recorded correction or resolved gap |
+| [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | You answer a question from the knowledge graph or need to know how reliable a node description is |
+| [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | The content sits in a non-Markdown source, you quote the reference library or a benchmark, or you must tag provenance |
+| [`references/background.md`](references/background.md) | You want the why behind a rule, the old-to-new service-line crosswalk or the facts behind a date; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

@@ -1,7 +1,7 @@
 ---
 name: dept-intake
 description: >-
-  Decide what OD does with an incoming request: accept into one of three lanes, refuse, or route to the owner. Not for decision rights of an accepted request (dept-decision-rights).
+  Decides what OD does with an incoming request, demand or idea: accepts it into exactly one of three lanes (known use case, new use case, new system or connector), refuses it with a reason and route, or hands it to the function that owns it. Use when a plant, key user or colleague brings something and it is unclear whether it is OD work, which lane it belongs to, what its priority basis is, or which gate it will hit. Also use when a request sounds like a normal dashboard but may need a system outside the lean footprint. Drafts the triage record; the OD lead decides large requests. Not for who approves an accepted request (dept-decision-rights) or for building the solution (catalog-usecase, funnel-use-case).
 license: MIT
 metadata:
   id: dept-intake
@@ -39,19 +39,13 @@ metadata:
 
 1. Check the channel and record it ("Channels a request legitimately arrives through").
 2. Is it OD's at all? Refuse and name the owner if not (step 1 in "The triage").
-3. Apply the refusal list and shape the statement (steps 2 and 2b).
+3. Apply the refusal list (step 2, with `references/refusal-playbook.md` for look-alike requests) and shape the statement (step 2b).
 4. Classify into exactly one lane (step 3), prioritize (step 4) and check against OD's position (step 5).
 5. Write the triage record and name the expected gate for `dept-decision-rights`.
+6. Check the record: channel, exactly one lane or a refusal with route, owner, priority basis (`UNKNOWN` allowed), gate. Fix and recheck until all are present.
 
 - Read `dept-context` first.
-- Without a defined entrance, the loudest channel steers the department — this skill is the entrance.
-
-## The references are the substance
-
-| File | Use it for |
-|---|---|
-| [`references/refusal-playbook.md`](references/refusal-playbook.md) | Request patterns that look legitimate but should be refused or re-scoped, the tell in each, and one pattern accepted that should have been refused |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | How step i1 is run in the AI-driven chain: SMART test and object/event reduction, standard versus special, three-way triage (just do / go forward / lead change), lane by demand shape, handoff record, agent notes |
+- Without a defined entrance, the loudest channel steers the department; this skill is the entrance.
 
 ## Channels a request legitimately arrives through
 
@@ -61,7 +55,7 @@ metadata:
 - Requests and feedback surfaced through **COP** (technical); ODEC (strategic) is a historical source of past requests and decks, not a current channel
 - **Ad-hoc analytics / Process First-Aid Kit** requests
 
-- **There is no central ticket queue or mailbox, confirmed 2026-10-22** — these four channels are the whole intake, not a partial list standing in for an unwritten one.
+- **There is no central ticket queue or mailbox** (confirmation date: `references/background.md`) — these four channels are the whole intake, not a partial list standing in for an unwritten one.
 - A request arriving outside them is not thereby invalid; record which channel it is being admitted through, because that is what makes the queue readable later.
 
 ## The triage
@@ -78,18 +72,17 @@ metadata:
 
 - OD supports these with digital solutions; it does not own them. "Support with a digital solution" is an OD request. "Own the outcome" is not.
 
-- requests with **no plant-roadmap link and no nameable business case**;
-- solutions requiring systems **outside the lean standardized footprint** — notably a non-standard MES rollout short or mid-term.
-   - A request rarely names the system; run `invest-screen` whenever the ask sounds like a normal dashboard or integration request but implies cross-process scheduling, full order genealogy or similar;
-- work owned by a sibling function (automation build, facility/energy, tool centers).
-- **2 — Apply the explicit refusal list.** Refuse:
-
-- A refusal is returned to the demand owner with the reason and the route, not dropped.
+- **2 — Apply the explicit refusal list.** Refuse, and use `references/refusal-playbook.md` when a request looks legitimate but fits none of these:
+  - requests with **no plant-roadmap link and no nameable business case**;
+  - solutions requiring systems **outside the lean standardized footprint**, notably a non-standard MES rollout short or mid-term;
+  - work owned by a sibling function (automation build, facility/energy, tool centers).
+- A request rarely names the system; run `invest-screen` whenever the ask sounds like a normal dashboard or integration request but implies cross-process scheduling, full order genealogy or similar.
+- A refusal is returned to the demand owner with the reason and the route, not dropped, because a silent drop reads as an unanswered request and returns through a louder channel.
 
 - **2b — Shape the statement before lane matching.** A request is admitted only if it passes the SMART test (purpose, objective, real problem, timeframe, named stakeholder;
 - a target with no baseline fails) and has been reduced to object, event and time.
 - Then set the class (standard cross-process, standard per-process, non-standard unique) and, for a list, the three-way bucket (just do, go forward, lead change).
-- Detail in [`references/process-chain-practice.md`](references/process-chain-practice.md).
+- Detail: `references/process-chain-practice.md`.
 
 - **3 — Classify into exactly one new-state lane.** Each demand goes to one lane at intake; branches chain later, but intake decides once (department new-state draft, open design question 2, working assumption).
 
@@ -105,12 +98,10 @@ metadata:
 - A Lane 2 use case that needs new software chains into 3a, one that needs a new connection into 3b.
 - Record the move on the same demand.
 
-- **Old service lines.** The four functional lines are retired in the new state:
-- Use Case Support splits into Lane 1 and Lane 2, Analytical Support is no longer a standing lane, Information Integration becomes Lane 3b, and Project Support & Application Consultancy becomes the Lane 3 front-end.
-- When a requester names an old line, translate it with this crosswalk (`dept-context`).
+- **Old service lines.** The four functional lines are retired. When a requester names one, translate it with the crosswalk in `dept-context` (`references/background.md`).
 
 - **4 — Prioritize.** By measurable value against the plant or central engineering roadmap — savings, lead-time reduction, cost avoidance — aligned with strategic-plant scope.
-- **Confirmed 2026-10-22: this is the whole rule** — there is no further written formalization (no scoring model, no weighting) beyond value-against-roadmap aligned with strategic-plant scope.
+- **This is the whole rule** (confirmation date: `references/background.md`) — there is no further written formalization (no scoring model, no weighting) beyond value-against-roadmap aligned with strategic-plant scope.
 
 - **5 — Check the request against OD's position** before accepting a large one.
 - A proposed action should use a strength, cover a weakness, capture an opportunity or mitigate a threat.
@@ -126,9 +117,12 @@ metadata:
 
 ## Do not
 
+- Do not read "just a small tile" as Lane 1: check that the use case is catalogued and the machine connected, because otherwise it falls to Lane 2 or 3.
+
 - Do not accept a request because it is urgent to the person asking; urgency must be
   derivable from the roadmap link and the value basis.
-- Do not silently widen a lane's scope to make a request fit.
+- Do not silently widen a lane's scope to make a request fit, because the lane's gate and cost profile no longer apply.
+- Do not drop a refused request without telling the demand owner the reason and the route.
 - Do not record a priority you have inferred. Many use cases carry `UNKNOWN`
   priority and `UNKNOWN` is a truthful value.
 
@@ -148,6 +142,21 @@ Output: channel workshop | lane 1a | owner DBVE + plant | trigger: catalogued us
         done: plant confirms adoption | priority: UNKNOWN | gate: plant go-live | blockers: none known
 ```
 
+## Example: refusal and fall-through (fictional)
+
+```text
+Input : "Please own the energy dashboard for the whole site and keep it running." (email to an OD member)
+Triage: channel = none of the four (record it as admitted by email, to be moved into a workshop);
+        OD's: no, energy and facility topics belong to Facility Management & Green Production
+Output: refusal returned to the demand owner: reason = not OD-owned; route = Facility Management;
+        offer = OD can support with a digital solution if that function owns the outcome
+
+Input : "Roll out the standard downtime tile at Plant Y" (via a workshop)
+Triage: catalogued, but the press is not connected -> Lane 1b; no standardized system fits -> falls to Lane 3
+Output: channel workshop | lane 3 (moved from 1b, recorded on the same demand) | trigger: new connection |
+        gate: Cyber Security sign-off, tool-decision gate | priority: UNKNOWN
+```
+
 ## Definition of done
 
 - The request has a recorded channel, exactly one lane (or a refusal returned to the demand owner with reason and route), an owner role, a priority basis (`UNKNOWN` is allowed) and the expected gate.
@@ -159,6 +168,9 @@ Output: channel workshop | lane 1a | owner DBVE + plant | trigger: catalogued us
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/refusal-playbook.md`](references/refusal-playbook.md) | A request looks legitimate but fits no refusal category (step 2), or the requester pushes back on a refusal |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | You apply the SMART test, reduce to object and event, choose the three-way bucket, or write the handoff record (steps 2b and 5) |
+| [`references/background.md`](references/background.md) | You want the why, the confirmation dates behind the no-queue and priority statements; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

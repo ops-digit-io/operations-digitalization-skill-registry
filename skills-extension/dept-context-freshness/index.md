@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Context freshness](SKILL.md) | Agent Skill | Run the quarterly freshness check that keeps every other OD skill honest - find the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry unresolved gaps, the skills that rest on an out-of-date source, and the registry data marks; then draft the hygiene report. Read-only on the registry; includes a small stdlib script. Use at the start of each quarter, before relying on a decision table or a figure, when a valid-until date is near, or when someone asks whether the context behind a skill is still true. |
+| [Context freshness](SKILL.md) | Agent Skill | Finds out whether the context behind the OD skills is still true and drafts the quarterly hygiene report. Lists the knowledge-bundle files whose valid-until has passed or whose review is overdue, the skills whose sources_read is old and that still carry open gaps, the skills that rest on an out-of-date source, and the registry data marks (data_as_of, graph_as_of, flows_as_of). Use at the start of each quarter, before quoting a decision table, a target or a figure, when a valid-until date is near, or when someone asks "is this still current?" or "which skills are stale?". Reports only: it repairs nothing and never edits a date. Not for deciding who may approve (dept-decision-rights) or for explaining a term (dept-context). |
 
 | Folder | Holds |
 |---|---|

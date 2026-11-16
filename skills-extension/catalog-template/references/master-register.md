@@ -9,6 +9,14 @@ tags: [all, practice]
 
 # Master register
 
+## Contents
+
+- How to read a register row
+- A. Kinds of rows in the register
+- B. Templates produced inside registry skills
+- C. Files found outside the register
+- D. Typical gaps and who can close them
+
 How to read the department resource register, not a copy of it. The register lives at
 `ops-knowledge-graph/_knowledge/OperationsDigitalization-Department/00-core/15-resources.md`; it is reviewed quarterly.
 This page deliberately holds **no state, no version dates and no counts**: a copy would drift from the register the

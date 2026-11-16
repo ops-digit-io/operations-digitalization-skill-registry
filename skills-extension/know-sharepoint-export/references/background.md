@@ -10,7 +10,7 @@ tags: [background]
 
 ## The references are the substance
 
-Do not re-derive the scripts; run the procedure as given.
+The procedure in references/export-procedure.md is proven; the skill keeps the steps there and does not re-derive them.
 
 ## Outputs and hand-off: the text before outputs.yaml
 

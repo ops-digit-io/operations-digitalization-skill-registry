@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Prototype and proof of concept](SKILL.md) | Agent Skill | Prove a new use case cheaply before the business case: choose click-dummy, proof of concept or neither, and record the result. Not for costing value (bc-build) or dashboards. |
+| [Prototype and proof of concept](SKILL.md) | Agent Skill | Prove a new use case cheaply before the business case: choose click-dummy (mock-up), proof of concept (PoC) or no prototype, write the pass criterion first, show it to the plant users and record the result in a validation record, never as "proven". Use when a defined Lane 2 use case has an open question such as "will the shift read this", "does the data separate good from bad" or "can we run a pilot", when someone asks for a mock-up, click-dummy, PoC or quick test with the plant. Drafts only; the plant confirms the value. Not for costing value (bc-build), the capital request (bc-capital-request), dashboard build (ops-dashboard-engine) or the requirement (funnel-requirements). |
 
 | Folder | Holds |
 |---|---|

@@ -1,8 +1,9 @@
 """
 dashboard_builder.py — helpers for generating Grafana 8.5 (schema 36) panel JSON.
 
-Designed for PostgreSQL/TimescaleDB datasources, the bilibala-echarts-panel plugin,
-and operations dashboards. Supports both relational and timeseries archetypes —
+Designed for PostgreSQL-type datasources (the generated JSON declares pluginId "postgres"; the SQL
+itself must stay PostgreSQL and DuckDB portable, see SKILL.md Rule 2), the bilibala-echarts-panel
+plugin, and operations dashboards. Supports both relational and timeseries archetypes —
 the panel helpers don't care which one your SQL uses.
 
 Conventions:
@@ -26,6 +27,10 @@ Quick start:
 
     dashboard = build_dashboard("My Dashboard", panels, variables=[...])
     json.dump(dashboard, open("out.json","w"), indent=2)
+
+Check a generated file before delivery (standard library only; exit 0 clean, 1 findings, 2 unreadable):
+
+    python dashboard_builder.py validate out.json
 """
 
 import json
@@ -495,3 +500,72 @@ def audit_panels(panels, expected_vars):
         flags = ["Y" if re.search(r"\$\{?" + v + r"(?![\w])", sql) else "·"
                  for v in expected_vars]
         print(f"{p['title'][:54]:<55} " + " ".join(f"{f:<7}" for f in flags))
+
+
+# =============================================================================
+# Validation - run before delivery (Step 6 of SKILL.md)
+# =============================================================================
+
+_FORBIDDEN_SQL = [
+    (r"time_bucket", "TimescaleDB-only time_bucket: use $__timeGroup()"),
+    (r"BETWEEN\s+\$__timeFrom\(\)\s+AND\s+\$__timeTo\(\)", "hand-rolled time range: use $__timeFilter()"),
+    (r"DISTINCT\s+ON", "Postgres-only DISTINCT ON: use ROW_NUMBER() OVER (PARTITION BY ...)"),
+    (r"::int\b", "'::int' cast: use CAST(x AS INTEGER)"),
+]
+
+
+def validate_dashboard(dashboard):
+    """Return a list of problems (empty list = clean). Static checks only; it cannot run the SQL."""
+    import re
+    problems = []
+    if not isinstance(dashboard, dict) or "panels" not in dashboard:
+        return ["not a dashboard object: no 'panels' key"]
+    seen = set()
+    sqls = []
+    for p in dashboard["panels"]:
+        pid = p.get("id")
+        if pid in seen:
+            problems.append(f"duplicate panel id {pid} ({p.get('title', '?')})")
+        seen.add(pid)
+        for t in p.get("targets") or []:
+            sql = t.get("rawSql", "")
+            sqls.append(sql)
+            for pat, msg in _FORBIDDEN_SQL:
+                if re.search(pat, sql, re.I):
+                    problems.append(f"panel {pid} '{p.get('title', '?')}': {msg}")
+    variables = dashboard.get("templating", {}).get("list", [])
+    var_sqls = [str(v.get("query", "")) + str(v.get("definition", "")) for v in variables]
+    for v in variables:
+        name = v.get("name")
+        if name and not any(re.search(r"\$\{?" + re.escape(name) + r"(?![\w])", q) for q in sqls + var_sqls):
+            problems.append(f"variable ${name} is defined but used in no panel SQL")
+    if not dashboard.get("__requires"):
+        problems.append("__requires is missing: declare schema, plugin and Grafana versions")
+    if "${DS_" not in json.dumps(dashboard):
+        problems.append("no ${DS_NAME} datasource placeholder: the import dialog will not ask for a datasource")
+    return problems
+
+
+def _main(argv):
+    if len(argv) != 3 or argv[1] != "validate" or argv[1] in ("-h", "--help"):
+        print(__doc__.strip().splitlines()[0])
+        print("usage: python dashboard_builder.py validate DASHBOARD.json")
+        print("  Static checks: duplicate panel ids, forbidden SQL (time_bucket, BETWEEN $__timeFrom..., DISTINCT ON, ::int),")
+        print("  unused variables, __requires, datasource placeholder. Exit 0 clean, 1 findings, 2 unreadable file.")
+        return 0 if len(argv) >= 2 and argv[1] in ("-h", "--help") else 2
+    try:
+        with open(argv[2], encoding="utf-8") as f:
+            dash = json.load(f)
+    except (OSError, ValueError) as e:
+        print(f"cannot read {argv[2]}: {e}")
+        return 2
+    problems = validate_dashboard(dash)
+    for pr in problems:
+        print(" -", pr)
+    print("VALIDATION OK" if not problems else f"{len(problems)} finding(s)")
+    return 1 if problems else 0
+
+
+if __name__ == "__main__":
+    import sys
+    raise SystemExit(_main(sys.argv))

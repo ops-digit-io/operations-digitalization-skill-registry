@@ -8,6 +8,18 @@ tags: [signals, process-chain, ai-agent]
 ---
 # Process-chain practice
 
+## Contents
+
+- Where it sits
+- Handoff contract
+- Method in practice
+- AI-assisted signal selection (and the missing-signal table)
+- Decision rules
+- Pitfalls and lessons
+- Questions to ask
+- Definition of done
+- AI agent operating notes
+
 Derived from the Operations Digitalization slide decks, abstracted into process guidance. Examples are illustrative and use
 `<placeholders>`. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`.
 

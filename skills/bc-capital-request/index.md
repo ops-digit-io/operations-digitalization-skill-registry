@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Capital request](SKILL.md) | Agent Skill | Package a use case's value and cost into a capital request (eCR) for human approvers: spend gate, evidence, options, risks. Drafts only. Not for calculating value (bc-build). |
+| [Capital request](SKILL.md) | Agent Skill | Packages a use case's value rows and cost estimate into a draft capital request (eCR) and management summary deck for human approvers: ask in one line, approval route by amount, options including do-nothing, risks, sensitivity, open items and a maturity verdict. Use when a Lane 2 use case has passed its business case and needs investment, a Lane 3 system needs funding, a saving waits on ECR CREATION or ECR APPROVAL, or someone asks "how do I get this funded". Drafts only; a human submits, approvers decide. Not for calculating value (bc-build), costs (bc-cost) or scoring the case (bc-assess). |
 
 | Folder | Holds |
 |---|---|

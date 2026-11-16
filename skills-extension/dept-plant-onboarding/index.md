@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Plant onboarding](SKILL.md) | Agent Skill | Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the plant and assessing its equipment, through intake and the three new-state lanes, to handover, training and joining the department's reporting routines, naming the skill, the artefact and the role for each stage. Use when a plant enters OD scope, when a plant has records but no roadmap, when a local key user asks where to start, or when a plant's onboarding has stalled and the missing stage must be found. |
+| [Plant onboarding](SKILL.md) | Agent Skill | Answers "where does this plant start, and what comes next?". Places one plant by what is recorded (no machines recorded, machines but none integrated, partly or fully integrated), then walks eight stages in order from recording the plant and assessing its equipment, through demand intake, first catalog wins, connecting machines and new use cases, to handover, training and joining the reporting routines, naming skill, artefact and responsible role per stage. Use when a plant enters scope, has records but no roadmap, a local key user asks where to start, or onboarding stalled. Not for diagnosing unequal savings or tiering (dept-plant-diagnosis) or classifying one request (dept-intake). |
 
 | Folder | Holds |
 |---|---|

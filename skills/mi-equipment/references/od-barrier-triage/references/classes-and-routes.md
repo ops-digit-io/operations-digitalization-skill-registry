@@ -20,7 +20,7 @@ error paths. The grouping is this skill's proposal; the OD lead has not confirme
 |---|---|---|
 | **Roadmap** | The barrier is known and can clear; the machine keeps a sequence position behind it | Assessment protocol section 5 "barriers logged" (`mi-equipment`); lane playbook error path "log barrier in landscape module; escalate to roadmap" |
 | **Strategy** | A decision above the machine is needed | OD lead: the playbook error path "operations concept for target system missing: escalate to strategy (tool rollout decision)". `dept-decision-rights`: the OD lead and the deciding role named in the current approval policy (look up) for strategy, priority, rollout and blocked projects; COP for technical matters such as connection barriers and missing operations concepts |
-| **Substitution** | Reach the data another way, or replace what cannot connect | Fallback ladder, `mi-equipment` Route B; paid options through `bc-cost` |
+| **Substitution** | Reach the data another way, or replace what cannot connect | Fallback ladder, `mi-equipment` Mode B; paid options through `bc-cost` |
 
 ## The seven classes
 

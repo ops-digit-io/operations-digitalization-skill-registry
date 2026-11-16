@@ -1,7 +1,7 @@
 ---
 name: mi-signals
 description: >-
-  Analyse a machine's signals and standardize them so a second plant can use them: names, collisions, gaps, public data models. Not for connecting the machine (mi-equipment) or flows.
+  Analyse a machine's signal list and standardize it so a second plant can use it: canonical names, local-language and raw PLC tags, name collisions, missing signals, public data models (OPC UA for Machinery, EUROMAP, PackML), signal analysis report and binding sheet. Use when a machine is newly connected, a use case cannot be built because a signal is missing or ambiguous, two plants' versions of a signal do not compare, tags arrive in German, Chinese or Spanish, or before a derived data point is published. Not for connecting the machine (mi-equipment), building the flow (mi-flow) or checking whether data is collected (mi-data-availability).
 license: MIT
 allowed-tools: Read Grep Glob Bash(python3 scripts/analyze_signals.py:*)
 metadata:
@@ -36,11 +36,12 @@ metadata:
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 - Read `dept-context` first.
+- Terms: **tag** = the raw name in the PLC or export; **data point** = one registered `{uuid, label}` entry on the IIoT Edge Platform; **signal** = the standardized concept a data point carries.
 - Connecting a machine gets you a signal; **standardizing it is what makes it comparable to the same signal at other plants**, the only reason a cross-plant capability template means anything.
 
 ## Inputs and output
 
-- **A - tag list**: edge-platform data points (`{uuid, label}`) or a tag/symbol export, any plant language; from `mi-equipment`.
+- **A - tag list**: data points (`{uuid, label}`) from the IIoT Edge Platform or a tag/symbol export, any plant language; from `mi-equipment`.
 - **B - machine context**: PLC program (version confirmed), sequence chart, layout, handbook, HMI, schematic or proven instance; plus the machine CV and integration plan. **A tag list without context gives names without meanings.**
 - Also: missing-signal table and verdict from `mi-data-availability`; tags of interest and stories from `funnel-requirements` (one vocabulary).
 - **Output**: [`signal-analysis-report.md`](assets/signal-analysis-report.md) (comparable between machines) and the filled [`signal-binding-sheet.md`](assets/signal-binding-sheet.md) (one row per signal: unit, scale, value type, delta meaning, setpoint or actual, consumers).
@@ -54,11 +55,21 @@ python3 scripts/analyze_signals.py points.json --capability oee --report > repor
 - Fictional example (invented tags, not a real machine):
 
 ```text
-points.json : [{"uuid": "u1", "label": "MachineStatus"}, {"uuid": "u2", "label": "DB12.DBX0.1"}]
+points.json : [{"uuid": "u1", "label": "MachineStatus"}, {"uuid": "u2", "label": "DB12.DBX0.1"},
+               {"uuid": "u3", "label": "Rüstzeit"}]
 Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical, no finding
+              u3 = local-language name -> warning with a canonical suggestion
+```
+
+- One mapped row (fictional, unit to be confirmed with the plant) as it lands in the binding sheet:
+
+```text
+As found | Lang | Canonical    | Alias (kept) | Unit | Scale | Collection        | Type
+Rüstzeit | de   | SetupTime    | Rüstzeit     | s    | 1     | sample, 1 s       | double
 ```
 
 - If it fails: a points file that cannot be read, or lacking `uuid` and `label`, is invalid input; fix the export and run again.
+- Requirements: Python 3, standard library only.
 
 ## Available Scripts
 
@@ -81,17 +92,17 @@ Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical,
 6. **Classify each signal**: canonical, variant, local language, machine-specific, raw PLC tag, derived. **Qualify, do not coin.**
 7. **Check against the capability, not the machine** (`--capability`, requirement checklist in [`standards.md`](references/standards.md) before choosing signals). Name the owner of a gap: PLC does not expose it (machine/engineering) vs not configured on the edge (integration, cheap).
 8. **Make each signal standardized**: canonical name, defined meaning, stated unit and scale, stated collection method (transition or sample, interval).
-9. **Register derived outputs**: a derived signal gets a new UUID registered on the edge platform first; name raw vs derived explicitly (`MachineMode` / `MachineModeNormalized`).
-10. **Write the report** and state the context situation (full context, tag export only, handbook only, nothing but the machine, proven instance). Not standardizing is a valid outcome: record it as a decision.
+9. **Register derived outputs**: a derived signal gets a new UUID registered on the IIoT Edge Platform first; name raw vs derived explicitly (`MachineMode` / `MachineModeNormalized`).
+10. **Re-run the analyser** after steps 8 and 9 (renames, registered outputs); repeat steps 2 to 9 until no blockers remain, because a rename can introduce a collision.
+11. **Write the report** and state the context situation (full context, tag export only, handbook only, nothing but the machine, proven instance). Not standardizing is a valid outcome: record it as a decision.
 
 ## Decision rules
 
-- Raw PLC tag, name collision, mixed script, missing/duplicate UUID, capability gap -> **blocker**; fix before any flow consumes it.
+- Raw PLC tag, name collision, mixed script, missing/duplicate UUID, capability gap -> **blocker**; fix before any flow consumes it, because a flow bakes the name into every consumer.
 - Variant or typo -> rename to canonical **before** anything consumes it; a live signal rename is a breaking change with migration.
 - Local-language name -> map to canonical, keep the original as alias in report and Machine CV. Never machine-translate a name into the label; get a native reading from the plant.
 - Public model covers it -> adopt it. Genuinely machine-specific -> keep, name by concept, record why.
 - Missing signal needing a PLC change -> route to `mi-equipment` (guidance route).
-- Machine-specific barrier -> `mi-equipment` (class, owner).
 - Data-model or signal-standard change: **Consultation**, IIAE decides (tool or system rollout in tandem with the IT-responsible role of the business side). Machine standards for digital connection: OD lead in Consultation with Manufacturing Engineering, aligned with M+E standards.
 - Data class decides the route: transactional -> service bus with OPC-UA; time-series -> MQTT stream; master data -> ERP leads ([`process-chain-practice.md`](references/process-chain-practice.md)).
 
@@ -103,8 +114,7 @@ Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical,
 |---|---|
 | `mi-flow` (flow config contract) | Canonical names, units, collection method, derived outputs to register; also feeds `funnel-requirements` section 5 (Tags of Interest) |
 | `deploy-acceptance`, `catalog-compatibility` | Report and binding sheet; a second plant can consume it without asking |
-| `mi-equipment` (guidance), Machine CV | Signals the PLC must expose |
-| `mi-equipment` | Machine-specific barrier with class and owner |
+| `mi-equipment` (guidance route), Machine CV | Signals the PLC must expose; machine-specific barrier with class and owner |
 | IIAE (consultation) | Proposed standard change |
 
 ## Human gate and AI-agent notes
@@ -126,6 +136,8 @@ Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical,
 - **Do not accept a raw PLC tag** into the data-point config: unmatched at other plants, wrong after the next PLC change.
 - **Do not standardize a name without its meaning**: meaning comes from the machine context, not the tag list.
 - Archived PLC project produces tags that connect and read nothing.
+- **Do not machine-translate a local name into the label**: a wrong reading becomes a wrong signal for every plant.
+- **Do not read a low cluster rank as zero demand**: it is unknown demand.
 
 ## Outputs
 
@@ -150,3 +162,4 @@ Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical,
 | [`process-chain-practice.md`](references/process-chain-practice.md) | Data class and route, information-model layering, data-model steps, AI-assisted selection, agent notes |
 | [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Run the checks, clustering, report |
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

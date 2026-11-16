@@ -8,6 +8,19 @@ tags: [node-red, troubleshooting]
 ---
 # Symptom → cause → where to look
 
+## Contents
+
+- The rule: walk outward from the machine
+- Nothing is published
+- Published, but the value is wrong
+- Timestamps are wrong
+- It worked yesterday / stopped after a redeploy
+- Works on test, not on prod
+- The downstream asset is empty
+- Errors you can see, and the ones you cannot
+- When to stop reading the flow
+- Silent corruptions and fast triage
+
 What the static analyser cannot see. Work down from the symptom; each row names the
 **layer** to check, because the commonest diagnostic mistake is starting at the dashboard
 and working inward.

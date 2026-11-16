@@ -37,3 +37,9 @@ deploy: a human with deploy rights does that.
 - **Receives from:** `funnel-requirements` (accepted requirement), `invest-screen` and `dept-decision-rights` (tool decision), `bc-build` (business case), `bc-capital-request` (capital approved where needed), and OpenSpec IT demand (external) first on routes 3a.3 and 3a.4 once the external build is delivered.
 - **Next in the flow:** `deploy-handover` (step 3a6, rollout and adoption).
 - **Stops here when:** a package field is missing or the Cyber Security sign-off is not granted. Then the package is invalid for release: list the gap with its owner and stop. No deployment to a shared platform without the named human approval.
+
+## Open questions (improvement run)
+
+- Containerization requirements, image and registry rules, resource limits: not recorded in the knowledge used; owner to supply.
+- Lead time of the Cyber Security sign-off: the flow marks it as weeks; no figure is recorded.
+- `references/microservice-app-pattern.md` is a design proposal about building apps; it may belong to the skill that owns app building. Moving it needs a decision outside this skill.

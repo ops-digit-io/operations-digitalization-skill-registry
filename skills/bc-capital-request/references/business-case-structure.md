@@ -8,6 +8,14 @@ tags: [use-case-support-service, practice]
 ---
 # Business case structure
 
+## Contents
+
+- The fields a case carries
+- How to read the ranges and scores
+- Patterns worth copying into a request
+- What is typically missing or weak
+- Structure proposed for the capital request package
+
 Source: `Graph/Business Cases`, notes from the SharePoint list
 "BusinessCasesAIatOperations". Re-read the folder before relying on this file: the set of cases changes.
 

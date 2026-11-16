@@ -31,3 +31,12 @@ If it fails: a route marked TODO, stub or absent is invalid as a standard system
 - **Receives from:** `catalog-usecase` (the match record, branch 1b only), plus the machine facts (controller vendor and model, protocol, program version, where the data should land).
 - **Next in the flow:** step 1b2 `dept-decision-rights` (cost template and approval), step 1b3 `mi-equipment` (order and connect), step 1b4 `ops-analytics-asset` (apply template and go live); acceptance by `deploy-acceptance`. With no standard system: `invest-screen` and Lane 3 (3b).
 - **Stops here when:** the route is not written in full, the tool boundary is not met, or the tool has no named operations owner and support level. A security-relevant connection also goes to `deploy-cybersec`, and Cyber Security sign-off stays human. Do not offer a non-standard system.
+
+## Open questions
+
+- No validated route is known to rest on a real kit list (kit contents, price, lead time). Until the OD lead confirms one, every route is a route candidate and the match record says "kit not yet defined". Supplier: OD lead.
+- An earlier version of SKILL.md cited a file `decision-paths.md` that this skill does not ship; route status is now read from `references/validated-routes.md`. Where the original route guide lives is unconfirmed.
+
+## Sources used in the improvement run
+
+- None added; no vault or archive claim was introduced in this run.

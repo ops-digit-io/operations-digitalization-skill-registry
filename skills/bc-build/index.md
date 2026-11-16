@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Benefit calculation and savings](SKILL.md) | Agent Skill | Build the value side of an OD business case and keep the savings ledger honest: grounded figures, bankable vs assumed value, saving rows. Not for the capital request (bc-capital-request) or costs. |
+| [Benefit calculation and savings](SKILL.md) | Agent Skill | Builds the value side of an OD business case and keeps the savings ledger honest: sources and tags every figure, separates bankable from assumption-dependent value, writes one saving row per mechanism with its calculation methodology, and records dependencies. Use when a use case needs a business case, someone asks "what is this worth", "how do I calculate the saving", or "can we put this on the savings list", or a savings figure is about to leave the department. Never marks a saving proven. Not for costs (bc-cost), scoring a case (bc-assess), ranking use cases (bc-portfolio) or the capital request (bc-capital-request). |
 
 | Folder | Holds |
 |---|---|

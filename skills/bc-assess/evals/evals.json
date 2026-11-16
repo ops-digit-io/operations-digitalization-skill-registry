@@ -1,0 +1,47 @@
+{
+  "skill": "bc-assess",
+  "cases": [
+    {
+      "id": "untagged-figures-not-ready",
+      "type": "should-trigger",
+      "prompt": "Before we send the capital request for the fictional 'Line-side shift log' case, can you check whether the business case is signable? The backbone has a headline of ~EUR 90k per plant and year, but two of the levers have no source next to the numbers.",
+      "expected_output": "A scorecard table with criterion, verdict (pass, partial or gap), evidence (file and section) and note.\nC2 is marked gap because the two figures carry no grounding tag.\nThe maturity-gate verdict is Not ready and names the missing input (source of the two figures) and its owner.\nThe case is not edited; it is returned to the case builder with the findings.\nThe verdict is stated as a recommendation; the approvers decide.",
+      "files": []
+    },
+    {
+      "id": "builder-assesses-own-case",
+      "type": "edge",
+      "prompt": "I built this business case myself last week. Please score it against the house rubric so I can sign it off today.",
+      "expected_output": "The assistant points out that the builder must not assess their own case (separation of duties).\nIt asks the OD lead to name a different assessor instead of producing a verdict.\nIt does not claim the case is ready to sign.",
+      "files": []
+    },
+    {
+      "id": "compare-two-cases",
+      "type": "should-trigger",
+      "prompt": "We have two drafted business cases for different plants. Score both on the same rubric so we can see which one is closer to a capital request.",
+      "expected_output": "Both cases are scored criterion by criterion (C1-C5, D1-D9, E1-E6) with the same scale pass, partial, gap.\nEach case gets its own gate verdict with the missing inputs named.\nEvidence cites file and section for each verdict.\nNo case is edited during the assessment.",
+      "files": []
+    },
+    {
+      "id": "build-the-value-model-near-miss",
+      "type": "near-miss",
+      "prompt": "I only have an interview transcript from the plant. Can you turn it into the savings levers and the value model for a new business case?",
+      "expected_output": "The assistant recognises this is building the value side, not assessing a finished case.\nIt routes the request to the business case build step (bc-build) instead of scoring.\nIt does not produce a pass, partial or gap scorecard.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Is this business case ready to sign or are there gaps?",
+      "Review my draft business case against the house rubric before the capital request",
+      "Does the case pass the maturity gate? Give me a verdict per criterion",
+      "Score these two business cases on the same criteria and compare them"
+    ],
+    "should_not_trigger": [
+      "Build the value model and savings levers for a new use case",
+      "Estimate the one-time and running costs of this rollout",
+      "Draft the capital request package for the approvers",
+      "Which plants have the most use cases in the portfolio?"
+    ]
+  }
+}

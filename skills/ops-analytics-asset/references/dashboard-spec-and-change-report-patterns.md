@@ -8,6 +8,15 @@ tags: [analytical-support-service, practice, dashboard, specification]
 ---
 # Dashboard spec and change report patterns
 
+## Contents
+
+- 1. The spec set: five documents, one job each
+- 2. Anatomy of a specification
+- 3. The dashboard-level requirements and summary pair
+- 4. Reading the change and creation reports
+- 5. Pitfalls
+- AI agent operating notes
+
 Derived from the knowledge base's dashboard-spec hub and its four specifications, the dashboard-level requirements and summary pair written
 from one plant's exports, and the dashboard change and creation reports. Everything in those notes is a count of the estate at an
 export date; **none of it is carried here**. What is carried is how such documents are built and read, so an agent or key user can

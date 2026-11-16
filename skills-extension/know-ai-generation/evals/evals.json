@@ -1,0 +1,47 @@
+{
+  "skill": "know-ai-generation",
+  "cases": [
+    {
+      "id": "dashboard-from-tag-list",
+      "type": "should-trigger",
+      "prompt": "We have a tag export from the press line (fictional plant) and a short requirements text. Can the AI draft the dashboard for us and what do we need to do around it?",
+      "expected_output": "Names the fixed-structure inputs (tag list, requirements text, optional reference dashboard). Reports missing signals first as signal id, label, why needed, and does not approximate them. Returns a binding table of tag to panel. Says the domain expert validates on the running dashboard. Names a human gate and a named owner, data source and review point before start.",
+      "files": []
+    },
+    {
+      "id": "ai-app-intake",
+      "type": "should-trigger",
+      "prompt": "A colleague built an app with an AI tool in two days and wants to put it on the shared platform straight away. What is allowed?",
+      "expected_output": "States a prototype is not a deployment. Requires IT takeover and Cyber Security approval like any app. Says Cyber Security sign-off is human and blocks go-live only. Does not treat the prototype as proven value.",
+      "files": []
+    },
+    {
+      "id": "agent-start-without-owner",
+      "type": "edge",
+      "prompt": "I want an agent to start drafting savings evaluations for all our lines next week. Nobody owns it yet and we have not decided where the data comes from. Please just set it up.",
+      "expected_output": "Refuses to start without a named process owner, data source and review point. Lists these three as the start condition. States that ranking, savings status and go/no-go stay human. Does not invent figures.",
+      "files": []
+    },
+    {
+      "id": "what-to-build-near-miss",
+      "type": "near-miss",
+      "prompt": "Which dashboard should we build first for the assembly area, and who will look at it every morning?",
+      "expected_output": "Recognises this is a question about what to build and the ritual of use, which belongs to the analytics-asset skill, not to the AI generation rules. May mention only that any generated output needs a human gate.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "What may an AI agent do at the signal selection step and who has to sign off?",
+      "Can we let an AI generate the dashboard config from our tag list?",
+      "Someone proposes a GenAI proof of concept for troubleshooting, what rules apply?",
+      "How do I cite sources in an AI-generated one-pager so a reviewer can check it?"
+    ],
+    "should_not_trigger": [
+      "Which signal naming convention should we use for press line tags?",
+      "Write the Cyber Security sign-off package for the new machine connection.",
+      "Is the data for this use case available in the plant?",
+      "Help me write a prompt for summarising my meeting notes."
+    ]
+  }
+}

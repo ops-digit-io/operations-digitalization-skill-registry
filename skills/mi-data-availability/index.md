@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Data availability check](SKILL.md) | Agent Skill | Check whether the data a use case needs exists, is reachable and fit for use before anything is promised; name the step it fails at. Not for designing a signal standard (mi-signals). |
+| [Data availability check](SKILL.md) | Agent Skill | Check whether the data a use case needs exists, is reachable and fit for use, and name the path step where the request stops, before anything is promised. Use when someone asks "can we get this data", "do we have these signals for this machine or plant", "is the machine integrated", "is it in the Machine List or a connector", or when a use case scope, a dashboard or an analysis depends on signals, events or a legacy application. Reads the Machine List, Connector Overview and flow corpus, lists missing signals up front and routes a gap instead of filling it. Read-only. Not for designing a signal standard (mi-signals) or connecting the machine (mi-equipment). |
 
 | Folder | Holds |
 |---|---|

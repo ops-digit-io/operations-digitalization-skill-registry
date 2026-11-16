@@ -1,0 +1,47 @@
+{
+  "skill": "ops-dashboard-datatron",
+  "cases": [
+    {
+      "id": "apply-catalogued-cooling-dashboard",
+      "type": "should-trigger",
+      "prompt": "Our plant wants to use the catalogued cooling plant dashboard on our own machine. Here is our tag list. What do we have to do before it goes live?",
+      "expected_output": "Starts from the catalog entry and template, not a blank dashboard. Matches template panels to labelled data points and lists unmatched ones. Produces the list of UUIDs to enable before building. Builds through the dashboard engine with scaled values divided. Records a QA result and treats it as the go-live gate.",
+      "files": []
+    },
+    {
+      "id": "panel-flat-disabled-signal",
+      "type": "edge",
+      "prompt": "Two panels on the press centre dashboard just show a flat line since we copied it to our plant. The machine is running. What is going on?",
+      "expected_output": "Suspects disabled data points first and does not read the flat line as a quiet machine. Lists the UUIDs to enable and stops building on them. Mentions checking scaled PLC values and the is_delta filter. Hands the enablement request to the plant.",
+      "files": []
+    },
+    {
+      "id": "extend-template-locally",
+      "type": "edge",
+      "prompt": "The catalogued utilities dashboard lacks a compressed air panel. Can we just add our own panel and publish it as the new standard?",
+      "expected_output": "Declines to extend the catalogued template locally and routes the new need to Lane 2 as a deviation. Does not publish before the QA checklist passed. Publishing to a shared Grafana stays human-approved.",
+      "files": []
+    },
+    {
+      "id": "near-miss-asset-choice",
+      "type": "near-miss",
+      "prompt": "Should the weekly scrap review be a dashboard, a report or an app?",
+      "expected_output": "Does not apply the DATATRON template procedure. Routes to the asset-choice skill because this is a question about asset type and ritual.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Apply the standard KKA dashboard to our plant's cooling system",
+      "Which data points do we need to enable before the press centre dashboard has data?",
+      "Review this DATATRON Grafana dashboard against the QA checklist",
+      "The values on our DATATRON temperature panel look ten times too high"
+    ],
+    "should_not_trigger": [
+      "Write SQL for a downtime panel that works on DuckDB",
+      "Which asset type fits a weekly quality meeting",
+      "Choose canonical names for the signals of a new machine",
+      "Build a click-dummy for a new line screen"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "skill": "metrics-scorecard",
+  "cases": [
+    {
+      "id": "how-is-od-tracking",
+      "type": "should-trigger",
+      "prompt": "I need a quick view for tomorrow's call: how are we tracking on integrated use cases and equipment this year, and is anything off?",
+      "expected_output": "Reads each figure from its named source and gives the read date. Compares against target-to-date, not the annual target. Flags metrics past their intervene-from rule and names the lane owner role. Shows utilization next to the delivery count. Marks missing targets with a label, not a number.",
+      "files": []
+    },
+    {
+      "id": "reports-disagree",
+      "type": "should-trigger",
+      "prompt": "The Power BI gauge says one number for use cases this year and the Scorecard says another. Which one do I put in my slide?",
+      "expected_output": "Says the Scorecard Actual Year figure is authoritative. Explains the likely cause is a different filter or scope. Asks to state which filter the other figure came from. Does not pick the more favourable figure.",
+      "files": []
+    },
+    {
+      "id": "no-target-known",
+      "type": "edge",
+      "prompt": "Give me the target for the value delivery cycle metric and tell me if we are red or green on it.",
+      "expected_output": "States that this metric is not captured in any system and has no target. Does not invent a target or a colour. Marks it as to collect and names that the owner would need to define a source.",
+      "files": []
+    },
+    {
+      "id": "retro-method-near-miss",
+      "type": "near-miss",
+      "prompt": "Run our monthly retro and tell us the one change we should make next month.",
+      "expected_output": "Recognises that running the retro belongs to the retro skill. May offer to supply the metric figures with read dates as one input. Does not decide the change itself.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "How is OD tracking against its targets this month?",
+      "Which source is authoritative for the integrated equipment count?",
+      "Prepare the numbers for the COP round with read dates.",
+      "Flag which metrics are past their intervention threshold."
+    ],
+    "should_not_trigger": [
+      "Calculate the savings of this use case for the business case.",
+      "Why is nobody using the dashboard we delivered?",
+      "Plot a bar chart of my sales by month.",
+      "Draft the capital request for the new sensor project."
+    ]
+  }
+}

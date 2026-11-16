@@ -8,6 +8,14 @@ tags: [signals, clustering]
 ---
 # Clustering input signals — search patterns and importance
 
+## Contents
+
+- The four axes to cluster on
+- Search patterns — classifying an unknown signal
+- Importance patterns — what to standardize first
+- Deriving the demand yourself
+
+
 A machine exposes hundreds of data points. Most use cases need a handful. This is how to
 sort a raw signal list into functional areas, and how to decide which signals matter enough
 to standardize first.

@@ -8,6 +8,16 @@ tags: [integration, opc-ua, decision]
 ---
 # Decision paths
 
+## Contents
+
+- Gate 0 — What is already installed at this plant
+- Gate 1 — PLC family → available variants
+- Gate 2 — Which connector
+- Gate 3 — The preparation gates, in the order they bite
+- Gate 4 — Record and hand on
+- Where the tree is going
+- A worked routing, end to end
+
 How a machine is routed to an integration pattern, what the fallback is at each branch,
 and where a path genuinely dead-ends. Source: the Equipment integration guide's
 `rules.json` (live, 25 questions / 27 recommendations) and `rules-next.json` (next, 35 / 31).

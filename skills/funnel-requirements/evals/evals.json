@@ -1,0 +1,47 @@
+{
+  "skill": "funnel-requirements",
+  "cases": [
+    {
+      "id": "vague-dashboard-demand",
+      "type": "should-trigger",
+      "prompt": "Intake accepted our demand: the plant wants a downtime dashboard for line 3 (fictional). Please write the requirement so the integration team can act on it.",
+      "expected_output": "The problem is elicited and restated without naming a technology.\nEvery signal gets a canonical name, a direction and a verified-or-not verdict, with missing ones listed in a signal table.\nAcceptance criteria are testable statements, one requiring use in a real shift by a named role.\nThe use-case lane variant with a handover packet and a growth boundary is present.\nThe completeness check is run and blockers are fixed before handover.",
+      "files": []
+    },
+    {
+      "id": "check-before-handover",
+      "type": "should-trigger",
+      "prompt": "Here is my requirement draft for connecting a new press to the platform. Is it ready to hand to the integration lane?",
+      "expected_output": "The integration lane variant (equipment requirement) is checked for.\nThe completeness check script is run and its exit code and blockers are reported.\nMissing items such as an unverified signal list or no growth boundary are named.\nThe verdict is not ready while blockers remain.",
+      "files": []
+    },
+    {
+      "id": "thin-request-refusal",
+      "type": "edge",
+      "prompt": "Write the requirement for a one-off analysis of last month's scrap that nobody will ever repeat. There is no roadmap link and no business case.",
+      "expected_output": "The request is flagged as one-off without recurring value and without roadmap link.\nA refusal with a named route and written reason is proposed, not a thin requirement.\nThe analytical route (first aid) is named as the alternative.\nThe decision to refuse stays with intake, not the agent.",
+      "files": []
+    },
+    {
+      "id": "tool-choice-near-miss",
+      "type": "near-miss",
+      "prompt": "Should we buy a new MES product or build this with the tools we already have? Compare the options for us.",
+      "expected_output": "It is recognised as a tool or investment choice, not a requirement to write.\nThe request is routed to the investment screening skill.\nNo requirement document is produced.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Write the requirement and acceptance criteria for the accepted energy monitoring demand",
+      "Can you check my requirement document for blockers before it goes to the integration team?",
+      "Turn this accepted request into a handover packet with a signal list",
+      "Our plant said 'connect this machine' - what do we need to write down before Lane 3 can start?"
+    ],
+    "should_not_trigger": [
+      "Decide whether we should buy a commercial historian or use the existing tools",
+      "Split this requirement into user stories for the sprint backlog",
+      "Calculate the savings for this use case",
+      "Is this plant request accepted into lane 1, 2 or 3?"
+    ]
+  }
+}

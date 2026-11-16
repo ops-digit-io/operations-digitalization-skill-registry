@@ -3,7 +3,7 @@
 
     check_comms_brief.py Brief.md
 
-Exit 2 = blockers, 1 = warnings only, 0 = ready. The check looks at the form of the brief
+Exit 2 = blockers, 1 = warnings only, 0 = ready, 3 = file unreadable or wrong usage. The check looks at the form of the brief
 (sources, evidence classes, call to action, approvals, sensitive items); it cannot judge
 whether the story is true, which is the plant owner's approval.
 """
@@ -123,10 +123,19 @@ def analyze(text):
 
 
 def main(argv):
-    if len(argv) != 2:
+    if len(argv) == 2 and argv[1] in ("-h", "--help"):
         print(__doc__)
-        return 2
-    findings = analyze(open(argv[1], encoding="utf-8").read())
+        return 0
+    if len(argv) != 2:
+        print(__doc__, file=sys.stderr)
+        return 3
+    try:
+        with open(argv[1], encoding="utf-8") as fh:
+            text = fh.read()
+    except (OSError, UnicodeDecodeError) as err:
+        print(f"cannot read {argv[1]}: {err}", file=sys.stderr)
+        return 3
+    findings = analyze(text)
     order = {"BLOCKER": 0, "WARN": 1}
     for sev, check, msg, fix in sorted(findings, key=lambda f: order[f[0]]):
         print(f"{'x' if sev == 'BLOCKER' else '!'} {sev:7} {check}\n    {msg}" + (f"\n    -> {fix}" if fix else ""))

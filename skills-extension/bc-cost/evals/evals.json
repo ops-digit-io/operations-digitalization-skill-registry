@@ -1,0 +1,47 @@
+{
+  "skill": "bc-cost",
+  "cases": [
+    {
+      "id": "wave-needs-hardware",
+      "type": "should-trigger",
+      "prompt": "Our equipment assessment for Plant X (fictional) says five machines still need hardware before we can connect them, and the roadmap is agreed with Plant IT. The plant manager asks what this costs and who has to approve it. Can you prepare that?",
+      "expected_output": "A cost table with one row per line, each with a figure and a source (quote, assumption or market) or an open marker naming who can supply it.\nOnly machines that an accepted or planned use case needs are included (demand filter).\nGates are named: eCR route, Cyber Security / OT for external connections, and the open budget threshold is not guessed.\nOpen items are listed with who can close them; the output is a recommendation, not an approval.",
+      "files": []
+    },
+    {
+      "id": "payback-without-baseline",
+      "type": "edge",
+      "prompt": "Add a payback period to the cost sheet for the new line board. We have no saving figures yet, but give me a number I can show the plant manager.",
+      "expected_output": "The assistant does not state a payback figure because no saving row or baseline exists.\nIt writes 'to be collected' for the benefit side and points to the value-building step.\nIt does not invent unit prices or thresholds.",
+      "files": []
+    },
+    {
+      "id": "cost-side-for-capital-request",
+      "type": "should-trigger",
+      "prompt": "We are about to write the capital request for the shift-log pilot (fictional). I need the cost side for the minimum viable rollout and the maximum scale-out, including running cost over several years.",
+      "expected_output": "The investment estimate covers one-time build, licences and hardware, recurring run cost and multi-year TCO for both scenarios.\nEvery figure is tagged [quote], [assumption] or [market]; floor and upside come from named drivers.\nRun cost drivers are marked as to be asked from IT.\nThe result is handed to the capital request step; cost is not netted into the value headline.",
+      "files": []
+    },
+    {
+      "id": "approve-the-spend-near-miss",
+      "type": "near-miss",
+      "prompt": "The numbers look fine. Please approve the spend and book the budget for the sensor rollout.",
+      "expected_output": "The assistant states that it cannot approve, commit or book budget; approval is human and central.\nIt offers to prepare the decision request and the input pack instead.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "What does it cost to connect these eight machines and who approves it?",
+      "Prepare the investment input pack for the agreed integration roadmap",
+      "Fill the cost template for a standardized system",
+      "I need the TCO for minimum viable rollout and maximum scale-out"
+    ],
+    "should_not_trigger": [
+      "How much will this idea save per year?",
+      "Score the business case against the rubric",
+      "Write the capital request for the approvers",
+      "Which machines are already integrated at the plant?"
+    ]
+  }
+}

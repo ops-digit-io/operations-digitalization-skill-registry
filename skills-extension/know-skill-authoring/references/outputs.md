@@ -15,7 +15,7 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | skill-brief | `assets/skill-brief.md`, filled | Department owner | Need, users, lane and step, tier, authority level, inputs and outputs, sources and three test cases are written, and the owner agreed the brief before the skill was written |
-| skill-folder | Folder written to the registry's anatomy | Department owner (DBVE, the OD lead approves publication) | Passes the registry validator, the specification export, the OKF check and the figures check; Status stays `draft` |
+| skill-folder | Folder written to the registry's anatomy | Department owner (DBVE; the OD lead approves publication) | Passes the registry validator, the specification export, the OKF check and the figures check; Status stays `draft` |
 | registry-flow-and-readme-entries | `registry.yaml` entry (authority level equal to the `SKILL.md`), placement on `docs/new-state/process.yaml`, README row | Department owner | All three entries exist and the generated pages are regenerated |
 | quality-rating-and-test-record | Rating from the SkillEvaluator; test cases and trigger queries | Department owner | Rating is recorded (proposed target B or higher); Cases and trigger queries are written and run, or stated as not run |
 | pull-request | Pull request using `assets/release-checklist.md` | Department owner | Carries the rating and the open points; Owner has reviewed it |
@@ -25,7 +25,7 @@ tags: [outputs, handoff]
 | Output | Check | Sign-off |
 |---|---|---|
 | skill-brief | structure of `assets/skill-brief.md` | Department owner |
-| skill-folder | manual | Department owner (DBVE |
+| skill-folder | manual | Department owner (DBVE; the OD lead approves publication) |
 | registry-flow-and-readme-entries | manual | Department owner |
 | quality-rating-and-test-record | manual | Department owner |
 | pull-request | structure of `assets/release-checklist.md` | Department owner |

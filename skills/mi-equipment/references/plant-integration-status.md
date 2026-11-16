@@ -9,6 +9,18 @@ tags: [information-integration-service, technical]
 
 # Plant integration status
 
+## Contents
+
+- Where the data lives
+- How to count live
+- How to read a column
+- Flags to compute (each is a question for the Plant ME / Plant IT, not a finding)
+- Record mismatches to look for
+- Plants without machine rows
+- Patterns seen plant by plant (qualitative, no counts)
+- Use
+- Not in the records
+
 **This file holds no counts.** The plant-by-plant numbers that used to sit here were a snapshot
 of one export and went stale. What stays is how to build the view on the live lists, what each
 column means, and which patterns and record mismatches to expect. Re-count on the live lists
@@ -87,7 +99,7 @@ as the reference for "plant has concept X". Who could supply it: IIAE.⟩
 ## Plants without machine rows
 
 A plant note can exist with no machine at all. Such a plant has **no integration record**, not an
-integration of zero: the first conversation is an inventory (Route A in
+integration of zero: the first conversation is an inventory (Mode A in
 [`SKILL.md`](../SKILL.md)). Some of these plants still carry an unrelated tool row (for example
 an Energy Management rollout).
 

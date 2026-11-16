@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Showcase follow-up](SKILL.md) | Agent Skill | Close the loop after a use-case story is published (Lane 4): record it, route reactions to the right lane, keep the story true, capture lessons. Use after Internal Communications has published. |
+| [Showcase follow-up](SKILL.md) | Agent Skill | Close the loop after Internal Communications has published a use-case story (Lane 4): record the publication facts as IC gave them, route every reaction to the right lane (catalog request, intake demand, new system), answer without promising delivery, set a review date so the story stays true, and write one lesson for the retro. Use when a story is out and plants start asking "we want this too", when someone asks what happened after the story, or when a published saving or version has changed. Drafts the log and recommends; the OD lead and plant owners decide, and IC owns any correction. Not for writing the story (comms-brief) or deciding what may be told (comms-showcase). |
 
 | Folder | Holds |
 |---|---|

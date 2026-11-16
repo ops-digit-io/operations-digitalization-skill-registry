@@ -10,7 +10,7 @@ tags: [all, practice, process-chain, draft]
 
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
 marks a synthesis; `<...>` is unknown. The one-adjustment rule of [`SKILL.md`](../SKILL.md) is unchanged; this file adds where
-good learning items come from and how to classify them. It adds to [`retro-inputs.md`](retro-inputs.md).
+good learning items come from and how to classify them. It adds to `retro-inputs.md`.
 
 ## 1. Method in practice
 

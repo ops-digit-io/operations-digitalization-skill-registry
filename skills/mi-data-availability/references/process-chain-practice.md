@@ -8,6 +8,18 @@ tags: [data-availability, process-chain, ai-agent]
 ---
 # Process-chain practice
 
+## Contents
+
+- Where it sits
+- Handoff contract
+- Method in practice
+- The missing-signal table, up front
+- Decision rules
+- Pitfalls and lessons
+- Questions to ask
+- Definition of done
+- AI agent operating notes
+
 Derived from the Operations Digitalization slide decks, abstracted into process guidance. Examples are illustrative and use
 `<placeholders>`. Where this file adds a rule of its own it is marked `PROPOSAL`; unknowns are `<...>`.
 

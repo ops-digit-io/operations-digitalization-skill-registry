@@ -60,3 +60,12 @@ application should stay in production. The format is an open action item (IT and
 
 IT gives no delivery date unless a team has formally committed the work in sprint, PI or comparable
 planning. OD does not pass on informal forecasts to the plant (the Gemba app lesson).
+
+## Handing over the function, not a use case
+
+The same rule applies one level up. A successor does not need a task list: it is stale within a week and lives in the source
+systems anyway. They need two things: how the department works and what has already been delivered. The knowledge graph is the
+index into both: open a plant and it shows what exists there; open a capability and it shows which plants have it and which do not.
+
+Anything genuinely in flight (open decisions, current status, this week's queue) is looked up live in the systems of record. It is
+deliberately not written into the knowledge base, because a frozen copy of a moving thing is worse than no copy: it is a copy people trust.

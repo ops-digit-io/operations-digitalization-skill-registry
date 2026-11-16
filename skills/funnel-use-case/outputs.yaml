@@ -62,5 +62,5 @@ next:
   - catalog-standardization
   - deploy-handover
 stops_when:
-- the need is not one need (split it), no business case can be named (refuse per intake and return it to the demand owner), a library entry matches (take it through catalog-standardization), or the machine is not connected (no use…
-- integration request)
+- the need is not one need (split it), no business case can be named (refuse per intake), a library entry matches (take it through catalog-standardization)
+- the machine is not connected (no use case yet, integration request first)

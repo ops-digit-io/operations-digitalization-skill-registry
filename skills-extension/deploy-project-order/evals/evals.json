@@ -1,0 +1,47 @@
+{
+ "skill": "deploy-project-order",
+ "cases": [
+  {
+   "id": "draft-order-after-business-case",
+   "type": "should-trigger",
+   "prompt": "The business case for the downtime dashboard at Plant North (fictional) was approved. The steering committee now wants a project order. Here is the one-pager: line team uses it every shift, external support for the connector, start in spring, nobody named as sponsor yet. Can you draft it?",
+   "expected_output": "Writes a 30-second main target in the form at the end of the project we will have. Fills the budget with an estimate or a value marked with an owner, never blank. Lists the missing sponsor as a flag at the top instead of inventing a name. Splits the requesting side (steering committee, sponsor) from the contracting side (project team, project manager). Runs the pre-send check and leaves approval to a human.",
+   "files": []
+  },
+  {
+   "id": "empty-fields-sheet",
+   "type": "should-trigger",
+   "prompt": "Look at this initiative sheet: sponsor empty, budget empty, out of scope empty. Can you make it ready to go to the steering committee?",
+   "expected_output": "Flags each empty field rather than filling it with invented values. Asks for or proposes an educated budget estimate with the owner who confirms. Writes an out-of-scope list proposal for review. Does not mark anything approved.",
+   "files": []
+  },
+  {
+   "id": "small-change-no-order",
+   "type": "edge",
+   "prompt": "We need a tiny tweak: add one column to an existing report, about two days of work, budget already there, standard interface. Please write the project order.",
+   "expected_output": "Says this is a small change that goes through the ticket and change process and needs no order. Does not produce a full order. Points to the short form only if the requester insists it is an initiative.",
+   "files": []
+  },
+  {
+   "id": "capital-request-near-miss",
+   "type": "near-miss",
+   "prompt": "Put together the capital request package for the new gateway hardware: costs, options, approvers.",
+   "expected_output": "Recognises this is the capital request, not the project order. Hands it to the capital-request skill. May mention the order is the project-side twin but does not build the eCR.",
+   "files": []
+  }
+ ],
+ "trigger_queries": {
+  "should_trigger": [
+   "We need a project order for the new connector project, who writes it and what goes in?",
+   "The kick-off for the dashboard project is next week, prepare the workshop agenda.",
+   "Write the milestone report for the steering committee for milestone two.",
+   "Prepare the closure report and the handover check for the finished project."
+  ],
+  "should_not_trigger": [
+   "Calculate the savings and the payback for the dashboard use case.",
+   "Who is allowed to approve a budget of this size?",
+   "Plan the cutover for migrating the old application server.",
+   "Accept or refuse this new request from the plant."
+  ]
+ }
+}

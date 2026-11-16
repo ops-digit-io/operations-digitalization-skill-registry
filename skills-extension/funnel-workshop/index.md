@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Workshop facilitation](SKILL.md) | Agent Skill | Prepare, run and close an OD Use Case Definition Workshop or Use Case Integration Workshop at a plant - choose the format, set purpose and audience, send a pre-read, run the days from OD's standard agenda, capture demand, savings pre-evaluation, tool and machine needs in one template, and turn the output into a follow-up list with owners. Drafts all materials; the DBVE facilitates and the Plant ME owns the plant side. Use when a definition or integration workshop is requested or scheduled, when a plant is onboarded or a new demand wave starts, when a use case is ready for integration, or when workshop output exists but no follow-up list. |
+| [Workshop facilitation](SKILL.md) | Agent Skill | Prepare, run and close an OD Use Case Definition Workshop, Use Case Integration Workshop or Machine Integration Workshop at a plant: pick the format and order, set purpose and audience, send the pre-read, capture demand, savings pre-evaluation and tool and machine needs in one sheet, and turn the output into a follow-up list with owners. Use when a workshop is requested or scheduled, a plant is onboarded or a new demand wave starts, a use case is ready for integration, or workshop notes exist but no follow-up list. Drafts materials; the DBVE facilitates, the Plant ME owns the plant side. Not for a single ad-hoc process issue (funnel-first-aid) or defining one use case (funnel-use-case). |
 
 | Folder | Holds |
 |---|---|

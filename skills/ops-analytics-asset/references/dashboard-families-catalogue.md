@@ -8,6 +8,14 @@ tags: [analytical-support-service, practice, dashboard]
 ---
 # Dashboard families catalogue
 
+## Contents
+
+- 1. Where to look, and the two counting bases
+- 2. Which families can be shared - the sharing classes
+- 3. Family groups (qualitative)
+- 4. Family cards - what each needs
+- 5. Gaps to expect when you use the catalogue
+
 **Before building a dashboard, find its family.** A family is "the same thing shown for different
 lines, machines, plants or versions". If one exists at another plant, adopt it
 (`catalog-standardization`, and `SKILL.md` "When not to build").

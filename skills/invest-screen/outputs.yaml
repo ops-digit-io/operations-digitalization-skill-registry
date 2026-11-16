@@ -8,13 +8,13 @@ outputs:
   - dept-intake
   - funnel-requirements
   to_roles:
-  - The calling skill (
+  - The calling skill (dept-intake or funnel-requirements)
   done_when:
   - The need is restated independent of the request's wording
   - Each tool boundary is checked with a stated reason
   - This plant's availability is checked and dated
   - One verdict (fits, redesign, escalate) and a named next step
-  signoff: The calling skill (
+  signoff: The calling skill (dept-intake or funnel-requirements)
   check:
     structure: true
 - id: existing-system-worksheet-when-a-legacy
@@ -45,22 +45,21 @@ outputs:
   - deploy-appstore
   - mi-equipment
   to_roles:
-  - "then the route's skill:  (3a.1"
-  - 3a.2)
-  - OpenSpec IT demand (external) (3a.3
-  - 3a.4)
+  - deploy-appstore (routes 3a.1 and 3a.2)
+  - OpenSpec IT demand (external) (routes 3a.3 and 3a.4)
+  - mi-equipment (route 3b)
   done_when:
   - Footprint gate has no open point (or the verdict is Blocked)
   - One route (3a.1 to 3a.4 or 3b) with its next skill
   - Six criteria scored with the verdict in the department's words and one decisive reason
-  signoff: "then the route's skill:  (3a.1"
+  signoff: the OD lead decides together with the IT-responsible role of the business side
 receives_from:
 - dept-intake
 - funnel-requirements
 - catalog-systems
 - catalog-guardrails
 next:
-- when: '"fits" goes back to the calling skill; "redesign" re-scopes the request before it is defined further; "escalate" goes to dept-decision-rights (step 32); the Lane 3 route goes on to OpenSpec IT demand (external), deploy-appstore or mi-equipment, and the business case…'
+- when: 'fits goes back to the calling skill; redesign re-scopes the request; escalate goes to dept-decision-rights (step 32); the Lane 3 route goes on to OpenSpec IT demand (external), deploy-appstore or mi-equipment, then the business case'
   to:
   - dept-decision-rights
   - deploy-appstore

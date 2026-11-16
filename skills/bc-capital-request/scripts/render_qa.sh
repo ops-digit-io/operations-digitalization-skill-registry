@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Render a pptx to one jpeg per slide, so the result can actually be looked at.
 # Usage: render_qa.sh deck.pptx [dpi]
+# Requires: soffice (LibreOffice) and pdftoppm (poppler-utils) on PATH. Exit 1 if one is missing.
 set -euo pipefail
+case "${1:-}" in -h|--help) echo "Usage: render_qa.sh deck.pptx [dpi]"; exit 0;; esac
+for tool in soffice pdftoppm; do
+  command -v "$tool" >/dev/null 2>&1 || { echo "render_qa.sh: $tool not found on PATH" >&2; exit 1; }
+done
 f="${1:?usage: render_qa.sh deck.pptx [dpi]}"
 dpi="${2:-100}"
 base="$(basename "${f%.pptx}")"

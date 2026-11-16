@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Call for action and status
-description: Template for a CoP or other department round - agenda, plant status table with traffic light, numbered call for action and follow-up log.
+description: Template for a COP or other department round - agenda, plant status table with traffic light, numbered call for action and follow-up log.
 resource: ../SKILL.md
 status: draft
 tags: [all, practice, template]
@@ -42,6 +42,6 @@ Escalation line (OD lead only): <deadline and closure date>
 
 ## 4 Follow-up log
 
-| Item | Owning service line | Route | Status (open / carried / closed) | Next round |
+| Item | Owning role | Route | Status (open / carried / closed) | Next round |
 |---|---|---|---|---|
 | <question or homework> | <> | <> | <> | <> |

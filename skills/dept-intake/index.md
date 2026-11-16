@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case intake triage](SKILL.md) | Agent Skill | Decide what OD does with an incoming request: accept into one of three lanes, refuse, or route to the owner. Not for decision rights of an accepted request (dept-decision-rights). |
+| [Use-case intake triage](SKILL.md) | Agent Skill | Decides what OD does with an incoming request, demand or idea: accepts it into exactly one of three lanes (known use case, new use case, new system or connector), refuses it with a reason and route, or hands it to the function that owns it. Use when a plant, key user or colleague brings something and it is unclear whether it is OD work, which lane it belongs to, what its priority basis is, or which gate it will hit. Also use when a request sounds like a normal dashboard but may need a system outside the lean footprint. Drafts the triage record; the OD lead decides large requests. Not for who approves an accepted request (dept-decision-rights) or for building the solution (catalog-usecase, funnel-use-case). |
 
 | Folder | Holds |
 |---|---|

@@ -9,6 +9,15 @@ tags: [project-support-consultancy, practice]
 
 # Cluster acceptance criteria
 
+## Contents
+
+- The clusters in use
+- What every cluster shares in the record
+- External definitions that stand behind C01 and C05 (verified in the knowledge base)
+- Further items from the standardization knowledge base
+- Procedure
+- Sources
+
 UAT needs "a decision rule stated before the run" (`test-structure.md`).
 For a dashboard or analytics asset the rule must come from somewhere. The department's cluster
 notes state, per cluster, "the standard we hold a use case in this cluster to". This file

@@ -8,6 +8,15 @@ tags: [node-red, deployment]
 ---
 # Making the flow actually deployable
 
+## Contents
+
+- 1 · The palette module
+- 2 · The config nodes
+- 3 · The structural envelope
+- The minimal deployable skeleton
+- Verifying before you hand it over
+- What still needs the real instance
+
 The transformation is the interesting half. This is the other half — the structure and the
 configuration layer Node-RED needs before a flow will start.
 

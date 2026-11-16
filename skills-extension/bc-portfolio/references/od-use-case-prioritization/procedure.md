@@ -12,6 +12,15 @@ tags:
 ---
 # Use case prioritization
 
+## Contents
+
+- When it applies
+- The references
+- Procedure
+- Output
+- What is still open
+- Do not
+
 > **Absorbed.** This was the skill `od-use-case-prioritization`. It now runs as a mode of [`bc-portfolio`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
 Read `dept-context` first. This skill turns "several use cases want the same capacity" into a
@@ -36,10 +45,10 @@ cases sit in a separate bucket; the Plant ME has seen the list; the record is fi
 
 | File | Use it for |
 |---|---|
-| [`references/ranking-criteria.md`](references/ranking-criteria.md) | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
-| [`references/evidence-baselines.md`](references/evidence-baselines.md) | How to read what the knowledge base can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain practice for step 24: planning states, explicit ordering rule, foundation-first and dependency column, value tiers and grounding tags, kill/defer outcomes, handoff columns, agent notes |
-| [`references/business-case-archetypes.md`](references/business-case-archetypes.md) | Archetypes of the strategic business cases, what a complete case record contains, dependency-before-return ordering, keynote cluster maturity labels |
+| `references/ranking-criteria.md` | Every criterion OD itself has used to rank, with the source of each, and what each one is not |
+| `references/evidence-baselines.md` | How to read what the knowledge base can say about a candidate before anyone is asked: case groups, rollout maps, savings basis, white space, upvoting (reading guide, no figures) |
+| `references/process-chain-practice.md` | Chain practice for step 24: planning states, explicit ordering rule, foundation-first and dependency column, value tiers and grounding tags, kill/defer outcomes, handoff columns, agent notes |
+| `references/business-case-archetypes.md` | Archetypes of the strategic business cases, what a complete case record contains, dependency-before-return ordering, keynote cluster maturity labels |
 | [`assets/prioritization-record.md`](assets/prioritization-record.md) | The output: candidate table, scoring sheet, unscored bucket, recommendation, sign-off |
 
 Weighted-score mechanics are not repeated here; they live in
@@ -62,11 +71,11 @@ inputs that skill's method scores, and the plant-facing record around it.
    standard per process, non-standard, AI), stated objective, tracked savings with reliability
    label (`bc-build`), dependencies with owner, machines and data readiness
    (`mi-data-availability`).
-4. **Look up the baseline** in [`references/evidence-baselines.md`](references/evidence-baselines.md):
+4. **Look up the baseline** in `references/evidence-baselines.md`:
    which case group the candidate belongs to, which plants already run it (read the group's rollout map), and how strong the
    savings basis of that group is. A strong precedent lowers effort; a group with no recorded
    savings is a gap in evidence, not a verdict on value.
-5. **Score on the criteria** of [`references/ranking-criteria.md`](references/ranking-criteria.md).
+5. **Score on the criteria** of `references/ranking-criteria.md`.
    Use the weights OD agrees with the Plant ME for this round and write them into the record;
    ⟨default weights — none found in the sources; the OD lead and Plant ME set them⟩. State the
    ordering rule in the record header (savings first - value, ROI; generalization potential and effort are

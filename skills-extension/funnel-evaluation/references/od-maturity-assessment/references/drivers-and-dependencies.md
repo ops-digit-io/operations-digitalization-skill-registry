@@ -8,6 +8,16 @@ tags: [practice, maturity, drivers, dependencies, draft]
 ---
 # Drivers and dependencies - from profile to candidate areas to gap chain
 
+## Contents
+
+- 1 Rate the drivers (problem side)
+- 2 Fact to driver to area (object-level reading, PROPOSAL)
+- 3 Prerequisite backbone (solution side)
+- 4 Plausibility checks on a profile (published prerequisites, best-fit reading)
+- 5 Sequence the gaps
+- 6 Target setting in one line per area family (the source's own guidance)
+
+
 Drivers are coded `a1` to `a27` as in the published problem model (Schott et al. 2020, Table 4); the mapping of drivers to areas is
 the knowledge base's, not the paper's. The complete list and mapping is in `funnel-evaluation` (`references/complexity-drivers.md`).
 `PROPOSAL` = synthesis of this skill.

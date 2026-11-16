@@ -442,3 +442,51 @@ WHERE $__timeFilter(di.start_time)
   -- + canonical WHERE clause
 ORDER BY duration_min DESC
 LIMIT 500;
+
+
+-- ============================================================================
+-- UNIVERSAL TIME-WINDOW PATTERNS (moved here from SKILL.md Step 3)
+-- They apply to BOTH archetypes and honour the two hard rules.
+-- ============================================================================
+
+-- Pattern U1 - default: $__timeFilter() for the WHERE.
+-- Expands correctly on Postgres and DuckDB datasources and follows the panel's time range.
+-- Do NOT write: WHERE ts BETWEEN $__timeFrom() AND $__timeTo()   (bypasses macro expansion; Rule 1 violation)
+--   SELECT ... FROM <fact_table> WHERE $__timeFilter(ts_column) AND <other filters>
+
+-- Pattern U2 - bucketed trends: $__timeGroup() / $__timeGroupAlias().
+-- The bucket size comes from $__interval (derived from panel width). Pin a bucket only when the
+-- panel's semantics require it (for example shift-based aggregation): $__timeGroup(ts_column, '1h').
+--   SELECT $__timeGroupAlias(ts_column, $__interval) AS time, COUNT(*) AS events
+--   FROM <fact_table> WHERE $__timeFilter(ts_column) GROUP BY 1 ORDER BY 1;
+
+-- Pattern U3 - window clipping (raw bounds, justified exception; relational archetype only).
+-- Without clipping an 8-hour stoppage in a 1-hour view contributes the full 8 hours: the
+-- single most-overlooked bug in homegrown ops dashboards. $__timeFilter() cannot express
+-- clipping inside a SELECT expression, so the raw bounds are legitimate; cast both to timestamptz.
+-- The WHERE is intentionally NOT $__timeFilter(start_time): that would drop events that start before
+-- the window but overlap it. Interval-overlap semantics need the explicit two-column compare.
+-- Use it in every duration-summing query. LEAST/GREATEST exist in both engines; keep EPOCH uppercase.
+--   SELECT SUM(EXTRACT(EPOCH FROM (
+--            LEAST(COALESCE(end_time, NOW()), $__timeTo()::timestamptz)
+--          - GREATEST(start_time, $__timeFrom()::timestamptz)))) / 60.0 AS clipped_minutes
+--   FROM downtime_incidents
+--   WHERE start_time < $__timeTo()::timestamptz
+--     AND COALESCE(end_time, NOW()) >= $__timeFrom()::timestamptz AND <other filters>;
+
+-- Pattern U4 - nullable end times (relational archetype only), when end_time IS NULL means "still ongoing".
+--   EXTRACT(EPOCH FROM (COALESCE(end_time, NOW()) - start_time)) / 60.0 AS duration_min
+-- COALESCE = ongoing events contribute their elapsed time so far (default for live and recent panels).
+-- EXCLUDE (WHERE end_time IS NOT NULL) = ongoing events left out (averages, percentiles, MTTR over history).
+-- Choose explicitly per panel and say which in the panel description.
+
+-- Pattern U5 - zero-fill a complete time series (daily or hourly trends where empty periods must show 0).
+-- DuckDB has no time_bucket_gapfill: use generate_series + LEFT JOIN, identical on both engines.
+-- $__timeFilter goes on the join; raw $__timeFrom/To()::timestamptz only inside generate_series
+-- (justified exception). For finer buckets prefer $__timeGroup() unless fixed boundaries are required.
+--   WITH buckets AS (SELECT generate_series(date_trunc('day', $__timeFrom()::timestamptz),
+--                                           date_trunc('day', $__timeTo()::timestamptz), INTERVAL '1 day') AS bucket)
+--   SELECT b.bucket AS time, COALESCE(SUM(f.value), 0) AS value
+--   FROM buckets b LEFT JOIN <fact_table> f
+--     ON date_trunc('day', f.ts_column) = b.bucket AND $__timeFilter(f.ts_column)
+--   GROUP BY b.bucket ORDER BY b.bucket;

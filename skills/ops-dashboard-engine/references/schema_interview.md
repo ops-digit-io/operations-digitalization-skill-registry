@@ -8,6 +8,22 @@ tags: [grafana, schema, elicitation]
 ---
 # schema_interview.md — Questions to ask before writing any SQL
 
+## Contents
+
+- When to run the full interview
+- Block A — Domain framing (always)
+- Block B — Identifying the archetype
+- Block C — Time semantics (always)
+- Block D — Interval semantics (relational archetype only)
+- Block E — Multi-tenancy and access (always)
+- Block F — Soft-deletes and visibility flags (always)
+- Block G — Categorical dimensions (analyst tier only)
+- Block H — Specific metrics requested
+- Block I — Out-of-band knowledge (often skipped, often important)
+- How to use the answers
+- Short version (3-question fallback)
+- The minimum eight questions (moved from SKILL.md Step 0)
+
 Most dashboard rebuilds happen because the first version was built on assumptions about the schema that turned out to be wrong. The interview below covers what you actually need to know before writing the first query.
 
 This file is a question bank. The matching short version (Step 0) lives in `SKILL.md`.
@@ -139,3 +155,19 @@ When the user has 5 minutes, not 20, ask only:
 3. **What are the top 3 KPIs and their exact definitions?** (compresses Block H)
 
 Build a draft. Iterate from real questions raised when the user reads the draft.
+
+
+## The minimum eight questions (moved from SKILL.md Step 0)
+
+Ask once, up front, in one consolidated message; do not guess column names from convention. If the first message already gives the schema in detail, skip ahead.
+
+1. **Domain framing.** What question does this dashboard answer, and who reads it? (Determines the tier.)
+2. **Fact table.** Which table holds the operational data: a custom relational fact table or a UUID-keyed long-format telemetry table? (Determines the archetype.)
+3. **Time semantics.** Which column is the canonical timestamp, of which type (`timestamptz` or naive `timestamp`)? Can it be NULL or future-dated?
+4. **Interval semantics (relational only).** Interval-shaped (start_time and end_time) or point-shaped? If interval, what does a NULL `end_time` mean: ongoing or abandoned?
+5. **Multi-tenancy column.** What is the `account_id`, `tenant_id` or `site_id`? Can a user belong to several tenants?
+6. **Soft-delete and visibility flags.** Which boolean columns must always be filtered (`is_archived`, `is_active`, `is_ignored`, `is_deleted`)?
+7. **KPI definitions.** What are the 3 to 5 KPIs and the exact computation of each? "Total downtime" can mean several things.
+8. **Expected order of magnitude** for each KPI; use the user's opinion as a sanity check after the first draft.
+
+Answers the user cannot give are exactly where the dashboard will fail later: flag them explicitly in the response instead of papering over them with assumptions.

@@ -8,6 +8,15 @@ tags: [signals, opc-ua, euromap, packml]
 ---
 # Public data models — do not invent what is already standardized
 
+## Contents
+
+- The landscape, and which applies here
+- OPC UA for Machinery (VDMA 40001) — the foundation
+- EUROMAP — Plastic and Rubber, which is half the estate
+- PackML (ISA-TR88.00.02) — the state model
+- How to use a public model here
+- What adopting one does not solve
+
 Before defining a signal set, check whether a published companion specification already
 defines it. Adopting one buys three things a local model cannot: **a vendor-neutral name**,
 **a defined meaning**, and **machines that arrive already speaking it**.

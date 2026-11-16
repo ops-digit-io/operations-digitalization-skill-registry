@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Template resolution](SKILL.md) | Agent Skill | Resolve which approved master template or standard a deliverable must start from, before anyone writes it - look the artefact up in the department's resource register, name its owner, location and verification state, and say plainly when the master is still "to collect" or "to confirm" so that nobody builds from an ad-hoc copy. Use when a plant or OD person is about to produce a use-case one-pager, business case, requirement specification, signal report, acceptance protocol, handover record, scorecard update or outreach deck, when two copies of a "template" circulate, or when a skill asks which template to fill. |
+| [Template resolution](SKILL.md) | Agent Skill | Find which approved master template or standard a deliverable must start from, before anyone writes it: look it up in the department's resource register, name its owner, location and verification state, and say plainly when the master is still "to collect" or "to confirm" so nobody builds from an ad-hoc copy. Use when someone is about to write a use-case one-pager, business case, requirement specification, signal report, acceptance protocol, handover record, scorecard update or outreach deck, when two copies of "the template" circulate, when a colleague mails a template and nobody knows where the master lives, or when a skill asks which template to fill. Read-only: it points to the master and never approves it. Not for filling the deliverable (the skill that owns it). |
 
 | Folder | Holds |
 |---|---|

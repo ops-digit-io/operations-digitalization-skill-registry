@@ -10,6 +10,21 @@ tags: [prototype, click-dummy, department-package]
 
 # Click Dummy
 
+## Contents
+
+- What This Is (and Is Not)
+- Stage 1 — Scope from the Feature Book
+- Stage 2 — Pick the Shape
+- Stage 3 — Define Done Before Building
+- Stage 4 — State and Data First
+- Stage 5 — Shell First, Then Sections
+- Stage 6 — Verify in a Real Browser
+- Stage 7 — Fidelity Ledger
+- Stage 8 — Handover Document
+- Red Flags
+- Chaining
+
+
 Turn a prioritized feature set into something a person can click through, prove
 every control works, and document what it does and does not do.
 

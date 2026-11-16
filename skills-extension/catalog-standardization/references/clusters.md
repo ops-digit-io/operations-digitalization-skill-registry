@@ -8,6 +8,21 @@ tags: [use-case-support-service, standardization]
 ---
 # The clusters — definition, KPIs, requirements checklist
 
+## Contents
+
+- C01 · Real-time line and OEE / performance monitoring
+- C02 · Digital Andon, Gemba and escalation
+- C03 · SPC and in-process quality
+- C04 · Manual data digitization
+- C05 · Downtime reporting and machine alerts
+- C06 · Predictive maintenance
+- C07 · Recipe and traceability
+- C08 · Energy management
+- C09 · Analytics and cross-cutting reporting
+- C10 · Generative and agentic AI
+- C11 · Digital twin and simulation — reserved cluster
+- C12 · Other and plant-specific — not a standard pattern by design
+
 A plant use case with no local notes is built to the checklist below, not from a blank
 page; only the plant-specific deltas (which machines, which line, which local constraint)
 get written down on top of it. Seven clusters (C01, C02, C03, C04, C06, C08, C11) cite a

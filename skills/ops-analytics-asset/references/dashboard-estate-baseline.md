@@ -8,6 +8,18 @@ tags: [analytical-support-service, practice, dashboard]
 ---
 # Dashboard estate baseline
 
+## Contents
+
+- 1. How to measure the estate (obtain, do not quote)
+- 2. Per plant: what to look up before you build
+- 3. Platforms and what they imply
+- 4. The local data source: what to expect (answer to the open point in `ops-dashboard-engine/OD-INTEGRATION.md`)
+- 5. How the estate reads data (patterns to recognise)
+- 6. How dashboards are built (what to expect and what to fix)
+- 7. Lifecycle and churn
+- 8. What to do with this
+- Sources
+
 Read this before you promise a plant a dashboard, a copy of one, or a migration. It is the
 OD-side knowledge that `ops-dashboard-engine` (vendored, generic) cannot carry: **what the
 plant Grafana instances typically contain and read, and how to find out for the plant in front of

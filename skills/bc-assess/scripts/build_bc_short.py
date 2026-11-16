@@ -1,21 +1,41 @@
 #!/usr/bin/env python3
-"""Concise value-focused BC deck for the Gemba App. English only. Value side only.
-Phase-B re-architecture: purpose-per-slide sequence.
- cover; 1 overall picture (C-level); 2 sub-buckets + effort; 3 contribution register
- (all lines incl. uncounted, HIGH/MED/LOW potential); 4 value vs effort (dependencies);
- 5 abstracted BPMN (marked differences); 6 SMART milestones + time-to-value;
- 7 soft impact clusters; 8 refinement questions led by worked examples."""
-from pptx import Presentation
+"""Concise value-focused BC deck (one-pager sequence). English only. Value side only.
+
+Usage: python build_bc_short.py --template _nw_template.pptx --out deck.pptx
+Requires: python-pptx (pip install python-pptx) and the neuwerk template .pptx.
+Exit codes: 0 written, 1 template missing or python-pptx not installed.
+
+The slide text is the Gemba App WORKED EXAMPLE with placeholders (angle-bracket n / amount);
+replace the text of your own case in the script copy before presenting it. The sequence is
+in references/deck-spec.md.
+Sequence: cover; 1 overall picture (C-level); 2 sub-buckets + effort; 3 contribution register
+(all lines incl. uncounted, HIGH/MED/LOW potential); 4 value vs effort (dependencies);
+5 abstracted BPMN (marked differences); 6 SMART milestones + time-to-value;
+7 soft impact clusters; 8 refinement questions led by worked examples; 9 provenance backup."""
+import argparse
+import os
+import sys
+
+_ap = argparse.ArgumentParser(description="Build the optional BC one-pager deck from the neuwerk template.")
+_ap.add_argument("--template", default="_nw_template.pptx", help="path to the neuwerk template (default: _nw_template.pptx beside the script)")
+_ap.add_argument("--out", default="bc-onepager-neuwerk.pptx", help="output .pptx path")
+_args = _ap.parse_args()
+SRC = _args.template if os.path.isabs(_args.template) or os.path.exists(_args.template) else os.path.join(os.path.dirname(os.path.abspath(__file__)), _args.template)
+OUT = _args.out
+if not os.path.isfile(SRC):
+    sys.exit("template not found: %s (pass --template; the neuwerk template is in the department package, not stored here)" % SRC)
+try:
+    from pptx import Presentation
+except ImportError:
+    sys.exit("python-pptx is required: pip install python-pptx")
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
-SRC = '/sessions/awesome-vigilant-hopper/mnt/outputs/_nw_template.pptx'
-OUT = '/sessions/awesome-vigilant-hopper/mnt/outputs/bc-gemba-onepager-neuwerk.pptx'
 
 # Neuwerk brand-exact palette. Blue ramp = the sanctioned graded-card device.
-NAVY, DEEP, BLUE, PERI = '1B1E52', '⟨n⟩', '4E66AE', '8793CA'
+NAVY, DEEP, BLUE, PERI = '1B1E52', '273892', '4E66AE', '8793CA'
 # Secondary bases (brand-exact): Mint / Melon / Azure / Levander
 GREEN, PEACH, TEAL, PINK, W = '1EB78B', 'F9B09A', '48C3CB', 'EEC1DB', 'FFFFFF'
 MELONL = 'F6CFC6'   # Melon light - problem/caution tint

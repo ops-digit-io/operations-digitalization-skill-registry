@@ -8,6 +8,17 @@ tags: [use-case-support-service, practice, process-chain]
 ---
 # Process-chain practice - solution evaluation
 
+## Contents
+
+- Where it sits
+- 1 · Method in practice
+- 2 · Decision rules
+- 3 · Handoff contract
+- 4 · Pitfalls and lessons
+- 5 · Questions to ask / definition of done
+- 6 · AI agent operating notes
+
+
 Adds practical fit tests that the decks use next to the 27-driver and 16-area method in `SKILL.md`; it does not
 change that method. `PROPOSAL` marks synthesis that no deck states.
 

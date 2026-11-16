@@ -8,6 +8,17 @@ tags: [grafana, dashboards]
 ---
 # Usage Guide — How to use the `ops-dashboard-engine` skill
 
+## Contents
+
+- Quick mental model
+- SYSTEM PROMPT (copy this into your agent configuration)
+- End-to-end walkthroughs
+- Common mistakes by step
+- Customization knobs the user might want
+- Recently added references (read on demand)
+- When the user gives you a problem too big for the skill
+- Final reminder
+
 This document is for the **assistant** running with the skill installed (Claude.ai with the skill in `/mnt/skills/user/`, Claude Code with the skill in the project, or any agent with the skill files accessible). It encodes the end-to-end workflow so a single user prompt becomes a working dashboard JSON without re-deriving the patterns from scratch each time.
 
 If you are a human reading this: it doubles as the system-prompt template for orchestrating the skill in your own setups. Copy the sections marked **SYSTEM PROMPT** into your assistant configuration.

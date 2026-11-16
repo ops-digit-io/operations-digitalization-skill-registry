@@ -8,6 +8,18 @@ tags: [requirements, epic, user-stories]
 ---
 # The epic and its user stories
 
+## Contents
+
+- This layer already exists — and it is hollow
+- The background description
+- Which epic — capability or process?
+- Cutting stories out of an epic
+- What a user story must carry
+- Acceptance criteria that are actually testable
+- Epic acceptance is not the sum of story acceptance
+- Sizing
+
+
 The requirement (§1–§11) says **what must be true**. This says **how the work is cut up so
 somebody can start on Monday.** Every requirement produces exactly one epic, and every epic
 carries **at least two user stories** and a **background description**. One story means you

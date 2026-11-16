@@ -2,7 +2,7 @@
 name: ops-dashboard-engine
 license: MIT
 description: >-
-  Build importable Grafana JSON dashboards over SQL for operations data, with portable queries, variables and ECharts panels. Not for HTML dashboards or choosing the asset (ops-analytics-asset).
+  Build importable Grafana JSON dashboards over SQL for operations data (downtime, production, quality, energy, machine telemetry): schema interview, relational or UUID-telemetry archetype, manager, analyst or operations tier, portable PostgreSQL and DuckDB queries with Grafana time macros, variables, ECharts panels, audit checklist. Use when someone asks for a Grafana dashboard JSON to import, a downtime or telemetry dashboard, panel SQL that fails on DuckDB, or a dashboard rebuilt after a wrong schema assumption. Not for HTML or Chart.js dashboards (build-dashboard) or choosing the asset type and ritual (ops-analytics-asset).
 allowed-tools: Read Grep Glob Write Edit
 metadata:
   argument_hint: "[domain] [schema or signal list]"
@@ -37,182 +37,88 @@ metadata:
 | Self-contained `.html` file with embedded data, Chart.js | `/build-dashboard` |
 | Importable Grafana `.json` with live SQL, ECharts panels, variables | **this skill** |
 
-- If unspecified, ask once.
-- The two outputs are not interchangeable — Grafana queries a live database; HTML embeds a static snapshot.
+- If unspecified, ask once. The two are not interchangeable: Grafana queries a live database, HTML embeds a static snapshot.
 
 ## Inputs and output
 
-- **In:** the domain and the question the dashboard answers; the schema (tables and columns) or the signal list (UUIDs and labels); the audience tier (manager, analyst, operations);
-   - for an OD dashboard, the ritual it is read in and the walked data path (see [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
-- **Out:** one importable Grafana `.json` file with portable SQL, plus the Step 6 audit
-  ([`references/outputs.md`](references/outputs.md)).
+- **In:** the domain and the question the dashboard answers; the schema (tables and columns) or the signal list (UUIDs and labels); the audience tier (manager, analyst, operations).
+- For an OD dashboard also the ritual it is read in and the walked data path (see [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
+- **Out:** one importable Grafana `.json` file with portable SQL, plus the Step 6 audit ([`references/outputs.md`](references/outputs.md)).
 
 ## Procedure
 
-- Follow Steps 0 to 6 below in order:
-- confirm the schema (Step 0), identify the archetype (Step 1), pick the tier (Step 2), apply the time-window patterns (Step 3), wire the variables (Step 4), generate the JSON with the builder (Step 5),
-- and run the audit checklist (Step 6).
-- The two hard rules apply to every query.
-- In OD, the two gates of [`OD-INTEGRATION.md`](OD-INTEGRATION.md) come first; the end-to-end walk-through is in [`usage_guide.md`](usage_guide.md).
-
-- ---
+1. In OD, pass the two gates of [`OD-INTEGRATION.md`](OD-INTEGRATION.md) first; the end-to-end walk-through is [`usage_guide.md`](usage_guide.md).
+2. Confirm the schema (Step 0), identify the archetype (Step 1), pick the tier (Step 2).
+3. Apply the time-window patterns (Step 3) and wire the variables (Step 4).
+4. Generate the JSON with the builder (Step 5); never hand-write panel JSON.
+5. Run the audit checklist (Step 6) and fix every failed line; re-run until clean.
+6. The two hard rules apply to every query; hand over with `deploy-handover`.
 
 ## Hard rules — apply to every SQL query in this skill
 
-- These two rules are **non-negotiable** and override any pattern shown elsewhere in the references.
-- If a reference snippet contradicts them, the rule wins.
+- These two rules are **non-negotiable** and override any pattern in the references; if a snippet contradicts them, the rule wins.
 
 ### Rule 1 — Always use Grafana query macros for time
 
-- Every SQL query authored under this skill must use Grafana's built-in macros for time filtering and bucketing.
-- Hand-rolled `WHERE ts BETWEEN $__timeFrom() AND $__timeTo()` is a bug — it bypasses macro expansion, breaks across datasources, and fails the portability rule below.
+- Hand-rolled `WHERE ts BETWEEN $__timeFrom() AND $__timeTo()` is a bug: it bypasses macro expansion, breaks across datasources and fails Rule 2.
 
 | Need | Use this | Not this |
 |---|---|---|
 | Time-range WHERE | `$__timeFilter(ts_column)` | `ts BETWEEN $__timeFrom() AND $__timeTo()` |
 | Time bucketing in SELECT | `$__timeGroup(ts_column, $__interval)` | `time_bucket('1h', ts)` or `date_trunc('hour', ts)` |
-| Time bucketing with `time` alias | `$__timeGroupAlias(ts_column, $__interval)` | manual `... AS time` |
+| Bucketing with `time` alias | `$__timeGroupAlias(ts_column, $__interval)` | manual `... AS time` |
 | Bucket size | `$__interval` (auto from panel width) | hardcoded `'1 hour'` |
 | Unix epoch bounds | `$__unixEpochFrom()` / `$__unixEpochTo()` | manual `EXTRACT(EPOCH FROM ...)` |
 
-- **The only legitimate uses of raw `$__timeFrom()` / `$__timeTo()`** are cases where a macro cannot express the operation:
-
-- **Window clipping** with `LEAST` / `GREATEST` (Pattern C below) — macros don't expose individual bounds inside SELECT expressions
-- **`generate_series` bounds** for zero-fill scaffolds when `$__timeGroup` isn't usable
-- **Multi-column comparisons** like `start_time < $__timeTo() AND end_time >= $__timeFrom()` for interval-overlap WHERE clauses
-
-- In every such case, cast to `timestamptz`: `$__timeTo()::timestamptz`.
-- Document in a SQL comment why the macro wasn't sufficient.
+- Raw `$__timeFrom()` / `$__timeTo()` are legitimate only where a macro cannot express the operation:
+   - window clipping with `LEAST` / `GREATEST` (Step 3, Pattern U3);
+   - `generate_series` bounds for zero-fill scaffolds (Pattern U5);
+   - interval-overlap WHERE such as `start_time < $__timeTo() AND end_time >= $__timeFrom()`.
+- In every such case cast to `timestamptz` (`$__timeTo()::timestamptz`) and say in a SQL comment why the macro was not enough.
 
 ### Rule 2 — Every query must be PostgreSQL and DuckDB compatible
 
-- The same SQL string is sent to both engines via different Grafana datasources.
-- Queries must parse and execute correctly on both.
-- This forbids several common Postgres habits.
-
-- **Forbidden (Postgres-only or behaves differently in DuckDB):**
+- The same SQL string goes to both engines through different Grafana datasources, so it must parse and run on both.
 
 | Don't use | Use instead | Why |
 |---|---|---|
-| `time_bucket('1h', ts)` | `$__timeGroup(ts, $__interval)` | TimescaleDB-only function; not in vanilla Postgres or DuckDB |
-| `time_bucket_gapfill(...)` | `generate_series` + `LEFT JOIN` (Pattern D) | TimescaleDB-only |
-| `bool_col::int` | `CAST(bool_col AS INTEGER)` | DuckDB rejects implicit bool→int via `::` in some contexts |
+| `time_bucket('1h', ts)` | `$__timeGroup(ts, $__interval)` | TimescaleDB-only; not in vanilla Postgres or DuckDB |
+| `time_bucket_gapfill(...)` | `generate_series` + `LEFT JOIN` (Pattern U5) | TimescaleDB-only |
+| `bool_col::int` | `CAST(bool_col AS INTEGER)` | DuckDB rejects the implicit cast via `::` in some contexts |
 | `DISTINCT ON (col)` | `ROW_NUMBER() OVER (PARTITION BY col ORDER BY ...) = 1` | Postgres-only syntax |
-| `array_agg(... ORDER BY ...)` with complex sort | `array_agg(... )` over a pre-sorted CTE | Ordering inside aggregates differs |
-| `interval '1 day'` (lowercase keyword) | `INTERVAL '1 day'` | DuckDB prefers uppercase; Postgres accepts both |
-| `regexp_matches(...)` returning setof | `regexp_extract(...)` (DuckDB) / split via CTE | Set-returning regex differs |
+| `array_agg(... ORDER BY ...)` with complex sort | `array_agg(...)` over a pre-sorted CTE | Ordering inside aggregates differs |
+| `interval '1 day'` | `INTERVAL '1 day'` | DuckDB prefers uppercase keyword |
+| `regexp_matches(...)` returning setof | `regexp_extract(...)` or split via CTE | Set-returning regex differs |
 | Implicit `text` ↔ `uuid` comparison | `uuid_col::text = '...'` on both sides | DuckDB is stricter about UUID types |
-| `EXTRACT(epoch FROM …)` lowercase `epoch` | `EXTRACT(EPOCH FROM …)` uppercase | DuckDB requires uppercase field name |
+| `EXTRACT(epoch FROM …)` | `EXTRACT(EPOCH FROM …)` | DuckDB requires the uppercase field name |
 
-- **Safe in both (use freely):**
-
-- `$__timeFilter()`, `$__timeGroup()`, `$__timeGroupAlias()`, `$__interval`, `$__unixEpochFrom/To()` — Grafana expands these per-datasource
-- `date_trunc('hour', ts)`, `NOW()`, `CURRENT_TIMESTAMP`
-- `COALESCE`, `LEAST`, `GREATEST`, `NULLIF`
-- `CASE WHEN ... THEN ... ELSE ... END`
-- `EXTRACT(EPOCH FROM (ts2 - ts1))`
-- `generate_series(start, end, INTERVAL '1 day')`
-- `::timestamptz`, `::date`, `::text`, `::numeric` casts
-- `FILTER (WHERE ...)` clause on aggregates
-- Window functions: `ROW_NUMBER`, `LAG`, `LEAD`, `SUM(...) OVER (...)`
-- CTEs (`WITH ... AS`), recursive CTEs
-- `||` for string concatenation
-- `JOIN`, `LEFT JOIN`, `FULL OUTER JOIN`
-
-- **Cross-engine smell test:** if a query uses any TimescaleDB function (`time_bucket*`, `first()`, `last()`, hypertable-specific tooling), it will fail on DuckDB.
-- Replace with macros or generic SQL.
-- If portability genuinely cannot be achieved (e.g. continuous aggregates), call it out in a SQL comment and mark the panel "Postgres-only" in the dashboard JSON description.
-
-- **Audit step:** before delivery, mentally run each query against both dialects.
-- Anything Timescale-specific → flag it.
-
-- ---
+- Safe-in-both list and the cross-engine smell test (any TimescaleDB function fails on DuckDB): `references/portability_check.md`.
+- If portability cannot be achieved (for example continuous aggregates), call it out in a SQL comment and mark the panel "Postgres-only" in its JSON description.
+- Audit: before delivery run each query against both dialects in your head, then on the CLIs (Step 6); flag anything Timescale-specific.
 
 ## Step 0 — Confirm the schema before writing SQL
 
-- Most dashboard rebuilds happen because the first version was built on an assumption about the schema that turned out to be wrong.
-- Before writing any SQL, confirm the basics.
-- The full question bank is in `references/schema_interview.md`; the short version below covers the minimum.
-
-- When the user's first message gives you the schema in detail, skip ahead to Step 1.
-- Otherwise, ask explicitly — once, up front, in one consolidated message — for the items below.
-- Don't guess column names from convention.
-
-- The minimum to extract before writing the first query:
-
-1. **Domain framing.** What question does this dashboard answer, and who reads it? (Determines tier — manager / analyst / operations.)
-2. **Fact table identification.** Which table holds the operational data? Is it a custom relational fact table or a UUID-keyed long-format telemetry table? (Determines archetype.)
-3. **Time semantics.** Which column is the canonical timestamp? What's its type (`timestamptz` vs naive `timestamp`)? Can it be NULL or future-dated?
-4. **Interval semantics (relational only).** Is the fact interval-shaped (start_time / end_time) or point-shaped (single timestamp)? If interval, what does NULL `end_time` mean — ongoing or abandoned?
-5. **Multi-tenancy column.** What's the `account_id` / `tenant_id` / `site_id`? Can the user belong to multiple tenants?
-6. **Soft-delete and visibility flags.** Which boolean columns must always be filtered (`is_archived`, `is_active`, `is_ignored`, `is_deleted`)?
-7. **KPI definitions.** What are the 3–5 KPIs the user expects, and what's the exact computation for each? "Total downtime" can mean different things — pin down the formula now.
-8. **Expected order of magnitude** for each KPI. The user has an opinion ("MTTR is around 45 min for our fleet"); use it as a sanity check after the first draft.
-
-- For longer engagements or unfamiliar domains, run the full interview in `references/schema_interview.md` (29 questions across 9 blocks).
-- For quick deliveries, the 8 above are sufficient.
-
-- If the user can't answer some of these, the missing answers are exactly the spots where the dashboard will fail later.
-- Flag them explicitly in the response, don't paper over with assumptions.
-
-- ---
+- Most dashboard rebuilds happen because the first version assumed a schema that was wrong; ask once, in one message, and do not guess column names.
+- If the first message gives the schema in detail, skip to Step 1.
+- Minimum to extract: domain and reader (tier), fact table and archetype, canonical timestamp column and type, interval or point shape and the meaning of NULL `end_time`.
+- Also: tenant column, soft-delete flags (`is_archived`, `is_active`, `is_ignored`), the 3 to 5 KPIs with exact formulas, and the expected order of magnitude of each KPI.
+- Full eight questions: `references/schema_interview.md` ("The minimum eight questions"); long engagements use its 29-question interview.
+- Answers the user cannot give are where the dashboard fails later: flag them explicitly, do not paper over them with assumptions.
 
 ## Step 1 — Identify the data model archetype FIRST
 
-- Before writing any SQL, determine which archetype the user's data follows.
-- The two are fundamentally different and use different SQL patterns.
-- Read `references/archetypes.md` for the full decision guide.
+- The two archetypes need different SQL patterns; decide before writing SQL (`references/archetypes.md`).
 
-### Archetype A — Relational (custom schema)
+| | A — Relational (custom schema) | B — Timeseries (UUID-keyed long format) |
+|---|---|---|
+| Looks like | Entity tables (`downtime_incidents`, `production_orders`), typed columns `start_time`, `end_time`, `machine_id`, foreign keys, often ORM-generated | One table (`telemetry`, `signals`, `points`) with `systime`, `uuid`, `value_double` / `value_integer` / `value_bool` / `value_string`, `is_delta` |
+| Patterns | `references/relational_patterns.sql` | `references/timeseries_patterns.sql` |
+| Producers | Application databases | ts-shape, UMH, Benthos, OPC-UA bridges, MQTT historians |
 
-- The user has **domain-specific fact and dimension tables** designed for their use case.
-
-- Tables named for entities: `downtime_incidents`, `production_orders`, `quality_checks`, `energy_readings`
-- Each fact row has typed columns: `start_time`, `end_time`, `machine_id`, `reason_id`, `quantity`
-- Dimensions linked by foreign keys
-- Often ORM-generated — Rails / Django / SQLAlchemy patterns visible (`is_archived`, `created_at`, `account_id`)
-- Signs:
-
-- Use **`references/relational_patterns.sql`** for SQL examples.
-
-### Archetype B — Timeseries (UUID-keyed long-format)
-
-- The user has **a single wide telemetry table** where every signal is one row, identified by UUID, with polymorphic value columns.
-
-- Canonical schema:
-
-```
-telemetry (
-  systime         timestamptz,        -- the timestamp
-  uuid            uuid,               -- which signal/sensor (the "what")
-  value_double    double precision,
-  value_integer   bigint,
-  value_bool      boolean,
-  value_string    text,
-  is_delta        char(1)             -- 't' = delta/event, 'f' = state value
-)
-```
-
-- One fact table named `telemetry`, `metrics`, `signals`, `points`, or similar
-- A `uuid` (or `signal_id` / `tag_id`) column identifies what's being measured
-- Multiple `value_*` columns for different types
-- ts-shape, UMH (Unified Manufacturing Hub), Benthos, OPC-UA bridges, MQTT historians all produce this shape
-- `is_delta` distinguishes state values (continuous) from event values (discrete deltas)
-- Signs:
-
-- Use **`references/timeseries_patterns.sql`** for SQL examples.
-
-### Mixed environments
-
-- Some users have **both archetypes** — e.g. a relational `downtime_incidents` table (for human-classified events) alongside `telemetry` (for raw machine signals).
-- Build separate queries against each, but normalize through the same dashboard layer (same variables, same time range, same visual conventions).
-
-- ---
+- `is_delta` separates event values (delta, `t`) from state values (continuous, `f`).
+- Mixed environments: build separate queries per archetype but share variables, time range and visual conventions.
 
 ## Step 2 — Pick the dashboard tier(s)
-
-- Operations data rarely fits one dashboard.
-- Three audiences, three layouts:
 
 | Tier | Audience | Question | Filters | Panels |
 |---|---|---|---|---|
@@ -220,287 +126,119 @@ telemetry (
 | **Analyst** | CI engineers, planners, analysts | "Why did this happen?" | Full filter set, time picker | 20–30+, drill-down, data quality |
 | **Operations** | Shift leads, operators | "What's happening right now?" | None | Few, large fonts, live state |
 
-- Always ask which tier(s) before building.
-- Don't default to all three.
-- Read `references/dashboard_tiers.md` for the full design rules and example panel inventories.
-
-- ---
+- Always ask which tier(s) before building; do not default to all three, because each tier needs its own layout.
+- Design rules and panel inventories: `references/dashboard_tiers.md`.
 
 ## Step 3 — Apply the universal time-window patterns
 
-- These patterns apply **regardless of archetype** — they're about how Grafana time macros interact with PostgreSQL/DuckDB.
-- They are written to honour the two hard rules above.
+- They apply to both archetypes and honour the hard rules. Full SQL, with the reasons, is in `references/relational_patterns.sql` (section "Universal time-window patterns").
 
-### Pattern A — Default: `$__timeFilter()` for the WHERE
+| Pattern | Use | Rule |
+|---|---|---|
+| U1 | Default time WHERE | `WHERE $__timeFilter(ts_column)` |
+| U2 | Bucketed trend in SELECT | `$__timeGroupAlias(ts_column, $__interval) AS time`; pin a bucket only for shift-based aggregation |
+| U3 | Duration of interval events | Clip with `LEAST` / `GREATEST` against the window; WHERE is a two-column overlap, not `$__timeFilter(start_time)` |
+| U4 | Nullable `end_time` | `COALESCE(end_time, NOW())` for live panels; `WHERE end_time IS NOT NULL` for historical averages and MTTR |
+| U5 | Zero-fill of empty periods | `generate_series` + `LEFT JOIN`, `$__timeFilter` on the join |
 
-- This is the default time-range filter.
-- It expands correctly on both Postgres and DuckDB datasources and adapts automatically to the panel's time range.
-
-```sql
-SELECT ...
-FROM <fact_table>
-WHERE $__timeFilter(ts_column)
-  AND <other filters>
-```
-
-- **Do not** write `WHERE ts BETWEEN $__timeFrom() AND $__timeTo()` — that bypasses macro expansion and is a Rule 1 violation.
-
-### Pattern B — Bucketed trends: `$__timeGroup()`
-
-- Use `$__timeGroup()` (or `$__timeGroupAlias()` when you want the result column named `time` automatically) for any bucketed time series in a SELECT.
-- The bucket size comes from `$__interval`, which Grafana derives from panel width.
+- Why U3 matters: without clipping, an 8-hour stoppage in a 1-hour view contributes the full 8 hours, the most overlooked bug in homegrown ops dashboards.
+- Use U3 in every duration-summing query (relational archetype only; timeseries rows have no `end_time`).
 
 ```sql
-SELECT
-  $__timeGroupAlias(ts_column, $__interval) AS time,
-  COUNT(*)                                  AS events
-FROM <fact_table>
-WHERE $__timeFilter(ts_column)
-GROUP BY 1
-ORDER BY 1;
-```
-
-- Pin a specific bucket size only when the panel's semantics require it (e.g. shift-based aggregation).
-- In that case, use `$__timeGroup(ts_column, '1h')` with an explicit interval string — still goes through the macro, still works on both engines.
-
-### Pattern C — Window clipping (raw bounds, justified exception)
-
-- When summing duration of interval-shaped events against a Grafana time range, partially-overlapping events must be clipped to the visible portion.
-- Otherwise an 8-hour stoppage in a 1-hour view contributes the full 8 hours.
-- This is the **single most-overlooked bug** in homegrown ops dashboards.
-
-- `$__timeFilter()` cannot express clipping inside a SELECT expression, so this is a legitimate raw-bounds use.
-- Cast both bounds to `timestamptz`:
-
-```sql
-SELECT
-  SUM(EXTRACT(EPOCH FROM (
-    LEAST   (COALESCE(end_time, NOW()), $__timeTo()::timestamptz)
-    - GREATEST(start_time,                $__timeFrom()::timestamptz)
-  ))) / 60.0 AS clipped_minutes
+SELECT SUM(EXTRACT(EPOCH FROM (
+         LEAST(COALESCE(end_time, NOW()), $__timeTo()::timestamptz)
+       - GREATEST(start_time, $__timeFrom()::timestamptz)))) / 60.0 AS clipped_minutes
 FROM downtime_incidents
-WHERE start_time      <  $__timeTo()::timestamptz
-  AND COALESCE(end_time, NOW()) >= $__timeFrom()::timestamptz
-  AND <other filters>;
+WHERE start_time < $__timeTo()::timestamptz
+  AND COALESCE(end_time, NOW()) >= $__timeFrom()::timestamptz;   -- raw bounds: window clipping (Rule 1 exception)
 ```
-
-- The WHERE here is intentionally **not** `$__timeFilter(start_time)` — that would drop events whose `start_time` precedes the window but whose duration overlaps it. Interval-overlap semantics require the explicit two-column compare.
-- Both `LEAST` and `GREATEST` exist in Postgres and DuckDB ✓
-- `EXTRACT(EPOCH FROM …)` works in both, with `EPOCH` uppercase
-- Notes:
-
-- Use this in every duration-summing query.
-- For relational archetype only — timeseries `value_*` rows don't have an `end_time`.
-
-### Pattern D — Coalesce nullable end times (relational archetype only)
-
-- When a fact table has `start_time` / `end_time` and `end_time IS NULL` means "still ongoing":
-
-```sql
-EXTRACT(EPOCH FROM (COALESCE(end_time, NOW()) - start_time)) / 60.0 AS duration_min
-```
-
-- **Coalesce** = ongoing events contribute their elapsed time so far. Default for live/recent panels.
-- **Exclude** (`WHERE end_time IS NOT NULL`) = ongoing events excluded. Use for averages, percentiles, MTTR over historical windows.
-- Choose between:
-
-### Pattern E — Generate complete time series with zero-fill
-
-- When daily/hourly trends need zero rows for periods with no events (otherwise gaps mislead).
-- DuckDB has no `time_bucket_gapfill`, so use `generate_series` + `LEFT JOIN` — works identically on both engines:
-
-```sql
-WITH buckets AS (
-  SELECT generate_series(
-    date_trunc('day', $__timeFrom()::timestamptz),
-    date_trunc('day', $__timeTo()::timestamptz),
-    INTERVAL '1 day'
-  ) AS bucket
-)
-SELECT
-  b.bucket            AS time,
-  COALESCE(SUM(f.value), 0) AS value
-FROM buckets b
-LEFT JOIN <fact_table> f
-  ON date_trunc('day', f.ts_column) = b.bucket
- AND $__timeFilter(f.ts_column)
-GROUP BY b.bucket
-ORDER BY b.bucket;
-```
-
-- Note the macro use: `$__timeFilter` on the join, raw `$__timeFrom/To()::timestamptz` only inside `generate_series` (justified exception — macros don't fit there).
-- Both `generate_series(timestamptz, timestamptz, INTERVAL)` and `date_trunc()` work in Postgres and DuckDB.
-
-- For finer buckets (hourly, 5-min), prefer `$__timeGroup()` over manual `date_trunc` unless you specifically need fixed boundaries that don't follow `$__interval`.
-
-- ---
 
 ## Step 4 — Wire variables consistently
 
-- Every variable defined must be used in every relevant panel.
-- Defining a variable and not wiring it is a bug.
-- The full reference for variable types, refresh order, the three filter patterns, and the audit checklist is in **`references/variables.md`** — read that for any non-trivial variable wiring.
-- The summary below covers the typical default sets per archetype.
-
-### Relational archetype variables (typical)
-
-```
-$account            (query, single)        multi-tenant
-$<entity>           (query, multi+all)     e.g. $machine, $line, $department
-$<category>         (query, multi+all)     e.g. $reason, $defect_type
-$severity           (custom, single+'all') optional severity filter
-$min_duration_min   (textbox, default 0)   numeric threshold
-$auto_detected      (custom, all/0/1)     source filter
-```
-
-### Timeseries archetype variables (typical)
-
-```
-$<signal_name>      (query, single+raw)    one variable per UUID needed
-                    SELECT name AS __text, uuid AS __value FROM <signal_meta>
-                    Use as: uuid = (${signal_name:raw})
-$machine            (query, single)        if telemetry is tagged by machine
-$bucket             (interval, custom)     1m, 5m, 15m, 1h
-```
-
-- For timeseries, you typically want **one variable per signal** the dashboard cares about, sourced from a metadata table that maps UUID → human-readable name.
-- If no metadata table exists, hardcode UUIDs in the query and document them in a markdown panel.
-
-### Three reusable filter patterns (also in `variables.md`)
-
-- **Optional sentinel:** `'$severity' = 'all' OR CAST(severity AS TEXT) = '$severity'` — requires "all" option in the variable
-- **Integer escape:** `$auto_detected = -1 OR CAST(is_auto_detected AS INTEGER) = $auto_detected` — for tri-state custom variables; uses portable `CAST(... AS INTEGER)` not `::int`
-- **NULL preservation:** `(reason_id IN ($reason)) OR reason_id IS NULL` — keeps unclassified rows visible despite filter
-
-- Audit before delivery: grep every panel's SQL for each defined variable.
-- If a variable is missing from a panel where it's logically relevant, that's a bug.
-
-- ---
+- Every defined variable must be used in every relevant panel; defining one and not wiring it is a bug.
+- Variable types, refresh order, the three filter patterns and the audit checklist: `references/variables.md`; the default sets per archetype are in the same file.
+- Timeseries: one variable per signal, UUID from a metadata table, used as `uuid = (${signal_name:raw})` because without `:raw` the quotes double up and the panel silently returns zero rows.
+- Three reusable filter patterns:
+   - Optional sentinel: `'$severity' = 'all' OR CAST(severity AS TEXT) = '$severity'`.
+   - Integer escape: `$auto_detected = -1 OR CAST(is_auto_detected AS INTEGER) = $auto_detected`.
+   - NULL preservation: `(reason_id IN ($reason)) OR reason_id IS NULL`, so unclassified rows stay visible.
+- Audit before delivery: search every panel's SQL for each defined variable.
 
 ## Step 5 — Generate JSON via the Python builder
 
-- Don't hand-write Grafana panel JSON.
-- Read **`references/dashboard_builder.py`** first — it has helpers for every panel type (`stat`, `table_panel`, `echarts`, `timeseries`, `row`, `text`) plus override builders for table cell coloring, threshold builders, and variable factories.
+- Do not hand-write Grafana panel JSON. Read `references/dashboard_builder.py` first: helpers for `stat`, `table_panel`, `echarts`, `timeseries`, `row`, `text`, threshold builders, variable factories and `build_dashboard`.
+- Requires Python 3 and the standard library only; `python references/dashboard_builder.py validate out.json` checks a generated file (exit 0 clean, 1 findings).
 
 ```python
-from dashboard_builder import (
-    stat, table_panel, echarts, timeseries, row, text,
-    traffic_light, gradient_gauge_override,
-    var_query, var_custom, var_textbox, var_uuid_signal,
-    build_dashboard,
-)
+from dashboard_builder import (stat, row, traffic_light, var_query, build_dashboard)
 
 panels = []; pid = 100
-panels.append(row(pid, "🎯 KPIs", 0)); pid += 1
-panels.append(stat(pid, "Total downtime", 0, 1, 4, 4,
-                   sql=sql_total, unit="m",
+panels.append(row(pid, "KPIs", 0)); pid += 1
+panels.append(stat(pid, "Total downtime", 0, 1, 4, 4, sql=sql_total, unit="m",
                    thresholds=traffic_light(yellow=20, red=50))); pid += 1
-# ... more panels
-
-dashboard = build_dashboard(
-    title="Downtime — Manager View",
-    panels=panels,
-    variables=[var_query("account", "ACCOUNT", account_sql, multi=False)],
-    refresh="5m",
-    hide_timepicker=True,
-)
+dashboard = build_dashboard(title="Downtime — Manager View (fictional)", panels=panels,
+                            variables=[var_query("account", "ACCOUNT", account_sql, multi=False)],
+                            refresh="5m", hide_timepicker=True)
 ```
 
-- ECharts panels need two things: SQL must return `format: table` with named columns, and `getOption` JS reads columns by name.
-- **`references/echarts_templates.js`** has 12 reusable templates: Pareto, donut, heatmap, comparison-bars, duration-histogram, gauge, state-timeline (Gantt-style), hourly-output (bar+target+cumulative), scatter-with-control-limits, KPI-card-grid, correlation-lines (dual axis), and stacked-area.
-- Pick by intent — the chart-picking guide is at the bottom of the templates file.
-- Always include the two defensive splash screens (No data / Unexpected data shape).
-
-- For timeseries archetype dashboards specifically, when the user gives you natural-language descriptions of signals plus a metadata catalog of UUIDs, read **`references/signal_matching.md`** to translate descriptions into specific UUIDs and panels.
-
-- ---
+- ECharts panels need `format: table` SQL with named columns and a `getOption` that reads columns by name.
+- `references/echarts_templates.js` has 12 templates (Pareto, donut, heatmap, bars, histogram, gauge, state-timeline, hourly output, scatter, KPI grid, correlation, stacked area); pick by intent with its guide.
+- Always include the two defensive splash screens (No data, Unexpected data shape).
+- Timeseries with natural-language signal descriptions plus a UUID catalog: `references/signal_matching.md`.
 
 ## Step 6 — Audit checklist before delivering
 
-- [ ] **JSON validates:** `python3 -c "import json; json.load(open('out.json'))"`
-- [ ] **Archetype is consistent** — don't mix relational duration math (`COALESCE(end_time, NOW())`) into timeseries queries that don't have an `end_time`
+- [ ] **JSON validates:** `python3 -c "import json; json.load(open('out.json'))"` and the builder's `validate`
+- [ ] **Archetype is consistent** (no `COALESCE(end_time, NOW())` in timeseries queries)
 - [ ] **Every defined variable is used in every relevant panel**
 - [ ] **Every duration-summing query uses `LEAST/GREATEST` clipping** (relational only)
-- [ ] **Time WHERE clauses use `$__timeFilter()`** — raw `$__timeFrom/To()` only in justified exceptions (clipping, generate_series, interval-overlap), each with a comment
-- [ ] **Time bucketing uses `$__timeGroup()` / `$__timeGroupAlias()`** — no `time_bucket()`, no hardcoded `date_trunc('hour', …)` in SELECT for bucketing
-- [ ] **Bucket size uses `$__interval`** unless a fixed interval is semantically required
+- [ ] **Time WHERE clauses use `$__timeFilter()`**; raw bounds only in justified exceptions, each with a comment
+- [ ] **Bucketing uses `$__timeGroup()` / `$__timeGroupAlias()` and `$__interval`**; no `time_bucket()`, no hardcoded `date_trunc` bucketing
 - [ ] **Every raw `$__timeTo()` / `$__timeFrom()` is cast `::timestamptz`**
-- [ ] **No TimescaleDB-only functions** (`time_bucket*`, `first()`, `last()`, `locf()`, hypertable management) — replaced with macros or generic SQL
-- [ ] **No Postgres-only syntax** (`DISTINCT ON`, `bool_col::int`, lowercase `epoch`) — use portable equivalents
-- [ ] **Boolean→integer casts use `CAST(x AS INTEGER)`** not `x::int`
+- [ ] **No TimescaleDB-only functions** (`time_bucket*`, `first()`, `last()`, `locf()`)
+- [ ] **No Postgres-only syntax** (`DISTINCT ON`, `bool_col::int`, lowercase `epoch`); booleans use `CAST(x AS INTEGER)`
 - [ ] **UUID/text comparisons cast both sides** (`uuid_col::text = '...'`)
 - [ ] **Every nullable-end-time case is explicit** (coalesce or exclude)
 - [ ] **`OR <fk> IS NULL`** preserved wherever filtering on a nullable foreign key
-- [ ] **Soft-delete flags** (`is_archived`, `is_active`, `is_ignored`) on every fact-table query
-- [ ] **ECharts panels:** SQL `format` is `table`, JS reads columns by name, defensive splash screens included
-- [ ] **Time series:** SQL `format` is `time_series`, returns `time` / `metric` / `value` columns
-- [ ] **Manager-tier:** `timepicker.hidden = true`, refresh ≥ 5m, traffic-light thresholds set
-- [ ] **Schema, plugin, Grafana versions** declared in `__requires`
-- [ ] **Datasource UID** uses `${DS_NAME}` placeholder so import dialog asks once
-- [ ] **Timeseries archetype:** `${var:raw}` syntax used for UUID variables to avoid quote escaping
-- [ ] **Indexes match WHERE shapes** — see `references/performance.md` (the relational fact table has `(start_time)` and per-entity composite indexes; the telemetry table has `(uuid, systime DESC)`)
-- [ ] **Performance budget met** — manager < 2s, analyst < 5s, operations < 1s on first load
-- [ ] **Portability check passed** — at least 5 representative panels run cleanly on both PG and DuckDB CLIs (see `references/portability_check.md`)
-- [ ] **Panel titles follow the convention** `[Tier] <Domain> — <Question>` for analyst dashboards (see `references/dashboard_tiers.md`)
-- [ ] **Annotations and alerts** considered for operations / analyst tiers; if added, each has a named owner and a calibrated threshold (see `references/annotations_and_alerts.md`)
-
-- ---
+- [ ] **Soft-delete flags** on every fact-table query
+- [ ] **ECharts panels:** `format` is `table`, JS reads columns by name, splash screens included
+- [ ] **Time series panels:** `format` is `time_series`, columns `time` / `metric` / `value`
+- [ ] **Manager tier:** `timepicker.hidden = true`, refresh at least 5m, traffic-light thresholds set
+- [ ] **`__requires`** declares schema, plugin and Grafana versions; datasource UID is the `${DS_NAME}` placeholder
+- [ ] **Timeseries:** `${var:raw}` used for UUID variables
+- [ ] **Indexes match WHERE shapes** and the **performance budget is met** (manager under 2s, analyst under 5s, operations under 1s): `references/performance.md`
+- [ ] **Portability check passed** on at least 5 representative panels on both PG and DuckDB: `references/portability_check.md`
+- [ ] **Panel titles follow** `[Tier] <Domain> — <Question>` for analyst dashboards (`references/dashboard_tiers.md`)
+- [ ] **Annotations and alerts** considered for operations and analyst tiers; each added one has a named owner and a calibrated threshold (`references/annotations_and_alerts.md`)
 
 ## Human gate and AI-agent notes
 
-- **Agent may:** confirm the schema, write the SQL and the dashboard JSON, run the audit and the portability check, and
-  list what is not confirmed.
-- **Humans decide:** publishing the dashboard to a shared Grafana instance (human-approved); the plant owner confirms
-  adoption.
+- **Agent may:** confirm the schema, write the SQL and the dashboard JSON, run the audit and the portability check, and list what is not confirmed.
+- **Humans decide:** publishing the dashboard to a shared Grafana instance (human-approved); the plant owner confirms adoption.
+
+## Example
+
+```text
+Request (fictional): "Downtime dashboard for the plant manager, table downtime_incidents, one tenant column account_id."
+Step 0 : archetype A (relational); end_time NULL = ongoing; KPI "total downtime" = clipped minutes in the window
+Step 2 : manager tier only; 8-13 panels, fixed window, traffic lights
+Step 3 : U3 clipping for the KPI; U5 zero-fill for the daily trend
+Step 6 : portability check on 5 panels; delivered as one .json with ${DS_NAME}; publish = human approval
+```
 
 ## Pitfalls
 
-- A query that uses `time_bucket()`, hardcoded time bounds or `::int` on a boolean breaks the two hard rules, even when a
-  reference snippet shows it.
-- In OD: a savings tile that shows the tracked total as proven; `COALESCE(x, 0)` that turns a missing value into a zero; a plant's Grafana pointed at the global data platform;
-   - a cross-plant view built on a local instance (see [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
+- A query that uses `time_bucket()`, hardcoded time bounds or `::int` on a boolean breaks the two hard rules, even when a reference snippet shows it; treat such a snippet as outdated.
+- Building on a guessed schema: skipped Step 0 is the commonest cause of a rebuild.
+- Defining a variable and not wiring it into the panels.
+- Summing durations without clipping, so partially overlapping events inflate totals.
+- Hardcoding a UUID in panel SQL; use a variable from a metadata table.
+- In OD: a savings tile showing the tracked total as proven; `COALESCE(x, 0)` turning a missing value into a zero; a plant's Grafana pointed at the global platform.
+- In OD: a cross-plant view built on a local instance (see [`OD-INTEGRATION.md`](OD-INTEGRATION.md)).
 
 ## Definition of done
 
 - The JSON validates, every item of the Step 6 checklist is ticked or its exception stated, the portability check passed on at least five representative panels, and the dashboard is handed over with `deploy-handover`.
-
-## Files in this skill
-
-| File | Purpose | When to read |
-|---|---|---|
-| [`SKILL.md`](SKILL.md) | This file — workflow and decision points | Always |
-| [`references/schema_interview.md`](references/schema_interview.md) | Question bank for confirming the schema before writing SQL | Step 0 (full interview); short version is in this SKILL.md |
-| [`references/archetypes.md`](references/archetypes.md) | How to recognize and choose between relational and timeseries | Step 1 |
-| [`references/relational_patterns.sql`](references/relational_patterns.sql) | SQL patterns for fact + dimension models (downtime as worked example) | When archetype = relational |
-| [`references/timeseries_patterns.sql`](references/timeseries_patterns.sql) | SQL patterns for UUID-keyed long-format telemetry | When archetype = timeseries |
-| [`references/dashboard_tiers.md`](references/dashboard_tiers.md) | Manager / analyst / operations tier design rules and naming conventions | Step 2 |
-| [`references/variables.md`](references/variables.md) | Variable wiring reference — types, refresh order, filter patterns, audit checklist | Step 4 |
-| [`references/dashboard_builder.py`](references/dashboard_builder.py) | Python helpers for generating Grafana 8.5 panel JSON | Step 5 |
-| [`references/echarts_templates.js`](references/echarts_templates.js) | 12 ECharts JS templates: Pareto, donut, heatmap, compare-bars, histogram, gauge, state-timeline, hourly-output, scatter-with-limits, KPI-grid, correlation, stacked-area | Step 5 |
-| [`references/annotations_and_alerts.md`](references/annotations_and_alerts.md) | Annotations and panel-alert patterns for operations and analyst tiers | Step 5 (optional, depending on tier) |
-| [`references/signal_matching.md`](references/signal_matching.md) | Translate natural-language descriptions + UUID catalog → specific UUIDs and panels | When archetype = timeseries and user gives descriptions, not UUIDs |
-| [`references/performance.md`](references/performance.md) | Indexes, aggregates, hypertable chunk intervals, performance budgets | Step 6 (audit), or any time the dashboard is slow |
-| [`references/portability_check.md`](references/portability_check.md) | Delivery-time procedure for verifying queries on both PG and DuckDB | Step 6 (audit), before final delivery |
-| [`references/troubleshooting.md`](references/troubleshooting.md) | Error → fix lookup, including DuckDB first-time setup verification | When debugging |
-| [`references/examples/`](references/examples/) | Complete worked-example dashboards (manager + analyst views per archetype) | When you want a concrete model to imitate rather than building from patterns |
-| [`usage_guide.md`](usage_guide.md) | End-to-end orchestration walkthrough — how to use this skill from a system prompt or Claude Code session | When invoking the skill end-to-end |
-| [`references/examples/README.md`](references/examples/README.md) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/relational_analyst.json`](references/examples/relational_analyst.json) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/relational_analyst.py`](references/examples/relational_analyst.py) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/relational_manager.json`](references/examples/relational_manager.json) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/relational_manager.py`](references/examples/relational_manager.py) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/timeseries_analyst.json`](references/examples/timeseries_analyst.json) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/timeseries_analyst.py`](references/examples/timeseries_analyst.py) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/timeseries_manager.json`](references/examples/timeseries_manager.json) | Worked example | When you want a concrete model to imitate |
-| [`references/examples/timeseries_manager.py`](references/examples/timeseries_manager.py) | Worked example | When you want a concrete model to imitate |
-| [`OD-INTEGRATION.md`](OD-INTEGRATION.md) | How OD uses this skill: gates, local Grafana, handover | Every OD dashboard |
-| [`references/outputs.md`](references/outputs.md) | What this skill must deliver, to whom, and when it is complete | Before handing over |
-
-- Read `archetypes.md` and the matching `*_patterns.sql` early.
-- The other reference files are loaded on-demand based on the task — most relevant when their step is reached, except `troubleshooting.md` and `performance.md` which are pulled in reactively when something goes wrong.
-
-- > **Note for reference files:** the two hard rules at the top of this file (macros + PG/DuckDB portability) override anything in `relational_patterns.sql`, `timeseries_patterns.sql`, or `troubleshooting.md`.
-- If a reference snippet uses `time_bucket()`, hardcoded `BETWEEN $__timeFrom() AND $__timeTo()`, or `::int` on a boolean, treat it as outdated and rewrite per the rules above.
 
 ## Outputs
 
@@ -509,6 +247,32 @@ dashboard = build_dashboard(
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/background.md`](references/background.md) | You need context and rationale; never an instruction |
+| [`OD-INTEGRATION.md`](OD-INTEGRATION.md) | Every OD dashboard: gates, local Grafana, handover |
+| [`usage_guide.md`](usage_guide.md) | Invoking the skill end to end from a system prompt or Claude Code session |
+| [`references/schema_interview.md`](references/schema_interview.md) | Step 0: minimum eight questions and the full interview |
+| [`references/archetypes.md`](references/archetypes.md) | Step 1: recognising relational against timeseries, edge cases |
+| [`references/relational_patterns.sql`](references/relational_patterns.sql) | Archetype relational, and Step 3 universal patterns |
+| [`references/timeseries_patterns.sql`](references/timeseries_patterns.sql) | Archetype timeseries: counters, state durations, shift clipping |
+| [`references/dashboard_tiers.md`](references/dashboard_tiers.md) | Step 2: tier design rules and naming |
+| [`references/variables.md`](references/variables.md) | Step 4: variable types, refresh order, filter patterns, default sets |
+| [`references/dashboard_builder.py`](references/dashboard_builder.py) | Step 5: panel helpers and the `validate` command |
+| [`references/echarts_templates.js`](references/echarts_templates.js) | Step 5: an ECharts panel is needed |
+| [`references/annotations_and_alerts.md`](references/annotations_and_alerts.md) | Step 5: operations or analyst tier with annotations or alerts |
+| [`references/signal_matching.md`](references/signal_matching.md) | Timeseries, and the user describes signals in words instead of UUIDs |
+| [`references/performance.md`](references/performance.md) | Step 6 audit, or the dashboard is slow |
+| [`references/portability_check.md`](references/portability_check.md) | Step 6, before delivery: check queries on PG and DuckDB; safe-in-both list |
+| [`references/troubleshooting.md`](references/troubleshooting.md) | Debugging an error, including first-time DuckDB setup |
+| [`references/examples/`](references/examples/) | You want a complete model to imitate: [`README.md`](references/examples/README.md) lists four manager and analyst dashboards (`.py` and `.json`) |
+| [`references/outputs.md`](references/outputs.md) | Before handing over: what must be delivered, to whom |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |
+| [`references/examples/relational_analyst.json`](references/examples/relational_analyst.json) | A worked input or output to copy the shape from |
+| [`references/examples/relational_analyst.py`](references/examples/relational_analyst.py) | A worked input or output to copy the shape from |
+| [`references/examples/relational_manager.json`](references/examples/relational_manager.json) | A worked input or output to copy the shape from |
+| [`references/examples/relational_manager.py`](references/examples/relational_manager.py) | A worked input or output to copy the shape from |
+| [`references/examples/timeseries_analyst.json`](references/examples/timeseries_analyst.json) | A worked input or output to copy the shape from |
+| [`references/examples/timeseries_analyst.py`](references/examples/timeseries_analyst.py) | A worked input or output to copy the shape from |
+| [`references/examples/timeseries_manager.json`](references/examples/timeseries_manager.json) | A worked input or output to copy the shape from |
+| [`references/examples/timeseries_manager.py`](references/examples/timeseries_manager.py) | A worked input or output to copy the shape from |

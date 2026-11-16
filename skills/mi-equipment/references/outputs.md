@@ -15,10 +15,10 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | plant-readiness-brief | `assets/plant-readiness-brief.md`, filled before either route | Plant ME, Plant IT | Plant row, flags and plant-only questions are filled from the Machine List and Tool Overview |
-| assessment-protocol-route-a | `assets/assessment-protocol.md`, one per plant or wave | Plant ME, Plant IT, then Route B per machine | Inventory and roadmap agreed; Each machine in scope carries concept, connector and sequence position; Barriers logged; Investment planned; Cyber Security gate identified |
+| assessment-protocol-route-a | `assets/assessment-protocol.md`, one per plant or wave | Plant ME, Plant IT, then Mode B per machine | Inventory and roadmap agreed; Each machine in scope carries concept, connector and sequence position; Barriers logged; Investment planned; Cyber Security gate identified |
 | guidance-protocol-route-b | `assets/guidance-protocol.md`, one per machine | `mi-signals`, `deploy-acceptance`, `mi-flow` | Gates 0 to 4 recorded in order; Concept, connector, sequence position, logged barriers and Cyber Security status stated |
 | records-updated | Machine List, Machine CV and Edge Device List | MPEE OD (informed) | All three updated; `INTEGRATED` set only after `deploy-acceptance` passes |
-| investment-for-approval | Sized investment from Route A step 6 | `dept-decision-rights` | Investment sized and taken through integration investment planning |
+| investment-for-approval | Sized investment from Mode A step 6 | `dept-decision-rights` | Investment sized and taken through integration investment planning |
 
 ## Checks
 

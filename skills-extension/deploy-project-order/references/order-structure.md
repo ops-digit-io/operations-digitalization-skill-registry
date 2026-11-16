@@ -24,7 +24,7 @@ moved to the back, never deleted.
 | Good practices, lessons learned | What to reuse | From earlier projects, with the source |
 | Relationship to other projects | Dependencies and synergies | Anticipate critical areas |
 | Out of scope | What the project will not do | Write it; it removes grey zones |
-| Opportunities and risks | Classified lists | See [`roles-risks-procurement`](roles-risks-procurement.md) |
+| Opportunities and risks | Classified lists | See `roles-risks-procurement` |
 | Project organisation | Both sides, availability, training needs | Team availability and training needs are asked, not assumed |
 | Approval | Who approved, date | Documented: signature, e-signature or e-mail |
 

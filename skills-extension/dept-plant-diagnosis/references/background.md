@@ -43,3 +43,11 @@ Proposed step ids for the registry: spine (plant onboarding, rhythm) and 24.
 - **Receives from:** `dept-plant-onboarding` (plant placed by starting profile, lists read on the day), `bc-portfolio` (savings by plant, tracked and proven apart), `mi-equipment` (barrier log), `catalog-compatibility` (compatibility verdict per plant).
 - **Next in the flow:** `bc-portfolio` (tier as a capacity input and gap reasons at step 24), `metrics-scorecard` (call and strategy-round inputs), `catalog-compatibility` (a technical gap on a standard), `dept-decision-rights`, `dept-risk`, `dept-retro` (confirmed lessons).
 - **Stops here when:** the facts are not read from the lists on the day, only zero reported saving is the evidence for "no potential" (only a human may decide that, after the scaling test), a row would be marked green without evidence, or a plant comparison would leave the department without approval.
+
+## Sources used in the improvement run
+
+- `Work-OpsDigit-Knowledge/Slide Index/Slide Index - Neuer Ordner.md` (slide 13) and `Slide Index - 10-Workshops.md` (slide 5): deck "Operation Digitalization Gap Analysis - Ishikawa", versions dated 2024-12-05 and 2025-01-20. Used only to name the source of the branch method.
+
+## Open questions
+
+- The remaining source decks behind the tier criteria and the roadmap fields are not named with title and date here; confirm them with the owner.

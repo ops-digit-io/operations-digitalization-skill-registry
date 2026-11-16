@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [SharePoint list export](SKILL.md) | Agent Skill | Export an OD SharePoint Online list in full — current items, complete item version history, attachment metadata and attachment binaries — from the browser console using only the REST API and an authenticated session. No PowerShell, no PnP module, no tenant admin rights. Use whenever OD source data has to leave SharePoint for analysis, a refresh of the knowledge graph or portfolio reporting, when the narrative behind a record (rationale, blockers, comments) has to be recovered from version history, or when someone asks how the exports underneath the analyses were produced. |
+| [SharePoint list export](SKILL.md) | Agent Skill | Export a full SharePoint Online list (current items, complete version history, attachment metadata and binaries) from the browser console with the REST API, no PowerShell, PnP or admin rights. Use when OD source data has to leave SharePoint for analysis, portfolio reporting or a knowledge-graph refresh, when the rationale, blockers or comments behind a record must be recovered from version history, when a recurring export needs incremental runs, a checkpoint or a schema-drift check, or when someone asks how the exports behind the analyses were made. Read-only on SharePoint. Not for analysing the export (bc-portfolio). |
 
 | Folder | Holds |
 |---|---|

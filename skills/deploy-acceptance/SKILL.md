@@ -1,7 +1,7 @@
 ---
 name: deploy-acceptance
 description: >-
-  Author and run the acceptance test that closes an integration or delivered solution; route failures into rework. Sign-off is human-only. Not for building (mi-equipment).
+  Authors the acceptance test protocol before the build, runs it along the full data path (machine to the dashboard the plant opens), records every result and routes a failure into the right rework loop. Use when an integration, Node-RED flow, dashboard or use case is ready to be declared done, when someone asks for a FAT, SAT, SIT or UAT, an acceptance protocol, a test plan for handover, or "is this ready to be signed off". Drafts and reports only; sign-off is human-only. Not for building the integration (mi-equipment), not for the handover itself (deploy-handover).
 license: MIT
 metadata:
   id: deploy-acceptance
@@ -55,18 +55,18 @@ Result:   passed | failed   Finding (if failed): written in section 4, rework lo
 
 ## The references are the substance
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/test-structure.md`](references/test-structure.md) | The test-case structure per artefact type — FAT/SAT/SIT for hardware and connectivity, UAT for dashboards and evaluated use cases — and what every type shares |
-| [`references/signoff-and-rework.md`](references/signoff-and-rework.md) | Who signs off on each artefact type, what a failure actually means, and which rework loop it routes into |
-| [`references/acceptance-by-route.md`](references/acceptance-by-route.md) | What to test per route (edge, aggregation, file or image endpoint, energy tool), each item graded as rule, record pattern or suggested check, and the failure patterns the Machine List and tool notes typically show. Guidance only, no figures |
-| [`references/cluster-acceptance-criteria.md`](references/cluster-acceptance-criteria.md) | The department's standard per use case cluster (C01 to C12) restated as UAT items, with the baseline item every acceptance should add |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Acceptance as proof of use at 3a5 / 3b6 and at sprint close: reconciliation against the paper process, parallel run and switch-off owner, utilization table, pre-go-live adoption checklist, handoffs, agent notes |
-| [`references/worked-cases.md`](references/worked-cases.md) | Seven illustrative case patterns read from the acceptance side: what the record typically shows, what the protocol would have needed to evidence |
+| [`references/test-structure.md`](references/test-structure.md) | Choosing the test-case structure per artefact type — FAT/SAT/SIT for hardware and connectivity, UAT for dashboards and evaluated use cases — and what every type shares |
+| [`references/signoff-and-rework.md`](references/signoff-and-rework.md) | Deciding who signs off on each artefact type, what a failure actually means, and which rework loop it routes into |
+| [`references/acceptance-by-route.md`](references/acceptance-by-route.md) | Choosing what to test per route (edge, aggregation, file or image endpoint, energy tool), each item graded as rule, record pattern or suggested check, and the failure patterns the Machine List and tool notes typically show. Guidance only, no figures |
+| [`references/cluster-acceptance-criteria.md`](references/cluster-acceptance-criteria.md) | Testing a use case of cluster C01 to C12: the department's standard (C01 to C12) restated as UAT items, with the baseline item every acceptance should add |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Running acceptance as proof of use at 3a5 / 3b6 and at sprint close: reconciliation against the paper process, parallel run and switch-off owner, utilization table, pre-go-live adoption checklist, handoffs, agent notes |
+| [`references/worked-cases.md`](references/worked-cases.md) | Wanting a concrete picture: seven illustrative case patterns read from the acceptance side: what the record typically shows, what the protocol would have needed to evidence |
 
 ## Write the protocol before the build, not after
 
-- An acceptance protocol written after delivery tests what was built.
+- An acceptance protocol written after delivery tests what was built, because the builder then sets the expected values to match.
 - Written before, it tests what was asked for.
 - It states:
 
@@ -82,14 +82,17 @@ Result:   passed | failed   Finding (if failed): written in section 4, rework lo
 
 | Failure | Loop |
 |---|---|
-| Integration fails acceptance (Information Integration lane) | Equipment returns for rework; readiness dimension does not turn "Available" |
-| Solution fails acceptance (Project Support lane) | Back to step 3, integration project management |
-| Use case fails acceptance after handover to integration (Use Case Support lane) | Rework loop back to the integration hand-off |
+| Integration fails acceptance (Information Integration playbook) | Equipment returns for rework; readiness dimension does not turn "Available" |
+| Solution fails acceptance (Project Support playbook) | Back to step 3, integration project management |
+| Use case fails acceptance after handover to integration (Use Case Support playbook) | Rework loop back to the integration hand-off |
 
 - A failure is recorded, not retried quietly.
-- The **acceptance / rework rate** is a lane metric precisely so that repeated failures become visible — see `references/signoff-and-rework.md` for why the protocol itself, once enough exist, is the source system rather than a separate tool waiting to be built.
+- The **acceptance / rework rate** is a lane metric so that repeated failures become visible; `references/signoff-and-rework.md` explains it.
 
 ## Procedure
+
+- Checklist, work top to bottom: protocol drafted before the test, witness named, full path run, every result recorded, human sign-off, section 6 filled or rework loop named.
+- Validation loop: if any item fails, record the finding in section 4, route the rework, rerun the failed items and the items they affect, and repeat until the protocol passes.
 
 - Copy the items for the route or cluster from [`assets/prefilled-test-items.md`](assets/prefilled-test-items.md) into §1 to §3 first.
 - Fill [`assets/acceptance-test-protocol.md`](assets/acceptance-test-protocol.md) as the work happens — one document per artefact, its six sections matching the steps below:
@@ -126,6 +129,7 @@ Result:   passed | failed   Finding (if failed): written in section 4, rework lo
 - Do not mark a machine `INTEGRATED` or a readiness dimension green ahead of the pass.
 - Do not pass a dashboard that disagrees with the paper record the plant trusts, or a handover
   whose old process has no named switch-off owner (`references/process-chain-practice.md`).
+- Do not accept a pass on a single sample value; the tolerance and the full path are the test.
 - Do not treat a demonstration as an acceptance test. The plant owner has to have used it
   in a real shift; see `deploy-handover`.
 
@@ -136,6 +140,7 @@ Result:   passed | failed   Finding (if failed): written in section 4, rework lo
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

@@ -11,7 +11,7 @@ tags: [information-integration-service, practice, template]
 | | |
 |---|---|
 | **Triage by / date** | ⟨role⟩ · ⟨date⟩ |
-| **Triggered by** | ⟨assessment finding · Route B dead end · recorded blocker text · Lane 1b mismatch⟩ |
+| **Triggered by** | ⟨assessment finding · Mode B dead end · recorded blocker text · Lane 1b mismatch⟩ |
 | **Draft status** | Draft for the IIAE and Plant ME; nothing here connects or approves anything |
 
 ## 1 Facts

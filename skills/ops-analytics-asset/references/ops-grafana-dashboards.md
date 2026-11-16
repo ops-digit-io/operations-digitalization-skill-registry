@@ -10,6 +10,24 @@ tags: [dashboard, grafana, datatron, department-package]
 
 # Ops Grafana Dashboards (DATATRON)
 
+## Contents
+
+- The flow
+- The four dashboard families
+- Schema
+- Value extraction — always the same two lines
+- Two time-filter dialects (both are in production — be consistent within a dashboard)
+- The cascading variable chain
+- Reusable panel recipes
+- ECharts (`bilibala-echarts-panel`) conventions
+- Andon board construction
+- Layout, units, and naming
+- Datapoint enablement
+- Equipment context
+- Stage 4 — Stakeholder pitch deck
+- The value model — how to put a number on a dashboard
+- Checklist
+
 Design importable Grafana JSON dashboards over the DATATRON telemetry schema. Target platform: **Grafana 8.5.22, schemaVersion 36**, dark style, PostgreSQL/TimescaleDB datasources, plus the `bilibala-echarts-panel` plugin for anything the core panels can't draw.
 
 ## The flow

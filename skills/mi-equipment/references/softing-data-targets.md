@@ -8,6 +8,15 @@ tags: [integration, softing]
 ---
 # Softing dataFEED — how the data leaves
 
+## Contents
+
+- The full target list
+- The OESL path today: dataFEED as an OPC UA server, edge as the client
+- The capability with no route: dataFEED publishing straight to MQTT
+- Store and Forward, properly
+- Preprocessing Engine — a data-model decision
+- What to do with the unrouted targets
+
 A dataFEED configuration is a container of **data sources** and **data targets**. The
 driver patterns (`softing-datafeed.md`) cover the sources; this covers who consumes them,
 what OESL actually uses, and four product capabilities that have no OESL route but change

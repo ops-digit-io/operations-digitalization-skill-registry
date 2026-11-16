@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Assessment protocol
-description: The defined output of Route A - plant/wave inventory, barrier tier and roadmap per machine, sized and sequenced, so the result is a reusable record rather than prose.
+description: The defined output of Mode A - plant/wave inventory, barrier tier and roadmap per machine, sized and sequenced, so the result is a reusable record rather than prose.
 resource: ../SKILL.md
 status: stable
 tags: [information-integration-service, template, protocol]
@@ -40,8 +40,8 @@ silently including it.⟩
 read of the integration-rate percentage — say when a machine's tier disagrees with what the
 raw rate alone would suggest, and why.
 
-Route each machine into Route B (`assets/guidance-protocol.md`) once its concept and
-connector are provisionally chosen here; Route A's job stops at the roadmap, not at the
+Route each machine into Mode B (`assets/guidance-protocol.md`) once its concept and
+connector are provisionally chosen here; Mode A's job stops at the roadmap, not at the
 per-machine configuration.
 
 ## 3 · Investment

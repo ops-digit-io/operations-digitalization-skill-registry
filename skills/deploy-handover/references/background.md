@@ -49,3 +49,8 @@ Built is not handed over, and handed over is not in use.
   1a3 and 1b4 in Lane 1.
 - **Stops here when:** a test question cannot be answered or the plant owner is unnamed. The handover is invalid and stays
   `ONGOING`; never mark it `DONE` because delivery happened. The plant, not OD, decides `PRODUCTIVE`.
+
+## Notes moved out of SKILL.md (improvement run)
+
+- A public vendor survey of 1,000 U.S. frontline manufacturing workers found 79% learned of updates only after they went into effect; directional, not a department figure.
+- Source dates carried by the references: the OD x IT ownership rules are dated 2026-09-11; the adoption-evidence ranking was confirmed 2026-10-22.

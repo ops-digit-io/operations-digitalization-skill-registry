@@ -8,6 +8,17 @@ tags: [grafana, sql, testing]
 ---
 # portability_check.md — Verify queries on both engines before delivery
 
+## Contents
+
+- When to run this check
+- What you need
+- The procedure
+- Expected differences that are NOT portability bugs
+- Common bugs the check catches
+- A concrete worked example
+- Automating the check
+- Safe in both engines (use freely; moved from SKILL.md Rule 2)
+
 Rule 2 from `SKILL.md` says every query must run on PostgreSQL **and** DuckDB. This file describes how to test that — turning the rule from aspiration into a verifiable check.
 
 The goal: find portability bugs at delivery time, not after the dashboard has been imported and someone hits a panel that errors.
@@ -184,3 +195,14 @@ exit $fail
 ```
 
 Run it before any commit that touches dashboard SQL. Failed delivery is more expensive than 10 seconds in CI.
+
+
+## Safe in both engines (use freely; moved from SKILL.md Rule 2)
+
+- `$__timeFilter()`, `$__timeGroup()`, `$__timeGroupAlias()`, `$__interval`, `$__unixEpochFrom/To()` (Grafana expands them per datasource)
+- `date_trunc('hour', ts)`, `NOW()`, `CURRENT_TIMESTAMP`
+- `COALESCE`, `LEAST`, `GREATEST`, `NULLIF`, `CASE WHEN ... THEN ... ELSE ... END`
+- `EXTRACT(EPOCH FROM (ts2 - ts1))`, `generate_series(start, end, INTERVAL '1 day')`
+- `::timestamptz`, `::date`, `::text`, `::numeric` casts, `FILTER (WHERE ...)` on aggregates
+- Window functions (`ROW_NUMBER`, `LAG`, `LEAD`, `SUM(...) OVER (...)`), CTEs including recursive ones, `||`, `JOIN`, `LEFT JOIN`, `FULL OUTER JOIN`
+- Cross-engine smell test: any TimescaleDB function (`time_bucket*`, `first()`, `last()`, hypertable tooling) fails on DuckDB. If portability genuinely cannot be achieved (for example continuous aggregates), say so in a SQL comment and mark the panel "Postgres-only" in the dashboard JSON description.

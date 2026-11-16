@@ -8,6 +8,16 @@ tags: [all, practice, freshness, registers]
 ---
 # Fact triage and generated registers
 
+## Contents
+
+- 1. What a triage is
+- 2. Limits of text extraction
+- 3. Time series of department indicators
+- 4. Generated registers: keep them honest
+- 5. The masking review
+- 6. Hygiene checklist (before relying on a generated or staged source)
+- AI agent operating notes
+
 Derived from the knowledge base's ODEC-facts triage note, the register hub and the full-text masking review. The per-plant fact notes
 themselves are company facts and are **not** used here; only the structure of the triage and the register hygiene are.
 No counts, savings values or per-plant status are carried. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`.

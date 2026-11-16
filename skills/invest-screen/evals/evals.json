@@ -1,0 +1,47 @@
+{
+  "skill": "invest-screen",
+  "cases": [
+    {
+      "id": "disguised-mes-request",
+      "type": "should-trigger",
+      "prompt": "A plant (fictional) asks us for live scheduling across all their processes with full genealogy of every order. They just call it a 'smart dashboard'. Do we need some big system for this?",
+      "expected_output": "The need is restated independent of the word dashboard.\nThe lightweight tool boundaries are walked and a specific boundary line the need crosses is named.\nThe plant's actual tool availability is checked and dated, not the estate average.\nThe verdict is Escalate as exception with the Tool/system rollout decision as next step.\nThe agent recommends only; the OD lead decides.",
+      "files": []
+    },
+    {
+      "id": "lane-3-gate-route",
+      "type": "should-trigger",
+      "prompt": "Our plant wants to buy a supplier-built app for shift handover. It is in Lane 3 already. Should we reuse something, build it ourselves, buy it or integrate their app?",
+      "expected_output": "The IT-footprint hard gate is run first and any open point blocks.\nOne route is chosen (3a.1 to 3a.4 or 3b) with the next skill named.\nSix criteria are scored with sub-scores visible and a verdict in the gate words with one decisive reason.\nNo approval or spend is promised.",
+      "files": []
+    },
+    {
+      "id": "tool-nobody-runs",
+      "type": "edge",
+      "prompt": "The need fits a lightweight tool that is on the catalogue, but I think nobody at the plant operates it. Can I just say it fits?",
+      "expected_output": "Fits is not returned for a tool nobody runs.\nThe missing operations owner and support level is called a service gap.\nThe verdict is escalate, with the plant's operations owner asked to confirm what is deployed.",
+      "files": []
+    },
+    {
+      "id": "write-requirements-near-miss",
+      "type": "near-miss",
+      "prompt": "The system question is settled. Please write the signal list and acceptance criteria for the downtime view.",
+      "expected_output": "It is recognised as requirements work, not a fit check.\nThe request is pointed to the requirements skill.\nNo tool-boundary check is repeated.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Do we need an MES for this request or can a lightweight tool cover it?",
+      "Make or buy: should we build this app ourselves or integrate the supplier's app?",
+      "Screen this invest list for items where OD should be involved",
+      "Does this plant actually have the quality feedback tool deployed that the request assumes?"
+    ],
+    "should_not_trigger": [
+      "Write the requirement and signal list for this demand",
+      "Decide which lane this incoming request belongs to",
+      "Compare the capability maturity of our machine on the 16 areas",
+      "Write the capital request for the hardware purchase"
+    ]
+  }
+}
