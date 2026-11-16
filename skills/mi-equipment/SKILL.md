@@ -128,14 +128,13 @@ Route A -> Route B per machine in the wave. Route B -> `mi-signals` (tag list, P
 **A**: inventory and roadmap agreed with Plant ME / Plant IT; each machine in scope carries concept, connector and sequence position; barriers logged; investment planned; Cyber Security gate identified.
 **B**: Machine List, Machine CV and Edge Device List updated; MPEE OD informed; `INTEGRATED` only after `deploy-acceptance`.
 
-## Pitfalls and open points
+## Pitfalls
 
 - **An unavailable native connector is not an unreachable PLC.** `DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` do not exist (`Idea`); those machines go over OPC UA via the aggregation server. `SFT-SIMATIC S7-Connector` is `DO NOT USE` (no Cyber Security compliant communication); use `DTQ-S7-Connector`. `DTQ-OPCUA-Connector` is the standing fallback; on the bridge path the Machine List row names both connectors.
 - **OESL guidance errors**: dataFEED V5.70 has no Beckhoff data source or ADS (use Modbus TCP or TwinCAT OPC UA; no fully written Beckhoff route on either platform); NetLink is discontinued (address a Helmholz gateway with the Siemens S7 protocol). Source of truth is `rules.json`; the fix is there.
 - Softing drivers with no OESL route (FANUC, ODBC, MQTT, file read, OPC Classic, S5): put to the IIAE. Each PLC family needs its own licence unless Suite Extended; check licensed concurrent configurations.
 - Empty Machine List fields (`production_criticality`, `cyber_security_status`, `machine_blockers`, `input_protocol`) are not values.
 - The common recorded blockers (data-model standardization, firmware patching, TIA V16->V17, cyber-security vulnerability) are mostly not connectivity problems.
-- **Open points**: ⟨To attach: the two OESL guideline documents (Softing DataFeed Siemens S7; Beckhoff PLC integration) - pointed at, not contained.⟩ ⟨Unverified: whether any OESL plant still runs a NetLink configuration; the German manual's contradiction over the default unsigned-type mode.⟩ `DTQ-MODBUS-Connector` is `Idea` yet `USE` - confirm with the IIAE. Current name of *CT Base* and approved edge sizes - confirm with the IIAE.
 
 ## References
 

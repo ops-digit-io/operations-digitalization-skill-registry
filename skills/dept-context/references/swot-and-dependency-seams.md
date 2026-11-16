@@ -102,14 +102,6 @@ worth copying wherever a source is raw:
 For an agent: when an old deck, a legacy tool record or a vendored skill names a platform or party that the README lists as not used,
 follow the README. See `od-information-integration-service/references/tool-fact-sheets.md` for the platform names.
 
-## 6. The open-gaps list as a work queue
-
-The README closes with a numbered list of gaps: named owners behind role labels, targets and thresholds, a metric with no defined
-source, adoption feedback, system interface detail, data-platform detail, decision counterparts, naming after an organisation
-rename. Treat that list as the **queue of questions an agent may put to the OD lead**, ranked by how many skills carry a `<...>`
-for the same gap. When a gap is closed, the closing note goes to the source note first, then into the skills that carry the
-placeholder (`dept-context-freshness` finds them).
-
 ## AI agent operating notes
 
 - **May do:** test a proposed action against the SWOT ids and report which it leverages, covers, captures or mitigates (or none);

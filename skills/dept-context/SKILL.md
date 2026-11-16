@@ -216,16 +216,15 @@ An agent may resolve terms, quote a figure only from a live list (cite list and 
 states an unsourced figure, writes to the graph, or acts on an external machine connection. Humans decide every gate
 in the table above.
 
-## Pitfalls and open points
+## Pitfalls
 
 - Recurring errors: honesty rules 1, 3 and 6, and mixing the local Grafana with the global platform.
-- **Open points (to confirm):** Databricks access paths, workspace and container naming, catalog layout; MPEE expansion; named owners per lane (role labels only today); lane target lead times; budget figure; MES / MDA-PDA interface detail, write rights and freshness. Resolved gaps: `references/swot-and-dependency-seams.md`.
 
 ## References
 
 | File | Open when |
 |---|---|
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Currency rules per field, three demand shapes, plant tiering, AI maturity check, handoff contract |
-| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Testing an action against the SWOT; dependency seams and their mode; corrections table; open-gaps queue; resolved gaps |
+| [`references/swot-and-dependency-seams.md`](references/swot-and-dependency-seams.md) | Testing an action against the SWOT; dependency seams and their mode; corrections table; resolved gaps |
 | [`references/knowledge-graph-reading.md`](references/knowledge-graph-reading.md) | Reading the knowledge graph: node kinds, relations, provenance of descriptions |
 | [`references/provenance-and-source-catalogue.md`](references/provenance-and-source-catalogue.md) | Finding content in non-Markdown sources; reference library tiers; benchmarks without overclaiming; provenance tags |

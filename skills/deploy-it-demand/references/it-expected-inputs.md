@@ -36,19 +36,3 @@ action items on the IT side, listed at the end.
 About a year in the funnel, informal delivery promises, one developer, development outside the delivery
 setup. The package answers the root-cause questions up front: is the requirement clear, is the business
 case firm, is the scope stable, is the solution defined, and was it prioritized in a committed plan.
-
-## Open IT action items that will firm the inputs
-
-| Action | Owner (as recorded) | Firms input |
-|---|---|---|
-| Structure and contents of the data and interface catalogs | IT | 7, 8 |
-| Consolidate the artefacts IT expects from the funnel and where each is stored or exchanged | IT | all; the receiving location for OpenSpec changes |
-| Cyber Security pre-evaluation approach, aligned with Cyber Security | OD lead, IT | 4 |
-| Platform-level Cyber Security approval model | IT | 4 |
-| Ownership and handover gates | IT, OD lead | 11 |
-| Technology guardrails (stacks, Kubernetes / CMO, interfaces, OT) | IT, OD | 3 |
-| Recurring application self-assessment | IT, OD lead | 11 |
-| CMO roadmap and target blueprint | IT | 3 |
-| Minimum and maximum deployment scenarios per use case | OD lead, IT | 9 |
-| Build / buy / guided delivery sourcing criteria with TCO | IT, OD lead | 10 |
-| Requirements and technology baseline for the legacy applications | unassigned | 13 |

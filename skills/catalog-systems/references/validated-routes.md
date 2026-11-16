@@ -92,11 +92,3 @@ Not a candidate.
 
 Re-derive the class of each family on the live list and live guide before relying on the typical members above: routes move
 between classes when procedures are written or more plants prove them.
-
-## Open
-
-- ⟨The list of purchasable kits per route, prices and lead times⟩ - OD lead, IIAE, procurement; not in the knowledge base notes read.
-- ⟨Why some integrated machines carry no method⟩ and ⟨whether machines under `EVALUATION ONGOING` will land on edge or
-  aggregation⟩ - IIAE.
-- ⟨Whether the guide's `TODO` for Beckhoff and Omron on the edge is still current⟩ given that machines are recorded as
-  integrated that way - IIAE.

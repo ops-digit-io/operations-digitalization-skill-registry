@@ -94,22 +94,6 @@ here, not copied.
 
 [`assets/design-recommendation.md`](assets/design-recommendation.md), one per question.
 
-## Still open
-
-- `⟨What the "Manufacturing Software Suite" comprises⟩`. The glossary does not define it; the lane's
-  skills table says "configure ⟨scope to confirm⟩"; the IIoT Edge operations concept in the department knowledge base
-  speaks of a "CT Manufacturing Suite" without listing its parts. Until the OD lead confirms, treat a
-  question about the suite as a question about the named tool. Supplier: OD lead.
-- `⟨Application consultancy session template⟩` and a lead time for the lane (both `⟨to confirm⟩` in the
-  lane documents).
-- `⟨Counterpart of the OD lead for tool and system rollout decisions⟩`.
-- `⟨Where 3a.1 to 3a.4 are decided⟩` between OD, IT and the external parties: the flow names the steps and
-  skills, not the deciders.
-- `⟨Owner of external tooling and licensing decisions⟩` (open in the risk register and the lane wait
-  states).
-- `⟨Current status of EMS and MES (the tool overview and the systems-of-record note can differ)⟩`:
-  see the discrepancy list in `footprint-and-data-path`.
-
 ## Do not
 
 - Do not recommend a system outside the lean footprint as if it were available; escalate it as an

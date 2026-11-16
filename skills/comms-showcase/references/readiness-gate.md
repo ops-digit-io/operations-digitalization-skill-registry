@@ -47,8 +47,3 @@ Out of every story: names of individuals (use the role and the plant); host name
 | "Mention who built it." | Role and plant only |
 | "It worked at one machine, say plants." | State the scope exactly: one plant, one line |
 | The plant owner has not answered | Hold; never infer consent from silence |
-
-## Open points
-
-- Whether OD needs the OD lead's sign-off for every story or only for those with a figure. ⟨to confirm⟩
-- Which Internal Communications review applies on top of this gate. ⟨to confirm, from the IC brief⟩

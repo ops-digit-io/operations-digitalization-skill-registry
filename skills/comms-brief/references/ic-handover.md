@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Ic handover
-description: What OD hands to Internal Communications for a use-case story, who approves what, and the open points that only the Internal Communications brief can answer - channels, intake form, lead times and review route. Open it before briefing IC or when an IC detail is needed.
+description: What OD hands to Internal Communications for a use-case story, who approves what, and the channels, intake form, lead times and review route that only the Internal Communications brief can state. Open it before briefing IC or when an IC detail is needed.
 resource: ../SKILL.md
 status: draft
 tags: [lane-4, practice]
@@ -39,15 +39,3 @@ Peer-sharing formats recorded in OD's material; their current status is unknown.
 | CSP and use-case exchange call with OPEX (two use cases, five minutes each) | OPEX, ME, OD and location leads | Described in the 2026 OD x OPEX initiative deck; running status ⟨to confirm⟩ |
 | Manufacturing Engineering community call and Yokoten best-practice database | ME community | 2023 deck; current status ⟨to confirm⟩ |
 | Channels of Internal Communications itself (intranet, newsletter, Teams) | All employees | Not recorded: wait for the IC brief |
-
-## Open points (to fill from the Internal Communications brief)
-
-| # | Question | Answer |
-|---|---|---|
-| 1 | Which IC contact or intake channel receives a story (a role, not a name)? | ⟨to confirm⟩ |
-| 2 | Which channels exist for the four audiences (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME)? | ⟨to confirm⟩ |
-| 3 | Lead time from brief to publication? | ⟨to confirm⟩ |
-| 4 | Does IC have its own template or review route that replaces `comms-brief.md`? | ⟨to confirm⟩ |
-| 5 | Which brand and tone rules apply, and is the neuwerk template to be used? | ⟨to confirm⟩ |
-| 6 | Is there an approval by IC leadership or a second language needed? | ⟨to confirm⟩ |
-| 7 | What reach or response data does IC give back after publication? | ⟨to confirm⟩ |

@@ -118,7 +118,7 @@ exit code 2 -> fix, then re-run
 
 If the check reports a blocker, validate the named section against [`requirement-template.md`](references/requirement-template.md) and re-run; do not hand over with a failed check.
 
-## Pitfalls and open points
+## Pitfalls
 
 - Writing the solution (which nodes to wire) instead of what must be true.
 - No growth boundary, or one that is a wish ("scalable"): the requirement quietly grows from one machine to every plant.
@@ -128,7 +128,6 @@ If the check reports a blocker, validate the named section against [`requirement
 - Handing over without the lane variant, the only part the receiver acts on.
 - "So that the process gains transparency": generated on every story, tells nobody anything.
 - Cutting by technical layer (connect the PLC, build the flow, build the dashboard): tasks, none usable alone.
-- **Open points:** none recorded.
 
 ## References
 

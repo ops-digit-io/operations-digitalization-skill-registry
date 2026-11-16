@@ -8,6 +8,7 @@ okf_version: 0.2
 
 | Concept | Type | Description |
 |---|---|---|
+| [Open topics](OPEN-TOPICS.md) | Design Record | All open topics of the skills in one file, moved out of the skills; the skills themselves carry no open-topic sections. |
 | [Phase1 elicitation](PHASE1-ELICITATION.md) | Design Record | Working file for the tacit-knowledge elicitation of phase 1: the questions put to the owner and the answers that resolved them; kept for traceability, not a skill. |
 | [Operations Digitalization skill registry](README.md) | Map of Content | What this registry is, the three new-state lanes it serves, the tiers a skill can hold, and the index of all 47 skills. |
 

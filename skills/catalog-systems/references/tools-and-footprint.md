@@ -77,9 +77,3 @@ data lands in the data platform (Databricks to an Azure Storage Account, Parquet
 over the MSB, event-driven (systems-of-record). A plant's Grafana is local; the global layer is not wired into it (guardrail
 G2 of `catalog-usecase`). ⟨Access paths, local buffer and fallback per data object⟩ are marked "to confirm" in the note
 itself - IIAE.
-
-## Open
-
-- ⟨Which plants have no edge platform at all⟩ - a plant with no row in the tool overview is unknown, not a "No".
-- ⟨Licence position of the aggregation server per PLC family⟩: the product needs a licence per family unless the extended
-  suite is in place (`mi-equipment`, `softing-datafeed.md`); the knowledge base does not say which plants hold which.

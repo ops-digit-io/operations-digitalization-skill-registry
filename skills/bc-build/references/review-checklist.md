@@ -50,14 +50,6 @@ stated formula behind it. Before trusting a `CALCULATION` label:
   candidate regardless of its recorded label, and ask for the formula before repeating the
   number anywhere.
 
-## What is still open
-
-The specific reasons a *particular* row gets challenged or bounced at the SPRINT review
-itself — as opposed to why the ledger is thin in the first place — are not in this
-record. If there is a recurring SPRINT objection (a category SPRINT routinely does not
-accept, a methodology SPRINT routinely asks to redo), add it here directly; the above
-explains the upstream cause, not the review gate's own criteria.
-
 ## Sources
 
 Internal evidence from the department's own workshop material (the MPEE strategy workshop

@@ -156,16 +156,6 @@ named with a role who closes them; the route and approver are written next to th
 euros are separate; the dependency is recorded on the saving rows; a human has been handed the package. Nothing
 has been submitted or approved by the agent.
 
-## What is still open
-
-- ⟨System the eCR is filed in and who may file⟩: not in any source; the form content is the builder's backbone. OD lead with BA Operations / Finance.
-- ⟨Whether the 2026-03-02 approval matrix (OESL stand-alone) still applies under neuwerk⟩. Finance.
-- ⟨Approval lead time⟩: the skill-map queue is a placeholder. OD data.
-- ⟨Cost rates (people, hardware, compute) the department should use⟩: the knowledge base cases use their own FTE rates; none is
-  an OD standard. Finance.
-- ⟨The investment planning template⟩ and ⟨the use-case business-case template⟩ (`00-core/15-resources.md`). DBVE / OD lead.
-- ⟨Whether this skill and `bc-cost` merge⟩. OD lead.
-
 ## Do not
 
 - Do not call the request ready before offer, eCR and contract agree on version and a named role drives purchasing (`references/process-chain-practice.md`).

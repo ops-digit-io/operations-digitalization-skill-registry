@@ -146,16 +146,6 @@ A validation record exists with: the question, the type, the criterion written b
 validator (a role), the result, the status label (mock-up, PoC or pilot) and the open items. The plant
 representative has confirmed or declined the value in writing. Nothing in it says "proven".
 
-## What is still open
-
-- ⟨Whether OD has a standard prototype time box, budget or sign-off rule⟩: not in any source. OD lead.
-- ⟨Where finished mock-ups are stored and who can open them⟩: not stated. OD lead.
-- ⟨Whether the Gemba App pilot reached a result⟩: the knowledge base holds the brief and the initiative request, not an
-  outcome ([`references/gemba-app-pilot.md`](references/gemba-app-pilot.md)). Gemba App initiative owner.
-- ⟨Touch time and queue time of this step⟩: placeholders in the skill-map table. OD data.
-- Whether the click-dummy stack in the Gemba App export (React with Tailwind) fits the department's small
-  footprint rule, or the Mendix low-code route named in the initiative deck, is undecided. OD lead with IT.
-
 ## Do not
 
 - Do not call a pilot or PoC "proven", or put a euro figure on a mock-up. Value goes through `bc-build`.

@@ -194,13 +194,6 @@ was decided, why, what is open. Block-to-block handoff table: `references/proces
 - Recording the output asset as the benefit: the decision someone makes differently is the benefit.
 - A blank benefit field because it resists a number: "intangible, non-cashable" is valid; silence is not.
 
-## Open points
-
-- ⟨Lane lead time to confirm⟩.
-- ⟨Process First-Aid Kit request template: none found anywhere in the registry (real gap, `references/lane-templates.md`)⟩.
-- ⟨MSB access scope (read / write) to confirm⟩.
-- ⟨A dedicated OD use-case one-pager / business-case template beyond the SharePoint agenda: checked, not found; the questionnaire and protocol fill that gap⟩.
-
 ## References
 
 | File | Open when |

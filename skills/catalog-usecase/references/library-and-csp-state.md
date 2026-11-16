@@ -74,9 +74,3 @@ branch 1a/1b, not a finished catalog hit.
 Plant use cases carry a `scalable` flag. It is set by the plant or OD when the use case is recorded; it is **not** a CSP
 decision and must not be shown as one. It is useful to find the next candidates to put to the CSP decision: filter `scalable`
 and status `IMPLEMENTED` or `PRODUCTIVE`, per template (see `template-coverage.md`).
-
-## Open
-
-- ⟨Whether library entries without a recorded decision are undecided, not applied, or lost in the export⟩ - OD lead.
-- ⟨Why only library entries carry the CSP field⟩ and whether a dashboard family can be put through the gate - OD lead.
-- ⟨The date and forum of each CSP decision⟩ - not in the notes read; the CSP call (see `dept-decision-rights`) would hold them.

@@ -103,19 +103,6 @@ an unavailable PLC program and the eight blocking places
 [`assets/barrier-triage-record.md`](assets/barrier-triage-record.md), one per machine or per group of
 identical machines.
 
-## Still open
-
-- `⟨Whether "roadmap" means the plant roadmap or the lane's integration roadmap⟩`: the playbook says
-  "escalate to roadmap" without naming the owner. Supplier: IIAE.
-- `⟨The barrier log's form and location⟩`: the playbook says "landscape module"; the module read
-  (`landscape.md`) has a facility table with a "known barriers" column, not a per-machine log.
-- `⟨Lead times⟩` for connector development and for OT and IT cyber-security approvals: called "high",
-  no number in the sources.
-- `⟨Counterpart for tool rollout decisions⟩` (open in `08-decision-rights.md`).
-- `⟨Whether a vendor-less machine row⟩` is a data gap or an unknown machine: Plant ME.
-- The class list is this skill's grouping of the recorded fallbacks and blocker texts; the OD lead has
-  not confirmed it.
-
 ## Do not
 
 - Do not connect, patch, write to a PLC or approve an external connection. This skill classifies and

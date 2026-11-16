@@ -62,10 +62,3 @@ or self-developed app against the agreed direction and mark the rule ⟨to confi
 | Data and interface catalogs | New and existing apps are described in the company data catalog (dataset, master system, access rights, format) and interface catalog (structure is an open IT item) |
 | Self-assessment | The production owner reassesses every six or twelve months (`deploy-handover`) |
 | Mission creep | The requirement fixes objective, scope, interfaces and growth boundaries; growth beyond them is a new demand (`funnel-requirements`) |
-
-## Open
-
-- ⟨Whether the newer Grafana major version used at one plant is the target platform or an exception⟩ - SPEC-01 / SPEC-04 open question; affects G12 for plugin panels.
-- ⟨Whether the community chart plugin in use is on the approved list⟩ - SPEC-03 Q2; until then a plugin panel in a self-served screen is a warn.
-- ⟨Who owns the central dashboard repository and the signal record⟩ - SPEC-04 Q3, SPEC-02 D-01.
-- ⟨The dashboard language rule⟩ (titles with non-Latin characters exist) - SPEC-03 Q1.

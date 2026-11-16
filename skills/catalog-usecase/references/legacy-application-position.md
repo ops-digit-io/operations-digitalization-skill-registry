@@ -41,9 +41,3 @@ cyber-security `Not started` by network status (IT and OT/IT entries that are `N
    external-connection sign-off, which is human-only (`catalog-usecase` G7, `deploy-cybersec`).
 4. Custom MES and custom SCADA applications overlap with what the footprint rule excludes (MES rollout on hold). Treat them as
    `invest-screen` cases, never as ordinary kits.
-
-## Open
-
-- ⟨Which plant runs which application⟩ is in the individual notes (a plant field), not in the aggregate - read the note when
-  a specific plant is concerned.
-- ⟨Whether "licence unknown" means not asked, or not held⟩ - plant IT, OD lead.

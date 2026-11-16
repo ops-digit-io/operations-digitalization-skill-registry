@@ -134,14 +134,3 @@ merges them is not comparable between lines.
   decision and stays undocumented unless you write it down.
 - **The existing names.** A standard applies to what you build next. Migrating a live
   signal is a breaking change with a migration plan — see the skill's *Do not*.
-
-## Open questions worth answering once
-
-⟨Which machines in the estate already expose an OPC UA companion specification — this is not
-recorded anywhere and would change the integration route for every one of them.⟩
-
-⟨Whether the requirement spec used at machine purchase (PRS, Doc ID 215534) already asks for
-a companion specification. If not, that is a one-line change with a large downstream effect.⟩
-
-⟨Whether the estate's data model — recorded as *CT Base* — was derived from any of these, or
-independently. That decides whether adoption is a migration or a reconciliation.⟩

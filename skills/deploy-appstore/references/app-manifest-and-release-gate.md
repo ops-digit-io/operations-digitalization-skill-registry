@@ -59,9 +59,3 @@ Use with `deploy-acceptance`, `deploy-cybersec` and `dept-decision-rights`. A bo
 | R11 | Free-text and name check (G17); no credentials or sessions in the package (G19 in `catalog-usecase`) | check | DBVE | no |
 
 The wait for R7 is "weeks" in the flow; the knowledge base gives no figure. Do not quote one. For a foreign app (3a.4) the planned IEC 62443-4-2 conformance gate of initiative X4 would apply once it exists; today it is a plan, not a gate.
-
-## Open
-
-- ⟨Containerization, image and registry rules, resource limits⟩ - OD lead, IT platform.
-- ⟨Who holds deploy rights on the app store and on the plant runtime⟩.
-- ⟨Cyber Security requirements for an app⟩ and ⟨lead time⟩ - owner of the Cyber Security standard (listed in the bundle as still to be collected).

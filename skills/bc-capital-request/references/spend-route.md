@@ -48,8 +48,6 @@ Four 2026 sources record a route that runs **before** the eCR. Amounts are quote
 
 The eCR approval matrix itself (tiers below 50 kEUR, from 50 kEUR and from 150 kEUR) is in `ecr-approval-matrix.md`. How the pre-approval bands (25 and 100) relate to those tiers (50 and 150) is **not stated** in the sources.
 
-**Open points.** ⟨whether the 25 kEUR central-approval limit is the Lane 1b "lightweight approval" limit⟩ · ⟨which route the 25 to 100 kEUR band takes⟩ · ⟨what "eCR" stands for: this skill reads it as electronic capital request, while the bundle's `10-Department/Decision rights.md` says engineering change request; confirm with Finance⟩.
-
 ## Where the eCR sits in the lanes
 
 | Lane step | What the flow says | Wait recorded |

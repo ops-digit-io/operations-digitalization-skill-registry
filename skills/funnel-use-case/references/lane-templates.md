@@ -22,11 +22,3 @@ already owns. This is the routing table, resolved once the composed skills went 
 **Why this file exists rather than a template of its own:** every one of these steps already
 has a deep, maintained artefact one hop away. Duplicating it here would drift the moment the
 owning skill changes. This lane's job is routing, not re-authoring.
-
-## What is still genuinely missing
-
-**Process First-Aid Kit request template.** Checked `funnel-requirements` (covers
-scoped requirements, not an ad-hoc rapid-diagnostic intake form), `od-analytical-support-
-service` (names the same Process First-Aid Kit as its own trigger, with the identical open
-placeholder — not independently resolved there either). No dedicated template exists
-anywhere in the registry. This is a real gap, not a routing miss.
