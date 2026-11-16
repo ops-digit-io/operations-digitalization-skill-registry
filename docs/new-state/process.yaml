@@ -173,7 +173,7 @@ lanes:
       - deploy-it-demand
       proposed:
       - deploy-project-order
-      substeps:   # 3a.3 and 3a.4: the IT demand follows the OpenSpec workflow; openspec = OpenSpec's own skills (inside deploy-it-demand)
+      substeps:   # 3a.3 and 3a.4: the IT demand follows the OpenSpec workflow; openspec = OpenSpec's own skills, referenced one by one (external; copy kept unchanged in the registry)
       - id: '3a4.1'
         title: Explore + collect inputs
         owner: OD

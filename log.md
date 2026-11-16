@@ -3,6 +3,12 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - OpenSpec skills are referenced on the maps as OpenSpec's own, not as part of deploy-it-demand
+
+- The process map (`docs/new-state/process.yaml`, the flow diagram, the site) names OpenSpec's skills per sub-step of 3a4 and no longer describes them as living inside `deploy-it-demand`; their chips on the site link to the skill files.
+- `docs/process-overview.html` now shows the OpenSpec process (3a4.1 to 3a4.6, owner per sub-step, each OpenSpec skill linked) on the step the IT demand sits on.
+- The unchanged OpenSpec 1.17.0 copy stays where it is, so CI drift check and the offline scripts keep working.
+
 ## 2026-11-11 — The IT demand follows the OpenSpec process, modelled in step 3a4
 
 - Step 3a4 *Package / build* (routes 3a.3 and 3a.4) now has six sub-steps in `docs/new-state/process.yaml`, the flow

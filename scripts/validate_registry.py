@@ -197,7 +197,7 @@ def main() -> int:
                 for step in branch.get("steps", []):
                     named |= set(step.get("skills") or [])
                     # sub-steps (3a4: the IT demand follows OpenSpec): registry skills as usual; `openspec` names are
-                    # OpenSpec's own skills, carried unchanged inside the skill that holds the OpenSpec copy
+                    # OpenSpec's own skills, external; they must exist in the unchanged OpenSpec copy the registry keeps
                     for sub in step.get("substeps") or []:
                         named |= set(sub.get("skills") or [])
                         for ext in sub.get("openspec") or []:
