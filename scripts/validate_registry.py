@@ -190,12 +190,15 @@ def main() -> int:
     if proc_file.exists():
         proc = yaml.safe_load(proc_file.read_text(encoding="utf-8"))
         named: set[str] = set()
+        proposed: set[str] = set()      # extension skills on steps: drawn as optional chips on the BPMN map
         for step in (proc.get("intake") or {}).get("steps", []):
             named |= set(step.get("skills") or [])
+            proposed |= set(step.get("proposed") or [])
         for lane in proc.get("lanes", []):
             for branch in lane.get("branches", []):
                 for step in branch.get("steps", []):
                     named |= set(step.get("skills") or [])
+                    proposed |= set(step.get("proposed") or [])
                     # sub-steps (3a4: the IT demand follows OpenSpec): registry skills as usual; `external` entries are
                     # OpenSpec's own skills, which stay external: a name and a link into the OpenSpec repository, no copy here
                     ep = step.get("external_process")
@@ -207,6 +210,7 @@ def main() -> int:
                             if not str(ext.get("url", "")).startswith("https://github.com/Fission-AI/OpenSpec"):
                                 fail(f"process.yaml step {sub.get('id')}: external '{ext.get('name')}' must link into github.com/Fission-AI/OpenSpec")
         named |= set((proc.get("spine") or {}).get("skills") or [])
+        proposed |= set((proc.get("spine") or {}).get("proposed") or [])
         for name in sorted(named - on_disk):
             fail(f"process.yaml names '{name}' but no such skill exists")
         for name in sorted(named & on_disk):
@@ -220,6 +224,9 @@ def main() -> int:
             for name in sorted(named):
                 if not re.search(r'"id": "' + re.escape(name) + '"', drawn):
                     fail(f"OD_NewState_BPMN_Map.html does not draw core skill '{name}' (run scripts/build_bpmn.py)")
+            for name in sorted(proposed):
+                if not re.search(r'"id": "' + re.escape(name) + '"', drawn):
+                    fail(f"OD_NewState_BPMN_Map.html does not draw extension skill '{name}' as optional (run scripts/build_bpmn.py)")
 
     # Every skill carries a quality rating (docs/new-state/skill-quality.json, made from a SkillEvaluator report
     # by scripts/build_skill_quality.py). A skill changed since its rating run only warns: the rating is then out of date.

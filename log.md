@@ -3,6 +3,11 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - extension skills are on the BPMN map as optional
+
+- Every extension skill listed as `proposed` on a step of `docs/new-state/process.yaml` (34 step entries) is drawn under that step's box on the BPMN map, below the core skills, under a caption `<extension> · optional`, as a dotted italic chip with an `ext` tag that links to the skill on GitHub. The 11 extension skills of the foundation (`spine`) sit in one note in the intake lane (any step, optional). The three-level view is: core skill (solid chip), OpenSpec skill (dashed, external), extension skill (dotted, optional).
+- `validate_registry.py` fails if an extension skill named on a step is not drawn on the map. `build_site.py` still refuses extension skills on the docs pages and the specification page, but allows them on the map (front page), which shows them on purpose.
+
 ## 2026-11-16 - BPMN labels are placed without overlaps
 
 - `scripts/build_bpmn.py` now places every gateway, event and flow label itself: shapes, flow lines, skill chips, notes and drill-down buttons are obstacles, and a label goes to the nearest free spot. `--check` fails when a label has no free spot, so CI catches overlaps. Gateway labels sit above, event labels below, flow labels on the last leg before the target; the OpenSpec header pills sit above the tasks of the 3a4 view; extra room after the intake routing keeps its three labels readable.

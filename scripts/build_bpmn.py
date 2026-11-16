@@ -120,9 +120,20 @@ class Builder:
         parent.flows.append(f)
         return f
 
+    def _a(self, n: Node) -> dict:
+        return self.attach.setdefault(n.id, {"skills": [], "external": [], "optional": []})
+
     def chips(self, n: Node, skills=(), external=()):
         if skills or external:
-            self.attach[n.id] = {"skills": list(skills), "external": list(external)}
+            a = self._a(n)
+            a["skills"] += list(skills)
+            a["external"] += list(external)
+
+    def opt(self, n: Node, ids):
+        """Extension skills that can help on this step: optional, drawn under the box and marked as extension."""
+        if ids:
+            a = self._a(n)
+            a["optional"] += [i for i in ids if i not in a["optional"]]
 
     # ---- a row of steps inside a sub-process plane --------------------------------------------------------------
     def row(self, sub: Node, step_ids, start_name, end_name, cy=150, x0=70, id_prefix=""):
@@ -141,6 +152,7 @@ class Builder:
             st = self.steps[sid]
             t = self.mk(sub, "T_" + safe(sid), "task", f"{sid} {st['title']}", x, cy)
             self.chips(t, st.get("skills") or [])
+            self.opt(t, st.get("proposed") or [])
             put(t)
             x += TW + GAP
             if st.get("wait"):
@@ -180,6 +192,7 @@ class Builder:
         start = self.mk(top, "E_start", "ev:start", "Demand or request", cx_col(0, EV), cyI, lane=L["intake"])
         triage = self.mk(top, "T_i1", "task", "i1 Known use case? Triage + fit-check", col(1) + 20, cyI, lane=L["intake"])
         self.chips(triage, self.steps["i1"].get("skills") or [])
+        self.opt(triage, self.steps["i1"].get("proposed") or [])
         route = self.mk(top, "G_route", "gw", "Where does it go?", col(2) + 55, cyI, lane=L["intake"])
         self.flow(top, start, triage); self.flow(top, triage, route)
         top.notes.append({"id": "Note_foundation", "text": "Foundation: every skill reads dept-context first (vocabulary, decision rights, honesty rules).",
@@ -187,6 +200,12 @@ class Builder:
         note = Node("Note_foundation", "note", "", start.x - 40, cyI + 48, 170, 64)
         self.nodes[note.id] = note
         self.chips(note, self.proc["spine"]["skills"])
+        sx, sy = col(3) - 30, L["intake"]["top"] + 30
+        top.notes.append({"id": "Note_spine_ext", "text": "Any step, optional: extension skills that serve the whole process.", "x": sx, "y": sy, "w": 330, "h": 44, "ref": None})
+        spine_note = Node("Note_spine_ext", "note", "", sx, sy, 330, 44)
+        self.nodes[spine_note.id] = spine_note
+        self.opt(spine_note, self.proc["spine"].get("proposed") or [])
+        self.attach[spine_note.id]["wrap"] = 430
 
         # lane 1
         t1 = L["lane1"]["top"]
@@ -244,7 +263,7 @@ class Builder:
     def inner_2(self, sub):
         s, e = self.row(sub, ["21", "22", "23", "24", "25", "26"], "Plant use-case demand", "Graduated", id_prefix="2_")
         sub.notes.append({"id": "Note_chain2", "text": "Chains out of Lane 2: needs new software to Lane 3a, needs a new connection to Lane 3b, proven and repeatable to the catalog, then Lane 1.",
-                          "x": e.x - 90, "y": e.bottom + 70, "w": 250, "h": 64, "ref": e, "ref_mode": "down"})
+                          "x": e.x - 90, "y": e.bottom + 175, "w": 250, "h": 64, "ref": e, "ref_mode": "down"})
 
     def inner_front(self, sub):
         self.row(sub, ["31", "32", "33"], "Demand clear?", "Demand clear: hand on", id_prefix="front_")
@@ -271,6 +290,8 @@ class Builder:
         t6 = self.mk(sub, "T_3a6", "task", "3a6 " + self.steps["3a6"]["title"], t5.right + GAP, cyB)
         e = self.mk(sub, "E_3a_end", "ev:end", "Live", t6.right + GAP, cyB)
         self.chips(t5, self.steps["3a5"].get("skills") or []); self.chips(t6, self.steps["3a6"].get("skills") or [])
+        self.opt(t5, self.steps["3a5"].get("proposed") or []); self.opt(t6, self.steps["3a6"].get("proposed") or [])
+        self.opt(s34, st.get("proposed") or [])
         self.flow(sub, s, gb)
         self.flow(sub, gb, o1, "3a.1 reuse"); self.flow(sub, gb, o2, "3a.2 self dev"); self.flow(sub, gb, s34, "3a.3 / 3a.4")
         self.flow(sub, o1, gm); self.flow(sub, o2, gm); self.flow(sub, s34, gm)
@@ -299,7 +320,7 @@ class Builder:
             x += TW + GAP + 10
         e = self.mk(sub, "E_3a4_end", "ev:end", "Archived", x, cyI, lane=it)
         self.flow(sub, prev, e)
-        self.attach[s.id] = {"skills": [], "external": [], "header": {"url": ext["url"], "how_to": ext["how_to"], "title": ext["title"]}}
+        self._a(s)["header"] = {"url": ext["url"], "how_to": ext["how_to"], "title": ext["title"]}
 
 
 def waypoints(f: Flow):
@@ -337,6 +358,27 @@ def seg_rect(p, q, pad=2.5):
     return (min(p[0], q[0]) - pad, min(p[1], q[1]) - pad, abs(p[0] - q[0]) + 2 * pad, abs(p[1] - q[1]) + 2 * pad)
 
 
+def chip_stack(a: dict):
+    """(width, height) of the chips under a box: core and OpenSpec chips, then the caption and the optional extension chips."""
+    names = list(a["skills"]) + [e["name"] for e in a["external"]]
+    opt = a.get("optional") or []
+    wrap = a.get("wrap", 0)
+    w = max([len(t) * 5.6 + 22 for t in names] + [len(t) * 5.6 + 46 for t in opt] + [0])
+    h = 18 * len(names)
+    if opt:
+        if wrap:
+            x, rows = 0.0, 1
+            for t in opt:
+                cw = len(t) * 5.6 + 46
+                if x + cw > wrap:
+                    rows, x = rows + 1, 0.0
+                x += cw + 4
+            w, h = wrap, h + 14 + 18 * rows
+        else:
+            h += 14 + 18 * len(opt)
+    return w, h
+
+
 def layout_labels(b: Builder, container: Node):
     """Returns ({node id: rect}, {flow id: rect}, number of labels that could not be placed without a collision)."""
     obstacles: list[tuple] = []
@@ -344,9 +386,9 @@ def layout_labels(b: Builder, container: Node):
         obstacles.append((n.x, n.y, n.w, n.h))
         a = b.attach.get(n.id)
         if a:
-            names = [s for s in a["skills"]] + [e["name"] for e in a["external"]]
-            if names:
-                obstacles.append((n.x, n.bottom + 4, max(len(t) for t in names) * 5.6 + 22, 18 * len(names)))
+            w_, h_ = chip_stack(a)
+            if h_:
+                obstacles.append((n.x, n.bottom + (28 if n.kind == "sub" else 4), w_, h_))
             if a.get("header"):
                 obstacles.append((n.x - 10, n.y - 74, 330, 22))
         if n.kind == "sub":
@@ -354,8 +396,10 @@ def layout_labels(b: Builder, container: Node):
     for nt in container.notes:
         obstacles.append((nt["x"], nt["y"], nt["w"], nt["h"]))
         a = b.attach.get(nt["id"])
-        if a and a["skills"]:
-            obstacles.append((nt["x"], nt["y"] + nt["h"] + 4, max(len(t) for t in a["skills"]) * 5.6 + 22, 18 * len(a["skills"])))
+        if a:
+            w_, h_ = chip_stack(a)
+            if h_:
+                obstacles.append((nt["x"], nt["y"] + nt["h"] + 4, w_, h_))
     for f in container.flows:
         for p, q in segments(f):
             obstacles.append(seg_rect(p, q))
@@ -448,7 +492,8 @@ def xml(b: Builder) -> str:
     def notes(container: Node, ind: str):
         for nt in container.notes:
             out.append(f'{ind}<bpmn:textAnnotation id="{nt["id"]}"><bpmn:text>{quoteattr(nt["text"])[1:-1]}</bpmn:text></bpmn:textAnnotation>')
-            out.append(f'{ind}<bpmn:association id="Assoc_{nt["id"]}" sourceRef="{nt["ref"].id}" targetRef="{nt["id"]}" />')
+            if nt.get("ref"):
+                out.append(f'{ind}<bpmn:association id="Assoc_{nt["id"]}" sourceRef="{nt["ref"].id}" targetRef="{nt["id"]}" />')
 
     def emit(n: Node, ind: str):
         k = n.kind.split(":")[0]
@@ -501,9 +546,10 @@ def xml(b: Builder) -> str:
                 lab = f'<bpmndi:BPMNLabel><dc:Bounds x="{r[0]:.0f}" y="{r[1]:.0f}" width="{r[2]:.0f}" height="{r[3]:.0f}" /></bpmndi:BPMNLabel>'
             out.append(f'{ind}<bpmndi:BPMNEdge id="{f.id}_di" bpmnElement="{f.id}">{pts}{lab}</bpmndi:BPMNEdge>')
         for nt in container.notes:
-            r = nt["ref"]
+            r = nt.get("ref")
             out.append(f'{ind}<bpmndi:BPMNShape id="{nt["id"]}_di" bpmnElement="{nt["id"]}"><dc:Bounds x="{nt["x"]:.0f}" y="{nt["y"]:.0f}" width="{nt["w"]}" height="{nt["h"]}" /></bpmndi:BPMNShape>')
-            out.append(f'{ind}<bpmndi:BPMNEdge id="Assoc_{nt["id"]}_di" bpmnElement="Assoc_{nt["id"]}"><di:waypoint x="{r.cx:.0f}" y="{r.bottom + (22 if r.kind.startswith("ev") else 0):.0f}" /><di:waypoint x="{r.cx:.0f}" y="{nt["y"]:.0f}" /></bpmndi:BPMNEdge>')
+            if r is not None:
+                out.append(f'{ind}<bpmndi:BPMNEdge id="Assoc_{nt["id"]}_di" bpmnElement="Assoc_{nt["id"]}"><di:waypoint x="{r.cx:.0f}" y="{r.bottom + (22 if r.kind.startswith("ev") else 0):.0f}" /><di:waypoint x="{r.cx:.0f}" y="{nt["y"]:.0f}" /></bpmndi:BPMNEdge>')
 
     out.append('  <bpmndi:BPMNDiagram id="Diagram_OD">')
     out.append('    <bpmndi:BPMNPlane id="Plane_OD" bpmnElement="Collaboration_OD">')
@@ -539,7 +585,13 @@ def overlays(b: Builder) -> dict:
         for s in a["skills"]:
             i = b.info[s]
             chips.append({"id": s, "state": i["state"], "title": i["summary"], "url": f"{REPO}/blob/main/{sp.folder_of(s)}/{s}/SKILL.md"})
-        data[nid] = {"skills": chips, "external": a["external"], "header": a.get("header"), "dy": b.nodes[nid].h + 4}
+        optional = []
+        for e in a.get("optional") or []:
+            i = b.info[e]
+            optional.append({"id": e, "state": i["state"], "title": i["summary"], "url": f"{REPO}/blob/main/{sp.folder_of(e)}/{e}/SKILL.md"})
+        n = b.nodes[nid]
+        data[nid] = {"skills": chips, "external": a["external"], "optional": optional, "wrap": a.get("wrap", 0), "header": a.get("header"),
+                     "dy": n.h + (28 if n.kind == "sub" else 4)}
     return data
 
 
@@ -574,6 +626,9 @@ header button{border:1px solid var(--line);background:#fff;border-radius:6px;pad
 .sk a.deep{border-left:4px solid var(--deep)}.sk a.documented{border-left:4px solid var(--documented)}.sk a.stub{border-left:4px solid var(--stub)}
 .sk a.ext{border:1px dashed #9aa7b5;background:#eef2f7;color:var(--ext)}
 .sk a.ext::after{content:" \2197"}
+.sk .optcap{font-size:9px;color:var(--muted);margin:3px 0 0 2px}.sk .optrow{display:flex;flex-direction:column;gap:2px}.sk.wrap .optrow{flex-direction:row;flex-wrap:wrap}
+.sk a.opt{border:1px dotted #8a919e;background:#fafafa;color:#59627a;font-style:italic}
+.xt{font-style:normal;font-size:8px;text-transform:uppercase;letter-spacing:.04em;background:#e8ebf2;border-radius:6px;padding:0 4px;margin-right:4px;color:#59627a}
 .hdr{display:flex;gap:6px;font-size:11px}
 .hdr a{white-space:nowrap;color:#1f4fbf;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:9px;padding:0 8px}
 #err{display:none;padding:12px 16px;color:#a40000}
@@ -582,7 +637,7 @@ header button{border:1px solid var(--line);background:#fff;border-radius:6px;pad
 <body>
 <header>
   <h1>OD process map (BPMN 2.0)</h1>
-  <span class="legend"><span>click the <b>+</b> on a box to open it, the breadcrumb to go back</span><span><b style="color:var(--deep)">|</b> built</span><span><b style="color:var(--documented)">|</b> documented</span><span><b style="color:var(--stub)">|</b> stub</span><span>dashed = OpenSpec skill, external (not part of this registry)</span><span>clock = external wait</span></span>
+  <span class="legend"><span>click the <b>+</b> on a box to open it, the breadcrumb to go back</span><span><b style="color:var(--deep)">|</b> built</span><span><b style="color:var(--documented)">|</b> documented</span><span><b style="color:var(--stub)">|</b> stub</span><span>dashed = OpenSpec skill, external (not part of this registry)</span><span>clock = external wait</span><span><i class="xt">ext</i> &lt;extension&gt; skill: optional, use where it fits (below the boxes)</span></span>
   <span style="flex:1"></span>
   <button id="fit">Fit</button><button id="zin">+</button><button id="zout">&minus;</button>
   <a href="OD_NewState_BPMN_Flow.bpmn" download>BPMN XML</a>
@@ -606,7 +661,9 @@ viewer.importXML(document.getElementById('bpmn-src').textContent).then(r=>{
     const parts=[];
     for(const s of a.skills)parts.push(`<a class="${esc(s.state)}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.id)}</a>`);
     for(const e of a.external)parts.push(`<a class="ext" href="${esc(e.url)}" target="_blank" rel="noopener" title="OpenSpec skill (external)">${esc(e.name)}</a>`);
-    if(parts.length)ov.add(id,{position:{top:a.dy,left:0},html:`<div class="sk">${parts.join('')}</div>`});
+    let opt='';
+    if((a.optional||[]).length)opt=`<div class="optcap">&lt;extension&gt; &middot; optional</div><div class="optrow">${a.optional.map(s=>`<a class="opt ${esc(s.state)}" href="${esc(s.url)}" target="_blank" rel="noopener" title="Extension skill, optional: ${esc(s.title)}"><i class="xt">ext</i>${esc(s.id)}</a>`).join('')}</div>`;
+    if(parts.length||opt)ov.add(id,{position:{top:a.dy,left:0},html:`<div class="sk${a.wrap?' wrap':''}"${a.wrap?` style="max-width:${a.wrap}px"`:''}>${parts.join('')}${opt}</div>`});
   }
   const open=location.hash.slice(1);          // deep link: ...BPMN_Map.html#S_3a4 opens that box
   if(open){const pl=viewer.get('elementRegistry').get(open+'_plane');if(pl)viewer.get('canvas').setRootElement(pl)}

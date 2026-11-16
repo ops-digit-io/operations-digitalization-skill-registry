@@ -442,6 +442,7 @@
     <bpmn:sequenceFlow id="F_21" sourceRef="S_3b" targetRef="E_done3b" />
     <bpmn:textAnnotation id="Note_foundation"><bpmn:text>Foundation: every skill reads dept-context first (vocabulary, decision rights, honesty rules).</bpmn:text></bpmn:textAnnotation>
     <bpmn:association id="Assoc_Note_foundation" sourceRef="E_start" targetRef="Note_foundation" />
+    <bpmn:textAnnotation id="Note_spine_ext"><bpmn:text>Any step, optional: extension skills that serve the whole process.</bpmn:text></bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_OD">
     <bpmndi:BPMNPlane id="Plane_OD" bpmnElement="Collaboration_OD">
@@ -494,6 +495,7 @@
       <bpmndi:BPMNEdge id="F_21_di" bpmnElement="F_21"><di:waypoint x="1410" y="1170" /><di:waypoint x="1522" y="1170" /></bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Note_foundation_di" bpmnElement="Note_foundation"><dc:Bounds x="132" y="133" width="170" height="64" /></bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Assoc_Note_foundation_di" bpmnElement="Assoc_Note_foundation"><di:waypoint x="190" y="125" /><di:waypoint x="190" y="133" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Note_spine_ext_di" bpmnElement="Note_spine_ext"><dc:Bounds x="800" y="30" width="330" height="44" /></bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
   <bpmndi:BPMNDiagram id="Diagram_S_1a">
@@ -547,8 +549,8 @@
       <bpmndi:BPMNEdge id="F_38_di" bpmnElement="F_38"><di:waypoint x="897" y="150" /><di:waypoint x="952" y="150" /></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F_39_di" bpmnElement="F_39"><di:waypoint x="1072" y="150" /><di:waypoint x="1127" y="150" /></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F_40_di" bpmnElement="F_40"><di:waypoint x="1247" y="150" /><di:waypoint x="1302" y="150" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Note_chain2_di" bpmnElement="Note_chain2"><dc:Bounds x="1212" y="238" width="250" height="64" /></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Assoc_Note_chain2_di" bpmnElement="Assoc_Note_chain2"><di:waypoint x="1320" y="190" /><di:waypoint x="1320" y="238" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Note_chain2_di" bpmnElement="Note_chain2"><dc:Bounds x="1212" y="343" width="250" height="64" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Assoc_Note_chain2_di" bpmnElement="Assoc_Note_chain2"><di:waypoint x="1320" y="190" /><di:waypoint x="1320" y="343" /></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
   <bpmndi:BPMNDiagram id="Diagram_S_4">
@@ -575,7 +577,7 @@
       <bpmndi:BPMNShape id="T_32_di" bpmnElement="T_32"><dc:Bounds x="336" y="110" width="120" height="80" /></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E_wait_32_di" bpmnElement="E_wait_32"><dc:Bounds x="511" y="132" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="496" y="172" width="66" height="20" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T_33_di" bpmnElement="T_33"><dc:Bounds x="602" y="110" width="120" height="80" /></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="E_front_end_di" bpmnElement="E_front_end"><dc:Bounds x="777" y="132" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="740" y="172" width="110" height="34" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="E_front_end_di" bpmnElement="E_front_end"><dc:Bounds x="777" y="132" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="740" y="94" width="110" height="34" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="F_41_di" bpmnElement="F_41"><di:waypoint x="106" y="150" /><di:waypoint x="161" y="150" /></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F_42_di" bpmnElement="F_42"><di:waypoint x="281" y="150" /><di:waypoint x="336" y="150" /></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F_43_di" bpmnElement="F_43"><di:waypoint x="456" y="150" /><di:waypoint x="511" y="150" /></bpmndi:BPMNEdge>

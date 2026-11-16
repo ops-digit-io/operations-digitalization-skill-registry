@@ -304,7 +304,7 @@ The download packages are therefore <b>exported</b>: lists become comma-separate
     ext_names = sorted(p.name for p in (ROOT / "skills-extension").iterdir() if p.is_dir())
     pat = re.compile(r"(?<![\w-])(" + "|".join(map(re.escape, ext_names)) + r")(?![\w-])")
     leaks = {}
-    for f in list(out.glob("*.html")) + list((out / "docs").rglob("*")) + list((out / "spec").rglob("*.html")):
+    for f in [p for p in out.glob("*.html") if p.name != "index.html"] + list((out / "docs").rglob("*")) + list((out / "spec").rglob("*.html")):
         if f.is_file() and f.suffix in (".html", ".mermaid", ".yaml"):
             hit = sorted(set(pat.findall(f.read_text(encoding="utf-8", errors="ignore"))))
             if hit:
