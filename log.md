@@ -3,6 +3,10 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - extension skills are on the BPMN map as optional
+
+- Every extension skill listed as `proposed` on a step of `docs/new-state/process.yaml` (34 step entries) is drawn under that step's box on the BPMN map, below the core skills, under a caption `<extension> · optional`, as a dotted italic chip with an `ext` tag that links to the skill on GitHub. The 11 extension skills of the foundation (`spine`) sit in one note in the intake lane (any step, optional). The three-level view is: core skill (solid chip), OpenSpec skill (dashed, external), extension skill (dotted, optional).
+- `validate_registry.py` fails if an extension skill named on a step is not drawn on the map. `build_site.py` still refuses extension skills on the docs pages and the specification page, but allows them on the map (front page), which shows them on purpose.
 ## 2026-11-16 - skill status: `ready` added, the 10 core drafts promoted
 
 - New status `ready` (`statuses` in `registry.yaml`): a core skill that passes every check (`validate_registry.py`, quality grade A, drawn on the BPMN map, spec-valid export) and awaits human sign-off. It is not a review. `validate_registry.py` enforces the vocabulary, that `ready` is core only, and that a `ready` skill is graded A; `verify_okf.py` and `docs/okf-conventions.md` list it as an addition to OKF's three statuses.
