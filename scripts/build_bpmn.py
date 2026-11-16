@@ -18,6 +18,7 @@ from it. No OpenSpec file is copied into this registry: its skills are links int
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import sys
 from xml.sax.saxutils import quoteattr
@@ -99,6 +100,7 @@ class Builder:
                 for st in br["steps"]:
                     self.steps[st["id"]] = st
         self.top = Node("Process_OD", "process", "", 0, 0, 0, 0)
+        self.unplaced = 0        # labels that had no collision-free spot (reported by main; --check fails on them)
 
     # ---- primitives -------------------------------------------------------------------------------------------
     def mk(self, parent: Node, id, kind, name, x, cy, w=None, h=None, lane=None):
@@ -169,7 +171,7 @@ class Builder:
         self.H = y
         X0, CP = 110, 210
 
-        def col(c): return X0 + c * CP
+        def col(c): return X0 + c * CP + (90 if c >= 3 else 0)      # extra room after the intake routing: its three labels sit on the last leg
 
         def cx_col(c, w): return col(c) + (SW - w) / 2        # centre a node of width w on the column of a collapsed box
 
@@ -259,7 +261,7 @@ class Builder:
         cyA, cyB, cyC = 120, 300, 480
         s = self.mk(sub, "E_3a_start", "ev:start", "New system", 70, cyB)
         gb = self.mk(sub, "G_build", "gw", "Build path", 70 + EV + GAP, cyB)
-        x1 = gb.right + GAP + 20
+        x1 = gb.right + GAP + 90
         o1 = self.mk(sub, "T_3a1", "task", "3a.1 " + opts["3a.1"]["title"], x1, cyA)
         o2 = self.mk(sub, "T_3a2", "task", "3a.2 " + opts["3a.2"]["title"], x1, cyB)
         self.chips(o1, opts["3a.1"]["skills"]); self.chips(o2, opts["3a.2"]["skills"])
@@ -283,7 +285,7 @@ class Builder:
         od = {"id": "OD", "title": "OD (demand owner)", "top": 30, "h": 245, "nodes": []}
         it = {"id": "IT", "title": "IT / external developer", "top": 275, "h": 250, "nodes": []}
         sub.lanes = [od, it]
-        cyO, cyI = od["top"] + 80, it["top"] + 80
+        cyO, cyI = od["top"] + 105, it["top"] + 80
         x = 100
         s = self.mk(sub, "E_3a4_start", "ev:start", "Clear demand", x, cyO, lane=od)
         prev = s
@@ -306,18 +308,112 @@ def waypoints(f: Flow):
         return [(a.cx, a.bottom), (a.cx, b.cy), (b.x, b.cy)]
     if abs(a.cy - b.cy) < 1:
         return [(a.right, a.cy), (b.x, b.cy)]
-    mx = a.right + max(15, min(45, (b.x - a.right) / 2))
+    gap = b.x - a.right
+    mx = a.right + 28 if gap >= 130 else a.right + max(15, min(45, gap / 2))     # bend close to the source: the long last leg carries the label
     return [(a.right, a.cy), (mx, a.cy), (mx, b.cy), (b.x, b.cy)]
 
 
-def label_bounds(f: Flow):
-    w_ = waypoints(f)
-    if len(w_) == 4:
-        lx, ly = w_[1][0] - 118, w_[2][1] - 34
-    else:
-        (x1, y1), (x2, y2) = w_[-2], w_[-1]
-        lx, ly = (x1 + x2) / 2 - 56, min(y1, y2) - 30
-    return lx, ly
+# ---- label placement: every label goes to the nearest free spot; shapes, flow lines, skill chips, notes and the
+#      drill-down buttons are obstacles, and a placed label becomes one too -----------------------------------------------
+CHAR_W, LINE_H = 6.2, 14
+
+
+def text_box(text: str, maxw=130):
+    w = min(maxw, max(36.0, len(text) * CHAR_W + 10))
+    lines = max(1, -(-int(len(text) * CHAR_W) // int(w - 8)))
+    return w, lines * LINE_H + 6
+
+
+def overlap(a, b, m=2.0) -> bool:
+    return not (a[0] + a[2] + m <= b[0] or b[0] + b[2] + m <= a[0] or a[1] + a[3] + m <= b[1] or b[1] + b[3] + m <= a[1])
+
+
+def segments(f: Flow):
+    pts = waypoints(f)
+    return list(zip(pts, pts[1:]))
+
+
+def seg_rect(p, q, pad=2.5):
+    return (min(p[0], q[0]) - pad, min(p[1], q[1]) - pad, abs(p[0] - q[0]) + 2 * pad, abs(p[1] - q[1]) + 2 * pad)
+
+
+def layout_labels(b: Builder, container: Node):
+    """Returns ({node id: rect}, {flow id: rect}, number of labels that could not be placed without a collision)."""
+    obstacles: list[tuple] = []
+    for n in container.children:
+        obstacles.append((n.x, n.y, n.w, n.h))
+        a = b.attach.get(n.id)
+        if a:
+            names = [s for s in a["skills"]] + [e["name"] for e in a["external"]]
+            if names:
+                obstacles.append((n.x, n.bottom + 4, max(len(t) for t in names) * 5.6 + 22, 18 * len(names)))
+            if a.get("header"):
+                obstacles.append((n.x - 10, n.y - 74, 330, 22))
+        if n.kind == "sub":
+            obstacles.append((n.right - 22, n.bottom + 2, 26, 22))      # the drill-down button of a collapsed box
+    for nt in container.notes:
+        obstacles.append((nt["x"], nt["y"], nt["w"], nt["h"]))
+        a = b.attach.get(nt["id"])
+        if a and a["skills"]:
+            obstacles.append((nt["x"], nt["y"] + nt["h"] + 4, max(len(t) for t in a["skills"]) * 5.6 + 22, 18 * len(a["skills"])))
+    for f in container.flows:
+        for p, q in segments(f):
+            obstacles.append(seg_rect(p, q))
+    placed: list[tuple] = []
+    node_rects: dict[str, tuple] = {}
+    flow_rects: dict[str, tuple] = {}
+    bad = 0
+
+    def choose(cands, tag=""):
+        nonlocal bad
+        best, score = None, 1e9
+        for c in cands:
+            s = sum(overlap(c, o) for o in obstacles) * 3 + sum(overlap(c, o) for o in placed) * 3
+            if s < score:
+                best, score = c, s
+            if s == 0:
+                break
+        if score > 0:
+            bad += 1
+            if os.environ.get("BPMN_DEBUG"):
+                print(f"  collision in {container.id}: {tag} {tuple(round(v) for v in best)}")
+        placed.append(best)
+        return best
+
+    for n in container.children:                                       # gateways and events: label above or below
+        if not n.name or not (n.kind == "gw" or n.kind.startswith("ev")):
+            continue
+        w, h = text_box(n.name, 120 if n.kind == "gw" else 110)
+        c = []
+        for dy in (-h - 4, n.h + 4):
+            for dx in (-w / 2 + n.w / 2, -w + n.w / 2 + 14, n.w / 2 - 14):
+                c.append((n.x + dx, n.y + dy, w, h))
+        c.sort(key=lambda r: 0)                                         # keep the preference order
+        if n.kind.startswith("ev"):
+            c = [c[3], c[0], c[4], c[5], c[1], c[2]]                    # events: below first
+        node_rects[n.id] = choose(c, n.name)
+    for f in container.flows:                                           # flow names: beside the segment nearest the target
+        if not f.name:
+            continue
+        w, h = text_box(f.name, 120)
+        segs = segments(f)
+        order = list(reversed(range(len(segs))))
+        c = []
+        for i in order:
+            (x1, y1), (x2, y2) = segs[i]
+            if abs(y1 - y2) < 1:                                        # horizontal: above, then below, centred or at the ends
+                L = abs(x2 - x1)
+                for t in (0.65, 0.5, 0.8, 0.35):
+                    mxp = x1 + (x2 - x1) * t
+                    c.append((mxp - w / 2, y1 - h - 7, w, h))
+                    c.append((mxp - w / 2, y1 + 7, w, h))
+            else:                                                       # vertical: left, then right, near the target end
+                ye = y2 if i == len(segs) - 1 else y1
+                for yy in (ye - (y2 - y1) * 0.0, (y1 + y2) / 2):
+                    c.append((x1 - w - 8, yy - h / 2, w, h))
+                    c.append((x1 + 8, yy - h / 2, w, h))
+        flow_rects[f.id] = choose(c, f.name)
+    return node_rects, flow_rects, bad
 
 
 def xml(b: Builder) -> str:
@@ -388,18 +484,21 @@ def xml(b: Builder) -> str:
 
     # ---- diagram interchange: one diagram per plane (the pool, and each sub-process that has content)
     def shapes(container: Node, ind: str):
+        nlab, flab, bad = layout_labels(b, container)
+        b.unplaced += bad
         for n in container.children:
             extra = ' isExpanded="false"' if n.kind == "sub" else ""
             lbl = ""
-            if n.kind == "gw" or n.kind.startswith("ev"):
-                lbl = f'<bpmndi:BPMNLabel><dc:Bounds x="{n.x - 40:.0f}" y="{n.bottom + 4:.0f}" width="{n.w + 80:.0f}" height="28" /></bpmndi:BPMNLabel>' if n.name else ""
+            if n.id in nlab:
+                r = nlab[n.id]
+                lbl = f'<bpmndi:BPMNLabel><dc:Bounds x="{r[0]:.0f}" y="{r[1]:.0f}" width="{r[2]:.0f}" height="{r[3]:.0f}" /></bpmndi:BPMNLabel>'
             out.append(f'{ind}<bpmndi:BPMNShape id="{n.id}_di" bpmnElement="{n.id}"{extra}><dc:Bounds x="{n.x:.0f}" y="{n.y:.0f}" width="{n.w:.0f}" height="{n.h:.0f}" />{lbl}</bpmndi:BPMNShape>')
         for f in container.flows:
             pts = "".join(f'<di:waypoint x="{x:.0f}" y="{y:.0f}" />' for x, y in waypoints(f))
             lab = ""
-            if f.name:
-                lx, ly = label_bounds(f)
-                lab = f'<bpmndi:BPMNLabel><dc:Bounds x="{lx:.0f}" y="{ly:.0f}" width="112" height="28" /></bpmndi:BPMNLabel>'
+            if f.id in flab:
+                r = flab[f.id]
+                lab = f'<bpmndi:BPMNLabel><dc:Bounds x="{r[0]:.0f}" y="{r[1]:.0f}" width="{r[2]:.0f}" height="{r[3]:.0f}" /></bpmndi:BPMNLabel>'
             out.append(f'{ind}<bpmndi:BPMNEdge id="{f.id}_di" bpmnElement="{f.id}">{pts}{lab}</bpmndi:BPMNEdge>')
         for nt in container.notes:
             r = nt["ref"]
@@ -468,6 +567,7 @@ header .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--m
 header button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}
 #canvas{height:calc(100% - 52px)}
 .djs-container{background:#fff}
+.djs-label{paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
 .sk{display:flex;flex-direction:column;gap:2px;width:max-content;max-width:190px;pointer-events:auto}
 .sk a{display:block;font-size:10px;line-height:16px;padding:0 6px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;white-space:nowrap}
 .sk a:hover{background:#eef3ff}
@@ -501,7 +601,7 @@ viewer.importXML(document.getElementById('bpmn-src').textContent).then(r=>{
   const ov=viewer.get('overlays');
   for(const [id,a] of Object.entries(OV)){
     if(a.header){
-      ov.add(id,{position:{top:-34,left:-10},html:`<div class="hdr"><a href="${esc(a.header.url)}" target="_blank" rel="noopener">${esc(a.header.title)}: OpenSpec (external) ↗</a><a href="__REPO__/blob/main/${esc(a.header.how_to)}" target="_blank" rel="noopener">How to use</a></div>`});
+      ov.add(id,{position:{top:-74,left:-10},html:`<div class="hdr"><a href="${esc(a.header.url)}" target="_blank" rel="noopener">${esc(a.header.title)}: OpenSpec (external) ↗</a><a href="__REPO__/blob/main/${esc(a.header.how_to)}" target="_blank" rel="noopener">How to use</a></div>`});
     }
     const parts=[];
     for(const s of a.skills)parts.push(`<a class="${esc(s.state)}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.id)}</a>`);
@@ -526,6 +626,10 @@ def main() -> int:
     b = Builder().build()
     bpmn = xml(b)
     html = page(b, bpmn)
+    if b.unplaced:
+        print(f"{b.unplaced} label(s) overlap another element: move a box or shorten the text")
+        if "--check" in sys.argv:
+            return 1
     if "--check" in sys.argv:
         stale = [p.name for p, t in ((OUT_XML, bpmn), (OUT_HTML, html))
                  if not p.exists() or p.read_text(encoding="utf-8").replace("\r\n", "\n") != t]

@@ -3,6 +3,10 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - BPMN labels are placed without overlaps
+
+- `scripts/build_bpmn.py` now places every gateway, event and flow label itself: shapes, flow lines, skill chips, notes and drill-down buttons are obstacles, and a label goes to the nearest free spot. `--check` fails when a label has no free spot, so CI catches overlaps. Gateway labels sit above, event labels below, flow labels on the last leg before the target; the OpenSpec header pills sit above the tasks of the 3a4 view; extra room after the intake routing keeps its three labels readable.
+
 ## 2026-11-16 - the BPMN flow is the only process map
 
 - Removed every other map: the owner's `OD_NewState_ProcessFlow.html`, `OD_NewState_BPMN.html` and `OD_NewState_VSM_SkillMap.html`, `OD_NewState_Flow.mermaid`, `docs/process-overview.html`, `docs/new-state-skill-map.md`, `docs/skill-map.md`, `docs/skill-state-map.md` and their generators (`build_process_overview.py`, `build_new_state_skill_map.py`, `build_skill_map.py`) and CI checks. They stay in git history.
