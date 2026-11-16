@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 """Build the process map as a BPMN 2.0 flow chart from docs/new-state/process.yaml.
 
-    docs/new-state/OD_NewState_BPMN_Flow.bpmn   the BPMN 2.0 XML (pool, lanes, tasks, gateways, events, diagram interchange);
-                                                 opens in any BPMN tool (bpmn.io, Camunda Modeler, yEd, yFiles-based editors)
-    docs/new-state/OD_NewState_BPMN_Map.html    the same diagram as a web page: bpmn-js (bpmn.io) renders the XML, the
-                                                 skills sit under their tasks as links, OpenSpec's skills are external links
+    docs/new-state/OD_NewState_BPMN_Flow.bpmn   the BPMN 2.0 XML: a pool with the five lanes; every branch is a collapsed
+                                                 sub-process with its own diagram (drill-down); the OpenSpec process has
+                                                 dedicated lanes (OD, IT / external developer)
+    docs/new-state/OD_NewState_BPMN_Map.html    the same as a web page: bpmn-js (bpmn.io) renders the XML; click the + on a
+                                                 box to open it; skills sit under their tasks as links, OpenSpec's skills are
+                                                 external links
 
     python scripts/build_bpmn.py            # write both files
     python scripts/build_bpmn.py --check    # fail if they are stale
 
-The layout is computed here (columns left to right, one row per branch), so the picture is regenerated from the data and
-cannot drift from it. The sub-steps of step 3a4 (the IT demand follows OpenSpec) are an expanded sub-process whose tasks
-link to OpenSpec's own skills in its repository; no OpenSpec file is copied into this registry.
+The top level shows only the lanes, the hand-offs between them and one box per branch. Inside a box are its steps, the waits
+(timer events) and the skills. The layout is computed here, so the picture is regenerated from the data and cannot drift
+from it. No OpenSpec file is copied into this registry: its skills are links into the OpenSpec repository.
 """
 from __future__ import annotations
 
 import json
 import pathlib
 import sys
-from xml.sax.saxutils import escape, quoteattr
+from xml.sax.saxutils import quoteattr
 
 import yaml
 
@@ -34,18 +36,20 @@ OUT_HTML = ROOT / "docs" / "new-state" / "OD_NewState_BPMN_Map.html"
 BPMNJS = "17.11.1"   # bpmn-js release the page loads from jsdelivr (pinned)
 
 TW, TH = 120, 80          # task
+SW, SH = 160, 90          # collapsed sub-process
 GW = 50                   # gateway
 EV = 36                   # event
-X0, CW = 100, 170         # first column, column pitch
-ROW = 215                 # lane row height
+GAP = 55                  # horizontal gap between neighbours
 LABEL_W = 30              # lane label column
-POOL_PAD = 120
 
 
 class Node:
-    def __init__(self, id, kind, name, x, y, w, h, lane=None, parent=None):
-        self.id, self.kind, self.name, self.x, self.y, self.w, self.h, self.lane, self.parent = id, kind, name, x, y, w, h, lane, parent
-        self.children: list[Node] = []
+    def __init__(self, id, kind, name, x, y, w, h, parent=None):
+        self.id, self.kind, self.name, self.x, self.y, self.w, self.h, self.parent = id, kind, name, x, y, w, h, parent
+        self.children: list[Node] = []     # sub-process: its own flow nodes (own diagram)
+        self.flows: list[Flow] = []        # sub-process: its own sequence flows
+        self.lanes: list[dict] = []        # sub-process or process: lanes {id, title, top, h, nodes}
+        self.notes: list[dict] = []        # text annotations {id, text, x, y, w, h, ref}
 
     @property
     def cx(self): return self.x + self.w / 2
@@ -58,207 +62,232 @@ class Node:
 
 
 class Flow:
-    def __init__(self, id, src, tgt, name="", mode="h", parent=None):
-        self.id, self.src, self.tgt, self.name, self.mode, self.parent = id, src, tgt, name, mode, parent
+    def __init__(self, id, src, tgt, name="", mode="h"):
+        self.id, self.src, self.tgt, self.name, self.mode = id, src, tgt, name, mode
 
 
 def safe(s: str) -> str:
     return "".join(c if c.isalnum() else "_" for c in s)
 
 
-def build_model():
-    proc = yaml.safe_load(PROC.read_text(encoding="utf-8"))
-    reg = yaml.safe_load((ROOT / "registry.yaml").read_text(encoding="utf-8"))
-    info = {e["id"]: {"state": state(e["id"]), "summary": " ".join(str(e.get("summary", "")).split())} for e in reg["skills"]}
-    nodes: dict[str, Node] = {}
-    flows: list[Flow] = []
-    lane_nodes: dict[str, list[Node]] = {}
-    attach: dict[str, dict] = {}          # node id -> {"skills": [...], "external": [...]}
-    steps_by_id = {}
-    for st in proc["intake"]["steps"]:
-        steps_by_id[st["id"]] = st
-    for lane in proc["lanes"]:
-        for br in lane["branches"]:
-            for st in br["steps"]:
-                steps_by_id[st["id"]] = st
+SHORT = {"1a": "1a Machine already connected (no spend)", "1b": "1b Not connected: standardized-system onboarding",
+         "2": "Use-case funnel", "front": "Shared front-end: requirements, tool-decision gate, capital",
+         "3a": "3a New system: make / buy / integrate", "3b": "3b New connector for a new machine",
+         "4": "Use-case promotion via Internal Communications"}
 
-    # ---- lane geometry (top, height); lane 4 sits above lane 3 so the hand-offs from lanes 1 and 2 do not cross lane 3
-    spec = [("intake", "Intake · triage + fit-check", 1 * ROW),
-            ("lane1", "Lane 1 · Run a known use case (self-service)", 2 * ROW),
-            ("lane2", "Lane 2 · Develop a new use case (OD-led)", 1 * ROW),
-            ("lane4", "Lane 4 · Promote a proven use case (IC publishes)", 1 * ROW),
-            ("lane3", "Lane 3 · New system or connector (OD / Ext / IT-CS)", 1130)]
-    lanes, y = {}, 0
-    for lid, title, h in spec:
-        lanes[lid] = {"id": lid, "title": title, "top": y, "h": h}
-        y += h
-    H = y
 
-    def col(c): return X0 + c * CW
+class Builder:
+    def __init__(self):
+        self.proc = yaml.safe_load(PROC.read_text(encoding="utf-8"))
+        self.reg = yaml.safe_load((ROOT / "registry.yaml").read_text(encoding="utf-8"))
+        self.info = {e["id"]: {"state": state(e["id"]), "summary": " ".join(str(e.get("summary", "")).split())} for e in self.reg["skills"]}
+        self.nodes: dict[str, Node] = {}
+        self.flows: list[Flow] = []
+        self.attach: dict[str, dict] = {}
+        self.steps = {st["id"]: st for st in self.proc["intake"]["steps"]}
+        self.branches = {}
+        for lane in self.proc["lanes"]:
+            for br in lane["branches"]:
+                self.branches[br["id"]] = br
+                for st in br["steps"]:
+                    self.steps[st["id"]] = st
+        self.top = Node("Process_OD", "process", "", 0, 0, 0, 0)
 
-    def add(id, kind, name, lane, x, cy, w=None, h=None, parent=None):
-        w = w or {"task": TW, "gw": GW, "ev": EV, "sub": TW}[kind.split(":")[0]]
-        h = h or {"task": TH, "gw": GW, "ev": EV, "sub": TH}[kind.split(":")[0]]
-        n = Node(id, kind, name, x, cy - h / 2, w, h, lane, parent)
-        nodes[id] = n
-        (parent.children if parent else lane_nodes.setdefault(lane, [])).append(n)
+    # ---- primitives -------------------------------------------------------------------------------------------
+    def mk(self, parent: Node, id, kind, name, x, cy, w=None, h=None, lane=None):
+        k = kind.split(":")[0]
+        w = w or {"task": TW, "gw": GW, "ev": EV, "sub": SW}[k]
+        h = h or {"task": TH, "gw": GW, "ev": EV, "sub": SH}[k]
+        n = Node(id, kind, name, x, cy - h / 2, w, h, parent)
+        self.nodes[id] = n
+        parent.children.append(n)
+        if lane is not None:
+            lane["nodes"].append(n)
         return n
 
-    def task(id, c, lane, cy, step=None, name=None, w=None, parent=None, x=None, extra_skills=None):
-        st = step or steps_by_id[id]
-        n = add("T_" + safe(id), "task", name or f"{id} {st['title']}", lane, x if x is not None else col(c) + (CW - TW) / 2 - (CW - TW) / 2, cy, w=w, parent=parent)
-        skills = list(st.get("skills") or []) + list(extra_skills or [])
-        if skills:
-            attach[n.id] = {"skills": skills, "external": []}
-        return n
+    def flow(self, parent: Node, a: Node, b: Node, name="", mode="h"):
+        f = Flow(f"F_{len(self.flows) + 1}", a, b, name, mode)
+        self.flows.append(f)
+        parent.flows.append(f)
+        return f
 
-    def gw(id, c, lane, cy, name, x=None):
-        # centred on the column's task centre
-        return add("G_" + safe(id), "gw", name, lane, (x if x is not None else col(c) + TW / 2 - GW / 2), cy)
+    def chips(self, n: Node, skills=(), external=()):
+        if skills or external:
+            self.attach[n.id] = {"skills": list(skills), "external": list(external)}
 
-    def ev(id, kind, c, lane, cy, name="", x=None):
-        return add("E_" + safe(id), "ev:" + kind, name, lane, (x if x is not None else col(c) + TW / 2 - EV / 2), cy)
+    # ---- a row of steps inside a sub-process plane --------------------------------------------------------------
+    def row(self, sub: Node, step_ids, start_name, end_name, cy=150, x0=70, id_prefix=""):
+        x, prev = x0, None
 
-    def flow(a, b, name="", mode="h"):
-        flows.append(Flow(f"F_{len(flows) + 1}", a, b, name, mode, a.parent or b.parent))
+        def put(n):
+            nonlocal prev
+            if prev is not None:
+                self.flow(sub, prev, n)
+            prev = n
 
-    def chain(*ns):
-        for a, b in zip(ns, ns[1:]):
-            flow(a, b)
+        s = self.mk(sub, f"E_{id_prefix}start", "ev:start", start_name, x, cy)
+        put(s)
+        x += EV + GAP
+        for sid in step_ids:
+            st = self.steps[sid]
+            t = self.mk(sub, "T_" + safe(sid), "task", f"{sid} {st['title']}", x, cy)
+            self.chips(t, st.get("skills") or [])
+            put(t)
+            x += TW + GAP
+            if st.get("wait"):
+                tm = self.mk(sub, "E_wait_" + safe(sid), "ev:timer", f"wait {st['wait']}", x, cy)
+                put(tm)
+                x += EV + GAP
+        e = self.mk(sub, f"E_{id_prefix}end", "ev:end", end_name, x, cy)
+        put(e)
+        return s, e
 
-    def row_cy(lid, r): return lanes[lid]["top"] + r * ROW + 75
+    def collapsed(self, parent: Node, id, name, x, cy, lane=None):
+        return self.mk(parent, id, "sub", name, x, cy, lane=lane)
 
-    def waited(prev, step_id, c, lane, cy, label=None):
-        """An intermediate timer event after a step that has an external wait."""
-        w = steps_by_id[step_id].get("wait")
-        if not w:
-            return prev
-        t = ev("wait_" + step_id, "timer", c, lane, cy, f"wait {w}")
-        flow(prev, t)
-        return t
+    # ---- the model --------------------------------------------------------------------------------------------
+    def build(self):
+        top = self.top
+        spec = [("intake", "Intake · triage + fit-check", 200),
+                ("lane1", "Lane 1 · Run a known use case (self-service)", 300),
+                ("lane2", "Lane 2 · Develop a new use case (OD-led)", 190),
+                ("lane4", "Lane 4 · Promote a proven use case (IC publishes)", 190),
+                ("lane3", "Lane 3 · New system or connector (OD / Ext / IT-CS)", 330)]
+        y = 0
+        L = {}
+        for lid, title, h in spec:
+            L[lid] = {"id": lid, "title": title, "top": y, "h": h, "nodes": []}
+            top.lanes.append(L[lid])
+            y += h
+        self.H = y
+        X0, CP = 110, 210
 
-    # ---- intake
-    cyI = row_cy("intake", 0)
-    start = ev("start", "start", 0, "intake", cyI, "Demand or request")
-    triage = task("i1", 1, "intake", cyI, name="i1 Known use case? Triage + fit-check")
-    route = gw("route", 2, "intake", cyI, "Where does it go?")
-    chain(start, triage, route)
+        def col(c): return X0 + c * CP
 
-    # ---- lane 1
-    cy1a, cy1b = row_cy("lane1", 0), row_cy("lane1", 1)
-    cyg1 = (cy1a + cy1b) / 2
-    g1 = gw("connected", 3, "lane1", cyg1, "Machine already connected?")
-    a1, a2, a3 = task("1a1", 4, "lane1", cy1a), task("1a2", 5, "lane1", cy1a), task("1a3", 6, "lane1", cy1a)
-    b1 = task("1b1", 4, "lane1", cy1b)
-    tb1 = waited(b1, "1b1", 5, "lane1", cy1b)
-    b2 = task("1b2", 6, "lane1", cy1b)
-    tb2 = waited(b2, "1b2", 7, "lane1", cy1b)
-    b3 = task("1b3", 8, "lane1", cy1b)
-    b4 = task("1b4", 9, "lane1", cy1b)
-    flow(g1, a1, "yes (no spend)"); chain(a1, a2, a3)
-    flow(g1, b1, "no: onboard std system"); flow(tb1, b2) if tb1 is not b1 else flow(b1, b2)
-    if tb2 is not b2:
-        flow(tb2, b3)
-    else:
-        flow(b2, b3)
-    flow(b3, b4)
-    m1 = gw("merge1", 10, "lane1", cyg1, "")
-    p1 = gw("promote1", 12, "lane1", cyg1, "Proven and adopted: promote?")
-    done1 = ev("done1", "end", 13, "lane1", cyg1, "Live")
-    flow(a3, m1); flow(b4, m1); flow(m1, p1); flow(p1, done1, "no")
+        def cx_col(c, w): return col(c) + (SW - w) / 2        # centre a node of width w on the column of a collapsed box
 
-    # ---- lane 2
-    cy2 = row_cy("lane2", 0)
-    seq2, c = [], 3
-    t_prev = None
-    for sid in ("21", "22", "23", "24", "25", "26"):
-        t = task(sid, c, "lane2", cy2)
-        if t_prev is not None:
-            flow(t_prev, t)
-        tw = waited(t, sid, c + 1, "lane2", cy2)
-        t_prev = tw
-        c += 2 if tw is not t else 1
-        seq2.append(t)
-    # t_prev is the last element of the chain (step 26); c is the next free column
-    g2 = gw("proven2", c, "lane2", cy2, "Proven and repeatable?")
-    flow(t_prev, g2)
-    done2 = ev("done2", "end", c + 1, "lane2", cy2, "Graduated")
-    flow(g2, done2, "no")
+        # intake
+        cyI = L["intake"]["top"] + 85
+        start = self.mk(top, "E_start", "ev:start", "Demand or request", cx_col(0, EV), cyI, lane=L["intake"])
+        triage = self.mk(top, "T_i1", "task", "i1 Known use case? Triage + fit-check", col(1) + 20, cyI, lane=L["intake"])
+        self.chips(triage, self.steps["i1"].get("skills") or [])
+        route = self.mk(top, "G_route", "gw", "Where does it go?", col(2) + 55, cyI, lane=L["intake"])
+        self.flow(top, start, triage); self.flow(top, triage, route)
+        top.notes.append({"id": "Note_foundation", "text": "Foundation: every skill reads dept-context first (vocabulary, decision rights, honesty rules).",
+                          "x": start.x - 40, "y": cyI + 48, "w": 170, "h": 64, "ref": start, "ref_mode": "down"})
 
-    # ---- lane 4 (entered only from a live, adopted use case)
-    cy4 = row_cy("lane4", 0)
-    t41 = task("41", 13, "lane4", cy4)
-    t42 = task("42", 14, "lane4", cy4)
-    t43 = task("43", 15, "lane4", cy4)
-    tw43 = waited(t43, "43", 16, "lane4", cy4)
-    t44 = task("44", 17, "lane4", cy4)
-    end4 = ev("end4", "end", 18, "lane4", cy4, "Story published, feedback routed")
-    flow(t41, t42); flow(t42, t43); flow(tw43, t44); flow(t44, end4)
-    flow(p1, t41, "yes", "down"); flow(g2, t41, "yes", "down")
+        # lane 1
+        t1 = L["lane1"]["top"]
+        cy1a, cy1b, cyg1 = t1 + 85, t1 + 215, t1 + 150
+        g1 = self.mk(top, "G_connected", "gw", "Machine already connected?", col(3) + 55, cyg1, lane=L["lane1"])
+        s1a = self.collapsed(top, "S_1a", SHORT["1a"], col(4), cy1a, L["lane1"])
+        s1b = self.collapsed(top, "S_1b", SHORT["1b"], col(4), cy1b, L["lane1"])
+        m1 = self.mk(top, "G_merge1", "gw", "", col(5) + 55, cyg1, lane=L["lane1"])
+        p1 = self.mk(top, "G_promote1", "gw", "Proven and adopted: promote?", col(6) + 55, cyg1, lane=L["lane1"])
+        d1 = self.mk(top, "E_done1", "ev:end", "Live", col(7) + 62, cyg1, lane=L["lane1"])
+        self.flow(top, route, g1, "known use case")
+        self.flow(top, g1, s1a, "yes"); self.flow(top, g1, s1b, "no")
+        self.flow(top, s1a, m1); self.flow(top, s1b, m1); self.flow(top, m1, p1); self.flow(top, p1, d1, "no")
 
-    # ---- lane 3
-    L3 = lanes["lane3"]["top"]
-    cy3f = L3 + 75
-    cyA, cyB = L3 + 290, L3 + 505
-    cyG3 = (cyA + cyB) / 2
-    t31, t32 = task("31", 3, "lane3", cy3f), task("32", 4, "lane3", cy3f)
-    tw32 = waited(t32, "32", 5, "lane3", cy3f)
-    t33 = task("33", 6, "lane3", cy3f)
-    gr = gw("route3", 7, "lane3", cy3f, "Make / buy / integrate, or new connector?")
-    flow(t31, t32); flow(tw32, t33); flow(t33, gr)
-    # 3a
-    g3a = gw("build", 8, "lane3", cyG3, "Build path")
-    opts = {o["id"]: o for o in steps_by_id["3a4"]["options"]}
-    o1 = add("T_3a1", "task", "3a.1 " + opts["3a.1"]["title"], "lane3", col(9), cyA)
-    attach[o1.id] = {"skills": opts["3a.1"]["skills"], "external": []}
-    o2 = add("T_3a2", "task", "3a.2 " + opts["3a.2"]["title"], "lane3", col(9), cyB)
-    attach[o2.id] = {"skills": opts["3a.2"]["skills"], "external": []}
-    flow(gr, g3a, "3a new system", "h"); flow(g3a, o1, "3a.1 reuse"); flow(g3a, o2, "3a.2 self dev")
-    # 3a4 = the OpenSpec sub-process (3a.3 external build, 3a.4 foreign app)
-    subs = steps_by_id["3a4"]["substeps"]
-    ext = steps_by_id["3a4"]["external_process"]
-    sp_x, sp_y = col(9), L3 + 650
-    sp_w, sp_h = 60 + 36 + 6 * 160 + 36 + 40, 260
-    sub = Node("S_3a4", "sub", "3a4 Package / build: " + ext["title"], sp_x, sp_y, sp_w, sp_h, "lane3")
-    nodes[sub.id] = sub
-    lane_nodes.setdefault("lane3", []).append(sub)
-    attach[sub.id] = {"skills": [], "external": [], "header": {"url": ext["url"], "how_to": ext["how_to"], "title": ext["title"]}}
-    s_cy = sp_y + 100
-    s_start = Node("E_3a4_start", "ev:start", "", sp_x + 30, s_cy - EV / 2, EV, EV, "lane3", sub); sub.children.append(s_start); nodes[s_start.id] = s_start
-    prev = s_start
-    for i, ss in enumerate(subs):
-        tn = Node("T_" + safe(ss["id"]), "task", f"{ss['id']} {ss['title']} ({ss['owner']})", sp_x + 30 + EV + 40 + i * 160, s_cy - TH / 2, TW, TH, "lane3", sub)
-        sub.children.append(tn); nodes[tn.id] = tn
-        attach[tn.id] = {"skills": [], "external": ss.get("external") or []}
-        flows.append(Flow(f"F_{len(flows) + 1}", prev, tn, "", "h", sub)); prev = tn
-    s_end = Node("E_3a4_end", "ev:end", "", sp_x + sp_w - 30 - EV, s_cy - EV / 2, EV, EV, "lane3", sub); sub.children.append(s_end); nodes[s_end.id] = s_end
-    flows.append(Flow(f"F_{len(flows) + 1}", prev, s_end, "", "h", sub))
-    flow(g3a, sub, "3a.3 / 3a.4 IT demand", "h")
-    # after the build path
-    mx3 = sub.right + 60
-    g3m = add("G_merge3", "gw", "", "lane3", mx3, (cyA + cyB) / 2)
-    flow(o1, g3m); flow(o2, g3m); flow(sub, g3m)
-    t3a5 = add("T_3a5", "task", "3a5 " + steps_by_id["3a5"]["title"], "lane3", g3m.right + 60, (cyA + cyB) / 2)
-    attach[t3a5.id] = {"skills": steps_by_id["3a5"]["skills"], "external": []}
-    t3a6 = add("T_3a6", "task", "3a6 " + steps_by_id["3a6"]["title"], "lane3", t3a5.right + 50, (cyA + cyB) / 2)
-    attach[t3a6.id] = {"skills": steps_by_id["3a6"]["skills"], "external": []}
-    end3a = add("E_end3a", "ev:end", "Live", "lane3", t3a6.right + 50, (cyA + cyB) / 2)
-    flow(g3m, t3a5); flow(t3a5, t3a6); flow(t3a6, end3a)
-    # 3b
-    cy3b = L3 + 1000
-    t3b4 = task("3b4", 8, "lane3", cy3b); tw3b4 = waited(t3b4, "3b4", 9, "lane3", cy3b)
-    t3b5 = task("3b5", 10, "lane3", cy3b); tw3b5 = waited(t3b5, "3b5", 11, "lane3", cy3b)
-    t3b6 = task("3b6", 12, "lane3", cy3b)
-    end3b = ev("end3b", "end", 13, "lane3", cy3b, "Live on MDL")
-    flow(gr, t3b4, "3b new connector"); flow(tw3b4, t3b5); flow(tw3b5, t3b6); flow(t3b6, end3b)
-    # intake routes
-    flow(route, g1, "known use case", "h")
-    flow(route, nodes["T_21"], "new use case", "h")
-    flow(route, t31, "new system / connector", "h")
+        # lane 2
+        cy2 = L["lane2"]["top"] + 95
+        s2 = self.collapsed(top, "S_2", SHORT["2"], col(3), cy2, L["lane2"])
+        g2 = self.mk(top, "G_proven2", "gw", "Proven and repeatable?", col(4) + 55, cy2, lane=L["lane2"])
+        d2 = self.mk(top, "E_done2", "ev:end", "Graduated", col(5) + 62, cy2, lane=L["lane2"])
+        self.flow(top, route, s2, "new use case")
+        self.flow(top, s2, g2); self.flow(top, g2, d2, "no")
 
-    width = max(n.right for n in nodes.values()) + POOL_PAD
-    return {"proc": proc, "info": info, "nodes": nodes, "flows": flows, "lanes": lanes, "lane_nodes": lane_nodes,
-            "attach": attach, "W": width, "H": H}
+        # lane 4 (entered only from a live, adopted use case)
+        cy4 = L["lane4"]["top"] + 95
+        s4 = self.collapsed(top, "S_4", SHORT["4"], col(7), cy4, L["lane4"])
+        d4 = self.mk(top, "E_done4", "ev:end", "Published, feedback routed", col(8) + 62, cy4, lane=L["lane4"])
+        self.flow(top, p1, s4, "yes", "down"); self.flow(top, g2, s4, "yes", "down")
+        self.flow(top, s4, d4)
+
+        # lane 3
+        t3 = L["lane3"]["top"]
+        cyF, cy3a, cy3b = t3 + 165, t3 + 90, t3 + 240
+        sf = self.collapsed(top, "S_front", SHORT["front"], col(3), cyF, L["lane3"])
+        r3 = self.mk(top, "G_route3", "gw", "New system, or new connector?", col(4) + 55, cyF, lane=L["lane3"])
+        s3a = self.collapsed(top, "S_3a", SHORT["3a"], col(5), cy3a, L["lane3"])
+        s3b = self.collapsed(top, "S_3b", SHORT["3b"], col(5), cy3b, L["lane3"])
+        d3a = self.mk(top, "E_done3a", "ev:end", "Live", col(6) + 62, cy3a, lane=L["lane3"])
+        d3b = self.mk(top, "E_done3b", "ev:end", "Live on MDL", col(6) + 62, cy3b, lane=L["lane3"])
+        self.flow(top, route, sf, "new system / connector")
+        self.flow(top, sf, r3); self.flow(top, r3, s3a, "3a"); self.flow(top, r3, s3b, "3b")
+        self.flow(top, s3a, d3a); self.flow(top, s3b, d3b)
+
+        # ---- inside the boxes
+        self.inner_1a(s1a); self.inner_1b(s1b); self.inner_2(s2); self.inner_front(sf)
+        self.inner_3a(s3a); self.inner_3b(s3b); self.inner_4(s4)
+        self.W = max(n.right for n in top.children) + 90
+        return self
+
+    def inner_1a(self, sub):
+        self.row(sub, ["1a1", "1a2", "1a3"], "Machine connected", "Live", id_prefix="1a_")
+
+    def inner_1b(self, sub):
+        self.row(sub, ["1b1", "1b2", "1b3", "1b4"], "No machine connection", "Live", id_prefix="1b_")
+
+    def inner_2(self, sub):
+        s, e = self.row(sub, ["21", "22", "23", "24", "25", "26"], "Plant use-case demand", "Graduated", id_prefix="2_")
+        sub.notes.append({"id": "Note_chain2", "text": "Chains out of Lane 2: needs new software to Lane 3a, needs a new connection to Lane 3b, proven and repeatable to the catalog, then Lane 1.",
+                          "x": e.x - 90, "y": e.bottom + 70, "w": 250, "h": 64, "ref": e, "ref_mode": "down"})
+
+    def inner_front(self, sub):
+        self.row(sub, ["31", "32", "33"], "Demand clear?", "Demand clear: hand on", id_prefix="front_")
+
+    def inner_4(self, sub):
+        self.row(sub, ["41", "42", "43", "44"], "Live, adopted use case", "Published", id_prefix="4_")
+
+    def inner_3b(self, sub):
+        self.row(sub, ["3b4", "3b5", "3b6"], "New connector needed", "Live on MDL", id_prefix="3b_")
+
+    def inner_3a(self, sub):
+        st = self.steps["3a4"]
+        opts = {o["id"]: o for o in st["options"]}
+        cyA, cyB, cyC = 120, 300, 480
+        s = self.mk(sub, "E_3a_start", "ev:start", "New system", 70, cyB)
+        gb = self.mk(sub, "G_build", "gw", "Build path", 70 + EV + GAP, cyB)
+        x1 = gb.right + GAP + 20
+        o1 = self.mk(sub, "T_3a1", "task", "3a.1 " + opts["3a.1"]["title"], x1, cyA)
+        o2 = self.mk(sub, "T_3a2", "task", "3a.2 " + opts["3a.2"]["title"], x1, cyB)
+        self.chips(o1, opts["3a.1"]["skills"]); self.chips(o2, opts["3a.2"]["skills"])
+        s34 = self.mk(sub, "S_3a4", "sub", "3a4 Package / build: IT demand via OpenSpec (3a.3 external build, 3a.4 foreign app)", x1, cyC, w=210, h=100)
+        gm = self.mk(sub, "G_merge3", "gw", "", x1 + 210 + GAP, cyB)
+        t5 = self.mk(sub, "T_3a5", "task", "3a5 " + self.steps["3a5"]["title"], gm.right + GAP, cyB)
+        t6 = self.mk(sub, "T_3a6", "task", "3a6 " + self.steps["3a6"]["title"], t5.right + GAP, cyB)
+        e = self.mk(sub, "E_3a_end", "ev:end", "Live", t6.right + GAP, cyB)
+        self.chips(t5, self.steps["3a5"].get("skills") or []); self.chips(t6, self.steps["3a6"].get("skills") or [])
+        self.flow(sub, s, gb)
+        self.flow(sub, gb, o1, "3a.1 reuse"); self.flow(sub, gb, o2, "3a.2 self dev"); self.flow(sub, gb, s34, "3a.3 / 3a.4")
+        self.flow(sub, o1, gm); self.flow(sub, o2, gm); self.flow(sub, s34, gm)
+        self.flow(sub, gm, t5); self.flow(sub, t5, t6); self.flow(sub, t6, e)
+        self.inner_openspec(s34)
+
+    def inner_openspec(self, sub):
+        """3a4: the IT demand follows OpenSpec. Dedicated lanes: OD prepares and hands over, IT / the external developer builds."""
+        st = self.steps["3a4"]
+        ext = st["external_process"]
+        subs = st["substeps"]
+        od = {"id": "OD", "title": "OD (demand owner)", "top": 30, "h": 245, "nodes": []}
+        it = {"id": "IT", "title": "IT / external developer", "top": 275, "h": 250, "nodes": []}
+        sub.lanes = [od, it]
+        cyO, cyI = od["top"] + 80, it["top"] + 80
+        x = 100
+        s = self.mk(sub, "E_3a4_start", "ev:start", "Clear demand", x, cyO, lane=od)
+        prev = s
+        x += EV + GAP
+        for ss in subs:
+            lane, cy = (od, cyO) if ss["owner"] == "OD" else (it, cyI)
+            tn = self.mk(sub, "T_" + safe(ss["id"]), "task", f"{ss['id']} {ss['title']}", x, cy, lane=lane)
+            self.chips(tn, [], ss.get("external") or [])
+            self.flow(sub, prev, tn, "hand over" if (prev.id != s.id and prev in od["nodes"] and lane is it) else "")
+            prev = tn
+            x += TW + GAP + 10
+        e = self.mk(sub, "E_3a4_end", "ev:end", "Archived", x, cyI, lane=it)
+        self.flow(sub, prev, e)
+        self.attach[s.id] = {"skills": [], "external": [], "header": {"url": ext["url"], "how_to": ext["how_to"], "title": ext["title"]}}
 
 
 def waypoints(f: Flow):
@@ -271,8 +300,18 @@ def waypoints(f: Flow):
     return [(a.right, a.cy), (mx, a.cy), (mx, b.cy), (b.x, b.cy)]
 
 
-def xml(m) -> str:
-    nodes, flows, lanes, W, H = m["nodes"], m["flows"], m["lanes"], m["W"], m["H"]
+def label_bounds(f: Flow):
+    w_ = waypoints(f)
+    if len(w_) == 4:
+        lx, ly = w_[1][0] - 118, w_[2][1] - 34
+    else:
+        (x1, y1), (x2, y2) = w_[-2], w_[-1]
+        lx, ly = (x1 + x2) / 2 - 56, min(y1, y2) - 30
+    return lx, ly
+
+
+def xml(b: Builder) -> str:
+    top, flows = b.top, b.flows
     tag = {"task": "task", "gw": "exclusiveGateway", "sub": "subProcess"}
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<!-- Generated by scripts/build_bpmn.py from docs/new-state/process.yaml - do not edit by hand. -->',
@@ -282,20 +321,28 @@ def xml(m) -> str:
            '  <bpmn:collaboration id="Collaboration_OD">',
            '    <bpmn:participant id="Participant_OD" name="Operations Digitalization" processRef="Process_OD" />',
            '  </bpmn:collaboration>',
-           '  <bpmn:process id="Process_OD" isExecutable="false">',
-           '    <bpmn:laneSet id="LaneSet_OD">']
-    for lid, lane in lanes.items():
-        out.append(f'      <bpmn:lane id="Lane_{lid}" name={quoteattr(lane["title"])}>')
-        for n in m["lane_nodes"].get(lid, []):
-            out.append(f'        <bpmn:flowNodeRef>{n.id}</bpmn:flowNodeRef>')
-        out.append("      </bpmn:lane>")
-    out.append("    </bpmn:laneSet>")
-
+           '  <bpmn:process id="Process_OD" name="Operations Digitalization" isExecutable="false">']
     inc: dict[str, list[str]] = {}
     outg: dict[str, list[str]] = {}
     for f in flows:
         outg.setdefault(f.src.id, []).append(f.id)
         inc.setdefault(f.tgt.id, []).append(f.id)
+
+    def laneset(container: Node, ind: str, prefix: str):
+        if not container.lanes:
+            return
+        out.append(f'{ind}<bpmn:laneSet id="LaneSet_{prefix}">')
+        for ln in container.lanes:
+            out.append(f'{ind}  <bpmn:lane id="Lane_{prefix}_{ln["id"]}" name={quoteattr(ln["title"])}>')
+            for n in ln["nodes"]:
+                out.append(f"{ind}    <bpmn:flowNodeRef>{n.id}</bpmn:flowNodeRef>")
+            out.append(f"{ind}  </bpmn:lane>")
+        out.append(f"{ind}</bpmn:laneSet>")
+
+    def notes(container: Node, ind: str):
+        for nt in container.notes:
+            out.append(f'{ind}<bpmn:textAnnotation id="{nt["id"]}"><bpmn:text>{quoteattr(nt["text"])[1:-1]}</bpmn:text></bpmn:textAnnotation>')
+            out.append(f'{ind}<bpmn:association id="Assoc_{nt["id"]}" sourceRef="{nt["ref"].id}" targetRef="{nt["id"]}" />')
 
     def emit(n: Node, ind: str):
         k = n.kind.split(":")[0]
@@ -305,8 +352,7 @@ def xml(m) -> str:
             body = "<bpmn:timerEventDefinition />" if sub == "timer" else ""
         else:
             t, body = tag[k], ""
-        head = f'{ind}<bpmn:{t} id="{n.id}" name={quoteattr(n.name)}>' if n.name else f'{ind}<bpmn:{t} id="{n.id}">'
-        out.append(head)
+        out.append(f'{ind}<bpmn:{t} id="{n.id}"' + (f" name={quoteattr(n.name)}" if n.name else "") + ">")
         for i in inc.get(n.id, []):
             out.append(f"{ind}  <bpmn:incoming>{i}</bpmn:incoming>")
         for o in outg.get(n.id, []):
@@ -314,87 +360,84 @@ def xml(m) -> str:
         if body:
             out.append(f"{ind}  {body}")
         if k == "sub":
+            laneset(n, ind + "  ", n.id)
             for c in n.children:
                 emit(c, ind + "  ")
-            for f in flows:
-                if f.parent is n:
-                    out.append(f'{ind}  <bpmn:sequenceFlow id="{f.id}" sourceRef="{f.src.id}" targetRef="{f.tgt.id}" />')
+            for f in n.flows:
+                out.append(f'{ind}  <bpmn:sequenceFlow id="{f.id}" sourceRef="{f.src.id}" targetRef="{f.tgt.id}"' + (f" name={quoteattr(f.name)}" if f.name else "") + " />")
+            notes(n, ind + "  ")
         out.append(f"{ind}</bpmn:{t}>")
 
-    for lid in lanes:
-        for n in m["lane_nodes"].get(lid, []):
-            emit(n, "    ")
-    for f in flows:
-        if f.parent is None:
-            nm = f" name={quoteattr(f.name)}" if f.name else ""
-            out.append(f'    <bpmn:sequenceFlow id="{f.id}" sourceRef="{f.src.id}" targetRef="{f.tgt.id}"{nm} />')
-    out.append('    <bpmn:textAnnotation id="Note_foundation"><bpmn:text>Foundation: every skill reads dept-context first (vocabulary, decision rights, honesty rules).</bpmn:text></bpmn:textAnnotation>')
-    out.append('    <bpmn:association id="Assoc_foundation" sourceRef="E_start" targetRef="Note_foundation" />')
-    out.append('    <bpmn:textAnnotation id="Note_chain2"><bpmn:text>Chains out of Lane 2: needs new software to Lane 3a, needs a new connection to Lane 3b, proven and repeatable to the catalog, then Lane 1.</bpmn:text></bpmn:textAnnotation>')
-    out.append('    <bpmn:association id="Assoc_chain2" sourceRef="G_proven2" targetRef="Note_chain2" />')
+    laneset(top, "    ", "OD")
+    for n in top.children:
+        emit(n, "    ")
+    for f in top.flows:
+        out.append(f'    <bpmn:sequenceFlow id="{f.id}" sourceRef="{f.src.id}" targetRef="{f.tgt.id}"' + (f" name={quoteattr(f.name)}" if f.name else "") + " />")
+    notes(top, "    ")
     out.append("  </bpmn:process>")
 
-    # diagram interchange
+    # ---- diagram interchange: one diagram per plane (the pool, and each sub-process that has content)
+    def shapes(container: Node, ind: str):
+        for n in container.children:
+            extra = ' isExpanded="false"' if n.kind == "sub" else ""
+            lbl = ""
+            if n.kind == "gw" or n.kind.startswith("ev"):
+                lbl = f'<bpmndi:BPMNLabel><dc:Bounds x="{n.x - 40:.0f}" y="{n.bottom + 4:.0f}" width="{n.w + 80:.0f}" height="28" /></bpmndi:BPMNLabel>' if n.name else ""
+            out.append(f'{ind}<bpmndi:BPMNShape id="{n.id}_di" bpmnElement="{n.id}"{extra}><dc:Bounds x="{n.x:.0f}" y="{n.y:.0f}" width="{n.w:.0f}" height="{n.h:.0f}" />{lbl}</bpmndi:BPMNShape>')
+        for f in container.flows:
+            pts = "".join(f'<di:waypoint x="{x:.0f}" y="{y:.0f}" />' for x, y in waypoints(f))
+            lab = ""
+            if f.name:
+                lx, ly = label_bounds(f)
+                lab = f'<bpmndi:BPMNLabel><dc:Bounds x="{lx:.0f}" y="{ly:.0f}" width="112" height="28" /></bpmndi:BPMNLabel>'
+            out.append(f'{ind}<bpmndi:BPMNEdge id="{f.id}_di" bpmnElement="{f.id}">{pts}{lab}</bpmndi:BPMNEdge>')
+        for nt in container.notes:
+            r = nt["ref"]
+            out.append(f'{ind}<bpmndi:BPMNShape id="{nt["id"]}_di" bpmnElement="{nt["id"]}"><dc:Bounds x="{nt["x"]:.0f}" y="{nt["y"]:.0f}" width="{nt["w"]}" height="{nt["h"]}" /></bpmndi:BPMNShape>')
+            out.append(f'{ind}<bpmndi:BPMNEdge id="Assoc_{nt["id"]}_di" bpmnElement="Assoc_{nt["id"]}"><di:waypoint x="{r.cx:.0f}" y="{r.bottom + (22 if r.kind.startswith("ev") else 0):.0f}" /><di:waypoint x="{r.cx:.0f}" y="{nt["y"]:.0f}" /></bpmndi:BPMNEdge>')
+
     out.append('  <bpmndi:BPMNDiagram id="Diagram_OD">')
     out.append('    <bpmndi:BPMNPlane id="Plane_OD" bpmnElement="Collaboration_OD">')
-    out.append(f'      <bpmndi:BPMNShape id="Participant_OD_di" bpmnElement="Participant_OD" isHorizontal="true"><dc:Bounds x="0" y="0" width="{W:.0f}" height="{H:.0f}" /></bpmndi:BPMNShape>')
-    for lid, lane in lanes.items():
-        out.append(f'      <bpmndi:BPMNShape id="Lane_{lid}_di" bpmnElement="Lane_{lid}" isHorizontal="true"><dc:Bounds x="{LABEL_W}" y="{lane["top"]:.0f}" width="{W - LABEL_W:.0f}" height="{lane["h"]:.0f}" /></bpmndi:BPMNShape>')
+    out.append(f'      <bpmndi:BPMNShape id="Participant_OD_di" bpmnElement="Participant_OD" isHorizontal="true"><dc:Bounds x="0" y="0" width="{b.W:.0f}" height="{b.H:.0f}" /></bpmndi:BPMNShape>')
+    for ln in top.lanes:
+        out.append(f'      <bpmndi:BPMNShape id="Lane_OD_{ln["id"]}_di" bpmnElement="Lane_OD_{ln["id"]}" isHorizontal="true"><dc:Bounds x="{LABEL_W}" y="{ln["top"]:.0f}" width="{b.W - LABEL_W:.0f}" height="{ln["h"]:.0f}" /></bpmndi:BPMNShape>')
+    shapes(top, "      ")
+    out += ["    </bpmndi:BPMNPlane>", "  </bpmndi:BPMNDiagram>"]
 
-    def shape(n: Node):
-        extra = ' isExpanded="true"' if n.kind == "sub" else ""
-        lbl = ""
-        if n.kind in ("gw",) or n.kind.startswith("ev"):
-            lbl = f'<bpmndi:BPMNLabel><dc:Bounds x="{n.x - 40:.0f}" y="{n.bottom + 4:.0f}" width="{n.w + 80:.0f}" height="28" /></bpmndi:BPMNLabel>' if n.name else ""
-        out.append(f'      <bpmndi:BPMNShape id="{n.id}_di" bpmnElement="{n.id}"{extra}><dc:Bounds x="{n.x:.0f}" y="{n.y:.0f}" width="{n.w:.0f}" height="{n.h:.0f}" />{lbl}</bpmndi:BPMNShape>')
-        for c in n.children:
-            shape(c)
+    def planes(container: Node):
+        for n in container.children:
+            if n.kind != "sub":
+                continue
+            out.append(f'  <bpmndi:BPMNDiagram id="Diagram_{n.id}">')
+            out.append(f'    <bpmndi:BPMNPlane id="Plane_{n.id}" bpmnElement="{n.id}">')
+            if n.lanes:
+                width = max(c.right for c in n.children) + 70
+                for ln in n.lanes:
+                    out.append(f'      <bpmndi:BPMNShape id="Lane_{n.id}_{ln["id"]}_di" bpmnElement="Lane_{n.id}_{ln["id"]}" isHorizontal="true"><dc:Bounds x="{LABEL_W}" y="{ln["top"]}" width="{width - LABEL_W:.0f}" height="{ln["h"]}" /></bpmndi:BPMNShape>')
+            shapes(n, "      ")
+            out.extend(["    </bpmndi:BPMNPlane>", "  </bpmndi:BPMNDiagram>"])
+            planes(n)
 
-    for lid in lanes:
-        for n in m["lane_nodes"].get(lid, []):
-            shape(n)
-    for f in flows:
-        pts = "".join(f'<di:waypoint x="{x:.0f}" y="{y:.0f}" />' for x, y in waypoints(f))
-        lab = ""
-        if f.name:
-            w_ = waypoints(f)
-            if len(w_) == 4:       # elbow: the label sits left of the vertical segment, level with the target's row
-                lx, ly = w_[1][0] - 118, w_[2][1] - 34
-            else:                  # straight or L-shaped: above the last segment
-                (x1, y1), (x2, y2) = w_[-2], w_[-1]
-                lx, ly = (x1 + x2) / 2 - 56, min(y1, y2) - 30
-            lab = f'<bpmndi:BPMNLabel><dc:Bounds x="{lx:.0f}" y="{ly:.0f}" width="112" height="28" /></bpmndi:BPMNLabel>'
-        out.append(f'      <bpmndi:BPMNEdge id="{f.id}_di" bpmnElement="{f.id}">{pts}{lab}</bpmndi:BPMNEdge>')
-    s = nodes["E_start"]
-    out.append(f'      <bpmndi:BPMNShape id="Note_foundation_di" bpmnElement="Note_foundation"><dc:Bounds x="{s.x - 30:.0f}" y="{s.bottom + 50:.0f}" width="150" height="62" /></bpmndi:BPMNShape>')
-    out.append(f'      <bpmndi:BPMNEdge id="Assoc_foundation_di" bpmnElement="Assoc_foundation"><di:waypoint x="{s.cx:.0f}" y="{s.bottom + 22:.0f}" /><di:waypoint x="{s.cx:.0f}" y="{s.bottom + 50:.0f}" /></bpmndi:BPMNEdge>')
-    g = nodes["G_proven2"]
-    out.append(f'      <bpmndi:BPMNShape id="Note_chain2_di" bpmnElement="Note_chain2"><dc:Bounds x="{g.x - 110:.0f}" y="{g.y - 78:.0f}" width="250" height="56" /></bpmndi:BPMNShape>')
-    out.append(f'      <bpmndi:BPMNEdge id="Assoc_chain2_di" bpmnElement="Assoc_chain2"><di:waypoint x="{g.cx:.0f}" y="{g.y:.0f}" /><di:waypoint x="{g.cx:.0f}" y="{g.y - 22:.0f}" /></bpmndi:BPMNEdge>')
-    out += ["    </bpmndi:BPMNPlane>", "  </bpmndi:BPMNDiagram>", "</bpmn:definitions>", ""]
+    planes(top)
+    out += ["</bpmn:definitions>", ""]
     return "\n".join(out)
 
 
-def overlays(m) -> dict:
-    info = m["info"]
+def overlays(b: Builder) -> dict:
     data = {}
-    for nid, a in m["attach"].items():
+    for nid, a in b.attach.items():
         chips = []
         for s in a["skills"]:
-            i = info[s]
-            chips.append({"id": s, "state": i["state"], "title": i["summary"],
-                          "url": f"{REPO}/blob/main/{sp.folder_of(s)}/{s}/SKILL.md"})
-        data[nid] = {"skills": chips, "external": a["external"], "header": a.get("header")}
+            i = b.info[s]
+            chips.append({"id": s, "state": i["state"], "title": i["summary"], "url": f"{REPO}/blob/main/{sp.folder_of(s)}/{s}/SKILL.md"})
+        data[nid] = {"skills": chips, "external": a["external"], "header": a.get("header"), "dy": b.nodes[nid].h + 4}
     return data
 
 
-def page(m, bpmn: str) -> str:
-    n = m["nodes"]
-    ov = {k: {**v, "dy": n[k].h + 4} for k, v in overlays(m).items()}
+def page(b: Builder, bpmn: str) -> str:
     return (HTML.replace("__XML__", bpmn.replace("</script", "<\\/script"))
-            .replace("__OV__", json.dumps(ov, ensure_ascii=False).replace("</", "<\\/"))
-            .replace("__VER__", BPMNJS).replace("__REPO__", REPO)
-            .replace("__W__", f"{m['W']:.0f}").replace("__H__", f"{m['H']:.0f}"))
+            .replace("__OV__", json.dumps(overlays(b), ensure_ascii=False).replace("</", "<\\/"))
+            .replace("__VER__", BPMNJS).replace("__REPO__", REPO))
 
 
 HTML = r"""<!doctype html>
@@ -429,7 +472,7 @@ header button{border:1px solid var(--line);background:#fff;border-radius:6px;pad
 <body>
 <header>
   <h1>OD process map (BPMN 2.0)</h1>
-  <span class="legend"><span><b style="color:var(--deep)">|</b> built</span><span><b style="color:var(--documented)">|</b> documented</span><span><b style="color:var(--stub)">|</b> stub</span><span>dashed = OpenSpec skill, external (not part of this registry)</span><span>clock = external wait</span></span>
+  <span class="legend"><span>click the <b>+</b> on a box to open it, the breadcrumb to go back</span><span><b style="color:var(--deep)">|</b> built</span><span><b style="color:var(--documented)">|</b> documented</span><span><b style="color:var(--stub)">|</b> stub</span><span>dashed = OpenSpec skill, external (not part of this registry)</span><span>clock = external wait</span></span>
   <span style="flex:1"></span>
   <button id="fit">Fit</button><button id="zin">+</button><button id="zout">&minus;</button>
   <a href="OD_NewState_BPMN_Flow.bpmn" download>BPMN XML</a>
@@ -443,20 +486,24 @@ const OV=__OV__;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const viewer=new BpmnJS({container:'#canvas'});
 const status=m=>{document.documentElement.setAttribute('data-status',m)};
+const fit=()=>viewer.get('canvas').zoom('fit-viewport','auto');
 viewer.importXML(document.getElementById('bpmn-src').textContent).then(r=>{
-  const ov=viewer.get('overlays'),cv=viewer.get('canvas');
+  const ov=viewer.get('overlays');
   for(const [id,a] of Object.entries(OV)){
     if(a.header){
-      ov.add(id,{position:{top:-26,left:0},html:`<div class="hdr"><a href="${esc(a.header.url)}" target="_blank" rel="noopener">${esc(a.header.title)} (OpenSpec, external) ↗</a><a href="https://github.com/ops-digit-io/operations-digitalization-skill-registry/blob/main/${esc(a.header.how_to)}" target="_blank" rel="noopener">How to use</a></div>`});
+      ov.add(id,{position:{top:-34,left:-10},html:`<div class="hdr"><a href="${esc(a.header.url)}" target="_blank" rel="noopener">${esc(a.header.title)}: OpenSpec (external) ↗</a><a href="__REPO__/blob/main/${esc(a.header.how_to)}" target="_blank" rel="noopener">How to use</a></div>`});
     }
     const parts=[];
     for(const s of a.skills)parts.push(`<a class="${esc(s.state)}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.id)}</a>`);
     for(const e of a.external)parts.push(`<a class="ext" href="${esc(e.url)}" target="_blank" rel="noopener" title="OpenSpec skill (external)">${esc(e.name)}</a>`);
     if(parts.length)ov.add(id,{position:{top:a.dy,left:0},html:`<div class="sk">${parts.join('')}</div>`});
   }
-  cv.zoom('fit-viewport','auto');status('ok'+(r.warnings&&r.warnings.length?' warnings='+r.warnings.length:''));
+  const open=location.hash.slice(1);          // deep link: ...BPMN_Map.html#S_3a4 opens that box
+  if(open){const pl=viewer.get('elementRegistry').get(open+'_plane');if(pl)viewer.get('canvas').setRootElement(pl)}
+  fit();status('ok'+(r.warnings&&r.warnings.length?' warnings='+r.warnings.length:''));
+  viewer.on('root.set',()=>setTimeout(fit,0));
 }).catch(e=>{const d=document.getElementById('err');d.style.display='block';d.textContent='BPMN import failed: '+e.message;status('error: '+e.message)});
-document.getElementById('fit').onclick=()=>viewer.get('canvas').zoom('fit-viewport','auto');
+document.getElementById('fit').onclick=fit;
 document.getElementById('zin').onclick=()=>viewer.get('zoomScroll').stepZoom(1);
 document.getElementById('zout').onclick=()=>viewer.get('zoomScroll').stepZoom(-1);
 </script>
@@ -466,9 +513,9 @@ document.getElementById('zout').onclick=()=>viewer.get('zoomScroll').stepZoom(-1
 
 
 def main() -> int:
-    m = build_model()
-    bpmn = xml(m)
-    html = page(m, bpmn)
+    b = Builder().build()
+    bpmn = xml(b)
+    html = page(b, bpmn)
     if "--check" in sys.argv:
         stale = [p.name for p, t in ((OUT_XML, bpmn), (OUT_HTML, html))
                  if not p.exists() or p.read_text(encoding="utf-8").replace("\r\n", "\n") != t]
@@ -479,7 +526,7 @@ def main() -> int:
         return 0
     OUT_XML.write_text(bpmn, encoding="utf-8", newline="\n")
     OUT_HTML.write_text(html, encoding="utf-8", newline="\n")
-    print(f"wrote {OUT_XML.name} ({len(m['nodes'])} nodes, {len(m['flows'])} flows) and {OUT_HTML.name}")
+    print(f"wrote {OUT_XML.name} ({len(b.nodes)} nodes, {len(b.flows)} flows) and {OUT_HTML.name}")
     return 0
 
 
