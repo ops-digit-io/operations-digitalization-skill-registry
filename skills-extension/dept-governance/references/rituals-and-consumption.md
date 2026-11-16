@@ -62,7 +62,7 @@ recurring question belongs.
 | Weekly to sprint | Sprint working session | use-case sprint | `references/sprint-runbook.md` |
 | Monthly | Utilization review, portfolio review | scorecard update, retrospective | `metrics-scorecard`, `dept-retro` |
 | Quarterly | Roadmap check | context-layer review, SWOT and strategy check, freshness sweep | `dept-context-freshness`, `dept-context` |
-| Round | Regional community call | CoP; ODEC only as a historical source | `references/forums-and-roadmap.md` |
+| Round | Regional community call | COP; ODEC only as a historical source | `references/forums-and-roadmap.md` |
 
 `PROPOSAL`: when a plant raises a recurring complaint that spans rungs (a board that is correct but ignored), route it to the lowest
 rung that has an owner: first the plant ritual, then the sprint, then the utilization review. Only a pattern across plants goes to a round.

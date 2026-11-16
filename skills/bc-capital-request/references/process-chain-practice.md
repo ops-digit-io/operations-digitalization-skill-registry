@@ -8,6 +8,15 @@ tags: [use-case-support-service, practice, process-chain, draft]
 ---
 # Process-chain practice
 
+## Contents
+
+- 1. Method in practice
+- 2. Decision rules
+- 3. Handoff contract
+- 4. Pitfalls and lessons
+- 5. Questions to ask / definition of done
+- 6. AI agent operating notes
+
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
 marks a synthesis; `<...>` is unknown. The eCR form itself is still not in any source (see [`SKILL.md`](../SKILL.md)); this
 file covers what an approver reads and what goes wrong around it.

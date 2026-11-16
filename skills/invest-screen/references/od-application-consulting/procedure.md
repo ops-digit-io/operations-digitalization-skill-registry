@@ -13,6 +13,16 @@ tags:
 ---
 # Application consulting
 
+## Contents
+
+- Purpose and definition of done
+- Where it sits
+- References and assets
+- Procedure
+- Output
+- Do not
+
+
 > **Absorbed.** This was the skill `od-application-consulting`. It now runs as a mode of [`invest-screen`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: recommend.
 
 Read `dept-context` first.

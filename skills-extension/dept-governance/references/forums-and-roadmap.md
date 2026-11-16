@@ -1,12 +1,22 @@
 ---
 type: Skill Reference
 title: Forums and roadmap
-description: The CoP and ODEC (historical) as information sources - question, input, output; preparation and follow-up; the call-for-action and traffic-light status pattern; regional and plant roadmap fields; community routine between rounds.
+description: The COP and ODEC (historical) as information sources - question, input, output; preparation and follow-up; the call-for-action and traffic-light status pattern; regional and plant roadmap fields; community routine between rounds.
 resource: ../SKILL.md
 status: draft
 tags: [all, practice]
 ---
 # Forums and roadmap
+
+## Contents
+
+- The forums as sources of information
+- Standard COP agenda
+- Preparation and follow-up
+- Call for action and status pattern
+- Regional and plant roadmap fields
+- Community routine between rounds
+- Pitfalls
 
 Method only. Agenda and content come from the decks. No forum is assumed to run on a fixed schedule: look up whether and when a round is held.
 
@@ -14,7 +24,7 @@ Method only. Agenda and content come from the decks. No forum is assumed to run 
 
 | Forum | Question it answers | Status | What it holds (input) | What it produced (output) |
 |---|---|---|---|---|
-| **CoP** (community of practice call) | How are we doing Operations Digitalization? Technical, plant-facing | Technical round; look up the current schedule | Plant issues and feedback, data-model needs, flow and dashboard questions, connector needs, training needs | Guidance on issues, a call for action, triggers for next steps |
+| **COP** (community of practice call) | How are we doing Operations Digitalization? Technical, plant-facing | Technical round; look up the current schedule | Plant issues and feedback, data-model needs, flow and dashboard questions, connector needs, training needs | Guidance on issues, a call for action, triggers for next steps |
 | **ODEC** (Operations Digitalization Exchange Call) | Strategy, roadmap, reporting | **Historical.** Met monthly only until 2025-12; no longer held; no fixed replacement forum | Roadmaps, rollout and Cyber Security status, KPI reading | Past strategy updates, priorities, deadlines, security announcements, decks and facts |
 
 Use ODEC material as a source: past decisions, decks and facts, always with the call's date, and never as proof of
@@ -23,12 +33,12 @@ forum is needed say "the deciding role or forum named in the current approval po
 
 Every round lists input, content and a **trigger for action**. A round without a trigger is a briefing.
 
-## Standard CoP agenda
+## Standard COP agenda
 
 Roadmap and rollout status, then Cyber Security call for action, then use-case forecast with one worked
 best-practice example, then trainings, then feedback on the open process question of the last call. A fixed
 question pack drives it: technical issues, data-model updates, rule-engine flows, dashboards, training
-schedule, new connectors, ideas for new use cases. Between calls a Q&A link serves any service line.
+schedule, new connectors, ideas for new use cases. Between calls a Q&A link serves any owning role.
 
 An opening survey (first call of a community, or yearly) asks in priority order: do the tools work, which
 features are missing; which use cases were done, planned, should become standard; what process understanding
@@ -44,7 +54,7 @@ deep-dive topics, and a vote on which core process deserves a standard data mode
 | 3 Draft | Agenda, status table, best-practice example, call for action | previous round's open items |
 | 4 Gate | OD lead approves wording and deadline | approval line |
 | 5 Run | Capture decisions, homework, questions | notes |
-| 6 Follow up | Route Q&A to the owning service line; chase homework; carry open items; feed `dept-retro` and `dept-risk` | item ids |
+| 6 Follow up | Route Q&A to the owning role; chase homework; carry open items; feed `dept-retro` and `dept-risk` | item ids |
 
 What a plant brings: its latest PLC programs and tag lists in the central list, its use-case list, and whether
 a savings project is registered for it.

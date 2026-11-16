@@ -8,6 +8,15 @@ tags: [signals, vocabulary]
 ---
 # The signal catalogue
 
+## Contents
+
+- The variance, by concept
+- The canonical vocabulary
+- What must never be a signal name
+- Naming rules
+- Capability requirement sets
+
+
 What the estate actually names its signals, mined from the flow corpus. **Many names for a far
 smaller set of concepts is the finding**, not a curiosity. It is the measurable form of "the
 catalogue is built to standardize and has not scaled". Measure it live: list the distinct signal

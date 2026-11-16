@@ -10,6 +10,14 @@ tags: [business-case, deck, department-package]
 
 # Deck Production
 
+## Contents
+
+- What a template gives you
+- Harvesting the shell
+- Checking you took design and not content
+- Slides that carry a business case
+- Required QA
+
 How to take a template's design without inheriting its content, and how to build
 slides that carry the case.
 

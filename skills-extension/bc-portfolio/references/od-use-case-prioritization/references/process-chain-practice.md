@@ -8,6 +8,16 @@ tags: [use-case-support-service, practice, prioritization, process-chain]
 ---
 # Process-chain practice - prioritization (step 24)
 
+## Contents
+
+- Where it sits
+- 1 · Method in practice
+- 2 · Decision rules
+- 3 · Handoff contract
+- 4 · Pitfalls and lessons
+- 5 · Questions to ask / definition of done
+- 6 · AI agent operating notes
+
 Adds to `SKILL.md` and `ranking-criteria.md`; weighted-score mechanics stay in `bc-portfolio`.
 `PROPOSAL` marks synthesis that no deck states.
 

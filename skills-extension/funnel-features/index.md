@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Funnel features](SKILL.md) | Agent Skill | Turn an accepted requirement into its feature definition - one epic with a background and at least two user stories that stand alone, each with testable acceptance and a use-in-a-real-shift criterion - the department's funnel-features, stage 2 of the product funnel between funnel-requirements and the business case and prototype. Writes the handoff file the next stage reads and runs the epic check before handover. Use at Lane 2 step 22 once the requirement is accepted, when stories need cutting, or when an epic must be checked before it goes into the backlog. |
+| [Funnel features](SKILL.md) | Agent Skill | Turns an accepted requirement into a feature definition a backlog can take: one epic with a background and at least two user stories that stand alone, each with testable acceptance and a criterion for use in a real shift, plus an epic check before handover. Use when a requirement has been accepted and stories need cutting, when an epic or "so that" sentence reads like every other epic, or when an epic must be checked before it enters the backlog. Not for deriving the requirement itself (funnel-requirements), costing the value (bc-build) or proving the idea cheaply (funnel-prototype). |
 
 | Folder | Holds |
 |---|---|

@@ -1,28 +1,34 @@
 {
-  "skill_name": "od-example-check",
-  "note": "Template. Replace every value. The fields id, prompt, expected_output, files and skill_name follow the Agent Skills evaluation guide (agentskills.io/skill-creation/evaluating-skills); the name of the evals array and keeping trigger_queries in the same file are this registry's proposal. Prompts are realistic requests with names and figures masked. Add assertions after the first run.",
-  "evals": [
+  "skill": "know-example-check",
+  "cases": [
     {
-      "id": 1,
-      "prompt": "A request in the words a plant person would use, with masked names.",
-      "expected_output": "A one-sentence description of what a good result contains.",
+      "id": "normal-request",
+      "type": "should-trigger",
+      "prompt": "A request in the words a plant person would use, with masked names and fictional data.",
+      "expected_output": "3 to 5 checkable statements of what a good result contains or does.",
       "files": []
     },
     {
-      "id": 2,
+      "id": "less-detail",
+      "type": "should-trigger",
       "prompt": "The same need with different phrasing and less detail.",
       "expected_output": "What a good result contains.",
       "files": []
     },
     {
-      "id": 3,
+      "id": "neighbour-near-miss",
+      "type": "near-miss",
       "prompt": "An edge case or a near-miss that belongs to a neighbouring skill.",
       "expected_output": "The skill declines or hands over to the neighbouring skill.",
       "files": []
     }
   ],
-  "trigger_queries": [
-    { "query": "A request that should load this skill.", "should_trigger": true },
-    { "query": "A near-miss that shares words but needs another skill.", "should_trigger": false }
-  ]
+  "trigger_queries": {
+    "should_trigger": [
+      "Four realistic user queries that should activate the skill."
+    ],
+    "should_not_trigger": [
+      "Four near-miss queries that share words but belong to another skill or no skill."
+    ]
+  }
 }

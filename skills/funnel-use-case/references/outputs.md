@@ -33,5 +33,5 @@ tags: [outputs, handoff]
 - **Receives from:** `dept-governance`, `ops-event-model`, `dept-intake`
 - **Next:** funnel-requirements and mi-data-availability (step 22), then funnel-prototype (step 23) and bc-build (step 24).: `funnel-requirements`, `mi-data-availability`, `funnel-prototype`, `bc-build`
 - **Next:** The skill's own handoff names mi-equipment (with business case and requirement breakdown, via catalog-standardization first) and deploy-handover (step 26).: `mi-equipment`, `catalog-standardization`, `deploy-handover`
-- **Stops here when:** the need is not one need (split it), no business case can be named (refuse per intake and return it to the demand owner), a library entry matches (take it through catalog-standardization), or the machine is not connected (no use…
-- **Stops here when:** integration request)
+- **Stops here when:** the need is not one need (split it), no business case can be named (refuse per intake), a library entry matches (take it through catalog-standardization)
+- **Stops here when:** the machine is not connected (no use case yet, integration request first)

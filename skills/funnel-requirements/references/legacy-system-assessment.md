@@ -8,6 +8,14 @@ tags: [requirements, legacy, it-systems]
 ---
 # The (legacy) MF IT system assessment
 
+## Contents
+
+- What the list holds
+- The four questions
+- What the assessment records
+- The trap this step exists to catch
+
+
 Half of UC-03's stated output: *"integration-ready requirement spec **+ legacy MF IT system
 assessment**"*. It answers one question — **does this requirement need, replace, or collide
 with something already installed?** — and it is the step that catches a requirement about to

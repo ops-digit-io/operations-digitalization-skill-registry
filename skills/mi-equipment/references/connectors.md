@@ -9,6 +9,15 @@ tags: [integration, connectors, opc-ua]
 
 # Connectors
 
+## Contents
+
+- The OPC UA direct connector
+- Where the native connector does not exist
+- `SFT-SIMATIC S7-Connector` — do not use
+- `DTQ-MODBUS-Connector` — the fields disagree
+- The full catalogue
+- Reading the Overview without being misled
+
 Some connectors cannot be used. A connector appearing in the Overview is not a
 route to data, and routing an engineer to one that does not exist costs a site visit. Every
 table here carries availability, because that is the column that decides.

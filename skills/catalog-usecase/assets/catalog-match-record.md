@@ -41,7 +41,7 @@ Date:
 
 6  BRANCH AND NEXT SKILL
    1a connected  -> ops-analytics-asset (dashboard) / ops-dashboard-engine
-   1b not connected -> catalog-usecase (system match)
+   1b not connected -> catalog-systems (system match)
    falls through -> Lane 2 (funnel-use-case) or Lane 3 (invest-screen)
    Reason for the branch:
 
@@ -64,7 +64,7 @@ A blank in "integration status" is not a "No": many machines carry no status (`m
 | Conditions | a ⟨met / not met⟩; b met; c ⟨not recorded for this entry⟩; d ⟨plant owner and handover not recorded in the library entry⟩ |
 | Target types needed | Andon Board, Machine Availability, Cycle Time Monitoring (template page); a count of OK parts per hour is what the purpose text describes |
 | Machine and signals | ⟨to be read from the Machine List and the data check at the requesting plant⟩ |
-| Branch | decided by the machine: integrated and signals present - 1a; not integrated - 1b (`catalog-usecase`, system match); no matching signal - Lane 2 |
+| Branch | decided by the machine: integrated and signals present - 1a; not integrated - 1b (`catalog-systems`, system match); no matching signal - Lane 2 |
 | Open | c and d for the entry (IIAE, plant owner); who at the entry's plant can walk the requesting plant through the screen (DBVE) |
 
 Where the knowledge base stops, the entry is a strong candidate at best: the two conditions that make it a catalog hit (standardized

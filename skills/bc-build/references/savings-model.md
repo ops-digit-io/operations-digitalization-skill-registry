@@ -10,6 +10,17 @@ tags: [business-case, value-model, department-package]
 
 # Savings Model
 
+## Contents
+
+- The four-column discipline
+- Picking levers
+- The throughput trap
+- Ranges, not points
+- Show the arithmetic
+- Payback
+- Worked example
+- What not to do
+
 How to build a value model that survives a sceptical room.
 
 ## The four-column discipline

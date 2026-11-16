@@ -1,0 +1,47 @@
+{
+  "skill": "bc-capital-request",
+  "cases": [
+    {
+      "id": "package-from-value-and-cost",
+      "type": "should-trigger",
+      "prompt": "The shift-log pilot (fictional) has a business case with two saving rows and a cost estimate of 40 one-time and 10 per year. We want to ask for 100 units for the pilot phase. Please prepare the capital request for the approvers.",
+      "expected_output": "The ask is stated in one line: amount, what it buys, which phase, decision date.\nThe approval route is read from the approval matrix and the approvers are named by role; any ambiguity is flagged for the OD lead rather than guessed.\nTracked and proven value are shown separately and never summed; cost is not netted against value.\nOptions include a smaller or staged version and do-nothing, and the package closes with open items and one maturity verdict.\nThe package is a draft for a human to review and submit; nothing is submitted or approved.",
+      "files": []
+    },
+    {
+      "id": "missing-cost-estimate-refusal",
+      "type": "edge",
+      "prompt": "Write the capital request for our new line-monitoring idea. We have not done a cost estimate or a business case yet, but the plant manager wants the request tomorrow.",
+      "expected_output": "The assistant applies the refusal gate: value backbone and investment estimate are missing, so it returns de-risk questions instead of a package.\nThe questions name what is missing and which role supplies it.\nIt does not invent cost lines or savings.\nIt points to the value and cost steps that come first.",
+      "files": []
+    },
+    {
+      "id": "no-money-needed",
+      "type": "edge",
+      "prompt": "We want to reconfigure an existing dashboard that the plant already owns. It costs nothing new and fits the plant roadmap. Do we need a capital request?",
+      "expected_output": "The assistant confirms that no capital request is needed when no new money is committed and the work is within the roadmap.\nIt records that conclusion and stops instead of drafting a package.",
+      "files": []
+    },
+    {
+      "id": "calculate-value-near-miss",
+      "type": "near-miss",
+      "prompt": "Can you work out how much this use case would save per year so I can put it on the savings list?",
+      "expected_output": "The assistant recognises this as value calculation, not a capital request.\nIt routes to the value-building step (bc-build) and does not draft an eCR.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Prepare the capital request (eCR) for our rollout of the new sensor kit",
+      "Who has to approve a 250k IT investment and how do I package the request?",
+      "Our saving is waiting on ECR creation, help me draft the request",
+      "Build the management summary deck for the capital request"
+    ],
+    "should_not_trigger": [
+      "Calculate the yearly saving of this idea",
+      "Score the business case against the rubric",
+      "Estimate hardware and licence cost for ten machines",
+      "Draft the project order and kick-off for the approved project"
+    ]
+  }
+}

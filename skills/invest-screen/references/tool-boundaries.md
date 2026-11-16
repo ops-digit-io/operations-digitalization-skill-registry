@@ -8,6 +8,17 @@ tags: [practice, system-fit]
 ---
 # Tool boundaries
 
+## Contents
+
+- Quality Feedback App (QFPR) — lightweight MES, quality side
+- MDA/PDA (Iconics Genesis64) — lightweight MES, automation/asset-data side
+- Manufacturing Image Library (MIL)
+- Recipe Management (Camline)
+- Manufacturing Execution System (MES) — the department's clearest non-bet
+- Energy Management System (WiriTec)
+- Data Science Factory (DSF)
+
+
 Each tool below carries its own **is / is not** line in the department's own tool catalogue
 — stated once per tool, not per plant, so this is the stable part. Plant-by-plant
 availability (what is actually deployed where) changes constantly; check

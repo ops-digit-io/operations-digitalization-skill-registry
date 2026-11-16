@@ -9,6 +9,15 @@ tags: [all, practice]
 
 # Legacy applications landscape
 
+## Contents
+
+- What the list holds
+- Cross-readings worth running live
+- Using it in the fit check
+- What is not in the records
+- Sources
+
+
 A request that "quietly needs a system outside the lean footprint" is sometimes already
 served, badly or locally, by a legacy application at that plant. The fit check should know
 that before it recommends a redesign or an escalation: it changes the question from "can we

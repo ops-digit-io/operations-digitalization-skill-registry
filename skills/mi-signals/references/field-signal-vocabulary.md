@@ -8,6 +8,14 @@ tags: [information-integration-service, technical, signals]
 ---
 # Field signal vocabulary
 
+## Contents
+
+- 1. Flow side: `datapoint<Concept>` keys
+- 2. Topic side: the `CT/...` leaf names
+- 3. Dashboard side: display labels in several languages
+- 4. Rules that follow
+
+
 `signal-catalogue.md` gives the canonical names. This file shows **how to read what is in use on
 the two sides that consume signals** and where the two sides disagree. It holds no counts: take
 them from the live corpus and name the date. Rules are marked as such.

@@ -1,13 +1,7 @@
 ---
 name: deploy-cybersec
 description: >-
-  Assemble the sign-off package that goes to Cyber Security / OT before an external machine
-  connection or an app deployment - classify the case, list what leaves the machine or the
-  plant network and where it lands, collect the evidence the neighbouring skills already
-  produce, route the request, and record the wait state and the answer. Drafts and
-  recommends only; the Cyber Security sign-off itself is human-only and has no expedited
-  path. Use before scheduling a machine connection, before an app goes to the platform,
-  when a plant asks what Cyber Security needs, or when a connection waits on sign-off.
+  Assembles the sign-off package for Cyber Security / OT before a machine is connected externally or an app goes to the platform: classifies the case, lists what leaves the machine or plant network and where it lands, collects evidence the neighbouring skills already produce, routes the request and records the wait state and the answer. Use when a plant asks what Cyber Security needs, before scheduling a machine connection or an app deployment, or when a connection waits on sign-off. Drafts and recommends only; the sign-off is human-only with no expedited path. Not for the acceptance test (deploy-acceptance) or the app deployment package (deploy-appstore).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -33,9 +27,18 @@ metadata:
 - Read `dept-context` first.
 
 - **Status: draft.** The department's own sources fix *that* the gate exists and *who* may not pass it, but the sign-off standard itself is not collected (`15-resources.md` lists it as `⟨standard doc - to collect, with Cyber Security⟩`).
-- This skill therefore builds the **request package** and the **wait-state record**.
+- This skill therefore builds the **sign-off package** and the **wait-state record**.
 - It does not state what Cyber Security requires, how long it takes, or how to ask.
 - Those are marked `⟨…⟩` below.
+
+## Open - only the OD lead and Cyber Security can supply
+
+- ⟨The Machine-connection / Cyber Security sign-off standard⟩ (`15-resources.md` owner: OD lead + Cyber Security).
+- ⟨What counts as an external connection⟩, ⟨what Cyber Security requires for an app⟩, ⟨lead time⟩, ⟨validity of a sign-off⟩.
+- ⟨Who at the plant submits⟩ and ⟨to which Cyber Security role⟩ - roles only, never names.
+- The machine-level `cyber_security_status` field has been an open gap in `registry.yaml`; before relying on
+  it, check on the live Machine List whether it is filled. Where it is empty, no machine record can show
+  whether a sign-off exists.
 
 ## Purpose, trigger, done
 
@@ -49,16 +52,16 @@ metadata:
 
 ## The references
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/gate-rules.md`](references/gate-rules.md) | Every rule that governs the gate, one line each with its source: guardrail, decision right, risk row, wait state, what is not collected |
-| [`references/package-contents.md`](references/package-contents.md) | What the package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | The gate as a parallel go-live gate: security-relevance questions, request sequence, documentation completeness checklist, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council items, handoffs and agent notes |
-| [`references/precedents.md`](references/precedents.md) | Patterns from the department's own record: the Groot2B programme, an app that waited on approval, a plant network-separation case, how application cyber status is recorded, how security shows up in blocker records |
+| [`references/gate-rules.md`](references/gate-rules.md) | You need the rule and its source for a hold, an escalation or a refusal: every rule that governs the gate, one line each with its source: guardrail, decision right, risk row, wait state, what is not collected |
+| [`references/package-contents.md`](references/package-contents.md) | You fill the package: what it holds for a machine connection and for an app deployment, and which existing skill or record already produces each item |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | You plan the request sequence or a pilot scope: the gate as a parallel go-live gate: security-relevance questions, request sequence, documentation completeness checklist, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council items, handoffs and agent notes |
+| [`references/precedents.md`](references/precedents.md) | A case looks like an earlier one or a request is refused: patterns from the department's own record: the Groot2B programme, an app that waited on approval, a plant network-separation case, how application cyber status is recorded, how security shows up in blocker records |
 
 ## The rule
 
-- **A missing sign-off holds the case.
+- **A missing sign-off holds the case**, because an unapproved external connection is the exposure the gate exists to stop.
 - There is no expedited path and no authority level that shortens it.** (`mi-equipment` guardrail; `mi-equipment` error paths.) An agent never connects, never approves an external connection, and never records "signed off" on its own say-so.
 
 - The gate is **decoupled and runs in parallel**: start the package alongside planning and build.
@@ -97,7 +100,7 @@ metadata:
 10. **After go-live** the risk register's early indicator is "non-compliant connection detected". Anything
     found later is escalated, not quietly patched.
 
-## Pre-evaluation and platform-level approval (OD x IT, 2026-09-11)
+## Pre-evaluation and platform-level approval (OD x IT)
 
 - **Pre-evaluate before the formal review.** Run this skill's package as a repeatable pre-evaluation that names every missing input before Cyber Security sees it: fewer round trips, a team that learns the process, less load on Cyber Security.
    - The approach is an open action item (OD lead and IT, aligned with Cyber Security); until it is agreed, the package is the pre-evaluation.
@@ -114,23 +117,26 @@ metadata:
 | Sign-off requested at wave level | Check the covered scope, then proceed machine by machine inside it | fallbacks.md section 4 |
 | Firmware patch required for security | Barrier class; patch before integration | barrier-classes.md |
 | Controller cannot do security-compliant communication | A security position, not a preference; the conversation ends | decision-paths.md (S7-300/400) |
-| App needs the platform | Same gate, via `deploy-appstore` step 4 | deploy-appstore |
-| Sign-off held beyond one COP cycle | Escalate to the OD lead for capacity or priority | escalation-worked-examples.md |
 
-## Open - only the OD lead and Cyber Security can supply
+## Example
 
-- ⟨The Machine-connection / Cyber Security sign-off standard⟩ (`15-resources.md` owner: OD lead + Cyber Security).
-- ⟨What counts as an external connection⟩, ⟨what Cyber Security requires for an app⟩, ⟨lead time⟩, ⟨validity of a sign-off⟩.
-- ⟨Who at the plant submits⟩ and ⟨to which Cyber Security role⟩ - roles only, never names.
-- The machine-level `cyber_security_status` field has been an open gap in `registry.yaml`; before relying on
-  it, check on the live Machine List whether it is filled. Where it is empty, no machine record can show
-  whether a sign-off exists.
+- Fictional excerpt of a filled package (all values invented):
+
+```text
+Case class: A, machine connection, plant X (fictional), line 2 press, lane step 1b3
+Leaves the machine: 12 process signals, read-only, via edge device (fictional)
+Lands in: plant data platform, no path out of the plant network
+Evidence: data path and integration concept from mi-equipment; acceptance protocol drafted
+Credentials: exist, held by plant IT (role); values not in this package
+Wait state: submitted by IIAE on 2026-01-05 (fictional); next check 2026-01-19; owner: IIAE
+Answer: pending - no go-live, no date promised to the plant
+```
 
 ## Do not
 
 - Do not connect a machine, deploy an app or schedule either on the strength of an unanswered request.
 - Do not mark a sign-off granted, or write it as "implied", "verbal" or "covered" without the named answer.
-- Do not paste credentials, addresses, certificates or tokens into the package.
+- Do not paste credentials, addresses, certificates or tokens into the package: the package is forwarded and stored, so a value in it leaks.
 - Do not send package contents to an external AI tool: the department's own AI session carried the line
   "Do not Share/Upload company data without Cyber Security approval" (ODEC Facts - Other).
 - Do not restate what Cyber Security requires; the standard is not collected. Point to it once it is.
@@ -145,3 +151,4 @@ metadata:
 | File | Use it for |
 |---|---|
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

@@ -8,6 +8,21 @@ tags: [information-integration-service, technical, node-red]
 ---
 # Corpus census: how to read and how to obtain
 
+## Contents
+
+- Method and scope
+- Disabled flows
+- Flows per site code
+- What each site builds (flow titles, keyword match)
+- Driver segment per site
+- MQTT node settings
+- Triggers and timers
+- Flow-config vocabulary
+- Global context
+- HTTP and storage nodes
+- Hygiene counters
+- What this file cannot tell you
+
 This file extends `instances.md`, `artefacts.md` and
 `topic-conventions.md`. It holds **no counts**. Every figure about the estate
 (how many flows, instances, drivers, nodes) changes with each export; re-count on the live export

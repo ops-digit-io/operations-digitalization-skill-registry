@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Catalog systems](SKILL.md) | Agent Skill | Match a catalogued use case to a standard system or connection kit a plant can order itself (Lane 1b); non-standard falls to Lane 3. Not for choosing the use case (catalog-usecase) or cost approval. |
+| [Catalog systems](SKILL.md) | Agent Skill | Match a catalogued use case to a standardized system or connection kit that a plant can order itself (Lane 1b): look up the machine's route, test the tool boundary, and write the system match record with kit, cost-template inputs and Cyber Security status. Use when a plant wants a catalogued use case on a machine that is not connected yet, asks "what do we need to order to connect this press", or when a route must be checked as standard or not. If no standardized system exists, the record says so and hands to Lane 3. Recommends only; ordering, spend approval and Cyber Security sign-off stay human. Not for choosing the use case (catalog-usecase), cost approval (bc-cost) or ordering and connecting (mi-equipment). |
 
 | Folder | Holds |
 |---|---|

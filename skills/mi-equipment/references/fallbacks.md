@@ -8,6 +8,18 @@ tags: [integration, blockers]
 ---
 # Fallbacks — when the path is blocked
 
+## Contents
+
+- 1. The PLC program is unavailable
+- 2. The PLC program exists but nobody can change it
+- 3. The target platform is not installed at the plant
+- 4. Cyber security has not signed off
+- 5. No route exists for this PLC
+- 6. The guide's own branch is unwritten
+- 7. The OESL guidance does not match the product
+- 8. Connected, but nothing arrives
+- What is never a fallback
+
 A blocked integration is usually blocked at one of eight places. For each: what it actually
 means, what to try before declaring it blocked, and when to stop trying.
 

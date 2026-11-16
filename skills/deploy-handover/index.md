@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Handover and adoption](SKILL.md) | Agent Skill | Close a use case: hand over to the plant against its definition of done, confirm real adoption, act on low utilization. Not for building (ops-analytics-asset) or cataloguing (catalog-usecase). |
+| [Handover and adoption](SKILL.md) | Agent Skill | Closes a use case: runs the handover to the plant against its definition of done (three-question test, named owner, data path to the machine), confirms real adoption with the strongest available evidence, and acts when utilization is low or NEVER (ADKAR diagnostic, review or retire). Use when a use case is handed to a plant, when someone asks whether it is really in use, when the dashboard is delivered but nobody opens it, when an owner or role changes, or when an application moves to IT. Drafts and reports; the plant decides PRODUCTIVE. Not for building (ops-analytics-asset), cataloguing (catalog-usecase) or the acceptance test (deploy-acceptance). |
 
 | Folder | Holds |
 |---|---|

@@ -8,6 +8,14 @@ tags: [information-integration-service, technical, signals]
 ---
 # Signal sets per capability template
 
+## Contents
+
+- How to use
+- The templates
+- What this file does not give
+- Sources
+
+
 `signal-catalogue.md` ends with the **requirement sets** the analyser checks (`--capability`).
 This file is the other half: **what the dashboards that exist for each template typically
 read.** Use it to ask "does my machine expose what the typical dashboard of this template

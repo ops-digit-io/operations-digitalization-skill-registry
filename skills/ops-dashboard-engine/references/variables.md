@@ -8,6 +8,20 @@ tags: [grafana, variables]
 ---
 # variables.md — Grafana variable wiring reference
 
+## Contents
+
+- The mental model
+- Variable types and when to use them
+- Defining a query variable
+- Multi-select, "All", and `IN ($var)`
+- The three filter patterns
+- UUID variables for the timeseries archetype
+- Refresh order and chained variables
+- Variable-driven panel titles
+- Audit checklist
+- Quick debug
+- Typical default variable sets per archetype (moved from SKILL.md Step 4)
+
 Every variable defined in a dashboard must be used in every panel where it's logically relevant. A defined-but-unused variable is the most common silent bug in ops dashboards: filters look like they work, but specific panels ignore them and quietly show stale numbers.
 
 This file consolidates everything about variables — how to define, wire, refresh, and debug them — so the patterns and audit checks live in one place.
@@ -184,3 +198,31 @@ When a panel renders blank or "off" and you suspect a variable:
 1. **Inspect → Query.** Read the rendered SQL. Variables expanded literally? Empty list? Wrong format?
 2. **Run the rendered SQL directly** against the database. If it errors there, the variable is producing bad SQL. If it returns rows there but Grafana shows nothing, the issue is panel-side (column names, format, splash screens).
 3. **Toggle the variable values.** Pick "All" vs specific values vs single specific. The combination that fails reveals the missing pattern (sentinel, NULL preservation, escape).
+
+
+## Typical default variable sets per archetype (moved from SKILL.md Step 4)
+
+Relational archetype:
+
+```text
+$account            (query, single)        multi-tenant
+$<entity>           (query, multi+all)     e.g. $machine, $line, $department
+$<category>         (query, multi+all)     e.g. $reason, $defect_type
+$severity           (custom, single+'all') optional severity filter
+$min_duration_min   (textbox, default 0)   numeric threshold
+$auto_detected      (custom, all/0/1)      source filter
+```
+
+Timeseries archetype:
+
+```text
+$<signal_name>      (query, single+raw)    one variable per UUID needed
+                    SELECT name AS __text, uuid AS __value FROM <signal_meta>
+                    Use as: uuid = (${signal_name:raw})
+$machine            (query, single)        if telemetry is tagged by machine
+$bucket             (interval, custom)     1m, 5m, 15m, 1h
+```
+
+- For the timeseries archetype use one variable per signal the dashboard needs, sourced from a metadata table that maps UUID to a readable name.
+- If no metadata table exists, hardcode the UUIDs in the query and document them in a markdown panel.
+- Audit before delivery: search every panel's SQL for each defined variable; a variable missing from a panel where it is logically relevant is a bug.

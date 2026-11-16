@@ -1,7 +1,7 @@
 ---
 type: Skill Asset
 title: Retro record
-description: One-page monthly retro record with the check of last month's adjustment, the evidence list, exactly one decided adjustment and the parking list.
+description: One-page monthly retro record with the check of last month's adjustment, the learning list, exactly one decided adjustment and the parking list.
 resource: ../SKILL.md
 status: draft
 tags: [all, practice]
@@ -24,7 +24,7 @@ Procedure: [`../SKILL.md`](../SKILL.md). Roles only; no names; no agenda.
 |---|---|---|---|
 | ⟨⟩ | ⟨⟩ | ⟨⟩ | ⟨kept / changed / dropped⟩ |
 
-## 2. What was learned
+## 2. What was learned (learning list)
 
 | # | What happened | Evidence (source, date) | Input | OD can change it? | First seen |
 |---|---|---|---|---|---|

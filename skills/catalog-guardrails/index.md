@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Catalog guardrails](SKILL.md) | Agent Skill | Run the go-live self-check and technology guardrails on a use case a plant applied itself (Lane 1). Not for deciding go-live (the plant decides) or data checks (mi-data-availability). |
+| [Catalog guardrails](SKILL.md) | Agent Skill | Runs the go-live self-check and technology guardrails (G1-G7a, plus candidate G8-G19) on a catalogued use case that a plant applied itself, and writes the go-live check record with a result, evidence and date per guardrail. Use when a plant says "can we go live with this screen", wants to declare a dashboard productive, applied a template without OD, or someone proposes a new guardrail (steps 1a3 and 1b4). Reports only; the plant decides PRODUCTIVE and a failed guardrail means no go-live. Not for the data check (mi-data-availability), matching the use case (catalog-usecase) or the OD handover (deploy-handover). |
 
 | Folder | Holds |
 |---|---|

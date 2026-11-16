@@ -8,6 +8,16 @@ tags: [information-integration-service, practice]
 ---
 # Wave planning and readiness
 
+## Contents
+
+- 1. The scale rule
+- 2. Wave allocation
+- 3. The weekly micro-process (per wave)
+- 4. Status taxonomy
+- 5. Phase sequence: machine list to flow design
+- 6. Readiness criteria (test before kick-off or ordering)
+- 7. Pitfalls
+
 ## 1. The scale rule
 
 Lesson from an earlier approach: integrating the difficult machines first while plants connected the

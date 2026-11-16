@@ -8,6 +8,14 @@ tags: [grafana, design]
 ---
 # Dashboard tiers — design rules and panel inventories
 
+## Contents
+
+- Manager tier — fleet view
+- Analyst tier — deep-dive view
+- Operations tier — live shop-floor view
+- Cross-tier recommendations
+- Anti-patterns to refuse
+
 The single biggest design decision when building an ops dashboard is **who is it for**. Three audiences, three different dashboards. Stuffing all three audiences into one dashboard produces a tool nobody uses well.
 
 The examples below are for downtime, but the structure works identically for energy, throughput, quality, OEE, or any operations domain.

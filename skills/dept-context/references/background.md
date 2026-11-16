@@ -34,3 +34,18 @@ the lists below).
 - **Receives from:** none; it is read first by every OD skill.
 - **Next in the flow:** it has no step id. The spine serves every step; gates go to `dept-decision-rights`, and blocked work goes to the OD lead.
 - **Stops here when:** a term does not resolve or a figure has no source. Mark it to confirm and stop. It never writes to the knowledge graph or acts on an external machine connection.
+
+## Old service lines to new state (moved from SKILL.md)
+
+| Old service line (owner) | New state |
+|---|---|
+| Smart Factory Use Case Support Service, incl. Process First-Aid Kit (DBVE) | Known use cases to Lane 1; genuinely new to Lane 2 |
+| Analytical Support Service, incl. Ad-Hoc Analytics (DBVE) | Retired as a standing lane; ad-hoc analytics routes to Lane 1 self-service, Lane 2, or external support (`funnel-first-aid`) |
+| Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`mi-equipment`) |
+| Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements, decision gate, clear demand, handover |
+
+## Dates moved out of SKILL.md
+
+- Lane 4 was added on 2026-11-10 at the owner's request.
+- ODEC was held monthly until 2025-12 and is no longer held; it is a source of past decisions only.
+- Databricks, the Azure Storage Account and Parquet were separate vocabulary rows; they are merged into the Data platform row.

@@ -1,0 +1,47 @@
+{
+  "skill": "bc-build",
+  "cases": [
+    {
+      "id": "value-row-with-methodology",
+      "type": "should-trigger",
+      "prompt": "A plant wants to replace a paper shift board with a digital one (fictional). Operators spend about 10 minutes per shift writing it up, 3 shifts, roughly 220 working days. Controlling has not given us a cost per hour yet. Can you work out what this is worth and write it up as a saving?",
+      "expected_output": "The saving is written as value x driver with every factor named and tagged ([input], [assumption], [market] or [unknown]).\nThe missing hourly rate is carried as a [market] value flagged as such, or as [unknown], never silently invented.\nA range (conservative, base, optimistic) is given, not a single point.\nThe row carries amount, year, category, rationale, methodology and reliability; without a formula it would be labelled ESTIMATION.\nCost is kept apart and not netted; the row is not marked proven.",
+      "files": []
+    },
+    {
+      "id": "total-mixing-tracked-and-proven",
+      "type": "edge",
+      "prompt": "For the board paper, give me one number: the total savings of our portfolio. Just add up everything on the savings list, tracked and proven together.",
+      "expected_output": "The assistant refuses to add tracked and proven together and reports both separately.\nIt states the date of the live read and does not quote a total from memory.\nIt mentions the incompleteness of the ledger (blank reliability, use cases without a row) next to the total.\nIt does not mark anything as proven itself.",
+      "files": []
+    },
+    {
+      "id": "lever-on-unknown-input",
+      "type": "should-trigger",
+      "prompt": "The biggest lever in my business case is faster reaction to machine stops, but nobody knows how many idle hours per machine we are talking about. What should I put in the case?",
+      "expected_output": "The lever is shown as a sensitivity range labelled not banked, not summed into the headline.\nThe missing idle-hours input is tagged [unknown] and becomes the first open question with an owner.\nA hard floor from grounded levers is kept as the expected value.\nThe dependency is recorded rather than the number dropped quietly.",
+      "files": []
+    },
+    {
+      "id": "score-the-case-near-miss",
+      "type": "near-miss",
+      "prompt": "Here is a finished business case. Tell me whether it passes the house rubric and can be signed.",
+      "expected_output": "The assistant recognises this as scoring an existing case, not building one.\nIt routes to the assessment step (bc-assess) and does not rebuild the value model.\nIt notes the assessor must not be the case builder.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "How do I calculate the saving for this use case so it can go on the savings list?",
+      "Build the value side of the business case for the new shift-handover tool",
+      "What is this idea worth per year? Give me a range with sources",
+      "Can we call this saving proven? How do I record it on the ledger?"
+    ],
+    "should_not_trigger": [
+      "Estimate the hardware and licence cost for the rollout",
+      "Score the business case against the rubric",
+      "Write the capital request for the approvers",
+      "Rank these five use cases for the Eastern region"
+    ]
+  }
+}

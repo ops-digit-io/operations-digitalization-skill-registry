@@ -1,0 +1,47 @@
+{
+  "skill": "funnel-first-aid",
+  "cases": [
+    {
+      "id": "vague-oscillation-complaint",
+      "type": "should-trigger",
+      "prompt": "Our press line 2 is making parts that drift out of size every few hours since last week. Nobody knows why. Can OD take a look? We have some PLC data but no use case or anything.",
+      "expected_output": "The symptom is restated with object, event, scope and time frame instead of accepted as is.\nA baseline is requested before any numeric target is written.\nThe data check names scenario A or B and does not promise a connection.\nA route with a written reason is chosen (one-off analysis, since no recurrence is stated).\nNo cost is quoted and no person is named, only roles.",
+      "files": []
+    },
+    {
+      "id": "recurring-need-routes-to-intake",
+      "type": "should-trigger",
+      "prompt": "Three plants have now told us that the same changeover delay shows up every week and they all want someone to look at it.",
+      "expected_output": "The need is recognised as recurring, not one-off.\nThe request is captured on the form, then routed to intake and the use case funnel.\nThe route reason says that a need raised by several plants is a use case.\nNothing is analysed or built in this step.",
+      "files": []
+    },
+    {
+      "id": "data-not-readable",
+      "type": "edge",
+      "prompt": "Please run a quick analysis on why the oven temperature varies. The temperature controller is not connected to anything and nobody logs it.",
+      "expected_output": "The result is marked a data gap, not approximated or interpolated.\nScenario B is named and a device plus manual transfer is described as a proposal only.\nCyber Security sign-off is named as required before any live connection.\nThe requester is told what is missing and who must decide on cost.",
+      "files": []
+    },
+    {
+      "id": "dashboard-colour-change",
+      "type": "near-miss",
+      "prompt": "Can you change the colours and the font on our existing line dashboard? Management wants it to look nicer.",
+      "expected_output": "The request is not handled as a first-aid case.\nIt is pointed to intake and its refusal playbook.\nNo request form for a process issue is filled.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "A machine at our plant behaves strangely after the ramp-up and we need someone to help scope what to analyse",
+      "Can you set up a first-aid request for a process problem on line 4?",
+      "We have a one-off question about why scrap rose last month, no use case exists yet",
+      "Help me make this plant problem specific and measurable before we send it to OD"
+    ],
+    "should_not_trigger": [
+      "Connect our new machine to the edge platform permanently",
+      "Write the requirement specification for the scrap dashboard use case",
+      "Calculate the savings of our energy use case for the business case",
+      "Which catalogued use case matches our request for downtime tracking?"
+    ]
+  }
+}

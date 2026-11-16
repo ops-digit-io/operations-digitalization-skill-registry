@@ -8,6 +8,17 @@ tags: [node-red, streaming, mqtt]
 ---
 # How the real-time streaming works
 
+## Contents
+
+- The path, hop by hop
+- The message
+- The four streaming primitives
+- Ordering, and what it guarantees
+- State: flow context
+- Back-pressure — there isn't any
+- Errors do not stop the stream
+- Throughput checklist
+
 The mechanics underneath every flow: how a machine value gets from a PLC into a derived
 signal, what guarantees hold at each hop, and where throughput is actually spent. Settings
 quoted below are properties of the technology or the method; count your own usage live.

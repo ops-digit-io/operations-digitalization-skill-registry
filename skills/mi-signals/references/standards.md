@@ -8,6 +8,18 @@ tags: [signals, standards, kpi]
 ---
 # The normative standards behind a signal set
 
+## Contents
+
+- Why the standard matters before the signal
+- C01 · Real-time line & OEE — ISO 22400-2, VDI 3423
+- C02 · Digital Andon, Gemba & escalation — TPS / Jidoka
+- C03 · SPC & in-process quality — Shewhart, Western Electric rules
+- C05 · Downtime reporting & machine alerts
+- C07 · Recipe, traceability & process parameters — ISO 22005
+- C08 · Energy management — ISO 50001 family
+- The rule this file exists to state
+- Where the checklists live
+
 Signal standardization is not a naming exercise. A signal exists so a KPI can be computed,
 and the KPI definitions are **published standards**, not local choices. Building to them is
 what makes one plant's number comparable to another's.

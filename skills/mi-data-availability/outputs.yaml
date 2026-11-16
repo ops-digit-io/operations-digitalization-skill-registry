@@ -10,7 +10,7 @@ outputs:
   to_roles:
   - Requester
   done_when:
-  - Names the step where the request stops, with evidence and owner
+  - Names the path step where the request stops, with evidence and owner
   - Unproven is not reported as absent
   - The requester knows what can and cannot be answered now
   signoff: Requester

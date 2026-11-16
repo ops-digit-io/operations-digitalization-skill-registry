@@ -8,6 +8,23 @@ tags: [node-red, transformation, patterns]
 ---
 # The transformation patterns
 
+## Contents
+
+- P1 · Delta gate — "did this change?"
+- P2 · Accumulator — counters with a reset
+- P3 · Two-event time range — cycle time
+- P4 · Threshold crossing — estimation on a process value
+- P5 · Value mapping — raw integer to named state
+- P6 · Lookup table — CSV-backed mapping
+- P7 · UUID → label enrichment
+- P8 · Building a packet from nothing
+- P9 · Clearing the oneof
+- P10 · Composite string parsing
+- P11 · OEE chain — availability × performance × quality
+- P12 · Windowed extremum capture — the peak value while a threshold holds
+- P13 · Liveness watchdog — did the heartbeat stop?
+- Standards for any transformation
+
 Thirteen patterns cover almost every flow in the estate. Each is given with its trigger, its
 shape, the real implementation, and what breaks it. Copy these; do not reinvent them.
 

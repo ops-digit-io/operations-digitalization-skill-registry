@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [OD context](SKILL.md) | Agent Skill | Shared ground truth for OD work: vocabulary, the three lanes, who decides what, honesty rules. Load before any OD work or quoting an OD number. Not for deciding a request (dept-decision-rights). |
+| [OD context](SKILL.md) | Agent Skill | Gives every OD skill the same ground truth: the department vocabulary (use case, asset, capability, cluster tag, IIoT Edge, data platform, MSB, COP), the three lanes plus the outbound Lane 4, which SharePoint list holds which figure, and the honesty rules (tracked is not proven, absence is not zero, no figure without a source). Use before any OD work, when a term, lane, gate or list name is unclear, or before quoting an OD number such as savings, use-case counts or machine counts. Not for who may approve something (dept-decision-rights) or for sorting a new request into a lane (dept-intake). |
 
 | Folder | Holds |
 |---|---|

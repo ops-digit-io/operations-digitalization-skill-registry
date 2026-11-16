@@ -47,3 +47,7 @@ read to see what was decided, why, and what is open. A title is not a definition
 - **Stops here when:** the need is not one need (split it), no business case can be named (refuse per intake and return it
   to the demand owner), a library entry matches (take it through `catalog-standardization`), or the machine is not
   connected (no use case yet; integration request).
+
+## Provenance moved out of SKILL.md
+
+This skill was merged from the lane's playbook and the use-case knowledge base pages.

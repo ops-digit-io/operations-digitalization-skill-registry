@@ -6,7 +6,7 @@
 |---|---|---|
 | Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Build engine (`build-engine.md`) | Skill Reference | How the deck is rendered from the backbone with build_bc_short.py on the neuwerk template; QA before delivery. |
-| Criteria checklist (`criteria-checklist.md`) | Skill Reference | The scored rubric: core integrity C1-C5 (a gap blocks signing), deck-renderable structure D1-D8, discipline E; pass / partial / gap with evidence. |
+| Criteria checklist (`criteria-checklist.md`) | Skill Reference | The scored rubric: core integrity C1-C5 (a gap blocks signing), deck-renderable structure D1-D9, discipline E; pass / partial / gap with evidence. |
 | Deck spec (`deck-spec.md`) | Skill Reference | The standard business-case one-pager deck (9 slides plus provenance backup): slide by slide content rules. |
 | Grounding discipline (`grounding-discipline.md`) | Skill Reference | The four grounding tags and how each figure earns one; what counts as input, assumption, market and unknown. |
 | Lever model (`lever-model.md`) | Skill Reference | Lever register (H hard / O optional IDs), formulas and drivers, contribution matrix min|exp|max, de-banking of low-confidence levers. |

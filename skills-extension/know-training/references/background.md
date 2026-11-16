@@ -8,6 +8,12 @@ tags: [background]
 ---
 # Background
 
+## Status and sourcing of this skill
+
+Status: draft, and the thinnest-sourced skill in the registry. The skill map calls this "the decentralization skill" and says it "is under-specified in the current Department OS and needs the most new content". The sources give the control point ("rollout-ready; plant trained"), a few training facts from call decks, and the plant roles. They do not give a training standard, a list of modules or a competence model. The skill assembles a package from what the neighbouring skills already teach, and every proposal that is not a recorded fact is labelled proposal.
+
+Open question for the OD lead: obtain the real training formats and the competence standard, then replace the proposals in the module catalogue and the hand-down model.
+
 ## Outputs and hand-off: the text before outputs.yaml
 
 `know-training` delivers a training package and a competence checklist for one plant and one solution. The plant confirms competence; the skill never does.

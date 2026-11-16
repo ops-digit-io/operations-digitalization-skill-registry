@@ -8,6 +8,12 @@ tags: [use-case-support-service, technical, lane, process-chain]
 ---
 # Process chain practice
 
+## Contents
+
+- Part A · Definition (step 21)
+- Part B · Support service lane
+
+
 `PROPOSAL` marks synthesis that no deck states. Part A adds to the four phases in `SKILL.md`; Part B adds to the lane flow.
 
 ## Part A · Definition (step 21)

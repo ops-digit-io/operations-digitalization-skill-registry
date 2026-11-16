@@ -8,6 +8,15 @@ tags: [all, practice, ai]
 ---
 # Generation pipeline
 
+## Contents
+
+- 1 The pipeline for a template-bound deliverable
+- Signal selection (step 22)
+- Dashboard generation (step 23, 1a2)
+- 4 Other generation recipes
+- 5 Visual-QA loop in practice
+- 6 Pitfalls and how to spot them early
+
 Pattern shared by every recipe: **fixed-structure inputs -> importable or reviewable output -> expert
 validation on the running artefact -> missing-input table up front -> visual QA loop.** Step ids refer to
 the process chain.

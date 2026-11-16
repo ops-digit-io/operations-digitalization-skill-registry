@@ -8,6 +8,17 @@ tags: [information-integration-service, practice, process-chain, draft]
 ---
 # Process-chain practice - acceptance as the step that proves use, not delivery
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules
+- 3 Handoff contract
+- 4 Pre-go-live adoption checklist (from MES and monitoring lessons)
+- 5 Pitfalls and lessons
+- 6 Questions to ask and definition of done
+- 7 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (sprint reviews, integration workshops, MES and energy-monitoring lessons,
 gap analysis), abstracted into process guidance. No figures. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown.
 The test structure, sign-off authority and rework loops stay in the neighbouring references.

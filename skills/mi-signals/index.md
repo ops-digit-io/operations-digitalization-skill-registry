@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Signal analysis and standardization](SKILL.md) | Agent Skill | Analyse a machine's signals and standardize them so a second plant can use them: names, collisions, gaps, public data models. Not for connecting the machine (mi-equipment) or flows. |
+| [Signal analysis and standardization](SKILL.md) | Agent Skill | Analyse a machine's signal list and standardize it so a second plant can use it: canonical names, local-language and raw PLC tags, name collisions, missing signals, public data models (OPC UA for Machinery, EUROMAP, PackML), signal analysis report and binding sheet. Use when a machine is newly connected, a use case cannot be built because a signal is missing or ambiguous, two plants' versions of a signal do not compare, tags arrive in German, Chinese or Spanish, or before a derived data point is published. Not for connecting the machine (mi-equipment), building the flow (mi-flow) or checking whether data is collected (mi-data-availability). |
 
 | Folder | Holds |
 |---|---|

@@ -13,6 +13,15 @@ tags:
 ---
 # Barrier triage
 
+## Contents
+
+- Purpose and definition of done
+- Where it sits
+- References and assets
+- Procedure
+- Output
+- Do not
+
 > **Absorbed.** This was the skill `od-barrier-triage`. It now runs as a mode of [`mi-equipment`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `dept-context` first.
@@ -39,7 +48,7 @@ filed.
 Lane 3b of the new-state flow: *4b connector design* (VSM skill map: `mi-equipment`,
 `mi-signals`, `mi-flow`); the barrier sits ahead of *5b procure and
 connect*. It also serves Lane 1b, where a standardized-system match fails (the plant picked a kit and the
-machine will not take it). Assessment (Route A) and guidance (Route B) of `mi-equipment` find
+machine will not take it). Assessment (Mode A) and guidance (Mode B) of `mi-equipment` find
 the barrier; this skill classifies and routes it.
 
 ## References and assets
@@ -95,7 +104,7 @@ an unavailable PLC program and the eight blocking places
    readiness picture through the lane's reporting, not by hand-marking a dimension.
 8. **Handover.** Roadmap items go back to the assessment protocol (section 5, barriers logged); strategy
    items to `dept-decision-rights` as a decision request; substitutions to `mi-equipment`
-   Route B or to `bc-cost`. A data-model blocker (connected, tags not standardized) goes to
+   Mode B or to `bc-cost`. A data-model blocker (connected, tags not standardized) goes to
    `mi-signals`.
 
 ## Output

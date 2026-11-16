@@ -8,6 +8,17 @@ tags: [information-integration-service, practice, process-chain, draft]
 ---
 # Process-chain practice - the gate as a parallel go-live gate, plus the data-protection gate
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules
+- 3 Data-protection and works-council gate (PROPOSAL as a chain gate)
+- 4 Handoff contract
+- 5 Pitfalls and lessons
+- 6 Definition of done and questions
+- 7 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (platform, tool, community-call and capital-request decks), abstracted into
 process guidance. No figures. It adds practice only; it does not state what Cyber Security requires (the standard is not
 collected, see `gate-rules.md`). `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown.

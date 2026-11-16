@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Process derivation](SKILL.md) | Agent Skill | Derive a lived business process from a validated use case: gate on request, demand and passed prototype; redesign, BPMN to-be model, adoption plan, landscape entry, monitoring. Not for building the prototype. |
+| [Process derivation](SKILL.md) | Agent Skill | Turn a passed prototype into a process the plant can run and keep: check the gate (use-case request, use-case demand, validated prototype), then write the change in one sentence, redesign it with evidence, draw the to-be process as a BPMN 2.0 model checked by a script, plan adoption per role group, draft the process-landscape entry and the monitoring questions. Use when a click-dummy or proof of concept passed and the plant asks what process now changes, who owns it and how it is embedded. Drafts only; the process owner accepts. Not for building the prototype (funnel-prototype), the business case (bc-build) or handover (deploy-handover). |
 
 | Folder | Holds |
 |---|---|

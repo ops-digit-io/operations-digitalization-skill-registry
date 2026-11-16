@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Business case assessment](SKILL.md) | Agent Skill | Score a business case against the OD house rubric and return a pass/partial/gap verdict per criterion before a capital request. Not for building the value model (bc-build). |
+| [Business case assessment](SKILL.md) | Agent Skill | Scores a drafted business case against the OD house rubric (C1-C5 core integrity, D1-D9 structure, E1-E6 discipline) and returns pass, partial or gap per criterion with evidence, a conflict register, ranked open questions and a maturity-gate verdict (ready to sign, sign the floor, not ready). Use when someone asks "is this business case signable", "review or score the case before the capital request", "does it pass the maturity gate", or wants two cases compared on one rubric. Recommends only; the approvers decide. Not for building the value model (bc-build), costs (bc-cost) or the request itself (bc-capital-request). |
 
 | Folder | Holds |
 |---|---|

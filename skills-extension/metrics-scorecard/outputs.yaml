@@ -19,12 +19,11 @@ outputs:
   form: Section of the protocol
   to_skills: []
   to_roles:
-  - Lane owner named per metric (DBVE for use-case metrics
-  - IIAE for equipment metrics)
+  - Lane owner named per metric (DBVE for use-case metrics, IIAE for equipment metrics)
   - OD lead
   done_when:
   - Every metric past its intervene-from threshold is flagged with the lane owner named
-  signoff: Lane owner named per metric (DBVE for use-case metrics
+  signoff: Lane owner named per metric (DBVE for use-case metrics, IIAE for equipment metrics)
 - id: round-output-and-the-one-retro-change
   form: Section of the protocol, recorded after the round
   to_skills: []

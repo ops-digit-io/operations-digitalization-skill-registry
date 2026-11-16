@@ -8,6 +8,17 @@ tags: [practice, system-fit, process-chain, draft]
 ---
 # Process-chain practice - the fit check as an intake classifier
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules and triage
+- 3 Handoff contract
+- 4 Pitfalls and lessons
+- 5 Questions to ask and definition of done
+- 7 AI agent operating notes
+
+
 Derived from the Operations Digitalization slide decks (tool and architecture decks, strategy decks, workshop decks), abstracted
 into process guidance. No figures. `PROPOSAL` marks synthesis that no deck states; `<to confirm>` marks a reading the decks
 leave open. The boundary sentences themselves stay in `tool-boundaries.md`; this file is how to *use* them

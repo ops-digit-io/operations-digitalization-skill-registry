@@ -8,6 +8,19 @@ tags: [requirements, elicitation]
 ---
 # Elicitation — getting from a stated problem to a requirement
 
+## Contents
+
+- What the portfolio proves people leave out
+- Round 1 — the problem (before any solution talk)
+- Round 2 — the moment (the `business_process` field)
+- Round 3 — the signals (the section that decides feasibility)
+- Round 4 — done (the `methods` / `utilization` fields)
+- Round 5 — the obstacles (the `blockers` field)
+- The five judgement calls that make this hard
+- Refusal is a finished outcome
+- Closing the loop
+
+
 This is the part the map calls *"the step most dependent on tacit judgement"*. It is a
 question set, in an order that works, plus the things people reliably leave out.
 

@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Plant gap diagnosis, tiering and roadmap](SKILL.md) | Agent Skill | Diagnose why plants with a similar system landscape and similar integration effort deliver unequal savings - read the gap across four Ishikawa branches (people, method, machine and IT, environment), tier plants as first mover or fast follower with stated criteria, and turn the result into a plant roadmap with a status and a "call for action" per row, rolled up into a regional roadmap. Includes how to synthesise interview and workshop evidence without over-claiming. Use when two plants look alike but save differently, when a plant enters OD scope and must be tiered, when a plant or regional roadmap must be drafted or refreshed, when a call needs per-plant status and call-for-action text, or when interview notes must be turned into a diagnosis. |
+| [Plant gap diagnosis, tiering and roadmap](SKILL.md) | Agent Skill | Answers "why do two similar plants save so differently, and what should each plant do next?". Reads the gap across four Ishikawa branches (people, method, machine and IT, environment), tiers a plant as first mover or fast follower, and drafts the plant roadmap (status and call for action per row) plus the regional roll-up. Also turns interview or workshop notes into a diagnosis without over-claiming. Use when two plants look alike but save differently, when a plant enters OD scope and needs a tier, when a roadmap or call-for-action text is due, or before a use case is called "no potential". Not for placing a plant on its onboarding path (dept-plant-onboarding) or ranking use cases (bc-portfolio). |
 
 | Folder | Holds |
 |---|---|

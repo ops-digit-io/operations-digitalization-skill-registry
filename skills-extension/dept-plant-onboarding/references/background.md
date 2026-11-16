@@ -26,3 +26,11 @@ tags: [background]
 - **Receives from:** `know-sharepoint-export` (the plant, machine and use-case lists), `dept-intake` (demands classified), `mi-equipment` (equipment assessment and barrier log).
 - **Next in the flow:** `dept-plant-diagnosis` (tiering and roadmap when the plant enters scope), then the stage skills: `mi-equipment`, `dept-intake`, `catalog-usecase`, `deploy-handover`, `know-training`, and the routines `metrics-scorecard`, `dept-risk`, `dept-retro`.
 - **Stops here when:** the plant is not recorded (stage 1 is the precondition for every comparison), or the stage order would be changed to meet a date. Record the wait state instead; a machine is never connected to an external system without Cyber Security / OT sign-off.
+
+## Provenance
+
+This skill is plan item O-09 of the department skill map. Its source column reads "- (new)": no department document describes plant onboarding. The stage rules are assembled from the playbooks, the new-state lanes and the plant records.
+
+## Sources used in the improvement run
+
+- None beyond the existing skill material; no vault or archive claim was added.

@@ -32,3 +32,9 @@ Done when, for one migration:
 - **Receives from:** `invest-screen` (replace, integrate or keep decision, target architecture), `funnel-requirements` (use-case list of the old system), `deploy-cybersec` (security status), plant ME and the local owner (application and interface lists).
 - **Next in the flow:** `deploy-appstore` and `deploy-cybersec` (step 3a5, deployment package and back-out plan), `deploy-acceptance` (verification list and test evidence), `deploy-handover` and `know-training` (step 3a6, service concept and retire-the-old-process owner), `dept-risk` for open risks. The tool-decision gate is step 32.
 - **Stops here when:** preconditions or the back-out plan are missing, the outage window is not announced, the key user is not available, a customer audit or fixed external date is near, or an owner has not confirmed a rating. No stage starts and nothing is decommissioned before key-user verification and the agreed observation period.
+
+## Provenance (moved from SKILL.md)
+
+- the assessment and per-location parts come from workshop and migration decks.
+- The **back-out plan content is a `PROPOSAL`**: the decks hold only diagrams of who does what, no content.
+- Everything marked `PROPOSAL` is synthesis, to be confirmed by the owner of the back-out process.

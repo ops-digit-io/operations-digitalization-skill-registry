@@ -1,0 +1,47 @@
+{
+  "skill": "ops-analytics-asset",
+  "cases": [
+    {
+      "id": "line-status-dashboard-request",
+      "type": "should-trigger",
+      "prompt": "The shift supervisors at one of our plants want a line status dashboard for the morning walk. The data check came back fine. How do we go about it?",
+      "expected_output": "Names the ritual (daily Gemba walk), the decision and the action owner role before building. Chooses and justifies the asset type Dashboard. Hands ritual, tier and data model to the dashboard build skill instead of hand-building panels. Plans validation with paper reconciliation and filling the build protocol.",
+      "files": []
+    },
+    {
+      "id": "weekly-scrap-question-is-a-report",
+      "type": "should-trigger",
+      "prompt": "Quality wants to see scrap by cause once a week for their Monday meeting. They asked for a dashboard. Is that the right thing to build?",
+      "expected_output": "Questions the dashboard default: the answer is read away from the line on a cadence, so a report fits. Justifies the asset type in the protocol. Does not start a Grafana build.",
+      "files": []
+    },
+    {
+      "id": "no-action-owner",
+      "type": "edge",
+      "prompt": "Management wants a nice-looking OEE dashboard for the lobby screen. Nobody can say who acts on it or in which meeting it is used. Please build it.",
+      "expected_output": "Identifies a dashboard without an action owner and declines to build it. Lists the missing ritual, decision and action owner. Suggests what is needed to proceed. Does not mark anything as accepted.",
+      "files": []
+    },
+    {
+      "id": "near-miss-grafana-json",
+      "type": "near-miss",
+      "prompt": "Here is the schema. Write the Grafana panel JSON and the SQL for a downtime-by-shift panel with a machine variable.",
+      "expected_output": "Recognizes this as the dashboard JSON and query build, not asset choice. Routes to the dashboard build skill rather than answering from the asset-choice procedure.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Should we build a dashboard, a report or an app for the shift handover?",
+      "The dashboard we delivered last month is never opened, what went wrong?",
+      "Our plant wants to apply the catalogued line dashboard template itself, how do we do that?",
+      "How do we reconcile the new production dashboard with the paper record before sign-off?"
+    ],
+    "should_not_trigger": [
+      "Write the SQL for a cycle count from a sawtooth counter",
+      "Is the data for this machine actually being collected?",
+      "Create the savings figures for the business case of this dashboard",
+      "Hand the finished use case over to the plant and measure adoption"
+    ]
+  }
+}

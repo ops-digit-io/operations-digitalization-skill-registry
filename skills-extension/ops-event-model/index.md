@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Object and event modelling](SKILL.md) | Agent Skill | Reduce a plant request that looks unique to the objects, events and time axis it is really about, decide which signals are events and which are only sensor values, check that the time-series can be related to a product or order, and map the use case to an archetype (cross-process, per-process, unique), its methods and its ETL jobs, ending in a data-requirements statement for the data platform. A sensor value is not an event. Use when a request asks "which carrier is in the oven", "which serials with quality status", "which order and how many defects", when a traceability demand has no stated technical requirement, when the object relation is the suspected blocker, or before a use case is handed to requirements, build or standardization. |
+| [Object and event modelling](SKILL.md) | Agent Skill | Turn a plant request that looks unique (which carrier is in the oven, which serials with quality status, which order and how many defects) into what the data platform must provide: the objects, events and time axis, which signals are real events and which are only sensor values, whether the time-series can be tied to a product or order, the use-case archetype (cross-process, per-process, unique) with its methods and ETL jobs, ending in a data-requirements statement. Use when a traceability demand has no technical requirement, the object relation is the suspected blocker, or before a use case goes to requirements, build or standardization. Not for naming signals (mi-signals) or checking collection (mi-data-availability). |
 
 | Folder | Holds |
 |---|---|

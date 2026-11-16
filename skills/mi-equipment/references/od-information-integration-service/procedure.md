@@ -11,6 +11,20 @@ tags:
 ---
 # Information Integration Service
 
+## Contents
+
+- The reference is the substance
+- Happy path
+- The estate this lane works on
+- Reading the records: traps
+- Error paths
+- Wait states
+- Recurring tasks
+- Systems and access
+- Autonomy
+- Metrics for this lane
+- Handover / rework rule
+
 > **Absorbed.** This was the skill `od-information-integration-service`. It now runs as a mode of [`mi-equipment`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: read-only on production/edge; draft on roadmaps and reports; recommend on sequencing.
 
 Read `dept-context` first.
@@ -105,9 +119,9 @@ awaiting a decision on shared tooling, licensing or signal standards — Plant M
 
 | Task | Trigger | Template |
 |---|---|---|
-| Equipment assessment & roadmap | New plant / integration wave | `mi-equipment`'s `assets/assessment-protocol.md` (Route A) |
+| Equipment assessment & roadmap | New plant / integration wave | `mi-equipment`'s `assets/assessment-protocol.md` (Mode A) |
 | Integration investment planning | Roadmap agreed | ⟨investment plan template — to confirm⟩ |
-| Machine integration execution | Investment approved | `mi-equipment`'s `assets/guidance-protocol.md` (Route B) |
+| Machine integration execution | Investment approved | `mi-equipment`'s `assets/guidance-protocol.md` (Mode B) |
 | Signal standardization | Machine connected | Signal standard spec |
 | Acceptance test | Integration complete | Acceptance test protocol |
 | Equipment Integration report update | On request or on the department's own schedule | `OD-Report-Equipment_Integration` |

@@ -8,6 +8,14 @@ tags: [grafana, schema]
 ---
 # Data model archetypes — how to choose
 
+## Contents
+
+- Archetype A — Relational (custom schema)
+- Archetype B — Timeseries (UUID-keyed long-format)
+- Mixed environments
+- How to ask if you can't tell
+- Edge cases
+
 Operations dashboards backed by SQL come from one of two fundamentally different schemas. Picking the wrong patterns wastes time and produces broken queries. Identify the archetype before writing any SQL.
 
 ---

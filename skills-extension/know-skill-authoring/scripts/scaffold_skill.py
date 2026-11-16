@@ -51,11 +51,11 @@ metadata:
 
 # {title}
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
 ## Purpose
 
-⟨What the skill is for and when it is worth using, in one paragraph.⟩
+- ⟨What the skill is for and when it is worth using, in list items of at most 40 words.⟩
 
 ## Inputs and output
 
@@ -82,7 +82,7 @@ Read `dept-context` first.
 
 ## Definition of done
 
-⟨When the work is finished and who receives it.⟩
+- ⟨When the work is finished and who receives it.⟩
 
 ## References
 

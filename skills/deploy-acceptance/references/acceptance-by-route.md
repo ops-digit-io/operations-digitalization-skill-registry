@@ -9,6 +9,17 @@ tags: [information-integration-service, practice]
 
 # Acceptance by route
 
+## Contents
+
+- 1. Checks that apply to every route
+- 2. Edge route (variant 1): PLC, edge device, connector
+- 3. Aggregation route (variant 3): PLC, Softing server, `DTQ-OPCUA-Connector`
+- 4. Non-PLC endpoints: files, images, serial, web services
+- 5. Energy loggers and plant-side tools
+- 6. Failure patterns that recur in the records
+- How to measure the patterns live
+- Sources
+
 `test-structure.md` gives the generic SAT/SIT frame and the six fields of a
 test item. What it cannot say is *which items* a given route needs. This reference does,
 using what the department's records say about each route. It carries no counts: to see how

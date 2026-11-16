@@ -8,6 +8,17 @@ tags: [use-case-support-service, practice, workshop, process-chain]
 ---
 # Process-chain practice - workshops
 
+## Contents
+
+- Where it sits
+- 1 · Method in practice
+- 2 · Decision rules
+- 3 · Handoff contract
+- 4 · Pitfalls and lessons
+- 5 · Questions to ask / definition of done
+- 6 · AI agent operating notes
+
+
 Adds to `SKILL.md` and `workshop-formats.md`; the standard agenda, audience matrix and summary skeleton are not
 repeated. `PROPOSAL` marks synthesis that no deck states.
 

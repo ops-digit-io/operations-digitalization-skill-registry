@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Skill authoring](SKILL.md) | Agent Skill | Build a new OD skill, or rework a weak one, by the registry's standard method: start from the department's own record, design the skill on one page before writing it (need, lane and step, users, authority, sources, three test cases), write it to the registry's anatomy, pass the gates in order (registry checks, Agent Skills specification export, OKF, no invented figures, the SkillEvaluator quality rating) and hand it to the department owner for review. Use when a recurring OD procedure should become a skill, when a skill rates below B, or before any skill is added to the registry. Not for writing a single note or a one-off prompt, and not for changing a skill's content without a new source: use the skill that owns the topic. |
+| [Skill authoring](SKILL.md) | Agent Skill | Build a new OD skill, or rework a weak one, by the registry's standard method. Use when a recurring OD procedure should become a skill, when a skill rates below B or reads vague, or before any skill is added to the registry. Starts from the department's own record, has the skill designed on one page before it is written (need, lane and step, users, authority, sources, three test cases), writes it to the registry's anatomy, passes the gates in order (registry checks, Agent Skills specification export, OKF, no invented figures, the SkillEvaluator quality rating) and hands it to the department owner for review. Not for writing a single note or a one-off prompt, and not for changing a skill's content without a new source: use the skill that owns the topic. |
 
 | Folder | Holds |
 |---|---|

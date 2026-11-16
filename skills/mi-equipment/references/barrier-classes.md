@@ -9,6 +9,14 @@ tags: [information-integration-service, connectability, elicited]
 
 # Barrier classes
 
+## Contents
+
+- Difficulty ranking — easy to hard
+- The Modbus contradiction
+- Pre-assessment tells
+- Named blockers: symptom vs. root cause
+- Brownfield hurdles beyond this estate
+
 Integration rate by vendor/protocol, mined from the Machine List and Connector Overview,
 describes what got connected historically. It is not the same question as what's cheap to
 connect next — a vendor can show a high rate because of how the existing machines happened

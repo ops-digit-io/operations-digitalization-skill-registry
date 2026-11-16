@@ -24,7 +24,7 @@ tags: [outputs, handoff]
 | Output | Check | Sign-off |
 |---|---|---|
 | scorecard-update-protocol | structure of `assets/scorecard-update-protocol.md` | The round (COP or a round held on request) or the requester |
-| intervention-flags | manual | Lane owner named per metric (DBVE for use-case metrics |
+| intervention-flags | manual | Lane owner named per metric (DBVE for use-case metrics, IIAE for equipment metrics) |
 | round-output-and-the-one-retro-change | manual | OD lead |
 | open-gaps-carried-forward | manual | OD lead |
 

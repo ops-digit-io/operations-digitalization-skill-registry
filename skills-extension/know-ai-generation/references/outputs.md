@@ -15,8 +15,8 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | ai-step-card | `assets/ai-step-card.md`, filled | Process owner named on the card, the skill of the step | A human has named the process owner, the data source and the review point (no name, no start); The evidence and the human gate are recorded |
-| generated-output-with-evidence | The artefact of the step, with the source rows, entries or documents it rests on and the read date | Reviewer on the card, before anyone outside the team sees it | Every element traces to a source field; An output without citations is labelled a draft |
-| open-item-list | List handed over with the output | Reviewer on the card | Open items ("to confirm") sit on the list, not in the artefact |
+| generated-output-with-evidence | The output of the step, with the source rows, entries or documents it rests on and the read date | Reviewer on the card, before anyone outside the team sees it | Every element traces to a source field; An output without citations is labelled a draft |
+| open-item-list | List handed over with the output | Reviewer on the card | Open items ("to confirm") sit on the list, not in the output |
 | missing-signal-and-binding-table | `assets/missing-signal-and-binding-table.md`, filled (steps 22, 23, 1a2, 3b4) | `mi-data-availability`, information-integration lane | Missing signals are reported before the dashboard as signal id, label and why needed; The binding table shows which tag fed which panel and which query pattern it uses |
 
 ## Checks

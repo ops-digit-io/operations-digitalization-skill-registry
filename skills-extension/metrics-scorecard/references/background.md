@@ -8,6 +8,10 @@ tags: [background]
 ---
 # Background
 
+## Dated record: ODEC
+
+ODEC met monthly only until 2025-12 and no longer does; there is no fixed replacement forum. Its past reports remain a source of information. The skill therefore claims no fixed round calendar. Open question for the OD lead: the skill's valid_until (2026-11-10) has passed; renew or confirm the sources and the round names.
+
 ## Outputs and hand-off: the text before outputs.yaml
 
 `metrics-scorecard` delivers one filled scorecard update per cycle: refreshed metrics with read dates, the regional breakout and the honest headline, ready to hand to the round or the requester. It is not a summary reconstructed afterwards.

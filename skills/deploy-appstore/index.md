@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [App deployment to the platform](SKILL.md) | Agent Skill | Prepare and gate deployment of a manufacturing app (Lane 3a): sourcing route, deployment package, release gate with Cyber Security sign-off, handover to rollout. Sign-off human-only. |
+| [App deployment to the platform](SKILL.md) | Agent Skill | Prepares the deployment package for a manufacturing app on the plant platform (Lane 3a), checks it against the department's GitOps shape and runs the release gate: sourcing route (reuse, self-developed, external, foreign app), maturity of the platform, rollback owner, acceptance protocol, Cyber Security sign-off requested or granted, then handover to rollout. Use after the requirement, tool decision and business case are done and before an app goes to the app store or edge runtime, or when someone asks what is needed to deploy an app. Drafts only; deploying and the sign-off are human-only. Not for building the app, not for the Cyber Security package itself (deploy-cybersec). |
 
 | Folder | Holds |
 |---|---|

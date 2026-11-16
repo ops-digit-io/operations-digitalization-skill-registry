@@ -1,7 +1,7 @@
 ---
 name: catalog-usecase
 description: >-
-  Match a plant request to a proven catalogued use case (Lane 1), or say it is not catalogued and route it to Lane 2/3; set what a Lane 2 result needs to graduate. Not for systems (catalog-systems).
+  Match a plant request to a proven catalogued use case (Lane 1): reduce the request, find the capability template and library entry, check the CSP status and data preconditions, and write the match record with the branch and next skill. If it is not catalogued, say so and route it to Lane 2 or Lane 3. Also sets what a proven Lane 2 result needs to graduate into the catalog. Use when a plant asks "does another plant already have this", wants a dashboard or screen that may exist, when an entry is proposed for the catalog, or when a Lane 2 result should become repeatable. Recommends only; the plant decides what it runs and the CSP decision stays with its owner. Not for standard systems or kits (catalog-systems), the go-live check (catalog-guardrails) or rollout standardization (catalog-standardization).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -24,74 +24,53 @@ metadata:
     tags: [all, practice, new-state, ready, catalog]
 ---
 
-# Catalog: use cases, standard systems, go-live guardrails
-
-- Read `dept-context` first.
-
-- Merged from: `catalog-usecase`.
+# Catalog: match a request to a use case, and graduate
 
 ## Purpose
 
-- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
-- Matches a plant's request to a catalogued use case, or says plainly that it is not catalogued so the demand falls to Lane 2 or Lane 3,
-- and records what a proven Lane 2 result must show to graduate into the catalog.
-- Use it when a plant asks for a use case another plant already has, when a result should graduate, or when an entry is proposed.
+- Match a plant's request to a catalogued use case, or say plainly that it is not catalogued so the demand falls to Lane 2 or Lane 3.
+- Record what a proven Lane 2 result must show to graduate into the catalog.
+- Use it when a plant asks for something another plant already has, when a Lane 2 result should graduate, or when an entry is proposed.
+- Systems are `catalog-systems`; the go-live self-check is `catalog-guardrails`.
+- Read `dept-context` first.
+
+## Terms used here
+
+- **Catalog**: the plant-facing set of proven use cases; **catalogued** means all four conditions below hold.
+- **Library entry**: a reference-library solution; it carries the CSP decision. A plant use case or dashboard family does not.
+- **Capability template**: one of the eleven cross-plant templates.
+- **Candidate**: a library entry or validated prototype that does not yet meet all four conditions.
 
 ## Inputs and output
 
-- **Inputs**: the plant's request (reduced to object, event and time axis), the reference-library entries and their CSP status, the capability templates, and the data-availability result (machine connected, signals present).
+- **Inputs**: the plant's request (reduced to object, event and time axis), the library entries and their CSP status, the capability templates, and the data-availability result (machine connected, signals present).
 - **Output**: the match record [`assets/catalog-match-record.md`](assets/catalog-match-record.md) with the branch (1a, 1b, Lane 2 or Lane 3) and the next skill, or a graduation proposal when the four conditions hold.
-
-- Fictional example (invented entry, not a catalog record):
-
-```text
-Request : "show scrap per shift on line X" (fictional)
-Match   : candidate = library entry E-0 (fictional), capability template = quality
-          CSP status = not decided -> not catalogued -> fall through to Lane 2
-```
-
-- If it fails: a candidate without a recorded CSP `Yes`, or a precondition that fails validation, is not catalogued; route it to Lane 2 rather than matching it.
-
-- **Status: ready (awaiting sign-off);
-- content is a scaffold.** The new-state flow needs three net-new builds that belong together:
-- a plant-facing catalog of proven use cases, a standardized connection-kit list a plant can match a use case against and order, and a self-check to go live.
-- No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources.
-- This skill defines how a request is matched, what an entry must hold and what the plant checks before go-live; it states no entry, names no kit and presents no guardrail set as complete.
+- Output contract: [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where the flow puts it
 
-| Step | Lane / branch | What this skill does | Part |
-|---|---|---|---|
-| 1a1 | Lane 1, machine connected | "Pick from catalog": match the request to an entry, check preconditions | A |
-| 1b1 | Lane 1, machine not connected | "Pick UC + std system": entry, then a standardized system or no fit | A, B |
-| 1b2, 1b3 | Lane 1b | Cost template and lightweight approval (`dept-decision-rights`), then order and connect (`mi-equipment`); this skill hands over | B |
-| 1a3 (and 1b4) | Lane 1 | "Validate and go live": the plant's self-check | C |
-| 26 | end of Lane 2 | A proven, repeatable result graduates into the catalog and becomes a future Lane 1 case | A |
+| Step | Lane / branch | What this skill does |
+|---|---|---|
+| 1a1 | Lane 1, machine connected | "Pick from catalog": match the request to an entry, check preconditions |
+| 1b1 | Lane 1, machine not connected | "Pick UC + std system": match the entry, then hand to `catalog-systems` |
+| 26 | end of Lane 2 | A proven, repeatable result graduates into the catalog and becomes a future Lane 1 case |
 
-## Shared rules (stated once)
+## Shared rules
 
 - The **plant decides** what it runs, owns the use case and decides daily use and `PRODUCTIVE`.
-   - The **CSP decision** (is a solution standard enough to roll out across plants) stays with its owner (`dept-decision-rights`).
-   - Ordering and connecting stay with the integration owner and the approval route.
-   - **Cyber Security sign-off for an external connection is human-only.**
-- Footprint: keep the **lean, standardized system footprint** (measured as the number of systems in operation; the target is to be confirmed). Anything outside it goes through `invest-screen`.
-- No invented entries, counts, kits, prices, lead times, savings or impact figures. Mark what is to be collected; every status carries its source and read date. Counts and statuses are re-derived live, never copied.
-- A "Yes" without evidence counts as "not checked".
-
-- ---
-
-# Part A - Pick a use case and graduate (steps 1a1, 1b1, 26)
-
-- What the catalog builds on, and how to count library entries by CSP decision live: [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md), [`references/library-and-csp-state.md`](references/library-and-csp-state.md).
-- Re-count before quoting; at most the entries with a recorded CSP `Yes` are standard enough to take as they are.
+- The **CSP decision** (is a solution standard enough to roll out across plants) stays with its owner (`dept-decision-rights`).
+- Ordering and connecting stay with the integration owner and the approval route. **Cyber Security sign-off for an external connection is human-only.**
+- Footprint: keep the **lean, standardized system footprint**; anything outside it goes through `invest-screen` first.
+- No invented entries, counts, kits, prices, lead times, savings or impact figures. Mark what is to be collected.
+- Every status carries its source and read date; counts are re-derived live, never copied, because the library changes.
+- A "Yes" without evidence counts as "not checked", because a copied Yes may be stale or belong to another entry.
 
 ## What counts as "catalogued"
 
-- All must hold.
-- Points 1 and 4 come from the sources; **2 and 3 are proposals** to confirm with the OD lead.
+- All four must hold. Conditions 1 and 4 come from the sources; **2 and 3 are proposals** to confirm with the OD lead.
 
-1. A **CSP decision `Yes`** is recorded for it.
-2. It maps to one of the eleven **capability templates**.
+1. A **CSP decision `Yes`** is recorded for it (read from the library entry; `references/library-and-csp-state.md`).
+2. It maps to one of the eleven **capability templates** (`references/template-coverage.md`).
 3. Its **signals are standardized** (`mi-signals`), so a second plant can consume them.
 4. It has a **plant owner** and a handover record that passed the three-question test (`deploy-handover`).
 
@@ -100,49 +79,70 @@ Match   : candidate = library entry E-0 (fictional), capability template = quali
 ## Procedure - pick
 
 1. **Load `dept-context`.** Run `dept-intake` if the request is not yet classified. Reduce the plant's sentence to object, event and time axis.
-2. **Find the capability template**, then the matching reference-library entries (`catalog-standardization`). Check the template page and the entry, not the title ([`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md)).
-3. **Check the CSP status** of each candidate. No recorded `Yes` - stop, fall through to Lane 2.
-4. **Check preconditions** (`mi-data-availability`): machine connected, signals present. Connected - branch **1a**. Not connected - branch **1b** (Part B).
+2. **Find the capability template**, then the matching library entries (`catalog-standardization`). Check the template page and the entry, not the title, because the same title sits in different templates (`references/placement-traps-and-documentation.md`).
+3. **Check the CSP status** of each candidate. No recorded `Yes`: stop, fall through to Lane 2.
+4. **Check preconditions** (`mi-data-availability`): machine connected, signals present. Connected: branch **1a**. Not connected: branch **1b** (`catalog-systems`).
 5. **Footprint.** A need outside the lean footprint: `invest-screen` first. A plant does not self-serve such a use case.
-6. **Write the match record** ([`assets/catalog-match-record.md`](assets/catalog-match-record.md)) and hand over: 1a to `ops-analytics-asset`; 1b to Part B; fall-through to Lane 2 or Lane 3.
+6. **Write the match record** and hand over: 1a to `ops-analytics-asset`; 1b to `catalog-systems`; fall-through to Lane 2 or Lane 3.
    - Name the plant's **utilization moment** (who opens it, in which meeting, which action follows) or mark it `<to confirm>`.
 
-- Match record fields: request, plant, plant owner; candidate entry (library id, capability template); CSP status (`Yes` / `No` / not decided, with source); preconditions with the data-availability verdict; branch (1a / 1b / Lane 2 / Lane 3); next skill.
+- Match record fields: request, plant, plant owner; candidate entry (library id, capability template); CSP status (`Yes` / `No` / not decided, with source); preconditions with the data-availability verdict; branch; next skill.
 
-## Graduation into the catalog (step 26)
+### Check before handoff
 
-- Use `catalog-standardization` for template, cluster and CSP step and `deploy-handover` for the plant handover.
-- Propose the entry only when the four conditions hold.
-- A validated prototype alone is a **candidate**, not an entry: graduation means the prototype has become a configurable, packaged application.
-- A *unique* (site-specific) use case does not graduate.
-- Record the plant's utilization moment in the entry; a deployed but unused use case is not a success.
-- Stages, archetypes and entry content: [`references/process-chain-practice.md`](references/process-chain-practice.md) Part A.
+- [ ] CSP status is stated with its source and read date.
+- [ ] Each of the four conditions is marked met, not met or not checked.
+- [ ] The branch and the next skill are named.
+- [ ] The utilization moment is named or marked `<to confirm>`.
 
-- ---
+## Procedure - graduate (step 26)
 
-# Part B - Standardized systems and Part C - Go-live guardrails
+1. Run `catalog-standardization` for template, cluster and the CSP step; `deploy-handover` for the plant handover.
+2. Propose the entry only when the four conditions hold.
+3. Treat a validated prototype alone as a **candidate**, not an entry: graduation means it has become a configurable, packaged application.
+4. Do not graduate a *unique* (site-specific) use case.
+5. Record the plant's utilization moment in the entry, because a deployed but unused use case is not a success.
+6. Stages, archetypes and entry content: `references/process-chain-practice.md`, Part A.
 
-- Split into their own department skills (2026-11-10): **`catalog-systems`** (pick a standardized system, step 1b1, hand to 1b2 and 1b3) and **`catalog-guardrails`** (the go-live self-check, steps 1a3 and 1b4).
-- This skill keeps the catalog of use cases and the graduation into it.
+## Examples
+
+```text
+Request : "hour-by-hour output board for one assembly line" (fictional)
+Match   : capability template = Andon Board; candidate = library entry E-1 (fictional)
+          CSP Yes (library note, with read date); conditions 2 met, 3 not checked, 4 met
+          machine connected, signals present -> branch 1a -> ops-analytics-asset
+```
+
+```text
+Request : "show scrap per shift on line X" (fictional)
+Match   : candidate = library entry E-0 (fictional), capability template = quality
+          CSP status = not decided -> not catalogued -> fall through to Lane 2
+```
+
+```text
+Graduation (Lane 2 result, fictional): stop-reason tablet app proven at plant Alpha.
+Conditions: CSP not yet recorded -> proposal prepared for the CSP decision, not an entry.
+Next: catalog-standardization (CSP readiness), deploy-handover (owner and handover record).
+```
 
 ## Human gate and AI-agent notes
 
 - **An agent may**: reduce the request, find the template and library entries, check CSP status and preconditions, and draft the match record or a graduation proposal.
 - **Stays with roles**: the plant decides what it runs and when it is `PRODUCTIVE`; the CSP decision stays with its owner; Cyber Security sign-off for an external connection is human-only.
 
-## Done when
+## Pitfalls
+
+- Presenting a library entry as catalogued without a recorded CSP `Yes`: the plant then self-serves something not standard enough to roll out.
+- Inventing entries, counts, kits, prices, lead times, savings or impact figures, or accepting an unsourced figure.
+- Reading a blank integration status as "not integrated": many machines carry no status; ask the integration owner (`mi-data-availability`).
+- Matching on the title: the same title sits in different templates, so the match must be on the template page and the entry.
+- Letting a plant self-serve a use case outside the lean footprint without `invest-screen`.
+- Taking the CSP decision, approving a connection, signing off Cyber Security, or deciding go-live for the plant.
+
+## Definition of done
 
 - The match record names the branch and the next skill, with the CSP status and its source and read date; or a fall-through to Lane 2 or Lane 3 is stated plainly.
 - A graduation proposal is done when all four conditions hold and the plant's utilization moment is recorded.
-
-## Pitfalls
-
-- Present a reference-library entry as catalogued without a recorded CSP `Yes`.
-- Invent entries, counts, kits, prices, lead times, savings or impact figures. Do not accept an unsourced figure to pass G4.
-- Treat a route marked TODO or stub as a standard system. Beckhoff on the edge platform is the standing example.
-- Let a plant self-serve a use case, or propose a system, outside the lean footprint without `invest-screen`.
-- Take the CSP decision, approve a connection, sign off Cyber Security, or decide go-live for the plant.
-- Let a plant go live with a failed or unchecked guardrail, or present G1 to G7 as complete.
 
 ## Outputs
 
@@ -153,16 +153,13 @@ Match   : candidate = library entry E-0 (fictional), capability template = quali
 
 | File | Open when |
 |---|---|
-| [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md) | What the catalog builds on, route-candidate pattern, standardized-system entry fields |
-| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Counting library and CSP decisions live, which of the four conditions the knowledge base shows |
-| [`references/template-coverage.md`](references/template-coverage.md) | The eleven templates: delivered vs wanted coverage, peer plants, data needed, boundaries, screen components |
-| [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Placement traps, what "Other Use Cases" resolves into, documentation standard of a usable peer |
-| [`references/validated-routes.md`](../catalog-systems/references/validated-routes.md)) | Classifying a route A to D, counting evidence live |
-| [`references/tools-and-footprint.md`](../catalog-systems/references/tools-and-footprint.md)) | Integration concepts, shop-floor tools, rollout status, lean footprint for a kit |
-| [`references/legacy-application-position.md`](references/legacy-application-position.md) | What the kit meets on the floor: licence, support, criticality, cyber position |
-| [`references/tool-boundaries-mda-mes-mil-msb-qfpr.md`](../catalog-systems/references/tool-boundaries-mda-mes-mil-msb-qfpr.md)) | Is / is-not / recommended-if for MDA/PDA, MES, MIL, MSB, QFPR |
-| [`references/technical-guardrails.md`](../catalog-guardrails/references/technical-guardrails.md)) | Candidates G8 to G18 with source, failure prevented, block-or-warn |
-| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | Failure patterns mapped to guardrails, proposed G19, who to call, post-go-live utilization |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Part A graduation stages; Part B edge vs OPC UA client; Part C P1 to P7, handoff, agent notes |
-| `assets/catalog-match-record.md`, `assets/standard-system-entry.md`, `assets/go-live-check-record.md` | Match record, system entry, go-live record |
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`assets/catalog-match-record.md`](assets/catalog-match-record.md) | Step 6: the blank match record and its worked example |
+| [`references/library-and-csp-state.md`](references/library-and-csp-state.md) | Step 3: counting library entries and CSP decisions live, before you tell a plant something is catalogued |
+| [`references/template-coverage.md`](references/template-coverage.md) | Step 2: the eleven templates, peer plants, data needed, boundary rules |
+| [`references/placement-traps-and-documentation.md`](references/placement-traps-and-documentation.md) | Step 2: placement traps, what "Other Use Cases" resolves into, documentation standard of a usable peer |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Graduation: Part A stages and archetypes (Parts B and C serve `catalog-systems` and `catalog-guardrails`) |
+| [`references/sources-and-entry-fields.md`](references/sources-and-entry-fields.md) | What the catalog builds on and the entry fields; shared with `catalog-systems` |
+| [`references/legacy-application-position.md`](references/legacy-application-position.md) | A kit must coexist with an installed application (shared with `catalog-systems`) |
+| [`references/failure-cases-and-routing.md`](references/failure-cases-and-routing.md) | A guardrail fails or a post-go-live utilization question comes up (shared with `catalog-guardrails`) |
+| [`references/background.md`](references/background.md) | Context, rationale, split history and open questions; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

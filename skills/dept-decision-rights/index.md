@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Decision routing and escalation](SKILL.md) | Agent Skill | Answer "am I allowed to do this, and who decides?" for OD work: map a decision to its owner, approval and authority level. Not for assigning a request to a lane (dept-intake). |
+| [Decision routing and escalation](SKILL.md) | Agent Skill | Answers "am I allowed to do this, and who decides?" for OD work: maps a decision to its owner role, mode (Tandem, Consultation, Information), approval, threshold and authority level, records the gate as a dependency and routes the escalation. Use before committing spend, approving or ordering a machine connection, changing a signal or data-model standard, rolling out a tool, or when someone asks who signs off, whether OD may approve something itself, or why a saving is stuck at a gate. Drafts and routes only; the named role decides. Not for sorting a new request into a lane (dept-intake) or for filling the capital request (bc-capital-request). |
 
 | Folder | Holds |
 |---|---|

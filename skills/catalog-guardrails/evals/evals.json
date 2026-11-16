@@ -1,0 +1,47 @@
+{
+  "skill": "catalog-guardrails",
+  "cases": [
+    {
+      "id": "plant-wants-to-go-live",
+      "type": "should-trigger",
+      "prompt": "Plant X (fictional) copied a line-state board from another plant and wants to declare it productive next week. The data check says signals are fresh and a plant owner is named. What do we need to check before they go live?",
+      "expected_output": "The assistant walks through the guardrails G1 to G7 and G7a, asking for evidence (verdict, source, name) for each.\nA guardrail without evidence is recorded as not checked, not passed.\nIt produces or drafts a go-live check record with result, evidence, date and answering role per guardrail.\nThe final line states that the go-live decision is the plant's; the assistant does not declare the screen productive.",
+      "files": []
+    },
+    {
+      "id": "unsourced-savings-number",
+      "type": "should-trigger",
+      "prompt": "The screen we built shows 'saves 30k per year' in the header. We took it from a colleague's slide. We want to go live today. Is that fine?",
+      "expected_output": "G4 (no invented figures) is marked failed because no source and capture date are named.\nThe result is no go-live until the number is removed or marked as to be collected.\nThe failed guardrail is re-checked after the fix before the report says all passed.\nThe plant keeps the go-live decision.",
+      "files": []
+    },
+    {
+      "id": "external-connection-and-changed-model",
+      "type": "edge",
+      "prompt": "For our copied dashboard we added a connection to a supplier portal and changed two signal names in the model so it fits our naming. Can we skip the formal checks since it is a small change?",
+      "expected_output": "G7 is flagged: an external connection needs a Cyber Security sign-off, which is human-only; hold at the wait state.\nG7a is flagged: changing the data model or signal standard is not self-service and goes to Lane 2 or Lane 3.\nThe assistant does not accept 'small change' as a reason to skip the checks.\nIt does not mark either guardrail as passed.",
+      "files": []
+    },
+    {
+      "id": "data-availability-near-miss",
+      "type": "near-miss",
+      "prompt": "Are the signals for the new press line actually available and fresh in the platform? I need to know before we plan anything.",
+      "expected_output": "The assistant recognises this as the data-availability check, not a go-live guardrail run.\nIt routes to the data availability step (mi-data-availability) instead of filling a go-live check record.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Can our plant go live with the dashboard we copied from another plant?",
+      "Run the go-live self-check on our line board",
+      "What guardrails apply before we declare this screen productive?",
+      "We want to propose a new guardrail for self-served dashboards"
+    ],
+    "should_not_trigger": [
+      "Are the signals for this machine available and fresh?",
+      "Which catalogued use case matches our request for a line status board?",
+      "Check whether the handover is accepted and the screen is actually used after go-live",
+      "Which standard system kit should the plant order for this connection?"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 ---
 name: process-derivation
 description: >-
-  Derive a lived business process from a validated use case: gate on request, demand and passed prototype; redesign, BPMN to-be model, adoption plan, landscape entry, monitoring. Not for building the prototype.
+  Turn a passed prototype into a process the plant can run and keep: check the gate (use-case request, use-case demand, validated prototype), then write the change in one sentence, redesign it with evidence, draw the to-be process as a BPMN 2.0 model checked by a script, plan adoption per role group, draft the process-landscape entry and the monitoring questions. Use when a click-dummy or proof of concept passed and the plant asks what process now changes, who owns it and how it is embedded. Drafts only; the process owner accepts. Not for building the prototype (funnel-prototype), the business case (bc-build) or handover (deploy-handover).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -63,28 +63,29 @@ metadata:
 
 ## Procedure
 
-- Phases follow the BPM lifecycle: identify, discover, analyse, redesign, implement, monitor [PD1].
-- Keys [PDn] are in [`references/public-methods.md`](references/public-methods.md).
+- Phases follow the BPM lifecycle [PD1]; keys [PDn] and the method names are in [`references/public-methods.md`](references/public-methods.md).
 
 1. **Check the gate.** Open the three records, copy their references into section 0 of the package, and read the prototype result.
    - If anything is missing or the result is not "passed", write the refusal note and stop.
-   - Control point: three references and one result in the package.
-2. **Identify the process.** Name it as verb and object, name the **owner role** (never a person) and the plants or lines in scope; ask which process landscape applies. Control point: an owner role exists. No owner role means no process.
+   - Control point: three references and one result in the package, because a statement is not evidence and a typed "passed" proves nothing.
+2. **Identify the process.** Name it as verb and object, name the **owner role** (never a person) and the plants or lines in scope; ask which process landscape applies.
+   - Control point: an owner role exists, because a person leaves and a project team dissolves. No owner role means no process.
 3. **Read the prototype as the as-is evidence** (discovery). What users did, which roles took part, what the pass criterion and result said, what was not tested. Ask the plant validator only for what the record does not answer. Method: [`references/derivation-method.md`](references/derivation-method.md).
 4. **Write the change in one sentence, then redesign.** "Today <role> does <work> with <system>; after the change <role> does <work> with <use case output>." Run the redesign checklist [PD2];
    - judge every change on cost, flexibility, time and quality with evidence, or list it as an open item.
-   - Control point: no design change without evidence.
+   - Control point: no design change without evidence, because an unevidenced redesign is an opinion the owner cannot weigh.
 5. **Model the to-be process in BPMN** [PD3] [PD4]: one pool, a lane per role, named events and gateways, labelled flows, the exception path, external waits as events.
    - Use a decision table (DMN [PD6]) or a case model (CMMN [PD5]) only where a flow is the wrong tool.
    - Run `python scripts/check_derivation.py package.md process.bpmn` and fix every finding.
-   - Control point: the check reports READY.
+   - Control point: the check reports READY, because a model with an unnamed gateway or no exception path cannot be run by a shift.
 6. **Standardise the repetitive work** [PD9]: sequence, role, trigger, what the use case shows, who may change the standard and when it is reviewed. Skip it, with the reason, for work that has no fixed sequence. Method: [`references/adoption-and-embedding.md`](references/adoption-and-embedding.md).
-7. **Plan the change.** One ADKAR row per role group with evidence for the earliest unmet element [PD10]; a programme-level check against Kotter's steps [PD11] if the change spans more than one team;
+7. **Plan the adoption and embedding.** One ADKAR row per role group with evidence for the earliest unmet element [PD10]; a programme-level check against Kotter's steps [PD11] if the change spans more than one team;
    - the five change-control points [PD12] if the process alters how a line or machine is operated.
    - Control point: every role group has a row with evidence.
-8. **Hook the process into the landscape**: level, parent, stable id, interfaces with the object that crosses, owner role, model location, version, review date [PD7]. Method: [`references/landscape-and-monitoring.md`](references/landscape-and-monitoring.md). Control point: every interface names its object.
+8. **Hook the process into the landscape**: level, parent, stable id, interfaces with the object that crosses, owner role, model location, version, review date [PD7]. Method: [`references/landscape-and-monitoring.md`](references/landscape-and-monitoring.md).
+   - Control point: every interface names its object, because an interface without it is an arrow nobody can staff.
 9. **Design the monitoring now** [PD13]: which events the use case system records with timestamp and case id, which three questions the owner will ask, the event-to-model mapping, who looks and how often, and what triggers a new model version.
-   - Control point: if no event data exists, say so as an open item.
+   - Control point: if no event data exists, say so as an open item; design it now because events not recorded at go-live cannot be recovered later.
 10. **Close the package.** List the open items and the decisions that belong to humans.
    - Hand it to `bc-build` (step 24) as evidence for the benefit rows; the model, the plan and the landscape entry wait for the approval route and are executed in step 26 with `deploy-handover`.
    - Stop there.
@@ -105,6 +106,7 @@ metadata:
 - "Everyone is informed" as the adoption plan: it names no role group and no barrier.
 - Treating the regulation in [PD12] as proof that a plant process is covered by it. It is a checklist pattern here.
 - Treating the numbering of a landscape as a sequence; the order lives in the model [PD7].
+- Trusting READY as truth: the script checks structure of the records and the model, not that the records exist or say what the cell says; open them.
 - Promising process mining. The skill prepares the event data and the questions [PD13]; running it is separate work.
 
 ## Definition of done
@@ -127,13 +129,22 @@ Landscape: process id proposed, Level 3, parent "Run production", owner role = p
 Monitoring: event "reason recorded" with timestamp and stop id; question 1 = share of stops with a reason within the shift
 ```
 
+## Example of a refusal note
+
+```text
+Refusal note (fictional): Gate not met. Use-case request: record A found. Use-case demand: none recorded.
+Validated prototype: record C result "inconclusive". Returned to funnel-requirements (demand) and funnel-prototype (re-test).
+No model drawn. Next step: the requester role supplies acceptance criteria; the plant validator repeats the session.
+```
+
 ## Available Scripts
 
 | Script | Purpose | Arguments |
 |---|---|---|
-| [`scripts/check_derivation.py`](scripts/check_derivation.py) | Check the gate record of a package and the structure of a BPMN file (start and end events, connected flow, named gateways with labelled flows, every task in a lane, named tasks) | `package.md [process.bpmn]`; exit 0 = READY, 1 = findings printed |
+| [`scripts/check_derivation.py`](scripts/check_derivation.py) | Check the gate record of a package and the structure of a BPMN file (start and end events, connected flow, named gateways with labelled flows, every task in a lane, named tasks) | `package.md [process.bpmn]` or a lone `process.bpmn`; `--help`; exit 0 = READY, 1 = findings printed, 2 = usage or unreadable file |
 | [`scripts/test_check_derivation.py`](scripts/test_check_derivation.py) | Tests of the check | `python -m unittest scripts/test_check_derivation.py` |
 
+- Requirements: Python 3, standard library only. The check tests structure (filled gate rows, "passed", BPMN rules), not the truth of the records.
 - An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
 ## Outputs
@@ -143,7 +154,7 @@ Monitoring: event "reason recorded" with timestamp and stop id; question 1 = sha
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
 | [`references/public-methods.md`](references/public-methods.md) | The public sources: what each says (quoted), what it is used for, its tier, what could not be verified, and the finding that no single method covers this trigger |
 | [`references/derivation-method.md`](references/derivation-method.md) | Steps 3 to 5: the prototype as as-is evidence, the redesign checklist, BPMN modelling rules, decision table or case model, stop conditions |
@@ -153,3 +164,4 @@ Monitoring: event "reason recorded" with timestamp and stop id; question 1 = sha
 | [`assets/process-derivation-package.md`](assets/process-derivation-package.md) | The package this skill produces, with the gate record |
 | [`assets/to-be-process.example.bpmn`](assets/to-be-process.example.bpmn) | A fictional BPMN 2.0 model that passes the check; copy it as the starting point |
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

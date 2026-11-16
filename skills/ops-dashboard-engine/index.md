@@ -5,7 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | [OD integration](OD-INTEGRATION.md) | Skill Guide | How the portable Grafana dashboard skill is used at OESL: which lane calls it, what a plant Grafana instance is for, and what stays out of it. |
-| [Grafana ops dashboard builder](SKILL.md) | Agent Skill | Build importable Grafana JSON dashboards over SQL for operations data, with portable queries, variables and ECharts panels. Not for HTML dashboards or choosing the asset (ops-analytics-asset). |
+| [Grafana ops dashboard builder](SKILL.md) | Agent Skill | Build importable Grafana JSON dashboards over SQL for operations data (downtime, production, quality, energy, machine telemetry): schema interview, relational or UUID-telemetry archetype, manager, analyst or operations tier, portable PostgreSQL and DuckDB queries with Grafana time macros, variables, ECharts panels, audit checklist. Use when someone asks for a Grafana dashboard JSON to import, a downtime or telemetry dashboard, panel SQL that fails on DuckDB, or a dashboard rebuilt after a wrong schema assumption. Not for HTML or Chart.js dashboards (build-dashboard) or choosing the asset type and ritual (ops-analytics-asset). |
 | [Usage guide](usage_guide.md) | Skill Guide | How an assistant running with the Grafana skill installed should drive it end to end, from schema interview to delivered JSON. |
 
 | Folder | Holds |

@@ -8,6 +8,13 @@ tags: [signals, machine-context]
 ---
 # Machine context — reading how the machine works
 
+## Contents
+
+- The sources, what each yields, and what it cannot tell you
+- Confidence — say which source a signal came from
+- The translation — from context to a standardized signal
+- What to do when the context is thin
+
 A tag list says what the machine *emits*. It does not say what the machine *does*. Without
 that, you get names without meanings — which is the failure the whole skill exists to
 prevent.

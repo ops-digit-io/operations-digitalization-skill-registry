@@ -8,6 +8,21 @@ tags: [integration, softing, opc-ua]
 ---
 # Pattern — Central Aggregation Server (Softing dataFEED OPC Suite)
 
+## Contents
+
+- ⚠ Where the OESL guidance does not match the product
+- What dataFEED can actually connect (V5.70)
+- Licences, before anything else
+- The shape of every data-source pattern
+- Tag definition — three methods
+- Driver — Siemens (S7-300 / 400 / 1200 / 1500, S5)
+- Driver — Rockwell / Allen Bradley
+- Driver — Modbus
+- Driver — B&R, Mitsubishi, SINUMERIK, FANUC
+- Driver — OPC UA Server as a data source
+- Commissioning hygiene
+- Fallbacks specific to this pattern
+
 The aggregation pattern: a Softing dataFEED OPC Suite server holds the driver connections to
 the PLCs and exposes them as one OPC UA address space, which the IIoT Edge Platform then
 reads through the `DTQ-OPCUA-Connector`. No edge device in the machine cabinet, no 24 V

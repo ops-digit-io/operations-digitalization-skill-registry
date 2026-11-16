@@ -18,17 +18,39 @@ Only edit the CASE dict and the slide-assembly section at the very bottom. The
 helper library and the slide-type functions above it are the stable engine and
 should not need changing. All output is English (project rule).
 
-Template path is resolved relative to this file: assets/_nw_template.pptx.
+Usage: python build_ecr.py [--template PATH] [--case case.json] [--out PATH]
+  --template  neuwerk template; default: _nw_template.pptx beside this script, else ../assets/
+              (the template comes from the department package ecr-builder.zip, it is not stored here)
+  --case      JSON object whose keys overwrite the top-level CASE keys (slug, title_tag, presenter, year, tagline)
+  --out       output pptx (default eCR_<slug>_neuwerk.pptx)
+The slide content inside build() is the illustrative worked example; edit it for a real case.
+Requires: python-pptx (pip install python-pptx). Exit code 1 on a missing template, bad JSON or missing python-pptx.
 """
+import argparse
+import json
 import os
-from pptx import Presentation
+import sys
+
+_ap = argparse.ArgumentParser(description="Render the eCR management summary as a neuwerk-branded pptx.")
+_ap.add_argument('--template', help='path to _nw_template.pptx')
+_ap.add_argument('--case', help='JSON file with CASE overrides')
+_ap.add_argument('--out', help='output pptx path')
+_args = _ap.parse_args()
+try:
+    from pptx import Presentation
+except ImportError:
+    sys.exit('python-pptx is required: pip install python-pptx')
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, '_nw_template.pptx')
+_cands = [_args.template] if _args.template else [os.path.join(HERE, '_nw_template.pptx'),
+                                                    os.path.join(HERE, '..', 'assets', '_nw_template.pptx')]
+SRC = next((c for c in _cands if os.path.isfile(c)), None)
+if SRC is None:
+    sys.exit('template not found (looked at: %s). Pass --template PATH; the neuwerk template comes from the department package.' % ', '.join(_cands))
 
 # ---- neuwerk palette -------------------------------------------------------
 NAVY, DEEP, BLUE, PERI = '1B1E51', '273892', '4E66AE', '8793CA'
@@ -679,7 +701,13 @@ def build():
 
 
 if __name__ == '__main__':
+    if _args.case:
+        try:
+            with open(_args.case, encoding='utf-8') as fh:
+                CASE.update(json.load(fh))
+        except (OSError, ValueError) as err:
+            sys.exit('cannot read --case file %s: %s' % (_args.case, err))
     build()
-    out = 'eCR_%s_neuwerk.pptx' % CASE['slug']
+    out = _args.out or 'eCR_%s_neuwerk.pptx' % CASE['slug']
     prs.save(out)
     print('written', out, 'slides:', len(prs.slides._sldIdLst))

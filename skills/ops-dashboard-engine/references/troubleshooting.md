@@ -8,6 +8,18 @@ tags: [grafana, troubleshooting]
 ---
 # Troubleshooting — common errors and fixes
 
+## Contents
+
+- SQL errors (both archetypes)
+- SQL errors (relational archetype)
+- SQL errors (timeseries archetype)
+- Grafana panel errors
+- Variable definition errors
+- Performance issues
+- When in doubt
+- First-time DuckDB setup verification
+- DuckDB-specific gotchas beyond macros
+
 > **Reminder.** Two hard rules from `SKILL.md` apply to every query in this skill:
 >
 > 1. Use Grafana macros for time (`$__timeFilter`, `$__timeGroup`, `$__interval`). Raw `$__timeFrom()/$__timeTo()` only for window clipping, `generate_series` bounds, and interval-overlap WHERE clauses.

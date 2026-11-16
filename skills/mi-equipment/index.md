@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Equipment integration — assessment and guidance](SKILL.md) | Agent Skill | Assess and connect machines to the platform: plan a wave, route a machine to IIoT Edge or dataFEED, clear gates, triage a machine that will not connect. Not for acceptance (deploy-acceptance). |
+| [Equipment integration — assessment and guidance](SKILL.md) | Agent Skill | Recommend how to connect machines to the platform and draft the assessment behind it. Use when a machine will not connect, when someone asks "which connector or route do we use for this PLC", "what do we need at the plant to connect these machines", or "what blocks this machine", when a plant or wave of machines needs an integration plan, when a machine is to be routed to IIoT Edge or dataFEED, or when gates (budget, infrastructure, PLC program, tags, Cyber Security) must be cleared before connecting. Drafts assessments, roadmaps and routes; a human connects the machine and approves any external connection. Not for acceptance (deploy-acceptance), signal standards (mi-signals) or checking data (mi-data-availability). |
 
 | Folder | Holds |
 |---|---|

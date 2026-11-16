@@ -14,24 +14,24 @@ tags: [outputs, handoff]
 
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
-| system-fit-check | `assets/system-fit-check.md`, filled | `dept-intake`, `funnel-requirements`, The calling skill ( | The need is restated independent of the request's wording; Each tool boundary is checked with a stated reason; This plant's availability is checked and dated; One verdict (fits, redesign, escalate) and a named next step |
+| system-fit-check | `assets/system-fit-check.md`, filled | `dept-intake`, `funnel-requirements`, The calling skill (dept-intake or funnel-requirements) | The need is restated independent of the request's wording; Each tool boundary is checked with a stated reason; This plant's availability is checked and dated; One verdict (fits, redesign, escalate) and a named next step |
 | existing-system-worksheet-when-a-legacy | `assets/existing-system-worksheet.md`, filled | OD lead, with the check | Filled whenever the plant may already run a covering application or tool |
 | exception-escalation-verdict-escalate | Decision request via the "Tool/system rollout" row | `dept-decision-rights`, the OD lead decides together with the IT-responsible role of the business side | The boundary line crossed and the dated plant availability are cited |
-| lane-3-gate-result-step-32 | Verdict and route in the system fit check | `dept-decision-rights`, `deploy-appstore`, `mi-equipment`, then the route's skill:  (3a.1, 3a.2), OpenSpec IT demand (external) (3a.3, 3a.4) | Footprint gate has no open point (or the verdict is Blocked); One route (3a.1 to 3a.4 or 3b) with its next skill; Six criteria scored with the verdict in the department's words and one decisive reason |
+| lane-3-gate-result-step-32 | Verdict and route in the system fit check | `dept-decision-rights`, `deploy-appstore`, `mi-equipment`, deploy-appstore (routes 3a.1 and 3a.2), OpenSpec IT demand (external) (routes 3a.3 and 3a.4), mi-equipment (route 3b) | Footprint gate has no open point (or the verdict is Blocked); One route (3a.1 to 3a.4 or 3b) with its next skill; Six criteria scored with the verdict in the department's words and one decisive reason |
 
 ## Checks
 
 | Output | Check | Sign-off |
 |---|---|---|
-| system-fit-check | structure of `assets/system-fit-check.md` | The calling skill ( |
+| system-fit-check | structure of `assets/system-fit-check.md` | The calling skill (dept-intake or funnel-requirements) |
 | existing-system-worksheet-when-a-legacy | structure of `assets/existing-system-worksheet.md` | OD lead |
 | exception-escalation-verdict-escalate | manual | the OD lead decides together with the IT-responsible role of the business side |
-| lane-3-gate-result-step-32 | manual | then the route's skill:  (3a.1 |
+| lane-3-gate-result-step-32 | manual | the OD lead decides together with the IT-responsible role of the business side |
 
 ## Handoff
 
 - **Receives from:** `dept-intake`, `funnel-requirements`, `catalog-systems`, `catalog-guardrails`
-- **Next:** "fits" goes back to the calling skill; "redesign" re-scopes the request before it is defined further; "escalate" goes to dept-decision-rights (step 32); the Lane 3 route goes on to OpenSpec IT demand (external), deploy-appstore or mi-equipment, and the business case…: `dept-decision-rights`, `deploy-appstore`, `mi-equipment`, `bc-build`
+- **Next:** fits goes back to the calling skill; redesign re-scopes the request; escalate goes to dept-decision-rights (step 32); the Lane 3 route goes on to OpenSpec IT demand (external), deploy-appstore or mi-equipment, then the business case: `dept-decision-rights`, `deploy-appstore`, `mi-equipment`, `bc-build`
 - **Stops here when:** no boundary line can be named, the sources disagree, or the plant status is unknown
 - **Stops here when:** The check is then not finished
 - **Stops here when:** It also stops on a tool nobody runs (a service gap, not a fit)

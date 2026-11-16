@@ -26,6 +26,7 @@ Schott et al. 2017/2020, see SKILL.md `derived_from`) and `../assets/case-librar
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import pathlib
@@ -248,16 +249,56 @@ DEMO = {
 }
 
 
+def load_use_case(path: str) -> dict:
+    """Read and validate the input file; raise ValueError with a message the user can act on."""
+    try:
+        raw = pathlib.Path(path).read_text(encoding="utf-8")
+    except OSError as err:
+        raise ValueError(f"cannot read {path}: {err.strerror or err}") from err
+    try:
+        uc = json.loads(raw)
+    except json.JSONDecodeError as err:
+        raise ValueError(f"{path} is not valid JSON: {err}") from err
+    if not isinstance(uc, dict):
+        raise ValueError(f"{path}: top level must be a JSON object with drivers, as_is, target")
+    for key in ("drivers", "as_is", "target"):
+        if key in uc and not isinstance(uc[key], dict):
+            raise ValueError(f"{path}: '{key}' must be an object")
+    for key in ("as_is", "target"):
+        for area, lvl in uc.get(key, {}).items():
+            if area not in AREAS:
+                raise ValueError(f"{path}: unknown focus area '{area}' in {key} (use F1 to F16)")
+            if not isinstance(lvl, int) or not 1 <= lvl <= max_level(area):
+                raise ValueError(f"{path}: {key} {area} must be an integer level 1 to {max_level(area)}, got {lvl!r}")
+    for d_id, rating in uc.get("drivers", {}).items():
+        if d_id not in DRIVERS:
+            raise ValueError(f"{path}: unknown driver '{d_id}' (use a1 to a27)")
+        if rating not in {"n", "l", "m", "h", "d"}:
+            raise ValueError(f"{path}: driver {d_id} rating must be n, l, m, h or d, got {rating!r}")
+    return uc
+
+
 def main(argv: list[str]) -> int:
-    if "--demo" in argv:
+    parser = argparse.ArgumentParser(
+        description="Evaluate a use case's envisioned solution against the 16-focus-area maturity model.",
+        epilog="Exit codes: 0 report printed, 2 input missing or invalid. Standard library only; Python 3.9 or newer.")
+    parser.add_argument("use_case", nargs="?", help="USE_CASE.json (see ../assets/example-use-case.json)")
+    parser.add_argument("--json", action="store_true", help="machine-readable output")
+    parser.add_argument("--demo", action="store_true", help="run the built-in worked example")
+    args = parser.parse_args(argv[1:])
+    if args.demo:
         uc = DEMO
+    elif args.use_case:
+        try:
+            uc = load_use_case(args.use_case)
+        except ValueError as err:
+            print(f"error: {err}", file=sys.stderr)
+            return 2
     else:
-        paths = [a for a in argv[1:] if not a.startswith("--")]
-        if not paths:
-            print(__doc__)
-            return 0
-        uc = json.loads(pathlib.Path(paths[0]).read_text(encoding="utf-8"))
-    if "--json" in argv:
+        parser.print_usage(sys.stderr)
+        print("error: give a USE_CASE.json or --demo", file=sys.stderr)
+        return 2
+    if args.json:
         candidates = candidate_areas(uc.get("drivers", {}))
         ranked = rank_cases(uc.get("target") or uc.get("as_is", {}))
         gaps_info = analyze_gaps(uc.get("as_is", {}), uc.get("target", {}), candidates) if uc.get("target") else {"gaps": {}, "over_engineered": []}

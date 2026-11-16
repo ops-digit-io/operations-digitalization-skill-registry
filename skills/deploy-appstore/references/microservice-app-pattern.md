@@ -8,6 +8,18 @@ tags: [all, practice]
 ---
 # Microservice app pattern
 
+## Contents
+
+- The pattern in one paragraph
+- The event envelope (proposed)
+- What each capability service does
+- The shared kernel (four small capabilities)
+- Composition and the two gap services
+- User interface rule
+- Deciding where a request belongs
+- Pitfalls
+- AI agent notes
+
 **Status of the source.** Everything here comes from the AI-drafted work-in-progress folder `Microservice Apps (WIP)` in the knowledge base
 ("draft", "not reviewed by a human"): the landscape overview, one note per capability service, *Platform Services (Shared Kernel)*,
 *Cross-Service Composition Services*, *Extension Services*, *User Interfaces and Interaction Layer*, *Cross-Cutting Platform

@@ -8,6 +8,15 @@ tags: [information-integration-service, technical, node-red]
 ---
 # Symptoms, extended
 
+## Contents
+
+- 0. First question: is the tab disabled?
+- 1. Where findings tend to concentrate, and how to measure it
+- 2. More symptom rows
+- 3. Three illustrative worked findings
+- 4. What the analyser still cannot see
+- What the analyser cannot see
+
 Adds to `symptoms.md`; nothing there is replaced. This page holds no counts of the
 estate. Every "how often" question is answered by running `scripts/analyze_flow.py` over the
 instance exports on the day (`--quiet` for a whole instance, `--json` to tally) and by counting in

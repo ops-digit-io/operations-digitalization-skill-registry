@@ -8,6 +8,12 @@ tags: [node-red, mqtt, topics]
 ---
 # MQTT topic conventions
 
+## Contents
+
+- Family 1 — `datatroniq` (the spine)
+- Family 2 — `CT` (hierarchical, one signal per topic)
+- Choosing a topic for a new derived signal
+
 What the flows actually publish and subscribe to. Two families, plus a small tail. Count usage live from the `mqtt in` / `mqtt out` topic fields; no counts are kept here.
 
 | Root | Prevalence | What it is |

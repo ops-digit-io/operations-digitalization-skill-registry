@@ -1,0 +1,47 @@
+{
+  "skill": "know-sharepoint-export",
+  "cases": [
+    {
+      "id": "full-export-with-history",
+      "type": "should-trigger",
+      "prompt": "I need everything from our use case savings list in SharePoint, including what people wrote in earlier edits before it got cleaned up. I have access to the site in my browser but I am not an admin.",
+      "expected_output": "Says to export versions and not only current items. Uses the browser-console REST route, no PowerShell, PnP or admin rights. Asks for list name and site path. Says to verify counts against the list's own item count. Says to log the run with date, counts and mode.",
+      "files": []
+    },
+    {
+      "id": "monthly-refresh",
+      "type": "should-trigger",
+      "prompt": "We refresh the same SharePoint export every month and the last one took very long. Can we only pull what changed, and how do we know nothing silently broke?",
+      "expected_output": "Offers an incremental export filtered on Modified with a checkpoint. Warns about the list view threshold. Requires the schema check against the previous export before an incremental run. Treats any finding as carried forward, not as a reason to re-run.",
+      "files": []
+    },
+    {
+      "id": "needs-recycle-bin",
+      "type": "edge",
+      "prompt": "Someone deleted an attachment from the machine list last quarter. Can your export bring it back and show who changed permissions on the list?",
+      "expected_output": "States this route cannot reach deleted attachment binaries, the recycle bin, audit-log history or permissions history. Says a different route is needed. Does not suggest trying the export harder.",
+      "files": []
+    },
+    {
+      "id": "analyse-the-export-near-miss",
+      "type": "near-miss",
+      "prompt": "I already have the export file. Which plants have the most savings tracked but no implemented use cases?",
+      "expected_output": "Recognises this is portfolio analysis, not export. Points to the portfolio analysis skill. May ask for the capture date of the export.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "How do I export a SharePoint list with its version history without PowerShell?",
+      "Download all attachments from our SharePoint use case list from the browser console.",
+      "Set up a recurring incremental export of the machine list with a checkpoint.",
+      "Check whether the columns of last month's SharePoint export changed."
+    ],
+    "should_not_trigger": [
+      "Compare savings by region from the portfolio data.",
+      "Upload this Excel file into a SharePoint library.",
+      "Which template should the business case start from?",
+      "Export my Outlook calendar to a CSV file."
+    ]
+  }
+}

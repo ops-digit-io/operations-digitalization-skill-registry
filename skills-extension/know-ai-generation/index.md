@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [AI generation playbook](SKILL.md) | Agent Skill | The cross-cutting rulebook for using AI agents safely along the OD process chain - the department context layer as precondition, the multi-step generation pipeline with its human gate and visual-QA loop, AI signal selection and dashboard generation from fixed-structure inputs (missing-signal table up front, expert validation on the running dashboard), GenAI proof-of-concept and agentic-workflow governance, the intake path for AI-built apps, evidence and citation rules, and the list of decisions that stay human. Names the process step where each rule applies. Use before an agent drafts, generates or checks anything in a lane, when someone proposes an AI assistant, agent or generated app, or when asked what an AI agent may do at a step and who must sign. |
+| [AI generation playbook](SKILL.md) | Agent Skill | Answers "what may an AI agent do at this step, and who must sign?" along the OD process chain. Use before an agent drafts, classifies, generates or checks something in a lane, when someone proposes an AI assistant, agent, generated dashboard or AI-built app, when signals or a dashboard are to be generated from a tag list, or when a generated output needs citations and a human review. Sets the safe pattern (fixed-structure input, reviewable output, evidence trail, human gate), the missing-signal table and the list of decisions that stay human. Not for what to build (ops-analytics-asset), signal naming (mi-signals) or Cyber Security sign-off (deploy-cybersec). |
 
 | Folder | Holds |
 |---|---|

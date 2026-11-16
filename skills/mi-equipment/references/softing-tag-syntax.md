@@ -8,6 +8,17 @@ tags: [integration, softing, tags]
 ---
 # Softing dataFEED — datapoint (tag) syntax
 
+## Contents
+
+- Siemens S7
+- Modbus
+- Rockwell PLC-5 / SLC
+- Mitsubishi MELSEC-Q
+- Siemens S5 and Send/Receive
+- Suffixes
+- Data types and how they map to OPC
+- Practical rules
+
 The identifier you type when defining a tag manually, and what a symbol import produces.
 From the **dataFEED OPC Suite V5.70** manual, ch. 9.1.16.5 (p. 657–683), in the bundle at
 `_knowledge/machine-integration-guidance-app/dataFEEDOPCSuite_de.pdf`.

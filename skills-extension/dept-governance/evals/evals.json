@@ -1,0 +1,47 @@
+{
+ "skill": "dept-governance",
+ "cases": [
+  {
+   "id": "prepare-cop-round",
+   "type": "should-trigger",
+   "prompt": "The regional COP call is on Thursday. Can you put together the pack: agenda, status per plant and the call for action about the Cyber Security steps?",
+   "expected_output": "Uses the round pack template with agenda, plant status table and numbered call for action. Gives one traffic light per plant on one scale and cites source and read date per cell. Each call-for-action step has a calendar week and an owner role. Leaves the escalation wording and deadline to the OD lead and marks the pack as a draft.",
+   "files": []
+  },
+  {
+   "id": "sort-demand-small-change",
+   "type": "should-trigger",
+   "prompt": "A key user wants a new notification to go out when a line stops. It is a standard interface, budget exists, about two days of work. How do we route it?",
+   "expected_output": "Sorts it with the intake step first. Applies the small-change test on effort, budget and interface. Routes it to the ticket and change process rather than a project. Notes that notification channels are IT changes to raise early.",
+   "files": []
+  },
+  {
+   "id": "sprint-missing-baseline",
+   "type": "edge",
+   "prompt": "We want to start a use-case sprint next Monday at Plant B (fictional). The machine is connected but nobody has defined a savings baseline yet and the process expert is not named.",
+   "expected_output": "Refuses to start until the preconditions hold: named process expert, baseline and owner, agreed architecture and access. Lists what is missing. Explains that without a baseline savings are never reported.",
+   "files": []
+  },
+  {
+   "id": "retro-near-miss",
+   "type": "near-miss",
+   "prompt": "It is the end of the month. Run the retrospective and pick the one change we adopt.",
+   "expected_output": "Recognises this as the monthly retrospective, not a governance round. Hands it to the retro skill.",
+   "files": []
+  }
+ ],
+ "trigger_queries": {
+  "should_trigger": [
+   "Write the call for action for the plants that still have open firewall steps.",
+   "Where can I find the decision from the old strategy call?",
+   "Draft the plant roadmap rows for the region with a status and a call for action each.",
+   "Is this request a ticket or does it need a project and the governance board?"
+  ],
+  "should_not_trigger": [
+   "Which risks crossed their escalation trigger this month?",
+   "Who may approve the investment for the new gateways?",
+   "Calculate the payback of the dashboard use case.",
+   "Run the quarterly check of which skills have stale sources."
+  ]
+ }
+}

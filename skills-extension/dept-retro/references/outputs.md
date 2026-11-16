@@ -15,7 +15,7 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | check-of-last-month-s-adjustment | Section of `assets/retro-record.md` | OD lead | Last month's check question answered with evidence; Outcome kept, changed or dropped |
-| learning-list-with-evidence | Evidence list in the retro record | OD lead | Each item states what happened, evidence, dated source and which input it came from; An item without evidence is marked `⟨evidence missing⟩` or left out |
+| learning-list-with-evidence | Learning list in the retro record | OD lead | Each item states what happened, evidence, dated source and which input it came from; An item without evidence is marked `⟨evidence missing⟩` or left out |
 | the-one-adjustment | Adjustment section of the retro record | The deciding role named in the current approval policy, the next COP input | Exactly one action with a role as owner, a date and the observable that will show it worked; Why this one is stated in one sentence; Decider role recorded or shown as `⟨decider role⟩` open |
 | parking-list | Parking list in the retro record | Next month's retro | Unchosen items carried with the month they first appeared |
 | escalations | Items that fail the "OD can change it alone" test | `dept-decision-rights` | Each item routed, not counted as an adjustment |

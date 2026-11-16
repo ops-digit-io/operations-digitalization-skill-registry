@@ -34,3 +34,20 @@ Three mechanisms exist for that, at different levels.
 - **Receives from:** `bc-portfolio` (live use case list, adoption and conversion by region), `bc-build` (value of the use case); the scoped use case.
 - **Next in the flow:** Lane 2 step 26 (implement and graduate, with `deploy-handover` and `catalog-usecase`). The review goes to `dept-decision-rights` for the rollout gate and into the business case of `bc-build`.
 - **Stops here when:** the library already holds a proven entry for the same capability (take it instead of specifying), or the only evidence of standardization is that templates exist. Count adoption and utilization, with the read date, not templates; do not treat a `No` as a rejection.
+
+## Portfolio findings moved out of SKILL.md
+
+- The portfolio analysis finding: the catalog is built to standardize and has not scaled. Adoption of the proven instance is the constraint.
+- C12 (Other and plant-specific) tends to be the largest cluster. Its size is a data-quality number as much as a topical one; count it live and track it over time. It is the bucket for what the classifier could not place and should shrink as plant notes get written.
+- Regions are not variations of one another: a standardization plan that treats one region as a scaled-down copy of another will not work.
+- Capability instances are the denominator of standardization; delivered instances are the numerator.
+
+## Open questions
+
+- The cluster classifier is described as deterministic and rule-based, but no script or command for it ships in this registry. Where it lives and how to run it is not documented here. Supplier: OD data owner.
+- Recurrence threshold and CSP owner for promotion: see `references/od-use-case-promotion/procedure.md`, Still open.
+- The worked example in SKILL.md is fictional; no real library entry was checked for it.
+
+## Sources used in the improvement run
+
+- None added beyond the existing references; no vault or archive claim was introduced in this run.

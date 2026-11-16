@@ -8,6 +8,15 @@ tags: [information-integration-service, practice, process-chain, draft]
 ---
 # Process-chain practice - recurring blockers and how to spot them early
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules
+- 3 Handoff contract
+- 4 Questions to ask and definition of done
+- 5 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (gap analysis, strategy, community-call, rollout and blocker decks), abstracted
 into process guidance. No figures. The class list is the one in `classes-and-routes.md` (a proposal, not yet confirmed by the OD
 lead); this file maps recurring patterns onto it. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown.

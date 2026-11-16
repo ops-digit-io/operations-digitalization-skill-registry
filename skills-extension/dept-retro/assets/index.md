@@ -4,4 +4,4 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Retro record](retro-record.md) | Skill Asset | One-page monthly retro record with the check of last month's adjustment, the evidence list, exactly one decided adjustment and the parking list. |
+| [Retro record](retro-record.md) | Skill Asset | One-page monthly retro record with the check of last month's adjustment, the learning list, exactly one decided adjustment and the parking list. |

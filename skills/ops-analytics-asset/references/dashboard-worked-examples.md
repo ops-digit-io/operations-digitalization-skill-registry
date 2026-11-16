@@ -8,6 +8,25 @@ tags: [analytical-support-service, practice, dashboard]
 ---
 # Dashboard worked examples
 
+## Contents
+
+- Picking real examples
+- 1. Leak-test station board
+- 2. Laser welding production board
+- 3. Three-tier injection moulding set
+- 4. Assembly cycle-time overview
+- 5. Downtime report on relational incident tables
+- 6. Per-oven copy family plus a dynamic version
+- 7. Shot-weight overview with a variable per machine
+- 8. Drying hopper board
+- 9. Availability per machine
+- 10. Autoclave Andon board with floor comments
+- 11. Extrusion line focus-parameters board
+- 12. Hourly output with targets and traceability columns
+- 13. Welding cell power board ahead of its use case
+- 14. Plant overview on the other data family
+- What the patterns have in common
+
 **All examples below are illustrative.** They are patterns distilled from the dashboard notes in
 `Dashboard Exports/Dashboard Notes`, with plant names, sizes, versions, dates and use-case
 statuses removed. For a real, current example, pick one from the notes (section "Picking real

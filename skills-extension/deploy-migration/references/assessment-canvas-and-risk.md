@@ -77,3 +77,13 @@ Key machine programs often live with individuals, suppliers or local files. Reco
 ## AI notes
 
 The agent pre-fills description, category and functional mapping from supplier pages and drafts risk rows; the local owner confirms the ratings. Ratings are a human gate. Cite the source of every pre-filled field.
+
+## Questions to ask
+
+- Which additional interfaces exist (for example a laboratory)? Who actually uses the recorded data?
+- Does the current reporting need heavy manual correction? Capture the plant's wording verbatim; derive the requirement (for example automatic break and shift-end detection).
+- If the old system is kept, what happens, and when does support end?
+- Which software lives on the same machine (aggregation server, other tools) and does it stay?
+- Which runtime licences are bound to one machine, and is the key available?
+- Is any customer audit, shutdown or fixed external date near the window?
+

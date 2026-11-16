@@ -8,7 +8,7 @@ tags: [information-integration-service, practice]
 ---
 # Package contents
 
-The department has not collected what Cyber Security asks for (see [`gate-rules.md`](gate-rules.md), "What the
+The department has not collected what Cyber Security asks for (see `gate-rules.md`, "What the
 sources do not give"). The list below is built the other way round: it names what the OD side **already knows and
 writes down** about a connection or an app, so the request is complete on OD's side whatever Cyber Security
 adds. Items Cyber Security adds are entered as `⟨…⟩` rows in the package.

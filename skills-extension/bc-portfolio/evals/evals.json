@@ -1,0 +1,47 @@
+{
+  "skill": "bc-portfolio",
+  "cases": [
+    {
+      "id": "regional-conversion-comparison",
+      "type": "should-trigger",
+      "prompt": "For the board paper I need a comparison of how many use cases each region has turned into productive solutions. Give me one conversion number for the whole department if you can.",
+      "expected_output": "The conversion is computed and reported per region, not blended into one department figure, with the reason given.\nEach rate states its denominator and the capture date of the live read.\nBlank fields are stated as unknown or nil, not treated as zero.\nNo figure is quoted from memory; counts come from a dated read of the use case list.",
+      "files": []
+    },
+    {
+      "id": "savings-total-for-deck",
+      "type": "should-trigger",
+      "prompt": "Put the total savings of the portfolio on a slide for the plant visit. Add up everything on the savings list.",
+      "expected_output": "Tracked and proven euros are shown as two separate labelled figures and never summed.\nThe total is described as a floor on what has been captured, with the date of the read.\nThe count of rows with blank reliability and of use cases without a saving figure is reported next to it.\nA pre-publication check (date, denominator, tracked/proven label, unknown vs nil) is applied.",
+      "files": []
+    },
+    {
+      "id": "unknown-priority-ranking",
+      "type": "edge",
+      "prompt": "Show me the top 10 use cases by priority and tell me the rest are low priority.",
+      "expected_output": "Use cases with UNKNOWN priority or potential are kept in a separate unscoreable bucket, not written off as low.\nRanking is done within a category and says which order of criteria was used.\nThe assistant states that absence of a value is not an answer.",
+      "files": []
+    },
+    {
+      "id": "build-a-business-case-near-miss",
+      "type": "near-miss",
+      "prompt": "Work out the yearly saving for this one new use case and write the saving row so we can put it on the list.",
+      "expected_output": "The assistant recognises this as building a saving row for one case, not analysing the portfolio.\nIt routes to the value-building step (bc-build) and does not run a portfolio read.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Compare the conversion rate of use cases to productive across our regions",
+      "How much have we saved so far according to the savings list?",
+      "Which plants have the most implemented use cases and how many are actually in use?",
+      "Rank these four candidate use cases for the plant so we know which to start first"
+    ],
+    "should_not_trigger": [
+      "Calculate the saving for this one use case",
+      "Which catalogued template matches the plant's request?",
+      "Estimate the hardware cost for the rollout",
+      "Prepare the monthly retrospective"
+    ]
+  }
+}

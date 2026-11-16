@@ -1,0 +1,47 @@
+{
+  "skill": "funnel-use-case",
+  "cases": [
+    {
+      "id": "idea-from-plant-lay-user",
+      "type": "should-trigger",
+      "prompt": "I work in a plant and have an idea: our shift leads lose time collecting stop reasons on paper. I am not a digital specialist. Is this a real use case and how do I get it going?",
+      "expected_output": "The first question asked is whether someone has already done this (catalogued use case).\nThe idea check is used in plain questions; unknown answers stay unknown, numbers without source stay unknown.\nThe outcome is one of: catalogued use case (Lane 1), recurring need handed to OD (Lane 2), or needs software or connection first (Lane 3).\nNo savings figure is invented.",
+      "files": []
+    },
+    {
+      "id": "full-definition-four-phases",
+      "type": "should-trigger",
+      "prompt": "Intake accepted a demand from a plastics plant (fictional) for a downtime view on line 4. Please define the use case so it can go to requirements and the business case.",
+      "expected_output": "The four phases Collect, Analyse, Assess, Control are followed with a control point each.\nThe use case carries plant, capability, process group, category and output asset.\nThe benefit is stated as a changed decision and classified, not as the dashboard itself.\nA rejected alternative is named and a plant owner (role) is recorded.\nThe library is checked before anything is specified.",
+      "files": []
+    },
+    {
+      "id": "catalogued-case-not-defined",
+      "type": "edge",
+      "prompt": "Please run the full definition for an OEE calculation use case at our plant. Another plant already runs exactly that.",
+      "expected_output": "A match to a library entry is recognised and the full definition is not run.\nThe request is routed to catalogue matching (Lane 1) or standardization.\nThe reason given is that a catalogued use case needs no definition.",
+      "files": []
+    },
+    {
+      "id": "run-workshop-near-miss",
+      "type": "near-miss",
+      "prompt": "Plan the agenda, invite list and pre-read for next week's onboarding workshop at the plant.",
+      "expected_output": "It is recognised that running the workshop is a workshop task.\nThe request is pointed to the workshop skill.\nThe questionnaire is offered only as content to run inside the workshop.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Help me define a use case for our plant based on this accepted demand",
+      "Is my idea for tracking tool changes a real use case, and has anyone done it already?",
+      "Fill the use case definition protocol for the new line 2 request",
+      "What do we need to scope before this use case can go to requirements?"
+    ],
+    "should_not_trigger": [
+      "Is this request accepted into lane 1, 2 or 3 or refused?",
+      "Work out the euro savings and the business case for the energy use case",
+      "Which catalogued use case matches our request for downtime reporting?",
+      "Facilitate our use case workshop and write the follow-up list"
+    ]
+  }
+}

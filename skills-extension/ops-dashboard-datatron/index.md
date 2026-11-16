@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [DATATRON dashboards](SKILL.md) | Agent Skill | Build or apply a Grafana dashboard on the DATATRON telemetry schema (PostgreSQL / TimescaleDB) for cooling (KKA), press centres and utilities - the department's ops-dashboard-datatron, the engine of Lane 1a self-service. Selects the signals from the tag list, uses the proven query and variable patterns, handles scaled PLC values, outputs the list of datapoint UUIDs that must be enabled before the build, and passes the QA checklist as the go-live gate. Use when a plant applies a catalogued dashboard itself, when a DATATRON dashboard is built or reviewed, or when signals turn out to be disabled. |
+| [DATATRON dashboards](SKILL.md) | Agent Skill | Apply a catalogued DATATRON Grafana dashboard (cooling KKA, press centres, utilities) to a plant's own machines in self-service: match the template's panels to the machine's tag list, list the data points that must be switched on first, build through the dashboard engine and pass the QA checklist before go-live. Use when a plant applies a catalogued dashboard itself, a DATATRON dashboard is reviewed, panels render flat or empty, or signals turn out to be disabled. Draft. Not for new dashboard types or the asset choice (ops-analytics-asset, ops-dashboard-engine) or a need the template does not cover (Lane 2). |
 
 | Folder | Holds |
 |---|---|

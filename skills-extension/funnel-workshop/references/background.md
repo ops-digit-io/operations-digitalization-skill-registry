@@ -26,3 +26,15 @@ tags: [background]
 - **Receives from:** `dept-intake` (plant demand), `bc-portfolio` (use case list and case groups for the plant), `funnel-requirements` and `invest-screen` (Lane 3 front-end).
 - **Next in the flow:** Lane 2 step 21 (define and diagnose, with `funnel-use-case`) and Lane 3 step 31 (requirements). Items go to `funnel-use-case` or `dept-intake`, `mi-equipment`, `bc-build` (savings calculated as a follow-up), `bc-portfolio` (ranking), `catalog-standardization`, `funnel-first-aid`.
 - **Stops here when:** the plant has an ad-hoc process issue and no use case (use `funnel-first-aid`, not a workshop), or an item would commit investment, machine integration or an external connection in the room. Such decisions are made elsewhere; record the rollout dependency instead.
+
+## Provenance moved out of SKILL.md
+
+The lane's recurring tasks list two workshops: the Use Case Definition Workshop (trigger: plant onboarding or a new demand wave; template "Standard Agenda - Use Case Workshop" on SharePoint) and the Use Case Integration Workshop (trigger: use case ready for integration; template "Use Case Integration Workshop agenda"). Both are intake channels: plant use-case demand is collected via these workshops. This skill produces the four things the plan asks for: agenda, pre-read, capture template, follow-up list.
+
+## What is still open (open questions)
+
+- Official integration workshop agenda template: the SharePoint template was not available; the skeleton in assets is distilled from past agendas. Supplier: DBVE.
+- Lead times for scheduling, pre-read and the summary window: not set anywhere read. Supplier: OD lead.
+- Attendance matrix per agenda item: in slide 2 of the deck; the text extraction loses empty cells, so it is not reproduced.
+- What CBS stands for: the deck does not spell it out.
+- Recorded outcomes of past workshops (which use cases went live afterwards): not traced. Supplier: DBVE, by filtering the live use case list on workshop source.

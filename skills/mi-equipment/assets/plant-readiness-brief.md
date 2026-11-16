@@ -10,7 +10,7 @@ tags: [information-integration-service, technical]
 # Plant readiness brief
 
 Fill this **before** the conversation, from the sources named in each section. It does not
-replace [`assessment-protocol.md`](assessment-protocol.md) (Route A, machine by machine); it
+replace [`assessment-protocol.md`](assessment-protocol.md) (Mode A, machine by machine); it
 prepares the plant-level picture that protocol starts from. Every number you copy in gets its
 export date. Record counts come from [`../references/plant-integration-status.md`](../references/plant-integration-status.md)
 and must be re-run on the live Machine List before they go into a decision.
@@ -74,6 +74,6 @@ and must be re-run on the live Machine List before they go into a decision.
 
 ## 5. Hand-off
 
-Machines in scope go to Route B ([`guidance-protocol.md`](guidance-protocol.md)), one document
+Machines in scope go to Mode B ([`guidance-protocol.md`](guidance-protocol.md)), one document
 per machine. Barriers with no route go to `mi-equipment` and the landscape module.
 Investment input goes to `bc-cost`. Open items stay here with a named role.

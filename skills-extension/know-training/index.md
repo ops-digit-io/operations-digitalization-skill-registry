@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Rollout training](SKILL.md) | Agent Skill | Draft the plant training package and the competence checklist for a solution that is rollout-ready - who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence is evidenced, and how the plant avoids a single person who knows. The plant confirms competence; this skill never does. Use when a use case, machine connection or app passed acceptance and is going to a plant, when a plant starts a new integration wave, when a key user is to be enabled, or when a plant asks how to run this without OD. |
+| [Rollout training](SKILL.md) | Agent Skill | Draft the plant training package and the competence checklist for a solution that is rollout-ready: who at the plant must be able to do what without the OD builder, which modules teach it at the real screen or machine, how each competence is evidenced, and how the plant avoids a single person who knows. Use when a use case, machine connection or app passed acceptance and is going to a plant, when a plant starts a new integration wave, when a key user is to be enabled, or when a plant asks how to run this without OD. The plant confirms competence; this skill never does. Not for the handover test or the adoption diagnostic (deploy-handover) and not for the acceptance test (deploy-acceptance). |
 
 | Folder | Holds |
 |---|---|

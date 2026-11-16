@@ -9,6 +9,20 @@ tags: [node-red, build]
 
 # Build guide
 
+## Contents
+
+- The canonical seven-group layout
+- The message: PLCPacket over protobuf
+- The standard function nodes
+- Configuration: flow variables, never literals in logic
+- Topics
+- The transformation itself
+- The data structure you are working on
+- Error handling
+- Build so the documentation writes itself
+- Guardrails
+- Reviewing someone else's flow
+
 Detail behind step 3b4 of `SKILL.md`. Where the corpus is consistent, that consistency is the standard; where it is not, this file says so.
 ## The canonical seven-group layout
 

@@ -10,6 +10,18 @@ tags: [requirements, funnel, department-package]
 
 # Requirements Funnel
 
+## Contents
+
+- Core Principle
+- The Single-Stakeholder Adaptation
+- Stage 0 — Pick the Entry
+- Stage 0.5 — Map the As-Is (as-is mode only)
+- Four Stages
+- Handoff Artifact
+- Red Flags
+- Chaining
+
+
 Turn an idea into a defensible set of candidate features through dialogue.
 
 This skill owns the **front half** of the pipeline. It ends by producing a

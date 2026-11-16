@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [catalog-usecase](SKILL.md) | Agent Skill | Match a plant request to a proven catalogued use case (Lane 1), or say it is not catalogued and route it to Lane 2/3; set what a Lane 2 result needs to graduate. Not for systems (catalog-systems). |
+| [catalog-usecase](SKILL.md) | Agent Skill | Match a plant request to a proven catalogued use case (Lane 1): reduce the request, find the capability template and library entry, check the CSP status and data preconditions, and write the match record with the branch and next skill. If it is not catalogued, say so and route it to Lane 2 or Lane 3. Also sets what a proven Lane 2 result needs to graduate into the catalog. Use when a plant asks "does another plant already have this", wants a dashboard or screen that may exist, when an entry is proposed for the catalog, or when a Lane 2 result should become repeatable. Recommends only; the plant decides what it runs and the CSP decision stays with its owner. Not for standard systems or kits (catalog-systems), the go-live check (catalog-guardrails) or rollout standardization (catalog-standardization). |
 
 | Folder | Holds |
 |---|---|

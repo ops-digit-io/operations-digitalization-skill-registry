@@ -14,7 +14,7 @@ outputs:
   check:
     structure: true
 - id: learning-list-with-evidence
-  form: Evidence list in the retro record
+  form: Learning list in the retro record
   to_skills: []
   to_roles:
   - OD lead

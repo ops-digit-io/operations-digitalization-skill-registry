@@ -8,6 +8,12 @@ tags: [all, practice]
 ---
 # Process chain practice
 
+## Contents
+
+- Part A - Picking and graduating (steps 1a1, 1b1, 26)
+- Part B - Matching a system to a use case (step 1b1 and the hand to 1b2 / 1b3)
+- Part C - Going live without OD labour (step 1a3, and 1b4)
+
 Three parts, one per merged skill. `PROPOSAL` marks the registry's own synthesis; `<to confirm>` marks a safer reading where decks disagree. Section numbers restart in each part.
 
 ## Part A - Picking and graduating (steps 1a1, 1b1, 26)

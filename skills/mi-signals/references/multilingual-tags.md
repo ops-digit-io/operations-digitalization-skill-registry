@@ -8,6 +8,15 @@ tags: [signals, translation, multilingual]
 ---
 # Multilingual tags — translating what the plant actually wrote
 
+## Contents
+
+- The rule
+- What the analyser does
+- Normalization, before anything is compared
+- The term table
+- The procedure
+- What not to do
+
 The estate runs plants in three regions, and a PLC programmer names tags in the
 language they think in. So the tag list you are handed is not in English, and treating it as
 though it were is how a signal gets misread rather than merely misnamed.

@@ -25,7 +25,8 @@ Examples:
   python context_freshness.py --skills ../../ --registry ../../../registry.yaml
   python context_freshness.py --bundle <bundle>/OperationsDigitalization-Department --today <YYYY-MM-DD>
 
-Exit status is 0 unless --fail-on-findings is given and something was found.
+Exit status: 0 normally; 1 with --fail-on-findings when something was found; 2 when a path argument
+does not exist or the arguments are wrong.
 """
 from __future__ import annotations
 
@@ -224,6 +225,13 @@ def main(argv=None) -> int:
     today = parse_date(args.today) if args.today else dt.date.today()
     if today is None:
         ap.error("--today must be YYYY-MM-DD")
+    for flag, path, want_dir in (("--skills", args.skills, True), ("--bundle", args.bundle, True),
+                                 ("--registry", args.registry, False), ("--cross", args.cross, True)):
+        if path is not None and not (path.is_dir() if want_dir else path.is_file()):
+            kind = "directory" if want_dir else "file"
+            print(f"error: {flag} {path} is not an existing {kind}; check the path (relative paths start at the "
+                  f"current folder, run from the registry root)", file=sys.stderr)
+            return 2
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 

@@ -40,3 +40,20 @@ whether it shows what they need.
 - **Stops here when:** the data verdict says the data is not there, a proven library solution answers the need
   (`catalog-standardization`), no pass criterion or named plant validator exists, or the open question is a value
   question. A prototype answers usability and data questions only.
+
+## Status and provenance (moved from SKILL.md)
+
+The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot. It credits `ops-analytics-asset` with "click-dummy only", but that skill has no prototype, click-dummy or proof-of-concept content (`docs/new-state-conformance.md`). This skill rests on what the knowledge base holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a validation plan, and the dashboard specs. It is not a validated OD method.
+
+## Which steps rest on what
+
+| Steps | Basis as stated in the skill and its references |
+|---|---|
+| 6 (click-dummy build) | The department package click-dummy master (`references/click-dummy.md`); the Gemba App pilot for the AI-generated mock-up from a brief |
+| 5 (pass criterion) | Validation plans in the AI business cases (`references/validation-patterns.md`) |
+| 1-4, 7-9 | Registry synthesis (marked PROPOSAL in `references/process-chain-practice.md`); not tested on a real run |
+
+## Open questions
+
+- No validated run of this procedure on a real use case yet; one run would allow lifting the "not validated" disclaimer.
+- Which steps beyond the Gemba pilot the plant would accept as standard is not confirmed.

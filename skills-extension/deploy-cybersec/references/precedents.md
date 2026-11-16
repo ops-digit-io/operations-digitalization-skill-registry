@@ -11,7 +11,7 @@ tags: [information-integration-service, practice]
 Read from the department knowledge base (`department knowledge base`). The ODEC Facts notes are extracts of call
 slides and some lines are cut off in the export. This file keeps the patterns and drops dates,
 deadlines, counts and current statuses; look those up at the source. Nothing below is a rule: the
-rules are in [`gate-rules.md`](gate-rules.md).
+rules are in `gate-rules.md`.
 
 ## 1. Groot2B - the cybersecurity programme (ODEC Facts - Tools and Systems)
 

@@ -8,6 +8,15 @@ tags: [node-red, artefacts]
 ---
 # The artefact catalogue
 
+## Contents
+
+- Naming convention
+- Artefact families
+- The specific artefacts, by name
+- Generalized example per artefact
+- The building blocks these are made of
+- Documentation coverage: how to measure it
+
 What the flows across the instances actually build. Crawled from the flow labels and
 node contents, not from a wish list - if it is in this catalogue, somebody has built it and
 you can copy it. This page holds **no counts**; count families and artefacts live from the

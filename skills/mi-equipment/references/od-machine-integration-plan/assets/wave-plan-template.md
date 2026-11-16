@@ -56,6 +56,6 @@ Check: unknown types in this wave `<n>` (must be at most one).
 
 ## 6 Hand-over
 
-Next: `bc-capital-request` (list, route, cost lines, open items) · `mi-equipment` Route B per
+Next: `bc-capital-request` (list, route, cost lines, open items) · `mi-equipment` Mode B per
 machine · `mi-equipment` for rows in section 5 · next-wave recommendation `<>` · training for
 self-service `<>`.

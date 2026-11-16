@@ -9,8 +9,8 @@ tags: [use-case-support-service, analytical-support-service, practice, process-c
 # Process-chain practice
 
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
-marks a synthesis; `<...>` is unknown. It adds to [`prioritization.md`](prioritization.md) and
-[`rollup-method.md`](rollup-method.md).
+marks a synthesis; `<...>` is unknown. It adds to `prioritization.md` and
+`rollup-method.md`.
 
 ## 1. Method in practice
 

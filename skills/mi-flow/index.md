@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [mi-flow](SKILL.md) | Agent Skill | Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf, topics, error handling). Not for choosing signal names (mi-signals). |
+| [mi-flow](SKILL.md) | Agent Skill | Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf PLCPacket, topics, sysTime, error handling), and build calculated datapoints with the rule engine. Use when a connected machine needs a flow to the data platform, a flow publishes nothing, a dashboard is flat or shows wrong timestamps or values, a flow must be ported to another machine or plant, reviewed before a prod import, or a derived value (cycle time, part count, status mapping, delta) is needed. Not for choosing signal names or the data model (mi-signals), connecting the machine (mi-equipment) or acceptance sign-off (deploy-acceptance). |
 
 | Folder | Holds |
 |---|---|
