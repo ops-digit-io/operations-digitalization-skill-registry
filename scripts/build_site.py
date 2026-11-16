@@ -110,7 +110,7 @@ def md_to_html(text: str, from_dir: Path, site_root: Path) -> str:
 
 def page(title: str, body: str, depth: int, active: str = "", extra_head: str = "") -> str:
     up = "../" * depth
-    nav = (f'<a href="{up}index.html">Process map</a><a href="{up}explorer/index.html">Skill explorer</a><a href="{up}spec/index.html">Specification</a>'
+    nav = (f'<a href="{up}index.html">Process map</a><a href="{up}docs/new-state/OD_NewState_BPMN_Map.html">BPMN map</a><a href="{up}explorer/index.html">Skill explorer</a><a href="{up}spec/index.html">Specification</a>'
            f'<a href="{up}docs/new-state-skill-map.html">Skill map table</a><a href="{up}docs/skill-quality.html">How skills are rated</a>'
            f'<a href="{up}downloads/core-library.zip">Download the core library</a>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -235,7 +235,7 @@ function render(){{
         const all=[...(st.skills||[]).map(i=>[i,false]),...(showProp?(st.proposed||[]).map(i=>[i,true]):[])];
         const hit=!q||(st.title+' '+(st.text||'')).toLowerCase().includes(q)||all.some(([i])=>(i+' '+D.skills[i].short).toLowerCase().includes(q));
         if(!hit)return '';
-        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}${{st.substeps?`<ul class="sub">${{st.substeps.map(x=>`<li><b>${{esc(x.id)}} ${{esc(x.title)}}</b><small>${{esc(x.owner)}}</small>${{(x.skills||[]).map(i=>chip(i,false)).join('')}}${{(x.openspec||[]).map(o=>`<span class="chip ext" title="OpenSpec skill, carried unchanged inside deploy-it-demand">${{esc(o)}}</span>`).join('')}}</li>`).join('')}}</ul>`:''}}</div>`}}).join('');
+        return `<div class="step"><b>${{esc(st.title)}}</b>${{st.wait?`<span class="w">wait ${{esc(st.wait)}}</span>`:''}}${{st.text?`<p>${{esc(st.text)}}</p>`:''}}${{all.map(([i,p])=>chip(i,p)).join('')}}${{st.substeps?`<ul class="sub">${{st.substeps.map(x=>`<li><b>${{esc(x.id)}} ${{esc(x.title)}}</b><small>${{esc(x.owner)}}</small>${{(x.skills||[]).map(i=>chip(i,false)).join('')}}${{(x.external||[]).map(o=>`<a class="chip ext" href="${{esc(o.url)}}" target="_blank" rel="noopener" title="OpenSpec skill (external, OpenSpec 1.17.0); the IT demand follows the OpenSpec process">${{esc(o.name)}}</a>`).join('')}}</li>`).join('')}}</ul>`:''}}</div>`}}).join('');
       return steps?`<div class="branch">${{b.title?`<h3>${{esc(b.title)}}</h3>`:''}}<div class="steps">${{steps}}</div></div>`:''}}).join('');
     if(!br)return '';
     return `<section class="lane" id="${{l.id}}"><h2>${{esc(l.title)}} <small>${{esc(l.who)}}</small><a class="zip" href="${{l.zip}}">Download ${{l.count}} skills (.zip)</a></h2><p>${{esc(l.summary)}}</p>${{br}}</section>`}}).join('')||'<p>No match.</p>';
@@ -341,6 +341,8 @@ render();
     SITE_DOCS = ("new-state-skill-map.md", "skill-quality.md", "agent-skills-spec.md", "okf-conventions.md")
     (dd / "new-state").mkdir()    # the process picture is the owner's ProcessFlow page (also the main page); the derived diagrams stay in the repository
     shutil.copy2(ROOT / "docs/new-state/OD_NewState_ProcessFlow.html", dd / "new-state" / "OD_NewState_ProcessFlow.html")
+    for f in ("OD_NewState_BPMN_Map.html", "OD_NewState_BPMN_Flow.bpmn"):    # the BPMN 2.0 process map (scripts/build_bpmn.py)
+        shutil.copy2(ROOT / "docs/new-state" / f, dd / "new-state" / f)
     for name in SITE_DOCS:
         f = ROOT / "docs" / name
         fm, t = spec.split(f.read_text(encoding="utf-8"))

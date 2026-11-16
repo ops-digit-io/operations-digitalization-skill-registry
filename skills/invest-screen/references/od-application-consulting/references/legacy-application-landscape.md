@@ -41,7 +41,7 @@ quote the export date when a figure is needed; none is kept here.
   strategy non-bet on MES). Do not recommend replacing one with a central MES.
 - **Licence is often unknown.** A recommendation that keeps or integrates an application must say
   `⟨licence status unknown⟩` rather than assume; licensing commitments are not the consultant's
-  (`deploy-it-demand`, "may not").
+  (OpenSpec IT demand (external), "may not").
 - **Support is the usual gap.** A large share of records have no support concept. An integrate-or-keep
   recommendation names who supports the interface (see the support tiers in `footprint-and-data-path`).
 - **Placement matters for Cyber Security.** OT/IT and OT applications: an interface to these is an

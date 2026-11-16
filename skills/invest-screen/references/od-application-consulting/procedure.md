@@ -21,7 +21,7 @@ Read `dept-context` first.
 output "solution design recommendation within lean footprint"; runs regionally; authority `recommend`;
 wave 3; sources "playbook step 4; `02-strategy.md` (non-bets)". The registry's own record: the Project
 Support lane lists the application consultancy session template as "⟨to confirm; PS-04 application
-consulting was never built as its own skill⟩" (`deploy-it-demand`). This skill is that
+consulting was never built as its own skill⟩" (OpenSpec IT demand, external). This skill is that
 build.
 
 ## Purpose and definition of done
@@ -41,7 +41,7 @@ the *tool-decision / IT-footprint gate* (`invest-screen`, `dept-decision-rights`
 then business case. Branch **3a** introduces a system: 3a.1 reuse an available codebase or app, 3a.2 new
 codebase by self development, 3a.3 new codebase by external development, 3a.4 integrate a foreign app via
 IT demand and Cyber Security. This skill advises on the choice among those and on 3a.4; the doing belongs
-to `deploy-appstore` and `deploy-it-demand` (draft skills).
+to `deploy-appstore` and OpenSpec IT demand (external) (draft skills).
 
 ## References and assets
 

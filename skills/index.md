@@ -16,7 +16,6 @@
 | [deploy-acceptance/](deploy-acceptance/index.md) | 10 concept(s) |
 | [deploy-appstore/](deploy-appstore/index.md) | 8 concept(s) |
 | [deploy-handover/](deploy-handover/index.md) | 17 concept(s) |
-| [deploy-it-demand/](deploy-it-demand/index.md) | 61 concept(s) |
 | [dept-context/](dept-context/index.md) | 6 concept(s) |
 | [dept-decision-rights/](dept-decision-rights/index.md) | 6 concept(s) |
 | [dept-intake/](dept-intake/index.md) | 4 concept(s) |

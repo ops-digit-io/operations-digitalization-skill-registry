@@ -22,7 +22,7 @@ metadata:
   status: draft
   origin: plan-draft
   requires: [dept-context]
-  composes: [dept-decision-rights, metrics-scorecard, dept-retro, dept-risk, funnel-use-case, know-training, dept-plant-onboarding, deploy-it-demand, bc-portfolio]
+  composes: [dept-decision-rights, metrics-scorecard, dept-retro, dept-risk, funnel-use-case, know-training, dept-plant-onboarding, bc-portfolio]
   okf:
     type: Agent Skill
     title: Governance cadence
@@ -47,7 +47,7 @@ the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
 | Part | Process steps (`docs/new-state/process.yaml`) | Neighbour |
 |---|---|---|
 | Forums as sources, rounds on request, call for action, status, roadmap | spine; feeds 1b3, 3b5, 3a5 (waves, Cyber Security waits) | `metrics-scorecard`, `dept-risk`, `dept-retro` |
-| Demand and change routing | i1, 32, 3a4 | `dept-decision-rights`, `deploy-it-demand` |
+| Demand and change routing | i1, 32, 3a4 | `dept-decision-rights`, OpenSpec IT demand (external) |
 | Use-case sprint runbook | 23, 1a2, 1a3 | `funnel-use-case`, `ops-analytics-asset` |
 | Training programme | 1a3, 3a6, 26 | `know-training` |
 | Community routine | spine, after 26 (library, best practice) | `catalog-standardization` |

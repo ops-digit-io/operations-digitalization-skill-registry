@@ -15,7 +15,7 @@ metadata:
   authority_level: draft
   status: draft
   requires: [dept-context]
-  composes: [bc-capital-request, dept-decision-rights, bc-cost, deploy-handover, dept-retro, deploy-it-demand, dept-risk, funnel-workshop, mi-equipment]
+  composes: [bc-capital-request, dept-decision-rights, bc-cost, deploy-handover, dept-retro, dept-risk, funnel-workshop, mi-equipment]
   okf:
     type: Agent Skill
     title: Project order

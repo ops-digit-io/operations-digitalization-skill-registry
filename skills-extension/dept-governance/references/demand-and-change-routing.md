@@ -23,7 +23,7 @@ Flow of a ticketed demand: request (key user), backlog (product owner), evaluati
 system, test system, user acceptance, transport to production, post-implementation review with the requester,
 change coordination (tasks, approvals, risks, affected configuration items).
 
-## Question list (deploy-it-demand checklist)
+## Question list (IT demand checklist)
 
 Who can raise requests; who manages the backlog; who evaluates; who decides yes or no; who estimates effort;
 who decides to start development; who develops; who does the final test; who triggers implementation; which

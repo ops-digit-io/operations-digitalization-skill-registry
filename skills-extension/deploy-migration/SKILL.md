@@ -61,7 +61,7 @@ Done when, for one migration:
 | Step | Role of this skill |
 |---|---|
 | 31 / 32 (`funnel-requirements`, `invest-screen`, `dept-decision-rights`) | Receives the "replace or integrate" decision and the use-case list of the old system; adds the component assessment when the case is a legacy application |
-| 3a4 / 3a5 (`deploy-it-demand`, `deploy-appstore`, `deploy-cybersec`, `deploy-acceptance`) | Plans the migration stages and back-out; the target is deployed and signed off on this path |
+| 3a4 / 3a5 (OpenSpec IT demand (external), `deploy-appstore`, `deploy-cybersec`, `deploy-acceptance`) | Plans the migration stages and back-out; the target is deployed and signed off on this path |
 | 3a6 (`deploy-handover`, `know-training`) | Per-location cutover, parallel run, key-user verification, then decommissioning; hands the operating model over |
 | Spine (`dept-plant-onboarding`, `dept-risk`) | A platform or server migration across plants runs as a series of per-location cutovers; risks are watched through `dept-risk` |
 

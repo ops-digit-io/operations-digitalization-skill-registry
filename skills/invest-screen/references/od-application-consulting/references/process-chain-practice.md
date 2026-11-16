@@ -14,7 +14,7 @@ abstracted into process guidance. No figures. `PROPOSAL` = synthesis not stated 
 ## Where it sits in the chain
 
 32 tool decision and IT gate (proposed), 3a4 package or build the app (proposed). Upstream: 31 requirements and
-`invest-screen`. Downstream: `deploy-it-demand`, `deploy-appstore`, `deploy-cybersec`, `bc-capital-request`.
+`invest-screen`. Downstream: OpenSpec IT demand (external), `deploy-appstore`, `deploy-cybersec`, `bc-capital-request`.
 
 ## 1 Method in practice
 
@@ -112,7 +112,7 @@ potential. Production criticality: critical (core production, immediate stop, sa
 
 - **Receive** from `funnel-requirements` / `invest-screen`: requirement in plain terms, fit verdict with the boundary
   quoted, plant availability dated, data sources per object (one source per object).
-- **Hand on**: to `deploy-it-demand` (3a.3, 3a.4: route, owner, front-end parts, open items); to `deploy-appstore` (3a.1, 3a.2:
+- **Hand on**: to OpenSpec IT demand (external) (3a.3, 3a.4: route, owner, front-end parts, open items); to `deploy-appstore` (3a.1, 3a.2:
   sourcing route, owner); to `deploy-cybersec` (data path and components list); to `bc-capital-request` / `bc-cost`
   (cost build-up inputs); to `deploy-handover` (named run owner and support level).
 

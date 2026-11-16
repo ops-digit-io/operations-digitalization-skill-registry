@@ -19,7 +19,7 @@ metadata:
   authority_level: draft the requirement; accept or refuse per intake; approvals are human
   status: stable
   requires: [dept-context]
-  composes: [funnel-features, dept-intake, invest-screen, funnel-use-case, mi-data-availability, mi-signals, catalog-standardization, bc-build, mi-equipment, deploy-acceptance, deploy-handover, deploy-it-demand]
+  composes: [funnel-features, dept-intake, invest-screen, funnel-use-case, mi-data-availability, mi-signals, catalog-standardization, bc-build, mi-equipment, deploy-acceptance, deploy-handover]
   okf:
     type: Agent Skill
     title: Requirements breakdown

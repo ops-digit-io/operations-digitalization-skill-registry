@@ -27,7 +27,7 @@ flowchart TD
     subgraph LANE2 [Lane 2 - Develop a new use case · OD-led]
         direction TB
         C1["Define & diagnose<br/><i>funnel-use-case</i>"] --> C2["Features + data check<br/><i>funnel-requirements, mi-data-availability</i>"]
-        C2 --> C3["Prototype / validate<br/><i>ops-analytics-asset, funnel-prototype</i>"]
+        C2 --> C3["Prototype / validate<br/><i>ops-analytics-asset, ops-dashboard-engine, funnel-prototype</i>"]
         C3 --> C4["Business case + rank<br/><i>bc-build, bc-assess</i>"]
         C4 -.->|~wks| C5["Capital request<br/><i>dept-decision-rights, bc-capital-request</i>"]
         C5 --> C6["Implement & graduate<br/><i>deploy-handover → catalog-usecase</i>"]
@@ -40,17 +40,17 @@ flowchart TD
         direction TB
         D1["Requirements<br/><i>funnel-requirements</i>"] --> D2{"Tool-decision gate<br/><i>invest-screen, dept-decision-rights</i>"}
         D2 -.->|~wks| D3["Business case + capital<br/><i>bc-build, bc-capital-request</i>"]
-        D3 -->|3a.1 reuse app · 3a.2 self dev<br/>3a.3 external dev · 3a.4 integrate via IT-CS| E1["Package / build<br/><i>deploy-it-demand</i>"]
+        D3 -->|3a.1 reuse app · 3a.2 self dev<br/>3a.3 external dev · 3a.4 integrate via IT-CS| E1["Package / build<br/>IT demand via OpenSpec (external)"]
         E1 -.->|CS ~wks| E2["Deploy to platform + CS<br/><i>deploy-appstore</i>"]
         E1 -.->|3a.3 · 3a.4: IT demand via OpenSpec| OS1
-        subgraph OSPEC [IT demand via OpenSpec · OpenSpec skills inside deploy-it-demand]
+        subgraph OSPEC [IT demand via OpenSpec · external, see docs/openspec-how-to-use.md]
             direction LR
-            OS1["3a4.1 Explore + collect inputs (OD)<br/><i>openspec-explore, deploy-it-demand</i>"]
-            OS2["3a4.2 Propose the change (OD)<br/><i>openspec-propose, openspec-new-change, openspec-continue-change, openspec-ff-change</i>"]
-            OS3["3a4.3 Validate + hand over (OD)<br/><i>openspec-update-change, deploy-it-demand</i>"]
-            OS4["3a4.4 Apply (IT / Ext)<br/><i>openspec-apply-change</i>"]
-            OS5["3a4.5 Verify (IT / Ext)<br/><i>openspec-verify-change</i>"]
-            OS6["3a4.6 Archive + sync specs (IT)<br/><i>openspec-archive-change, openspec-bulk-archive-change, openspec-sync-specs</i>"]
+            OS1["3a4.1 Explore + collect inputs (OD)<br/>OpenSpec: openspec-explore"]
+            OS2["3a4.2 Propose the change (OD)<br/>OpenSpec: openspec-propose, openspec-new-change, openspec-continue-change, openspec-ff-change"]
+            OS3["3a4.3 Validate + hand over (OD)<br/>OpenSpec: openspec-update-change"]
+            OS4["3a4.4 Apply (IT / Ext)<br/>OpenSpec: openspec-apply-change"]
+            OS5["3a4.5 Verify (IT / Ext)<br/>OpenSpec: openspec-verify-change"]
+            OS6["3a4.6 Archive + sync specs (IT)<br/>OpenSpec: openspec-archive-change, openspec-bulk-archive-change, openspec-sync-specs"]
             OS1 --> OS2 --> OS3 --> OS4 --> OS5 --> OS6
         end
         E2 --> E3["Rollout & adopt<br/><i>deploy-handover</i>"]

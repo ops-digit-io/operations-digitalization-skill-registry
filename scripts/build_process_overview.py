@@ -32,6 +32,27 @@ import skillpaths as sp
 OUT = ROOT / "docs" / "process-overview.html"
 REPO = "https://github.com/ops-digit-io/operations-digitalization-skill-registry"
 
+def openspec_process() -> list[dict]:
+    """The OpenSpec sub-steps of step 3a4 from docs/new-state/process.yaml: OpenSpec's own skills (external), one link each."""
+    doc = yaml.safe_load((ROOT / "docs" / "new-state" / "process.yaml").read_text(encoding="utf-8"))
+    found: list[dict] = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            if "substeps" in node:
+                found.extend(node["substeps"])
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(doc)
+    return [{"id": s["id"], "title": s["title"], "owner": s["owner"],
+             "skills": [{"id": o["name"], "url": o["url"]} for o in s.get("external") or []]}
+            for s in found if s.get("external")]
+
+
 VALUE_CHAIN = ["Captured", "Evaluated", "Assessed", "Planned", "Handed over", "Effective"]
 
 LANES = [
@@ -88,14 +109,14 @@ LANES = [
         "metrics": "Equipment per year 338 / 331 (above target). Per month: target 25, red bar below 25. Readiness RAG by location.",
     },
     {
-        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "deploy-it-demand",
+        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "invest-screen",
         "owner": "IIAE", "customer": "Plant / project teams",
         "trigger": "Digital investment project kick-off",
         "done": "Integration project managed to acceptance test; application consulted and accepted",
         "steps": [
             ("Initiate project", "Project initiated per plant roadmap", [("dept-decision-rights", 1)]),
             ("Kick-off", "Kick-off with the MPEE OD team; scope and requirements", [("funnel-requirements", 0)]),
-            ("Manage project", "Equipment and solution integration project management", [("deploy-it-demand", 0)]),
+            ("Manage project", "Equipment and solution integration project management (the IT demand runs through the OpenSpec process, step 3a4)", [("invest-screen", 1)]),
             ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("invest-screen", 1)]),
             ("Acceptance test", "Acceptance testing", [("deploy-acceptance", 0)]),
             ("Embed in daily work", "Ensure use cases are integrated into daily processes", [("deploy-handover", 0)]),
@@ -190,11 +211,13 @@ def model(info: dict[str, dict]) -> dict:
     unknown = sorted(placed - set(info))
     if missing or unknown:
         raise SystemExit(f"skills not on the flow: {missing}; unknown skills on the flow: {unknown}")
+    OPENSPEC = openspec_process()
     lanes = []
     for lane in LANES:
         l = {k: v for k, v in lane.items() if k not in ("steps", "gates")}
         l["steps"] = [
-            {"n": i + 1, "title": t, "text": txt, "skills": [{"id": s, "partial": bool(p)} for s, p in sk]}
+            {"n": i + 1, "title": t, "text": txt, "skills": [{"id": s, "partial": bool(p)} for s, p in sk],
+             **({"openspec": OPENSPEC} if t == "Manage project" else {})}
             for i, (t, txt, sk) in enumerate(lane["steps"])
         ]
         l["gates"] = [{"after": a, "q": q, "no": no, "skills": sk} for a, q, no, sk in lane["gates"]]
@@ -224,6 +247,8 @@ TEMPLATE = r"""<!doctype html>
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12151c;--surface:#1b2030;--ink:#e6e9f0;--muted:#98a1b3;--line:#3a4256;--lane:#171c28;--accent:#5b9bff;--deep:#35b873;--documented:#e0a92b;--stub:#7d8596;--hit:#3a3318;--shadow:0 1px 3px rgba(0,0,0,.5)}}
 :root[data-theme=dark]{--bg:#12151c;--surface:#1b2030;--ink:#e6e9f0;--muted:#98a1b3;--line:#3a4256;--lane:#171c28;--accent:#5b9bff;--deep:#35b873;--documented:#e0a92b;--stub:#7d8596;--hit:#3a3318;--shadow:0 1px 3px rgba(0,0,0,.5)}
 *{box-sizing:border-box}
+.chip.ext{background:#eef2f7;color:#34495e;border:1px dashed #9aa7b5;text-decoration:none}
+.ospec{margin-top:6px;border-top:1px dashed var(--line);padding-top:4px}.oslabel{display:block;font-size:10px;color:var(--muted);width:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 header{padding:16px;max-width:1500px;margin:0 auto}
 h1{font-size:20px;margin:0 0 4px}
@@ -320,6 +345,8 @@ $('#found').innerHTML=`<b>Applies to every step</b><span class="chip ${f.state}"
 
 function chip(id,partial){const s=S[id];return `<span class="chip${partial?' partial':''}" data-skill="${id}" title="${esc(s.summary)}"><span class="dot ${s.state}"></span>${esc(s.label)}</span>`}
 
+function extchips(s){if(!s.openspec)return '';return `<div class="chips ospec" title="The IT demand follows the OpenSpec process (step 3a4); OpenSpec is external and its skills are linked, not copied">${s.openspec.map(p=>`<span class="oslabel">${esc(p.id)} ${esc(p.title)} (${esc(p.owner)})</span>${p.skills.map(k=>`<a class="chip ext" href="${esc(k.url)}" target="_blank" rel="noopener" title="OpenSpec skill, external (OpenSpec 1.17.0)">${esc(k.id)}</a>`).join('')}`).join('')}</div>`}
+
 const board=$('#board');
 D.lanes.forEach((L,li)=>{
   const lane=el('section','lane');lane.dataset.lane=L.id;
@@ -332,7 +359,7 @@ D.lanes.forEach((L,li)=>{
   const start=el('div','ev start');start.title='Trigger: '+L.trigger;g.append(start);
   const n=L.steps.length;
   L.steps.forEach((s,i)=>{
-    const t=el('div','task',`<span class="n">${s.n}</span><div class="t">${esc(s.title)}</div><div class="chips">${s.skills.map(k=>chip(k.id,k.partial)).join('')}</div>`);
+    const t=el('div','task',`<span class="n">${s.n}</span><div class="t">${esc(s.title)}</div><div class="chips">${s.skills.map(k=>chip(k.id,k.partial)).join('')}</div>${extchips(s)}`);
     t.dataset.id=L.id+':'+s.n;t.style.gridColumn=i+2;t.onclick=e=>{if(!e.target.closest('.chip'))openStep(L,s)};
     g.append(t);
   });

@@ -196,13 +196,16 @@ def main() -> int:
             for branch in lane.get("branches", []):
                 for step in branch.get("steps", []):
                     named |= set(step.get("skills") or [])
-                    # sub-steps (3a4: the IT demand follows OpenSpec): registry skills as usual; `openspec` names are
-                    # OpenSpec's own skills, carried unchanged inside the skill that holds the OpenSpec copy
+                    # sub-steps (3a4: the IT demand follows OpenSpec): registry skills as usual; `external` entries are
+                    # OpenSpec's own skills, which stay external: a name and a link into the OpenSpec repository, no copy here
+                    ep = step.get("external_process")
+                    if ep and not (ROOT / ep.get("how_to", "")).is_file():
+                        fail(f"process.yaml step {step.get('id')}: how_to '{ep.get('how_to')}' does not exist")
                     for sub in step.get("substeps") or []:
                         named |= set(sub.get("skills") or [])
-                        for ext in sub.get("openspec") or []:
-                            if not list(ROOT.glob(f"skills*/*/references/openspec/skills/{ext}/SKILL.md")):
-                                fail(f"process.yaml step {sub.get('id')} names OpenSpec skill '{ext}', which is not in the OpenSpec copy")
+                        for ext in sub.get("external") or []:
+                            if not str(ext.get("url", "")).startswith("https://github.com/Fission-AI/OpenSpec"):
+                                fail(f"process.yaml step {sub.get('id')}: external '{ext.get('name')}' must link into github.com/Fission-AI/OpenSpec")
         named |= set((proc.get("spine") or {}).get("skills") or [])
         for name in sorted(named - on_disk):
             fail(f"process.yaml names '{name}' but no such skill exists")

@@ -31,10 +31,10 @@ are agenda numbers, not figures.
   catalogue), Lane 3 shared front-end then 3a and 3b.
 - **Authority.** No skill claims more than `08-decision-rights.md` allows. Every lane "may not" (commit investment,
   approve integration, bypass Cyber Security, push an under-specified demand) is held: `bc-capital-request`,
-  `deploy-it-demand`, `deploy-cybersec`, `deploy-appstore` and `mi-equipment` all stop at a human.
+  `deploy-cybersec`, `deploy-appstore` and `mi-equipment` all stop at a human.
 - **Never invent figures.** Enforced by `dept-context`, `check_no_figures.py` and the grounding tags in
   `bc-build`.
-- **Clear demand before hand-off.** `deploy-it-demand` step 1 stops when the front-end is incomplete, as Lane 3 requires.
+- **Clear demand before hand-off.** The IT demand (OpenSpec, step 3a4; see docs/openspec-how-to-use.md) starts only when the front-end is complete, as Lane 3 requires.
 - **Catalogue graduation.** `od-catalog` and `catalog-standardization` carry the Lane 2 -> Lane 1 graduation.
 
 ## Where the skills do not follow them
@@ -45,7 +45,7 @@ are agenda numbers, not figures.
 | 2 | Intake classifies each demand into exactly one of Lane 1, 2 or 3 | `dept-intake` SKILL.md step 3 still routes into the four old service lines; its own `references/process-chain-practice.md` routes to Lane 1/2/3. The skill contradicts itself. `dept-context` also frames "the four service lines" | High (pending adoption of the new state) |
 | 3 | Old lanes resolved: Analytical Support retired; Project Support becomes the Lane 3 front-end; Information Integration becomes 3b | The three lane orchestrators ship in the extension library and `docs/new-state-flow.md` calls their future open. The department draft answers it | Medium |
 | 4 | Business case (OD x IT, 2026-09-11): separate bankable impact from assumption-dependent benefit; state investment envelope, minimum viable rollout, maximum scale-out, TCO. Cost kept apart from value (`bc-cost` feeds `bc-assess`) | None of these terms in `bc-build` or `bc-capital-request`. `bc-build` has no cost side; `bc-capital-request` notes it. `bc-capital-request` says nothing packages the eCR, but the department holds `ecr-builder` (`bc-capital-request`) and `bc-assess` | High |
-| 5 | Application ownership (OD x IT): build-and-run; ownership moves only on formal acceptance; handover checklist (legacy status, backlog, version currency, architecture, business logic, logging, observability) | Absent from `deploy-handover`, `deploy-it-demand`, `deploy-appstore` | High |
+| 5 | Application ownership (OD x IT): build-and-run; ownership moves only on formal acceptance; handover checklist (legacy status, backlog, version currency, architecture, business logic, logging, observability) | Absent from `deploy-handover`, `deploy-appstore` | High |
 | 6 | Technology guardrails (OD x IT): Python/FastAPI/SQL, k8s/CMO deployment, approved OT interfaces (MQTT/Edge), observability; self-assessment every 6-12 months; requirements fix objective, scope, interfaces and growth boundaries (mission creep) | Not in `od-catalog` guardrails or `funnel-requirements`. The IT side still owns publishing them (action item 6), so the skills can only point to them | Medium |
 | 7 | Lane 1a: the plant applies the standard dashboard in self-service mode | `ops-analytics-asset` and `ops-dashboard-engine` still describe OD building it. No DATATRON-specific skill (`ops-dashboard-datatron`) in the registry | Medium |
 | 8 | Lane 1b: cost template, approved by the plant budget owner | `dept-decision-rights` (step 1b2) has no row for the plant budget owner; no cost template (the department also marks it a gap) | Medium |

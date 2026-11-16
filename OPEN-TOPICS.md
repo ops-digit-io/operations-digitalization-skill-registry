@@ -13,8 +13,6 @@ All open topics of the skills in one place. The skills themselves carry none: no
 
 The inline markers `⟨to confirm⟩` and `⟨to be collected⟩` inside the skill text and the open-items fields of the output templates in `assets/` are not listed here: they mark a value a user still has to supply in a concrete package, not an open topic of the skill.
 
-Skills with open topics: 20. Sections moved: 41.
-
 ## bc-build
 
 ### What is still open
@@ -212,77 +210,6 @@ Source: `skills/deploy-handover/references/od-impact-evaluation/procedure.md`
 - ⟨Utilization target⟩ — "to confirm" in the lane metrics. Supplier: OD lead.
 - ⟨Plant-side owner for confirmation⟩ — the department has no plant-side lane owner yet (OD skill
   map, open gaps). Supplier: OD lead.
-
-## deploy-it-demand
-
-### Open - what only the OD lead and IT can supply
-
-Source: `skills/deploy-it-demand/SKILL.md`
-
-- ⟨The OD store: its id and repository URL⟩ - decided: OD drafts in its own OpenSpec store; the OD lead sets it
-  up once (a Git repository with `openspec/`; no CLI needed) and names it here.
-- ⟨How IT takes a change from the OD store: `references:` in its repositories, or a copy into its own store⟩ -
-  the meeting asked IT to define where each artefact is stored and exchanged (IT).
-- ⟨Published technology guardrails, sourcing criteria, ownership gates, platform-level Cyber Security
-  model, data and interface catalog structure⟩ - open IT action items; the annex marks each.
-- ⟨Whether IT adopts OpenSpec itself⟩ - proposed here; if IT keeps its own demand form, the absorbed IT
-  demand package carries the same content.
-
-### Open IT action items that will firm the inputs
-
-Source: `skills/deploy-it-demand/references/it-expected-inputs.md`
-
-| Action | Owner (as recorded) | Firms input |
-|---|---|---|
-| Structure and contents of the data and interface catalogs | IT | 7, 8 |
-| Consolidate the artefacts IT expects from the funnel and where each is stored or exchanged | IT | all; the receiving location for OpenSpec changes |
-| Cyber Security pre-evaluation approach, aligned with Cyber Security | OD lead, IT | 4 |
-| Platform-level Cyber Security approval model | IT | 4 |
-| Ownership and handover gates | IT, OD lead | 11 |
-| Technology guardrails (stacks, Kubernetes / CMO, interfaces, OT) | IT, OD | 3 |
-| Recurring application self-assessment | IT, OD lead | 11 |
-| CMO roadmap and target blueprint | IT | 3 |
-| Minimum and maximum deployment scenarios per use case | OD lead, IT | 9 |
-| Build / buy / guided delivery sourcing criteria with TCO | IT, OD lead | 10 |
-| Requirements and technology baseline for the legacy applications | unassigned | 13 |
-
-### Open - what only the OD lead can supply
-
-Source: `skills/deploy-it-demand/references/it-demand-package/procedure.md`
-
-- ⟨IT's demand form⟩ and ⟨the evaluation board's criteria and rhythm⟩ - searched in the bundle, the knowledge base's AI decks and the initiatives on 2026-11-05; the sources carry the route and OD's asks, not the form.
-- ⟨Who the contact in IT demand management is⟩ and ⟨the usual lead time⟩ beyond the flow's "weeks".
-- ⟨What an external developer must receive⟩ (spec format, environment access, security terms).
-
-### Open
-
-Source: `skills/deploy-it-demand/references/it-demand-package/references/external-build-and-foreign-app-inputs.md`
-
-- ⟨IT's form fields, criteria, rhythm, lead time, contact⟩ - see `it-touchpoints.md`.
-- ⟨The format of the specification IT accepts for an external build⟩.
-- ⟨Whether a foreign app that is already in the legacy list needs a new demand or a change request on the existing entry⟩ - OD lead, IT.
-
-### Open
-
-Source: `skills/deploy-it-demand/references/it-demand-package/references/it-touchpoints.md`
-
-- ⟨IT's demand form fields⟩, ⟨the evaluation board's criteria and rhythm⟩ and ⟨the usual lead time⟩ - not in any source read. The deck, the bundle and the knowledge base carry the *route*, not the form. Owner: OD lead, with the IT demand management contact.
-- ⟨The IT contact in demand management⟩ - no source names a role or a mailbox for it.
-
-### What is still genuinely open, not answered by any of the four
-
-Source: `skills/deploy-it-demand/references/od-project-support-consultancy/references/composed-protocols.md`
-
-- **Kick-off agenda template** (step 2's own agenda, separate from the requirement spec
-  it produces) — no dedicated template found anywhere in the registry.
-- **Application-consultancy session template** (step 4) — PS-04 "application consulting"
-  was never built as its own skill (`docs/knowledge-base-alignment.md` still lists it "not built");
-  this lane's own step 4 is as far as that work goes today.
-- **Tool/licensing decision owner** — `dept-decision-rights`'s "Tool/system rollout" row
-  names the IT-responsible role of the business side as the counterpart in the tandem; this lane's wait state
-  uses the same counterpart.
-- **The end-to-end flow owner** — tracked separately in `registry.yaml`'s `open_gaps`,
-  unchanged by this pass.
 
 ## dept-context
 

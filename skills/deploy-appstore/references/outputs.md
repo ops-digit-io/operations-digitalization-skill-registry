@@ -24,6 +24,6 @@ deploy: a human with deploy rights does that.
 ## Handoff
 
 - **Also receives from:** `deploy-migration`: Staged migration plan; Back-out plan.
-- **Receives from:** `funnel-requirements` (accepted requirement), `invest-screen` and `dept-decision-rights` (tool decision), `bc-build` (business case), `bc-capital-request` (capital approved where needed), and `deploy-it-demand` first on routes 3a.3 and 3a.4 once the external build is delivered.
+- **Receives from:** `funnel-requirements` (accepted requirement), `invest-screen` and `dept-decision-rights` (tool decision), `bc-build` (business case), `bc-capital-request` (capital approved where needed), and OpenSpec IT demand (external) first on routes 3a.3 and 3a.4 once the external build is delivered.
 - **Next in the flow:** `deploy-handover` (step 3a6, rollout and adoption).
 - **Stops here when:** a package field is missing or the Cyber Security sign-off is not granted. Then the package is invalid for release: list the gap with its owner and stop. No deployment to a shared platform without the named human approval.

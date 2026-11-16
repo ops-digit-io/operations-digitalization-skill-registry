@@ -25,7 +25,7 @@ metadata:
   authority_level: recommend
   status: draft
   requires: [dept-context]
-  composes: [mi-equipment, dept-decision-rights, bc-build, invest-screen, deploy-cybersec, bc-capital-request, catalog-usecase, deploy-it-demand]
+  composes: [mi-equipment, dept-decision-rights, bc-build, invest-screen, deploy-cybersec, bc-capital-request, catalog-usecase]
   okf:
     type: Agent Skill
     title: Investment input pack
@@ -84,7 +84,7 @@ system, fill [`assets/investment-estimate.md`](assets/investment-estimate.md):
 - one-time build effort, licences and hardware, recurring run cost, multi-year **TCO**;
 - for the **minimum viable rollout** and the **maximum scale-out** (OD x IT, 2026-09-11);
 - every figure tagged `[quote]`, `[assumption]` or `[market]`; floor and upside from named drivers;
-- run cost written for the stated operating model and for who runs it (build-and-run, `deploy-it-demand`);
+- run cost written for the stated operating model and for who runs it (build-and-run, OpenSpec IT demand (external));
 - cloud and run-cost drivers asked from IT, which carries them centrally today.
 
 **Lane 1b cost template.** For a standardized system from `catalog-usecase`, the estimate is the predictable,

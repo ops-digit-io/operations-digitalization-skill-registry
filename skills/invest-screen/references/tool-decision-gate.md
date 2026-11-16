@@ -48,8 +48,8 @@ them.
 |---|---|---|---|
 | **3a.1** Available codebase or app to the platform | Existing code or app covers the need; lowest effort | OD + external | `deploy-appstore` |
 | **3a.2** New codebase, self-developed | The capability is tied to manufacturing or engineering know-how | OD + external (DevOps via externals) | `deploy-appstore` |
-| **3a.3** New codebase, external developer ("guided buy") | Build is needed but not core know-how; IT sets architecture and technology guidelines | OD + external | `deploy-it-demand`, then `deploy-appstore` |
-| **3a.4** Integrate a foreign or other app | A product exists; only integration is needed | IT, Cyber Security gated | `deploy-it-demand` |
+| **3a.3** New codebase, external developer ("guided buy") | Build is needed but not core know-how; IT sets architecture and technology guidelines | OD + external | OpenSpec IT demand (external), then `deploy-appstore` |
+| **3a.4** Integrate a foreign or other app | A product exists; only integration is needed | IT, Cyber Security gated | OpenSpec IT demand (external) |
 | **3b** New connector | The gap is a machine connection, not software | IIAE; Cyber Security gated | `mi-equipment` |
 | Lean-footprint redesign | A lighter tool already covers it (section above) | — | back to the calling skill |
 

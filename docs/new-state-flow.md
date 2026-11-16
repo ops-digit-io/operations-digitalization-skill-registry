@@ -33,7 +33,7 @@ A proven, repeatable Lane 2 result graduates into the catalog and becomes a Lane
 ## What the flow says is missing
 
 Five net-new skills: `catalog-usecase` (the Lane 1
-self-service layer), `deploy-appstore` and `deploy-it-demand` (Lane 3a). They were not in the
+self-service layer), `deploy-appstore` (Lane 3a; the IT demand runs through external OpenSpec). They were not in the
 registry when the flow was drawn and now exist as draft scaffolds. Two spots are thin: prototype / proof of concept, and capital-request packaging.
 The business-case assessment rubric `bc-assess` is named as living outside the registry.
 

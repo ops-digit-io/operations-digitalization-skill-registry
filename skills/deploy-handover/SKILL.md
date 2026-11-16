@@ -16,7 +16,7 @@ metadata:
   status: stable
   origin: derived
   requires: [dept-context]
-  composes: [deploy-acceptance, metrics-scorecard, catalog-standardization, deploy-it-demand, catalog-usecase]
+  composes: [deploy-acceptance, metrics-scorecard, catalog-standardization, catalog-usecase]
   okf:
     type: Agent Skill
     title: Handover and adoption
@@ -128,7 +128,7 @@ When an application (not a use case to a plant) changes owner, the OD x IT rules
 builds it runs it; ownership moves only on **formal acceptance**; until then the builder supports it; the
 builder closes missing logging or observability first; the receiving team checks legacy status, backlog,
 version currency, architecture, business logic, logging and observability. The OpenSpec package that
-carries this into IT is `deploy-it-demand`.
+carries this into IT is OpenSpec IT demand (external).
 
 ## Impact and utilization after go-live
 

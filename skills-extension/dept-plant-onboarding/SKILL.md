@@ -82,7 +82,7 @@ what comes next, which skill, what artefact, who decides.*
 | 8. Join the routines | Plant numbers in the Scorecard; plant issues in the COP or with the OD lead (ODEC is historical); plant risks and learnings | `metrics-scorecard`, `bc-portfolio`, `dept-risk`, `dept-retro`, `dept-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
 
 A 3a path (new system, via IT demand) is not part of a normal plant onboarding; it is taken only when stage 3 or 5 finds
-a need no connector can meet: `deploy-it-demand`, `deploy-appstore`.
+a need no connector can meet: OpenSpec IT demand (external), `deploy-appstore`.
 
 ## What each profile skips or adds
 

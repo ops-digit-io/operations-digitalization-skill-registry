@@ -17,7 +17,7 @@ metadata:
   authority_level: draft the prototype and the validation record; the plant confirms the value
   status: draft
   requires: [dept-context]
-  composes: [funnel-use-case, funnel-requirements, mi-data-availability, ops-analytics-asset, bc-build, bc-capital-request, deploy-acceptance, dept-decision-rights, deploy-handover]
+  composes: [funnel-use-case, funnel-requirements, mi-data-availability, ops-analytics-asset, ops-dashboard-engine, bc-build, bc-capital-request, deploy-acceptance, dept-decision-rights, deploy-handover]
   okf:
     type: Agent Skill
     title: Prototype and proof of concept
