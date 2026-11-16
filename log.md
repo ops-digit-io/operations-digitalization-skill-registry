@@ -3,6 +3,11 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - skill status: `ready` added, the 10 core drafts promoted
+
+- New status `ready` (`statuses` in `registry.yaml`): a core skill that passes every check (`validate_registry.py`, quality grade A, drawn on the BPMN map, spec-valid export) and awaits human sign-off. It is not a review. `validate_registry.py` enforces the vocabulary, that `ready` is core only, and that a `ready` skill is graded A; `verify_okf.py` and `docs/okf-conventions.md` list it as an addition to OKF's three statuses.
+- Promoted from `draft` to `ready`: bc-assess, bc-capital-request, catalog-guardrails, catalog-systems, catalog-usecase, comms-brief, comms-followup, comms-showcase, deploy-appstore, funnel-prototype (frontmatter, tag, registry entry and the status sentence in the text). The 20 extension skills stay `draft`; the 20 `stable` skills are unchanged. Skill pages on the site show the status.
+
 ## 2026-11-16 - BPMN labels are placed without overlaps
 
 - `scripts/build_bpmn.py` now places every gateway, event and flow label itself: shapes, flow lines, skill chips, notes and drill-down buttons are obstacles, and a label goes to the nearest free spot. `--check` fails when a label has no free spot, so CI catches overlaps. Gateway labels sit above, event labels below, flow labels on the last leg before the target; the OpenSpec header pills sit above the tasks of the 3a4 view; extra room after the intake routing keeps its three labels readable.

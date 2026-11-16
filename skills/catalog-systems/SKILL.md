@@ -13,7 +13,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant self-serves
   tags: [department-core, lane-1]
   authority_level: draft the match record; recommend only - ordering, connecting and the spend approval stay human
-  status: draft
+  status: ready
   requires: [dept-context]
   okf:
     type: Agent Skill

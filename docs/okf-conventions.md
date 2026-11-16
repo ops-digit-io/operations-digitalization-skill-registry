@@ -150,7 +150,7 @@ python3 scripts/verify_okf.py
 | A `SKILL.md` carries `metadata.okf` and its `name` equals the directory | A skill invisible to an OKF consumer, or one whose command name does not match its identity |
 | Every other concept's `title` slugs to its filename | A graph label you cannot find on disk |
 | `description` is present | A node in the graph with nothing under its name |
-| `status` is one of `draft \| stable \| deprecated` | A vocabulary nothing can act on |
+| `status` is one of `draft \| ready \| stable \| deprecated` (`ready` is this registry's addition to OKF's three: a core skill that passes every check and awaits human sign-off, see `statuses` in `registry.yaml`) | A vocabulary nothing can act on |
 | A `generated` stamp, where present, names an OKF actor and an ISO 8601 timestamp | Provenance that says nothing |
 | `resource` resolves | A claim the bundle cannot back |
 | Every in-bundle link resolves | A reference that navigates nowhere |

@@ -70,6 +70,7 @@ def main() -> int:
     registry = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
     listed = {entry["id"] for entry in registry.get("skills", [])}
     tiers = set(registry.get("tiers", {}))
+    statuses = set(registry.get("statuses", {}))
     families = set(registry.get("families", {}))
 
     on_disk = set(skillpaths.all_ids())
@@ -129,6 +130,10 @@ def main() -> int:
         for field in ("tier", "lane", "owner_role", "authority_level", "status"):
             if not meta.get(field):
                 fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: metadata.{field} is missing")
+        if meta.get("status") and meta["status"] not in statuses:
+            fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: status '{meta['status']}' is not one of {sorted(statuses)}")
+        if meta.get("status") == "ready" and skillpaths.library_of(name) != "core":
+            fail(f"{name}: status ready is for core skills (they pass every check and are drawn on the BPMN map)")
         if meta.get("tier") and meta["tier"] not in tiers:
             fail(f"{skillpaths.folder_of(name)}/{name}/SKILL.md: tier '{meta['tier']}' is not one of {sorted(tiers)}")
 
@@ -230,6 +235,8 @@ def main() -> int:
         for name in sorted(on_disk):
             if name not in rated:
                 fail(f"skill '{name}' has no quality rating in docs/new-state/skill-quality.json (run SkillEvaluator, then scripts/build_skill_quality.py)")
+            elif ((read_frontmatter(skillpaths.skill_dir(name) / "SKILL.md") or {}).get("metadata") or {}).get("status") == "ready" and rated[name].get("grade") != "A":
+                fail(f"skill '{name}' is ready but its quality grade is {rated[name].get('grade')}, not A")
             elif rated[name].get("folder_hash") != skillpaths.folder_hash(name):
                 print(f"note: '{name}' changed since its quality rating; rerun the rating", file=sys.stderr)
 

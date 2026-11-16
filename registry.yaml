@@ -49,6 +49,12 @@ registry:
   flows_as_of: 2026-08-25         # Node-RED corpus and machine estate
   status: draft                   # unverified — drafted from the bundle, not yet read line by line
 
+statuses:
+  draft: Assembled from the department record and not validated. Nothing says a person has read it against the source systems.
+  ready: "Core skill that passes every registry check (validate_registry.py, quality grade A, drawn on the BPMN map, spec-valid export) and awaits human sign-off. Not a review; nobody has read it line by line."
+  stable: Signed off by the owner.
+  deprecated: Superseded; kept for traceability.
+
 tiers:
   foundation: Shared ground truth every other skill loads first.
   lane: One per OD service line — the whole lane end to end.
@@ -246,7 +252,7 @@ skills:
     lane: lane-3
     scope: od
     origin: new-state
-    status: draft
+    status: ready
     owner_role: human:jakob.gabriel
     authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
     summary: "Lane 3a: the deployment package and the release gate for a manufacturing app, with Cyber Security sign-off. DRAFT scaffold - the platform procedure is not recorded."
@@ -257,7 +263,7 @@ skills:
     lane: [lane-2, lane-3]
     scope: od
     origin: new-state
-    status: draft
+    status: ready
     owner_role: human:jakob.gabriel
     authority_level: draft the request; submission and approval are human
     summary: "Package a use case's value and cost into a capital request (the eCR) so the human approvers can decide - work out which spend gate and approver the amount hits, assemble the evidence, the value rows from bc-build with their fi DRAFT."
@@ -335,7 +341,7 @@ skills:
     lane: lane-2
     scope: od
     origin: new-state
-    status: draft
+    status: ready
     owner_role: human:jakob.gabriel
     authority_level: draft the prototype and the validation record; the plant confirms the value
     summary: "Prototype or prove a new use case cheaply before the business case and the build - decide whether the open question needs a click-dummy (does the user understand and want it), a proof of concept (does the data or model work) or neither, bui DRAFT."
@@ -478,7 +484,7 @@ skills:
     lane: [lane-1, lane-2]
     scope: od
     origin: new-state
-    status: draft
+    status: ready
     owner_role: human:jakob.gabriel
     authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
     summary: "The catalog of known use cases and standard systems with its go-live guardrails: pick a catalogued use case or standard system (lane 1), graduate a proven use case into the catalog (lane 2). DRAFT."
