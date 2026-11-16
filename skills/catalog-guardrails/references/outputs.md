@@ -15,8 +15,8 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | go-live-check-record | `assets/go-live-check-record.md`, filled | Plant owner, who decides | Every guardrail (G1 to G7 and G7a) has a result (passed / failed / not checked), evidence, date and answering role; Use case, plant and plant owner at the top; Final line "go-live decision: the plant's" |
-| utilization-expectation | Written into the go-live check record before go-live | `deploy-handover`, Plant owner, then | Stated in the record: who uses the screen, in which meeting, which action follows |
-| routing-of-failed-guardrails | Named in the record | `mi-data-availability`, `invest-screen`, `deploy-handover`, `deploy-cybersec`, or, as the failure says | Each failure is routed back with the target skill named; None is passed as a warning where it is marked block |
+| utilization-expectation | Written into the go-live check record before go-live | `deploy-handover`, Plant owner | Stated in the record: who uses the screen, in which meeting, which action follows |
+| routing-of-failed-guardrails | Named in the record | `mi-data-availability`, `invest-screen`, `deploy-handover`, `deploy-cybersec` | Each failure is routed back with the target skill named; None is passed as a warning where it is marked block |
 
 ## Checks
 
@@ -24,7 +24,7 @@ tags: [outputs, handoff]
 |---|---|---|
 | go-live-check-record | structure of `assets/go-live-check-record.md` | Plant owner |
 | utilization-expectation | manual | Plant owner |
-| routing-of-failed-guardrails | manual | or |
+| routing-of-failed-guardrails | manual | Plant owner |
 
 ## Handoff
 

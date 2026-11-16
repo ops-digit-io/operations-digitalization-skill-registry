@@ -59,7 +59,7 @@
    "score": 90.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "19dc3a3b422ff973",
+   "folder_hash": "ffe8df3000e562a3",
    "findings": [
     {
      "dimension": "correctness",
@@ -365,7 +365,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "bed37265ae68b25d",
+   "folder_hash": "a9d040eae61dd3f0",
    "findings": [
     {
      "dimension": "correctness",
@@ -627,7 +627,7 @@
    "score": 94.0,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "993eb51d970877f0",
+   "folder_hash": "2e9d3dacc09a1dd1",
    "findings": [
     {
      "dimension": "reliability",
@@ -1124,7 +1124,7 @@
    "score": 85.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "ef39e4ce2cc7ff03",
+   "folder_hash": "8f01203f7713f6d6",
    "findings": [
     {
      "dimension": "correctness",
@@ -1527,7 +1527,7 @@
    "score": 86.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "d0c1b3804f24c3c1",
+   "folder_hash": "1c80016a16375bf8",
    "findings": [
     {
      "dimension": "correctness",
@@ -1758,7 +1758,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "55c9430ec0848764",
+   "folder_hash": "99ce7d7c987d527f",
    "findings": [
     {
      "dimension": "correctness",
@@ -2277,7 +2277,7 @@
    "score": 96.5,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "ddd9b65a7b49ebe9",
+   "folder_hash": "3956a59ce369b905",
    "findings": [
     {
      "dimension": "correctness",
@@ -2418,7 +2418,7 @@
    "score": 84.2,
    "grade": "B",
    "skill_type": "guide-only",
-   "folder_hash": "53d83866c1dbe5df",
+   "folder_hash": "750657b78c9b04b0",
    "findings": [
     {
      "dimension": "reliability",

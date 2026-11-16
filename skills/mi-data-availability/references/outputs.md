@@ -14,7 +14,7 @@ tags: [outputs, handoff]
 
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
-| data-availability-verdict | `assets/data-availability-verdict.md`, filled | `funnel-requirements`, `funnel-prototype`, the requester | Names the step where the request stops, with evidence and owner; Unproven is not reported as absent; The requester knows what can and cannot be answered now |
+| data-availability-verdict | `assets/data-availability-verdict.md`, filled | `funnel-requirements`, `funnel-prototype`, Requester | Names the step where the request stops, with evidence and owner; Unproven is not reported as absent; The requester knows what can and cannot be answered now |
 | data-gap-request | `assets/data-gap-request.md`, one per gap | `mi-equipment` | Names machines, signals, plant and the use case waiting |
 | dependency-on-the-use-case-record | Dependency entry on the use case record | DBVE (record owner) | Each shortfall is recorded as a dependency so it stays visible after the requester has moved on |
 | missing-signal-table | Table `signal id / label / why needed`, up front in the verdict | `funnel-requirements`, `mi-signals` | Every signal needed but not collecting is listed with its reason |
@@ -23,7 +23,7 @@ tags: [outputs, handoff]
 
 | Output | Check | Sign-off |
 |---|---|---|
-| data-availability-verdict | structure of `assets/data-availability-verdict.md` | the requester |
+| data-availability-verdict | structure of `assets/data-availability-verdict.md` | Requester |
 | data-gap-request | structure of `assets/data-gap-request.md` | OD lead |
 | dependency-on-the-use-case-record | manual | DBVE (record owner) |
 | missing-signal-table | manual | OD lead |

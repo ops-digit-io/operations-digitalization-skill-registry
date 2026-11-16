@@ -14,7 +14,7 @@ tags: [outputs, handoff]
 
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
-| value-backbone | `assets/business-case-backbone.md`, filled | `bc-assess`, `bc-capital-request`, then | Expected / min / potential headline; Bankable and assumption-dependent value apart; Investment envelope; Minimum viable rollout and maximum scale-out; Every figure tagged |
+| value-backbone | `assets/business-case-backbone.md`, filled | `bc-assess`, `bc-capital-request` | Expected / min / potential headline; Bankable and assumption-dependent value apart; Investment envelope; Minimum viable rollout and maximum scale-out; Every figure tagged |
 | saving-rows-one-per-mechanism | Rows in the backbone | DBVE (owns the savings ledger) | Amount, year, category, business rationale, reliability label; A `CALCULATION` row also carries its methodology |
 | open-questions-and-dependencies | List in the backbone | `dept-decision-rights`, named owner per dependency | Every gate (for example ECR creation) recorded as a dependency with an owner |
 | assessment-verdict | Verdict line in the backbone | `bc-assess` | Written by a person other than the case builder |
@@ -23,7 +23,7 @@ tags: [outputs, handoff]
 
 | Output | Check | Sign-off |
 |---|---|---|
-| value-backbone | structure of `assets/business-case-backbone.md` | then |
+| value-backbone | structure of `assets/business-case-backbone.md` | OD lead |
 | saving-rows-one-per-mechanism | manual | DBVE (owns the savings ledger) |
 | open-questions-and-dependencies | manual | named owner per dependency |
 | assessment-verdict | manual | OD lead |

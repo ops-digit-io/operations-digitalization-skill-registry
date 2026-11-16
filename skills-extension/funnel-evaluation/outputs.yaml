@@ -32,15 +32,11 @@ outputs:
   - mi-data-availability
   - mi-signals
   to_roles:
-  - (F9
-  - F10)
-  - (F11
-  - F2)
-  - the use case itself for the rest
+  - Use case owner
   done_when:
   - Every gap is sequenced and classified with an owner and next skill
   - Gaps staying with the use case are named for the scope and cost of `bc-build`
-  signoff: (F9
+  signoff: Use case owner
 - id: verdict-and-total-score
   form: Verdict and score in the protocol
   to_skills:

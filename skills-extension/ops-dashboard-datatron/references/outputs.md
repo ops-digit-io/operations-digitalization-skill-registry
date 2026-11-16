@@ -23,7 +23,7 @@ tags: [outputs, handoff]
 
 | Output | Check | Sign-off |
 |---|---|---|
-| datapoint-uuid-list | manual | Plant (switches the signals on |
+| datapoint-uuid-list | manual | Plant |
 | dashboard | manual | Plant key user (self-service) |
 | qa-checklist-result | manual | Plant key user |
 | published-example | manual | DBVE |

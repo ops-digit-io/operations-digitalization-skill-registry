@@ -8,12 +8,12 @@ outputs:
   - funnel-requirements
   - funnel-prototype
   to_roles:
-  - the requester
+  - Requester
   done_when:
   - Names the step where the request stops, with evidence and owner
   - Unproven is not reported as absent
   - The requester knows what can and cannot be answered now
-  signoff: the requester
+  signoff: Requester
   check:
     structure: true
 - id: data-gap-request

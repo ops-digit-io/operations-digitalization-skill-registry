@@ -18,17 +18,12 @@ outputs:
   to_skills:
   - catalog-usecase
   - dept-intake
-  to_roles:
-  - (catalogued use case
-  - Lane 1)
-  - (new need
-  - or a need for a new system or connector
-  - via intake)
+  to_roles: []
   done_when:
   - Every reaction has a route
   - Answers stay within the story's promise
   - No delivery date promised
-  signoff: (catalogued use case
+  signoff: OD lead
 - id: review-date-and-correction-notice
   form: Review date in the log; notice when the use case changes
   to_skills: []
