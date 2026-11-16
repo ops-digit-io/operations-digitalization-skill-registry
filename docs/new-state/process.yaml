@@ -1,6 +1,6 @@
 # The new-state process flow as data: the owner's process flow (OD_NewState_ProcessFlow.html, new-state service lanes
 # with skills & gaps). Core = exactly the skills drawn on its steps (skills/); the net-new builds it lists (catalog-usecase,
-# catalog-systems, catalog-guardrails, deploy-appstore, deploy-it-demand, prototype/PoC = funnel-prototype,
+# catalog-systems, catalog-guardrails, deploy-appstore, prototype/PoC = funnel-prototype,
 # capital-request = bc-capital-request) are placed on their steps. `proposed` = extension skills (skills-extension/), not drawn.
 # Step ids are stable keys that skills cite.
 intake:
@@ -104,6 +104,7 @@ lanes:
       title: Prototype / validate
       skills:
       - ops-analytics-asset
+      - ops-dashboard-engine
       - funnel-prototype
       proposed:
       - dept-governance
@@ -169,47 +170,73 @@ lanes:
     - id: 3a4
       title: Package / build
       wait: CS ~wks
-      skills:
-      - deploy-it-demand
       proposed:
       - deploy-project-order
-      substeps:   # 3a.3 and 3a.4: the IT demand follows the OpenSpec workflow; openspec = OpenSpec's own skills, referenced one by one (external; copy kept unchanged in the registry)
+      # 3a.3 and 3a.4: the IT demand follows the OpenSpec process. OpenSpec is external; this registry holds no copy of its
+      # skills, only these links and docs/openspec-how-to-use.md.
+      external_process:
+        title: IT demand via OpenSpec
+        url: https://github.com/Fission-AI/OpenSpec
+        how_to: docs/openspec-how-to-use.md
+      substeps:
       - id: '3a4.1'
         title: Explore + collect inputs
         owner: OD
-        text: "Clarify the demand; collect every input, including the user's own files, into the change's attachments."
-        skills: [deploy-it-demand]
-        openspec: [openspec-explore]
+        text: "Clarify the demand and collect every input, including the user's own files."
+        skills: []
+        external:
+        - name: openspec-explore
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-explore
       - id: '3a4.2'
         title: Propose the change
         owner: OD
-        text: "OpenSpec writes proposal, specs, design and tasks in the OD store, with OD's context and rules."
+        text: "OpenSpec writes proposal, specs, design and tasks for the change."
         skills: []
-        openspec: [openspec-propose, openspec-new-change, openspec-continue-change, openspec-ff-change]
+        external:
+        - name: openspec-propose
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-propose
+        - name: openspec-new-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-new-change
+        - name: openspec-continue-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-continue-change
+        - name: openspec-ff-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-ff-change
       - id: '3a4.3'
         title: Validate + hand over
         owner: OD
-        text: "Add the OD annex, run the check until READY, hand the change over from the OD store."
-        skills: [deploy-it-demand]
-        openspec: [openspec-update-change]
+        text: "Fix and validate the change, then hand it over to IT or the external developer."
+        skills: []
+        external:
+        - name: openspec-update-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-update-change
       - id: '3a4.4'
         title: Apply
         owner: IT / Ext
         text: "IT or the external developer implements the tasks."
         skills: []
-        openspec: [openspec-apply-change]
+        external:
+        - name: openspec-apply-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-apply-change
       - id: '3a4.5'
         title: Verify
         owner: IT / Ext
         text: "The implementation is checked against the change before archive."
         skills: []
-        openspec: [openspec-verify-change]
+        external:
+        - name: openspec-verify-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-verify-change
       - id: '3a4.6'
         title: Archive + sync specs
         owner: IT
         text: "The finished change is folded into the main specs."
         skills: []
-        openspec: [openspec-archive-change, openspec-bulk-archive-change, openspec-sync-specs]
+        external:
+        - name: openspec-archive-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-archive-change
+        - name: openspec-bulk-archive-change
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-bulk-archive-change
+        - name: openspec-sync-specs
+          url: https://github.com/Fission-AI/OpenSpec/tree/v1.17.0/skills/openspec-sync-specs
       options:
       - id: 3a.1
         owner: OD + Ext
@@ -227,16 +254,14 @@ lanes:
       - id: 3a.3
         owner: External
         title: New codebase (external dev)
-        text: Spec in-house, build with an external partner (DevOps via externals).
-        skills:
-        - deploy-it-demand
+        text: Spec in-house, build with an external partner (DevOps via externals). The IT demand runs through the OpenSpec process (3a4).
+        skills: []
         note: + ext dev
       - id: 3a.4
         owner: IT·CS
         title: Integrate a foreign app
-        text: Integrate a third-party app via IT Demand + Cyber Security. The integrate-only path.
-        skills:
-        - deploy-it-demand
+        text: Integrate a third-party app via IT Demand + Cyber Security. The integrate-only path; the IT demand runs through the OpenSpec process (3a4).
+        skills: []
     - id: 3a5
       title: Deploy to platform + CS
       skills:

@@ -25,6 +25,6 @@ submits, and the agent never submits, signs or approves.
 - **Receives from:** `bc-build` (saving rows), `bc-cost` (cost side), `bc-assess` (verdict),
   `funnel-prototype` (validation record), `dept-decision-rights` (route and approvers), and `funnel-evaluation` (verdict).
 - **Next in the flow:** the human approvers decide, then `deploy-handover` (step 26) and the build. This is the end
-  of the business-case chain (step 25). Other gates the spend touches: `deploy-it-demand`, `deploy-cybersec`.
+  of the business-case chain (step 25). Other gates the spend touches: OpenSpec IT demand (external), `deploy-cybersec`.
 - **Stops here when:** no money needs committing (record that and stop), the value backbone, estimate or verdict is
   missing (refusal gate), or the package has been handed to a human to review and submit.

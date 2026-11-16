@@ -43,6 +43,6 @@ stand-alone; confirm with the OD lead and Finance that it still applies under ne
 2. Classify the case: IT invest, expansion, R&D, real estate, or none of these. The class switches steps 6 to 8.
 3. List the approvers for that tier and class, by role, in the package (`assets/capital-request-package.md`).
 4. An OD digitalization investment with software or hosting is usually an **IT invest**: IT Controller (step 6)
-   always, CIO (step 8) from the middle tier. Flag it, and open the IT demand in parallel (`deploy-it-demand`).
+   always, CIO (step 8) from the middle tier. Flag it, and open the IT demand in parallel (OpenSpec IT demand, external).
 5. The decision-rights row "digitalization investment planning" (OD lead with BA Operations, consultation,
    approval yes) sits **before** this chain: the OD lead recommends, the chain approves (`dept-decision-rights`).

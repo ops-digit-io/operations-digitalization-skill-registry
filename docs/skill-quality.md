@@ -55,7 +55,6 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`mi-equipment`](../skills/mi-equipment/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`mi-signals`](../skills/mi-signals/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`deploy-it-demand`](../skills/deploy-it-demand/SKILL.md) | A | 95.0 | 90.0 | 100.0 | 100.0 | 90.0 | Deeply nested references in input-intake.md (-10) |
 | [`mi-flow`](../skills/mi-flow/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 94.0 | 90.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
 | [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | A | 90.5 | 85.0 | 95.0 | 100.0 | 80.0 | Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
@@ -64,15 +63,14 @@ Each category starts at 100 and loses points for each finding; the score is the 
 
 | Finding | Skills affected | Points each |
 |---|---|---|
-| SKILL_SPEC recommended field missing: 'metadata.author' | 26 of 26 | 5 |
-| SKILL_SPEC recommended field missing: 'version' | 26 of 26 | 5 |
-| Deeply nested references in input-intake.md | 1 of 26 | 10 |
-| Description doesn't mention WHEN to use this skill | 1 of 26 | 10 |
-| Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
-| Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
-| No '## Purpose' section | 1 of 26 | 5 |
-| Non-doc file in references/: dashboard_builder.py | 1 of 26 | 5 |
-| SKILL_SPEC recommended field missing: 'metadata.tags' | 1 of 26 | 5 |
+| SKILL_SPEC recommended field missing: 'metadata.author' | 25 of 25 | 5 |
+| SKILL_SPEC recommended field missing: 'version' | 25 of 25 | 5 |
+| Description doesn't mention WHEN to use this skill | 1 of 25 | 10 |
+| Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 25 | 15 |
+| Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 25 | 15 |
+| No '## Purpose' section | 1 of 25 | 5 |
+| Non-doc file in references/: dashboard_builder.py | 1 of 25 | 5 |
+| SKILL_SPEC recommended field missing: 'metadata.tags' | 1 of 25 | 5 |
 
 ## Sources
 

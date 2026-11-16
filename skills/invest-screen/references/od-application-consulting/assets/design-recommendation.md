@@ -58,7 +58,7 @@ capability template: ⟨⟩. Plant-specific parts kept as deltas: ⟨⟩.⟩
 | Gate | Needed? | Route / skill | State |
 |---|---|---|---|
 | Tool / system rollout decision | ⟨⟩ | `dept-decision-rights` | ⟨⟩ |
-| IT demand | ⟨⟩ | `deploy-it-demand` | ⟨⟩ |
+| IT demand | ⟨⟩ | OpenSpec IT demand (external) | ⟨⟩ |
 | Cyber Security / OT | ⟨⟩ | `deploy-cybersec` | ⟨⟩ |
 | Spend (eCR) | ⟨⟩ | `bc-cost` | ⟨⟩ |
 | Licensing | ⟨owner to confirm⟩ | | ⟨⟩ |

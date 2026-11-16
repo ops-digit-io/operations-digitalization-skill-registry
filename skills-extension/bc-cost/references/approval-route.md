@@ -51,7 +51,7 @@ do not borrow the ladder above for them.
 |---|---|---|
 | Spend (eCR) | any capital spend | `dept-decision-rights`, `bc-capital-request` |
 | Cyber Security / OT sign-off | any external connection; "no expedited path" | `deploy-cybersec` |
-| IT demand | the item touches a platform OD does not own | `deploy-it-demand` |
+| IT demand | the item touches a platform OD does not own | OpenSpec IT demand (external) |
 | Tool / system rollout | the pack adds or extends a tool | `dept-decision-rights` (tool rollout row), `invest-screen` |
 | Plant adoption | the benefit depends on daily use | `deploy-handover` |
 | SPRINT | the benefit is to be called proven | `bc-build` |

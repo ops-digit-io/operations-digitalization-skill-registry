@@ -17,7 +17,7 @@ metadata:
   authority_level: draft the request; submission and approval are human
   status: draft
   requires: [dept-context]
-  composes: [bc-build, dept-decision-rights, funnel-prototype, bc-portfolio, funnel-evaluation, invest-screen, bc-cost, deploy-cybersec, deploy-it-demand, deploy-handover]
+  composes: [bc-build, dept-decision-rights, funnel-prototype, bc-portfolio, funnel-evaluation, invest-screen, bc-cost, deploy-cybersec, deploy-handover]
   okf:
     type: Agent Skill
     title: Capital request
@@ -102,7 +102,7 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
    estate) and list the approvers by role. If the recorded
    ladder is ambiguous for the amount, do not pick a side silently
    ([`references/spend-route.md`](references/spend-route.md)). Also name the other gates the spend touches: IT
-   demand (`deploy-it-demand`), Cyber Security (`deploy-cybersec`, `mi-equipment`).
+   demand (OpenSpec IT demand, external), Cyber Security (`deploy-cybersec`, `mi-equipment`).
 4. **State the ask** in one line: amount, what it buys, what phase it funds, by when it must be decided.
 5. **Pull the value in, do not rebuild it.** Take each saving row with amount, year, category, rationale,
    methodology, reliability and dependency. Show **tracked and proven separately, never summed**

@@ -17,7 +17,7 @@ metadata:
   status: stable
   origin: derived
   requires: [dept-context]
-  composes: [dept-decision-rights, funnel-evaluation, deploy-it-demand, deploy-appstore, mi-equipment, funnel-prototype]
+  composes: [dept-decision-rights, funnel-evaluation, deploy-appstore, mi-equipment, funnel-prototype]
   okf:
     type: Agent Skill
     title: System fit check
@@ -154,7 +154,7 @@ Read-only: recommend, never decide.
 For an application question that needs a full solution design recommendation (which existing tool or
 app covers it, how the data reaches it, who runs it afterwards), run the absorbed procedure in
 [`references/od-application-consulting/procedure.md`](references/od-application-consulting/procedure.md).
-The route goes to `deploy-it-demand` (3a.3, 3a.4), `deploy-appstore` (3a.1, 3a.2) or
+The route goes to OpenSpec IT demand (external) (3a.3, 3a.4), `deploy-appstore` (3a.1, 3a.2) or
 `mi-equipment` (3b).
 
 ## A live discrepancy this skill surfaces rather than hides

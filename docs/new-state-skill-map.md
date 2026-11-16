@@ -51,7 +51,7 @@ The process flow with the core skills that serve each step. The interactive vers
 |---|---|---|
 | Define & diagnose | [`funnel-use-case`](../skills/funnel-use-case/SKILL.md) | - |
 | Features + data check | [`funnel-requirements`](../skills/funnel-requirements/SKILL.md), [`mi-data-availability`](../skills/mi-data-availability/SKILL.md) | - |
-| Prototype / validate | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md), [`funnel-prototype`](../skills/funnel-prototype/SKILL.md) *(draft)* | - |
+| Prototype / validate | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md), [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md), [`funnel-prototype`](../skills/funnel-prototype/SKILL.md) *(draft)* | - |
 | Business case + rank | [`bc-build`](../skills/bc-build/SKILL.md), [`bc-assess`](../skills/bc-assess/SKILL.md) | ~wks |
 | Capital request | [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md), [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) *(draft)* | - |
 | Implement & graduate | [`deploy-handover`](../skills/deploy-handover/SKILL.md), [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) *(draft)* | - |
@@ -72,7 +72,7 @@ The process flow with the core skills that serve each step. The interactive vers
 
 | Step | Skills | Wait |
 |---|---|---|
-| Package / build | [`deploy-it-demand`](../skills/deploy-it-demand/SKILL.md) | CS ~wks |
+| Package / build | - | CS ~wks |
 | Deploy to platform + CS | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) *(draft)* | - |
 | Rollout & adopt | [`deploy-handover`](../skills/deploy-handover/SKILL.md) | - |
 
@@ -107,7 +107,7 @@ Not a step; every skill reads it first.
 
 ## All skills
 
-26 core skills. 'Files' lists which of the four New-State files name the skill.
+25 core skills. 'Files' lists which of the four New-State files name the skill.
 
 | Skill | State | Tier | Steps | Files |
 |---|---|---|---|---|
@@ -123,7 +123,6 @@ Not a step; every skill reads it first.
 | [`deploy-acceptance`](../skills/deploy-acceptance/SKILL.md) | in use | practice | New system or connector: Acceptance + CS → live | Flow, Process flow, BPMN, VSM |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) *(draft)* | draft | practice | New system or connector: Deploy to platform + CS | Flow, Process flow, BPMN, VSM |
 | [`deploy-handover`](../skills/deploy-handover/SKILL.md) | in use | practice | Develop a new use case: Implement & graduate; New system or connector: Rollout & adopt | Flow, Process flow, BPMN, VSM |
-| [`deploy-it-demand`](../skills/deploy-it-demand/SKILL.md) | in use | practice | New system or connector: Package / build | Flow, Process flow, BPMN, VSM |
 | [`dept-context`](../skills/dept-context/SKILL.md) | in use | foundation | Foundation | Flow, VSM |
 | [`dept-decision-rights`](../skills/dept-decision-rights/SKILL.md) | in use | practice | Run a known use case: Cost template + approval; Develop a new use case: Capital request; New system or connector: Tool-decision gate | Flow, Process flow, BPMN, VSM |
 | [`dept-intake`](../skills/dept-intake/SKILL.md) | in use | practice | Intake: Known use case? | Flow, Process flow, BPMN, VSM |
@@ -136,4 +135,4 @@ Not a step; every skill reads it first.
 | [`mi-flow`](../skills/mi-flow/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
 | [`mi-signals`](../skills/mi-signals/SKILL.md) | in use | technical | New system or connector: Connector + pipeline to MDL | Flow, Process flow, BPMN, VSM |
 | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md) | in use | practice | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |
-| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | in use | technical | Run a known use case: Apply template; Run a known use case: Apply template & go live | Flow, Process flow, BPMN, VSM |
+| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | in use | technical | Run a known use case: Apply template; Run a known use case: Apply template & go live; Develop a new use case: Prototype / validate | Flow, Process flow, BPMN, VSM |

@@ -493,17 +493,6 @@ skills:
     authority_level: author flows and fixes on a test instance; read and diagnose only elsewhere; prod deploys are human-approved
     summary: "Build a Node-RED flow to the house patterns on a test instance (step 3b4) and troubleshoot or diagnose a flow, connector or pipeline (3b5): one skill, build guide and analyser script."
 
-  - id: deploy-it-demand
-    absorbed: [od-project-support-consultancy]   # merged 2026-11-10, see log.md
-    library: core
-    tier: practice
-    lane: lane-3
-    owner_role: OD lead for the Lane 3 front-end; IIAE for connector demands
-    authority_level: draft the package and run its checks; IT or the external developer accepts it; submission, approval and the ownership transfer are human
-    summary: Hand a clear Lane 3 demand to IT or an external developer as an OpenSpec change package (proposal, delta specs, design, tasks) with the OD handover annex of the OD x IT alignment; checked against OpenSpec's validation rules.
-    trigger: A Lane 3 demand has passed requirements, the tool-decision gate and the business case, or IT asks what it needs from OD.
-    definition_of_done: Package checks READY, blocking annex fields filled, sent by a human, demand recorded as handed over awaiting formal acceptance.
-
   - id: funnel-features
     origin: new-state
     library: extension
@@ -641,7 +630,6 @@ open_gaps:
   - "catalog-usecase (draft): no standardized-system list exists - kits, prices, lead times, validated plants and Cyber Security status are not recorded."
   - "catalog-usecase (draft): the guardrail set is seeded from seven recorded rules; further technical guardrails and which of them block go-live are not decided."
   - "deploy-appstore (draft): whether the flow's Container Orchestration Platform is the IIoT Edge plant runtime, the deployment procedure and the Cyber Security requirements for an app are not recorded."
-  - "deploy-it-demand (absorbed deploy-it-demand; draft): IT's own demand form and the demand evaluation board's criteria and rhythm are not recorded."
   - "New-state flow (docs/new-state-flow.md): 13 registry skills are not on the three diagrams. Two are in none of the four files (od-information-integration-service, od-project-support-consultancy) and need a decision to be re-homed or retired; od-analytical-support-service orchestrates the Analytics lane that the flow dissolves; eleven are named only in the skill-map table and not drawn on the diagrams."
   - "invest-screen (absorbed od-application-consulting; draft), open: What the Manufacturing Software Suite comprises (undefined in glossary); Application consultancy session template and lane lead time; Counterpart for tool rollout decisions"
   - "mi-equipment (absorbed od-barrier-triage; draft), open: Whether roadmap means plant roadmap or lane integration roadmap; Form and location of the barrier log (landscape module has only a facility table); Lead times for connector development and OT/IT cyber-security approvals"

@@ -814,39 +814,6 @@
    },
    "default_score": 92.8
   },
-  "deploy-it-demand": {
-   "score": 95.0,
-   "grade": "A",
-   "skill_type": "hybrid",
-   "folder_hash": "a066147984f0a9d8",
-   "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in input-intake.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 90.0
-   },
-   "default_score": 91.2
-  },
   "deploy-migration": {
    "score": 85.8,
    "grade": "B",

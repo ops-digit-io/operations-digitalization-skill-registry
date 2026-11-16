@@ -15,7 +15,7 @@ metadata:
   authority_level: read-only — this skill routes decisions, it never takes them
   status: stable
   requires: [dept-context]
-  composes: [bc-cost, deploy-it-demand]
+  composes: [bc-cost]
   okf:
     type: Agent Skill
     title: Decision routing and escalation

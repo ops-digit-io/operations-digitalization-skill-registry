@@ -88,7 +88,7 @@ because they are exports of different dates; this is a trap, not an error to fix
 
 | Gate | Skill | When |
 |---|---|---|
-| IT demand management and the demand evaluation board | `deploy-it-demand` | the request needs a platform OD does not own |
+| IT demand management and the demand evaluation board | OpenSpec IT demand (external) | the request needs a platform OD does not own |
 | Cyber Security / OT sign-off | `deploy-cybersec`, `mi-equipment` | external connection or new connector |
 | CSP decision | `catalog-standardization` | the solution is meant to roll out across plants |
 | Plant adoption | `deploy-handover` | daily use is the plant's decision |

@@ -32,11 +32,8 @@ import skillpaths as sp
 OUT = ROOT / "docs" / "process-overview.html"
 REPO = "https://github.com/ops-digit-io/operations-digitalization-skill-registry"
 
-OPENSPEC_SKILL_URL = REPO + "/blob/main/skills/deploy-it-demand/references/openspec/skills/{}/SKILL.md"
-
-
 def openspec_process() -> list[dict]:
-    """The OpenSpec sub-steps of step 3a4 from docs/new-state/process.yaml: OpenSpec's own skills, named one by one."""
+    """The OpenSpec sub-steps of step 3a4 from docs/new-state/process.yaml: OpenSpec's own skills (external), one link each."""
     doc = yaml.safe_load((ROOT / "docs" / "new-state" / "process.yaml").read_text(encoding="utf-8"))
     found: list[dict] = []
 
@@ -52,8 +49,8 @@ def openspec_process() -> list[dict]:
 
     walk(doc)
     return [{"id": s["id"], "title": s["title"], "owner": s["owner"],
-             "skills": [{"id": o, "url": OPENSPEC_SKILL_URL.format(o)} for o in s.get("openspec") or []]}
-            for s in found if s.get("openspec")]
+             "skills": [{"id": o["name"], "url": o["url"]} for o in s.get("external") or []]}
+            for s in found if s.get("external")]
 
 
 VALUE_CHAIN = ["Captured", "Evaluated", "Assessed", "Planned", "Handed over", "Effective"]
@@ -112,14 +109,14 @@ LANES = [
         "metrics": "Equipment per year 338 / 331 (above target). Per month: target 25, red bar below 25. Readiness RAG by location.",
     },
     {
-        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "deploy-it-demand",
+        "id": "ps", "name": "Project Support & Application Consultancy", "skill": "invest-screen",
         "owner": "IIAE", "customer": "Plant / project teams",
         "trigger": "Digital investment project kick-off",
         "done": "Integration project managed to acceptance test; application consulted and accepted",
         "steps": [
             ("Initiate project", "Project initiated per plant roadmap", [("dept-decision-rights", 1)]),
             ("Kick-off", "Kick-off with the MPEE OD team; scope and requirements", [("funnel-requirements", 0)]),
-            ("Manage project", "Equipment and solution integration project management", [("deploy-it-demand", 0)]),
+            ("Manage project", "Equipment and solution integration project management (the IT demand runs through the OpenSpec process, step 3a4)", [("invest-screen", 1)]),
             ("Consult on application", "Application consultancy (Manufacturing Software Suite, apps)", [("invest-screen", 1)]),
             ("Acceptance test", "Acceptance testing", [("deploy-acceptance", 0)]),
             ("Embed in daily work", "Ensure use cases are integrated into daily processes", [("deploy-handover", 0)]),
@@ -220,7 +217,7 @@ def model(info: dict[str, dict]) -> dict:
         l = {k: v for k, v in lane.items() if k not in ("steps", "gates")}
         l["steps"] = [
             {"n": i + 1, "title": t, "text": txt, "skills": [{"id": s, "partial": bool(p)} for s, p in sk],
-             **({"openspec": OPENSPEC} if any(s == "deploy-it-demand" for s, _ in sk) else {})}
+             **({"openspec": OPENSPEC} if t == "Manage project" else {})}
             for i, (t, txt, sk) in enumerate(lane["steps"])
         ]
         l["gates"] = [{"after": a, "q": q, "no": no, "skills": sk} for a, q, no, sk in lane["gates"]]
@@ -348,7 +345,7 @@ $('#found').innerHTML=`<b>Applies to every step</b><span class="chip ${f.state}"
 
 function chip(id,partial){const s=S[id];return `<span class="chip${partial?' partial':''}" data-skill="${id}" title="${esc(s.summary)}"><span class="dot ${s.state}"></span>${esc(s.label)}</span>`}
 
-function extchips(s){if(!s.openspec)return '';return `<div class="chips ospec" title="The IT demand follows the OpenSpec process (step 3a4); OpenSpec's own skills do the OpenSpec stages">${s.openspec.map(p=>`<span class="oslabel">${esc(p.id)} ${esc(p.title)} (${esc(p.owner)})</span>${p.skills.map(k=>`<a class="chip ext" href="${esc(k.url)}" target="_blank" rel="noopener" title="OpenSpec skill, external (OpenSpec 1.17.0)">${esc(k.id)}</a>`).join('')}`).join('')}</div>`}
+function extchips(s){if(!s.openspec)return '';return `<div class="chips ospec" title="The IT demand follows the OpenSpec process (step 3a4); OpenSpec is external and its skills are linked, not copied">${s.openspec.map(p=>`<span class="oslabel">${esc(p.id)} ${esc(p.title)} (${esc(p.owner)})</span>${p.skills.map(k=>`<a class="chip ext" href="${esc(k.url)}" target="_blank" rel="noopener" title="OpenSpec skill, external (OpenSpec 1.17.0)">${esc(k.id)}</a>`).join('')}`).join('')}</div>`}
 
 const board=$('#board');
 D.lanes.forEach((L,li)=>{

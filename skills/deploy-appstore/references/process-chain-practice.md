@@ -15,7 +15,7 @@ no commands either. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unkno
 ## Where it sits in the chain
 
 3a5 deploy to the platform and Cyber Security (with `deploy-acceptance` and, proposed, `deploy-cybersec`). Upstream:
-`deploy-it-demand` (3a.3, 3a.4) and `invest-screen`. Downstream: `deploy-handover`.
+OpenSpec IT demand (external) (3a.3, 3a.4) and `invest-screen`. Downstream: `deploy-handover`.
 
 ## 1 Method in practice
 
@@ -76,7 +76,7 @@ positioned as an enabler for simple measurement tasks and use the same channel.
 
 | Direction | Skill | Content |
 |---|---|---|
-| Receive | `deploy-it-demand` | Decision of the evaluation board, route, owners, open IT points |
+| Receive | OpenSpec IT demand (external) | Decision of the evaluation board, route, owners, open IT points |
 | Receive | `invest-screen` | Sourcing route and scenario, data path, run owner |
 | Receive | `deploy-cybersec` | Package inputs; recorded answer comes back as release evidence |
 | Hand on | `deploy-acceptance` | Deployment package and rollback owner |

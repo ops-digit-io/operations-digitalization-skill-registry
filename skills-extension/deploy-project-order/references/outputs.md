@@ -24,5 +24,5 @@ tags: [outputs, handoff]
 ## Handoff
 
 - **Receives from:** `funnel-use-case` (use case, scope, demand), `bc-portfolio`, `bc-build` (benefit rows with firmness), `bc-cost` and `bc-capital-request` (cost, option, funding gate), `dept-decision-rights`, `invest-screen` (tool decision, IT gate).
-- **Next in the flow:** `bc-capital-request` (step 25, funding trail where money follows; also 33), `deploy-it-demand` (step 3a4), `deploy-handover` (step 26, closure), `dept-retro`, `dept-risk`, `dept-decision-rights` for open questions to the steering committee.
+- **Next in the flow:** `bc-capital-request` (step 25, funding trail where money follows; also 33), OpenSpec IT demand (external) (step 3a4), `deploy-handover` (step 26, closure), `dept-retro`, `dept-risk`, `dept-decision-rights` for open questions to the steering committee.
 - **Stops here when:** the work is a small change (few days of effort, budget available, standard interface), which goes through the ticket and change process with no order. Nothing is sent with a silent blank, and the order is not approved or signed by the skill.

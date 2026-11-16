@@ -16,7 +16,7 @@ metadata:
   authority_level: draft the deployment package and checklist; deploying to a shared platform is human-approved; Cyber Security sign-off is human-only
   status: draft
   requires: [dept-context]
-  composes: [invest-screen, dept-decision-rights, deploy-acceptance, deploy-handover, deploy-it-demand, deploy-cybersec]
+  composes: [invest-screen, dept-decision-rights, deploy-acceptance, deploy-handover, deploy-cybersec]
   okf:
     type: Agent Skill
     title: App deployment to the platform
@@ -32,7 +32,7 @@ GitOps / ArgoCD with a standard Kubernetes manifest set and the HDAS reference i
 OD x IT CMO rules are in [`references/gitops-deployment-shape.md`](references/gitops-deployment-shape.md).
 This skill defines the gates and the package and checks a package against that shape. It contains **no
 deployment commands**; the department's package is the master for those. Serves 3a.1 and 3a.2, and 3a.3
-once the external build is delivered (`deploy-it-demand`).
+once the external build is delivered (OpenSpec IT demand, external).
 
 ## Purpose
 
@@ -92,8 +92,8 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 |---|---|---|
 | 3a.1 Reuse | Deploy an existing codebase or app | Package and gate |
 | 3a.2 Self-developed | Build in OD, then deploy | Package and gate; the build is not covered here |
-| 3a.3 External | Spec in-house, build externally | Starts with `deploy-it-demand`, then package and gate |
-| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with `deploy-it-demand`, then package and gate |
+| 3a.3 External | Spec in-house, build externally | Starts with OpenSpec IT demand (external), then package and gate |
+| 3a.4 Integrate | Integrate a foreign app via IT and Cyber Security | Starts with OpenSpec IT demand (external), then package and gate |
 
 ## Procedure
 

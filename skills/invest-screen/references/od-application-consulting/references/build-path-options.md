@@ -19,8 +19,8 @@ Precondition for all four: the need has passed the footprint check (`invest-scre
 |---|---|---|---|
 | **3a.1 Available codebase or app** | Is there an app in the app store, a reference solution, or a plant-local app that already does this and can be deployed to this plant? | `deploy-appstore` (draft) | Deploy to the platform, Cyber Security sign-off (step 4a); `deploy-acceptance` |
 | **3a.2 New codebase, self-developed** | Is it a flow or dashboard-sized build the OD or plant team can make on the standard stack? | `mi-flow` (flow-type development, built) or `ops-analytics-asset`, then `deploy-appstore` | Cyber Security; acceptance; handover |
-| **3a.3 New codebase, external development** | Is it larger than the team can build, and can the specification be written in-house with a partner building it? | `deploy-it-demand` and an external developer | IT demand and demand evaluation; Cyber Security; spend (eCR); licensing decision owner `⟨to confirm⟩` |
-| **3a.4 Integrate a foreign app** | Is it a third-party or plant-local application whose data or function must be connected rather than rebuilt? | `deploy-it-demand` | IT demand, Cyber Security; possibly a tool rollout decision |
+| **3a.3 New codebase, external development** | Is it larger than the team can build, and can the specification be written in-house with a partner building it? | OpenSpec IT demand (external) and an external developer | IT demand and demand evaluation; Cyber Security; spend (eCR); licensing decision owner `⟨to confirm⟩` |
+| **3a.4 Integrate a foreign app** | Is it a third-party or plant-local application whose data or function must be connected rather than rebuilt? | OpenSpec IT demand (external) | IT demand, Cyber Security; possibly a tool rollout decision |
 
 Recorded design intent for app onboarding (department knowledge base, Manufacturing App Store initiative, Graph/Keynote
 Initiatives and its business case, read 2026-11-05): three onboarding scenarios - internal development;

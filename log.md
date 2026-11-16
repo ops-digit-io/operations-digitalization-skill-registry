@@ -3,6 +3,13 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - deploy-it-demand removed; OpenSpec is external; the process map is BPMN
+
+- `deploy-it-demand` (with the absorbed `od-project-support-consultancy` and `it-demand-package` content) and the OpenSpec 1.17.0 copy inside it are removed, together with `sync_openspec_vendor.py`, `check_openspec_conformance.py` and the two CI steps for them. Other skills no longer list it in `composes`; prose mentions say 'OpenSpec IT demand (external)'.
+- Step 3a4 of `docs/new-state/process.yaml` keeps the six OpenSpec sub-steps, each linking to OpenSpec's own skills in its repository (tag v1.17.0). No OpenSpec file is copied here; `docs/openspec-how-to-use.md` only says how to use it. Routes 3a.3 and 3a.4 name no registry skill.
+- `ops-dashboard-engine` is on the Lane 2 step 23 *Prototype / validate* (process.yaml, flow diagram, `funnel-prototype` composes).
+- The BPMN map shows one collapsed box per branch that opens in place (drill-down); the OpenSpec process has dedicated lanes (OD; IT / external developer). This supersedes the entry below (PR #34), which linked the vendored OpenSpec copy that is now removed.
+- New `scripts/build_bpmn.py` generates `docs/new-state/OD_NewState_BPMN_Flow.bpmn` (BPMN 2.0: one pool, lanes, tasks, timer events for waits, gateways, an expanded OpenSpec sub-process) and `OD_NewState_BPMN_Map.html` (rendered with bpmn-js 17.11.1, skills as links under their tasks). yFiles was not used: it is a commercial library that needs the owner's licence and download.
 ## 2026-11-16 - OpenSpec skills are referenced on the maps as OpenSpec's own, not as part of deploy-it-demand
 
 - The process map (`docs/new-state/process.yaml`, the flow diagram, the site) names OpenSpec's skills per sub-step of 3a4 and no longer describes them as living inside `deploy-it-demand`; their chips on the site link to the skill files.

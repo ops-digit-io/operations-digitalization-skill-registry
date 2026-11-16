@@ -64,7 +64,7 @@ exactly one lane at intake (`dept-intake`); branches chain afterwards.
 (non-standard system, new machine). Lane 2 chains to 3a (needs software) or 3b (needs a connection),
 and a proven, repeatable Lane 2 result is catalogued and becomes a Lane 1 case. Lane 3's front-end
 (requirements → tool-decision gate → business case → capital request → handover) routes to 3a or 3b
-and hands over to IT or external delivery only once the demand is clear (`deploy-it-demand`).
+and hands over to IT or external delivery only once the demand is clear (OpenSpec IT demand, external).
 
 **Old to new.** The four functional service lines are retired:
 
@@ -73,7 +73,7 @@ and hands over to IT or external delivery only once the demand is clear (`deploy
 | Smart Factory Use Case Support Service, incl. Process First-Aid Kit (DBVE) | Known use cases → Lane 1; genuinely new → Lane 2 |
 | Analytical Support Service, incl. Ad-Hoc Analytics (DBVE) | Retired as a standing lane; ad-hoc analytics routes to Lane 1 self-service, Lane 2, or external support (`funnel-first-aid`) |
 | Information Integration Service (IIAE) | Lane 3 branch 3b; integration-project management folds in (`mi-equipment`) |
-| Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (`deploy-it-demand`) |
+| Project Support & Application Consultancy (IIAE) | The shared Lane 3 front-end: requirements → decision gate → clear demand → handover (OpenSpec IT demand, external) |
 
 Step ids, route options and department skill names: `references/process-chain-practice.md`, "Step ids and skill names".
 
