@@ -76,8 +76,8 @@ The SkillEvaluator rating checks a fixed set of rules and headings (the registry
 | [`catalog-systems`](#catalog-systems) | core | strong | 0 | 4 | A 95.2 | 720 | 110 | yes |
 | [`catalog-template`](#catalog-template) | extension | adequate | 0 | 2 | A 91.0 | 778 | 120 | yes |
 | [`catalog-usecase`](#catalog-usecase) | core | adequate | 0 | 3 | A 95.2 | 810 | 141 | yes |
-| [`comms-brief`](#comms-brief) | core | strong | 0 | 2 | B 89.2 | 672 | 118 | yes |
-| [`comms-followup`](#comms-followup) | core | strong | 0 | 2 | B 89.2 | 681 | 97 | yes |
+| [`comms-brief`](#comms-brief) | core | strong | 0 | 2 | A 91.8 | 672 | 124 | yes |
+| [`comms-followup`](#comms-followup) | core | strong | 0 | 2 | A 91.8 | 681 | 103 | yes |
 | [`comms-showcase`](#comms-showcase) | core | adequate | 0 | 3 | A 95.2 | 514 | 106 | yes |
 | [`deploy-acceptance`](#deploy-acceptance) | core | strong | 0 | 1 | A 95.2 | 571 | 123 | yes |
 | [`deploy-appstore`](#deploy-appstore) | core | adequate | 0 | 4 | A 95.2 | 683 | 111 | yes |
@@ -117,7 +117,7 @@ The SkillEvaluator rating checks a fixed set of rules and headings (the registry
 | [`ops-event-model`](#ops-event-model) | extension | strong | 0 | 1 | A 92.0 | 729 | 134 | yes |
 | [`process-derivation`](#process-derivation) | core | strong | 0 | 1 | A 95.2 | 645 | 141 | yes |
 
-**Where the two disagree:** `catalog-compatibility` (SkillEvaluator B, review strong), `comms-brief` (SkillEvaluator B, review strong), `comms-followup` (SkillEvaluator B, review strong), `deploy-migration` (SkillEvaluator B, review strong), `deploy-project-order` (SkillEvaluator B, review strong), `dept-context-freshness` (SkillEvaluator B, review strong), `dept-plant-diagnosis` (SkillEvaluator B, review strong), `dept-retro` (SkillEvaluator B, review strong), `dept-risk` (SkillEvaluator B, review strong), `funnel-evaluation` (SkillEvaluator B, review strong), `funnel-features` (SkillEvaluator B, review strong), `know-sharepoint-export` (SkillEvaluator B, review strong), `ops-dashboard-engine` (SkillEvaluator B, review strong).
+**Where the two disagree:** `catalog-compatibility` (SkillEvaluator B, review strong), `deploy-migration` (SkillEvaluator B, review strong), `deploy-project-order` (SkillEvaluator B, review strong), `dept-context-freshness` (SkillEvaluator B, review strong), `dept-plant-diagnosis` (SkillEvaluator B, review strong), `dept-retro` (SkillEvaluator B, review strong), `dept-risk` (SkillEvaluator B, review strong), `funnel-evaluation` (SkillEvaluator B, review strong), `funnel-features` (SkillEvaluator B, review strong), `know-sharepoint-export` (SkillEvaluator B, review strong), `ops-dashboard-engine` (SkillEvaluator B, review strong).
 
 ## House rules against the published practices
 
