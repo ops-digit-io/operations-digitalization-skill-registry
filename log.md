@@ -3,6 +3,12 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - new core skill `process-derivation` (step 23a)
+
+- New family `process` and core skill `process-derivation` on Lane 2, step 23a *Derive the process*, between *Prototype / validate* and *Business case + rank*. It runs only when a use-case request, a use-case demand and a validated prototype (result passed) exist; otherwise it writes a refusal note. It derives the redesign, a BPMN to-be model, standard work, an adoption and change-control plan, a landscape entry and the monitoring design.
+- Public sources were searched and opened on 2026-11-16 (`references/public-methods.md`): BPM lifecycle chapters, Reijers/Liman Mansar redesign heuristics, BPMN 2.0.2 and ISO/IEC 19510, CMMN, DMN, APQC PCF, VDI/VDE 3682 (catalogue page), LEI standardized work, ADKAR, Kotter, 29 CFR 1910.119(l), Process Mining Manifesto. **No public source covers this exact trigger**: the composition is the skill's inference. ISO 9001, ASQ SIPOC/DMAIC and the Springer pages could not be opened and are not cited.
+- `scripts/check_derivation.py` (13 tests) checks the gate record and the BPMN structure. Quality rating from a SkillEvaluator run on 2026-11-16 (tier 1, same configuration): 95.2, grade A; status stays `draft`. The step is on the BPMN map with `metrics-scorecard` and `know-training` as optional extension skills.
+
 ## 2026-11-16 - extension skills are on the BPMN map as optional
 
 - Every extension skill listed as `proposed` on a step of `docs/new-state/process.yaml` (34 step entries) is drawn under that step's box on the BPMN map, below the core skills, under a caption `<extension> · optional`, as a dotted italic chip with an `ext` tag that links to the skill on GitHub. The 11 extension skills of the foundation (`spine`) sit in one note in the intake lane (any step, optional). The three-level view is: core skill (solid chip), OpenSpec skill (dashed, external), extension skill (dotted, optional).

@@ -27,6 +27,7 @@ Built is not handed over, and handed over is not in use.
 - **Also receives from:** `deploy-appstore`: Hand-over to rollout.
 - **Also receives from:** `catalog-guardrails`: Utilization expectation; Routing of failed guardrails.
 - **Also receives from:** `ops-dashboard-engine`: Dashboard JSON; Handover facts.
+- **Also receives from:** `process-derivation`: the to-be model, the adoption and embedding plan and the landscape entry to carry out.
 - **Receives from:** `deploy-acceptance` (acceptance protocol); `bc-capital-request` and `funnel-use-case` (the approved
   use case and its record); the named plant owner.
 - **Next in the flow:** `metrics-scorecard` (reads the protocol on every cadence); a proven, repeatable result goes to

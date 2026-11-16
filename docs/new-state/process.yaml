@@ -108,6 +108,13 @@ lanes:
       - funnel-prototype
       proposed:
       - dept-governance
+    - id: 23a
+      title: Derive the process
+      skills:
+      - process-derivation
+      proposed:
+      - metrics-scorecard
+      - know-training
     - id: '24'
       title: Business case + rank
       wait: ~wks

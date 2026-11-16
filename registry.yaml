@@ -80,6 +80,7 @@ families:
   metrics: Adoption and resilience metrics
   catalog: Use-case catalog and self-service enablers (Lane 1)
   comms: Use-case promotion via Internal Communications (Lane 4); added 2026-11-11
+  process: Process derivation and process change - turning a validated use case into a process that lives in the organisation; added 2026-11-16
 
 skills:
   - id: dept-context
@@ -334,6 +335,17 @@ skills:
     owner_role: human:jakob.gabriel
     authority_level: draft
     summary: "Lay out the onboarding path of one plant through the OD skill set, in order - place the plant by its starting profile (no machines recorded, machines but none integrated, partly or fully integrated), then walk the stages from recording the DRAFT."
+
+  - id: process-derivation
+    library: core
+    tier: practice
+    lane: lane-2
+    scope: od
+    origin: new-state
+    status: draft
+    owner_role: human:jakob.gabriel
+    authority_level: draft the derivation package, the to-be model and its check; the process owner accepts it, and every change approval and go-live stays human
+    summary: "Derive a business process that lives in the organisation from a validated use case: gate on request, demand and a passed prototype, then redesign, BPMN to-be model, standard work, adoption and change-control plan, landscape entry and monitoring design, from public methods (BPM lifecycle, redesign heuristics, BPMN, APQC, standardized work, ADKAR, Process Mining Manifesto). DRAFT: the composition is an inference, not a published method."
 
   - id: funnel-prototype
     library: core
