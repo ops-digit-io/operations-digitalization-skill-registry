@@ -75,4 +75,4 @@ files that the registry does not support, so the flow needs correcting as much a
    the three lanes. They are also the places the old lane model is written down.
 4. Write the self-service mode somewhere: in `ops-analytics-asset`, or through the new `od-catalog`.
 5. Decide whether `bc-build` should carry a cost side, or accept the flow's rating as too generous.
-6. Re-home or retire the three lane orchestrators. Then regenerate [`process-overview.html`](process-overview.html), which still draws four lanes.
+6. Re-home or retire the three lane orchestrators. The old four-lane process overview was removed on 2026-11-16; the BPMN map is the only map.

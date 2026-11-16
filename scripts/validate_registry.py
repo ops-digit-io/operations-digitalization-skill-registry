@@ -183,10 +183,10 @@ def main() -> int:
                 )
 
     # Core library == the process flow: every skill named on a step or on the spine of
-    # docs/new-state/process.yaml is core and is drawn in OD_NewState_Flow.mermaid; every other
+    # docs/new-state/process.yaml is core and is drawn on the BPMN map; every other
     # skill lives in the extension library.
     proc_file = ROOT / "docs" / "new-state" / "process.yaml"
-    mermaid_file = ROOT / "docs" / "new-state" / "OD_NewState_Flow.mermaid"
+    bpmn_page = ROOT / "docs" / "new-state" / "OD_NewState_BPMN_Map.html"
     if proc_file.exists():
         proc = yaml.safe_load(proc_file.read_text(encoding="utf-8"))
         named: set[str] = set()
@@ -215,11 +215,11 @@ def main() -> int:
         for name in sorted(n for n in on_disk if skillpaths.library_of(n) == "core"):
             if name not in named:
                 fail(f"core skill '{name}' is not on the process flow (process.yaml); move it to skills-extension/ or place it on a step")
-        if mermaid_file.exists():
-            mer = mermaid_file.read_text(encoding="utf-8")
+        if bpmn_page.exists():
+            drawn = bpmn_page.read_text(encoding="utf-8")
             for name in sorted(named):
-                if not re.search(r"(?<![\w-])" + re.escape(name) + r"(?![\w-])", mer):
-                    fail(f"OD_NewState_Flow.mermaid does not draw core skill '{name}'")
+                if not re.search(r'"id": "' + re.escape(name) + '"', drawn):
+                    fail(f"OD_NewState_BPMN_Map.html does not draw core skill '{name}' (run scripts/build_bpmn.py)")
 
     # Every skill carries a quality rating (docs/new-state/skill-quality.json, made from a SkillEvaluator report
     # by scripts/build_skill_quality.py). A skill changed since its rating run only warns: the rating is then out of date.

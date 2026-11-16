@@ -11,14 +11,14 @@ generated: { by: claude-code/1, at: 2026-11-05T00:00:00Z }
 
 The registry's skills are measured against this flow: each step of it names the skill that
 serves the step and whether that skill is built, partial or missing. Four files in
-[`new-state/`](new-state/) show it, supplied by the owner on 2026-11-05. **`OD_NewState_ProcessFlow.html` is the owner's process flow (new-state service lanes with skills & gaps) and the reference for the registry (2026-11-10).** Its step skills are the core library under the names it uses; the net-new builds it lists are now drafts on their steps (`funnel-prototype` on Prototype / validate, `bc-capital-request` on both capital steps, `catalog-usecase` as the graduation target). `OD_NewState_Flow.mermaid` and `process.yaml` draw the same flow. The BPMN and VSM files keep the 2026-11-05 state.
+`new-state/` showed it, supplied by the owner on 2026-11-05. **`OD_NewState_ProcessFlow.html` is the owner's process flow (new-state service lanes with skills & gaps) and the reference for the registry (2026-11-10).** Its step skills are the core library under the names it uses; the net-new builds it lists are now drafts on their steps (`funnel-prototype` on Prototype / validate, `bc-capital-request` on both capital steps, `catalog-usecase` as the graduation target). `OD_NewState_Flow.mermaid` and `process.yaml` draw the same flow. The BPMN and VSM files keep the 2026-11-05 state.
 
 | File | What it shows |
 |---|---|
-| [`OD_NewState_Flow.mermaid`](new-state/OD_NewState_Flow.mermaid) | The flow as one Mermaid flowchart: intake, three lanes, gateways, the five gap steps dashed |
-| [`OD_NewState_ProcessFlow.html`](new-state/OD_NewState_ProcessFlow.html) | Lane-by-lane process flow with skill chips coloured Built / Partial / Gap and the external waits |
-| [`OD_NewState_BPMN.html`](new-state/OD_NewState_BPMN.html) | The same flow in BPMN notation (events, tasks, gateways), laid out like [`process-overview.html`](process-overview.html) |
-| [`OD_NewState_VSM_SkillMap.html`](new-state/OD_NewState_VSM_SkillMap.html) | Step-by-step table per lane with touch time, queue time and the registry skill and state per step; the gap register |
+| `OD_NewState_Flow.mermaid` (removed 2026-11-16) | The flow as one Mermaid flowchart: intake, three lanes, gateways, the five gap steps dashed |
+| `OD_NewState_ProcessFlow.html` (removed 2026-11-16) | Lane-by-lane process flow with skill chips coloured Built / Partial / Gap and the external waits |
+| `OD_NewState_BPMN.html` (removed 2026-11-16) | The same flow in BPMN notation (events, tasks, gateways), laid out like `process-overview.html` (removed 2026-11-16) |
+| `OD_NewState_VSM_SkillMap.html` (removed 2026-11-16) | Step-by-step table per lane with touch time, queue time and the registry skill and state per step; the gap register |
 
 ## The flow in short
 
@@ -48,7 +48,7 @@ Skill names in the four files compared with the 53 skills in the two libraries (
 - Most skills are named in at least one file; the ones the files do not name are placed on the flow by this registry alone (the extension library plus the merged skills, whose old names the files still use). Where each skill sits: see the skill map.
 - Every name the flow marks as Built exists in the registry, directly or inside a merged skill: `catalog-usecase`, `catalog-systems` and `catalog-guardrails` are parts of `catalog-usecase`; `mi-flow` and `od-node-red-flow-troubleshooting` are parts of `mi-flow`; `od-use-case-support-service` is part of `funnel-use-case`. The one name that is not a registry skill is `bc-assess`, which the
   flow itself places outside the registry.
-- The existing [`process-overview.html`](process-overview.html) draws **four** service lanes; the new
+- The existing `process-overview.html` (removed 2026-11-16) draws **four** service lanes; the new
   state has **three** branched lanes. The two disagree until that overview is regenerated.
 
 ## Skills the flow files do not place

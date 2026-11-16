@@ -26,13 +26,12 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import skillpaths as sp  # noqa: E402
-from build_process_overview import REPO  # noqa: E402
-from build_skill_map import state  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PROC = ROOT / "docs" / "new-state" / "process.yaml"
 OUT_XML = ROOT / "docs" / "new-state" / "OD_NewState_BPMN_Flow.bpmn"
 OUT_HTML = ROOT / "docs" / "new-state" / "OD_NewState_BPMN_Map.html"
+REPO = "https://github.com/ops-digit-io/operations-digitalization-skill-registry"
 BPMNJS = "17.11.1"   # bpmn-js release the page loads from jsdelivr (pinned)
 
 TW, TH = 120, 80          # task
@@ -64,6 +63,14 @@ class Node:
 class Flow:
     def __init__(self, id, src, tgt, name="", mode="h"):
         self.id, self.src, self.tgt, self.name, self.mode = id, src, tgt, name, mode
+
+
+def state(skill_id: str) -> str:
+    """deep = references and scripts, documented = references only, stub = SKILL.md only."""
+    d = sp.skill_dir(skill_id)
+    refs = len(list((d / "references").glob("*.md"))) if (d / "references").is_dir() else 0
+    scripts = len(list((d / "scripts").glob("*.py"))) if (d / "scripts").is_dir() else 0
+    return "deep" if refs and scripts else ("documented" if refs else "stub")
 
 
 def safe(s: str) -> str:
@@ -148,7 +155,7 @@ class Builder:
     # ---- the model --------------------------------------------------------------------------------------------
     def build(self):
         top = self.top
-        spec = [("intake", "Intake · triage + fit-check", 200),
+        spec = [("intake", "Intake · triage + fit-check", 250),
                 ("lane1", "Lane 1 · Run a known use case (self-service)", 300),
                 ("lane2", "Lane 2 · Develop a new use case (OD-led)", 190),
                 ("lane4", "Lane 4 · Promote a proven use case (IC publishes)", 190),
@@ -175,6 +182,9 @@ class Builder:
         self.flow(top, start, triage); self.flow(top, triage, route)
         top.notes.append({"id": "Note_foundation", "text": "Foundation: every skill reads dept-context first (vocabulary, decision rights, honesty rules).",
                           "x": start.x - 40, "y": cyI + 48, "w": 170, "h": 64, "ref": start, "ref_mode": "down"})
+        note = Node("Note_foundation", "note", "", start.x - 40, cyI + 48, 170, 64)
+        self.nodes[note.id] = note
+        self.chips(note, self.proc["spine"]["skills"])
 
         # lane 1
         t1 = L["lane1"]["top"]
