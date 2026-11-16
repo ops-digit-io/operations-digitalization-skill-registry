@@ -13,15 +13,15 @@ metadata:
   department_names: ["catalog-usecase", "use-case-catalog"]
   formerly: od-catalog
   owner_role: human:jakob.gabriel
-  tags: [all, practice, new-state, draft, catalog]
+  tags: [all, practice, new-state, ready, catalog]
   authority_level: draft the go-live check; report the result; recommend only - the plant decides what it runs and decides PRODUCTIVE, the CSP decision stays with its owner, ordering and connecting stay with the integration owner and the approval route
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [catalog-systems, catalog-guardrails, catalog-standardization, dept-intake, mi-data-availability, invest-screen, deploy-handover, mi-equipment, dept-decision-rights, deploy-acceptance]
   okf:
     type: Agent Skill
     title: catalog-usecase
-    tags: [all, practice, new-state, draft, catalog]
+    tags: [all, practice, new-state, ready, catalog]
 ---
 
 # Catalog: use cases, standard systems, go-live guardrails
@@ -50,7 +50,7 @@ Match   : candidate = library entry E-0 (fictional), capability template = quali
 
 If it fails: a candidate without a recorded CSP `Yes`, or a precondition that fails validation, is not catalogued; route it to Lane 2 rather than matching it.
 
-**Status: draft scaffold.** The new-state flow needs three net-new builds that belong together: a plant-facing catalog of proven use cases, a standardized connection-kit list a plant can match a use case against and order, and a self-check to go live. No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources. This skill defines how a request is matched, what an entry must hold and what the plant checks before go-live; it states no entry, names no kit and presents no guardrail set as complete.
+**Status: ready (awaiting sign-off); content is a scaffold.** The new-state flow needs three net-new builds that belong together: a plant-facing catalog of proven use cases, a standardized connection-kit list a plant can match a use case against and order, and a self-check to go live. No catalog data set, kit list (kits, prices, lead times) or finished guardrail set exists in the sources. This skill defines how a request is matched, what an entry must hold and what the plant checks before go-live; it states no entry, names no kit and presents no guardrail set as complete.
 
 ## Where the flow puts it
 

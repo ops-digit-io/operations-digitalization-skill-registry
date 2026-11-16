@@ -185,7 +185,11 @@ such figures (heuristic, read-only). `registry.yaml` keeps the three provenance 
 ## Verification status
 
 **Unverified.** The skills were drafted from the knowledge bundle; nobody has read them
-line by line against the source systems. That matches the bundle's own trust statement and
+line by line against the source systems. Statuses (`statuses` in `registry.yaml`): `draft` is
+assembled and not validated; `ready` is a core skill that passes every registry check (validator,
+quality grade A, drawn on the BPMN map, spec-valid export) and awaits human sign-off, which is not a
+review; `stable` is signed off by the owner. The 10 core skills that were drafts are `ready`; the
+extension skills are `draft`. That matches the bundle's own trust statement and
 is stated rather than glossed. The open gaps the department has not yet closed are listed
 in `registry.yaml` under `open_gaps` and appear as `⟨…⟩` in the skills themselves.
 

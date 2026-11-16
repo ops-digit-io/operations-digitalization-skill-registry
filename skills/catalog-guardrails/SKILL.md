@@ -13,7 +13,7 @@ metadata:
   owner_role: Digital-Business-Value-Engineer (DBVE); the plant runs the check
   tags: [department-core, lane-1]
   authority_level: draft the go-live check and report it; the plant decides PRODUCTIVE; a block-level failure stops go-live
-  status: draft
+  status: ready
   requires: [dept-context]
   okf:
     type: Agent Skill

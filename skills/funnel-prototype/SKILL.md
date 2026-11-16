@@ -13,22 +13,22 @@ metadata:
   new_state_step: "Prototype / click-dummy, validated with the recipient"
   department_names: ["funnel-prototype", "prototype-builder", "click-dummy"]
   owner_role: human:jakob.gabriel
-  tags: [use-case-support-service, practice, new-state, draft]
+  tags: [use-case-support-service, practice, new-state, ready]
   authority_level: draft the prototype and the validation record; the plant confirms the value
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [funnel-use-case, funnel-requirements, mi-data-availability, ops-analytics-asset, ops-dashboard-engine, bc-build, bc-capital-request, deploy-acceptance, dept-decision-rights, deploy-handover]
   okf:
     type: Agent Skill
     title: Prototype and proof of concept
-    tags: [use-case-support-service, practice, new-state, draft]
+    tags: [use-case-support-service, practice, new-state, ready]
 ---
 
 # Prototype and proof of concept
 
 Read `dept-context` first.
 
-**Status: draft.** The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot. It credits
+**Status: ready (awaiting sign-off).** The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot. It credits
 `ops-analytics-asset` with "click-dummy only", but that skill has no prototype, click-dummy or
 proof-of-concept content (`docs/new-state-conformance.md`). This skill is grounded in what the knowledge base actually
 holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a

@@ -11,15 +11,15 @@ metadata:
   new_state_lane: "Lane 4 (42, 43)"
   new_state_step: "Brief Internal Communications and draft; review and publish"
   owner_role: Digital-Business-Value-Engineer (DBVE); Internal Communications publishes
-  tags: [lane-4, practice, draft]
+  tags: [lane-4, practice, ready]
   authority_level: draft the brief and the assets and run the check; nothing is published by OD; the plant owner, the OD lead and Internal Communications approve
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [comms-showcase, comms-followup, catalog-usecase, bc-build]
   okf:
     type: Agent Skill
     title: Communications brief
-    tags: [lane-4, practice, draft]
+    tags: [lane-4, practice, ready]
 ---
 
 # Communications brief

@@ -14,7 +14,7 @@ metadata:
   owner_role: OD lead (separation of duties - not the person who built the case)
   tags: [department-core, lane-2, lane-3]
   authority_level: recommend - scores and gives a verdict; the approvers decide
-  status: draft
+  status: ready
   requires: [dept-context]
   composes: [bc-build, bc-cost, bc-capital-request]
   okf:
