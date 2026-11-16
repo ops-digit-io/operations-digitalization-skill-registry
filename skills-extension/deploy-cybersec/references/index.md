@@ -4,8 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Gate rules (`gate-rules.md`) | Skill Reference | Every rule that governs the Cyber Security sign-off gate, one line each with its source, plus what the sources do not give - open this to answer "is this allowed and who decides". |
-| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-cybersec must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-cybersec must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Package contents (`package-contents.md`) | Skill Reference | What the Cyber Security sign-off package holds for a machine connection and for an app deployment, and which existing skill or record already produces each item - open when filling the package. |
 | Precedents (`precedents.md`) | Skill Reference | Patterns from the department's own record of Cyber Security approvals - the Groot2B programme, an app that waited on approval, a network-separation case, how application cyber status is recorded, how security shows up in blocker records - so a plant sees how the gate behaved before. Guidance only, no current figures. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How the Cyber Security gate is run in the chain (1b3, 3a5, 3b6) as a parallel track that blocks only go-live - security-relevance questions, the request sequence, documentation completeness, PoC scope limits that keep a pilot off the heavy OT path, the data-protection and works-council notification, handoffs and agent notes. |

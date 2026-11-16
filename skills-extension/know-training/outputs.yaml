@@ -1,0 +1,59 @@
+skill: know-training
+gate: []
+outputs:
+- id: training-package
+  form: "`assets/training-package.md`, filled"
+  template: assets/training-package.md
+  to_skills: []
+  to_roles:
+  - Plant owner
+  - trainer role
+  done_when:
+  - One plant, one solution, one rollout moment
+  - Plant roles named (roles only)
+  - Modules chosen with a hands-on form on the real screen, machine or shift
+  - Durations, dates and trainers marked `⟨…⟩` unless a source gives them
+  - Readiness stated
+  signoff: Plant owner
+  check:
+    structure: true
+- id: competence-checklist
+  form: "`assets/competence-checklist.md`, filled"
+  template: assets/competence-checklist.md
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Each competence confirmed by the plant owner with evidence
+  - No critical skill rests on one person
+  signoff: OD lead
+  check:
+    structure: true
+- id: readiness-statement
+  form: Readiness section of the package
+  to_skills: []
+  to_roles:
+  - Plant owner
+  done_when:
+  - Acceptance passed, data path written down to the machine, sign-off gate answered, plant infrastructure live
+  - Otherwise stated as not ready and no training scheduled
+  signoff: Plant owner
+- id: gap-report
+  form: Open competences and single-person skills listed
+  to_skills: []
+  to_roles:
+  - OD lead via COP
+  done_when:
+  - Every competence that cannot be confirmed, or skill held by one person, is reported upward
+  signoff: OD lead via COP
+receives_from:
+- deploy-acceptance
+- deploy-handover
+- deploy-cybersec
+next:
+- when: deploy-handover (the completed checklist is its input for the Knowledge and Ability elements; used on steps 1a3, 1b4, 26 and 3a6), then the Scorecard utilization rate for Reinforcement.
+  to:
+  - deploy-handover
+stops_when:
+- the solution is not accepted yet, the plant infrastructure is not live (no training on a demo environment), or only one plant person can do a critical task
+- Training may cover the Cyber Security gate while sign-off is open, with no live connection exercise

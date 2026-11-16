@@ -1,0 +1,62 @@
+skill: ops-analytics-asset
+gate: []
+outputs:
+- id: built-and-validated-asset
+  form: The delivered dashboard, report, workflow, app or agent
+  to_skills: []
+  to_roles:
+  - Requester
+  - plant owner
+  done_when:
+  - Passed the validation checklist
+  - Reconciled with the paper record for the same period
+  - Delivered and explained to the requester
+  signoff: Requester
+- id: asset-build-protocol
+  form: "`assets/asset-build-protocol.md`, filled"
+  template: assets/asset-build-protocol.md
+  to_skills:
+  - deploy-acceptance
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Records output asset, utilization expectation, named plant owner role and data path
+  signoff: OD lead
+  check:
+    structure: true
+- id: ritual-decision-and-action-owner
+  form: Section of the protocol
+  to_skills: []
+  to_roles:
+  - Plant owner
+  done_when:
+  - All three named
+  - If any is missing it is a "dashboard without an action owner" and is not built
+  signoff: Plant owner
+- id: asset-type-choice
+  form: Section of the protocol
+  to_skills:
+  - ops-dashboard-engine
+  to_roles: []
+  done_when:
+  - Asset type chosen with a reason
+  - Ritual, tier and data model handed over rather than hand-built
+  signoff: OD lead
+receives_from:
+- dept-governance
+- ops-event-model
+- mi-data-availability
+- catalog-usecase
+next:
+- when: step 1a3 catalog-guardrails on Lane 1a; step 1b4 on Lane 1b; in Lane 2, step 23 funnel-prototype.
+  to:
+  - catalog-guardrails
+  - funnel-prototype
+- when: Then deploy-acceptance and deploy-handover, which read the protocol.
+  to:
+  - deploy-acceptance
+  - deploy-handover
+stops_when:
+- the data gap is real, the smell checks fail (no ritual, decision or action owner), validation fails, or the insight is a one-off
+- Close it as ad-hoc and do not industrialize
+- Publishing externally needs the responsible human, and an agent never marks the asset accepted before the paper reconciliation is signed

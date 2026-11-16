@@ -34,21 +34,13 @@ metadata:
 
 # Investment input pack
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-**Plan row II-07** (`OD_Skill_Map.md`): trigger "roadmap agreed, budget needed"; output "investment
-planning input pack"; runs regionally; authority `recommend`; wave 2. The Skill Map lists "digitalization
-investment approval" under *explicitly not skills*: "Skills may prepare the input (II-07), never the
-approval." The decision stays central.
+- **Plan row II-07** (`OD_Skill_Map.md`): trigger "roadmap agreed, budget needed"; output "investment planning input pack"; runs regionally; authority `recommend`; wave 2.
+- The Skill Map lists "digitalization investment approval" under *explicitly not skills*: "Skills may prepare the input (II-07), never the approval." The decision stays central.
 
 ## Purpose and definition of done
 
-Turn an agreed plan into a pack the deciders can read in one sitting: **what is bought, for which
-machines or systems, what it costs (each figure with its source), what it is expected to return (tracked,
-not proven), which gates it must pass, and what is still unknown.** The pack is done when every cost line
-has a figure with a source or an open marker, the benefit side points at a `bc-build`
-record, the gate route is named, and the pack is handed over with a `dept-decision-rights` decision
-request. It is never "done" by approval: approval is not this skill's.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Where it sits
@@ -59,10 +51,10 @@ request. It is never "done" by approval: approval is not this skill's.
 | **Lane 1b** | Fill cost template and lightweight approval: "standardized, pre-priced spend, template, not a full business case" (VSM skill map) | The cost template for a standardized system from `catalog-usecase` |
 | **Lane 2 step 5, Lane 3 step 3** | Capital request, business case and capital request | The cost side that `bc-capital-request` packages together with the value side |
 
-The recurring-task table of the lane still lists the investment plan template as "⟨to confirm⟩"
-(`information-integration-service/tasks.md`; also `project-support-consultancy/skills.md`, "investment
-planning templates: author"). [`assets/investment-input-pack.md`](assets/investment-input-pack.md) is a
-proposed form until the OD lead confirms it.
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References and assets
 
@@ -73,13 +65,12 @@ proposed form until the OD lead confirms it.
 | [`assets/investment-input-pack.md`](assets/investment-input-pack.md) | The pack itself |
 | [`assets/investment-estimate.md`](assets/investment-estimate.md) | The department's investment estimate template: the cost side of one business case, never netted into the value headline |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Planning workflow and cost build-up, cost calculator before the project, staged scope, wave-decision checks, and what an agent may draft |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## The cost side of the business case
 
-The department splits a business case into a value backbone (`bc-build`) and a separate
-**investment estimate** (its `bc-cost`), which feeds the assessment and the capital request
-(`references` of `bc-build`: `house-business-case-standard.md`). For a single use case or
-system, fill [`assets/investment-estimate.md`](assets/investment-estimate.md):
+- The department splits a business case into a value backbone (`bc-build`) and a separate **investment estimate** (its `bc-cost`), which feeds the assessment and the capital request (`references` of `bc-build`: `house-business-case-standard.md`).
+- For a single use case or system, fill [`assets/investment-estimate.md`](assets/investment-estimate.md):
 
 - one-time build effort, licences and hardware, recurring run cost, multi-year **TCO**;
 - for the **minimum viable rollout** and the **maximum scale-out** (OD x IT, 2026-09-11);
@@ -87,33 +78,29 @@ system, fill [`assets/investment-estimate.md`](assets/investment-estimate.md):
 - run cost written for the stated operating model and for who runs it (build-and-run, OpenSpec IT demand (external));
 - cloud and run-cost drivers asked from IT, which carries them centrally today.
 
-**Lane 1b cost template.** For a standardized system from `catalog-usecase`, the estimate is the predictable,
-pre-priced cost template, not a full business case. It is **approved by the plant budget owner**
-(department Lane 1 file, control point of step 3b); route it with `dept-decision-rights`.
+- **Lane 1b cost template.** For a standardized system from `catalog-usecase`, the estimate is the predictable, pre-priced cost template, not a full business case.
+- It is **approved by the plant budget owner** (department Lane 1 file, control point of step 3b); route it with `dept-decision-rights`.
 
 ## Procedure
 
-1. **Confirm the plan is agreed.** Wave pack: the roadmap is agreed with Plant ME / Plant IT (control
-   point of step 1). Template pack: the match record of `catalog-usecase` exists. Cost
-   cannot be planned for a scope that is still moving; if scope is open, stop and say which part.
+1. **Confirm the plan is agreed.** Wave pack: the roadmap is agreed with Plant ME / Plant IT (control point of step 1).
+   - Template pack: the match record of `catalog-usecase` exists.
+   - Cost cannot be planned for a scope that is still moving; if scope is open, stop and say which part.
 2. **Run the demand filter.** Keep only machines or systems that an accepted or planned use case needs
    (`mi-equipment`, assessment step 2). A `NOT INTEGRATED` machine nobody waits for is not a
    line in the pack.
 3. **Check the footprint.** If any line is a system outside the lean footprint, run `invest-screen`
    first; a line that adds a tool is a tool-rollout decision, not an investment line (see the approval
    route).
-4. **Build the cost lines** from [`references/cost-lines.md`](references/cost-lines.md). One row per line,
-   each with a figure and a source, or `⟨not known: who can supply⟩`. Do not average, do not fill from a
-   similar plant without saying so, do not price internal effort unless the OD lead says so
-   (some notes, such as `Case Groups - Overview`, take costs as zero by an owner statement, which is a
-   convention of that note and not a rule for this pack).
+4. **Build the cost lines** from [`references/cost-lines.md`](references/cost-lines.md).
+   - One row per line, each with a figure and a source, or `⟨not known: who can supply⟩`.
+   - Do not average, do not fill from a similar plant without saying so, do not price internal effort unless the OD lead says so (some notes, such as `Case Groups
+   - - Overview`, take costs as zero by an owner statement, which is a convention of that note and not a rule for this pack).
 5. **Put the benefit side next to it.** Link the `bc-build` rows. Show **tracked** and
    **proven** euros separately and never add them. If no saving row exists, write "to be collected" and
    stop short of a payback figure.
-6. **Name the gates.** Spend through eCR (approver per the current approval policy, look up:
-   `dept-decision-rights` and the OD lead); the budget threshold of the *digitalization investment planning* decision is
-   still `⟨to confirm⟩` and is not guessed here. Add Cyber Security / OT (`deploy-cybersec`) for any
-   external connection, IT demand if the item touches a platform OD does not own.
+6. **Name the gates.** Spend through eCR (approver per the current approval policy, look up: `dept-decision-rights` and the OD lead); the budget threshold of the *digitalization investment planning* decision is still `⟨to confirm⟩` and is not guessed here.
+   - Add Cyber Security / OT (`deploy-cybersec`) for any external connection, IT demand if the item touches a platform OD does not own.
 7. **Record the dependencies** on the use case or saving rows (`ECR APPROVAL`, `ECR CREATION`, `MACHINE
    INTEGRATION`), so the wait is visible.
 8. **State the open items** and who can close them (section "Still open" of the pack).
@@ -124,8 +111,8 @@ pre-priced cost template, not a full business case. It is **approved by the plan
 
 ## Output
 
-The filled pack. Its cost table and gate table are the parts a decider reads first; everything else is
-traceability.
+- The filled pack.
+- Its cost table and gate table are the parts a decider reads first; everything else is traceability.
 
 ## Still open
 

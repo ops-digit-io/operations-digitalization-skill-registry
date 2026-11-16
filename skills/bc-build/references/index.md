@@ -4,10 +4,11 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Deck structure (`deck-structure.md`) | Skill Reference | Slide order and content rules of the funnel business-case deck. |
 | Funnel business case (`funnel-business-case.md`) | Skill Reference | The department's business-case stage of the product funnel (bc-build): value model from the features and prototype, savings model, auditable deck. |
 | House business case standard (`house-business-case-standard.md`) | Skill Reference | The department's own business-case standard (bc-build / bc-assess house rules and the shared value model): value-only backbone, grounding tags, expected / min / potential headline, lever register, contribution matrix, de-banking, cost envelope, gated value realization, scaling; plus the OD x IT business-case rules of 2026-09-11. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs bc-build must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs bc-build must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How the business-case step (24, 33) is run in the AI-driven chain - segment before averaging, grounding tags on every figure, banked floor versus potential versus de-banked value, baseline first, what to hand to the capital request, and what an agent may draft. Pattern only, no figures. |
 | Review checklist (`review-checklist.md`) | Skill Reference | Why a saving row's methodology is usually missing, the smell test that follows from it, and the department's own three failed fixes before the current one — Phase-1 tacit-knowledge item #3, resolved from the department's own retrospective record. |
 | Savings model (`savings-model.md`) | Skill Reference | The savings model: lever types, formulas and drivers, ranges, and how each saving is made auditable. |

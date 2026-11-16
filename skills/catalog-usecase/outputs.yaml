@@ -1,0 +1,59 @@
+skill: catalog-usecase
+gate: []
+outputs:
+- id: match-record
+  form: "`assets/catalog-match-record.md`, filled"
+  template: assets/catalog-match-record.md
+  to_skills:
+  - ops-analytics-asset
+  - catalog-systems
+  to_roles:
+  - Lane 2 or Lane 3 on fall-through
+  done_when:
+  - Names the branch (1a, 1b, Lane 2 or Lane 3) and the next skill
+  - CSP status (`Yes` / `No` / not decided) with its source and read date
+  - Preconditions with the data-availability verdict
+  - The plant's utilization moment or `<to confirm>`
+  signoff: Lane 2 or Lane 3 on fall-through
+  check:
+    structure: true
+- id: fall-through-statement
+  form: Section of the match record
+  to_skills:
+  - funnel-use-case
+  - funnel-requirements
+  to_roles:
+  - Requester
+  - then  (Lane 2) or  (Lane 3)
+  done_when:
+  - A candidate with no recorded CSP `Yes`, or a failed precondition, is stated plainly as not catalogued and routed
+  signoff: Requester
+- id: graduation-proposal-step-26-only
+  form: Proposal with the entry content
+  to_skills:
+  - deploy-handover
+  to_roles:
+  - OD lead
+  - with  for the plant handover
+  done_when:
+  - All four conditions hold (CSP `Yes`, capability template, standardized signals, plant owner with a passed handover test) and the plant's utilization moment is recorded
+  signoff: OD lead
+receives_from:
+- ops-dashboard-datatron
+- comms-followup
+- catalog-compatibility
+- dept-intake
+- mi-data-availability
+- deploy-handover
+next:
+- when: step 1a1 to ops-analytics-asset (step 1a2); step 1b1 to catalog-systems, then dept-decision-rights (1b2); a result that falls through goes to Lane 2 (funnel-use-case) or Lane 3 (funnel-requirements).
+  to:
+  - ops-analytics-asset
+  - catalog-systems
+  - dept-decision-rights
+  - funnel-use-case
+  - funnel-requirements
+stops_when:
+- the candidate has no recorded CSP Yes, a precondition fails, or the need sits outside the lean footprint and invest-screen has not run
+- Do not present it as catalogued or let the plant self-serve it
+- the CSP decision itself stays with its owner

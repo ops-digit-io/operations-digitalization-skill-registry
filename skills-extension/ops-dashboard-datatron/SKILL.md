@@ -28,18 +28,18 @@ metadata:
 ---
 # DATATRON dashboards
 
-Read `dept-context` first. The department's `ops-dashboard-datatron` (split from its `ops-grafana-dashboards` package;
-the stakeholder-deck part went to `deck-stakeholder`). The package holds the query and variable patterns and the QA
-checklist and is the master; this skill carries the procedure and the gates. `ops-dashboard-engine` is the generic
-engine for the Grafana JSON itself.
+- Read `dept-context` first.
+- The department's `ops-dashboard-datatron` (split from its `ops-grafana-dashboards` package; the stakeholder-deck part went to `deck-stakeholder`).
+- The package holds the query and variable patterns and the QA checklist and is the master; this skill carries the procedure and the gates.
+- `ops-dashboard-engine` is the generic engine for the Grafana JSON itself.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Self-service mode (Lane 1a)
 
-The plant key user applies a **catalogued** dashboard (`catalog-usecase`) to its own machines. Anything the template
-does not cover is a deviation, routed to Lane 2, not a local extension. Passing the QA checklist is the go-live gate
-(`catalog-guardrails`).
+- The plant key user applies a **catalogued** dashboard (`catalog-usecase`) to its own machines.
+- Anything the template does not cover is a deviation, routed to Lane 2, not a local extension.
+- Passing the QA checklist is the go-live gate (`catalog-guardrails`).
 
 ## Procedure
 
@@ -63,3 +63,14 @@ does not cover is a deviation, routed to Lane 2, not a local extension. Passing 
 - Do not build on a signal that is disabled; list its UUID and stop.
 - Do not extend a catalogued template locally; route the new need to Lane 2.
 - Do not publish without the QA checklist passed.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

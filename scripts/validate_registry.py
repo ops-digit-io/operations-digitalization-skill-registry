@@ -249,6 +249,24 @@ def main() -> int:
 
     skill_deliverables.check(fail)
 
+    # The output contract and the form of every skill: outputs.yaml is valid and outputs.md is generated from it; SKILL.md
+    # is structure only (scripts/skill_outputs.py, scripts/skill_form.py).
+    import skill_form
+    import skill_outputs
+    all_ids = set(on_disk)
+    for name in sorted(on_disk):
+        d = skillpaths.skill_dir(name)
+        data = skill_outputs.load(d)
+        errs = skill_outputs.validate(name, data, d, all_ids)
+        for e in errs:
+            fail(e)
+        if not errs:
+            target = d / "references" / "outputs.md"
+            if not target.is_file() or target.read_text(encoding="utf-8").replace("\r\n", "\n") != skill_outputs.render(name, data):
+                fail(f"{name}/references/outputs.md is not generated from outputs.yaml (run python scripts/skill_outputs.py --write)")
+        for f in skill_form.lint(name):
+            fail(f)
+
     if errors:
         print(f"FAIL — {len(errors)} problem(s):\n", file=sys.stderr)
         for err in errors:

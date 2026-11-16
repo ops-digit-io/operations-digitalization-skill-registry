@@ -1,0 +1,62 @@
+skill: bc-build
+gate: []
+outputs:
+- id: value-backbone
+  form: "`assets/business-case-backbone.md`, filled"
+  template: assets/business-case-backbone.md
+  to_skills:
+  - bc-assess
+  - bc-capital-request
+  to_roles:
+  - then
+  done_when:
+  - Expected / min / potential headline
+  - Bankable and assumption-dependent value apart
+  - Investment envelope
+  - Minimum viable rollout and maximum scale-out
+  - Every figure tagged
+  signoff: then
+  check:
+    structure: true
+- id: saving-rows-one-per-mechanism
+  form: Rows in the backbone
+  to_skills: []
+  to_roles:
+  - DBVE (owns the savings ledger)
+  done_when:
+  - Amount, year, category, business rationale, reliability label
+  - A `CALCULATION` row also carries its methodology
+  signoff: DBVE (owns the savings ledger)
+- id: open-questions-and-dependencies
+  form: List in the backbone
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - named owner per dependency
+  done_when:
+  - Every gate (for example ECR creation) recorded as a dependency with an owner
+  signoff: named owner per dependency
+- id: assessment-verdict
+  form: Verdict line in the backbone
+  to_skills:
+  - bc-assess
+  to_roles: []
+  done_when:
+  - Written by a person other than the case builder
+  signoff: OD lead
+receives_from:
+- catalog-standardization
+- funnel-evaluation
+- funnel-features
+- process-derivation
+- funnel-use-case
+- bc-cost
+next:
+- when: bc-assess (step 24), then bc-capital-request (step 25).
+  to:
+  - bc-assess
+  - bc-capital-request
+stops_when:
+- the case has no sourced driver for any lever
+- Return the open questions to the requester
+- do not hand over a number that rests on an [unknown]

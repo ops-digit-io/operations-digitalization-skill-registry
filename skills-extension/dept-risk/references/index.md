@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs dept-risk must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs dept-risk must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | Additional early indicators the chain produces for risk watch - operations concept, ticket age, stale lists, savings-forecast gaps, preconditions and go-live gates, the blocker brief - plus the cadence formats and what an agent may draft. Pattern only, no figures. |
 | Risk indicators (`risk-indicators.md`) | Skill Reference | The six registered risks with the source of each early indicator, how to read each indicator live, the trigger test and the kinds of gap that make an indicator unreadable. |

@@ -1,0 +1,57 @@
+skill: comms-brief
+gate: []
+outputs:
+- id: communications-brief
+  form: "`assets/comms-brief.md`, filled"
+  template: assets/comms-brief.md
+  to_skills: []
+  to_roles:
+  - Internal Communications
+  done_when:
+  - Objective, audiences, one message, two to four proof points each with source, evidence class and wording status, an audience variant per audience, a call to action with a role as contact, channels and timing (open points until IC states them),…
+  signoff: Internal Communications
+  check:
+    structure: true
+    cmd: python scripts/check_comms_brief.py {file}
+- id: check-output
+  form: Output of `scripts/check_comms_brief.py`
+  to_skills: []
+  to_roles:
+  - Internal Communications
+  done_when:
+  - Exit 0, or only explained warnings
+  - No blocker
+  signoff: Internal Communications
+- id: approvals-list
+  form: Approvals section of the brief
+  to_skills: []
+  to_roles:
+  - Plant owner
+  - OD lead
+  - Internal Communications
+  done_when:
+  - Roles named in order (plant owner, OD lead, Internal Communications) with their real status
+  - None marked given by an agent
+  signoff: Plant owner
+- id: draft-assets-optional
+  form: Article, one-pager, slide or short post
+  to_skills: []
+  to_roles:
+  - Internal Communications
+  done_when:
+  - Each draft repeats the proof points and adds no new claim
+  signoff: Internal Communications
+receives_from:
+- comms-showcase
+next:
+- when: Internal Communications reviews and publishes (step 43); then comms-followup (step 44), with the approved brief.
+  to:
+  - comms-followup
+- when: The call to action points plants to catalog-usecase.
+  to:
+  - catalog-usecase
+stops_when:
+- the check reports a blocker (for example a proof point without source or evidence class, a saving worded as a result without a registered project, a named individual or an internal host or link)
+- The brief does not leave OD until fixed
+- A human hands the brief over
+- the agent never publishes

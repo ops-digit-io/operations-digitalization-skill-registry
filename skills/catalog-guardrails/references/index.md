@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-guardrails must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-guardrails must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Technical guardrails (`technical-guardrails.md`) | Skill Reference | Candidate guardrails G8 to G18 for a self-served dashboard, each with its recorded source rule, the failure pattern it prevents (no counts) and a proposed block-or-warn setting. Open it when the seven seeded guardrails are not enough for the screen a plant has built. |

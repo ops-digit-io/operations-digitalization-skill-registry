@@ -25,17 +25,19 @@ metadata:
 
 # Equipment integration
 
-Read `dept-context` first. Two entry routes to one protocol: **Route A - Assessment** (a plant or wave) and **Route B - Guidance**
-(one machine). Serves process steps **1b3** (order and connect), **3b4** (connector and pipeline), **3b5** (procure and connect).
-Key user: IIoT Interface & Automation Engineer (IIAE), in tandem with Plant ME / Plant IT. AI agent: drafts and recommends only.
-Where the guide's `rules.json` and this skill disagree, `rules.json` wins (the maintained artefact). Detail behind every rule
-below: [`routing-detail.md`](references/routing-detail.md).
+- Read `dept-context` first.
+- Two entry routes to one protocol: **Route A - Assessment** (a plant or wave) and **Route B - Guidance** (one machine).
+- Serves process steps **1b3** (order and connect), **3b4** (connector and pipeline), **3b5** (procure and connect).
+- Key user: IIoT Interface & Automation Engineer (IIAE), in tandem with Plant ME / Plant IT.
+- AI agent: drafts and recommends only.
+- Where the guide's `rules.json` and this skill disagree, `rules.json` wins (the maintained artefact).
+- Detail behind every rule below: [`routing-detail.md`](references/routing-detail.md).
 
 ## Purpose
 
-Use this skill to decide how machines get connected: per plant or wave (Route A) and per machine (Route B). It
-returns a route, a connector, a sequence position and a record of barriers, never a connection made by an agent.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Use this skill to decide how machines get connected: per plant or wave (Route A) and per machine (Route B).
+- It returns a route, a connector, a sequence position and a record of barriers, never a connection made by an agent.
 
 ## Inputs and output
 
@@ -45,8 +47,9 @@ returns a route, a connector, a sequence position and a record of barriers, neve
 | **A** | Machine List export for the plant, accepted or planned use cases, roadmap, readiness matrix | `dept-context`, `mi-data-availability` | [`assessment-protocol.md`](assets/assessment-protocol.md): one per plant/wave, machine table, sign-off |
 | **B** | A Route A inventory row for the machine | Route A | [`guidance-protocol.md`](assets/guidance-protocol.md): one per machine, gates in order, handoff to `deploy-acceptance` |
 
-Choose: no assessment yet for this plant or wave -> A. Assessment done, one machine needs route, connector, configuration -> B.
-B without an A inventory: start at A, do not guess scope.
+- Choose: no assessment yet for this plant or wave -> A.
+- Assessment done, one machine needs route, connector, configuration -> B.
+- B without an A inventory: start at A, do not guess scope.
 
 ## Procedure - Route A (assessment)
 
@@ -59,7 +62,7 @@ B without an A inventory: start at A, do not guess scope.
 7. **Start Cyber Security decoupled and in parallel**; track controller patch status and sign-off scope on the wave plan. It blocks only go-live, not planning or build; open patches delayed a wave in practice ([`process-chain-practice.md`](references/process-chain-practice.md)).
 8. Hand to execution, then `mi-signals`, then `deploy-acceptance`.
 
-Targets: look up the current integration target and actual in the department KPI and roadmap status (owner: OD lead), state the date, never plan from remembered numbers.
+- Targets: look up the current integration target and actual in the department KPI and roadmap status (owner: OD lead), state the date, never plan from remembered numbers.
 
 ## Procedure - Route B (guidance, one machine)
 
@@ -72,7 +75,7 @@ Targets: look up the current integration target and actual in the department KPI
 7. **Blocked?** Work [`fallbacks.md`](references/fallbacks.md) before recording it as blocked.
 8. **Gate 4 - record**: Machine List, Machine CV (mandatory vs optional tags), Edge Device List, inform MPEE OD. `INTEGRATED` only after `deploy-acceptance` passes.
 
-Short example of a Route B record (fictional example; the machine and plant are invented):
+- Short example of a Route B record (fictional example; the machine and plant are invented):
 
 ```text
 Machine: M-017 (fictional), PLC family from the Machine List row (dated)
@@ -81,7 +84,7 @@ Gate 2: DTQ-OPCUA-Connector, available   Gate 3: PLC program present, cyber secu
 Handoff: deploy-acceptance; INTEGRATED only after it passes
 ```
 
-If a gate would fail or a guide branch is `TODO`, do not compose a route: use the fallbacks or escalate as stated in the rules below.
+- If a gate would fail or a guide branch is `TODO`, do not compose a route: use the fallbacks or escalate as stated in the rules below.
 
 ## Decision rules
 
@@ -98,12 +101,10 @@ If a gate would fail or a guide branch is `TODO`, do not compose a route: use th
 
 ## Lane 3b order and the absorbed modes
 
-The department's Lane 3b runs: connector design → data-pipeline design (edge to the data platform) →
-Cyber Security sign-off → procurement and hardware → integration execution → acceptance test, live on the
-data platform. Cyber Security runs **in parallel** with planning and build and blocks go-live, not the
-start (owner decision, 2026-11-06; `references/process-chain-practice.md`). **Integration execution is
-supplier-dependent and not covered by any OD skill**: the department records it as a gap waiting on a
-supplier decision (the App-Store-Ops feature request). Record the wait, do not plan around it.
+- The department's Lane 3b runs: connector design → data-pipeline design (edge to the data platform) → Cyber Security sign-off → procurement and hardware → integration execution → acceptance test, live on the data platform.
+- Cyber Security runs **in parallel** with planning and build and blocks go-live, not the start (owner decision, 2026-11-06; `references/process-chain-practice.md`).
+- **Integration execution is supplier-dependent and not covered by any OD skill**: the department records it as a gap waiting on a supplier decision (the App-Store-Ops feature request).
+- Record the wait, do not plan around it.
 
 | Mode | Absorbed procedure | Use when |
 |---|---|---|
@@ -113,7 +114,9 @@ supplier decision (the App-Store-Ops feature request). Record the wait, do not p
 
 ## Handoff
 
-Route A -> Route B per machine in the wave. Route B -> `mi-signals` (tag list, PLC program version, Machine CV), then `deploy-acceptance`; `mi-flow` for the pipeline; `dept-decision-rights` for investment approval. Receiver needs: concept, connector, sequence position, logged barriers, Cyber Security status.
+- Route A -> Route B per machine in the wave.
+- Route B -> `mi-signals` (tag list, PLC program version, Machine CV), then `deploy-acceptance`; `mi-flow` for the pipeline; `dept-decision-rights` for investment approval.
+- Receiver needs: concept, connector, sequence position, logged barriers, Cyber Security status.
 
 ## Human gate and AI-agent notes
 
@@ -125,16 +128,24 @@ Route A -> Route B per machine in the wave. Route B -> `mi-signals` (tag list, P
 
 ## Definition of done
 
-**A**: inventory and roadmap agreed with Plant ME / Plant IT; each machine in scope carries concept, connector and sequence position; barriers logged; investment planned; Cyber Security gate identified.
-**B**: Machine List, Machine CV and Edge Device List updated; MPEE OD informed; `INTEGRATED` only after `deploy-acceptance`.
+- **A**: inventory and roadmap agreed with Plant ME / Plant IT; each machine in scope carries concept, connector and sequence position; barriers logged; investment planned; Cyber Security gate identified.
+- **B**: Machine List, Machine CV and Edge Device List updated; MPEE OD informed; `INTEGRATED` only after `deploy-acceptance`.
 
 ## Pitfalls
 
-- **An unavailable native connector is not an unreachable PLC.** `DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` do not exist (`Idea`); those machines go over OPC UA via the aggregation server. `SFT-SIMATIC S7-Connector` is `DO NOT USE` (no Cyber Security compliant communication); use `DTQ-S7-Connector`. `DTQ-OPCUA-Connector` is the standing fallback; on the bridge path the Machine List row names both connectors.
-- **OESL guidance errors**: dataFEED V5.70 has no Beckhoff data source or ADS (use Modbus TCP or TwinCAT OPC UA; no fully written Beckhoff route on either platform); NetLink is discontinued (address a Helmholz gateway with the Siemens S7 protocol). Source of truth is `rules.json`; the fix is there.
+- **An unavailable native connector is not an unreachable PLC.** `DTQ-B&R-Connector` and `DTQ-Bachmann-Connector` do not exist (`Idea`); those machines go over OPC UA via the aggregation server.
+   - `SFT-SIMATIC S7-Connector` is `DO NOT USE` (no Cyber Security compliant communication); use `DTQ-S7-Connector`.
+   - `DTQ-OPCUA-Connector` is the standing fallback; on the bridge path the Machine List row names both connectors.
+- **OESL guidance errors**: dataFEED V5.70 has no Beckhoff data source or ADS (use Modbus TCP or TwinCAT OPC UA; no fully written Beckhoff route on either platform); NetLink is discontinued (address a Helmholz gateway with the Siemens S7 protocol).
+   - Source of truth is `rules.json`; the fix is there.
 - Softing drivers with no OESL route (FANUC, ODBC, MQTT, file read, OPC Classic, S5): put to the IIAE. Each PLC family needs its own licence unless Suite Extended; check licensed concurrent configurations.
 - Empty Machine List fields (`production_criticality`, `cyber_security_status`, `machine_blockers`, `input_protocol`) are not values.
 - The common recorded blockers (data-model standardization, firmware patching, TIA V16->V17, cyber-security vulnerability) are mostly not connectivity problems.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
@@ -154,3 +165,20 @@ Route A -> Route B per machine in the wave. Route B -> `mi-signals` (tag list, P
 | [`plant-integration-status.md`](references/plant-integration-status.md) | Building a plant-by-plant status view from the Machine List and Tool Overview |
 | [`process-chain-practice.md`](references/process-chain-practice.md) | Weekly capital-request micro-process, Cyber Security as parallel gate, planning workflow, data classes, lessons |
 | [`blockers-and-waves.md`](references/blockers-and-waves.md) | Kinds of recorded blocker, projects and waves, eCR step, roadmap figures (staging, unverified) |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/od-barrier-triage/assets/barrier-triage-record.md`](references/od-barrier-triage/assets/barrier-triage-record.md) | The record of one blocked machine - facts, demand, ladder result, root-cause class, difficulty tier, exit, owner, wait state and the log line. |
+| [`references/od-barrier-triage/references/classes-and-routes.md`](references/od-barrier-triage/references/classes-and-routes.md) | The seven root-cause classes of a machine that will not connect, the question that tells them apart, and for each the exit (roadmap, strategy, substitution), owner, forum and wait state. |
+| [`references/od-barrier-triage/references/estate-patterns.md`](references/od-barrier-triage/references/estate-patterns.md) | How to read the Machine List for barrier patterns - where NOT INTEGRATED clusters by vendor, protocol and plant, how to group recorded blocker texts by class, and the data… |
+| [`references/od-barrier-triage/references/process-chain-practice.md`](references/od-barrier-triage/references/process-chain-practice.md) | Recurring blocker patterns from the decks mapped onto the seven barrier classes, the ownership signals that show a stuck case early, the blocker one-pager, barrier reporting with cost of non-decision,… |
+| [`references/od-information-integration-service/assets/plant-status-input.md`](references/od-information-integration-service/assets/plant-status-input.md) | One-page input a plant fills for the equipment-integration line of a status request - the plant's numbers with sources and dates, the open blockers, the capital request (eCR) state and… |
+| [`references/od-information-integration-service/references/finding-decks.md`](references/od-information-integration-service/references/finding-decks.md) | How to find which archive deck holds what for the integration lane - the Slide Index and how to search it, and a topic-to-deck map for machine integration workshops, initiatives,… |
+| [`references/od-information-integration-service/references/lane-handoffs.md`](references/od-information-integration-service/references/lane-handoffs.md) | Each happy-path step matched to the real, current asset the composed skill now produces, confirmed against each skill's actual state rather than assumed from its name. |
+| [`references/od-information-integration-service/references/process-chain-practice.md`](references/od-information-integration-service/references/process-chain-practice.md) | How the Information Integration lane runs its rhythm in the AI-driven chain - wave cadence and status, the community call pack, plant tiering, integration workshop, hand-over to use-case support, recurring… |
+| [`references/od-information-integration-service/references/roles-and-support-model.md`](references/od-information-integration-service/references/roles-and-support-model.md) | Who does what around the IIoT edge and manufacturing suite at a plant according to the operations concept deck - local key user, business-area key user, governance board, central key… |
+| [`references/od-information-integration-service/references/task-chain-and-tool-use.md`](references/od-information-integration-service/references/task-chain-and-tool-use.md) | The integration lane's recurring tasks as a trigger chain with tool access rationale, the signal-standardization rule, the readiness matrix and source-catalogue traps, and metric hooks. |
+| [`references/od-information-integration-service/references/tool-fact-sheets.md`](references/od-information-integration-service/references/tool-fact-sheets.md) | Guidance for answering "what is it, where is it, what does it need" for each shop-floor tool in the Tool Overview - what each tool is for, which records to… |
+| [`references/od-machine-integration-plan/assets/wave-plan-template.md`](references/od-machine-integration-plan/assets/wave-plan-template.md) | Template for one integration wave - machine list and CV fields, machine type and route, cost line, plant status row, readiness check and barrier log; fill with placeholders, never with… |
+| [`references/od-machine-integration-plan/assets/workshop-prep-checklist.md`](references/od-machine-integration-plan/assets/workshop-prep-checklist.md) | Preparation checklist for an equipment-integration workshop at a plant - inputs, IT and physical access, attendees, agenda order and outputs; to be completed before the visit. |
+| [`references/od-machine-integration-plan/references/barrier-log-and-cost-of-non-decision.md`](references/od-machine-integration-plan/references/barrier-log-and-cost-of-non-decision.md) | The wave's barrier log - fields, how it relates to barrier triage, how to state the cost of non-decision, the rapid decision board and the error-log review - process guidance,… |
+| [`references/od-machine-integration-plan/references/route-choice-per-machine-type.md`](references/od-machine-integration-plan/references/route-choice-per-machine-type.md) | How to choose the connector and route for each machine type in a wave - data classes, when an edge device is needed, the low-cost address-translation pattern, legacy and camera… |
+| [`references/od-machine-integration-plan/references/wave-planning-and-readiness.md`](references/od-machine-integration-plan/references/wave-planning-and-readiness.md) | The scale-known-types rule, wave allocation, the weekly capital-request micro-process, status taxonomy, phase sequence from machine list to flow design, and readiness criteria - process guidance, no figures. |

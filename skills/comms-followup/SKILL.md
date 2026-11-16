@@ -24,7 +24,9 @@ metadata:
 
 # Showcase follow-up
 
-Read `dept-context` first. A story that is published and then forgotten is a cost. This skill is step 44: it turns the reactions to a story into demand for the lanes that can serve it, and keeps the story true.
+- Read `dept-context` first.
+- A story that is published and then forgotten is a cost.
+- This skill is step 44: it turns the reactions to a story into demand for the lanes that can serve it, and keeps the story true.
 
 ## Inputs and output
 
@@ -34,8 +36,11 @@ Read `dept-context` first. A story that is published and then forgotten is a cos
 
 ## Procedure
 
-1. **Record the publication:** the use case, the plant, the channel, the date, the audiences, the claims as published. Copy the reach or response figures exactly as IC reports them, with their source; if IC reports none, write "not reported", never an estimate.
-2. **Route every reaction** ([`references/feedback-routing.md`](references/feedback-routing.md)): a plant that wants a catalogued use case becomes a Lane 1 request (`catalog-usecase`); a need that no catalogue entry fits is a demand for intake (`dept-intake`, Lane 2); a need for a new system or connector goes to Lane 3 through intake. Do not promise delivery in the answer.
+1. **Record the publication:** the use case, the plant, the channel, the date, the audiences, the claims as published.
+   - Copy the reach or response figures exactly as IC reports them, with their source; if IC reports none, write "not reported", never an estimate.
+2. **Route every reaction** ([`references/feedback-routing.md`](references/feedback-routing.md)): a plant that wants a catalogued use case becomes a Lane 1 request (`catalog-usecase`); a need that no catalogue entry fits is a demand for intake (`dept-intake`, Lane 2);
+   - a need for a new system or connector goes to Lane 3 through intake.
+   - Do not promise delivery in the answer.
 3. **Answer within the story's promise** only: what the story said it could do. Anything else is an intake request, with the usual refusal list.
 4. **Keep it true.** Set a review date. When the use case changes (a new version, a status change, a corrected saving), update the log and tell Internal Communications, who decides whether the published item is corrected or withdrawn.
 5. **Learn.** One line per promotion for the monthly retro: what worked, what did not, one change.
@@ -43,11 +48,12 @@ Read `dept-context` first. A story that is published and then forgotten is a cos
 
 ## Purpose
 
-Turns the reactions to a published use-case story into routed demand for the lanes that can serve it, and keeps the story true over time. Use it after Internal Communications publishes a story (step 44).
+- Turns the reactions to a published use-case story into routed demand for the lanes that can serve it, and keeps the story true over time.
+- Use it after Internal Communications publishes a story (step 44).
 
 ## Measures of the lane (definitions, proposed; no targets)
 
-The stage column follows the AMEC Integrated Evaluation Framework (a professional body's free framework for evaluating communication): reach is an output, not a result, so report the outcome and impact measures next to it.
+- The stage column follows the AMEC Integrated Evaluation Framework (a professional body's free framework for evaluating communication): reach is an output, not a result, so report the outcome and impact measures next to it.
 
 | Measure | AMEC stage | Definition | Source |
 |---|---|---|---|
@@ -73,8 +79,6 @@ The stage column follows the AMEC Integrated Evaluation Framework (a professiona
 
 ## Example
 
-Fictional example (plant and reaction invented for illustration):
-
 ```text
 Story: use case U, plant X, channel: internal news, published 2026-01-01 (fictional)
 Reach: not reported by IC
@@ -83,17 +87,21 @@ Reaction: "Can it also read machine Z?" -> intake demand (Lane 2)
 Review date: set; next retro line: one change
 ```
 
-If a reaction cannot be placed or a figure has no source, write "not reported" or ask the routing owner; do not guess. Check each log entry for a route and a review date before closing it, and treat an entry without them as invalid.
-
 ## Definition of done
 
-The publication is recorded, every reaction has a route, the answers stay within the story's promise, a review date is set, and the log is filled.
+- The publication is recorded, every reaction has a route, the answers stay within the story's promise, a review date is set, and the log is filled.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
-Each template, asset and other resource of this skill is listed here:
+- Each template, asset and other resource of this skill is listed here:
 
 | File | Open when |
 |---|---|
 | [`references/feedback-routing.md`](references/feedback-routing.md) | Routing a reaction into a lane, answering, refreshing or retiring a story |
 | [`assets/followup-log.md`](assets/followup-log.md) | The log to fill |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

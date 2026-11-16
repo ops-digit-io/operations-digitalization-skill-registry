@@ -31,14 +31,14 @@ metadata:
 
 # Governance cadence
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-The chain (intake, lanes 1 to 3, spine) decides *what* happens to a demand. This skill holds the *routines*
-that keep it moving: which forums exist or existed, what each asks, what it needs on the table and what it must leave
-behind. ODEC met monthly only until 2025-12 and no longer does; there is no fixed replacement forum, so a recurring
-governance meeting is never assumed. Past ODEC decks and facts remain a source of information. It does not repeat the metrics and thresholds (`metrics-scorecard`), the decision rights and
-escalation (`dept-decision-rights`), the one-change retro (`dept-retro`), the risk readings (`dept-risk`) or
-the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
+- The chain (intake, lanes 1 to 3, spine) decides *what* happens to a demand.
+- This skill holds the *routines* that keep it moving: which forums exist or existed, what each asks, what it needs on the table and what it must leave behind.
+- ODEC met monthly only until 2025-12 and no longer does; there is no fixed replacement forum, so a recurring governance meeting is never assumed.
+- Past ODEC decks and facts remain a source of information.
+- It does not repeat the metrics and thresholds (`metrics-scorecard`), the decision rights and escalation (`dept-decision-rights`), the one-change retro (`dept-retro`), the risk readings (`dept-risk`) or the lane flow of a use case (`funnel-use-case`).
+- It names them at the handoff.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -52,6 +52,11 @@ the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
 | Training programme | 1a3, 3a6, 26 | `know-training` |
 | Community routine | spine, after 26 (library, best practice) | `catalog-standardization` |
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
 ## References and assets
 
 | File | Use it for |
@@ -63,6 +68,7 @@ the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
 | [`references/rituals-and-consumption.md`](references/rituals-and-consumption.md) | The plant rituals the output is consumed in (daily Gemba, shift checks, escalation, portfolio review, waves), how to find the ritual behind a use case, the ladder from shift to round |
 | [`assets/call-for-action-and-status.md`](assets/call-for-action-and-status.md) | Round pack: agenda, plant status table, numbered call for action |
 | [`assets/sprint-plan-and-review.md`](assets/sprint-plan-and-review.md) | Sprint plan, weekly log, sprint-end review |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Procedure: prepare and follow up a round
 
@@ -77,9 +83,8 @@ the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
    example, numbered call for action.
 4. **Human gate**: the OD lead approves the pack and owns any escalation wording and deadline.
 5. **Run the round; capture** questions, decisions and homework against the output column.
-6. **Follow up**: classify incoming Q&A into the question pack and route each to its owning service line;
-   chase open homework; carry unresolved items into the next round with the label "carried" (one round
-   escalation window, `metrics-scorecard`). Hand the inputs to `dept-retro` (CoP feedback).
+6. **Follow up**: classify incoming Q&A into the question pack and route each to its owning service line; chase open homework; carry unresolved items into the next round with the label "carried" (one round escalation window, `metrics-scorecard`).
+   - Hand the inputs to `dept-retro` (CoP feedback).
 
 ## Decision rules
 
@@ -92,14 +97,12 @@ the lane flow of a use case (`funnel-use-case`). It names them at the handoff.
 
 ## AI agent operating notes
 
-- **May do**: draft the round pack, the status table and the call-for-action text from the portfolio and
-  integration lists; classify Q&A into the question pack; keep the sprint board and the training needs list;
-  chase open homework; check a project-order request for empty owner, budget and out-of-scope.
+- **May do**: draft the round pack, the status table and the call-for-action text from the portfolio and integration lists; classify Q&A into the question pack; keep the sprint board and the training needs list; chase open homework;
+   - check a project-order request for empty owner, budget and out-of-scope.
 - **Required inputs**: the lists above with read date; the previous round's open items; the schedule in force, if any.
 - **Evidence to cite**: source list and read date per status cell; the earlier round or sprint a statement reuses.
-- **Human gate**: the OD lead approves escalation wording, deadlines and roadmap approval; the sponsor and
-  governance board decide yes or no on a project; the local key user confirms plant status and the standard
-  procedure of a use case. Agents never decide a route, a budget or a priority.
+- **Human gate**: the OD lead approves escalation wording, deadlines and roadmap approval; the sponsor and governance board decide yes or no on a project; the local key user confirms plant status and the standard procedure of a use case.
+   - Agents never decide a route, a budget or a priority.
 - **Handoff**: pack to the OD lead; routed requests to the owner named in `dept-decision-rights`; round
   feedback to `dept-retro`; indicator gaps (no registered project, stale tag list, old tickets) to `dept-risk`.
 

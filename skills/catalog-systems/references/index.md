@@ -4,7 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-systems must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs catalog-systems must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Tool boundaries MDA MES MIL MSB QFPR (`tool-boundaries-mda-mes-mil-msb-qfpr.md`) | Skill Reference | Is / is-not / recommended-if boundary for five shop-floor tools that the tool overview lists without a strong definition - MDA/PDA, MES, MIL, MSB and QFPR - with the traps each one brings to a match. Pattern only, no rollout status, counts or plants. |
 | Tools and footprint (`tools-and-footprint.md`) | Skill Reference | Guidance, no figures - the three machine-integration concepts, the other shop-floor tools and how to read their rollout and deployment status live, and what "inside the lean footprint" means in practice. Open it when you need to know what a plant can already order against. |
 | Validated routes (`validated-routes.md`) | Skill Reference | Guidance, no figures - how to classify an integration route as written-and-proven, proven-but-unwritten, fallback or none, from the guide and the Machine List, and how to count the evidence live. Open it before you say "there is a standard system for this machine". |

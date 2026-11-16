@@ -32,13 +32,14 @@ metadata:
 
 # AI generation playbook
 
-Read `dept-context` first. This skill adds no new service. It is the one rulebook for the places in the
-chain where an AI agent drafts, classifies, generates or checks something, so that every step uses the
-same safe pattern: **fixed-structure inputs, an importable or reviewable output, a named evidence trail,
-a human gate before anything leaves the team.**
+- Read `dept-context` first.
+- This skill adds no new service.
+- It is the one rulebook for the places in the chain where an AI agent drafts, classifies, generates or checks something, so that every step uses the same safe pattern:
+- **fixed-structure inputs, an importable or reviewable output, a named evidence trail, a human gate before anything leaves the team.**
 
-Everything below is process guidance from the decks. Where a rule is this skill's own synthesis it is
-marked `PROPOSAL`; unknowns are `<...>`. The owner has not confirmed the `PROPOSAL` rules.
+- Everything below is process guidance from the decks.
+- Where a rule is this skill's own synthesis it is marked `PROPOSAL`; unknowns are `<...>`.
+- The owner has not confirmed the `PROPOSAL` rules.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -61,65 +62,50 @@ marked `PROPOSAL`; unknowns are `<...>`. The owner has not confirmed the `PROPOS
 
 ## The rules
 
-**R1 - Context layer first (spine; precondition for every step).** An agent works only on a department
-description that is current and structured: one named person per section, a review date that flags stale
-sections, fields instead of prose (trigger, owner, source, threshold), missing values marked open. If the
-section an agent needs is stale or has no owner, it stops and reports that (`dept-context-freshness`) and
-does not fill the gap from memory. Read the context by relevance, not all of it.
+- **R1 - Context layer first (spine;
+- precondition for every step).** An agent works only on a department description that is current and structured:
+- one named person per section, a review date that flags stale sections, fields instead of prose (trigger, owner, source, threshold), missing values marked open.
+- If the section an agent needs is stale or has no owner, it stops and reports that (`dept-context-freshness`) and does not fill the gap from memory.
+- Read the context by relevance, not all of it.
 
-**R2 - Honesty rule for generated output (all steps).** Every element of a generated artefact traces to a
-source field. Open items ("to confirm") stay out of the artefact and go on a separate open-item list.
-The `dept-context` honesty rules apply to every figure: tracked is not proven, absence is not zero, no
-figure without a nameable source.
+- **R2 - Honesty rule for generated output (all steps).** Every element of a generated artefact traces to a source field.
+- Open items ("to confirm") stay out of the artefact and go on a separate open-item list.
+- The `dept-context` honesty rules apply to every figure: tracked is not proven, absence is not zero, no figure without a nameable source.
 
-**R3 - Fixed-structure inputs, importable output (steps 22, 23, 1a2, 3b4).** Generation is safest when the
-input has a fixed structure and the output is a config that can be imported and tested. Name the input
-set before starting; for a dashboard: a tag list (labels), a requirements text, optionally a reference
-dashboard. Time-series values are not needed to generate. The agent returns the output **and** a binding
-table (which tag fed which panel, which query pattern a panel uses).
+- **R3 - Fixed-structure inputs, importable output (steps 22, 23, 1a2, 3b4).** Generation is safest when the input has a fixed structure and the output is a config that can be imported and tested.
+- Name the input set before starting; for a dashboard: a tag list (labels), a requirements text, optionally a reference dashboard.
+- Time-series values are not needed to generate.
+- The agent returns the output **and** a binding table (which tag fed which panel, which query pattern a panel uses).
 
-**R4 - Missing-signal table up front (steps 22, 23).** Anything the requirements need that is not yet
-collecting is reported first, before the dashboard, as `signal id | label | why needed`. It goes to the
-information-integration lane and is never approximated by a similar signal. The verdict of
-`mi-data-availability` still decides. The expert validates the proposal on the **running
-dashboard**, not on a spreadsheet.
+- **R4 - Missing-signal table up front (steps 22, 23).** Anything the requirements need that is not yet collecting is reported first, before the dashboard, as `signal id | label | why needed`.
+- It goes to the information-integration lane and is never approximated by a similar signal.
+- The verdict of `mi-data-availability` still decides.
+- The expert validates the proposal on the **running dashboard**, not on a spreadsheet.
 
-**R5 - Human gate before the audience (all steps that produce a deliverable).** Choices the context cannot
-derive are asked of a human (for example lane, depth, language, or a ranking); the agent never fills
-them by guess. A person reviews the output before anyone outside the team sees it, closes the open items
-and confirms that cited figures are still current.
+- **R5 - Human gate before the audience (all steps that produce a deliverable).** Choices the context cannot derive are asked of a human (for example lane, depth, language, or a ranking); the agent never fills them by guess.
+- A person reviews the output before anyone outside the team sees it, closes the open items and confirms that cited figures are still current.
 
-**R6 - Advice versus change (i1, 23, 3b4).** An agent may advise, classify or propose. A parameter change
-on a machine, a PLC write or a configuration that acts on a process is a human or process-engineer
-action; external connections go through `deploy-cybersec`. The Cyber Security sign-off runs in parallel
-with planning and build and blocks only go-live (the live connection or live operation), not planning,
-build or the preparation of an integration wave: start the package early.
+- **R6 - Advice versus change (i1, 23, 3b4).** An agent may advise, classify or propose.
+- A parameter change on a machine, a PLC write or a configuration that acts on a process is a human or process-engineer action; external connections go through `deploy-cybersec`.
+- The Cyber Security sign-off runs in parallel with planning and build and blocks only go-live (the live connection or live operation), not planning, build or the preparation of an integration wave: start the package early.
 
-**R7 - Evidence the agent must cite.** Per step, the source rows, list entries, library entries or
-documents the output rests on, with the read date
-([`evidence-and-human-decisions`](references/evidence-and-human-decisions.md)). An output without citations
-is a draft and is labelled so.
+- **R7 - Evidence the agent must cite.** Per step, the source rows, list entries, library entries or documents the output rests on, with the read date ([`evidence-and-human-decisions`](references/evidence-and-human-decisions.md)).
+- An output without citations is a draft and is labelled so.
 
-**R8 - Fit check for AI platforms and tools (31, 32).** Criteria seen in the decks are governed model
-operations with audit trails, no company data used for model training, alignment with the single-sourcing
-rule of purchasing, the cyber-security baseline. A tool failing one is not scaled until the gap is closed;
-the verdict is `invest-screen`'s and human.
+- **R8 - Fit check for AI platforms and tools (31, 32).** Criteria seen in the decks are governed model operations with audit trails, no company data used for model training, alignment with the single-sourcing rule of purchasing, the cyber-security baseline.
+- A tool failing one is not scaled until the gap is closed; the verdict is `invest-screen`'s and human.
 
-**R9 - Time-boxed pilots and a named owner (31, 32, 23).** GenAI proofs of concept and agentic workflows
-run time-boxed, with a named process owner, a named data source and a named review point; with any of the
-three missing, no start ([`ai-governance`](references/ai-governance.md)).
+- **R9 - Time-boxed pilots and a named owner (31, 32, 23).** GenAI proofs of concept and agentic workflows run time-boxed, with a named process owner, a named data source and a named review point;
+- with any of the three missing, no start ([`ai-governance`](references/ai-governance.md)).
 
-**R10 - AI-built apps take the normal road (3a4-3a6).** A prompt-to-prototype shows value fast; it is not
-a deployment. Generated solutions go through IT takeover and Cyber Security approval like any app, and
-supplier code is assumed to be partly AI-generated (`ai-governance`).
+- **R10 - AI-built apps take the normal road (3a4-3a6).** A prompt-to-prototype shows value fast; it is not a deployment.
+- Generated solutions go through IT takeover and Cyber Security approval like any app, and supplier code is assumed to be partly AI-generated (`ai-governance`).
 
 ## What stays a human decision
 
-Full list in [`evidence-and-human-decisions`](references/evidence-and-human-decisions.md). In short:
-accepting a requirement or problem statement; the domain-expert verdict on a generated dashboard; any
-ranking or go / no-go; assumptions and baselines of a benefit; scope and scenario of a decision; anything
-that commits budget or a connection; Cyber Security sign-off; deployment into a shared platform;
-promotion to the catalog; confirming a savings status.
+- Full list in [`evidence-and-human-decisions`](references/evidence-and-human-decisions.md).
+- In short: accepting a requirement or problem statement; the domain-expert verdict on a generated dashboard; any ranking or go / no-go; assumptions and baselines of a benefit; scope and scenario of a decision; anything that commits budget or a connection;
+- Cyber Security sign-off; deployment into a shared platform; promotion to the catalog; confirming a savings status.
 
 ## AI agent operating notes
 
@@ -133,6 +119,11 @@ promotion to the catalog; confirming a savings status.
 - **Never:** invent a value, hide an open item, approximate a missing signal, write to a machine, approve
   or submit anything, or present a generated figure as proven.
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
 ## References and assets
 
 | File | Use it for |
@@ -143,19 +134,17 @@ promotion to the catalog; confirming a savings status.
 | [`references/ai-initiative-maturity-ladder.md`](references/ai-initiative-maturity-ladder.md) | The evidence ladder for AI initiatives (idea to proven), the rule that PoC claims are not savings, pilot design pattern, failure modes |
 | [`assets/ai-step-card.md`](assets/ai-step-card.md) | The card that admits an agent step and records its evidence and gate |
 | [`assets/missing-signal-and-binding-table.md`](assets/missing-signal-and-binding-table.md) | The missing-signal table and the signal-to-panel binding table |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Neighbours (not repeated here)
 
-`dept-context` (honesty rules), `dept-context-freshness` (stale sources), `ops-analytics-asset` (what to
-build, ritual of use), `mi-signals` (naming and data model), `funnel-prototype` (four stages: PoC for
-feasibility, prototype for benefit with real users, pilot, rollout; each is its own claim), `deploy-cybersec` (sign-off package), `deploy-appstore` (deployment
-package and release gate).
+- `dept-context` (honesty rules), `dept-context-freshness` (stale sources), `ops-analytics-asset` (what to build, ritual of use), `mi-signals` (naming and data model), `funnel-prototype` (four stages: PoC for feasibility, prototype for benefit with real users, pilot, rollout;
+- each is its own claim), `deploy-cybersec` (sign-off package), `deploy-appstore` (deployment package and release gate).
 
 ## Still open
 
-- An AI knowledge or troubleshooting assistant is decided case by case at intake: ask for a measurable
-  before/after. With one it goes the use-case route (savings only with documented basis); without one it is
-  tracked as an initiative with a named owner and a usage measure, not as a counted saving.
+- An AI knowledge or troubleshooting assistant is decided case by case at intake: ask for a measurable before/after.
+   - With one it goes the use-case route (savings only with documented basis); without one it is tracked as an initiative with a named owner and a usage measure, not as a counted saving.
 - `<to confirm>` Whether general-purpose assistants are low impact (one deck) or already useful for
   deployment sets (another). Safer reading: allowed as a drafting aid, never as a gate.
 - `<...>` Time-box lengths, accuracy thresholds and the champion-user group for pilots: not in the sources.

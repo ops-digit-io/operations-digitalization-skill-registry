@@ -29,14 +29,14 @@ metadata:
 
 ## Purpose
 
-Analyses a machine's signals and standardizes them so a second plant can consume them without asking a question. Use it when a machine is newly connected, when a use case cannot be built because a signal is missing or ambiguous, when two plants' versions of a signal do not compare, or before publishing a derived data point.
+- Serves process steps 3b4 (connector and pipeline), 22 (signal selection for a use case) and 1a2 (a template works only on standardized signals).
 
-Read `dept-context` first. Connecting a machine gets you a signal; **standardizing it is what makes it comparable to the same
-signal at other plants**, the only reason a cross-plant capability template means anything. Serves process steps **3b4**
-(connector and pipeline), **22** (signal selection for a use case) and **1a2** (a template works only on standardized signals).
-Key user: IIoT Interface & Automation Engineer (IIAE). AI agent: analyses and proposes, never enacts a standard.
-Detail behind each step: [`procedure-detail.md`](references/procedure-detail.md).
+- Analyses a machine's signals and standardizes them so a second plant can consume them without asking a question.
+- Use it when a machine is newly connected, when a use case cannot be built because a signal is missing or ambiguous, when two plants' versions of a signal do not compare, or before publishing a derived data point.
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Read `dept-context` first.
+- Connecting a machine gets you a signal; **standardizing it is what makes it comparable to the same signal at other plants**, the only reason a cross-plant capability template means anything.
 
 ## Inputs and output
 
@@ -49,16 +49,16 @@ Detail behind each step: [`procedure-detail.md`](references/procedure-detail.md)
 python3 scripts/analyze_signals.py points.json --capability oee --report > report.md
 ```
 
-The report fills what is derivable; context sections stay `⟨…⟩` placeholders on purpose.
+- The report fills what is derivable; context sections stay `⟨…⟩` placeholders on purpose.
 
-Fictional example (invented tags, not a real machine):
+- Fictional example (invented tags, not a real machine):
 
 ```text
 points.json : [{"uuid": "u1", "label": "MachineStatus"}, {"uuid": "u2", "label": "DB12.DBX0.1"}]
 Result      : u2 = raw PLC tag -> blocker, analyser exit code 2; u1 = canonical, no finding
 ```
 
-If it fails: a points file that cannot be read, or lacking `uuid` and `label`, is invalid input; fix the export and run again.
+- If it fails: a points file that cannot be read, or lacking `uuid` and `label`, is invalid input; fix the export and run again.
 
 ## Available Scripts
 
@@ -66,13 +66,16 @@ If it fails: a points file that cannot be read, or lacking `uuid` and `label`, i
 |---|---|---|
 | `scripts/analyze_signals.py` | Check a data-point list for standardization problems, cluster by functional area, write the structured report | `POINTS.json` or `POINTS.csv`; `--capability <name>`, `--cluster`, `--report`, `--json` |
 
-An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output. Exit code 2 means blockers, 1 warnings, 0 clean.
+- An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
+- Exit code 2 means blockers, 1 warnings, 0 clean.
 
 ## Procedure
 
 1. **Inventory** the points: `GET .../api/datatrons/{id}/data_points`. Only `uuid` (join key) and `label` exist; unit, scale, method and type must be established outside it.
 2. **Run the analyser** (`scripts/analyze_signals.py`); exit 2 = blockers, 1 = warnings, 0 = clean. Checks and severities in `procedure-detail.md`.
-3. **Establish how the machine works**: write what it makes, what one cycle is, where it waits, what makes a part good. If you cannot, context is insufficient and every later decision is a guess. Read the PLC program here (it is also the connection breakpoint); an archived project is not the deployed program, so mark Medium confidence and verify on live data.
+3. **Establish how the machine works**: write what it makes, what one cycle is, where it waits, what makes a part good.
+   - If you cannot, context is insufficient and every later decision is a guess.
+   - Read the PLC program here (it is also the connection breakpoint); an archived project is not the deployed program, so mark Medium confidence and verify on live data.
 4. **Check public models first** ([`public-data-models.md`](references/public-data-models.md)): EUROMAP 83/77/84 for plastic and rubber, OPC UA for Machinery (VDMA 40001) for any machine, PackML for machine state. Do not invent what is standardized; require it at purchase.
 5. **Cluster and rank** (`--cluster`, [`clustering-signals.md`](references/clustering-signals.md)): start with `MachineStatus`, `TotalPartCounter`, `CycleStart`/`CycleEnd`, `CurrentValue` + limits. A low rank is unknown demand, not zero.
 6. **Classify each signal**: canonical, variant, local language, machine-specific, raw PLC tag, derived. **Qualify, do not coin.**
@@ -94,8 +97,7 @@ An agent runs a script with its code or shell tool (`run_script` in tools that e
 
 ## Handoff
 
-Where the machine does not deliver the standard signal directly, hand the derivation to `mi-flow` as a rule-engine spec (pattern, inputs, output name and unit, priority order for states) - see [`normalization-in-flows.md`](references/normalization-in-flows.md).
-
+- Where the machine does not deliver the standard signal directly, hand the derivation to `mi-flow` as a rule-engine spec (pattern, inputs, output name and unit, priority order for states) - see [`normalization-in-flows.md`](references/normalization-in-flows.md).
 
 | To | Carries |
 |---|---|
@@ -113,7 +115,9 @@ Where the machine does not deliver the standard signal directly, hand the deriva
 
 ## Definition of done
 
-How the machine works written down; sources used and confidence recorded; signals named from the canonical vocabulary; no analyser blockers; capability requirement set covered; unit and collection method stated; derived outputs registered; report written; a second plant's instance can consume it. Then `deploy-acceptance`.
+- How the machine works written down; sources used and confidence recorded; signals named from the canonical vocabulary; no analyser blockers; capability requirement set covered; unit and collection method stated; derived outputs registered; report written;
+- a second plant's instance can consume it.
+- Then `deploy-acceptance`.
 
 ## Pitfalls
 
@@ -122,6 +126,11 @@ How the machine works written down; sources used and confidence recorded; signal
 - **Do not accept a raw PLC tag** into the data-point config: unmatched at other plants, wrong after the next PLC change.
 - **Do not standardize a name without its meaning**: meaning comes from the machine context, not the tag list.
 - Archived PLC project produces tags that connect and read nothing.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
@@ -140,3 +149,4 @@ How the machine works written down; sources used and confidence recorded; signal
 | [`machine-vendor-and-connector-landscape.md`](references/machine-vendor-and-connector-landscape.md) | Machine records by vendor, route and status |
 | [`process-chain-practice.md`](references/process-chain-practice.md) | Data class and route, information-model layering, data-model steps, AI-assisted selection, agent notes |
 | [`scripts/analyze_signals.py`](scripts/analyze_signals.py) | Run the checks, clustering, report |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

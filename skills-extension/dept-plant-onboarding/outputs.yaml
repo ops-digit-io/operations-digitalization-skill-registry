@@ -1,0 +1,63 @@
+skill: dept-plant-onboarding
+gate: []
+outputs:
+- id: starting-profile
+  form: Profile A, B, C or D recorded at the top of the tracker, read from the live plant record
+  to_skills: []
+  to_roles:
+  - OD lead
+  - local key user
+  done_when:
+  - Region, machines recorded and integrated share noted with the read date
+  - Entry stage set from the profile
+  signoff: OD lead
+- id: onboarding-path-tracker
+  form: "`assets/onboarding-path.md`, filled"
+  template: assets/onboarding-path.md
+  to_skills: []
+  to_roles:
+  - OD lead
+  - local key user
+  done_when:
+  - One row per stage (1 to 8) with skill, artefact, role, evidence and status
+  - Each stage has its artefact filed or an explicit reason it does not apply
+  signoff: OD lead
+  check:
+    structure: true
+- id: plant-side-owner-per-lane
+  form: Owner roles in the tracker
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - A plant-side owner is assigned for each lane the plant uses, or `⟨plant-side owner per lane⟩` is shown as open
+  signoff: OD lead
+- id: wait-states
+  form: Status and evidence columns of the tracker
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Any stage that cannot start has its wait state recorded (investment approval, Cyber Security sign-off before go-live, decision on shared tooling)
+  - No stage is skipped
+  signoff: OD lead
+receives_from:
+- know-sharepoint-export
+- dept-intake
+- mi-equipment
+next:
+- when: "dept-plant-diagnosis (tiering and roadmap when the plant enters scope), then the stage skills: mi-equipment, dept-intake, catalog-usecase, deploy-handover, know-training, and the routines metrics-scorecard, dept-risk, dept-retro."
+  to:
+  - dept-plant-diagnosis
+  - mi-equipment
+  - dept-intake
+  - catalog-usecase
+  - deploy-handover
+  - know-training
+  - metrics-scorecard
+  - dept-risk
+  - dept-retro
+stops_when:
+- the plant is not recorded (stage 1 is the precondition for every comparison), or the stage order would be changed to meet a date
+- Record the wait state instead
+- a machine is never connected to an external system without Cyber Security / OT sign-off

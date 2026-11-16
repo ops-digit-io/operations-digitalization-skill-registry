@@ -1,0 +1,55 @@
+skill: dept-intake
+gate: []
+outputs:
+- id: triage-record
+  form: One line per request, as in "Output of a triage"
+  to_skills:
+  - catalog-usecase
+  - funnel-use-case
+  - funnel-requirements
+  - funnel-first-aid
+  to_roles:
+  - "The lane's entry skill:  (Lane 1)"
+  done_when:
+  - Channel, exactly one lane, owner role, trigger satisfied, definition of done, priority basis (`UNKNOWN` is allowed), expected gate, known blockers
+  signoff: "The lane's entry skill:  (Lane 1)"
+- id: expected-gate
+  form: Field in the triage record
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - The gate is named at intake with its owner
+  signoff: OD lead
+- id: refusal
+  form: Reply to the demand owner
+  to_skills: []
+  to_roles:
+  - Demand owner
+  done_when:
+  - Gives the reason and the route (owning function)
+  - A refusal is returned, not dropped
+  signoff: Demand owner
+- id: system-fit-flag
+  form: Note in the triage record
+  to_skills:
+  - invest-screen
+  to_roles: []
+  done_when:
+  - Raised whenever the ask implies a system outside the lean footprint
+  signoff: OD lead
+receives_from:
+- comms-followup
+- dept-context
+next:
+- when: step i1 to invest-screen where needed, then catalog-usecase (Lane 1), funnel-use-case (Lane 2, step 21), funnel-requirements (Lane 3, step 31) or funnel-first-aid.
+  to:
+  - invest-screen
+  - catalog-usecase
+  - funnel-use-case
+  - funnel-requirements
+  - funnel-first-aid
+stops_when:
+- the request belongs to another function, has no plant-roadmap link or nameable business case, fails the SMART test, or needs a system outside the lean footprint
+- Return it to the demand owner with the reason and the route
+- Never record a priority that was inferred

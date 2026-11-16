@@ -1,0 +1,65 @@
+skill: mi-data-availability
+gate: []
+outputs:
+- id: data-availability-verdict
+  form: "`assets/data-availability-verdict.md`, filled"
+  template: assets/data-availability-verdict.md
+  to_skills:
+  - funnel-requirements
+  - funnel-prototype
+  to_roles:
+  - the requester
+  done_when:
+  - Names the step where the request stops, with evidence and owner
+  - Unproven is not reported as absent
+  - The requester knows what can and cannot be answered now
+  signoff: the requester
+  check:
+    structure: true
+- id: data-gap-request
+  form: "`assets/data-gap-request.md`, one per gap"
+  template: assets/data-gap-request.md
+  to_skills:
+  - mi-equipment
+  to_roles: []
+  done_when:
+  - Names machines, signals, plant and the use case waiting
+  signoff: OD lead
+  check:
+    structure: true
+- id: dependency-on-the-use-case-record
+  form: Dependency entry on the use case record
+  to_skills: []
+  to_roles:
+  - DBVE (record owner)
+  done_when:
+  - Each shortfall is recorded as a dependency so it stays visible after the requester has moved on
+  signoff: DBVE (record owner)
+- id: missing-signal-table
+  form: Table `signal id / label / why needed`, up front in the verdict
+  to_skills:
+  - funnel-requirements
+  - mi-signals
+  to_roles: []
+  done_when:
+  - Every signal needed but not collecting is listed with its reason
+  signoff: OD lead
+receives_from:
+- funnel-evaluation
+- funnel-first-aid
+- ops-event-model
+- know-ai-generation
+- catalog-guardrails
+- funnel-use-case
+- funnel-requirements
+next:
+- when: funnel-requirements (signal verdicts, step 22), funnel-prototype (step 23), mi-equipment (a step 2 shortfall) or mi-signals (a step 4 shortfall).
+  to:
+  - funnel-requirements
+  - funnel-prototype
+  - mi-equipment
+  - mi-signals
+stops_when:
+- the verdict shows the request dies at a step
+- Flag the gap and route it
+- do not fill it, do not substitute a proxy signal without saying so, and do not promise a turnaround before step 5 is answered

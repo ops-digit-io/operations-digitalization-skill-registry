@@ -1,0 +1,66 @@
+skill: funnel-use-case
+gate: []
+outputs:
+- id: filled-definition-protocol
+  form: "`assets/use-case-definition-protocol.md`, one per use case, four phases"
+  template: assets/use-case-definition-protocol.md
+  to_skills:
+  - funnel-requirements
+  - mi-data-availability
+  - bc-build
+  to_roles:
+  - Plant ME
+  done_when:
+  - "All four control points are met: demand logged against the plant roadmap, use case scoped with a clear objective, system assessment complete, business case and priority agreed with Plant ME"
+  signoff: Plant ME
+  check:
+    structure: true
+- id: use-case-record-fields
+  form: Fields in the protocol and the use case record
+  to_skills:
+  - bc-build
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Plant, material family and process group, capability, category, output asset, utilization expectation, named plant owner and every known dependency are filled
+  - An unknown field is marked unknown
+  signoff: OD lead
+- id: benefit-statement
+  form: Section of the protocol
+  to_skills:
+  - bc-build
+  to_roles: []
+  done_when:
+  - Business benefit (not the technical enabler) stated and classified tangible/intangible and cashable/non-cashable
+  - Rejected options named
+  - The business or process change and who confirms it named
+  signoff: OD lead
+- id: data-source-split-and-dependencies
+  form: Section of the protocol
+  to_skills:
+  - mi-data-availability
+  to_roles: []
+  done_when:
+  - Machine(s) named or confirmed none
+  - Data points split by source (machine, checklist or manual, system) per process step
+  - Dependencies recorded on the record
+  signoff: OD lead
+receives_from:
+- dept-governance
+- ops-event-model
+- dept-intake
+next:
+- when: funnel-requirements and mi-data-availability (step 22), then funnel-prototype (step 23) and bc-build (step 24).
+  to:
+  - funnel-requirements
+  - mi-data-availability
+  - funnel-prototype
+  - bc-build
+- when: The skill's own handoff names mi-equipment (with business case and requirement breakdown, via catalog-standardization first) and deploy-handover (step 26).
+  to:
+  - mi-equipment
+  - catalog-standardization
+  - deploy-handover
+stops_when:
+- the need is not one need (split it), no business case can be named (refuse per intake and return it to the demand owner), a library entry matches (take it through catalog-standardization), or the machine is not connected (no use…
+- integration request)

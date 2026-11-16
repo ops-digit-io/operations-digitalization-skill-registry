@@ -5,6 +5,7 @@
 | Concept | Type | Description |
 |---|---|---|
 | Archetype method etl (`archetype-method-etl.md`) | Skill Reference | Cross-process, per-process and unique use cases and the action for each, the category to method to ETL job chain, data classes with their hubs, the data-model choice and what to ask of the data platform. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Object event reduction (`object-event-reduction.md`) | Skill Reference | How to reduce a plant sentence to objects, events and time, why a sensor value is not an event, the event-log vocabulary, the object-relation check and the questions to ask. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs ops-event-model must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs ops-event-model must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Worked examples (`worked-examples.md`) | Skill Reference | Illustrative reductions of plant sentences to objects, events and archetypes, plus a cycle-time and a downtime case; invented, with placeholders. |

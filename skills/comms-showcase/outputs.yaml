@@ -1,0 +1,60 @@
+skill: comms-showcase
+gate: []
+outputs:
+- id: selection-record-with-verdict
+  form: "`assets/selection-record.md`, one per use case"
+  template: assets/selection-record.md
+  to_skills:
+  - comms-brief
+  to_roles:
+  - on a go
+  - OD lead otherwise
+  done_when:
+  - One verdict (go, hold or no) with the reason
+  - All six gate steps worked in order
+  signoff: on a go
+  check:
+    structure: true
+- id: claims-with-evidence-class
+  form: Claims section of the selection record
+  to_skills:
+  - comms-brief
+  to_roles: []
+  done_when:
+  - Each claim carries one class (`CALCULATION` with its method, `ESTIMATION`, or `not yet assessed`) and is worded as a result only with a registered plant savings project and baseline, else as a claim
+  signoff: OD lead
+- id: audiences
+  form: Audience section of the selection record
+  to_skills:
+  - comms-brief
+  to_roles: []
+  done_when:
+  - Audiences named, each with what it should do next
+  signoff: OD lead
+- id: plant-owner-consent
+  form: Written consent noted in the record
+  to_skills: []
+  to_roles:
+  - Plant owner
+  done_when:
+  - Owner agrees in writing to be named as the plant (not a person) and to the claims
+  signoff: Plant owner
+- id: open-points-with-owners
+  form: List in the selection record
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Each missing item on a hold has a named owner
+  signoff: OD lead
+receives_from:
+- deploy-handover
+- bc-build
+next:
+- when: comms-brief (step 42) on a go.
+  to:
+  - comms-brief
+stops_when:
+- the verdict is hold (adoption not confirmed, a needed figure still a claim, plant owner has not answered) or no (owner declines, use case not live, or the story needs a sensitive detail)
+- Record the reason and the owner
+- do not retry through another channel

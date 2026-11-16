@@ -24,20 +24,25 @@ metadata:
 
 ## Purpose
 
-Run the go-live self-check for a catalogued use case that a plant applied itself, and keep self-service inside the guardrails. Use it at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Run the go-live self-check for a catalogued use case that a plant applied itself, and keep self-service inside the guardrails.
+- Use it at steps 1a3 and 1b4, when a plant wants to go live, or when a new guardrail is proposed.
 
 ## Inputs and output
 
-Inputs: the Part A match record (and, on branch 1b, the system match record), the data-availability verdict, the handover record, and evidence for each guardrail (a verdict, a source, a name). Output: the go-live check record ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)) with a result per guardrail, evidence, date and who answered.
+- Inputs: the Part A match record (and, on branch 1b, the system match record), the data-availability verdict, the handover record, and evidence for each guardrail (a verdict, a source, a name).
+- Output: the go-live check record ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)) with a result per guardrail, evidence, date and who answered.
 
-Read `dept-context` first. The department's `catalog-guardrails`: the boundaries inside which a plant runs a catalogued use case itself, and the go-live self-check (steps 1a3 and 1b4). Self-service stays inside pre-approved guardrails; anything outside them is not self-service.
+- Read `dept-context` first.
+- The department's `catalog-guardrails`: the boundaries inside which a plant runs a catalogued use case itself, and the go-live self-check (steps 1a3 and 1b4).
+- Self-service stays inside pre-approved guardrails; anything outside them is not self-service.
 
 ## Go-live guardrails (step 1a3, and 1b4)
 
-In the new state a plant applies a catalogued template itself, so the check OD used to do by hand has to be something the plant
-can run. The nearest existing skill is `deploy-handover`, run by OD; Part C is the plant-run version of the part that can be.
-The guardrails are **seeded from rules the registry and the knowledge bundle already record**. They are not a finished set.
+- In the new state a plant applies a catalogued template itself, so the check OD used to do by hand has to be something the plant can run.
+- The nearest existing skill is `deploy-handover`, run by OD; Part C is the plant-run version of the part that can be.
+- The guardrails are **seeded from rules the registry and the knowledge bundle already record**.
+- They are not a finished set.
 
 ## The guardrails
 
@@ -52,23 +57,29 @@ The guardrails are **seeded from rules the registry and the knowledge bundle alr
 | G7 | An **external connection** has a Cyber Security sign-off. Human-only | Knowledge bundle, decision rights | Hold at the wait state. Do not go live |
 | G7a | **No change to the data model or signal standard:** the plant uses the catalogued model as it is (Lane 1 "may not change data models") | Lane 1 lane file; `mi-signals` | Stop. A changed model is not self-service: Lane 2 or Lane 3 via `mi-signals`, decided through `dept-decision-rights` |
 
-The plant always answers G1 to G7 and G7a. **G8 to G19** (screen-level: signal binding, time handling, data sources, panels, identity,
-states, free text, no write-back; failure-case guardrail G19) and **P1 to P7** (process level: reconciliation with the paper
-process, utilization ritual, action owner, operations concept, switching off the old process, early IT changes, flows under
-version control) are **candidates** from AI-drafted draft specifications (SPEC-02 to SPEC-04) and recorded failure cases; the OD
-lead has not confirmed them. The plant answers them when it has built or copied the screen itself.
+- The plant always answers G1 to G7 and G7a.
+- **G8 to G19** (screen-level: signal binding, time handling, data sources, panels, identity, states, free text, no write-back;
+- failure-case guardrail G19) and **P1 to P7** (process level:
+- reconciliation with the paper process, utilization ritual, action owner, operations concept, switching off the old process, early IT changes, flows under version control) are **candidates** from AI-drafted draft specifications (SPEC-02 to SPEC-04) and recorded failure cases;
+- the OD lead has not confirmed them.
+- The plant answers them when it has built or copied the screen itself.
 
 ## Procedure - go-live check
 
 1. Take the Part A match record and, on branch 1b, the system match record.
 2. The **plant** answers G1 to G7 and G7a, each with evidence (a verdict, a source, a name). Do one deep dive against the paper process before declaring the screen live ([`references/process-chain-practice.md`](../catalog-usecase/references/process-chain-practice.md)) Part C).
-3. Write the **go-live check record** ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)): per guardrail the result (passed / failed / not checked), evidence, date, who answered; at the top the use case, plant, plant owner, and the final line "go-live decision: the plant's". Write the utilization expectation into the record before go-live.
+3. Write the **go-live check record** ([`assets/go-live-check-record.md`](assets/go-live-check-record.md)): per guardrail the result (passed / failed / not checked), evidence, date, who answered; at the top the use case, plant, plant owner, and the final line "go-live decision: the plant's".
+   - Write the utilization expectation into the record before go-live.
 4. Any failed guardrail - **no go-live**; route back as the table says (data to `mi-data-availability`, footprint to `invest-screen`, handover to `deploy-handover`, security to `deploy-cybersec`; say which).
 5. All passed - report it. **The plant decides to go live** (`PRODUCTIVE`); this skill never does.
 6. After go-live, adoption is checked as `deploy-handover` describes.
 
----
+- ---
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
@@ -76,6 +87,7 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 |---|---|
 | [`references/technical-guardrails.md`](references/technical-guardrails.md) | Candidate screen-level guardrails and the IT technology guardrails (stack, CMO, interfaces, observability, self-assessment, mission creep) |
 | [`assets/go-live-check-record.md`](assets/go-live-check-record.md) | The record the plant fills at go-live |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Do not
 
@@ -84,11 +96,13 @@ lead has not confirmed them. The plant answers them when it has built or copied 
 
 ## Human gate and AI-agent notes
 
-An agent may draft the go-live check record, collect evidence, and report which guardrails passed, failed or were not checked. The plant owner role decides `PRODUCTIVE`. The Cyber Security role signs off any external connection (G7). The OD lead role confirms the candidate guardrails G8 to G19 and P1 to P7 and any new guardrail. An agent never marks a failed guardrail as passed.
+- An agent may draft the go-live check record, collect evidence, and report which guardrails passed, failed or were not checked.
+- The plant owner role decides `PRODUCTIVE`.
+- The Cyber Security role signs off any external connection (G7).
+- The OD lead role confirms the candidate guardrails G8 to G19 and P1 to P7 and any new guardrail.
+- An agent never marks a failed guardrail as passed.
 
 ## Example
-
-Fictional example (all values invented for illustration):
 
 ```text
 Input : use case "line-state board", plant "Plant X", plant owner role named, data verdict fresh
@@ -98,8 +112,6 @@ Output: go-live check record; result "no go-live" - remove the number or mark it
         final line "go-live decision: the plant's"
 ```
 
-If it fails: a failed or unvalidated guardrail means no go-live; route back as the table in "The guardrails" says. A guardrail with no evidence is "not checked", not "passed".
-
 ## Definition of done
 
-The go-live check record is complete (every guardrail has a result, evidence, date and answering role), the utilization expectation is written into it, any failure is routed back, and the plant owner role has the report for its go-live decision.
+- The go-live check record is complete (every guardrail has a result, evidence, date and answering role), the utilization expectation is written into it, any failure is routed back, and the plant owner role has the report for its go-live decision.

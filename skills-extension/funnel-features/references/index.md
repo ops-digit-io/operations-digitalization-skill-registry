@@ -4,5 +4,6 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Epic and user stories (`epic-and-user-stories.md`) | Skill Reference | The background description, which epic axis to use, how to cut stories that stand alone, and what makes acceptance testable. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-features must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-features must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |

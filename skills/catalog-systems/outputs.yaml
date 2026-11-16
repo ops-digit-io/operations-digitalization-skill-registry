@@ -1,0 +1,53 @@
+skill: catalog-systems
+gate: []
+outputs:
+- id: system-match-record
+  form: "`assets/standard-system-entry.md`, filled"
+  template: assets/standard-system-entry.md
+  to_skills:
+  - dept-decision-rights
+  - mi-equipment
+  to_roles:
+  - (order
+  - connect)
+  done_when:
+  - "Every field set or marked missing: request and plant, machine class, route and status with its source, candidate kit or \"no standard system\", cost-template inputs, Cyber Security status, next step"
+  signoff: (order
+  check:
+    structure: true
+- id: cost-template-inputs
+  form: Section of the system match record
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - approved by the plant budget owner
+  done_when:
+  - Inputs given or marked missing
+  - No kit price or lead time quoted unless it is in the kit list
+  signoff: approved by the plant budget owner
+- id: no-standard-system-statement
+  form: Section of the system match record
+  to_skills:
+  - invest-screen
+  to_roles:
+  - then Lane 3 (3b)
+  done_when:
+  - Route is TODO, stub or absent in the validated routes
+  - The record says so and names Lane 3 as the next step
+  signoff: then Lane 3 (3b)
+receives_from:
+- catalog-usecase
+next:
+- when: step 1b2 dept-decision-rights (cost template and approval), step 1b3 mi-equipment (order and connect), step 1b4 ops-analytics-asset (apply template and go live); acceptance by deploy-acceptance.
+  to:
+  - dept-decision-rights
+  - mi-equipment
+  - ops-analytics-asset
+  - deploy-acceptance
+- when: "With no standard system: invest-screen and Lane 3 (3b)."
+  to:
+  - invest-screen
+stops_when:
+- the route is not written in full, the tool boundary is not met, or the tool has no named operations owner and support level
+- A security-relevant connection also goes to deploy-cybersec, and Cyber Security sign-off stays human
+- Do not offer a non-standard system

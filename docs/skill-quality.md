@@ -29,18 +29,15 @@ Each category starts at 100 and loses points for each finding; the score is the 
 - Part of the score is the tool's own convention, not a department rule: every skill loses the same points for the frontmatter fields `version`, `metadata.author` and `metadata.tags`. The Agent Skills specification allows only six top-level keys, so `version` cannot be added without breaking the specification export, and the registry has not added `metadata.author` and `metadata.tags`; differences between skills come from the other findings.
 - Tool and rubric are third-party and marked experimental by the vendor. A grade is a prompt for a review, not a verdict on a skill's content.
 
-## Scores of the core skills (mean 96.0)
+## Scores of the core skills (mean 95.6)
 
 | Skill | Grade | Score | Correctness | Discoverability | Reliability | Efficiency | Largest deduction |
 |---|---|---|---|---|---|---|---|
 | [`bc-assess`](../skills/bc-assess/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`bc-build`](../skills/bc-build/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`bc-capital-request`](../skills/bc-capital-request/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`catalog-guardrails`](../skills/catalog-guardrails/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`catalog-systems`](../skills/catalog-systems/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`catalog-usecase`](../skills/catalog-usecase/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`comms-brief`](../skills/comms-brief/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
-| [`comms-followup`](../skills/comms-followup/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`comms-showcase`](../skills/comms-showcase/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`deploy-acceptance`](../skills/deploy-acceptance/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`deploy-handover`](../skills/deploy-handover/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
@@ -56,9 +53,12 @@ Each category starts at 100 and loses points for each finding; the score is the 
 | [`mi-signals`](../skills/mi-signals/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`ops-analytics-asset`](../skills/ops-analytics-asset/SKILL.md) | A | 96.5 | 90.0 | 100.0 | 100.0 | 100.0 | - |
 | [`process-derivation`](../skills/process-derivation/SKILL.md) | A | 95.2 | 90.0 | 95.0 | 100.0 | 100.0 | Description very long (208 chars, recommend 50-150) (-5) |
-| [`mi-flow`](../skills/mi-flow/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
+| [`mi-flow`](../skills/mi-flow/SKILL.md) | A | 94.2 | 90.0 | 100.0 | 100.0 | 85.0 | Large skill (5285 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
+| [`comms-brief`](../skills/comms-brief/SKILL.md) | A | 94.0 | 90.0 | 100.0 | 90.0 | 100.0 | No mention of error handling or validation (-10) |
+| [`comms-followup`](../skills/comms-followup/SKILL.md) | A | 94.0 | 90.0 | 100.0 | 90.0 | 100.0 | No mention of error handling or validation (-10) |
 | [`deploy-appstore`](../skills/deploy-appstore/SKILL.md) | A | 94.0 | 90.0 | 90.0 | 100.0 | 100.0 | Description doesn't mention WHEN to use this skill (-10) |
-| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | A | 90.5 | 85.0 | 95.0 | 100.0 | 80.0 | Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
+| [`bc-build`](../skills/bc-build/SKILL.md) | A | 90.5 | 80.0 | 100.0 | 90.0 | 100.0 | Resource-based skill lacks documentation of available resources (-10) |
+| [`ops-dashboard-engine`](../skills/ops-dashboard-engine/SKILL.md) | A | 90.5 | 85.0 | 95.0 | 100.0 | 80.0 | Large skill (7610 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy (-15) |
 
 ## Where the points go
 
@@ -66,12 +66,14 @@ Each category starts at 100 and loses points for each finding; the score is the 
 |---|---|---|
 | SKILL_SPEC recommended field missing: 'metadata.author' | 26 of 26 | 5 |
 | SKILL_SPEC recommended field missing: 'version' | 26 of 26 | 5 |
+| No mention of error handling or validation | 3 of 26 | 10 |
 | Description doesn't mention WHEN to use this skill | 1 of 26 | 10 |
 | Description very long (208 chars, recommend 50-150) | 1 of 26 | 5 |
-| Large skill (5217 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
-| Large skill (7462 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
+| Large skill (5285 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
+| Large skill (7610 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy | 1 of 26 | 15 |
 | No '## Purpose' section | 1 of 26 | 5 |
 | Non-doc file in references/: dashboard_builder.py | 1 of 26 | 5 |
+| Resource-based skill lacks documentation of available resources | 1 of 26 | 10 |
 | SKILL_SPEC recommended field missing: 'metadata.tags' | 1 of 26 | 5 |
 
 ## Sources

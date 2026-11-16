@@ -30,18 +30,12 @@ metadata:
 
 # Object and event modelling
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
 ## Purpose and definition of done
 
-Plant requests arrive in plant words ("which carrier is in the oven now", "all serials produced today with
-quality status", "which order ran yesterday and how many defects", "machine errors by station with reason code").
-Each sounds unique. Most reduce to a few **objects** (part, serial, order, tool, recipe, batch, carrier), the
-**events** that happen to them (NOK part, error, setup, tool break, stop) and a **time** axis. This skill does
-that reduction on purpose, so the use case gets a category, a method and a data requirement instead of staying a
-"need without a specification".
+- Plant requests arrive in plant words ("which carrier is in the oven now", "all serials produced today with quality status", "which order ran yesterday and how many defects", "machine errors by station with reason code").
 
-Done when:
 - the request is restated as object(s), event(s) and time axis, in the
   [event definition canvas](assets/event-definition-canvas.md);
 - every event is marked **source event** (boolean/discrete tag or system record) or **derived event** (needs event
@@ -63,8 +57,10 @@ Done when:
 | `26` Standardize | Category, method, ETL job layer that makes an archetype executable (`catalog-standardization`) |
 | `3b4` Connector and pipeline | Data-class hub choice and identifier signals when a new machine is connected (`mi-signals`, `catalog-compatibility`) |
 
-Not a step of its own in `process.yaml`: it is a method used inside these steps. `PROPOSAL`: place it as a
-named skill at step `22`.
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References and assets
 
@@ -75,6 +71,7 @@ named skill at step `22`.
 | [`references/worked-examples.md`](references/worked-examples.md) | Illustrative reductions and a cycle-time case |
 | [`assets/event-definition-canvas.md`](assets/event-definition-canvas.md) | The canvas, one per use case |
 | [`assets/data-requirements-statement.md`](assets/data-requirements-statement.md) | What the data platform and the integration lane must provide |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Procedure
 
@@ -86,10 +83,10 @@ named skill at step `22`.
 3. **Classify each signal.** For every data point the answer needs: sensor value, source event, derived event,
    or object identifier ("objects often hide as strings inside the series"). Derived events get a named method
    *before* the analysis is promised.
-4. **Check the object relation first.** Time-series always relates to product or production metadata. Ask whether
-   machine time-series plus the standard base data model is enough, or whether serial, part, order, batch or recipe
-   is required. Look at what the PLC already carries before waiting for a foreign system. No identifier source
-   means a data gap: route it through `mi-data-availability`, do not approximate.
+4. **Check the object relation first.** Time-series always relates to product or production metadata.
+   - Ask whether machine time-series plus the standard base data model is enough, or whether serial, part, order, batch or recipe is required.
+   - Look at what the PLC already carries before waiting for a foreign system.
+   - No identifier source means a data gap: route it through `mi-data-availability`, do not approximate.
 5. **Check sharpness.** Are sampling resolution and product characteristics fine enough for the question? Does
    the plant plan per machine or per cell, and does the model carry that level?
 6. **Set the archetype class.** Cross-process, per-process or unique (see the reference) and the action that
@@ -116,14 +113,12 @@ named skill at step `22`.
 
 ## AI agent operating notes
 
-- **Can do:** classify intake text into object / event / time; list candidate identifiers and events from a pasted
-  tag list and PLC metadata; mark which events are source vs derived; draft the canvas, archetype guess and
-  data requirements statement; flag "missing identifier source" and empty canvas boxes as `<...>`.
+- **Can do:** classify intake text into object / event / time; list candidate identifiers and events from a pasted tag list and PLC metadata; mark which events are source vs derived; draft the canvas, archetype guess and data requirements statement;
+   - flag "missing identifier source" and empty canvas boxes as `<...>`.
 - **Inputs needed:** the plant's original sentence, tag list or datapoint export, PLC metadata or asset structure,
   whether an MES or ERP exists at the plant, planning level (machine or cell).
-- **Human gate:** the key user confirms the identifier source and the event definition; the OD lead or DBVE
-  decides whether a unique case gets an impact analysis. The agent never promises an analysis on a derived event
-  whose method is unnamed.
+- **Human gate:** the key user confirms the identifier source and the event definition; the OD lead or DBVE decides whether a unique case gets an impact analysis.
+   - The agent never promises an analysis on a derived event whose method is unnamed.
 - **Evidence to cite:** the tag or signal name, the canvas box, the source statement in the request. Unverified
   items stay `<to confirm>`.
 - **Hands over:** the filled canvas and requirements statement, with open questions listed for the plant.

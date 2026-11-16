@@ -4,7 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Kickoff and reports (`kickoff-and-reports.md`) | Skill Reference | The kick-off workshop structure, the milestone report, the closure report and checklist, traffic-light rules, the project phases, and the intake variant for a customer-mandated program. |
 | Order structure (`order-structure.md`) | Skill Reference | The chapters of a project order (PREQ), the rule that applies to each chapter, the standard and extended variant, and the one-page short form for small initiatives. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-project-order must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs deploy-project-order must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Roles risks procurement (`roles-risks-procurement.md`) | Skill Reference | Requesting side versus contracting side in a project order, how opportunities and risks are classified and treated, the limited-risk funding pattern for an unfamiliar field, and the procurement milestone chain for a bought solution. |

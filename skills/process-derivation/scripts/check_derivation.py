@@ -110,7 +110,11 @@ def main(argv: list[str]) -> int:
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 2
-    findings = gate_findings(Path(argv[0]).read_text(encoding="utf-8-sig"))      # utf-8-sig: tolerate a byte-order mark
+    if argv[0].lower().endswith(".bpmn"):                                          # a lone model file: structure only
+        findings = model_findings(Path(argv[0]).read_text(encoding="utf-8-sig"))
+        argv = []
+    else:
+        findings = gate_findings(Path(argv[0]).read_text(encoding="utf-8-sig"))      # utf-8-sig: tolerate a byte-order mark
     if len(argv) > 1:
         findings += model_findings(Path(argv[1]).read_text(encoding="utf-8-sig"))
     if findings:

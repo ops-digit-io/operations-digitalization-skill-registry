@@ -1,0 +1,65 @@
+skill: dept-risk
+gate: []
+outputs:
+- id: risk-reading
+  form: "`assets/risk-reading.md`, filled"
+  template: assets/risk-reading.md
+  to_skills: []
+  to_roles:
+  - OD lead (owns five of the six risks)
+  - DBVE (owns the value risk)
+  done_when:
+  - All six risks have indicator value, source, read date, trigger and a status (triggered, on watch, clear or unreadable) with one-sentence evidence
+  - Register `last-verified` date noted, with a warning if older than the month
+  signoff: OD lead (owns five of the six risks)
+  check:
+    structure: true
+- id: triggers-hit-and-routing
+  form: Triggers section of the risk reading
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - OD lead or the deciding role per the current approval policy
+  - COP for technical items
+  - for decisions outside OD
+  done_when:
+  - Each triggered risk has its owner, forum and the countermeasure already in the register
+  - Any new countermeasure marked as a proposal
+  signoff: OD lead or the deciding role per the current approval policy
+- id: unreadable-indicators
+  form: Statuses in the reading
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Each unreadable indicator is reported as a finding with the missing source or the undefined parameter named
+  - A risk unreadable three months running has a proposed register change
+  signoff: OD lead
+- id: retro-input
+  form: The reading itself
+  to_skills:
+  - dept-retro
+  to_roles: []
+  done_when:
+  - Reading available for the month's retro
+  - A trigger hit two months running flagged as a candidate for the one adjustment
+  signoff: OD lead
+receives_from:
+- metrics-scorecard
+- bc-portfolio
+- deploy-cybersec
+- invest-screen
+next:
+- when: dept-retro (monthly input), dept-decision-rights for triggers outside OD, the OD lead and COP for the rest.
+  to:
+  - dept-retro
+  - dept-decision-rights
+- when: Other skills (deploy-migration, dept-plant-diagnosis, deploy-project-order) hand open risks to it.
+  to:
+  - deploy-migration
+  - dept-plant-diagnosis
+  - deploy-project-order
+stops_when:
+- an indicator has no source or its trigger parameter is ⟨n⟩
+- Report it as unreadable, never as clear
+- Knowledge base aggregates are not readings, and no risk is added to the register by this skill

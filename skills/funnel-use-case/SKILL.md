@@ -26,21 +26,25 @@ metadata:
 
 # Use-case definition
 
-Read `dept-context` first. Provenance: merged from the lane's playbook and the use-case knowledge base pages.
+- Read `dept-context` first.
+- Provenance: merged from the lane's playbook and the use-case knowledge base pages.
 
 ## Start here: understand your own use case idea
 
-You do not need to be a DBVE. If you have an idea for a use case, fill in the [`assets/idea-check.md`](assets/idea-check.md) sheet first: ten plain questions, the first being **"has someone already done this?"**, because a catalogued use case needs no definition at all (Lane 1). It ends in a one-page summary and a next step: ask for the catalogued use case (Lane 1), hand a new recurring need to OD (Lane 2), or learn that it needs new software or a connection first (Lane 3). "Don't know" is a valid answer, and a number without a source stays "unknown". Terms are explained in the vocabulary of `dept-context`. A complete worked example, in words and clearly fictional, is in [`references/worked-examples.md`](references/worked-examples.md) section 4.
+- You do not need to be a DBVE.
+- If you have an idea for a use case, fill in the [`assets/idea-check.md`](assets/idea-check.md) sheet first: ten plain questions, the first being **"has someone already done this?"**, because a catalogued use case needs no definition at all (Lane 1).
+- It ends in a one-page summary and a next step:
+- ask for the catalogued use case (Lane 1), hand a new recurring need to OD (Lane 2), or learn that it needs new software or a connection first (Lane 3). "Don't know" is a valid answer,
+- and a number without a source stays "unknown".
+- Terms are explained in the vocabulary of `dept-context`.
+- A complete worked example, in words and clearly fictional, is in [`references/worked-examples.md`](references/worked-examples.md) section 4.
 
-The rest of this skill is the DBVE's full method for the same idea once it goes ahead.
+- The rest of this skill is the DBVE's full method for the same idea once it goes ahead.
 
 ## Purpose and where it sits
 
-Serves **step 21, define and diagnose**, and holds the service flow of the lane around it
-(Lane 2, steps 21 to 26, plus the use-case half of Lane 1). Key user: the
-Digital-Business-Value-Engineer (DBVE), with Plant ME as customer; an AI agent drafts, humans decide.
-Every use case is **one plant's instance of one need**, never a programme or plant-wide ambition.
-Lane detail (error paths, wait states, tasks, access, autonomy, metrics): `references/lane-service-flow.md`.
+- Serves step 21, define and diagnose, and holds the service flow of the lane around it (Lane 2, steps 21 to 26, plus the use-case half of Lane 1).
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Inputs and output
@@ -53,11 +57,10 @@ Lane detail (error paths, wait states, tasks, access, autonomy, metrics): `refer
 
 ## Lane flow: from demand to adoption
 
-**Trigger:** a genuinely new recurring need on connected equipment (Lane 2), accepted by
-`dept-intake`, or a workshop request. A known, catalogued case is Lane 1 and does not
-come here (`catalog-usecase`). **Done (lane):** use case defined, requirements and data checked,
-prototype validated, business case agreed, capital request approved where investment is needed,
-implemented, adopted and, when proven and repeatable, catalogued. Step 21 = rows 1 and 2.
+- **Trigger:** a genuinely new recurring need on connected equipment (Lane 2), accepted by `dept-intake`, or a workshop request.
+- A known, catalogued case is Lane 1 and does not come here (`catalog-usecase`).
+- **Done (lane):** use case defined, requirements and data checked, prototype validated, business case agreed, capital request approved where investment is needed, implemented, adopted and, when proven and repeatable, catalogued.
+- Step 21 = rows 1 and 2.
 
 | # | Flow step | Step | Who | Control point | Skill |
 |---|---|---|---|---|---|
@@ -69,22 +72,22 @@ implemented, adopted and, when proven and repeatable, catalogued. Step 21 = rows
 | 6 | 25 | Capital request, if investment is needed | DBVE; humans approve | Approved by MPEE / BA Operations | `dept-decision-rights`, `bc-capital-request` |
 | 7 | 26 | Implement; evaluate impact; ensure adoption; catalogue | both | Use case running; recipient confirms adoption | `deploy-handover`, `catalog-standardization`, `catalog-usecase` |
 
-**Chaining out of Lane 2** (do not build it here): the use case needs new software or an app: hand
-the system demand to Lane 3, branch 3a (`invest-screen` routes 3a.1 to 3a.4). It needs a new
-machine connection: hand it to Lane 3, branch 3b (`mi-equipment`). Record the move on the same
-demand. A proven, repeatable result is catalogued (`catalog-usecase`) and future runs are Lane 1.
+- **Chaining out of Lane 2** (do not build it here): the use case needs new software or an app: hand the system demand to Lane 3, branch 3a (`invest-screen` routes 3a.1 to 3a.4).
+- It needs a new machine connection: hand it to Lane 3, branch 3b (`mi-equipment`).
+- Record the move on the same demand.
+- A proven, repeatable result is catalogued (`catalog-usecase`) and future runs are Lane 1.
 
-Before row 7 run `catalog-standardization`: a match to a library entry takes it rather than
-being re-specified. Per-step template routing: `references/lane-templates.md`.
+- Before row 7 run `catalog-standardization`: a match to a library entry takes it rather than being re-specified.
+- Per-step template routing: `references/lane-templates.md`.
 
 ## The coordinate every use case carries
 
 1. **Plant** (plant master data). 2. **Material family / process group**: Rubber, Plastic, Metal or Assembly, and a process group within.
 3. **Capability**: a cross-plant template (Andon Board, OEE Calculation, Downtime Reporting, Process Quality Data, Machine Alerts,
-Cycle Time, Recipe Values, Process Values, Manual Quality Data, Analytics, Other Use Cases).
+- Cycle Time, Recipe Values, Process Values, Manual Quality Data, Analytics, Other Use Cases).
 
-Without all three the use case is not findable from another plant. Instantiated is not delivered:
-confirm a usable precedent in `references/library-catalog.md` before assuming the template answers the need.
+- Without all three the use case is not findable from another plant.
+- Instantiated is not delivered: confirm a usable precedent in `references/library-catalog.md` before assuming the template answers the need.
 
 ## States it is tracked in (set expectations at definition time)
 
@@ -95,8 +98,8 @@ confirm a usable precedent in `references/library-catalog.md` before assuming th
 
 ## Procedure: four phases, each with a control point
 
-Collect -> Analyse -> Assess -> Control. Maps to the portfolio stages Captured / Evaluated / Assessed / Planned;
-a use case stuck at a stage stalled in the matching phase (`references/lane-service-flow.md`).
+- Collect -> Analyse -> Assess -> Control.
+- Maps to the portfolio stages Captured / Evaluated / Assessed / Planned; a use case stuck at a stage stalled in the matching phase (`references/lane-service-flow.md`).
 
 ### 1 · Collect
 1. **Confirm the need is one need.** Two decisions by two people at two moments = two use cases.
@@ -104,7 +107,7 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 3. **Log the demand** against the plant roadmap (workshop output or direct request).
 4. **Name the moment in the day** from `references/vocabulary.md` (Daily Gemba, Troubleshooting, Activity Tracking, Utilization Improvement, Process Improvement, Quality Improvement, Traceability, Energy Reporting; more than one allowed). One that fits none is a use case nobody opens.
 
-**Control point: demand logged against the plant roadmap.**
+- **Control point: demand logged against the plant roadmap.**
 
 ### 2 · Analyse
 1. **Run process diagnostics** from the stated problem to the actual one.
@@ -114,7 +117,7 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 5. **Name what else was considered** (doing nothing, closest library entry, smaller scope; one sentence each). A bespoke build with no rejected alternative is a default, not a decision.
 6. **Match depth to category** (`references/patterns.md`): `standard` inherits its objective from the template, a one-line target is enough; `non-standard, unique to one plant` needs the full diagnosis.
 
-**Control point: use case scoped with a clear objective.**
+- **Control point: use case scoped with a clear objective.**
 
 ### 3 · Assess
 1. **Break down the customer / process requirement.**
@@ -124,16 +127,17 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 5. **Check the data exists** -> `mi-data-availability`. Unreadable data = integration request first; record the dependency now.
 6. **Check the library before specifying** (`references/library-catalog.md`); take the closest entry, not a blank page. If it composes into a standard declaration, `catalog-standardization` is the library of record.
 
-**Control point: system assessment complete.**
+- **Control point: system assessment complete.**
 
 ### 4 · Control (decide)
 1. **Name the business or process change:** who does something differently and who confirms it happens (who *acts*, not who receives). No named change = a technical enabler that reaches `IMPLEMENTED` and stalls before `PRODUCTIVE`.
-2. **Record the fields that make it evaluable:** output asset (Dashboard default; Report, App, Analytics Workflow, Agent alternatives; an App or Agent warrants asking if a Dashboard serves cheaper), business process, utilization expectation, plant owner, every known dependency. A title is not a definition.
+2. **Record the fields that make it evaluable:** output asset (Dashboard default; Report, App, Analytics Workflow, Agent alternatives; an App or Agent warrants asking if a Dashboard serves cheaper), business process, utilization expectation, plant owner, every known dependency.
+   - A title is not a definition.
 3. **Evaluate whether the solution fits** -> `funnel-evaluation` before the business case; a missing capability belongs in its scope and cost, not as an integration surprise.
 4. **Calculate the business case and prioritize** -> `bc-build`.
 5. **Decide.** This commits capacity; everything before is preparation.
 
-**Control point: business case and priority agreed with Plant ME.**
+- **Control point: business case and priority agreed with Plant ME.**
 
 ## Decision rules
 
@@ -151,11 +155,9 @@ a use case stuck at a stage stalled in the matching phase (`references/lane-serv
 | Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda - Use Case Workshop (SharePoint); run the questionnaire inside it |
 | Use Case Integration Workshop | Use case ready for integration | Use Case Integration Workshop agenda |
 
-Past workshop locations: the workshop folder of the knowledge base.
+- Past workshop locations: the workshop folder of the knowledge base.
 
 ## Example
-
-Shape of a filled protocol header (fictional example; every value is invented):
 
 ```text
 Use case:   Downtime view for Line 4 (fictional)    Plant: Plant X (fictional)
@@ -165,19 +167,16 @@ Plant owner (role): Plant ME      Benefit: stated, classified (tangible / non-ca
 Control points: 1 logged, 2 scoped, 3 system assessment, 4 decided with Plant ME
 ```
 
-If a field cannot be filled, mark it unknown; a record with a blank or invalid field fails the handover test below.
-
 ## Definition of done
 
-All four control points met. The use case carries plant, capability, process group, category, output asset,
-utilization expectation, named plant owner and dependencies, plus (`references/benefit-theory.md`) the benefit
-stated and classified, rejected options named, and the business/process change with who confirms it.
+- All four control points met.
+- The use case carries plant, capability, process group, category, output asset, utilization expectation, named plant owner and dependencies, plus (`references/benefit-theory.md`) the benefit stated and classified, rejected options named, and the business/process change with who confirms it.
 
 ## Handoff
 
-To `mi-equipment` **with** business case and requirement breakdown (via `catalog-standardization` first);
-to `deploy-handover` at row 7 (flow step 26). Receiver needs the completed protocol, so a plant engineer who was not in the room can read what
-was decided, why, what is open. Block-to-block handoff table: `references/process-chain-practice.md`.
+- To `mi-equipment` **with** business case and requirement breakdown (via `catalog-standardization` first); to `deploy-handover` at row 7 (flow step 26).
+- Receiver needs the completed protocol, so a plant engineer who was not in the room can read what was decided, why, what is open.
+- Block-to-block handoff table: `references/process-chain-practice.md`.
 
 ## Human gate and AI-agent notes
 
@@ -194,6 +193,11 @@ was decided, why, what is open. Block-to-block handoff table: `references/proces
 - Recording the output asset as the benefit: the decision someone makes differently is the benefit.
 - A blank benefit field because it resists a number: "intangible, non-cashable" is valid; silence is not.
 
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
 ## References
 
 | File | Open when |
@@ -207,3 +211,4 @@ was decided, why, what is open. Block-to-block handoff table: `references/proces
 | [`references/lane-templates.md`](references/lane-templates.md) | Which skill's asset answers each lane step's template |
 | [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | Recurring tasks as a trigger chain, tool access reasons, partner seams |
 | [`references/library-catalog.md`](references/library-catalog.md) | Searching the use-case library by capability |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

@@ -1,0 +1,70 @@
+skill: dept-governance
+gate: []
+outputs:
+- id: round-pack
+  form: "`assets/call-for-action-and-status.md`: agenda, plant status table, numbered call for action"
+  template: assets/call-for-action-and-status.md
+  to_skills: []
+  to_roles:
+  - OD lead (approves
+  - sends)
+  done_when:
+  - Every status cell cites its source list and read date
+  - One traffic light per round
+  - OD lead has approved escalation wording and deadline
+  signoff: OD lead (approves
+  check:
+    structure: true
+- id: follow-up-log
+  form: Section 4 of the round pack
+  to_skills:
+  - dept-decision-rights
+  - dept-retro
+  to_roles:
+  - Owners named in
+  done_when:
+  - Q&A classified and routed to the owning service line
+  - Open homework chased
+  - Unresolved items carried with the label "carried"
+  signoff: Owners named in
+- id: use-case-sprint-plan-and-review
+  form: "`assets/sprint-plan-and-review.md`: preconditions, deliverable board, IT-issue log, sprint-end review"
+  template: assets/sprint-plan-and-review.md
+  to_skills:
+  - funnel-use-case
+  - ops-analytics-asset
+  to_roles: []
+  done_when:
+  - Expert for the process, baseline and agreed architecture and access are recorded before the start
+  - A requirement beyond the timeframe is logged as an additional phase
+  signoff: OD lead
+  check:
+    structure: true
+- id: routed-demand
+  form: The request sorted as small change, project or governance board
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - OpenSpec IT demand (external)
+  done_when:
+  - Sorted with `dept-intake` first, then by the routing reference
+  - Owner named
+  signoff: OpenSpec IT demand (external)
+receives_from:
+- metrics-scorecard
+- dept-risk
+- dept-decision-rights
+- funnel-use-case
+next:
+- when: the OD lead for packs; the owner named in dept-decision-rights for routed requests; dept-retro for round feedback; dept-risk for indicator gaps; know-training for the training programme.
+  to:
+  - dept-decision-rights
+  - dept-retro
+  - dept-risk
+  - know-training
+stops_when:
+- a sprint lacks an expert for the process, a defined baseline or agreed architecture and access
+- the machine is not connected (a wave first)
+- or an escalation, route, budget or priority would be decided by the agent
+- Recorded demand is not proven saving
+- ODEC is not a current forum

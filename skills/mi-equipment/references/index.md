@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Barrier classes (`barrier-classes.md`) | Skill Reference | Which vendors/protocols are actually cheap vs. expensive to connect, the resolved Modbus/aggregation-route question, pre-assessment tells not in the Machine List, and blocker root causes behind the recorded free text. |
 | Blockers and waves (`blockers-and-waves.md`) | Skill Reference | Guidance for reading the recorded integration blocker texts by kind, how integration waves and the eCR step are recorded, and where the department roadmap figures live - how to count and interpret, with no company figures. |
 | Connector fact sheets (`connector-fact-sheets.md`) | Skill Reference | One fact sheet per connector in the Connector Overview - what the record says it does, technical signal limits and sampling rates, endpoint kinds, which connectors carry written build or enhancement requests, and how to read the connector-to-machine links. Guidance only, no company figures or prices. |
@@ -11,7 +12,7 @@
 | Decision paths (`decision-paths.md`) | Skill Reference | How a machine is routed to one of the three ingress variants, what the fallback is at each branch, and what decides it. |
 | Fallbacks (`fallbacks.md`) | Skill Reference | The eight places an integration actually gets blocked, what each looks like, and the route around it. |
 | IIoT edge platform (`iiot-edge-platform.md`) | Skill Reference | The edge pattern: a DATATRONiQ edge device in the machine cabinet, what it speaks, and where its data lands. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs mi-equipment must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs mi-equipment must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Plant integration status (`plant-integration-status.md`) | Skill Reference | Guidance for building a plant-by-plant integration status view from the Machine List, the Tool Overview and the Legacy Application List - which fields to read, how to count live, which flags to compute, which record mismatches to expect. Guidance only, no company figures. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How equipment integration is run as a chain step (1b3, 3b4, 3b5) - the wave and its weekly capital-request micro-process with Cyber Security as a parallel go-live gate, the per-plant planning workflow, data classes with default hub and leading system, energy-monitoring and MES lessons, handoffs and agent notes. |
 | Routing detail (`routing-detail.md`) | Skill Reference | The detail behind Route A and Route B - estate and status vocabulary, terminology, the three ingress variants and how to choose, the breakpoint, connector availability traps, the two OESL guidance errors, live constraints and what the estate means for a routing decision. |

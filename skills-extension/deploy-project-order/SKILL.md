@@ -24,18 +24,15 @@ metadata:
 
 # Project order
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-A project order (PREQ) is the steering committee's written request to a project team: what the project
-must achieve, by when, for how much, and who answers for it. This skill drafts it, prepares the kick-off
-that turns it into a project plan, and supplies the milestone and closure forms. It does not size the
-benefit (`bc-build`), package the money request (`bc-capital-request`) or decide who may
-approve (`dept-decision-rights`); it names them at the right point.
+- A project order (PREQ) is the steering committee's written request to a project team: what the project must achieve, by when, for how much, and who answers for it.
+- This skill drafts it, prepares the kick-off that turns it into a project plan, and supplies the milestone and closure forms.
+- It does not size the benefit (`bc-build`), package the money request (`bc-capital-request`) or decide who may approve (`dept-decision-rights`); it names them at the right point.
 
-Done when: the order has a 30-second main target, a budget estimate (never blank), a timing minimum, an
-out-of-scope list, classified risks, named roles on both sides and a documented approval; unknowns are
-`<...>`, not invented. For the kick-off: a plan that the steering committee approved. For closure: the
-closure checklist is filled and "handover completed" is answered yes or no.
+- Done when: the order has a 30-second main target, a budget estimate (never blank), a timing minimum, an out-of-scope list, classified risks, named roles on both sides and a documented approval; unknowns are `<...>`, not invented.
+- For the kick-off: a plan that the steering committee approved.
+- For closure: the closure checklist is filled and "handover completed" is answered yes or no.
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -47,10 +44,10 @@ closure checklist is filled and "handover completed" is answered yes or no.
 | 26 Implement and graduate, 3a4 to 3a6, 3b4 to 3b6 | Kick-off, milestone reports during the build, closure report at the end. |
 | Spine | Lessons learned from closure feed `dept-retro`. |
 
-Small work does not need an order: a small change (few days of effort, budget available, standard
-interface) goes through the ticket and change process; a project is what is larger, needs central budget
-or a non-standard interface (`dept-decision-rights`). A small initiative uses the short form in
-[`assets/project-order.md`](assets/project-order.md).
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References and assets
 
@@ -61,15 +58,14 @@ or a non-standard interface (`dept-decision-rights`). A small initiative uses th
 | [`references/kickoff-and-reports.md`](references/kickoff-and-reports.md) | Kick-off workshop structure, milestone report, closure report, traffic-light rules, the customer-mandated program variant |
 | [`assets/project-order.md`](assets/project-order.md) | The order template with `<fields>` and a pre-send check |
 | [`assets/kickoff-milestone-closure.md`](assets/kickoff-milestone-closure.md) | Kick-off agenda, milestone report and closure checklist |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
 
 ## Procedure
 
 1. **Is it a project?** Apply the small-change rule above. Smaller: no order, ticket route. Larger or in an
    unfamiliar field: continue; an unfamiliar field gets the limited-risk pattern (fund a first step, time-box it).
-2. **Collect inputs, ask nothing twice.** From the earlier steps: use-case definition and demand
-   (`funnel-use-case`), benefit rows (`bc-build`), cost side and option
-   (`bc-cost`, `bc-capital-request`), tool decision and IT gate (`invest-screen`). Reuse
-   earlier projects for the history and lessons-learned chapters and cite which.
+2. **Collect inputs, ask nothing twice.** From the earlier steps: use-case definition and demand (`funnel-use-case`), benefit rows (`bc-build`), cost side and option (`bc-cost`, `bc-capital-request`), tool decision and IT gate (`invest-screen`).
+   - Reuse earlier projects for the history and lessons-learned chapters and cite which.
 3. **Write the 30-second main target**: who does what for whom with which intention, phrased "at the end of
    the project we will have ...". If it needs more than one breath, the scope is not settled.
 4. **Fill the chapters** ([`order-structure`](references/order-structure.md)). Budget: always an estimate for
@@ -91,8 +87,7 @@ or a non-standard interface (`dept-decision-rights`). A small initiative uses th
     the steering committee decides on changes. **At the end:** closure report and closure checklist; hand
     over to the line organisation (`deploy-handover`), lessons to `dept-retro`.
 
-If the driver is a customer mandate rather than savings, use the intake variant in
-[`kickoff-and-reports`](references/kickoff-and-reports.md).
+- If the driver is a customer mandate rather than savings, use the intake variant in [`kickoff-and-reports`](references/kickoff-and-reports.md).
 
 ## Handoff contract
 

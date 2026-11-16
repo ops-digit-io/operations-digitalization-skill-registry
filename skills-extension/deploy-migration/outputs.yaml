@@ -1,0 +1,88 @@
+skill: deploy-migration
+gate: []
+outputs:
+- id: migration-assessment
+  form: "`assets/migration-assessment.md`, filled"
+  template: assets/migration-assessment.md
+  to_skills:
+  - dept-decision-rights
+  to_roles:
+  - OD lead
+  - plant
+  done_when:
+  - Every component and interface inventoried
+  - Each use case marked "must be preserved", "can be dropped" or "replace later"
+  - A risk row and recovery-impact class per component
+  - Ratings confirmed by the local owner
+  - '"continue as-is" written as baseline scenario'
+  signoff: OD lead
+  check:
+    structure: true
+- id: staged-migration-plan
+  form: Staged plan in the migration assessment
+  to_skills:
+  - deploy-appstore
+  - deploy-cybersec
+  to_roles: []
+  done_when:
+  - Lowest-risk stage first
+  - Each stage has resources, cost, risk and an exit criterion
+  - Preconditions listed
+  signoff: OD lead
+- id: per-location-cutover-checklist
+  form: "`assets/cutover-checklist-and-backout.md`, checklist with RAG"
+  template: assets/cutover-checklist-and-backout.md
+  to_skills:
+  - deploy-acceptance
+  to_roles:
+  - plant key user
+  done_when:
+  - Time plan communicated, outage window set, RAG status per item, key-user verification meeting held and recorded
+  signoff: plant key user
+  check:
+    structure: true
+- id: back-out-plan
+  form: Back-out plan section of the same asset
+  to_skills:
+  - deploy-appstore
+  - deploy-cybersec
+  to_roles: []
+  done_when:
+  - One per stage
+  - Trigger and decision owner agreed before the outage window opens
+  - Read by the people who would execute it
+  signoff: OD lead
+- id: decommissioning-record
+  form: Decommissioning record in the same asset
+  to_skills:
+  - deploy-handover
+  to_roles: []
+  done_when:
+  - Old system switched off by a named person, server released, application list updated
+  - No parallel paper or shadow system remains
+  signoff: OD lead
+- id: open-items-list-per-location
+  form: List with the filled assets
+  to_skills:
+  - dept-risk
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Open risks and blocked locations listed per location
+  signoff: OD lead
+receives_from:
+- invest-screen
+- funnel-requirements
+- deploy-cybersec
+next:
+- when: deploy-appstore and deploy-cybersec (step 3a5, deployment package and back-out plan), deploy-acceptance (verification list and test evidence), deploy-handover and know-training (step 3a6, service concept and retire-the-old-process owner), dept-risk for open risks.
+  to:
+  - deploy-appstore
+  - deploy-cybersec
+  - deploy-acceptance
+  - deploy-handover
+  - know-training
+  - dept-risk
+stops_when:
+- preconditions or the back-out plan are missing, the outage window is not announced, the key user is not available, a customer audit or fixed external date is near, or an owner has not confirmed a rating
+- No stage starts and nothing is decommissioned before key-user verification and the agreed observation period

@@ -4,8 +4,9 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Evidence synthesis (`evidence-synthesis.md`) | Skill Reference | How to turn interviews, workshops and gap-analysis notes into a plant diagnosis without over-claiming - grounding tags, coverage, the splitting variable, hard vs soft anchors and ranked open questions; open it before writing a diagnosis from interview notes. |
 | Ishikawa gap diagnosis (`ishikawa-gap-diagnosis.md`) | Skill Reference | Why equal integration effort gives unequal savings - the four branches (people, method, machine and IT, environment) with the causes recorded in the gap analysis, the good and bad practice signature of a plant, fair comparison and the scaling test; open it to place a gap on a branch. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs dept-plant-diagnosis must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs dept-plant-diagnosis must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Roadmap templates (`roadmap-templates.md`) | Skill Reference | Fields of the plant roadmap and the regional roadmap, the status colours and the call-for-action format, and how the calls consume them; open it to draft or refresh a roadmap. |
 | Tiering criteria (`tiering-criteria.md`) | Skill Reference | First mover vs fast follower - the stated criteria, what each tier receives, how to apply them at intake and onboarding, and the open conflict with first-come-first-served wave allocation; open it to tier a plant. |

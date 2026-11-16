@@ -4,6 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-workshop must deliver, who receives each one, and what makes each complete. |
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs funnel-workshop must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Process chain practice (`process-chain-practice.md`) | Skill Reference | How workshops are prepared and run as a stage in the AI-driven chain - choosing by trigger, workshop order, preparation checklists, in-room practices, utilization session, legacy-application pattern, output and handoff contract, pitfalls and agent operating notes. |
 | Workshop formats (`workshop-formats.md`) | Skill Reference | The workshop formats OD has actually run at plants (definition, integration, equipment integration, machine integration, savings), with purpose lines, day structure, audience, outputs and the workshops on record, for choosing and designing the next one. |

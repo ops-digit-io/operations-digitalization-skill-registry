@@ -1,0 +1,67 @@
+skill: dept-retro
+gate: []
+outputs:
+- id: check-of-last-month-s-adjustment
+  form: Section of `assets/retro-record.md`
+  template: assets/retro-record.md
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Last month's check question answered with evidence
+  - Outcome kept, changed or dropped
+  signoff: OD lead
+  check:
+    structure: true
+- id: learning-list-with-evidence
+  form: Evidence list in the retro record
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Each item states what happened, evidence, dated source and which input it came from
+  - An item without evidence is marked `⟨evidence missing⟩` or left out
+  signoff: OD lead
+- id: the-one-adjustment
+  form: Adjustment section of the retro record
+  to_skills: []
+  to_roles:
+  - The deciding role named in the current approval policy
+  - the next COP input
+  done_when:
+  - Exactly one action with a role as owner, a date and the observable that will show it worked
+  - Why this one is stated in one sentence
+  - Decider role recorded or shown as `⟨decider role⟩` open
+  signoff: The deciding role named in the current approval policy
+- id: parking-list
+  form: Parking list in the retro record
+  to_skills: []
+  to_roles:
+  - Next month's retro
+  done_when:
+  - Unchosen items carried with the month they first appeared
+  signoff: Next month's retro
+- id: escalations
+  form: Items that fail the "OD can change it alone" test
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Each item routed, not counted as an adjustment
+  signoff: OD lead
+receives_from:
+- deploy-project-order
+- dept-governance
+- metrics-scorecard
+- dept-risk
+- bc-portfolio
+next:
+- when: the next COP input, or the deciding role via dept-decision-rights if others must act; dept-context-freshness if the adjustment changes a context file.
+  to:
+  - dept-decision-rights
+  - dept-context-freshness
+stops_when:
+- no evidence-backed candidate exists
+- "Record \"no adjustment: no evidence-backed candidate\" with the inputs read"
+- do not invent one
+- An adjustment that needs a gate outside OD is routed, not called done

@@ -27,14 +27,17 @@ metadata:
 
 ## Purpose
 
-Build the asset the plant actually opens (dashboard, report, analytics workflow, app or agent) so that it is used inside a real ritual, can be diagnosed by the plant and is counted in the portfolio. Use it when a delivery asset is designed, reworked, or when choosing between a dashboard, a report and an app.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- Build the asset the plant actually opens (dashboard, report, analytics workflow, app or agent) so that it is used inside a real ritual, can be diagnosed by the plant and is counted in the portfolio.
+- Use it when a delivery asset is designed, reworked, or when choosing between a dashboard, a report and an app.
 
 ## Inputs and output
 
-Inputs: a data-availability verdict, the use case with its ritual, decision and action owner, and the catalog entry or template if one exists. Output: the built and validated asset, handed off with a filled [`assets/asset-build-protocol.md`](assets/asset-build-protocol.md) (output asset, utilization expectation, named plant owner, data path).
+- Inputs: a data-availability verdict, the use case with its ritual, decision and action owner, and the catalog entry or template if one exists.
+- Output: the built and validated asset, handed off with a filled [`assets/asset-build-protocol.md`](assets/asset-build-protocol.md) (output asset, utilization expectation, named plant owner, data path).
 
-Read `dept-context` first. Run `mi-data-availability` before building anything.
+- Read `dept-context` first.
+- Run `mi-data-availability` before building anything.
 
 ## The references are the substance
 
@@ -53,18 +56,10 @@ Read `dept-context` first. Run `mi-data-availability` before building anything.
 | [`assets/dashboard-requirements-template.md`](assets/dashboard-requirements-template.md) | **Template.** Requirements specification and summary for one system's dashboards, with the observed / issue / open markers and the common requirements |
 | [`assets/dashboard-review-checklist.md`](assets/dashboard-review-checklist.md) | **Checklist.** Ritual, family, signal binding, authoring rules with how to check each on the current export, placement, delivery |
 
-**This skill does not re-derive Grafana build mechanics.** `ops-dashboard-engine` already
-owns the SQL patterns, the manager/analyst/operations tiers, the variable wiring and the
-ECharts templates in depth — this skill is the layer above it: which asset type, for which
-ritual, validated against what, handed off to whom. Once the asset type is "Dashboard," go
-straight to that skill's Step 0.
-
 ## What this function actually produces
 
-Across the use cases that record an output asset, the **dashboard** is by far the most common
-output; reports, apps, analytics workflows and agents are rare (re-count on the use-case list
-before quoting a split). The dashboard is the default output, and the default is worth
-questioning rather than inherited.
+- Across the use cases that record an output asset, the **dashboard** is by far the most common output; reports, apps, analytics workflows and agents are rare (re-count on the use-case list before quoting a split).
+- The dashboard is the default output, and the default is worth questioning rather than inherited.
 
 | Asset | Fits when |
 |---|---|
@@ -76,51 +71,42 @@ questioning rather than inherited.
 
 ## Design for the ritual, not the data
 
-**A dashboard that is not read inside a ritual is a dashboard nobody reads.** Before
-building, name the moment:
+- **A dashboard that is not read inside a ritual is a dashboard nobody reads.** Before building, name the moment:
 
 - **Daily Gemba** — the shop-floor walk, the single largest consumer of what OD builds.
-  It needs current numbers at the line, not a report assembled afterwards. Most use cases
-  that record a utilization rate are used daily (re-count on the list).
-- **Shift checks** — recorded in plants' own standard procedures: *"our shift supervisors
-  check the OEE four times per shift and talk to the operators if we are not meeting the
-  goal"*, *"our shift supervisors check the line speeds twice per shift"*. The asset
-  either supports or replaces a defined standard procedure — find out which.
-- **Escalation** — Andon signalling is two-step by design: the first signal requests help
-  without stopping the line, the second stops it if unresolved, with defined tiers and a
-  time-boxed response per tier. **Every event is logged rather than only displayed** — the
-  log is what makes the improvement analysis possible at all. An Andon asset that only
-  displays is half an asset.
+   - It needs current numbers at the line, not a report assembled afterwards.
+   - Most use cases that record a utilization rate are used daily (re-count on the list).
+- **Shift checks**
+   - — recorded in plants' own standard procedures: *"our shift supervisors check the OEE four times per shift and talk to the operators if we are not meeting the goal"*, *"our shift supervisors check the line speeds twice per shift"*.
+   - The asset either supports or replaces a defined standard procedure — find out which.
+- **Escalation** — Andon signalling is two-step by design: the first signal requests help without stopping the line, the second stops it if unresolved, with defined tiers and a time-boxed response per tier.
+   - **Every event is logged rather than only displayed** — the log is what makes the improvement analysis possible at all.
+   - An Andon asset that only displays is half an asset.
 
 ## Where it will live
 
-**Grafana** is where most of what the function builds is actually seen. Once this skill has
-named the ritual, the decision and chosen "Dashboard," the actual JSON build is
-`ops-dashboard-engine`'s job — its schema interview, archetype choice and tier
-picking take over from here. Grafana has no export worth relying on: if dashboard state must appear in a report or review, use the screenshot
-automation in `_apps/`.
+- **Grafana** is where most of what the function builds is actually seen.
+- Once this skill has named the ritual, the decision and chosen "Dashboard," the actual JSON build is `ops-dashboard-engine`'s job — its schema interview, archetype choice and tier picking take over from here.
+- Grafana has no export worth relying on: if dashboard state must appear in a report or review, use the screenshot automation in `_apps/`.
 
-**Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the
-steering layer, not the shop-floor layer. Do not build a line-side asset there.
+- **Power BI / OESL Dashboards** carry the Scorecard and the two OD reports — that is the steering layer, not the shop-floor layer.
+- Do not build a line-side asset there.
 
-**Layer:** Grafana is a local instance per plant; Databricks and the Azure Storage Account are the global platform
-(`dept-context`). A line-side dashboard belongs on the local instance, a cross-plant question does not.
+- **Layer:** Grafana is a local instance per plant; Databricks and the Azure Storage Account are the global platform (`dept-context`).
+- A line-side dashboard belongs on the local instance, a cross-plant question does not.
 
 ## What the plants already have
 
-Before designing, read the baseline and the catalogue. **Most dashboards exist in one plant only,
-and titles that recur across plants are shared in name but, for Andon, Alert and Operations, not in
-content.** The local Grafana mostly reads a PostgreSQL-type `telemetry` source, a few plants read
-InfluxDB, and signals are mostly bound by literal UUID. Those are patterns, not counts; measure
-them on the current export (`references/dashboard-estate-baseline.md`); the specs they come from
-are drafts, unreviewed. Bind new panels through a variable, not a literal UUID, and put shift windows and targets in
-configuration.
+- Before designing, read the baseline and the catalogue.
+- **Most dashboards exist in one plant only, and titles that recur across plants are shared in name but, for Andon, Alert and Operations, not in content.** The local Grafana mostly reads a PostgreSQL-type `telemetry` source, a few plants read InfluxDB,
+- and signals are mostly bound by literal UUID.
+- Those are patterns, not counts; measure them on the current export (`references/dashboard-estate-baseline.md`); the specs they come from are drafts, unreviewed.
+- Bind new panels through a variable, not a literal UUID, and put shift windows and targets in configuration.
 
 ## Lane 1a self-service mode
 
-In the new state a plant runs a **catalogued** use case itself (Lane 1a): the key user applies the
-standard template or dashboard; OD supplies the catalog entry, the template and the guardrails
-(`catalog-usecase`). In that mode this skill is used by the key user, not by OD:
+- In the new state a plant runs a **catalogued** use case itself (Lane 1a): the key user applies the standard template or dashboard; OD supplies the catalog entry, the template and the guardrails (`catalog-usecase`).
+- In that mode this skill is used by the key user, not by OD:
 
 1. Start from the catalog entry's template (`catalog-usecase`, `catalog-template`), never from a blank
    dashboard or an ad-hoc copy.
@@ -130,15 +116,11 @@ standard template or dashboard; OD supplies the catalog entry, the template and 
    passing the checklist is the approval gate.
 4. The plant confirms adoption (`deploy-handover`).
 
-The department's DATATRON dashboard package `ops-grafana-dashboards` (master) is transcribed in
-[`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md): the four dashboard families and the
-L1 to L3 drill-down, the telemetry and ConfigRepo schema, value extraction and `is_delta`, the two time-filter
-dialects, the cascading variable chain, reusable panel recipes (machine state, state durations per shift, downtime with
-flicker protection, cycle count from a sawtooth counter, SPC, andon board), ECharts conventions, layout and naming,
-**datapoint enablement** (the "UUIDs to enable" list) and the equipment context (KKA, press centres, utilities). Use it
-for any DATATRON dashboard in Lane 1a, 1b4 and Lane 2; the extension skills `ops-dashboard-datatron` and
-`ops-dashboard-engine` hold the deeper builder. A value the machine does not deliver directly is derived first
-as a calculated datapoint (`mi-flow`, rule engine).
+- The department's DATATRON dashboard package `ops-grafana-dashboards` (master) is transcribed in [`references/ops-grafana-dashboards.md`](references/ops-grafana-dashboards.md):
+- the four dashboard families and the L1 to L3 drill-down, the telemetry and ConfigRepo schema, value extraction and `is_delta`, the two time-filter dialects, the cascading variable chain, reusable panel recipes (machine state, state durations per shift, downtime with flicker protection,
+- cycle count from a sawtooth counter, SPC, andon board), ECharts conventions, layout and naming, **datapoint enablement** (the "UUIDs to enable" list) and the equipment context (KKA, press centres, utilities).
+- Use it for any DATATRON dashboard in Lane 1a, 1b4 and Lane 2; the extension skills `ops-dashboard-datatron` and `ops-dashboard-engine` hold the deeper builder.
+- A value the machine does not deliver directly is derived first as a calculated datapoint (`mi-flow`, rule engine).
 
 ## Procedure
 
@@ -179,15 +161,15 @@ as a calculated datapoint (`mi-flow`, rule engine).
 - Do not publish an asset externally without the responsible human; an agent never marks an asset accepted before the paper reconciliation is signed.
 - Do not add a tool to build it. The strategy is a deliberately small operational footprint.
 
-**Open points:** none recorded; chain detail (handoff contract, generative-AI process, paper reconciliation, sprint practice, agent notes) is in `references/process-chain-practice.md`.
+- **Open points:** none recorded; chain detail (handoff contract, generative-AI process, paper reconciliation, sprint practice, agent notes) is in `references/process-chain-practice.md`.
 
 ## Human gate and AI-agent notes
 
-An agent may draft the requirements, pick the asset type with a reason, prepare the build and run the validation checklist. The plant owner role decides daily use (`PRODUCTIVE`); the requester role confirms the paper reconciliation; the responsible human role approves any external publication; the DBVE role signs off acceptance. An agent never marks an asset accepted before the paper reconciliation is signed.
+- An agent may draft the requirements, pick the asset type with a reason, prepare the build and run the validation checklist.
+- The plant owner role decides daily use (`PRODUCTIVE`); the requester role confirms the paper reconciliation; the responsible human role approves any external publication; the DBVE role signs off acceptance.
+- An agent never marks an asset accepted before the paper reconciliation is signed.
 
 ## Example
-
-Fictional example (all values invented for illustration):
 
 ```text
 Input : request for a "line status dashboard", Plant X, data verdict fit
@@ -196,8 +178,17 @@ Output: asset type Dashboard (justified); handed to ops-dashboard-engine with ri
         validated against the checklist; protocol filled; utilization expectation: daily
 ```
 
-If it fails: when validation fails or the smell checks in step 3 fail, do not call the asset built; fix it or close it as "dashboard without an action owner". Rendering is not the same as correct.
-
 ## Definition of done
 
-The asset passed the validation checklist, was reconciled with the paper record, was delivered and explained to the requester, and the protocol records output asset, utilization expectation, plant owner role and data path.
+- The asset passed the validation checklist, was reconciled with the paper record, was delivered and explained to the requester, and the protocol records output asset, utilization expectation, plant owner role and data path.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

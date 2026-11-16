@@ -4,7 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Evaluation design (`evaluation-design.md`) | Skill Reference | How to test an OD skill beyond its documentation - two or three test cases run with and without the skill, assertions with evidence, a trigger query set with near-misses, and the iteration loop - as the Agent Skills guides prescribe, adapted to OD, with a statement of what has not been run. Open it at step 8. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs know-skill-authoring must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs know-skill-authoring must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |
 | Quality gates (`quality-gates.md`) | Skill Reference | The gates a new or changed skill passes, in order, with the command for each, what a failure means and how to repair it - registry validator, specification export, OKF, figures check, the SkillEvaluator quality rating - plus the known conflicts between the tool and the specification. Open it at step 7 of the method. |
 | Skill anatomy (`skill-anatomy.md`) | Skill Reference | How an OD skill is built - folder layout, the frontmatter the registry validates, the sections every skill carries, size limits, naming, tiers, where the sources come from and the writing rules - each with the rule or source behind it. Open it while writing a skill. |

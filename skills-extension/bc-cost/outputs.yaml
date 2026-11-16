@@ -1,0 +1,75 @@
+skill: bc-cost
+gate: []
+outputs:
+- id: investment-input-pack
+  form: "`assets/investment-input-pack.md`, filled"
+  template: assets/investment-input-pack.md
+  to_skills: []
+  to_roles:
+  - OD lead together with BA Operations
+  done_when:
+  - Every cost line has a figure with a source or an open marker
+  - The gate route is named
+  - Open items are listed with who can close them
+  signoff: OD lead together with BA Operations
+  check:
+    structure: true
+- id: investment-estimate-for-one-use-case-or
+  form: "`assets/investment-estimate.md`, filled"
+  template: assets/investment-estimate.md
+  to_skills:
+  - bc-capital-request
+  to_roles:
+  - (Lane 2
+  - Lane 3)
+  - plant budget owner (Lane 1b cost template)
+  done_when:
+  - One-time build, licences and hardware, recurring run cost and multi-year TCO for the minimum viable rollout and the maximum scale-out
+  - Every figure tagged `[quote]`, `[assumption]` or `[market]`
+  signoff: (Lane 2
+  check:
+    structure: true
+- id: benefit-side-reference
+  form: Link to the `bc-build` rows inside the pack
+  to_skills:
+  - bc-capital-request
+  to_roles: []
+  done_when:
+  - Tracked and proven euros shown separately and never added
+  - If no saving row exists, "to be collected" is written and no payback figure is given
+  signoff: OD lead
+- id: dependencies-and-gates
+  form: Gate table and dependency list in the pack
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Gates named (eCR, Cyber Security / OT, IT demand where it applies)
+  - Dependencies (`ECR APPROVAL`, `ECR CREATION`, `MACHINE INTEGRATION`) recorded
+  signoff: OD lead
+- id: decision-request
+  form: Filled `assets/decision-request.md` of `dept-decision-rights`, row "Digitalization investment planning"
+  to_skills:
+  - dept-decision-rights
+  to_roles: []
+  done_when:
+  - Owner OD lead with BA Operations, mode Consultation, approval yes, not reversible, `authority_level` `recommend`
+  signoff: OD lead
+receives_from:
+- mi-equipment
+- catalog-usecase
+- bc-build
+- invest-screen
+next:
+- when: dept-decision-rights (step 1b2, cost template and approval), bc-capital-request (step 25, cost side packaged with the value side), deploy-cybersec for any external connection (step 1b3).
+  to:
+  - dept-decision-rights
+  - bc-capital-request
+  - deploy-cybersec
+- when: On step 24 the cost side sits next to bc-build and bc-assess.
+  to:
+  - bc-build
+  - bc-assess
+stops_when:
+- the scope is still moving, a line is a system outside the lean footprint with no fit check, a connection has no Cyber Security route, or a figure would have to be invented
+- "Mark it ⟨not known: who can supply⟩, say which part is open, and do not hand over a payback or a threshold"

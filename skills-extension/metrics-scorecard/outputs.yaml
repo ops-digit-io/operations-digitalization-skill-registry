@@ -1,0 +1,56 @@
+skill: metrics-scorecard
+gate: []
+outputs:
+- id: scorecard-update-protocol
+  form: "`assets/scorecard-update-protocol.md`, filled once per cycle"
+  template: assets/scorecard-update-protocol.md
+  to_skills: []
+  to_roles:
+  - The round (COP or a round held on request) or the requester
+  - OD lead
+  done_when:
+  - Every metric refreshed from its authoritative source with a read date
+  - Compared against target-to-date
+  - The round-ready regional breakout and headline are present
+  signoff: The round (COP or a round held on request) or the requester
+  check:
+    structure: true
+- id: intervention-flags
+  form: Section of the protocol
+  to_skills: []
+  to_roles:
+  - Lane owner named per metric (DBVE for use-case metrics
+  - IIAE for equipment metrics)
+  - OD lead
+  done_when:
+  - Every metric past its intervene-from threshold is flagged with the lane owner named
+  signoff: Lane owner named per metric (DBVE for use-case metrics
+- id: round-output-and-the-one-retro-change
+  form: Section of the protocol, recorded after the round
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - The round's output is recorded
+  - The retro produced exactly one decided adjustment, not a list
+  signoff: OD lead
+- id: open-gaps-carried-forward
+  form: Section of the protocol
+  to_skills: []
+  to_roles:
+  - OD lead
+  - next cycle's protocol
+  done_when:
+  - Every metric without a source is marked ⟨to collect⟩
+  - Unresolved items are labelled as carried into the next round
+  signoff: OD lead
+receives_from:
+- dept-plant-diagnosis
+- deploy-handover
+- bc-portfolio
+- dept-context
+next: []
+stops_when:
+- a figure has no read date or source, the two reports disagree and only the favourable one would be used, or a target is still ⟨to confirm⟩
+- Do not publish
+- refetch, state the Scorecard figure and the filter of the other source, or mark the gap

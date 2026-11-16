@@ -4,7 +4,8 @@
 
 | Concept | Type | Description |
 |---|---|---|
+| Background (`background.md`) | Skill Reference | Context, rationale, examples and notes that stood in SKILL.md, moved here unchanged. Open it for the why; it is never an instruction. |
 | Department formats (`department-formats.md`) | Skill Reference | The use-case story formats OD already has - the CSP appetizer fields, the use-case marketing pairing of method, digital standard use case and standard process, the plant testimonial template, the story shapes used at ODEC and the OPEX exchange call format - with source slides and the status of each. Open it when shaping a brief or a draft so the story looks like the department's own. |
 | Ic handover (`ic-handover.md`) | Skill Reference | What OD hands to Internal Communications for a use-case story, who approves what, and the channels, intake form, lead times and review route that only the Internal Communications brief can state. Open it before briefing IC or when an IC detail is needed. |
 | Message and claims (`message-and-claims.md`) | Skill Reference | How to word the single message and the proof points of a use-case story - evidence classes, result versus claim, scope statements, style rules and a worked before-and-after with placeholders only. Open it when a claim is unclear or a draft reads stronger than its evidence. |
-| Outputs (`outputs.md`) | Skill Reference | The outputs comms-brief must deliver, who receives each one, and what makes each complete. |
+| Outputs (`outputs.md`) | Skill Reference | The outputs comms-brief must deliver, who receives each one, and what makes each complete. Generated from outputs.yaml. |

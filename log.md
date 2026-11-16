@@ -3,6 +3,14 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - skill output contract: SKILL.md without prose, outputs.yaml, run records
+
+- Every ``SKILL.md`` is now structure only (headings, tables, list items of at most 40 words, code blocks). 121 lines of pure context (purpose detail, examples, placement) moved unchanged to ``references/background.md``; instructions that were prose (steps, rules, gates, pitfalls) became short list items in place. ``scripts/migrate_skill_form.py --verify`` confirms nothing was lost; ``scripts/skill_form.py`` is part of ``validate_registry.py``.
+- New ``outputs.yaml`` per skill (51): gate, outputs with criteria, check or sign-off, hand-offs, stop conditions. ``references/outputs.md`` is generated from it. An output without a check and without a sign-off is refused.
+- Checks: 64 outputs with a Markdown template get the structure check (all sections present, no open placeholder), 5 outputs a command check from the skill's own script. 211 outputs in total: the other 146 stay manual with a sign-off role; this is stated in ``docs/skill-output-contract.md``.
+- ``scripts/run_record.py`` creates one run record per skill call with the checklist and refuses to close a run without evidence, exit codes and sign-offs; ``scripts/stop_hook.py`` is a Claude Code Stop hook (not activated; needs an entry in a settings file). The convention is in ``dept-context``.
+- Ratings re-run with SkillEvaluator on the rebuilt skills; all core skills remain grade A.
+
 ## 2026-11-16 - new core skill `process-derivation` (step 23a)
 
 - New family `process` and core skill `process-derivation` on Lane 2, step 23a *Derive the process*, between *Prototype / validate* and *Business case + rank*. It runs only when a use-case request, a use-case demand and a validated prototype (result passed) exist; otherwise it writes a refusal note. It derives the redesign, a BPMN to-be model, standard work, an adoption and change-control plan, a landscape entry and the monitoring design.

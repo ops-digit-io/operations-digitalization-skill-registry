@@ -30,26 +30,25 @@ metadata:
 
 # Plant onboarding
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
-Plan item O-09 of the department's skill map. Its source column reads "- (new)": **no Department OS document describes
-plant onboarding**, so this skill is assembled from the playbooks, the new-state lanes and the plant records. It is a
-route through existing skills, not a new method. Where the sources are silent it says so.
+- Plan item O-09 of the department's skill map.
+- Its source column reads "- (new)": **no Department OS document describes plant onboarding**, so this skill is assembled from the playbooks, the new-state lanes and the plant records.
+- It is a route through existing skills, not a new method.
+- Where the sources are silent it says so.
 
-The department's aim is that use-case work, machine integration and requirement derivation happen **decentrally in the
-plants** rather than centrally (skill map, purpose). A local key user at a plant needs one place that says: *where are we,
-what comes next, which skill, what artefact, who decides.*
+- The department's aim is that use-case work, machine integration and requirement derivation happen **decentrally in the plants** rather than centrally (skill map, purpose).
+- A local key user at a plant needs one place that says: *where are we, what comes next, which skill, what artefact, who decides.*
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## Trigger and definition of done
 
-- Trigger (plan): a new plant enters scope. The sources do not define "enters scope" (the strategic-plant list is
-  incomplete in the landscape module): `⟨scope rule, to confirm with the OD lead role⟩`. The same path serves a plant that
-  has records but no roadmap, or a plant whose onboarding stalled.
-- Done (proposal, not a source rule): each stage in the table below has its artefact filed, or an explicit `⟨reason it does
-  not apply⟩`; the plant appears in the Equipment Integration report and the readiness matrix; the plant has a plant-side
-  owner for each lane it uses; the plant is in the department's reporting routines.
+- Trigger (plan): a new plant enters scope.
+   - The sources do not define "enters scope" (the strategic-plant list is incomplete in the landscape module): `⟨scope rule, to confirm with the OD lead role⟩`.
+   - The same path serves a plant that has records but no roadmap, or a plant whose onboarding stalled.
+- Done (proposal, not a source rule): each stage in the table below has its artefact filed, or an explicit `⟨reason it does not apply⟩`; the plant appears in the Equipment Integration report and the readiness matrix;
+   - the plant has a plant-side owner for each lane it uses; the plant is in the department's reporting routines.
 
 ## The references
 
@@ -81,8 +80,7 @@ what comes next, which skill, what artefact, who decides.*
 | 7. Hand over and train | Solution accepted, then adopted by the plant | `deploy-handover`, `know-training` (planned) | Handover protocol; adoption evidence | Lane 2 and 3 end steps | The plant owns "into daily use" |
 | 8. Join the routines | Plant numbers in the Scorecard; plant issues in the COP or with the OD lead (ODEC is historical); plant risks and learnings | `metrics-scorecard`, `bc-portfolio`, `dept-risk`, `dept-retro`, `dept-context-freshness` (planned) | Scorecard entries; round inputs; risk reading; retro record | Spine | OD lead |
 
-A 3a path (new system, via IT demand) is not part of a normal plant onboarding; it is taken only when stage 3 or 5 finds
-a need no connector can meet: OpenSpec IT demand (external), `deploy-appstore`.
+- A 3a path (new system, via IT demand) is not part of a normal plant onboarding; it is taken only when stage 3 or 5 finds a need no connector can meet: OpenSpec IT demand (external), `deploy-appstore`.
 
 ## What each profile skips or adds
 
@@ -115,3 +113,14 @@ a need no connector can meet: OpenSpec IT demand (external), `deploy-appstore`.
 - Do not name individuals in the tracker; roles only.
 - Do not reorder the stages to hit a date; if a stage cannot start, record the wait state (investment approval, Cyber
   Security sign-off before go-live, a decision on shared tooling, per the playbook) rather than skipping.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
+
+## References
+
+| File | Use it for |
+|---|---|
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

@@ -1,0 +1,57 @@
+skill: funnel-features
+gate: []
+outputs:
+- id: epic-with-background
+  form: "`assets/epic-and-stories.md`, filled (worked example: `assets/epic-and-stories.example.md`)"
+  template: assets/epic-and-stories.md
+  to_skills:
+  - bc-build
+  - funnel-prototype
+  to_roles: []
+  done_when:
+  - Background names today with role and hour, the moment of use, the decision it changes and what it is not for
+  - Epic statement names a role and an outcome particular to this plant
+  - Both axes (capability, process) recorded
+  signoff: OD lead
+  check:
+    structure: true
+    cmd: python scripts/check_epic.py {file}
+- id: at-least-two-user-stories
+  form: Stories in the same file
+  to_skills:
+  - funnel-prototype
+  to_roles: []
+  done_when:
+  - Each story has its own background, signals with verdict, Given/When/Then including one use-in-a-real-shift criterion, blockers and dependencies
+  - None is cut by technical layer
+  signoff: OD lead
+- id: epic-check-result
+  form: "`python3 scripts/check_epic.py` run on the file"
+  to_skills: []
+  to_roles:
+  - Digital-Business-Value-Engineer (DBVE)
+  done_when:
+  - Zero blockers (exit 0 or 1
+  - Exit 2 means not ready)
+  signoff: Digital-Business-Value-Engineer (DBVE)
+- id: handoff-file
+  form: The filled epic file, handed over
+  to_skills:
+  - bc-build
+  - funnel-prototype
+  to_roles: []
+  done_when:
+  - Written before the next stage starts
+  - The reasoning stays visible
+  signoff: OD lead
+receives_from:
+- funnel-requirements
+- dept-context
+next:
+- when: bc-build (step 24) and funnel-prototype (step 23).
+  to:
+  - bc-build
+  - funnel-prototype
+stops_when:
+- the requirement's handoff is not accepted, or the epic has one story only (one story that will not split is a story, not an epic), or the check shows blockers
+- A generated "so that" sentence that fits another plant's epic is not an outcome

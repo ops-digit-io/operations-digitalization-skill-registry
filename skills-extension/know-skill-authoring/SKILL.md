@@ -24,12 +24,15 @@ metadata:
 
 # Skill authoring
 
-Read `dept-context` first.
+- Read `dept-context` first.
 
 ## Purpose
 
-A skill is worth building when a department procedure recurs, the judgement in it can be written down, and an agent would get it wrong without it. This skill is the registry's standard method for that: nine steps from "should this be a skill?" to a reviewed, rated, published skill, with a control point at each. It turns the Agent Skills guides, the SkillEvaluator rubric and the registry's own conventions into one order of work, so that a new skill passes its checks the first time and a weak skill gets a defined repair path.
+- It turns the Agent Skills guides, the SkillEvaluator rubric and the registry's own conventions into one order of work, so that a new skill passes its checks the first time and a weak skill gets a defined repair path.
+
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- A skill is worth building when a department procedure recurs, the judgement in it can be written down, and an agent would get it wrong without it.
+- This skill is the registry's standard method for that: nine steps from "should this be a skill?" to a reviewed, rated, published skill, with a control point at each.
 
 ## Inputs and output
 
@@ -38,14 +41,25 @@ A skill is worth building when a department procedure recurs, the judgement in i
 
 ## Procedure
 
-1. **Check that it is needed.** Search the registry first (`README.md`, `registry.yaml`). If a skill covers the topic, extend that skill; one capability per name. Name the owner (a role) and the trigger. Control point: no existing skill covers it and an owner is named.
-2. **Start from real expertise, not from general knowledge.** Mine the department record in the knowledge base's order (knowledge base, then archive, then external sources) for the steps that worked, the corrections people made, the input and output formats, and the context they supplied; ask the owner only for what the record does not hold ([`references/skill-anatomy.md`](references/skill-anatomy.md), section Sources). Cite only what you opened.
-3. **Design on one page.** Fill [`assets/skill-brief.md`](assets/skill-brief.md): the need, the users, the lane and step (or `all`), the tier, the authority level, inputs and outputs, what the agent lacks without the skill, the sources, and three test cases. Control point: the owner agrees the brief before the skill is written.
+1. **Check that it is needed.** Search the registry first (`README.md`, `registry.yaml`).
+   - If a skill covers the topic, extend that skill; one capability per name.
+   - Name the owner (a role) and the trigger.
+   - Control point: no existing skill covers it and an owner is named.
+2. **Start from real expertise, not from general knowledge.** Mine the department record in the knowledge base's order (knowledge base, then archive, then external sources) for the steps that worked, the corrections people made, the input and output formats,
+   - and the context they supplied;
+   - ask the owner only for what the record does not hold ([`references/skill-anatomy.md`](references/skill-anatomy.md), section Sources).
+   - Cite only what you opened.
+3. **Design on one page.** Fill [`assets/skill-brief.md`](assets/skill-brief.md): the need, the users, the lane and step (or `all`), the tier, the authority level, inputs and outputs, what the agent lacks without the skill, the sources, and three test cases.
+   - Control point: the owner agrees the brief before the skill is written.
 4. **Scaffold.** `python3 scripts/scaffold_skill.py <name> --tier practice --lane all --owner-role "<role>" --authority "<what the agent may do>"` creates the folder to the registry's anatomy and prints the registry entry to add.
-5. **Write it.** Description first: what it does and when to use it, in third person, with a "not for" boundary. Then procedures rather than declarations, defaults rather than menus, a gotchas list, one worked example, references one level deep from `SKILL.md`, scripts with a test. Add only what the agent would get wrong without it ([`references/skill-anatomy.md`](references/skill-anatomy.md)).
-6. **Place it.** Add the entry to `registry.yaml` (its `authority_level` must equal the `SKILL.md`), place it on `docs/new-state/process.yaml` (an extension skill as `proposed` on a step or on the spine; a core skill only if the flow draws it), add its README row, then regenerate the generated pages.
+5. **Write it.** Description first: what it does and when to use it, in third person, with a "not for" boundary.
+   - Then procedures rather than declarations, defaults rather than menus, a gotchas list, one worked example, references one level deep from `SKILL.md`, scripts with a test.
+   - Add only what the agent would get wrong without it ([`references/skill-anatomy.md`](references/skill-anatomy.md)).
+6. **Place it.** Add the entry to `registry.yaml` (its `authority_level` must equal the `SKILL.md`), place it on `docs/new-state/process.yaml` (an extension skill as `proposed` on a step or on the spine;
+   - a core skill only if the flow draws it), add its README row, then regenerate the generated pages.
 7. **Pass the gates in order** ([`references/quality-gates.md`](references/quality-gates.md)): registry validator, specification export, OKF check, no-invented-figures check, then the SkillEvaluator quality-check with the registry's configuration, and record the rating.
-8. **Test it on real tasks.** Two or three test cases run with and without the skill, and a trigger query set, as the Agent Skills guides prescribe ([`references/evaluation-design.md`](references/evaluation-design.md)). If this is not done, say so in the skill and keep `status: draft`.
+8. **Test it on real tasks.** Two or three test cases run with and without the skill, and a trigger query set, as the Agent Skills guides prescribe ([`references/evaluation-design.md`](references/evaluation-design.md)).
+   - If this is not done, say so in the skill and keep `status: draft`.
 9. **Review and publish.** The department owner reads it; a pull request carries the rating and the open points. Only a human sets a skill's status beyond `draft`; nothing is ever marked verified.
 
 ```bash
@@ -62,7 +76,8 @@ python3 scripts/scaffold_skill.py od-example-check --tier practice --lane all \
 
 ## Human gate and AI-agent notes
 
-- **Agent may:** search the registry, mine the record, draft the brief and the skill, run the scaffold and the checks, list what is missing. **Humans decide:** whether the skill is needed, the brief, the authority level, the sources to trust, the review and any status above `draft`.
+- **Agent may:** search the registry, mine the record, draft the brief and the skill, run the scaffold and the checks, list what is missing.
+   - **Humans decide:** whether the skill is needed, the brief, the authority level, the sources to trust, the review and any status above `draft`.
 - **Evidence to cite:** the sources opened, the check output, the rating, the test results.
 - Never invent a figure, a name or a source to make a skill look finished; mark the gap `to confirm` and name who can fill it.
 
@@ -77,7 +92,13 @@ python3 scripts/scaffold_skill.py od-example-check --tier practice --lane all \
 
 ## Definition of done
 
-The brief is agreed; the skill passes the registry validator, the specification export, the OKF check and the figures check; its quality rating is recorded and, as a proposed target, is B or higher; test cases and trigger queries are written (and run, or stated as not run); registry, flow and README entries exist; the owner has reviewed the pull request.
+- The brief is agreed; the skill passes the registry validator, the specification export, the OKF check and the figures check; its quality rating is recorded and, as a proposed target, is B or higher;
+- test cases and trigger queries are written (and run, or stated as not run); registry, flow and README entries exist; the owner has reviewed the pull request.
+
+## Outputs
+
+- [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
+- One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
 
 ## References
 
@@ -88,3 +109,5 @@ The brief is agreed; the skill passes the registry validator, the specification 
 | [`references/evaluation-design.md`](references/evaluation-design.md) | Designing test cases and trigger queries |
 | [`assets/skill-brief.md`](assets/skill-brief.md) | Step 3: the one-page brief |
 | [`assets/release-checklist.md`](assets/release-checklist.md) | Step 9: the checklist before the pull request |
+| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`assets/evals-template.json`](assets/evals-template.json) | Shipped file of this skill |

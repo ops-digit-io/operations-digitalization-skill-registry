@@ -1,0 +1,58 @@
+skill: comms-followup
+gate: []
+outputs:
+- id: follow-up-log
+  form: "`assets/followup-log.md`, one per story"
+  template: assets/followup-log.md
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Publication recorded (use case, plant, channel, date, audiences, claims as published)
+  - Reach figures copied exactly as Internal Communications reports them, or "not reported"
+  signoff: OD lead
+  check:
+    structure: true
+- id: routed-reactions
+  form: Entries in the follow-up log
+  to_skills:
+  - catalog-usecase
+  - dept-intake
+  to_roles:
+  - (catalogued use case
+  - Lane 1)
+  - (new need
+  - or a need for a new system or connector
+  - via intake)
+  done_when:
+  - Every reaction has a route
+  - Answers stay within the story's promise
+  - No delivery date promised
+  signoff: (catalogued use case
+- id: review-date-and-correction-notice
+  form: Review date in the log; notice when the use case changes
+  to_skills: []
+  to_roles:
+  - Internal Communications
+  done_when:
+  - Review date set
+  - On a changed use case or restated saving, the log is updated and Internal Communications told, who decides on correcting or withdrawing
+  signoff: Internal Communications
+- id: retro-line
+  form: One line per promotion in the log
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - What worked, what did not, one change, ready for the monthly retro
+  signoff: OD lead
+receives_from:
+- comms-brief
+next:
+- when: "Reactions feed back into the other lanes: a catalogued use case to Lane 1 (catalog-usecase), a need no catalogue entry fits to Lane 2 and a need for a new system or connector to Lane 3, both through dept-intake."
+  to:
+  - catalog-usecase
+  - dept-intake
+stops_when:
+- "a reaction cannot be placed or a figure has no source: write \"not reported\" or ask the routing owner, do not guess"
+- Any promise, any lane acceptance and any correction of a published item is a human decision

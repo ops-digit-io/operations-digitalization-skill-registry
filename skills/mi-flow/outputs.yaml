@@ -1,0 +1,71 @@
+skill: mi-flow
+gate: []
+outputs:
+- id: importable-flow
+  form: Flow export built from the filled `assets/flow-config-contract.md`, deployed on a `test` instance
+  template: assets/flow-config-contract.md
+  to_skills:
+  - deploy-acceptance
+  to_roles: []
+  done_when:
+  - Analyser reports zero blockers
+  - "`Set flow config` holds every UUID"
+  - SysTime unpack and re-pack pair present
+  - A `catch` reports with the flow name
+  - Output UUID differs from input
+  signoff: OD lead
+  check:
+    structure: true
+- id: tab-description-and-flow-documentation
+  form: Tab description, named nodes, config contract in the `config flow` comment node
+  to_skills: []
+  to_roles:
+  - Plant key user
+  - IIAE
+  done_when:
+  - The tab says what it produces, for which machine and which use case
+  signoff: Plant key user
+- id: analyser-result-and-test-evidence
+  form: Output of `scripts/analyze_flow.py` plus the `test` run
+  to_skills: []
+  to_roles:
+  - Human approver (with the IIAE)
+  done_when:
+  - Attached to the prod import request
+  signoff: Human approver (with the IIAE)
+- id: findings-and-triage-record-troubleshoot
+  form: "`assets/triage-record.md`, filled"
+  template: assets/triage-record.md
+  to_skills: []
+  to_roles:
+  - Plant key user
+  done_when:
+  - Cause named as flow, configuration, machine, connector, platform change or ownership
+  - Fix tested on `test`
+  - Plant key user confirmed the values are correct
+  signoff: Plant key user
+  check:
+    structure: true
+- id: flow-library-entry
+  form: Entry for the flow (new, standard or plant-specific)
+  to_skills: []
+  to_roles:
+  - OD lead
+  done_when:
+  - Filed once the flow passes
+  signoff: OD lead
+receives_from:
+- ops-event-model
+- mi-signals
+- mi-equipment
+- mi-data-availability
+- deploy-acceptance
+next:
+- when: deploy-acceptance (step 3b6); a prod import goes to the human approver.
+  to:
+  - deploy-acceptance
+stops_when:
+- the analyser reports any blocker, or the flow has a hardcoded secret (rotate it)
+- A prod import needs the human approver
+- Never change the signal standard or a topic inside a flow
+- raise it with mi-signals
