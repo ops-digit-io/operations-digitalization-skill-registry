@@ -92,12 +92,6 @@ request is phrased in their words:
   shells. The place for a data dependency is the use case record
   (`MACHINE INTEGRATION` is a recorded dependency class on savings rows) and the Machine List.
 
-## What stays open
-
-⟨Which signals each template needs as a minimum (names, units, sampling). The cluster notes
-state standards, not signal lists; the signal catalogue belongs to
-`mi-signals`. Who could supply it: DBVE with the IIAE.⟩
-
 ## Data items named by the standardization knowledge base
 
 The knowledge base's source note `_knowledge/90-Sources/org-analysis/usecase-standardization-knowledgebase`

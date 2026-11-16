@@ -103,13 +103,6 @@ the machine list, the route or the kick-off date.
 - **Never:** connect, patch, write to a PLC, open firewall rules, or print numbers it did not read live.
 - **Hands over:** the plan file, the open-questions list and the barrier log, each with owner and date.
 
-## Still open
-
-- `<Budget classes>`: class names follow the systems needed; their limits are `<look up in the current approval policy>`.
-- `<Capacity per phase>`: meetings per phase are known only qualitatively.
-- `<Barrier log location and form>`; `<who convenes the rapid decision board>`.
-- Back-out plan content per platform component: the sources hold diagrams only, `<...>`.
-
 ## Do not
 
 - Do not front-load the hardest machines, or mix several unknown machine types into one deployment.

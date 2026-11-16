@@ -115,14 +115,13 @@ Where the machine does not deliver the standard signal directly, hand the deriva
 
 How the machine works written down; sources used and confidence recorded; signals named from the canonical vocabulary; no analyser blockers; capability requirement set covered; unit and collection method stated; derived outputs registered; report written; a second plant's instance can consume it. Then `deploy-acceptance`.
 
-## Pitfalls and open points
+## Pitfalls
 
 - **Do not fix a gap downstream**: a per-plant transformation in a Node-RED function or Grafana query hides lost comparability.
 - **Do not rename a live signal casually**: many flows can depend on one misspelling.
 - **Do not accept a raw PLC tag** into the data-point config: unmatched at other plants, wrong after the next PLC change.
 - **Do not standardize a name without its meaning**: meaning comes from the machine context, not the tag list.
 - Archived PLC project produces tags that connect and read nothing.
-- **Open points**: ⟨Unit and scale: the estate has no written convention - confirm with the IIAE. `CycleTime` is seconds by convention; `MetersPerMinute` carries its unit in the name, which contradicts the naming rule.⟩
 
 ## References
 

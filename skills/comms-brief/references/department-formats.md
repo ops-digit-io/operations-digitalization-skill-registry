@@ -48,9 +48,3 @@ Two shapes appear in the ODEC deck of 2025-11-19 (Deck Texts: `D-Operations Digi
 | Manufacturing Engineering community call with a Yokoten best-practice database | A five-minute database item; the database filters by business area, CoP category, process, practice scope and impact, region, location and contact, with potential savings and lessons learned as extra filters | `Deck Texts/60-Use_Case_Experience_Sharing/230625_MEIC_ 06_2023.md`, slide 8 and the agenda row |
 
 Whether each of these still runs is **not recorded**: the CoP and MEIC decks are from 2024 and 2023; an ODEC call for 2026 exists (dated 2025-12-16), while other registry skills treat ODEC as history after 2025-12. Treat the channels as options to confirm with Internal Communications and the OD lead, never as arranged.
-
-## Open points
-
-- Whether the January 2026 initiative produced a result outside the deck. ⟨to confirm⟩
-- Whether the Yokoten database, the CoP best-practice slot and the OPEX exchange call are still in use. ⟨to confirm⟩
-- Which of these formats Internal Communications will accept as they are. ⟨to confirm, from the IC brief⟩

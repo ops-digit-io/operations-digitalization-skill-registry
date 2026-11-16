@@ -69,15 +69,6 @@ rollouts and few productive uses points at an adoption question before a build q
 (`deploy-handover`). A tool named by many use cases at plants where it is not rolled out is a
 demand signal, not an availability fact (`invest-screen`, plant tool availability).
 
-## Discrepancies to confirm before quoting a status
-
-| Item | One source says | Another says | Action |
-|---|---|---|---|
-| MES | `systems-of-record`: pilot plants in progress, rollout on hold | Tool note MES 1.0: a rollout record at one plant | Ask the OD lead which is current |
-| EMS | Strategy: rollout paused until operational criteria are resolved | The tool catalogue in `invest-screen` and tool notes: rolled out at many plants | Do not pick the convenient version; ask |
-| QFPR | `invest-screen` expands it as "Quality Feedback App" | The tool note records a work note expanding it as "Quality Feedback Part Routing" | Use "QFPR" until confirmed |
-| MDA/PDA versions | `systems-of-record`: MDA/PDA as one deployed tool | Tool notes: versions 1.0, 2.0 and 3.0 with separate plant lists | Ask which version a plant runs before designing against it |
-
 ## Support tiers, from the IIoT Edge operations concept
 
 The operations-concept deck summarised in the Concept 3 tool note distinguishes a **Divisional Standard**

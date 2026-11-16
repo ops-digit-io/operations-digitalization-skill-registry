@@ -150,15 +150,6 @@ Person identifiers in those reports are not reproduced.
 4. Treat `Testcenter`, `dev`, `ZZ - ...` and `Trashbin` as places not to copy from.
 5. If the dashboard must cross plants, it does not belong on a local instance.
 
-## Open
-
-- ⟨What `Quackito` is and whether it replaces `Telemetry` - data team (SPEC-02 Q4).⟩
-- ⟨Definition of `is_delta` - data team (SPEC-02 Q2).⟩
-- ⟨Whether the newest Grafana generation is the target platform or an exception - OD lead (SPEC-01 Q1).⟩
-- ⟨Who owns the central dashboard repository and the signal record - OD lead (SPEC-04 Q3).⟩
-- ⟨Column types, keys, indexes and retention of `telemetry` - needs a schema dump; the DTQ
-  "Database Tables and Fields" dashboard can produce one (SPEC-02 Q1).⟩
-
 ## Sources
 
 `Dashboard Exports/specs/` SPEC-00 to SPEC-04 and `specs/data/`;

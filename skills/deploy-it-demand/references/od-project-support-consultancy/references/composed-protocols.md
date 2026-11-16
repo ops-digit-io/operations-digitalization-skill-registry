@@ -23,16 +23,3 @@ own summary of it.
 skill drifts from the original the first time either one is updated — exactly the failure
 mode `mi-equipment`'s Route A/B merge was built to avoid. Point at the file,
 not at a summary of it.
-
-## What is still genuinely open, not answered by any of the four
-
-- **Kick-off agenda template** (step 2's own agenda, separate from the requirement spec
-  it produces) — no dedicated template found anywhere in the registry.
-- **Application-consultancy session template** (step 4) — PS-04 "application consulting"
-  was never built as its own skill (`docs/knowledge-base-alignment.md` still lists it "not built");
-  this lane's own step 4 is as far as that work goes today.
-- **Tool/licensing decision owner** — `dept-decision-rights`'s "Tool/system rollout" row
-  names the IT-responsible role of the business side as the counterpart in the tandem; this lane's wait state
-  uses the same counterpart.
-- **The end-to-end flow owner** — tracked separately in `registry.yaml`'s `open_gaps`,
-  unchanged by this pass.

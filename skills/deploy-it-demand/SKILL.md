@@ -148,17 +148,6 @@ in `attachments/` and registered, read in full or carried as an open item; the r
 the approval status and the Cyber Security inputs are stated; a human has sent it; the demand record shows
 "handed over, awaiting acceptance" with the receiving team named.
 
-## Open - what only the OD lead and IT can supply
-
-- ⟨The OD store: its id and repository URL⟩ - decided: OD drafts in its own OpenSpec store; the OD lead sets it
-  up once (a Git repository with `openspec/`; no CLI needed) and names it here.
-- ⟨How IT takes a change from the OD store: `references:` in its repositories, or a copy into its own store⟩ -
-  the meeting asked IT to define where each artefact is stored and exchanged (IT).
-- ⟨Published technology guardrails, sourcing criteria, ownership gates, platform-level Cyber Security
-  model, data and interface catalog structure⟩ - open IT action items; the annex marks each.
-- ⟨Whether IT adopts OpenSpec itself⟩ - proposed here; if IT keeps its own demand form, the absorbed IT
-  demand package carries the same content.
-
 ## Human gate and AI-agent notes
 
 - **Agent may:** ask for and read every input and attachment, register it, create the change with OpenSpec's skills in the OD store, draft the annex from the front-end results, run `scripts/check_handover.py`, list open fields and who supplies them.

@@ -77,12 +77,6 @@ What stays open after mining the knowledge base: IT's own demand form, the board
 One document: the demand in one paragraph; the route (3a.3 / 3a.4); the parts above in that order; a list of open items
 with owners; a line "Submitted by a human on ⟨date⟩ - not yet".
 
-## Open - what only the OD lead can supply
-
-- ⟨IT's demand form⟩ and ⟨the evaluation board's criteria and rhythm⟩ - searched in the bundle, the knowledge base's AI decks and the initiatives on 2026-11-05; the sources carry the route and OD's asks, not the form.
-- ⟨Who the contact in IT demand management is⟩ and ⟨the usual lead time⟩ beyond the flow's "weeks".
-- ⟨What an external developer must receive⟩ (spec format, environment access, security terms).
-
 ## Do not
 
 - Submit the package, or state the board's decision in advance.

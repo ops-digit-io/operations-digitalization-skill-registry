@@ -88,18 +88,6 @@ The record is filled; every saving row is shown at its true firmness with the ne
 the adoption section is signed by the plant owner or explicitly pending; nothing reports tracked and
 proven euros as one total.
 
-## What is still open
-
-- ⟨n weeks live before evaluation⟩ — plan UC-06 leaves it open. Supplier: OD lead.
-- ⟨Impact evaluation template⟩ — `tasks.md` of the lane says "template — to confirm"; the record in
-  `assets/` is the working version, built from OD's own utilization template and the Canvas success
-  criteria. Supplier of the official one: DBVE.
-- ⟨SPRINT acceptance criteria⟩ — no source read says what SPRINT routinely rejects (also open in
-  `bc-build`). Supplier: whoever attends the SPRINT review.
-- ⟨Utilization target⟩ — "to confirm" in the lane metrics. Supplier: OD lead.
-- ⟨Plant-side owner for confirmation⟩ — the department has no plant-side lane owner yet (OD skill
-  map, open gaps). Supplier: OD lead.
-
 ## Do not
 
 - Do not close a sprint or an evaluation while savings baseline, forecast and registered project are missing (forecast gate in `references/process-chain-practice.md`).

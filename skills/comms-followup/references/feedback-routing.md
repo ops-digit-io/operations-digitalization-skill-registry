@@ -34,8 +34,3 @@ Answer only what the story said. Say where to go next (the catalogue, intake) an
 | The savings are restated, or the use case is stopped or changed | Update the log the same day; tell Internal Communications; they correct or withdraw the item |
 | The plant owner withdraws consent | Treat as a No: tell Internal Communications at once |
 | The catalogue entry is replaced by a newer version | Point the story at the new entry or retire it |
-
-## Open points
-
-- How long a story stays current before it needs a review. ⟨to confirm⟩
-- Whether Internal Communications can correct or withdraw a published item, and how fast. ⟨to confirm, from the IC brief⟩

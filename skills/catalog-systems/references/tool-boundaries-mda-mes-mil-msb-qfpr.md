@@ -80,9 +80,3 @@ The test for every entry, from `process-chain-practice.md` section 1: what the t
 | "Images per part" | Is the image path (connection, transfer, storage) ready? | MIL-dependent: park behind the platform, or a local interim with an explicit end date |
 | "Batch, order, label, genealogy" | Execution-system territory | MES discussion with the OD lead; not a kit |
 | "Send machine events to several systems" | Event exchange | MSB; check the version and the edge platform |
-
-## Open
-
-- ⟨Which MDA/PDA version is the standard for a new plant⟩ - OD lead.
-- ⟨Whether the image-library pilot has a funded path to productive⟩ - OD lead, IIAE.
-- ⟨Where performance analysis sits between MES and the capability services⟩ - the process-chain note leaves this open.

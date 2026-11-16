@@ -99,9 +99,3 @@ status bar, trend, per-shift, table or log. Machine Alerts - table or log, bar c
 table or log, per-shift, gauge or KPI tile. Process Values - trend, table or log, status bar, bar chart. Process Quality Data -
 table or log, bar chart, status bar, trend. Figures a template page names most often: Andon - output against target, cycle
 time, OK and NOK parts, availability; OEE - OEE, availability; Downtime - downtime.
-
-## Open
-
-- ⟨Which of the eleven templates the OD lead wants offered for self-service first⟩ - the live coverage shows where the data is
-  thickest, not what OD has decided.
-- ⟨Whether the `scalable` flag may serve as the entry gate for candidates⟩ - OD lead.

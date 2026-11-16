@@ -124,17 +124,6 @@ If the verdict is *redesign onto a lighter tool*, the redesigned need goes back 
 Done = tool boundary tested with the sentence quoted, plant availability checked and dated, operations concept status stated,
 lane chosen, cost class noted, verdict named with the next step.
 
-## 6 Contradictions left open
-
-- Performance analysis (OEE) is assigned both to the edge or analytics side and to the MES side ("may overlap with MES
-  functionalities"). Choose the lighter solution and name the overlap explicitly; do not build in parallel what the execution
-  system (MES) already does.
-- Energy monitoring: cloud tool with data logger against edge platform plus service bus; no deck says which is preferred for a
-  new plant. `<to confirm>` with the OD lead.
-- Recommendation wording differs for the same tool in the sources ("not necessary", "not recommended as of now", stop or
-  continue). State the tool recommendation on one scale: recommended / recommended if <condition> / not recommended / not
-  available. Each status carries its date and source; quote the source wording next to it.
-
 ## 7 AI agent operating notes
 
 - **Can do**: restate the need, extract object, event and time from free text, match against the boundary and trigger lines,

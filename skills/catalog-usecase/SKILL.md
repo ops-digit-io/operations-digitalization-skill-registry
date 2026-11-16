@@ -116,25 +116,11 @@ Split into their own department skills (2026-11-10): **`catalog-systems`** (pick
 ## Human gate and AI-agent notes
 
 - **An agent may**: reduce the request, find the template and library entries, check CSP status and preconditions, and draft the match record or a graduation proposal.
-- **Stays with roles**: the plant decides what it runs and when it is `PRODUCTIVE`; the CSP decision stays with its owner; the OD lead confirms the open points below; Cyber Security sign-off for an external connection is human-only.
+- **Stays with roles**: the plant decides what it runs and when it is `PRODUCTIVE`; the CSP decision stays with its owner; Cyber Security sign-off for an external connection is human-only.
 
 ## Done when
 
 The match record names the branch and the next skill, with the CSP status and its source and read date; or a fall-through to Lane 2 or Lane 3 is stated plainly. A graduation proposal is done when all four conditions hold and the plant's utilization moment is recorded.
-
-## Open points - what only the OD lead can supply
-
-- ⟨Where the catalog lives and in what form (list, library, portal)⟩ and ⟨who maintains it⟩. Partial answer from the knowledge base: the nearest thing today is the SharePoint list `UseCase-Library` (the CSP field lives there) read through the eleven template pages in `Graph/Use Case Views`; no plant-facing portal is recorded.
-- ⟨Whether a recorded CSP `Yes` is the right threshold for self-service⟩, given how few entries may have one.
-- ⟨Which entries with a `Yes` a plant can take as is today⟩: conditions 3 and 4 (standardized signals, plant owner and handover) are not recorded in the entries - IIAE and plant owner.
-- ⟨How a plant reaches the catalog⟩ and ⟨who may add an entry⟩.
-- ⟨The standardized-system list itself⟩: kits, prices, lead times, validated plants, and ⟨who maintains it⟩. Route evidence is in `references/validated-routes.md`; the kit side is open.
-- ⟨Whether "standardized" means a validated route plus a purchasable kit⟩.
-- ⟨The Cyber Security sign-off standard document⟩ - listed in the bundle as still to be collected.
-- ⟨Further technical guardrails⟩: naming, refresh interval and unit rules are proposed in `references/technical-guardrails.md` (SPEC-03, draft); **access rights and performance** are not recorded (performance of the proposed single-read function on the real telemetry table is "not known and must be measured", SPEC-02 D-04).
-- ⟨Which guardrails block go-live and which only warn⟩. A proposal exists in SPEC-03 section 6 (S-01 to S-03, S-06, S-07, S-10, S-15, S-17), applied in `references/technical-guardrails.md`. G1 to G7 are "block" until the OD lead says otherwise.
-- ⟨The utilization target after go-live⟩ for a self-served use case: the field is recorded, not a target.
-- ⟨Who OD names as the contact when a guardrail fails⟩: nearest recorded answer is by role (IIAE, DBVE, OD lead, Plant IT) in `references/failure-cases-and-routing.md`.
 
 ## Pitfalls
 

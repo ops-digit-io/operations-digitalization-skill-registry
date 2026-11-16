@@ -114,16 +114,9 @@ Lane 3, branch 3a (new system), after the shared front-end (requirements, tool-d
 Fields of step 3, a gate table (protocol drafted, Cyber Security sign-off requested / granted by whom and when, approval
 route), and the open questions with their owners.
 
-## Open - what only the OD lead can supply
-
-- ⟨The target platform⟩ and ⟨the deployment procedure⟩, including who holds deploy rights.
-- ⟨The Cyber Security requirements for an app⟩ and ⟨the lead time⟩.
-- ⟨The release cadence⟩ - the bundle says "per release" without a rhythm; neither the AI deck nor the initiative note gives one.
-- ⟨The pilot's scope, plants and exit criteria⟩ - the department deck marks the GitOps deployment as a pilot and says no more.
-
 ## Human gate and AI-agent notes
 
-- **Agent may:** assemble and check the package, draft the acceptance protocol, list open points. **Humans decide:** Cyber Security sign-off, the approval route, the person with deploy rights who deploys, and the OD lead for the open items above.
+- **Agent may:** assemble and check the package, draft the acceptance protocol, list open points. **Humans decide:** Cyber Security sign-off, the approval route, and the person with deploy rights who deploys.
 - **Evidence to cite:** the route, the maturity class of each platform element, the gate table.
 
 ## Definition of done

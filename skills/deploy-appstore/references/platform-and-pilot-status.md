@@ -62,9 +62,3 @@ external development without source access) line up with the flow, but the mappi
 | 3a.2 Self-developed | internal development | |
 | 3a.3 External | external development with the source owned by the department | the department keeps the source in its own source host |
 | 3a.4 Integrate foreign app | external development without source access | the only scenario with a closed box; the cyber-security check weighs most |
-
-## Open
-
-- ⟨Release cadence of the app store⟩ - the systems-of-record note says "per release" without a rhythm; the deck gives none.
-- ⟨Scope and plants of the GitOps pilot⟩ and ⟨exit criteria of the pilot⟩ - OD lead.
-- ⟨Whether the validation plan's adoption criterion has been tested⟩ - OD lead.

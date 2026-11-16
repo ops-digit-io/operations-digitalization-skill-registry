@@ -74,9 +74,3 @@ unknown-licence members on the day you assemble the package.
 | Internal Mendix apps | assimilation candidate under X2; source is held by the department |
 | Quality software | check which entries require an OESL licence |
 | Laboratory software | usually standalone; low IT interface; licence status often unknown |
-
-## Open
-
-- ⟨IT's form fields, criteria, rhythm, lead time, contact⟩ - see `it-touchpoints.md`.
-- ⟨The format of the specification IT accepts for an external build⟩.
-- ⟨Whether a foreign app that is already in the legacy list needs a new demand or a change request on the existing entry⟩ - OD lead, IT.
