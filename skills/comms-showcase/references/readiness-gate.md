@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Readiness gate
-description: The five gate criteria for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear.
+description: The six gate steps for telling a use case outwards, the sensitivity screen, the audience table (plants and key users, BA Operations leadership, all employees, OPEX and PPI/ME) and the refusal patterns. Open it when a selection is unclear.
 resource: ../SKILL.md
 status: draft
 tags: [lane-4, practice]
@@ -20,6 +20,10 @@ Source of the rule set: the owner's request of 2026-11-10 (an outbound lane via 
 | 4 | Sensitivity screen clear | None of the items below is in the story | Reviewer's check | No, or Hold until removed |
 | 5 | People content handled | No photo, video or quote of a member of staff without that person's consent or a documented balancing of interests; otherwise roles and screenshots only | Consent record or the balancing, or the statement "none" | Hold (remove the item) |
 | 6 | Audience named | At least one audience with a next step | The selection record | Hold |
+
+## Source status of the consent rule
+
+The consent-or-balancing rule has no confirmed policy source; its only support is the worked example below and the owner's request. Until Internal Communications and the plant owner confirm the data-protection route, treat it as a proposed rule.
 
 ## People content: what the department has
 

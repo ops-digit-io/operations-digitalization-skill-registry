@@ -1,18 +1,30 @@
 ---
 type: Skill Reference
 title: Routing detail
-description: The detail behind Route A and Route B - estate and status vocabulary, terminology, the three ingress variants and how to choose, the breakpoint, connector availability traps, the two OESL guidance errors, live constraints and what the estate means for a routing decision.
+description: The detail behind Mode A and Mode B - estate and status vocabulary, terminology, the three ingress variants and how to choose, the breakpoint, connector availability traps, the two OESL guidance errors, live constraints and what the estate means for a routing decision.
 resource: ../SKILL.md
 status: stable
 tags: [integration, routing, topology]
 ---
 # Routing detail
 
-Moved out of `SKILL.md`. The authoritative interactive form of the Route B decision is the Equipment integration guide
+## Contents
+
+- The estate (Mode A)
+- Terminology - one name per thing
+- The topology - three ingress variants, one terminus
+- The breakpoint, quoted
+- Before naming a connector, check it exists
+- Two things the OESL guidance gets wrong
+- Live constraints to know before planning
+- What the estate means for a routing decision
+- Sourcing
+
+Moved out of `SKILL.md`. The authoritative interactive form of the Mode B decision is the Equipment integration guide
 (`rules.json`); when it and this file disagree, `rules.json` wins. Where the Softing manual and the OESL guidance disagree, the
 disagreement is stated, not resolved: `rules.json` is authoritative for what OESL permits, the manual for what the product does.
 
-## The estate (Route A)
+## The estate (Mode A)
 
 The estate is tracked in the Machine List: every machine and PLC against a plant, with vendor, PLC model, part number, network
 protocol and criticality. **Count live before quoting any figure** (filter the export by plant and status).

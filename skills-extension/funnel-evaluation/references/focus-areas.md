@@ -8,6 +8,26 @@ tags: [use-case-evaluation, maturity-model]
 ---
 # The 16 focus areas
 
+## Contents
+
+- F1 · Degree of system familiarity
+- F2 · Communication capabilities
+- F3 · Degree of intelligence
+- F4 · Localization
+- F5 · Mobility — architecture choice, not a ladder
+- F6 · Degree of automation
+- F7 · Style of information provision
+- F8 · Human-machine interface
+- F9 · Communication interfaces — architecture choice, not a ladder
+- F10 · Communication protocols
+- F11 · Degree of data collection
+- F12 · Point of information storage — architecture choice, not a ladder
+- F13 · Point of information processing — architecture choice, not a ladder
+- F14 · Data analytics
+- F15 · Structure of the control system
+- F16 · Continuity of the information model
+
+
 Each area has discrete levels; higher is not automatically better — see each area's
 **Target-setting** line. Four areas (F5, F9, F12, F13, marked **architecture choice**) are
 not a ladder to climb at all: they describe a design decision, and the "top" level is

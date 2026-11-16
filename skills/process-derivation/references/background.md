@@ -39,3 +39,8 @@ If it fails: when the prototype record says "inconclusive", the refusal note nam
 - **Receives from:** `funnel-prototype` (the validation record with result passed), `funnel-use-case` (the defined use case and its request) and `funnel-requirements` (the demand with its requirement and acceptance criteria).
 - **Next in the flow:** the package goes to `bc-build` (step 24): the change effort and the redesign effects are evidence for the benefit rows, not a result. The model, the adoption plan and the landscape entry wait for the approval route (`bc-capital-request`, `dept-decision-rights`) and are carried out in step 26 with `deploy-handover`; the use case then enters the catalog with `catalog-usecase`.
 - **Stops here when:** one of the three gate items is missing, the prototype result is failed or inconclusive, no role can be named for the process, or a decision that belongs to the OD lead or the Plant ME has not been taken. A refusal is a result, not a failure.
+
+## Open questions
+
+- The skill has not been run on a real validated prototype record; the composition of public methods is this skill's own inference. Run it once on a real record and record what changed.
+- Some sources in `public-methods.md` were read in part only (for example abstract only); the review asked for them to be read in full before the skill leaves draft.

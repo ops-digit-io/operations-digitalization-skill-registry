@@ -33,3 +33,9 @@ If it fails: a request that fails the SMART test or has no roadmap link is inval
 - **Receives from:** the request through one of the four channels (workshops, digital investment projects, COP, ad-hoc analytics or first-aid kit); `dept-context` for terms and lanes.
 - **Next in the flow:** step i1 to `invest-screen` where needed, then `catalog-usecase` (Lane 1), `funnel-use-case` (Lane 2, step 21), `funnel-requirements` (Lane 3, step 31) or `funnel-first-aid`.
 - **Stops here when:** the request belongs to another function, has no plant-roadmap link or nameable business case, fails the SMART test, or needs a system outside the lean footprint. Return it to the demand owner with the reason and the route. Never record a priority that was inferred.
+
+## Dates moved out of SKILL.md
+
+- On 2026-10-22 the department confirmed that there is no central ticket queue or mailbox: the four channels are the whole intake.
+- On 2026-10-22 the department confirmed that the priority rule (measurable value against the roadmap, aligned with strategic-plant scope) has no further written formalization.
+- The old-to-new service-line crosswalk lives in `dept-context` (`references/background.md`).

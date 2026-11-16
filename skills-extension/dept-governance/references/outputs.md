@@ -15,7 +15,7 @@ tags: [outputs, handoff]
 | Output | Form | Recipient | Complete when |
 |---|---|---|---|
 | round-pack | `assets/call-for-action-and-status.md`: agenda, plant status table, numbered call for action | OD lead (approves, sends) | Every status cell cites its source list and read date; One traffic light per round; OD lead has approved escalation wording and deadline |
-| follow-up-log | Section 4 of the round pack | `dept-decision-rights`, `dept-retro`, Owners named in the decision rights | Q&A classified and routed to the owning service line; Open homework chased; Unresolved items carried with the label "carried" |
+| follow-up-log | Section 4 of the round pack | `dept-decision-rights`, `dept-retro`, Owners named in the decision rights | Q&A classified and routed to the owning role; Open homework chased; Unresolved items carried with the label "carried" |
 | use-case-sprint-plan-and-review | `assets/sprint-plan-and-review.md`: preconditions, deliverable board, IT-issue log, sprint-end review | `funnel-use-case`, `ops-analytics-asset` | Expert for the process, baseline and agreed architecture and access are recorded before the start; A requirement beyond the timeframe is logged as an additional phase |
 | routed-demand | The request sorted as small change, project or governance board | `dept-decision-rights`, OpenSpec IT demand (external) | Sorted with `dept-intake` first, then by the routing reference; Owner named |
 

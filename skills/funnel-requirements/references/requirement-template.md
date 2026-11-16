@@ -8,6 +8,13 @@ tags: [requirements, template]
 ---
 # The requirement template
 
+## Contents
+
+- The core — every lane, every requirement
+- Lane variants — what each adds
+- What a finished requirement is not
+
+
 **This template is not invented.** It is the structure the best-documented use cases in the
 portfolio already use, made explicit and completed. Those section headings appear inside the
 existing `target_text` and `blockers` fields:

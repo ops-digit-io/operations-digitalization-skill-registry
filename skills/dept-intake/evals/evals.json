@@ -1,0 +1,47 @@
+{
+ "skill": "dept-intake",
+ "cases": [
+  {
+   "id": "accept-catalogued-lane-1a",
+   "type": "should-trigger",
+   "prompt": "A key user at Plant West (fictional) asked in the workshop whether we can add the scrap-rate view that Plant East already uses to their connected extruder. Where does this go?",
+   "expected_output": "Records the channel (workshop). Classifies into Lane 1a as a catalogued use case on a connected machine. Names the next skill for catalogued use cases. Writes a one-line triage record with owner, trigger, definition of done, gate. Priority is UNKNOWN unless the roadmap gives a basis.",
+   "files": []
+  },
+  {
+   "id": "refuse-not-od",
+   "type": "should-trigger",
+   "prompt": "Our site manager wants OD to take over running the energy monitoring and the green production targets for the plant. Can you put that on OD's plate?",
+   "expected_output": "Refuses as not OD-owned and names Facility Management & Green Production as the owner. Distinguishes supporting with a digital solution from owning the outcome. Returns the refusal with reason and route to the demand owner.",
+   "files": []
+  },
+  {
+   "id": "fall-through-lane-3",
+   "type": "edge",
+   "prompt": "Plant Y (fictional) wants the standard downtime tile, but the press is not connected and none of the standard system kits fits it.",
+   "expected_output": "Starts at Lane 1 as catalogued but records the fall-through to Lane 3 on the same demand rather than opening a second intake. Names the expected gates (Cyber Security sign-off, tool-decision gate). Does not invent a priority.",
+   "files": []
+  },
+  {
+   "id": "decision-rights-near-miss",
+   "type": "near-miss",
+   "prompt": "The request for the new connector was accepted last week. Who signs off the spend and who may approve the connection?",
+   "expected_output": "Recognises that the request is already accepted and the question is about approvals. Hands it to the decision-rights skill instead of re-triaging.",
+   "files": []
+  }
+ ],
+ "trigger_queries": {
+  "should_trigger": [
+   "A plant just sent us an idea for a new dashboard, what do we do with it?",
+   "Is this request OD work or does it belong to Manufacturing Engineering?",
+   "Which lane does a request for a new machine connection go into?",
+   "Someone is pushing for urgent work with no roadmap link, should we accept it?"
+  ],
+  "should_not_trigger": [
+   "Who has to approve the spend for the accepted connector project?",
+   "Write the requirement specification for the accepted demand.",
+   "What does the abbreviation MSB stand for?",
+   "Prepare the quarterly check of which skills have stale sources."
+  ]
+ }
+}

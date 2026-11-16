@@ -9,6 +9,15 @@ tags: [information-integration-service, technical]
 
 # Blockers and waves
 
+## Contents
+
+- 1. Reading the blocker texts
+- 2. Waves and project references
+- 3. The eCR step in a wave (process, staging, unverified)
+- 4. Department numbers next to the Machine List (where they live)
+- 5. Other recorded stoppers that are not in the Machine List (patterns)
+- Sources
+
 Two things a plant key user is asked about at every roadmap conversation: "what is stopping
 the remaining machines?" and "which wave is this machine in?". The Machine List holds both
 as free text. This reference says how to read them as a whole.

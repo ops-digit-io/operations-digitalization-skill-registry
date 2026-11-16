@@ -8,6 +8,14 @@ tags: [all, sharepoint, export]
 ---
 # Export procedure
 
+## Contents
+
+- 1 Verify REST access
+- 2 Export items, versions and attachments in one pass
+- 3 Download every attachment
+- REST endpoints used
+- What this route cannot reach
+
 Verbatim from the proven playbook (`ops-knowledge-graph/_knowledge/90-Sources/sharepoint-export-playbook.md`),
 run from the browser's own DevTools console while authenticated on the list's site — no
 PowerShell, no PnP module, no tenant admin rights. Change only `LIST` and `SITE`; everything

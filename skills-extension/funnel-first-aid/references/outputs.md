@@ -16,7 +16,7 @@ tags: [outputs, handoff]
 |---|---|---|---|
 | first-aid-request | `assets/first-aid-request.md`, filled | Next skill in the route (travels with the request) | Complete, or lists exactly what is missing; Problem restated S.M.A.R.T; Plant owner named by role |
 | data-check-and-scenario | Section 4 of the form | `mi-data-availability` | Signal readability and period recorded; Scenario A or B classified |
-| route-with-reason | Section 5 of the form | `dept-intake`, `deploy-cybersec`, Analytical Support or Lane 1 self-service (one-off), information-integration lane (data gap) | Route chosen from the routing table with a written reason |
+| route-with-reason | Section 5 of the form | `dept-intake`, `deploy-cybersec`, One-off analysis (Lane 1 self-service), information-integration lane (data gap) | Route chosen from the routing table with a written reason |
 | closing-message-to-the-requester | Reply to the requester | Plant requester | States what was routed where and why |
 
 ## Checks
@@ -25,7 +25,7 @@ tags: [outputs, handoff]
 |---|---|---|
 | first-aid-request | structure of `assets/first-aid-request.md` | Next skill in the route (travels with the request) |
 | data-check-and-scenario | manual | OD lead |
-| route-with-reason | manual | Analytical Support or Lane 1 self-service (one-off) |
+| route-with-reason | manual | One-off analysis (Lane 1 self-service) |
 | closing-message-to-the-requester | manual | Plant requester |
 
 ## Handoff

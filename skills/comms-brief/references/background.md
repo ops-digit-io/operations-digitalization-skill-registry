@@ -33,3 +33,12 @@ OD publishes nothing; Internal Communications decides channel, form and date.
 - **Receives from:** `comms-showcase` (the selection record with a go and the evidence behind each claim).
 - **Next in the flow:** Internal Communications reviews and publishes (step 43); then `comms-followup` (step 44), with the approved brief. The call to action points plants to `catalog-usecase`.
 - **Stops here when:** the check reports a blocker (for example a proof point without source or evidence class, a saving worded as a result without a registered project, a named individual or an internal host or link). The brief does not leave OD until fixed. A human hands the brief over; the agent never publishes.
+
+## Open questions
+
+- Internal Communications' own intake, templates and lead times are not recorded in the knowledge base. Replace the open points in `references/ic-handover.md` once the IC brief is supplied. Supplier: Internal Communications.
+- Whether line and shift supervisors are an audience is a hypothesis from a public survey of frontline workers; IC confirms.
+
+## Sources used in the improvement run
+
+- None added; no vault or archive claim was introduced in this run.

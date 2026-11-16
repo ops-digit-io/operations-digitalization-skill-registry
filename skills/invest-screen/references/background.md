@@ -26,3 +26,12 @@ tags: [background]
 - **Receives from:** `dept-intake` (step i1), `funnel-requirements` (step 31), `catalog-systems` (when no standard system exists), `catalog-guardrails` (guardrail G3); the request, the plant, and in Lane 3 the tool or purchase in question.
 - **Next in the flow:** "fits" goes back to the calling skill; "redesign" re-scopes the request before it is defined further; "escalate" goes to `dept-decision-rights` (step 32); the Lane 3 route goes on to OpenSpec IT demand (external), `deploy-appstore` or `mi-equipment`, and the business case follows with `bc-build` (step 33).
 - **Stops here when:** no boundary line can be named, the sources disagree, or the plant status is unknown. The check is then not finished. It also stops on a tool nobody runs (a service gap, not a fit). It never approves a rollout exception itself.
+
+## Provenance moved out of SKILL.md
+
+The fit check is the cross-cutting check that `dept-intake` and `funnel-requirements` both call; the Lane 3 gate was merged in as the tool-decision / IT-footprint gate; the whole-list screen is the department package `investment-checking`; application consulting was the absorbed skill `od-application-consulting` (merged 2026-11-10).
+
+## Open questions
+
+- The two verdict vocabularies (fit verdicts and gate verdicts) are kept as two scales because they answer different questions; whether the department wants one merged scale is not decided.
+- Whether the EMS rollout status in the strategy position or in the tool catalogue is current: confirm per request, the sources disagree.

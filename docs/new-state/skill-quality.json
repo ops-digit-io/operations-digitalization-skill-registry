@@ -25,15 +25,21 @@
   "D": 60,
   "F": 0
  },
- "mean": 89.8,
- "mean_core": 95.6,
+ "mean": 91.4,
+ "mean_core": 93.6,
  "skills": {
   "bc-assess": {
-   "score": 96.5,
+   "score": 91.8,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "c928b9eedac1767b",
+   "folder_hash": "f49e0958cc75542b",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 10,
+     "message": "Instructions don't mention 'run_script'",
+     "suggestion": "Add explicit run_script() call examples"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -45,21 +51,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (625 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
+    "correctness": 80.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "bc-build": {
-   "score": 90.5,
-   "grade": "A",
+   "score": 89.2,
+   "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "ffe8df3000e562a3",
+   "folder_hash": "82a0572b02c58c32",
    "findings": [
     {
      "dimension": "correctness",
@@ -84,22 +95,33 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (627 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 80.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 90.0,
     "efficiency": 100.0
-   },
-   "default_score": 86.8
+   }
   },
   "bc-capital-request": {
-   "score": 96.5,
+   "score": 91.8,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "76a893aea96e24e0",
+   "folder_hash": "c4113d6de793a652",
    "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 10,
+     "message": "Instructions don't mention 'run_script'",
+     "suggestion": "Add explicit run_script() call examples"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -111,28 +133,27 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (598 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
+    "correctness": 80.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "bc-cost": {
-   "score": 84.0,
+   "score": 88.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "d13a29c6b5dccfb5",
+   "folder_hash": "615104c5aad24aa5",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "reliability",
      "deduction": 10,
@@ -142,12 +163,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -166,7 +181,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (957 chars, recommend 50-150)",
+     "message": "Description very long (678 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -178,40 +193,28 @@
     {
      "dimension": "reliability",
      "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
      "message": "No inputs, outputs or purpose documented",
      "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
+    "correctness": 85.0,
     "discoverability": 95.0,
-    "reliability": 75.0,
-    "efficiency": 90.0
+    "reliability": 80.0,
+    "efficiency": 100.0
    }
   },
   "bc-portfolio": {
-   "score": 84.0,
+   "score": 88.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "455107716be98a6e",
+   "folder_hash": "ec7c2ef213332245",
    "findings": [
     {
-     "dimension": "efficiency",
+     "dimension": "reliability",
      "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
+     "message": "No mention of error handling or validation",
+     "suggestion": "Document expected errors and how to handle them"
     },
     {
      "dimension": "correctness",
@@ -234,13 +237,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (699 chars, recommend 50-150)",
+     "message": "Description very long (651 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -252,34 +249,22 @@
     {
      "dimension": "reliability",
      "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
      "message": "No inputs, outputs or purpose documented",
      "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
+    "correctness": 85.0,
+    "discoverability": 90.0,
     "reliability": 85.0,
-    "efficiency": 90.0
+    "efficiency": 100.0
    }
   },
   "catalog-compatibility": {
-   "score": 80.2,
+   "score": 88.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "1593a364ed854781",
+   "folder_hash": "d3d7a2cf75a5d796",
    "findings": [
     {
      "dimension": "discoverability",
@@ -288,18 +273,6 @@
      "suggestion": "Be specific about what this skill does"
     },
     {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in compatibility-tests.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
@@ -320,13 +293,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (665 chars, recommend 50-150)",
+     "message": "Description very long (707 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -334,38 +301,20 @@
      "deduction": 5,
      "message": "No '## Purpose' section",
      "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 70.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "correctness": 85.0,
+    "discoverability": 75.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
    }
   },
   "catalog-guardrails": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "a9d040eae61dd3f0",
+   "folder_hash": "359715ceb47d53c5",
    "findings": [
     {
      "dimension": "correctness",
@@ -378,33 +327,32 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (618 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "catalog-standardization": {
-   "score": 82.2,
+   "score": 89.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "df65e48c72e8eb28",
+   "folder_hash": "30df168c6a53471d",
    "findings": [
     {
      "dimension": "discoverability",
      "deduction": 15,
      "message": "Description contains vague words",
      "suggestion": "Be specific about what this skill does"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
     },
     {
      "dimension": "correctness",
@@ -427,52 +375,28 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (753 chars, recommend 50-150)",
+     "message": "Description very long (758 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
     },
     {
      "dimension": "efficiency",
      "deduction": 5,
      "message": "Uses complex/corporate language",
      "suggestion": "Use simple, direct language: 'use' not 'utilize'"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 75.0,
-    "reliability": 85.0,
+    "correctness": 85.0,
+    "discoverability": 80.0,
+    "reliability": 100.0,
     "efficiency": 95.0
    }
   },
   "catalog-systems": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "7efd2e298e906417",
+   "folder_hash": "dae647005d9a161b",
    "findings": [
     {
      "dimension": "correctness",
@@ -485,33 +409,32 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (720 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "catalog-template": {
-   "score": 85.5,
-   "grade": "B",
+   "score": 91.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "dd9b6416a5708842",
+   "folder_hash": "6ea06995672cc5ce",
    "findings": [
     {
      "dimension": "reliability",
      "deduction": 10,
      "message": "No mention of error handling or validation",
      "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
     },
     {
      "dimension": "correctness",
@@ -534,40 +457,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (619 chars, recommend 50-150)",
+     "message": "Description very long (778 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 80.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    }
   },
   "catalog-usecase": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "dbcbf94c6da0fb71",
+   "folder_hash": "d1ac952789062cdb",
    "findings": [
     {
      "dimension": "correctness",
@@ -580,198 +485,38 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (810 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "comms-brief": {
-   "score": 94.0,
+   "score": 91.8,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "0c981923f579ce78",
+   "folder_hash": "31e4ace57065c00f",
    "findings": [
     {
-     "dimension": "reliability",
+     "dimension": "correctness",
      "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
+     "message": "Instructions don't mention 'run_script'",
+     "suggestion": "Add explicit run_script() call examples"
     },
     {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 90.0,
-    "efficiency": 100.0
-   },
-   "default_score": 90.2
-  },
-  "comms-followup": {
-   "score": 94.0,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "2e9d3dacc09a1dd1",
-   "findings": [
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 90.0,
-    "efficiency": 100.0
-   },
-   "default_score": 90.2
-  },
-  "comms-showcase": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "b2b042a246d8da1c",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "deploy-acceptance": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "4d0d6bb52a7dbc86",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "deploy-appstore": {
-   "score": 94.0,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "67917a06a6a18ec0",
-   "findings": [
-    {
-     "dimension": "discoverability",
-     "deduction": 10,
-     "message": "Description doesn't mention WHEN to use this skill",
-     "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 90.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 90.2
-  },
-  "deploy-cybersec": {
-   "score": 86.5,
-   "grade": "B",
-   "skill_type": "resource-based",
-   "folder_hash": "0f16505d03a7e643",
-   "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in package-contents.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
     },
     {
      "dimension": "correctness",
@@ -782,67 +527,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (604 chars, recommend 50-150)",
+     "message": "Description very long (672 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
     "correctness": 80.0,
     "discoverability": 95.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
-   }
-  },
-  "deploy-handover": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "96cc3744c4c138b3",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
-  "deploy-migration": {
-   "score": 85.8,
-   "grade": "B",
+  "comms-followup": {
+   "score": 91.8,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "2cc7f74fbd71500d",
+   "folder_hash": "b7e0027b41ee2006",
    "findings": [
     {
      "dimension": "correctness",
@@ -853,8 +553,224 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (681 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 80.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "comms-showcase": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "ce3c076926d632e4",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (514 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "deploy-acceptance": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "a21b42ea10c9c69e",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (571 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "deploy-appstore": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "0a8cbd32dc8eebc9",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (683 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "deploy-cybersec": {
+   "score": 89.8,
+   "grade": "B",
+   "skill_type": "resource-based",
+   "folder_hash": "4c610faa93eab6d3",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (662 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    },
+    {
+     "dimension": "reliability",
+     "deduction": 5,
+     "message": "No definition of done or handoff documented",
+     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
+    },
+    {
+     "dimension": "reliability",
+     "deduction": 5,
+     "message": "No human gate or agent notes documented",
+     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
+    },
+    {
+     "dimension": "reliability",
+     "deduction": 5,
+     "message": "No inputs, outputs or purpose documented",
+     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
+    }
+   ],
+   "categories": {
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 85.0,
+    "efficiency": 100.0
+   }
+  },
+  "deploy-handover": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "d5f1d5bb40159f90",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (657 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "deploy-migration": {
+   "score": 87.5,
+   "grade": "B",
+   "skill_type": "resource-based",
+   "folder_hash": "69e0f139f1f8a78b",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 10,
+     "message": "Resource-based skill lacks documentation of available resources",
+     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
     },
     {
      "dimension": "correctness",
@@ -877,7 +793,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (670 chars, recommend 50-150)",
+     "message": "Description very long (748 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -894,23 +810,23 @@
     }
    ],
    "categories": {
-    "correctness": 70.0,
+    "correctness": 75.0,
     "discoverability": 95.0,
     "reliability": 90.0,
     "efficiency": 100.0
    }
   },
   "deploy-project-order": {
-   "score": 82.8,
+   "score": 87.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "991d8eb8617a3374",
+   "folder_hash": "6e6aac71d0872c0a",
    "findings": [
     {
-     "dimension": "efficiency",
+     "dimension": "correctness",
      "deduction": 10,
-     "message": "Deeply nested references in order-structure.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
+     "message": "Resource-based skill lacks documentation of available resources",
+     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
     },
     {
      "dimension": "reliability",
@@ -921,12 +837,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -945,47 +855,29 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (836 chars, recommend 50-150)",
+     "message": "Description very long (807 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 80.0,
-    "efficiency": 90.0
+    "correctness": 75.0,
+    "discoverability": 95.0,
+    "reliability": 90.0,
+    "efficiency": 100.0
    }
   },
   "dept-context": {
-   "score": 96.5,
+   "score": 91.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "129075c15a9f9cb0",
+   "folder_hash": "d2f3c14059f52183",
    "findings": [
+    {
+     "dimension": "discoverability",
+     "deduction": 15,
+     "message": "Description contains vague words",
+     "suggestion": "Be specific about what this skill does"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -997,21 +889,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (598 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 80.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "dept-context-freshness": {
-   "score": 77.5,
-   "grade": "C",
+   "score": 85.2,
+   "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "5ffb4ddebdb8030d",
+   "folder_hash": "5fd84d240ea6c14a",
    "findings": [
     {
      "dimension": "correctness",
@@ -1026,18 +923,6 @@
      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
     },
     {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in triage-and-actions.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
@@ -1058,26 +943,8 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (590 chars, recommend 50-150)",
+     "message": "Description very long (731 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
     },
     {
      "dimension": "reliability",
@@ -1088,17 +955,23 @@
    ],
    "categories": {
     "correctness": 65.0,
-    "discoverability": 90.0,
-    "reliability": 75.0,
-    "efficiency": 90.0
+    "discoverability": 95.0,
+    "reliability": 95.0,
+    "efficiency": 100.0
    }
   },
   "dept-decision-rights": {
-   "score": 96.5,
+   "score": 91.5,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "61b7918f48901a11",
+   "folder_hash": "d61d7c4dfbde1123",
    "findings": [
+    {
+     "dimension": "discoverability",
+     "deduction": 15,
+     "message": "Description contains vague words",
+     "suggestion": "Be specific about what this skill does"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1110,28 +983,27 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (651 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 80.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "dept-governance": {
-   "score": 85.5,
-   "grade": "B",
+   "score": 93.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "8f01203f7713f6d6",
+   "folder_hash": "c9d3ae630f598bf9",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1153,53 +1025,29 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (821 chars, recommend 50-150)",
+     "message": "Description very long (810 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 85.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
   "dept-intake": {
-   "score": 96.5,
+   "score": 91.5,
    "grade": "A",
    "skill_type": "guide-only",
-   "folder_hash": "1983817c03d6adbb",
+   "folder_hash": "e8b8c9e721da1eae",
    "findings": [
+    {
+     "dimension": "discoverability",
+     "deduction": 15,
+     "message": "Description contains vague words",
+     "suggestion": "Be specific about what this skill does"
+    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1211,21 +1059,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (715 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 80.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "dept-plant-diagnosis": {
-   "score": 87.8,
+   "score": 89.5,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "5993209c48ed1231",
+   "folder_hash": "be4ad9f738854fdd",
    "findings": [
     {
      "dimension": "efficiency",
@@ -1236,12 +1089,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -1260,7 +1107,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (752 chars, recommend 50-150)",
+     "message": "Description very long (705 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -1277,35 +1124,23 @@
     }
    ],
    "categories": {
-    "correctness": 80.0,
+    "correctness": 85.0,
     "discoverability": 95.0,
     "reliability": 90.0,
     "efficiency": 90.0
    }
   },
   "dept-plant-onboarding": {
-   "score": 81.5,
+   "score": 86.0,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "dcc6396fad3612e9",
+   "folder_hash": "0fe606865e4f04eb",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
     {
      "dimension": "reliability",
      "deduction": 10,
      "message": "No mention of error handling or validation",
      "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
     },
     {
      "dimension": "correctness",
@@ -1328,7 +1163,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (647 chars, recommend 50-150)",
+     "message": "Description very long (692 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -1342,12 +1177,6 @@
      "deduction": 5,
      "message": "No definition of done or handoff documented",
      "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
     },
     {
      "dimension": "reliability",
@@ -1363,17 +1192,17 @@
     }
    ],
    "categories": {
-    "correctness": 80.0,
+    "correctness": 85.0,
     "discoverability": 90.0,
-    "reliability": 70.0,
-    "efficiency": 90.0
+    "reliability": 75.0,
+    "efficiency": 100.0
    }
   },
   "dept-retro": {
-   "score": 81.8,
+   "score": 86.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "b30d0047d38cc18a",
+   "folder_hash": "6e1adcb5a933a4b5",
    "findings": [
     {
      "dimension": "correctness",
@@ -1382,18 +1211,6 @@
      "suggestion": "Document available templates, assets, and design resources in SKILL.md"
     },
     {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
@@ -1414,7 +1231,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (584 chars, recommend 50-150)",
+     "message": "Description very long (662 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -1432,41 +1249,23 @@
     {
      "dimension": "reliability",
      "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
      "message": "No inputs, outputs or purpose documented",
      "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 70.0,
+    "correctness": 75.0,
     "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "reliability": 90.0,
+    "efficiency": 100.0
    }
   },
   "dept-risk": {
-   "score": 85.2,
+   "score": 89.8,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "9897a60699b61754",
+   "folder_hash": "db55a03e17c59b28",
    "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1488,7 +1287,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (549 chars, recommend 50-150)",
+     "message": "Description very long (681 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -1506,28 +1305,22 @@
     {
      "dimension": "reliability",
      "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
      "message": "No inputs, outputs or purpose documented",
      "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
+    "correctness": 85.0,
     "discoverability": 90.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "reliability": 90.0,
+    "efficiency": 100.0
    }
   },
   "funnel-evaluation": {
    "score": 86.5,
    "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "1c80016a16375bf8",
+   "folder_hash": "94f4bce3da67da03",
    "findings": [
     {
      "dimension": "correctness",
@@ -1562,7 +1355,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (821 chars, recommend 50-150)",
+     "message": "Description very long (805 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
@@ -1574,10 +1367,10 @@
    }
   },
   "funnel-features": {
-   "score": 77.2,
-   "grade": "C",
+   "score": 81.5,
+   "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "f713fad090f864c0",
+   "folder_hash": "49e465e3cfe1842f",
    "findings": [
     {
      "dimension": "correctness",
@@ -1600,12 +1393,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -1624,7 +1411,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (564 chars, recommend 50-150)",
+     "message": "Description very long (590 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
@@ -1638,39 +1425,21 @@
      "deduction": 5,
      "message": "No definition of done or handoff documented",
      "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 60.0,
+    "correctness": 65.0,
     "discoverability": 90.0,
-    "reliability": 75.0,
+    "reliability": 85.0,
     "efficiency": 100.0
    }
   },
   "funnel-first-aid": {
-   "score": 86.8,
-   "grade": "B",
+   "score": 93.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "1cc1905ef8cab00e",
+   "folder_hash": "b80760d5a24097ac",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -1692,46 +1461,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (793 chars, recommend 50-150)",
+     "message": "Description very long (764 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 90.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
   "funnel-prototype": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "58765a8ba769f406",
+   "folder_hash": "cea521271210c5c5",
    "findings": [
     {
      "dimension": "correctness",
@@ -1744,21 +1489,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (684 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "funnel-requirements": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "99ce7d7c987d527f",
+   "folder_hash": "91dd3ee7770217ff",
    "findings": [
     {
      "dimension": "correctness",
@@ -1771,21 +1521,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (676 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "funnel-use-case": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "ea2243ca83dfe0e1",
+   "folder_hash": "6288a26ff248f540",
    "findings": [
     {
      "dimension": "correctness",
@@ -1798,21 +1553,26 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (666 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "funnel-workshop": {
-   "score": 85.5,
-   "grade": "B",
+   "score": 91.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "4154729e964c5d97",
+   "folder_hash": "8db53a4456dee6fd",
    "findings": [
     {
      "dimension": "reliability",
@@ -1823,12 +1583,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -1847,40 +1601,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (645 chars, recommend 50-150)",
+     "message": "Description very long (695 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 80.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    }
   },
   "invest-screen": {
-   "score": 96.5,
+   "score": 95.2,
    "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "8765b23322f88d93",
+   "folder_hash": "f4a0e176cc78488c",
    "findings": [
     {
      "dimension": "correctness",
@@ -1893,22 +1629,33 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (804 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 90.0,
-    "discoverability": 100.0,
+    "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 92.8
+   }
   },
   "know-ai-generation": {
-   "score": 82.8,
+   "score": 88.2,
    "grade": "B",
    "skill_type": "resource-based",
-   "folder_hash": "89d1005355c68020",
+   "folder_hash": "4d5650971311b1b7",
    "findings": [
+    {
+     "dimension": "discoverability",
+     "deduction": 15,
+     "message": "Description contains vague words",
+     "suggestion": "Be specific about what this skill does"
+    },
     {
      "dimension": "efficiency",
      "deduction": 10,
@@ -1918,12 +1665,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -1942,58 +1683,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (762 chars, recommend 50-150)",
+     "message": "Description very long (666 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No procedure documented",
-     "suggestion": "Add '## Procedure': the steps, in order, with the control point of each"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 85.0,
-    "reliability": 80.0,
+    "correctness": 85.0,
+    "discoverability": 80.0,
+    "reliability": 100.0,
     "efficiency": 90.0
    }
   },
   "know-sharepoint-export": {
-   "score": 78.5,
-   "grade": "C",
+   "score": 86.5,
+   "grade": "B",
    "skill_type": "hybrid",
-   "folder_hash": "23b992916b843067",
+   "folder_hash": "e30c658291029061",
    "findings": [
     {
      "dimension": "correctness",
@@ -2010,12 +1715,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -2034,52 +1733,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (578 chars, recommend 50-150)",
+     "message": "Description very long (625 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 60.0,
-    "discoverability": 85.0,
-    "reliability": 85.0,
+    "correctness": 65.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
   "know-skill-authoring": {
-   "score": 87.5,
-   "grade": "B",
+   "score": 90.0,
+   "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "492964ef09eee14b",
+   "folder_hash": "2a9cac6be127f391",
    "findings": [
     {
      "dimension": "correctness",
@@ -2088,12 +1757,6 @@
      "suggestion": "Add explicit run_script() call examples"
     },
     {
-     "dimension": "reliability",
-     "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
      "dimension": "correctness",
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
@@ -2114,41 +1777,23 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (733 chars, recommend 50-150)",
+     "message": "Description very long (762 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
    "categories": {
     "correctness": 75.0,
     "discoverability": 95.0,
-    "reliability": 90.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
   "know-training": {
-   "score": 83.0,
-   "grade": "B",
+   "score": 93.5,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "a04fc37435dda285",
+   "folder_hash": "4277ad973e6d86c8",
    "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 10,
-     "message": "Resource-based skill lacks documentation of available resources",
-     "suggestion": "Document available templates, assets, and design resources in SKILL.md"
-    },
-    {
-     "dimension": "efficiency",
-     "deduction": 10,
-     "message": "Deeply nested references in process-chain-practice.md",
-     "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
     {
      "dimension": "correctness",
      "deduction": 5,
@@ -2170,40 +1815,22 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (576 chars, recommend 50-150)",
+     "message": "Description very long (699 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 70.0,
+    "correctness": 85.0,
     "discoverability": 95.0,
-    "reliability": 85.0,
-    "efficiency": 90.0
+    "reliability": 100.0,
+    "efficiency": 100.0
    }
   },
   "metrics-scorecard": {
-   "score": 84.2,
-   "grade": "B",
+   "score": 91.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "7a623ecc0ce587dc",
+   "folder_hash": "f4408c5a9e1b5177",
    "findings": [
     {
      "dimension": "reliability",
@@ -2214,12 +1841,6 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
      "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
     },
@@ -2238,199 +1859,28 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (763 chars, recommend 50-150)",
+     "message": "Description very long (728 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 75.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 90.0,
     "efficiency": 100.0
    }
   },
   "mi-data-availability": {
-   "score": 96.5,
+   "score": 91.8,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "3956a59ce369b905",
+   "folder_hash": "3981d52b59b2ec6a",
    "findings": [
     {
      "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "mi-equipment": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "46e953967a2fb204",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "mi-flow": {
-   "score": 94.2,
-   "grade": "A",
-   "skill_type": "hybrid",
-   "folder_hash": "e1a33b518b76c0b2",
-   "findings": [
-    {
-     "dimension": "efficiency",
-     "deduction": 15,
-     "message": "Large skill (5285 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
-     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 85.0
-   },
-   "default_score": 90.5
-  },
-  "mi-signals": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "hybrid",
-   "folder_hash": "8329d15ad70c24b0",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "ops-analytics-asset": {
-   "score": 96.5,
-   "grade": "A",
-   "skill_type": "resource-based",
-   "folder_hash": "aec2840bb517514b",
-   "findings": [
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
-     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'version'",
-     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
-    }
-   ],
-   "categories": {
-    "correctness": 90.0,
-    "discoverability": 100.0,
-    "reliability": 100.0,
-    "efficiency": 100.0
-   },
-   "default_score": 92.8
-  },
-  "ops-dashboard-datatron": {
-   "score": 84.2,
-   "grade": "B",
-   "skill_type": "guide-only",
-   "folder_hash": "750657b78c9b04b0",
-   "findings": [
-    {
-     "dimension": "reliability",
      "deduction": 10,
-     "message": "No mention of error handling or validation",
-     "suggestion": "Document expected errors and how to handle them"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
+     "message": "Instructions don't mention 'run_script'",
+     "suggestion": "Add explicit run_script() call examples"
     },
     {
      "dimension": "correctness",
@@ -2441,63 +1891,205 @@
     {
      "dimension": "correctness",
      "deduction": 5,
-     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
-     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
     },
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (600 chars, recommend 50-150)",
+     "message": "Description very long (665 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "No '## Purpose' section",
-     "suggestion": "Add purpose section to clarify use cases"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No definition of done or handoff documented",
-     "suggestion": "Add '## Definition of done' or '## Handoff': when the skill's work is finished and who receives it"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
     "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 75.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 100.0
    }
   },
-  "ops-dashboard-engine": {
-   "score": 90.5,
+  "mi-equipment": {
+   "score": 95.2,
    "grade": "A",
-   "skill_type": "guide-only",
-   "folder_hash": "bb8aad4dc1522b7e",
+   "skill_type": "resource-based",
+   "folder_hash": "a3c0a8312d74ec51",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (725 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "mi-flow": {
+   "score": 93.0,
+   "grade": "A",
+   "skill_type": "hybrid",
+   "folder_hash": "769b196a2ba5b6fb",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 15,
-     "message": "Large skill (7610 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "message": "Large skill (6370 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
+     "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (655 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 85.0
+   }
+  },
+  "mi-signals": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "hybrid",
+   "folder_hash": "137c10d9d473b364",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (648 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "ops-analytics-asset": {
+   "score": 95.2,
+   "grade": "A",
+   "skill_type": "resource-based",
+   "folder_hash": "c18d1f90294b14a9",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (612 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 90.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "ops-dashboard-datatron": {
+   "score": 93.5,
+   "grade": "A",
+   "skill_type": "guide-only",
+   "folder_hash": "4dc8aed9367a7b6b",
+   "findings": [
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+     "suggestion": "Add 'author' under metadata: — Author name or team (under metadata:)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+     "suggestion": "Add 'tags' under metadata: — Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+     "dimension": "correctness",
+     "deduction": 5,
+     "message": "SKILL_SPEC recommended field missing: 'version'",
+     "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (615 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
+    }
+   ],
+   "categories": {
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
+    "efficiency": 100.0
+   }
+  },
+  "ops-dashboard-engine": {
+   "score": 89.2,
+   "grade": "B",
+   "skill_type": "guide-only",
+   "folder_hash": "4053871a2a97104e",
+   "findings": [
+    {
+     "dimension": "efficiency",
+     "deduction": 15,
+     "message": "Large skill (5195 tokens, recommended max <5000). Per agentskills.io, SKILL.md should be concise (~500 lines) — large skill bodies increase token cost after invocation; long or unfocused top-level descriptions can degrade agent routing accuracy",
      "suggestion": "Keep required sections concise; move detailed examples, reference material, and supporting docs to the references/ directory"
     },
     {
@@ -2517,6 +2109,12 @@
      "deduction": 5,
      "message": "SKILL_SPEC recommended field missing: 'version'",
      "suggestion": "Add 'version' to frontmatter — Semantic version (e.g., \"1.0.0\")"
+    },
+    {
+     "dimension": "discoverability",
+     "deduction": 5,
+     "message": "Description very long (633 chars, recommend 50-150)",
+     "suggestion": "Keep descriptions concise for progressive disclosure"
     },
     {
      "dimension": "discoverability",
@@ -2533,29 +2131,22 @@
    ],
    "categories": {
     "correctness": 85.0,
-    "discoverability": 95.0,
+    "discoverability": 90.0,
     "reliability": 100.0,
     "efficiency": 80.0
-   },
-   "default_score": 86.8
+   }
   },
   "ops-event-model": {
-   "score": 86.5,
-   "grade": "B",
+   "score": 92.0,
+   "grade": "A",
    "skill_type": "resource-based",
-   "folder_hash": "0c91ce0eeb3a12cd",
+   "folder_hash": "86dd4d21ed4a8b78",
    "findings": [
     {
      "dimension": "efficiency",
      "deduction": 10,
      "message": "Deeply nested references in archetype-method-etl.md",
      "suggestion": "Keep references one level deep from SKILL.md"
-    },
-    {
-     "dimension": "correctness",
-     "deduction": 5,
-     "message": "No examples provided",
-     "suggestion": "Add example usage with code blocks"
     },
     {
      "dimension": "correctness",
@@ -2578,32 +2169,14 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Broad description without negative triggers may cause over-triggering",
-     "suggestion": "Add boundary phrases like 'Do NOT use for...'"
-    },
-    {
-     "dimension": "discoverability",
-     "deduction": 5,
-     "message": "Description very long (746 chars, recommend 50-150)",
+     "message": "Description very long (729 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No human gate or agent notes documented",
-     "suggestion": "Add '## Human gate and AI-agent notes': what an agent may draft and what humans decide"
-    },
-    {
-     "dimension": "reliability",
-     "deduction": 5,
-     "message": "No inputs, outputs or purpose documented",
-     "suggestion": "Add '## Inputs and output': what the skill needs and what it returns"
     }
    ],
    "categories": {
-    "correctness": 80.0,
-    "discoverability": 90.0,
-    "reliability": 90.0,
+    "correctness": 85.0,
+    "discoverability": 95.0,
+    "reliability": 100.0,
     "efficiency": 90.0
    }
   },
@@ -2611,7 +2184,7 @@
    "score": 95.2,
    "grade": "A",
    "skill_type": "hybrid",
-   "folder_hash": "379f03702a698bb1",
+   "folder_hash": "201716e65ef731a7",
    "findings": [
     {
      "dimension": "correctness",
@@ -2628,7 +2201,7 @@
     {
      "dimension": "discoverability",
      "deduction": 5,
-     "message": "Description very long (208 chars, recommend 50-150)",
+     "message": "Description very long (645 chars, recommend 50-150)",
      "suggestion": "Keep descriptions concise for progressive disclosure"
     }
    ],
@@ -2637,8 +2210,7 @@
     "discoverability": 95.0,
     "reliability": 100.0,
     "efficiency": 100.0
-   },
-   "default_score": 91.5
+   }
   }
  }
 }

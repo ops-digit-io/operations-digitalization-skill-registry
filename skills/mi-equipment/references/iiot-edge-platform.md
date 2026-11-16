@@ -8,6 +8,22 @@ tags: [integration, edge, iiot]
 ---
 # Pattern — IIoT Edge Computing Platform
 
+## Contents
+
+- What "the platform" actually is
+- Phase 1 — Budget
+- Phase 2 — Infrastructure preconditions
+- Phase 3 — PLC / machine preparation — the breakpoint block
+- Phase 4 — IT tasks
+- Phase 5 — Machine tasks
+- Phase 6 — Hardware installation, in full
+- The three integration concepts = the three ingress variants
+- Choosing between the two, when both are open
+- The bridge — `DTQ-OPCUA-Connector`
+- Connecting an existing OPC-UA server to the edge — the short path
+- Endpoint classes beyond PLCs
+- Fallbacks specific to this pattern
+
 The edge pattern: a DATATRONiQ edge device sits in or beside the machine cabinet, speaks
 the PLC's protocol through a connector, and publishes to the platform. The cost sits in
 hardware, cabinet work and a shopfloor network drop — and in exchange there is no shared

@@ -8,6 +8,13 @@ tags: [information-integration-service, technical, signals]
 ---
 # Machine vendor and connector landscape
 
+## Contents
+
+- 1. Controller vendor
+- 2. Connector families and what they reach
+- 3. What this means for a new machine
+- Sources
+
 The machine notes carry **no signal names** - the data-point list lives on the edge platform and
 in the flows (see `field-signal-vocabulary.md`). What they do carry
 is the controller, the field network and the integration route, which decide what a tag export

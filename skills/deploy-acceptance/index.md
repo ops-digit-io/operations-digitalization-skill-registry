@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Acceptance test](SKILL.md) | Agent Skill | Author and run the acceptance test that closes an integration or delivered solution; route failures into rework. Sign-off is human-only. Not for building (mi-equipment). |
+| [Acceptance test](SKILL.md) | Agent Skill | Authors the acceptance test protocol before the build, runs it along the full data path (machine to the dashboard the plant opens), records every result and routes a failure into the right rework loop. Use when an integration, Node-RED flow, dashboard or use case is ready to be declared done, when someone asks for a FAT, SAT, SIT or UAT, an acceptance protocol, a test plan for handover, or "is this ready to be signed off". Drafts and reports only; sign-off is human-only. Not for building the integration (mi-equipment), not for the handover itself (deploy-handover). |
 
 | Folder | Holds |
 |---|---|

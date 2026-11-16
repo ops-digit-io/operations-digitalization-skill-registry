@@ -23,7 +23,7 @@ outputs:
   to_roles:
   - Owners named in the decision rights
   done_when:
-  - Q&A classified and routed to the owning service line
+  - Q&A classified and routed to the owning role
   - Open homework chased
   - Unresolved items carried with the label "carried"
   signoff: Owners named in the decision rights

@@ -29,11 +29,11 @@ outputs:
   - dept-intake
   - deploy-cybersec
   to_roles:
-  - Analytical Support or Lane 1 self-service (one-off)
+  - One-off analysis (Lane 1 self-service)
   - information-integration lane (data gap)
   done_when:
   - Route chosen from the routing table with a written reason
-  signoff: Analytical Support or Lane 1 self-service (one-off)
+  signoff: One-off analysis (Lane 1 self-service)
 - id: closing-message-to-the-requester
   form: Reply to the requester
   to_skills: []

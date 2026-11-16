@@ -1,15 +1,16 @@
 ---
 name: catalog-standardization
 description: >-
-  Make one plant's solution into every plant's — check a use case against the
-  cross-plant capability templates and the reference library before anything is
-  specified, apply the cluster classification (C01-C12), take a use case through the CSP
-  (Common Solution Portfolio) gate, and measure standardization by adoption rather than
-  by how many templates exist. Use when a use case is declared standard, when a second
-  plant wants something a first plant already has, when a library entry is proposed for
-  rollout, when a cluster tag needs assigning or checking, or when someone asks why the
-  catalogue has not scaled.
-  Also decides whether a recurring ad-hoc asset becomes a standard use case and assembles the promotion package (formerly od-use-case-promotion).
+  Check one use case against the cross-plant capability templates and the reference
+  library before anything is specified, assign its cluster tag (C01-C12) with the
+  baseline KPIs and checklist, and prepare it for the CSP (Common Solution Portfolio)
+  gate. Use when someone says a use case is "standard", when a second plant wants
+  something a first plant already has, when a library entry is proposed for rollout,
+  when a cluster tag must be assigned or checked, when a dashboard or report built for
+  one request keeps coming back and might become a standard use case, or when asked why
+  the catalog has not scaled. Recommends only; the CSP decision sits outside OD. Not for
+  matching a plant request to the catalog (catalog-usecase) or for the value case
+  (bc-build).
 license: MIT
 metadata:
   id: catalog-standardization
@@ -32,104 +33,110 @@ metadata:
 
 # Use-case standardization
 
+## Purpose
+
+- Make one plant's solution every plant's: check the library, place the use case on the cross-plant templates, assign a cluster tag, prepare the CSP gate.
+- Measure standardization by adoption (a second plant takes it, then uses it), not by how many templates exist.
+- A second job lives here: decide whether a recurring ad-hoc asset becomes a standard use case (promotion mode, formerly od-use-case-promotion).
 - Read `dept-context` first.
 
-- **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+## Terms used here
 
-## The references are the substance
+- **Capability**: one of the cross-plant templates (Andon Board, OEE Calculation, Downtime Reporting, Process Quality Data, Machine Alerts, Cycle Time, Recipe Values, Process Values, Manual Quality Data, Analytics, Other Use Cases). Check the live list before quoting it.
+- **Process group**: sits inside a material family (rubber, plastic, metal, assembly).
+- **Library entry**: a proven, standardized solution with methods and actions written down, kept apart from plant use cases.
+- **Cluster**: tag C01-C12 carrying a definition, KPI set and requirements checklist.
+- **Catalog**: the set of standard use cases a plant can take; a **standard use case** is an entry that passed the CSP gate.
 
-| File | Use it for |
+## Inputs and output
+
+| | |
 |---|---|
-| [`references/clusters.md`](references/clusters.md) | All clusters' standard definition, KPI set and requirements checklist — the default baseline for an undocumented use case, each with its source cited and marked verified or carried-over |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Archetypes (cross-process, per-process, unique), category to method to data-job mapping, prototype to configurable container app, scaling lessons (utilization, not rollout count), handoff contract, agent notes |
-| [`references/process-family-patterns.md`](references/process-family-patterns.md) | What a use case looks like per process family (rubber, plastic, metal, assembly, cross-process): process groups, typical capabilities, data needed, standardization potential, traps, blocker themes per capability |
+| Input | The scoped use case (`funnel-use-case` or `funnel-evaluation` record): plant, capability, notes, blockers |
+| Input | Live use case list and library (from `bc-portfolio`), with the read date |
+| Output | [`assets/standardization-review.md`](assets/standardization-review.md), one per use case, filled as the work happens |
+| Receivers | `dept-decision-rights` (rollout gate) and `bc-build` (business case) |
 
-## 1. The cross-plant template
-
-- A use case is never recorded loose.
-- It hangs off a **capability**
-- — eleven of them, cross-plant: Andon Board, OEE Calculation, Downtime Reporting, Process Quality Data, Machine Alerts, Cycle Time, Recipe Values, Process Values, Manual Quality Data, Analytics, Other Use Cases (check the live capability list before quoting it)
-- — and off a **process group**, which sits inside a material family (rubber, plastic, metal, assembly).
-- Both templates exist once and are instantiated per plant.
-
-- Every capability is meant to be instantiated at every plant; check the live capability instance list for which plants are missing one.
-- **The templates are not aspirational and they are not the constraint** — the estate is mapped onto them.
-- What varies is how far each instance has got, which is what makes a gap visible as a gap.
-
-## 2. The reference library and the CSP gate
-
-- Already-built, standardized solutions are kept as their own catalogue (the reference library), separate from the plant use cases.
-- A library entry is a solution somebody proved, with its methods and actions written down — the thing a plant should take instead of starting from a blank page.
-
-- The **CSP (Common Solution Portfolio) decision** is the gate that says an entry is standard enough to roll out.
-- The decision is recorded per library entry as `Yes`, `No` or blank (not yet submitted).
-- Count the three outcomes on the live library before quoting a status: a blank means the gate has not been applied, not that the entry failed.
-
-- A `No` is information, not a failure.
-- It says this entry is not yet the thing another plant should take.
-
-## 3. The cluster tags
-
-- Every use case carries exactly one cluster tag (C01–C12), assigned by a **deterministic rule-based classifier** over three signals in priority order:
-
-1. the use case's own **category** — an AI category routes straight to the AI cluster;
-2. the **capability template** it belongs to;
-3. **keyword matching** across its title, notes, blockers and target text.
-
-- Deterministic and reproducible: re-running the classifier after a data refresh reproduces the tags exactly.
-- Do not hand-assign a tag — fix the input fields and re-run.
-
-- Each cluster carries a standard **definition**, a standard **KPI set** and a **requirements checklist** drawn from published references — ISO 22400-2, VDI 3423, ISA-95, ISO 22005 and the TPS literature; the full set is in [`references/clusters.md`](references/clusters.md).
-- The checklist is the **default requirements baseline for a use case with no local notes**: a plant then records only its own deltas — which machines, which line, which local constraint
-- — instead of re-deriving what a good Andon board is.
-
-- **C12 Other and plant-specific tends to be the largest cluster, and its size is a data-quality number as much as a topical one;
-- count it live and track it over time.** It is the bucket for everything the classifier could not place, and it should shrink as plant notes get written.
-- A rising C12 means the intake text is getting thinner, not that the portfolio is getting more idiosyncratic.
+- Output contract: [`outputs.yaml`](outputs.yaml) lists required outputs, criteria, checks and sign-offs.
 
 ## Procedure
 
-1. **Before specifying anything**, search the library for a proven entry against the same
-   capability. Take it if it exists.
-2. Place the use case on its **capability** and **process group**.
-3. Let the classifier assign the **cluster tag**; pull its definition, KPI set and
-   requirements checklist as the baseline.
-4. Record only the plant's **deltas** against that baseline.
-5. If a solution is a candidate to roll out, prepare it for the **CSP decision** —
-   methods and actions written down, evidence it works at its first plant.
-6. Measure the result by adoption (below), not by the existence of the template.
+- Copy the review template first. Each step fills one section, so the receivers never have to re-ask.
 
-## How standardization is measured
+1. **Library check (review section 2).** Search the library for a proven entry against the same capability before specifying anything. Take it if it exists, because specifying again is the cost standardization avoids.
+2. **Placement (section 1).** Place the use case on its capability and process group. Open `references/process-family-patterns.md` to judge how far it can travel.
+3. **Cluster tag (section 3).** Take the tag from the rule-based classifier, then open the cluster's entry in `references/clusters.md` for the baseline definition, KPI set and checklist.
+4. **Deltas (section 3).** Record only the plant's own deltas against the baseline: machines, line, local constraint.
+5. **CSP readiness (section 4, rollout candidates only).** Work through the checklist below, then state the verdict.
+6. **Handoff (section 5).** Name the verdict and the next skill; record the CSP gate as a dependency on the use case or saving row.
+7. **Measure by adoption, not templates.** Compute delivered instances over capability instances from the live list and quote the read date.
 
-- Not by how many templates exist — all of them do
-- — but by **how often the second plant takes the first plant's solution**, and then by whether it is **used** there:
-- a deployment count is not a value measure, and a scaled use case needs utilization (and a saving where one is reported) before it counts as scaled.
-- Capability instances are the denominator; delivered instances are the numerator.
-- Compute both from the live use case list and quote the read date.
+### CSP readiness checklist
 
-- The portfolio analysis is blunt about the finding: *the catalogue is built to standardize and has not scaled.* Adoption of the proven instance is the constraint.
-- And the regions are not variations of one another: compare use cases to productive use cases per region on the live list, and expect the conversion pattern to differ by region.
-- **A region with a low conversion rate is a different problem from one with a high rate, not a smaller one**, and a standardization plan that treats one region as a scaled-down copy of another will not work.
+- [ ] Methods and actions are written down.
+- [ ] Evidence exists that it works at its first plant (cite it).
+- [ ] Utilization is recorded at the first plant, not only a deployment.
+- [ ] No new capability or process group was created for it.
+- [ ] CSP decision stated as `Yes`, `No` or not submitted (blank).
 
-## Output — the protocol
+- Any unticked box means the verdict is "not ready, missing: ...", never "rejected".
 
-- The procedure does not end in prose.
-- Fill [`assets/standardization-review.md`](assets/standardization-review.md) as the work happens
-- — one document per use case:
-- template placement, library check, cluster baseline and delta, and the CSP-readiness verdict, written so it hands off directly into `dept-decision-rights`'s "standard enough to roll out" gate and into `bc-build`'s business case, instead of needing to be re-asked from scratch.
+### Classifier rules
 
-## Absorbed: Promote a recurring ad-hoc asset into a standard use case (formerly od-use-case-promotion)
+- Signals in priority order: the use case's own **category** (an AI category routes straight to the AI cluster), then its **capability template**, then **keyword matching** across title, notes, blockers and target text.
+- Deterministic: re-running after a data refresh reproduces the tags.
+- A wrong or C12 tag means thin input: fix the input fields and re-run. Do not hand-assign a tag.
+- Treat a C12 placement as a finding: re-check the process-group link and search sibling plants (`references/clusters.md`, C12).
 
-- Run [`references/od-use-case-promotion/procedure.md`](references/od-use-case-promotion/procedure.md) when a dashboard, report or app built for one request keeps being asked for and should become a standard use case.
-- It keeps its own references and assets under that folder and the authority it had.
+### Promotion mode (a recurring ad-hoc asset)
+
+- Use when a dashboard, report or app built for one request keeps being asked for.
+- Run `references/od-use-case-promotion/procedure.md`; it keeps its own references, assets and authority (recommend).
+- Refusing to promote is a valid result.
+
+## Example
+
+```text
+Use case (fictional): "Line 4 stop reasons on a tablet", plant Alpha, injection molding.
+1 Library: entry "Downtime Reporting - injection" found, CSP Yes, proven at plant Beta -> take it, adapted.
+2 Placement: capability Downtime Reporting, process group Injection molding (plastic).
+3 Cluster: classifier says C05 (category and template agree); baseline pulled from clusters.md C05.
+4 Deltas: two machines without a stop signal; reason list in local language.
+5 CSP: methods written, evidence from Beta cited -> verdict "ready; entry already CSP Yes".
+6 Handoff: dept-decision-rights (rollout gate), bc-build (value), bc-portfolio (track adoption at Alpha).
+```
+
+## Human gate and AI-agent notes
+
+- The agent recommends. The CSP decision sits outside OD; the OD lead signs off the review.
+- Do not call an entry catalogued, standard or CSP-approved without a recorded CSP `Yes`.
+- A blank CSP means the gate was not applied, not that the entry failed. Count the three outcomes on the live library before quoting a status.
+- Promoting an asset needs a named responsible human (DBVE); the agent never commits a use case to industrialization.
+- Compare regions on the live list: a low conversion rate is a different problem from a high one, not a smaller one.
+
+## Pitfalls
+
+- A blank CSP read as `No`: the gate has not been applied, so the entry is neither approved nor rejected.
+- C12 growth read as "the portfolio is idiosyncratic": it mostly means intake text is thin, so improve the notes, not the tag.
+- A deployment count read as adoption: a scaled use case needs utilization (and a saving where one is reported).
+- Template existence read as standardization: all templates exist; only second-plant take-up counts.
+- A new capability or process group created for one plant: it breaks the shared denominator. Raise it as a finding.
+- A region treated as a scaled-down copy of another: conversion patterns differ by region.
 
 ## Do not
 
 - Do not create a new capability or process group to accommodate one plant.
 - Do not hand-edit cluster tags.
-- Do not treat a `No` at the CSP gate as a rejection of the use case — it is a statement
-  about rollout readiness.
+- Do not treat a `No` at the CSP gate as a rejection of the use case; it states rollout readiness.
 - Do not count templates as evidence of standardization.
+- Do not quote counts or statuses without the live read date.
+
+## Definition of done
+
+- All five sections of the review are filled, so neither receiver has to re-ask.
+- The use case hangs off an existing capability and process group, with one classifier-assigned tag.
+- Baseline pulled and only the plant's deltas recorded.
+- For a rollout candidate, the CSP-readiness verdict names what is missing.
 
 ## Outputs
 
@@ -138,10 +145,16 @@ metadata:
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
-| [`references/od-use-case-promotion/assets/promotion-package.md`](references/od-use-case-promotion/assets/promotion-package.md) | The package for one candidate asset - recurrence, value, reproducibility, placement, handover, catalog conditions and the promote / reuse / keep / retire recommendation that feeds use case definition. |
-| [`references/od-use-case-promotion/references/pattern-evidence.md`](references/od-use-case-promotion/references/pattern-evidence.md) | How to read the portfolio aggregates that frame a promotion decision (declared standard, library and CSP status, case groups, handover and utilization), how to count them live, and what they… |
-| [`references/od-use-case-promotion/references/process-chain-practice.md`](references/od-use-case-promotion/references/process-chain-practice.md) | Method, decision rules, handoff contract, pitfalls and agent notes for promotion, abstracted from the Operations Digitalization slide decks - graduation conditions, the use-case exchange with the operational-excellence function, the promotion… |
-| [`references/od-use-case-promotion/references/promotion-criteria.md`](references/od-use-case-promotion/references/promotion-criteria.md) | The six tests an ad-hoc asset must be put through before it is proposed as a standard use case, the evidence that answers each, the promote / keep / retire… |
+| [`references/clusters.md`](references/clusters.md) | Step 3: you need a cluster's definition, KPI set, checklist and sources (marked verified or carried-over) |
+| [`references/process-family-patterns.md`](references/process-family-patterns.md) | Step 2: placing a use case, judging standardization potential, or briefing a plant on what peers ask for |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Step 7 or a scaling question: archetypes, graduation from prototype to configurable app, utilization over rollout count |
+| [`references/background.md`](references/background.md) | You need the rationale, portfolio findings, open questions or sources; never an instruction |
+| [`references/od-use-case-promotion/procedure.md`](references/od-use-case-promotion/procedure.md) | Promotion mode: a recurring ad-hoc asset |
+| [`references/od-use-case-promotion/assets/promotion-package.md`](references/od-use-case-promotion/assets/promotion-package.md) | Promotion mode: the package and the promote / reuse / keep / retire recommendation |
+| [`references/od-use-case-promotion/references/promotion-criteria.md`](references/od-use-case-promotion/references/promotion-criteria.md) | Promotion mode: the six tests and the evidence for each |
+| [`references/od-use-case-promotion/references/pattern-evidence.md`](references/od-use-case-promotion/references/pattern-evidence.md) | Promotion mode: reading portfolio aggregates (declared standard, library and CSP status, utilization) |
+| [`references/od-use-case-promotion/references/process-chain-practice.md`](references/od-use-case-promotion/references/process-chain-practice.md) | Promotion mode: graduation conditions, exchange with the operational-excellence function, retire versus keep |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |
+| [`references/outputs.md`](references/outputs.md) | The output contract in full (generated from outputs.yaml) |

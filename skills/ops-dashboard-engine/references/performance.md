@@ -8,6 +8,16 @@ tags: [grafana, performance]
 ---
 # performance.md — Making dashboards fast
 
+## Contents
+
+- Performance budgets
+- Indexes — the highest-leverage fix
+- Aggregate tables (Postgres / TimescaleDB only)
+- Hypertable chunk intervals
+- Reducing payload to the browser
+- Diagnostic flow when a dashboard is slow
+- Performance anti-patterns
+
 A slow dashboard is a dashboard people stop opening. This file collects what makes ops dashboards fast and what to do when one isn't.
 
 The two hard rules from `SKILL.md` (macros + PG/DuckDB portability) constrain SQL but don't constrain performance — every recipe below is compatible with both.

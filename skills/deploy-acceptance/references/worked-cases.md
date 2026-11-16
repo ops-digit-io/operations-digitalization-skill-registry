@@ -9,6 +9,18 @@ tags: [information-integration-service, practice]
 
 # Worked cases
 
+## Contents
+
+- Case 1: A delivered Process Values use case with no recorded saving
+- Case 2: A dry run recorded as "not productive" (image pilot)
+- Case 3: Productive only after a security approval (QFPR rollout)
+- Case 4: Integrated machines carrying open firmware blockers
+- Case 5: A traceability flow (process values to per-part test results)
+- Case 6: A migration accepted location by location (energy management)
+- Case 7: Integrated but not documented
+- What the cases have in common
+- Sources
+
 These are **illustrative patterns**, drawn from kinds of records the knowledge base holds. They are not
 acceptance protocols from the department: none exists in the knowledge base (see the open item in
 `acceptance-by-route.md`). Plants, counts and dates are placeholders

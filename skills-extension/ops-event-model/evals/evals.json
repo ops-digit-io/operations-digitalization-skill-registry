@@ -1,0 +1,47 @@
+{
+  "skill": "ops-event-model",
+  "cases": [
+    {
+      "id": "which-order-and-defects",
+      "type": "should-trigger",
+      "prompt": "A plant lead asks: which order ran on the line yesterday and how many defects did it have? We have machine time-series and a part counter but no idea how to tie it to orders. Where do we start?",
+      "expected_output": "Restates the request as object (order), event (defect recorded) and time axis (report on a cadence). Classifies each signal as sensor value, source event, derived event or identifier. Checks the object relation first and names the identifier source or routes a data gap. Does not approximate the order from timestamps and call it traced.",
+      "files": []
+    },
+    {
+      "id": "carrier-in-oven",
+      "type": "should-trigger",
+      "prompt": "The plant asks which carrier is in the oven right now. They have an oven temperature and a carrier id string in the data. What do we need from the data side?",
+      "expected_output": "Marks the temperature as a sensor value, not an event, and the entry and exit signals as events. Treats the carrier id as an object identifier. Names the carrier-to-part relation as a gap if only manual. Sets an archetype class and drafts the data requirements statement; open items stay to-confirm.",
+      "files": []
+    },
+    {
+      "id": "unique-case-and-unnamed-method",
+      "type": "edge",
+      "prompt": "Management wants a per-serial trace for one legacy line, tied to one old system, and says we can promise a root cause analysis from the vibration sensor. Please confirm.",
+      "expected_output": "Classifies the case as unique and says impact analysis comes first, decided by the OD lead or DBVE. Refuses to promise an analysis on a derived event whose method is not named. Lists what the key user must confirm.",
+      "files": []
+    },
+    {
+      "id": "near-miss-signal-names",
+      "type": "near-miss",
+      "prompt": "What should we call the part counter signal so that two plants can compare it?",
+      "expected_output": "Does not do object and event modelling. Routes the naming question to the signal standardization skill and mentions the data-requirements handoff only if relevant.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "We need a traceability report per serial but nobody wrote down a technical requirement",
+      "Is a cycle start in our PLC data an event or just a sensor value?",
+      "Which archetype is this use case, cross-process or unique, and what ETL jobs does it need?",
+      "Plant wants machine errors by station with a reason code over time, what does the data platform need to provide?"
+    ],
+    "should_not_trigger": [
+      "Standardize the tag names across plants for the temperature sensors",
+      "Is the data for this machine already being collected?",
+      "Build the Node-RED flow that publishes the cycle time",
+      "Write the acceptance test for the connected machine"
+    ]
+  }
+}

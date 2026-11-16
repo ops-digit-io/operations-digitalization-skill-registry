@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Analytics asset build](SKILL.md) | Agent Skill | Design and build the dashboard, report, workflow, app or agent a plant actually opens, tied to a daily routine. Not for the Grafana JSON build or data checks (mi-data-availability). |
+| [Analytics asset build](SKILL.md) | Agent Skill | Choose, design and build the asset a plant actually opens (dashboard, report, analytics workflow, app or agent) tied to a named daily routine such as the Gemba walk, shift check or Andon escalation, an action owner and a validation against the paper record. Use when someone asks for a dashboard, report or app, when choosing between them, when a delivered dashboard is not opened, or when a plant applies a catalogued dashboard template itself (Lane 1a). Not for the Grafana panel and JSON build (ops-dashboard-engine), data availability checks (mi-data-availability) or handover and adoption (deploy-handover). |
 
 | Folder | Holds |
 |---|---|

@@ -6,6 +6,7 @@ skills:
   bc-assess:
     files:
     - assets/use-case-input-questionnaire.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/build-engine.md
@@ -20,6 +21,7 @@ skills:
   bc-build:
     files:
     - assets/business-case-backbone.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/deck-structure.md
@@ -32,6 +34,7 @@ skills:
   bc-capital-request:
     files:
     - assets/capital-request-package.md
+    - evals/evals.json
     - outputs.yaml
     - references/backbone-and-conditionals.md
     - references/background.md
@@ -51,6 +54,7 @@ skills:
     files:
     - assets/investment-estimate.md
     - assets/investment-input-pack.md
+    - evals/evals.json
     - outputs.yaml
     - references/approval-route.md
     - references/background.md
@@ -60,6 +64,7 @@ skills:
   bc-portfolio:
     files:
     - assets/portfolio-review-protocol.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/od-use-case-prioritization/assets/prioritization-record.md
@@ -77,6 +82,7 @@ skills:
   catalog-compatibility:
     files:
     - assets/compatibility-check.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/compatibility-tests.md
@@ -86,6 +92,7 @@ skills:
   catalog-guardrails:
     files:
     - assets/go-live-check-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -93,6 +100,7 @@ skills:
   catalog-standardization:
     files:
     - assets/standardization-review.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/clusters.md
@@ -107,6 +115,7 @@ skills:
   catalog-systems:
     files:
     - assets/standard-system-entry.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -116,6 +125,7 @@ skills:
   catalog-template:
     files:
     - assets/template-resolution-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/master-register.md
@@ -124,6 +134,7 @@ skills:
   catalog-usecase:
     files:
     - assets/catalog-match-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/failure-cases-and-routing.md
@@ -137,6 +148,7 @@ skills:
   comms-brief:
     files:
     - assets/comms-brief.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/department-formats.md
@@ -148,6 +160,7 @@ skills:
   comms-followup:
     files:
     - assets/followup-log.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/feedback-routing.md
@@ -155,6 +168,7 @@ skills:
   comms-showcase:
     files:
     - assets/selection-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -163,6 +177,7 @@ skills:
     files:
     - assets/acceptance-test-protocol.md
     - assets/prefilled-test-items.md
+    - evals/evals.json
     - outputs.yaml
     - references/acceptance-by-route.md
     - references/background.md
@@ -175,6 +190,7 @@ skills:
   deploy-appstore:
     files:
     - assets/deployment-package.md
+    - evals/evals.json
     - outputs.yaml
     - references/app-manifest-and-release-gate.md
     - references/background.md
@@ -186,6 +202,7 @@ skills:
   deploy-cybersec:
     files:
     - assets/cybersec-signoff-package.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/gate-rules.md
@@ -196,6 +213,7 @@ skills:
   deploy-handover:
     files:
     - assets/handover-protocol.md
+    - evals/evals.json
     - outputs.yaml
     - references/adkar-diagnostic.md
     - references/background.md
@@ -217,6 +235,7 @@ skills:
     files:
     - assets/cutover-checklist-and-backout.md
     - assets/migration-assessment.md
+    - evals/evals.json
     - outputs.yaml
     - references/assessment-canvas-and-risk.md
     - references/background.md
@@ -227,6 +246,7 @@ skills:
     files:
     - assets/kickoff-milestone-closure.md
     - assets/project-order.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/kickoff-and-reports.md
@@ -235,6 +255,7 @@ skills:
     - references/roles-risks-procurement.md
   dept-context:
     files:
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/knowledge-graph-reading.md
@@ -245,6 +266,7 @@ skills:
   dept-context-freshness:
     files:
     - assets/hygiene-report.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/fact-triage-and-generated-registers.md
@@ -256,6 +278,7 @@ skills:
   dept-decision-rights:
     files:
     - assets/decision-request.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/decision-rights-framework.md
@@ -266,6 +289,7 @@ skills:
     files:
     - assets/call-for-action-and-status.md
     - assets/sprint-plan-and-review.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/demand-and-change-routing.md
@@ -276,6 +300,7 @@ skills:
     - references/training-programme.md
   dept-intake:
     files:
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -285,6 +310,7 @@ skills:
     files:
     - assets/plant-gap-diagnosis-record.md
     - assets/plant-roadmap-template.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/evidence-synthesis.md
@@ -295,6 +321,7 @@ skills:
   dept-plant-onboarding:
     files:
     - assets/onboarding-path.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -303,6 +330,7 @@ skills:
   dept-retro:
     files:
     - assets/retro-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -312,6 +340,7 @@ skills:
   dept-risk:
     files:
     - assets/risk-reading.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -322,6 +351,7 @@ skills:
     - assets/case-library.csv
     - assets/evaluation-protocol.md
     - assets/example-use-case.json
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/case-library.md
@@ -345,6 +375,7 @@ skills:
     files:
     - assets/epic-and-stories.example.md
     - assets/epic-and-stories.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/epic-and-user-stories.md
@@ -355,6 +386,7 @@ skills:
   funnel-first-aid:
     files:
     - assets/first-aid-request.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/first-aid-offering.md
@@ -368,6 +400,7 @@ skills:
     files:
     - assets/click-dummy-brief.md
     - assets/prototype-validation-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/build-patterns.md
@@ -381,6 +414,7 @@ skills:
     files:
     - assets/process-derivation-package.md
     - assets/to-be-process.example.bpmn
+    - evals/evals.json
     - outputs.yaml
     - references/adoption-and-embedding.md
     - references/background.md
@@ -393,6 +427,7 @@ skills:
   funnel-requirements:
     files:
     - assets/requirement-template.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/elicitation.md
@@ -408,6 +443,7 @@ skills:
     - assets/idea-check.md
     - assets/use-case-definition-protocol.md
     - assets/use-case-definition-questionnaire.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/benefit-theory.md
@@ -425,6 +461,7 @@ skills:
     - assets/workshop-agenda-and-preread.md
     - assets/workshop-capture-template.md
     - assets/workshop-follow-up-list.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
@@ -434,6 +471,7 @@ skills:
     files:
     - assets/existing-system-worksheet.md
     - assets/system-fit-check.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/decision-criteria.md
@@ -462,6 +500,7 @@ skills:
     files:
     - assets/ai-step-card.md
     - assets/missing-signal-and-binding-table.md
+    - evals/evals.json
     - outputs.yaml
     - references/ai-governance.md
     - references/ai-initiative-maturity-ladder.md
@@ -472,6 +511,7 @@ skills:
   know-sharepoint-export:
     files:
     - assets/export-run-log.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/export-procedure.md
@@ -485,6 +525,7 @@ skills:
     - assets/evals-template.json
     - assets/release-checklist.md
     - assets/skill-brief.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/evaluation-design.md
@@ -500,6 +541,7 @@ skills:
     files:
     - assets/competence-checklist.md
     - assets/training-package.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/competence-and-sustainment.md
@@ -510,6 +552,7 @@ skills:
   metrics-scorecard:
     files:
     - assets/scorecard-update-protocol.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/metric-reading-guide.md
@@ -522,6 +565,7 @@ skills:
     files:
     - assets/data-availability-verdict.md
     - assets/data-gap-request.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/data-needs-by-capability.md
@@ -539,6 +583,7 @@ skills:
     - assets/assessment-protocol.md
     - assets/guidance-protocol.md
     - assets/plant-readiness-brief.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/barrier-classes.md
@@ -580,6 +625,7 @@ skills:
     - assets/flow-config-contract.md
     - assets/protobuf-schema-bootstrap.flow.json
     - assets/triage-record.md
+    - evals/evals.json
     - outputs.yaml
     - references/architecture.md
     - references/artefacts.md
@@ -625,6 +671,7 @@ skills:
     files:
     - assets/signal-analysis-report.md
     - assets/signal-binding-sheet.md
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/capability-template-signal-sets.md
@@ -646,6 +693,7 @@ skills:
     - assets/asset-build-protocol.md
     - assets/dashboard-requirements-template.md
     - assets/dashboard-review-checklist.md
+    - evals/evals.json
     - outputs.yaml
     - references/asset-type-and-tier.md
     - references/background.md
@@ -661,12 +709,14 @@ skills:
     - references/process-chain-practice.md
   ops-dashboard-datatron:
     files:
+    - evals/evals.json
     - outputs.yaml
     - references/background.md
     - references/outputs.md
   ops-dashboard-engine:
     files:
     - OD-INTEGRATION.md
+    - evals/evals.json
     - outputs.yaml
     - references/annotations_and_alerts.md
     - references/archetypes.md
@@ -697,6 +747,7 @@ skills:
     files:
     - assets/data-requirements-statement.md
     - assets/event-definition-canvas.md
+    - evals/evals.json
     - outputs.yaml
     - references/archetype-method-etl.md
     - references/background.md

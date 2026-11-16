@@ -1,7 +1,7 @@
 ---
 name: funnel-use-case
 description: >-
-  Define a plant use case so it can be built, standardized, handed over and measured (step 21), and run definition workshops. Not for intake triage (dept-intake) or the business case.
+  Define a plant use case so it can be built, standardized, handed over and measured: scope the objective, run process diagnostics, state the benefit, assess legacy systems and data, and fill the use-case definition protocol with four control points. Use when a plant has an idea or an accepted demand for a new recurring need, when someone asks "is this a real use case", "has someone already done this" or how to define one, or when a definition workshop is due at onboarding. A known catalogued case is not defined here. Not for intake triage (dept-intake), catalogue matching (catalog-usecase), the business case (bc-build) or running a workshop (funnel-workshop).
 license: MIT
 metadata:
   id: funnel-use-case
@@ -27,7 +27,7 @@ metadata:
 # Use-case definition
 
 - Read `dept-context` first.
-- Provenance: merged from the lane's playbook and the use-case knowledge base pages.
+- Terms: a **demand** is the plant's request as logged at intake; a **use case** is what this skill defines from it.
 
 ## Start here: understand your own use case idea
 
@@ -43,7 +43,7 @@ metadata:
 
 ## Purpose and where it sits
 
-- Serves step 21, define and diagnose, and holds the service flow of the lane around it (Lane 2, steps 21 to 26, plus the use-case half of Lane 1).
+- Serves flow step 21, define and diagnose, and points to the service flow of the lane around it (Lane 2, steps 21 to 26, plus the use-case half of Lane 1).
 
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
@@ -60,24 +60,17 @@ metadata:
 - **Trigger:** a genuinely new recurring need on connected equipment (Lane 2), accepted by `dept-intake`, or a workshop request.
 - A known, catalogued case is Lane 1 and does not come here (`catalog-usecase`).
 - **Done (lane):** use case defined, requirements and data checked, prototype validated, business case agreed, capital request approved where investment is needed, implemented, adopted and, when proven and repeatable, catalogued.
-- Step 21 = rows 1 and 2.
 
-| # | Flow step | Step | Who | Control point | Skill |
-|---|---|---|---|---|---|
-| 1 | intake | Collect plant use-case demand | DBVE + Plant ME | Demand logged against the plant roadmap; no nameable business case: refuse per intake | `dept-intake` |
-| 2 | 21 | Plant- and process-specific definition; process diagnostics | both | Use case scoped with a clear objective | this skill |
-| 3 | 22 | Requirements, features and data check; assess (legacy) MF IT systems | DBVE | Requirement and data verdict agreed | `funnel-requirements`, `mi-data-availability`, `invest-screen` |
-| 4 | 23 | Prototype / validate with the recipient | DBVE + Plant | Prototype validated | `funnel-prototype`, `ops-analytics-asset` |
-| 5 | 24 | Benefit calculation, business case, rank | both | Business case and priority agreed with Plant ME | `bc-build`, `bc-assess` |
-| 6 | 25 | Capital request, if investment is needed | DBVE; humans approve | Approved by MPEE / BA Operations | `dept-decision-rights`, `bc-capital-request` |
-| 7 | 26 | Implement; evaluate impact; ensure adoption; catalogue | both | Use case running; recipient confirms adoption | `deploy-handover`, `catalog-standardization`, `catalog-usecase` |
+- Flow steps (the one numbering used here): intake, 21 define, 22 requirements and data check, 23 prototype, 24 business case, 25 capital request, 26 implement and adopt.
+- The full table with who, control point and skill per step is in `references/lane-service-flow.md`.
+- Step 21 is this skill; steps 22 to 26 belong to the skills named in that table.
 
 - **Chaining out of Lane 2** (do not build it here): the use case needs new software or an app: hand the system demand to Lane 3, branch 3a (`invest-screen` routes 3a.1 to 3a.4).
 - It needs a new machine connection: hand it to Lane 3, branch 3b (`mi-equipment`).
 - Record the move on the same demand.
 - A proven, repeatable result is catalogued (`catalog-usecase`) and future runs are Lane 1.
 
-- Before row 7 run `catalog-standardization`: a match to a library entry takes it rather than being re-specified.
+- Before step 26 run `catalog-standardization`: a match to a library entry takes it rather than being re-specified.
 - Per-step template routing: `references/lane-templates.md`.
 
 ## The coordinate every use case carries
@@ -99,6 +92,7 @@ metadata:
 ## Procedure: four phases, each with a control point
 
 - Collect -> Analyse -> Assess -> Control.
+- Validation loop: at each control point ask whether it is met; if not, stay in the phase and fix it, and do not start the next phase.
 - Maps to the portfolio stages Captured / Evaluated / Assessed / Planned; a use case stuck at a stage stalled in the matching phase (`references/lane-service-flow.md`).
 
 ### 1 · Collect
@@ -150,6 +144,8 @@ metadata:
 
 ## Workshops
 
+- Running a workshop (agenda, capture, follow-up) is `funnel-workshop`; this skill only supplies the questionnaire to run inside it.
+
 | Workshop | When | Template |
 |---|---|---|
 | Use Case Definition Workshop | Plant onboarding or a new demand wave | Standard Agenda - Use Case Workshop (SharePoint); run the questionnaire inside it |
@@ -160,6 +156,9 @@ metadata:
 ## Example
 
 ```text
+Weak (fictional):   "We need a dashboard for Line 4." (asks for a solution, no benefit, no owner)
+Strong (fictional): see below
+
 Use case:   Downtime view for Line 4 (fictional)    Plant: Plant X (fictional)
 Coordinate: material family Plastic / process group / capability Downtime Reporting
 Category:   non-standard, unique to one plant        Output asset: Dashboard
@@ -174,7 +173,7 @@ Control points: 1 logged, 2 scoped, 3 system assessment, 4 decided with Plant ME
 
 ## Handoff
 
-- To `mi-equipment` **with** business case and requirement breakdown (via `catalog-standardization` first); to `deploy-handover` at row 7 (flow step 26).
+- To `mi-equipment` **with** business case and requirement breakdown (via `catalog-standardization` first); to `deploy-handover` at step 26.
 - Receiver needs the completed protocol, so a plant engineer who was not in the room can read what was decided, why, what is open.
 - Block-to-block handoff table: `references/process-chain-practice.md`.
 
@@ -186,6 +185,8 @@ Control points: 1 logged, 2 scoped, 3 system assessment, 4 decided with Plant ME
 - Systems and access, metrics: `references/lane-service-flow.md`.
 
 ## Pitfalls
+
+- Starting a definition for a catalogued case: Lane 1 needs no definition, and the effort is wasted.
 
 - Declaring `standard` to look scalable: the CSP gate disagrees and rollout economics rest on it.
 - A definition only its author can read: the handover test applies from the first draft (what is this, where does data come from, who owns it).
@@ -207,8 +208,9 @@ Control points: 1 logged, 2 scoped, 3 system assessment, 4 decided with Plant ME
 | [`references/vocabulary.md`](references/vocabulary.md) | Controlled vocabulary: business process, output asset, legacy systems and tools |
 | [`references/worked-examples.md`](references/worked-examples.md) | Three illustrative use cases through the four phases |
 | [`references/process-chain-practice.md`](references/process-chain-practice.md) | Part A: step 21 in the AI chain (canvas, diagnosis patterns, can/cannot, handoff to 22). Part B: lane blocks, sprint deliverables, registration gate, handoffs |
-| [`references/lane-service-flow.md`](references/lane-service-flow.md) | Error paths, wait states, recurring tasks, systems and access, autonomy, metrics |
+| [`references/lane-service-flow.md`](references/lane-service-flow.md) | You need the lane flow table (who, control point, skill per step), error paths, wait states, systems and access, autonomy, metrics |
 | [`references/lane-templates.md`](references/lane-templates.md) | Which skill's asset answers each lane step's template |
 | [`references/task-chain-and-tool-use.md`](references/task-chain-and-tool-use.md) | Recurring tasks as a trigger chain, tool access reasons, partner seams |
 | [`references/library-catalog.md`](references/library-catalog.md) | Searching the use-case library by capability |
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/background.md`](references/background.md) | You need provenance or the output table; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

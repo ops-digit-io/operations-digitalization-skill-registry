@@ -9,6 +9,16 @@ tags: [information-integration-service, technical]
 
 # Connector fact sheets
 
+## Contents
+
+- How to read the machine links
+- Edge connectors for PLCs (DATATRONiQ, all `Productive`, `USE` unless stated)
+- Connectors for non-PLC endpoints
+- Softing connectors (Softing Industrial)
+- Build and enhancement requests written on the items
+- What to do with this
+- Sources
+
 `connectors.md` answers "is the connector available?". This file adds what
 the Connector Overview records **beyond availability**: the technical limits that decide whether a
 connector fits a machine, the kind of endpoint each reaches, and the build or enhancement requests

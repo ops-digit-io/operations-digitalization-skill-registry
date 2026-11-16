@@ -10,7 +10,7 @@ tags: [project-support-consultancy, practice, process-chain, draft]
 
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
 marks a synthesis; `<...>` is unknown. The decks cover the *offer* of training more than its content; module content stays in
-[`curriculum-modules.md`](curriculum-modules.md).
+`curriculum-modules.md`.
 
 ## 1. Method in practice
 

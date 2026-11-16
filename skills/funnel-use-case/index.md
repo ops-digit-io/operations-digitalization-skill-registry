@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case definition](SKILL.md) | Agent Skill | Define a plant use case so it can be built, standardized, handed over and measured (step 21), and run definition workshops. Not for intake triage (dept-intake) or the business case. |
+| [Use-case definition](SKILL.md) | Agent Skill | Define a plant use case so it can be built, standardized, handed over and measured: scope the objective, run process diagnostics, state the benefit, assess legacy systems and data, and fill the use-case definition protocol with four control points. Use when a plant has an idea or an accepted demand for a new recurring need, when someone asks "is this a real use case", "has someone already done this" or how to define one, or when a definition workshop is due at onboarding. A known catalogued case is not defined here. Not for intake triage (dept-intake), catalogue matching (catalog-usecase), the business case (bc-build) or running a workshop (funnel-workshop). |
 
 | Folder | Holds |
 |---|---|

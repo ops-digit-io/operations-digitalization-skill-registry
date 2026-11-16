@@ -1,7 +1,7 @@
 ---
 type: Skill Reference
 title: Criteria checklist
-description: "The scored rubric: core integrity C1-C5 (a gap blocks signing), deck-renderable structure D1-D8, discipline E; pass / partial / gap with evidence."
+description: "The scored rubric: core integrity C1-C5 (a gap blocks signing), deck-renderable structure D1-D9, discipline E; pass / partial / gap with evidence."
 resource: ../SKILL.md
 status: draft
 tags: [business-case, assessment, department-package]

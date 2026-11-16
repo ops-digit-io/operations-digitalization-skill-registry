@@ -10,7 +10,7 @@ tags: [information-integration-service, practice]
 # Compatibility tests
 
 Run a row only when at least one plant in scope differs from the first plant on that dimension
-([`plant-differences.md`](plant-differences.md)). The tests restate nothing from the composed skills; they say what to ask
+(`plant-differences.md`). The tests restate nothing from the composed skills; they say what to ask
 and where the answer comes from. Every test ends in one of: consumable, consumable with mapping, not consumable, unknown.
 
 | # | Dimension | Question | Evidence from | Pass | Fail or mapping |

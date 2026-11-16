@@ -20,7 +20,7 @@ outputs:
   to_roles:
   - Plant ME
   - Plant IT
-  - then Route B per machine
+  - then Mode B per machine
   done_when:
   - Inventory and roadmap agreed
   - Each machine in scope carries concept, connector and sequence position
@@ -54,7 +54,7 @@ outputs:
   - "`INTEGRATED` set only after `deploy-acceptance` passes"
   signoff: MPEE OD (informed)
 - id: investment-for-approval
-  form: Sized investment from Route A step 6
+  form: Sized investment from Mode A step 6
   to_skills:
   - dept-decision-rights
   to_roles: []

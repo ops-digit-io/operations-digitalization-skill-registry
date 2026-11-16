@@ -1,0 +1,47 @@
+{
+  "skill": "mi-equipment",
+  "cases": [
+    {
+      "id": "which-route-for-this-plc",
+      "type": "should-trigger",
+      "prompt": "We need to get data from a PLC at our plant (fictional) onto the platform. The machine already has an OPC UA server. What is the cheapest way and what has to be in place first?",
+      "expected_output": "Asks or states what is installed at the plant before choosing a pattern. Recommends the OPC-UA bridge via the aggregation server as the cheap case. Says the aggregation server needs the edge platform behind it. Lists the preparation gates in order (budget, infrastructure, PLC program, tags, cyber security). Says a human connects the machine and Cyber Security sign-off blocks go-live only.",
+      "files": []
+    },
+    {
+      "id": "plan-a-wave",
+      "type": "should-trigger",
+      "prompt": "Plant X (fictional) wants to connect about thirty machines for two accepted use cases. Where do we start and how do we sequence it?",
+      "expected_output": "Starts with an inventory from the Machine List counted live and filters by demand from accepted or planned use cases. Classifies barrier tiers and routes each machine. Sequences against roadmap and readiness. Starts Cyber Security in parallel. Treats blank status as a data gap, not a failure.",
+      "files": []
+    },
+    {
+      "id": "no-plc-program",
+      "type": "edge",
+      "prompt": "A machine at our plant has no PLC program we can use and the vendor is gone. Just tell the team it is blocked.",
+      "expected_output": "Says to raise it at the first conversation. Works the non-PLC fallbacks before recording the machine as blocked. If no route exists, logs the barrier and escalates into the roadmap instead of omitting the machine. Does not compose an unwritten route.",
+      "files": []
+    },
+    {
+      "id": "acceptance-near-miss",
+      "type": "near-miss",
+      "prompt": "The machine is connected and sending data. Write the acceptance test and tell me whether we can mark it as integrated.",
+      "expected_output": "Recognises that acceptance belongs to the acceptance skill. States that INTEGRATED is set only after acceptance passes. Does not run the integration assessment again.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Which connector should we use for this Siemens PLC?",
+      "Our machine will not connect, what blocks it?",
+      "Plan the next wave of machine integration for the plant.",
+      "Do we route this machine through the edge device or the aggregation server?"
+    ],
+    "should_not_trigger": [
+      "Is the signal for part count available at this plant?",
+      "Define the naming standard for machine tags.",
+      "Write the acceptance protocol for the new connection.",
+      "Build the Node-RED flow that turns the signals into events."
+    ]
+  }
+}

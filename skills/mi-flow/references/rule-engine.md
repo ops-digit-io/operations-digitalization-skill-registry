@@ -10,6 +10,12 @@ tags: [node-red, rule-engine, datatron, department-package]
 
 # OPS Rule Engine (DATATRON / Node-RED)
 
+## Contents
+
+- Workflow: new calculated datapoint
+- Workflow: fix or review an existing flow
+- Workflow for calculated datapoints
+
 A rule-engine flow subscribes to a machine's DATATRON MQTT topic, decodes the protobuf
 `PLCPacketList`, keeps the latest value of each input datapoint (DP), runs a calculation, and
 publishes the result as a **new virtual DP** (its own UUID, created beforehand in DATATRON) in the

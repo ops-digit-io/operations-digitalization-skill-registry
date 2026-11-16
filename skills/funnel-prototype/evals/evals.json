@@ -1,0 +1,47 @@
+{
+  "skill": "funnel-prototype",
+  "cases": [
+    {
+      "id": "usability-question-click-dummy",
+      "type": "should-trigger",
+      "prompt": "We defined a use case for a downtime view for shift supervisors. Before we write the business case, I want to know whether supervisors would actually use the screen. Can we do a quick mock-up and test it with them?",
+      "expected_output": "The open question is named in the plant's words and classed as usability.\nA click-dummy (mock-up) is chosen, not a PoC.\nA pass criterion with a number, scope, time box and named validator is written before any build.\nThe label is mock-up, and the result is never called proven.\nA validation record is the output.",
+      "files": []
+    },
+    {
+      "id": "data-question-poc",
+      "type": "should-trigger",
+      "prompt": "Does the vibration signal on our pump actually separate good from worn bearings? We have two months of readable data. Should we run a proof of concept before going to the business case?",
+      "expected_output": "The question is classed as a data or model question, so a PoC on real data is picked.\nThe data verdict from the data check is confirmed first.\nThe pass criterion is written before the PoC with a validator role.\nThe label is PoC and no euro figure is attached.",
+      "files": []
+    },
+    {
+      "id": "no-data-stop",
+      "type": "edge",
+      "prompt": "Build me a prototype that predicts oven failures. The oven has no logged signals at all, but the plant manager is keen to see something.",
+      "expected_output": "The skill stops because a prototype on missing data proves nothing.\nThe data gap is routed to the data availability check.\nAt most a click-dummy for a usability question is offered, labelled mock-up.\nNo invented plant values are presented as real.",
+      "files": []
+    },
+    {
+      "id": "value-question-near-miss",
+      "type": "near-miss",
+      "prompt": "Can you work out how many euros per year the new scrap-tracking use case will save so I can put it in the business case?",
+      "expected_output": "It is recognised that this is a value question, which a prototype cannot answer.\nThe request is pointed to the business case building skill.\nNo prototype is started.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Can we build a click-dummy of the new maintenance screen and test it with the plant?",
+      "Should we do a proof of concept or a mock-up for this use case before the business case?",
+      "Help me write the pass criterion and validation record for our pilot with the shift team",
+      "Is a quick mock-up enough to find out whether operators will read this dashboard?"
+    ],
+    "should_not_trigger": [
+      "Calculate the savings of this use case for the savings ledger",
+      "Write the capital request for the sensor purchase",
+      "Build the production Grafana dashboard for line 5",
+      "Write the testable acceptance criteria and signal list for this demand"
+    ]
+  }
+}

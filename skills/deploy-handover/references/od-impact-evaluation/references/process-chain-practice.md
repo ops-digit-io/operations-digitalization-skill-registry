@@ -8,6 +8,15 @@ tags: [use-case-support-service, practice, process-chain, draft]
 ---
 # Process-chain practice
 
+## Contents
+
+- 1. Method in practice
+- 2. Decision rules
+- 3. Handoff contract
+- 4. Pitfalls and lessons
+- 5. Questions to ask / definition of done
+- 6. AI agent operating notes
+
 Distilled from the Operations Digitalization slide decks, abstracted into process guidance. No company figures. `PROPOSAL`
 marks a synthesis; `<...>` is unknown. It adds to [`savings-proof-path.md`](savings-proof-path.md) and
 [`evaluation-questions.md`](evaluation-questions.md).

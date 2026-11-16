@@ -1,13 +1,7 @@
 ---
 name: deploy-migration
 description: >-
-  Plan and run the migration of a legacy shop-floor application, server, middleware or platform to the
-  target platform, location by location - as-is/to-be canvas, per-component risk and recovery-impact
-  tables, OT application inventory with production-criticality and customer-impact ratings, staged
-  migration, per-location checklist with RAG, key-user verification, outage window, parallel run, back-out
-  plan and decommissioning. Use when a plant-local application or middleware is to be replaced or retired,
-  a server or virtual machine moves, a platform changes across plants, or someone asks "what happens to the
-  old system, and how do we get back if the cutover fails".
+  Plans and runs the move of a legacy shop-floor application, server, middleware or platform to the target platform, location by location, with a way back: inventory and as-is/to-be canvas, risk and recovery-impact ratings, staged plan, per-location checklist with RAG, outage window, key-user verification, parallel run, back-out plan and decommissioning. Use when a plant-local application or middleware is to be replaced or retired, a server or virtual machine moves, a platform changes across plants, or someone asks what happens to the old system and how to get back if the cutover fails. Drafts only; the cutover, back-out decision and switch-off are human. Not for deciding whether to replace (invest-screen) or the sign-off (deploy-cybersec).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -34,12 +28,10 @@ metadata:
 - Read `dept-context` first.
 
 - No existing skill owns the move itself.
-- `invest-screen` and `invest-screen` decide *whether* to replace, integrate or keep an application; `deploy-cybersec` decides whether the target may go live; `deploy-acceptance` proves it works; `deploy-handover` hands it to the operating model.
+- `invest-screen` decides *whether* to replace, integrate or keep an application; `deploy-cybersec` decides whether the target may go live; `deploy-acceptance` proves it works; `deploy-handover` hands it to the operating model.
 - This skill sits between them: it turns "replace it" into an inventory, a risk-rated plan, a staged cutover per location, a way back, and a retirement of the old thing.
 
-- Provenance: the assessment and per-location parts come from workshop and migration decks.
-- The **back-out plan content is a `PROPOSAL`**: the decks hold only diagrams of who does what, no content.
-- Everything marked `PROPOSAL` is synthesis, to be confirmed by the owner of the back-out process.
+- Everything marked `PROPOSAL` is synthesis: the back-out plan content is not confirmed by the owner of the back-out process (`references/backout-plan-proposal.md`).
 
 ## Purpose and definition of done
 
@@ -70,18 +62,22 @@ metadata:
 
 ## References and assets
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/assessment-canvas-and-risk.md`](references/assessment-canvas-and-risk.md) | The workshop pattern, the as-is/to-be canvas, the component inventory, the per-component risk and recovery-impact tables, the OT application inventory and both qualitative rubrics |
-| [`references/staged-migration-and-cutover.md`](references/staged-migration-and-cutover.md) | Staging logic, preconditions, per-location checklist and RAG, outage window, key-user verification, parallel run, licence check, middleware retirement flow, decommissioning, pitfalls |
-| [`references/backout-plan-proposal.md`](references/backout-plan-proposal.md) | `PROPOSAL`: the structure of a back-out plan, its triggers, the points of no return and the rehearsal |
-| [`assets/migration-assessment.md`](assets/migration-assessment.md) | Canvas, inventory, risk and impact tables, target mapping, staged plan |
-| [`assets/cutover-checklist-and-backout.md`](assets/cutover-checklist-and-backout.md) | Per-location checklist with RAG, verification record, back-out plan, decommissioning record |
+| [`references/assessment-canvas-and-risk.md`](references/assessment-canvas-and-risk.md) | Steps 2 and 3, assessing and rating risk: the workshop pattern, the as-is/to-be canvas, the component inventory, the per-component risk and recovery-impact tables, the OT application inventory and both qualitative rubrics |
+| [`references/staged-migration-and-cutover.md`](references/staged-migration-and-cutover.md) | Steps 4 to 6 and 8, staging and cutover: staging logic, preconditions, per-location checklist and RAG, outage window, key-user verification, parallel run, licence check, middleware retirement flow, decommissioning, pitfalls |
+| [`references/backout-plan-proposal.md`](references/backout-plan-proposal.md) | Step 7, writing the back-out plan: `PROPOSAL`, the structure of a back-out plan, its triggers, the points of no return and the rehearsal |
+| [`assets/migration-assessment.md`](assets/migration-assessment.md) | You start an assessment: canvas, inventory, risk and impact tables, target mapping, staged plan |
+| [`assets/cutover-checklist-and-backout.md`](assets/cutover-checklist-and-backout.md) | You prepare a location: per-location checklist with RAG, verification record, back-out plan, decommissioning record |
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |
 
 ## Procedure
 
-1. **Frame and decide the scenario.** Take the decision from `invest-screen` / `invest-screen` (replace, integrate, keep).
+- Checklist: scenario with baseline, inventory and ratings confirmed, risk table, staged plan, preconditions, per-location plan, back-out plan read, cutover, verification, handover, decommissioning.
+- Validation loop per location: if a checklist item is Red or a back-out trigger fires, stop the stage, fix or back out, then rerun the checklist before continuing.
+
+1. **Frame and decide the scenario.** Take the decision from `invest-screen` (replace, integrate, keep).
    - Write the scenario list with **"continue as-is"** as a mandatory baseline and its consequences (security issues, patch and compatibility problems, loss of know-how, expiring support).
    - `PROPOSAL`: no decision package without that baseline.
 2. **Assess.** Run the assessment workshop or desk assessment (reference 1): use cases of the old system, component inventory focused on interfaces, impact per use case, as-is/to-be status of security, bus, recipe management and MES where relevant.
@@ -94,6 +90,18 @@ metadata:
 7. **Write the back-out plan** per stage (reference 3) and agree its trigger and decision owner before the outage window opens.
 8. **Cut over** (human-executed), verify with the key users item by item, then run the old and new side by side only as long as the plan says, with a named person who stops the old process.
 9. **Hand over and retire**: operating model and service concept to `deploy-handover`; then decommission (uninstall request, VM released, application list updated).
+
+## Example
+
+- Fictional rows (invented values, plant X):
+
+```text
+Inventory:  App "line-report" (fictional), runs on plant server S1, 2 interfaces (PLC read, ERP file out)
+            Use cases: shift report = must be preserved; old export = can be dropped
+Risk row:   component "ERP file out": recovery impact = high; production-criticality = medium, confirmed by local owner (role)
+Checklist:  Item "Backup taken and restore tested"  Owner: central server team  Status: A  Verified by key user: no
+            -> stage does not start until Status G
+```
 
 ## Decision rules
 
@@ -109,7 +117,7 @@ metadata:
 
 | Receives | From |
 |---|---|
-| Replace / integrate / keep decision, use-case list of the old system | `invest-screen`, `invest-screen`, `funnel-requirements` |
+| Replace / integrate / keep decision, use-case list of the old system | `invest-screen`, `funnel-requirements` |
 | Target architecture and security status | `invest-screen`, `deploy-cybersec` |
 | Application and interface lists, machines concerned | plant ME, local owner, application list |
 
@@ -122,12 +130,7 @@ metadata:
 
 ## Questions to ask
 
-- Which additional interfaces exist (for example a laboratory)? Who actually uses the recorded data?
-- Does the current reporting need heavy manual correction? Capture the plant's wording verbatim; derive the requirement (for example automatic break and shift-end detection).
-- If the old system is kept, what happens, and when does support end?
-- Which software lives on the same machine (aggregation server, other tools) and does it stay?
-- Which runtime licences are bound to one machine, and is the key available?
-- Is any customer audit, shutdown or fixed external date near the window?
+- Put the assessment questions to the application owner and key user before step 3; the list is in `references/assessment-canvas-and-risk.md` ("Questions to ask").
 
 ## AI agent operating notes
 
@@ -154,8 +157,8 @@ metadata:
 ## Do not
 
 - Do not give a rating, a RAG status or a sign-off the owner has not confirmed.
-- Do not start a stage before preconditions and the back-out plan exist.
+- Do not start a stage before preconditions and the back-out plan exist: a missing precondition is the first blocker, found late it costs the outage window.
 - Do not take a customer-facing line down before a customer audit.
 - Do not leave old and new systems, or paper, running in parallel without an end date and an owner for stopping the old one.
-- Do not decommission before key-user verification and an agreed observation period.
+- Do not decommission before key-user verification and an agreed observation period, because the way back disappears with the old system.
 - Do not put counts, spend, per-plant statuses or dates of the real estate into the assets; keep them as `<fields>`.

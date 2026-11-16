@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Migration and cutover](SKILL.md) | Agent Skill | Plan and run the migration of a legacy shop-floor application, server, middleware or platform to the target platform, location by location - as-is/to-be canvas, per-component risk and recovery-impact tables, OT application inventory with production-criticality and customer-impact ratings, staged migration, per-location checklist with RAG, key-user verification, outage window, parallel run, back-out plan and decommissioning. Use when a plant-local application or middleware is to be replaced or retired, a server or virtual machine moves, a platform changes across plants, or someone asks "what happens to the old system, and how do we get back if the cutover fails". |
+| [Migration and cutover](SKILL.md) | Agent Skill | Plans and runs the move of a legacy shop-floor application, server, middleware or platform to the target platform, location by location, with a way back: inventory and as-is/to-be canvas, risk and recovery-impact ratings, staged plan, per-location checklist with RAG, outage window, key-user verification, parallel run, back-out plan and decommissioning. Use when a plant-local application or middleware is to be replaced or retired, a server or virtual machine moves, a platform changes across plants, or someone asks what happens to the old system and how to get back if the cutover fails. Drafts only; the cutover, back-out decision and switch-off are human. Not for deciding whether to replace (invest-screen) or the sign-off (deploy-cybersec). |
 
 | Folder | Holds |
 |---|---|

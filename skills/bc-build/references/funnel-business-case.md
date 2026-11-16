@@ -10,6 +10,16 @@ tags: [business-case, funnel, department-package]
 
 # Business Case
 
+## Contents
+
+- Core Principle
+- Stage 1 — Gather the Inputs
+- Stage 2 — Build the Model
+- Stage 3 — Build the Deck
+- Stage 4 — State the Limits
+- Red Flags
+- Chaining
+
 Turn a validated prototype into a defensible value story and a deck someone can
 present.
 

@@ -8,6 +8,15 @@ tags: [node-red, protobuf, mqtt]
 ---
 # The PLCPacket message
 
+## Contents
+
+- Which fields flows actually touch
+- `sys_time` — packed, not an epoch
+- `oneof measured_value` — exactly one value field is present
+- `uuid` is the identity; `label` is not in the message
+- `is_delta`
+- The outbound transformation, in order
+
 Every `datatroniq/*` MQTT message in the estate is a protobuf-encoded `PLCPacketList`.
 The schema is written to `/data/plcschema.proto` on the instance by an inject-once flow
 (`Generate Text for Protobuffer Schema`), and the `decode` / `encode` nodes reference it

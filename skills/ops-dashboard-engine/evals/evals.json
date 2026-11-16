@@ -1,0 +1,47 @@
+{
+  "skill": "ops-dashboard-engine",
+  "cases": [
+    {
+      "id": "downtime-manager-view",
+      "type": "should-trigger",
+      "prompt": "Build me an importable Grafana dashboard for the plant manager showing downtime. We have a table downtime_incidents with start_time, end_time (NULL while ongoing), machine_id, reason_id and account_id.",
+      "expected_output": "Confirms the schema and the KPI formula before writing SQL and picks the relational archetype and manager tier. Uses Grafana time macros, window clipping with LEAST and GREATEST for duration sums and an explicit decision for NULL end_time. Generates JSON with the Python builder, not by hand. Ends with the audit checklist and the portability check.",
+      "files": []
+    },
+    {
+      "id": "telemetry-analyst-view",
+      "type": "should-trigger",
+      "prompt": "I have a telemetry table with systime, uuid, value_double and is_delta. I need an analyst dashboard with a counter trend per machine and a state timeline.",
+      "expected_output": "Identifies the UUID-keyed timeseries archetype and the analyst tier. Uses one variable per signal with the raw format so UUID quotes do not double up. Uses timeGroup and interval macros for bucketing. Wires every defined variable into the panels. Does not hardcode UUIDs in panel SQL.",
+      "files": []
+    },
+    {
+      "id": "portability-failure",
+      "type": "edge",
+      "prompt": "This panel query uses time_bucket('1h', ts) and DISTINCT ON and works on our Postgres but errors on the DuckDB datasource. Fix it.",
+      "expected_output": "Replaces time_bucket with the Grafana time group macro and DISTINCT ON with ROW_NUMBER over a partition. Explains each change in terms of the two hard rules. Does not keep a Timescale-only function; if one is unavoidable, marks the panel Postgres-only in a comment.",
+      "files": []
+    },
+    {
+      "id": "near-miss-html-dashboard",
+      "type": "near-miss",
+      "prompt": "Make me a single HTML file dashboard with Chart.js and embedded sample data that I can email to my boss.",
+      "expected_output": "Does not produce Grafana JSON. Says this is a self-contained HTML output and belongs to the HTML dashboard builder, not this skill.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Generate a Grafana dashboard JSON for energy consumption per line that I can import",
+      "Why does my Grafana panel return zero rows when I filter by a signal UUID variable?",
+      "Create manager and analyst dashboards for our quality checks table",
+      "Make this Grafana SQL work on both Postgres and DuckDB"
+    ],
+    "should_not_trigger": [
+      "Should we build a dashboard or a report for the shift handover?",
+      "Create a standalone HTML dashboard with Chart.js",
+      "Check whether the signals for this machine are actually collected",
+      "Write a Power BI measure for scrap rate"
+    ]
+  }
+}

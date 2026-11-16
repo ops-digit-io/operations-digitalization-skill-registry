@@ -13,6 +13,17 @@ tags:
 ---
 # Maturity assessment
 
+## Contents
+
+- Where it sits in the chain (proposed step ids, `docs/new-state/process.yaml`)
+- References and assets
+- Procedure
+- Output
+- AI agent operating notes
+- Still open
+- Do not
+
+
 > **Absorbed.** This was the skill `od-maturity-assessment`. It now runs as a mode of [`funnel-evaluation`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `dept-context` first.

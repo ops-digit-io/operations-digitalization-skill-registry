@@ -1,14 +1,7 @@
 ---
 name: bc-portfolio
 description: >-
-  Analyse the OD portfolio and its savings ledger without being wrong about it — cut the
-  plant use cases by plant, region, capability, cluster, status and asset; read the savings
-  ledger for what it does and does not claim; and apply the three ways this data most
-  often misleads (absence read as zero, tracked read as proven, implemented read as in
-  use). Use for any portfolio question, regional or plant comparison, standardization or
-  conversion-rate analysis, savings roll-up, or when a number about the portfolio is going
-  into a deck, a board paper or a business case.
-  Also ranks competing candidate use cases for a plant or region into a prioritization record (formerly od-use-case-prioritization).
+  Reads the OD use-case portfolio and the savings ledger correctly: cuts use cases by plant, region, capability, cluster, status and asset, labels every euro as tracked or proven, names the denominator and capture date, and treats blank fields as unknown, not zero. Use for any portfolio question, regional or plant comparison, conversion-rate or standardization analysis, savings roll-up, or before a portfolio number goes into a deck, board paper or business case. Second job with its own trigger: ranks competing candidate use cases for one plant or region into a prioritization record. Read-only; changes no list. Not for building a case (bc-build).
 license: MIT
 metadata:
   id: bc-portfolio
@@ -31,22 +24,18 @@ metadata:
 # Portfolio and savings analysis
 
 - Read `dept-context` first.
-
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
+- This skill carries no counts. Every figure comes from a live read with its capture date.
 
-## The references are the substance
+## Which job
 
-| File | Use it for |
-|---|---|
-| [`references/rollup-method.md`](references/rollup-method.md) | Which boundaries a sum may never cross (tracked/proven, reliability class) — the general rule behind "never merge tracked and proven" |
-| [`references/prioritization.md`](references/prioritization.md) | A weighted-scoring/value-effort method for ranking use cases in a review, and the unscoreable bucket for `UNKNOWN` priority/potential |
-| [`references/regional-handling.md`](references/regional-handling.md) | Why Europe/Americas/Asia are never blended into one conversion figure, and what to report instead |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Order of ranking criteria, numbered planning states, the where-saved matrix, dependency versus return ordering, kill and hold hygiene, and what an agent may draft |
-| [`references/strategic-initiatives-and-savings.md`](references/strategic-initiatives-and-savings.md) | How to read strategic business cases next to plant savings: addressable vs realistic, anchors, no double counting, what may enter the portfolio |
+| The user asks | Job | Go to |
+|---|---|---|
+| A portfolio, regional, plant, standardization, conversion or savings question; a number going into a deck, board paper or business case | **Portfolio read** | Procedure (below) |
+| Which of several competing candidate use cases to do first for a plant or region | **Prioritization** (Lane 2 step 24) | [`procedure.md`](references/od-use-case-prioritization/procedure.md), then record in [`prioritization-record.md`](references/od-use-case-prioritization/assets/prioritization-record.md) |
 
-## The shape of the portfolio: how to read it, not what it is
+## How to read the portfolio
 
-- This skill carries no counts.
 - Every figure comes from a live read of the use case list (`know-sharepoint-export`) with its capture date.
 - The cuts to take, and what each field means:
 
@@ -58,76 +47,86 @@ metadata:
 | `PRODUCTIVE` | In daily use |
 | `STOPPED` | Deliberately discontinued |
 
-- The share of what has been asked for that has been built is `IMPLEMENTED` plus `PRODUCTIVE` over all use cases; the rest is a queue with a known shape rather than a wish list.
-- Always state the denominator.
+- The share of what has been asked for that has been built is `IMPLEMENTED` plus `PRODUCTIVE` over all use cases. Always state the denominator.
+- **Workflow state** (Development, Implementation, Handover, each `DONE` or `ONGOING`): read it as a funnel and cross-check it against the delivery status before quoting either; they are maintained separately and can disagree.
+- **Category**: standard use case cross process, standard per process, non-standard unique to one plant, AI use case (generative, ML or deep learning). Rank within a category.
+- **Rollout phase** (`PHASE 1` onwards) is recorded only on some use cases. Phases are named rollout batches, not sequential queues; a blank phase is not "phase 0".
+- **Output asset** (dashboard, report, app, analytics workflow, agent) and **utilization** (Daily, Weekly, Monthly, On-Demand, `NEVER`) are recorded only where someone filled them. Count the recorded ones as the denominator, never the whole portfolio.
 
-- **Workflow state** (Development, Implementation, Handover, each `DONE` or `ONGOING`):
-  read it as a funnel, and cross-check it against the delivery status before quoting either;
-  the two are maintained separately and can disagree.
-- **Category**: standard use case cross process, standard per process, non-standard unique
-  to one plant, AI use case (generative, ML or deep learning). Rank within a category.
-- **Rollout phase** (`PHASE 1` onwards) is recorded only on some use cases. Phases are
-  **named rollout batches, not sequential queues**; a blank phase is not "phase 0".
-- **Output asset** (dashboard, report, app, analytics workflow, agent) and **utilization**
-  (Daily, Weekly, Monthly, On-Demand, `NEVER`) are recorded only where someone filled them.
-  Count the recorded ones as the denominator, never the whole portfolio.
-
-## Regional shape: the finding that matters most
+## Regional shape
 
 - Cut use cases, productive use cases and conversion (productive over all) per region, live.
-- Expect the regions to differ sharply, and never blend them (`references/regional-handling.md`).
-- **A low-converting region is a different problem from a high-converting one, not a smaller one.** Any plan that treats the regions as scaled copies of each other will fail in the weakest one.
-- The best-converting region's rate is the one worth interrogating for what it does differently.
+- Never blend the regions into one conversion figure (`references/regional-handling.md`), because a blended rate hides that each region has a different problem.
 
 ## The savings ledger
 
 - Read the ledger live: row count, tracked euros, proven euros and proven rows, the split by reliability (`CALCULATION`, `ESTIMATION`, not recorded), automated versus manual rows, and the number of use cases that carry a saving figure of any kind.
 - Quote each with its capture date.
-- Pattern to expect: the tracker was actively maintained for a period and then largely abandoned, so the reliability field is mostly empty and few use cases carry a figure.
 - Treat the total as a **floor on what has been captured**.
 - See `bc-build` for how a row is built and what may be added to what.
 
 ## The three ways this data misleads
 
-1. **Absence read as a zero.** Many use cases carry `UNKNOWN` priority or `UNKNOWN`
-   potential, and many saving rows carry no reliability. "The top priorities" phrased so
-   that the remainder is low is reading absence as an answer.
+1. **Absence read as a zero.** Many use cases carry `UNKNOWN` priority or potential and many saving rows carry no reliability. "The top priorities" phrased so that the remainder is low reads absence as an answer.
 2. **Tracked read as proven.** Never add the two.
-3. **`IMPLEMENTED` read as in use.** It is not; that is what `PRODUCTIVE` and the
-   utilization field are for.
+3. **`IMPLEMENTED` read as in use.** It is not; that is what `PRODUCTIVE` and the utilization field are for.
 
-- And one about provenance: **version history carries text the current record does not.** Rationale, blockers and comments were written during active work and later tidied back to `-`.
-- An analysis over the current snapshot alone is missing a large part of the narrative — export versions, not just items (`know-sharepoint-export`).
+- A fourth, about provenance: version history carries text the current record does not. Export versions, not just items (`know-sharepoint-export`).
 
-## Standing findings to check an analysis against
+## Checks against standing findings
 
-- **The catalogue is built to standardize and has not scaled.** Capabilities are
-  instantiated at (nearly) every plant, so templates are not the constraint — adoption of
-  the proven instance is. Verify on the live capability instance list.
-- **The savings ledger is mostly empty scaffolding.** Verify by counting blank reliability.
-- **The regions are not variations of one another.**
-- **C12 "Other and plant-specific" is a data-quality signal**, not only a topical one;
-  track its size over time rather than quoting it once.
+- Count blank reliability on the live ledger before saying how complete it is.
+- Check the live capability instance list before saying templates are the constraint; adoption of the proven instance is the usual constraint.
+- Track the size of C12 "Other and plant-specific" over time; it is a data-quality signal, not only a topic.
+- More context in `references/background.md`.
 
-## Procedure
+## Procedure - portfolio read
 
-1. State which surface you are reading and when it was captured. The knowledge graph is a
-   rebuilt read surface; the SharePoint lists are the write surface.
-2. Cut by plant / region / capability / cluster / status / asset — never by one dimension
-   alone when a claim about scale is being made.
+1. State which surface you are reading and when it was captured. The knowledge graph is a rebuilt read surface; the SharePoint lists are the write surface.
+2. Cut by plant / region / capability / cluster / status / asset; never by one dimension alone when a claim about scale is being made.
 3. For every empty field, decide and **state** whether it is unknown or genuinely nil.
 4. Label every euro figure tracked or proven, per `references/rollup-method.md`.
-5. Name the denominator on every rate, and never blend the three regions into one —
-   `references/regional-handling.md`.
-6. Rank only within a category — `references/prioritization.md` — and keep the unscoreable
-   bucket visible rather than folding it into the bottom of a ranked list.
-7. Fill [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) as the
-   review happens; it is the record a reader who was not in the room can act on.
+5. Name the denominator on every rate, and never blend the three regions into one (`references/regional-handling.md`).
+6. Rank only within a category (`references/prioritization.md`) and keep the unscoreable bucket visible rather than folding it into the bottom of a ranked list.
+7. **Pre-publication check** (repeat until all hold):
+   - [ ] Capture date and surface stated.
+   - [ ] Denominator on every rate.
+   - [ ] Every euro labelled tracked or proven; none summed across.
+   - [ ] Every blank stated as unknown or nil.
+   - [ ] Regions shown separately.
+8. Fill [`assets/portfolio-review-protocol.md`](assets/portfolio-review-protocol.md) as the review happens; it is the record a reader who was not in the room can act on.
 
-## Absorbed: Rank competing candidate use cases into a prioritization record (formerly od-use-case-prioritization)
+## Procedure - prioritization
 
-- Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-case-prioritization/procedure.md) when several candidate use cases compete for a plant or region and need a recommended order (Lane 2 step 4).
-- It keeps its own references and assets under that folder and the authority it had.
+- Run [`references/od-use-case-prioritization/procedure.md`](references/od-use-case-prioritization/procedure.md) when several candidate use cases compete for a plant or region and need a recommended order (Lane 2 step 24).
+- It keeps its own references and assets under that folder and the authority it had (recommend).
+
+## Example
+
+```text
+Portfolio read (fictional numbers, invented for illustration)
+Surface: use case list export, captured 2026-xx-xx (date stated)
+Region A: 40 use cases, 6 PRODUCTIVE -> conversion 6/40 (denominator: all use cases in region A)
+Region B: 25 use cases, 10 PRODUCTIVE -> 10/25   (never blended with region A)
+Savings: tracked 120 | proven 20   (labelled, never summed); 15 of 25 rows have blank reliability
+Priority: 12 use cases UNKNOWN -> unscoreable bucket, not "low"
+```
+
+## Human gate and AI-agent notes
+
+- **An agent may**: read the lists, cut and label figures, fill the protocol, draft a ranking.
+- **Stays with roles**: the DBVE owns the ledger; the OD lead signs a prioritization; finance confirms proven savings. This skill changes no list.
+
+## Pitfalls
+
+| Pitfall | Why it matters |
+|---|---|
+| Quoting a count without its capture date | The lists move; the reader cannot tell how old it is |
+| A rate without its denominator | The same numerator can mean very different shares |
+| Treating a blank as zero | A blank usually means never assessed |
+| Writing "no potential" for a scaled use case without savings | It was probably not assessed; mark it for further investigation |
+| Ranking across categories | The categories are different problems |
+| Reading only the current snapshot | Rationale was tidied back to `-`; versions hold the narrative |
 
 ## Do not
 
@@ -137,6 +136,11 @@ metadata:
 - Do not compare regional counts without their conversion rates.
 - Do not present a portfolio figure without the date it was read.
 
+## Definition of done
+
+- The protocol is filled with surface and capture date, denominators, tracked and proven labels and blanks stated as unknown or nil.
+- A prioritization record, if requested, names the criteria order and planning state and keeps the unscoreable bucket visible.
+
 ## Outputs
 
 - [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
@@ -144,11 +148,18 @@ metadata:
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
-| [`references/od-use-case-prioritization/assets/prioritization-record.md`](references/od-use-case-prioritization/assets/prioritization-record.md) | The output of od-use-case-prioritization - one record per plant round holding the candidates, the agreed criteria and weights, the scores with evidence, the unscored bucket and the Plant ME sign-off. |
-| [`references/od-use-case-prioritization/references/business-case-archetypes.md`](references/od-use-case-prioritization/references/business-case-archetypes.md) | The archetypes of the strategic AI and operations business cases (foundation, enabling layer, value layer, attribution, bundle, compliance, big bet, defer), what a complete business-case record contains, how the cases… |
-| [`references/od-use-case-prioritization/references/evidence-baselines.md`](references/od-use-case-prioritization/references/evidence-baselines.md) | How to read the knowledge base's case groups, rollout maps and savings basis for a candidate use case, and the other demand signals - a reading guide with live-count recipes,… |
-| [`references/od-use-case-prioritization/references/process-chain-practice.md`](references/od-use-case-prioritization/references/process-chain-practice.md) | How ranking is run at step 24 of the AI-driven chain - planning states, an explicit ordering rule, cluster-first ranking, dependency and foundation-first logic, value tiers and grounding tags, kill… |
-| [`references/od-use-case-prioritization/references/ranking-criteria.md`](references/od-use-case-prioritization/references/ranking-criteria.md) | Every criterion OD has itself used to rank or classify use cases, each with its source and its limit, so a ranking can be built from the department's own language… |
+| [`references/rollup-method.md`](references/rollup-method.md) | Summing anything: which boundaries a sum may never cross (tracked/proven, reliability class) |
+| [`references/regional-handling.md`](references/regional-handling.md) | Comparing Europe, Americas and Asia, or reporting a conversion figure |
+| [`references/prioritization.md`](references/prioritization.md) | Ranking use cases in a review: weighted scoring, value-effort, the unscoreable bucket |
+| [`references/strategic-initiatives-and-savings.md`](references/strategic-initiatives-and-savings.md) | Reading strategic business cases next to plant savings: addressable vs realistic, no double counting |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Order of ranking criteria, planning states, where-saved matrix, kill and hold hygiene |
+| [`references/od-use-case-prioritization/assets/prioritization-record.md`](references/od-use-case-prioritization/assets/prioritization-record.md) | Producing the prioritization record: candidates, criteria and weights, scores with evidence, sign-off |
+| [`references/od-use-case-prioritization/references/ranking-criteria.md`](references/od-use-case-prioritization/references/ranking-criteria.md) | Building a ranking from the department's own criteria, each with source and limit |
+| [`references/od-use-case-prioritization/references/evidence-baselines.md`](references/od-use-case-prioritization/references/evidence-baselines.md) | Reading case groups, rollout maps and savings basis for a candidate before asking anyone |
+| [`references/od-use-case-prioritization/references/business-case-archetypes.md`](references/od-use-case-prioritization/references/business-case-archetypes.md) | Classifying strategic business cases (foundation, enabling layer, value layer, big bet, defer) |
+| [`references/od-use-case-prioritization/references/process-chain-practice.md`](references/od-use-case-prioritization/references/process-chain-practice.md) | Running ranking at step 24: planning states, ordering rule, foundation-first logic, value tiers |
+| [`references/outputs.md`](references/outputs.md) | Checking each output's recipient and completion rule |
+| [`references/background.md`](references/background.md) | Standing findings and context; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

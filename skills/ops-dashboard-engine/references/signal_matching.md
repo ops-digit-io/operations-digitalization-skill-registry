@@ -8,6 +8,15 @@ tags: [grafana, signals]
 ---
 # Signal matching — picking the right UUIDs from a description
 
+## Contents
+
+- The metadata table
+- The workflow
+- SQL patterns for metadata querying
+- Building the variable for Grafana
+- When matching fails
+- End-to-end example
+
 A core challenge of the timeseries archetype: **the user knows what they want to see, but not which UUIDs hold the data**. They tell you "I want to see energy consumption and power draw for machine X" — your job is to translate that into the specific UUIDs and queries.
 
 This guide covers the workflow. Use it whenever the user provides:

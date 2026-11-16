@@ -1,0 +1,47 @@
+{
+  "skill": "mi-flow",
+  "cases": [
+    {
+      "id": "build-delta-gate-flow",
+      "type": "should-trigger",
+      "prompt": "Our plant key user wants a part counter that only publishes when the counter value changes, from a connected press line. Build the Node-RED flow for our test instance.",
+      "expected_output": "Picks the delta gate transformation (P1) and the seven-group layout. Keeps every UUID and limit in the Set flow config node, not in function bodies. Includes the sysTime unpack and re-pack pair, clears the measured_value oneof and sets the output UUID and isDelta explicitly. Runs the analyser to zero blockers, deploys only to test and hands to acceptance; prod import goes to the human approver.",
+      "files": []
+    },
+    {
+      "id": "diagnose-flow-publishes-nothing",
+      "type": "should-trigger",
+      "prompt": "A flow on our prod Node-RED instance publishes nothing and the dashboard is flat since Monday's redeploy. Here is the exported flow JSON. What is wrong?",
+      "expected_output": "Starts from the export and asks what changed and whether the tab is enabled. Runs the analyser and reads findings in the fixed order (secret, systime, oneof, spine-severed, threshold). Notes flow context is cleared on deploy. States what the analyser cannot see and walks outward from the machine. Fills the triage record and names the cause category; does not change anything on prod.",
+      "files": []
+    },
+    {
+      "id": "timestamps-in-year-2262",
+      "type": "edge",
+      "prompt": "The data from our new flow shows timestamps in the year 2262. A colleague suggests we just divide by 1000 in the function node. Should we?",
+      "expected_output": "Explains sysTime is a packed uint64 (seconds shifted 32 bits plus nanoseconds), not an epoch in milliseconds. Refuses the divide-by-1000 fix and points to the standard Convert sysTime and Convert sysTime back functions. Checks the unpack and re-pack pair is present on both sides (analyser systime checks).",
+      "files": []
+    },
+    {
+      "id": "near-miss-signal-names",
+      "type": "near-miss",
+      "prompt": "We need to decide the standard signal names and units for the temperature sensors on our new furnace before anybody builds anything.",
+      "expected_output": "Does not build or edit a flow. Routes the request to the signal-naming skill (mi-signals) and says a topic or signal standard must never be changed from inside a flow.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Port the cycle-time Node-RED flow from plant A to plant B's machine",
+      "My Node-RED flow shows data on test but not on prod, how do I find out why?",
+      "Create a calculated datapoint that adds OK and NOK parts into a total",
+      "Review this Node-RED flow export before we import it to production"
+    ],
+    "should_not_trigger": [
+      "Which signal names should we use for spindle speed across plants?",
+      "Write the acceptance protocol for the connected machine",
+      "Build a Grafana dashboard for the OEE data",
+      "Explain what Node-RED is and how to install it on my laptop"
+    ]
+  }
+}

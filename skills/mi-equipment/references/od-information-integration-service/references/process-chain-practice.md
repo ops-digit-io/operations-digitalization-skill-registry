@@ -8,6 +8,16 @@ tags: [information-integration-service, lane, process-chain, draft]
 ---
 # Process-chain practice - the lane's operating rhythm
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules
+- 3 Handoff contract
+- 4 Pitfalls and lessons (lane level)
+- 5 Questions to ask and definition of done
+- 6 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (community-call, strategy, roadmap, integration-workshop and rollout decks),
 abstracted into process guidance. No figures, no plant statuses. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown or
 to confirm. Per-machine routing and the wave micro-process are in `mi-equipment`

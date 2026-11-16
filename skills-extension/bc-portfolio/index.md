@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Portfolio and savings analysis](SKILL.md) | Agent Skill | Analyse the OD portfolio and its savings ledger without being wrong about it — cut the plant use cases by plant, region, capability, cluster, status and asset; read the savings ledger for what it does and does not claim; and apply the three ways this data most often misleads (absence read as zero, tracked read as proven, implemented read as in use). Use for any portfolio question, regional or plant comparison, standardization or conversion-rate analysis, savings roll-up, or when a number about the portfolio is going into a deck, a board paper or a business case. Also ranks competing candidate use cases for a plant or region into a prioritization record (formerly od-use-case-prioritization). |
+| [Portfolio and savings analysis](SKILL.md) | Agent Skill | Reads the OD use-case portfolio and the savings ledger correctly: cuts use cases by plant, region, capability, cluster, status and asset, labels every euro as tracked or proven, names the denominator and capture date, and treats blank fields as unknown, not zero. Use for any portfolio question, regional or plant comparison, conversion-rate or standardization analysis, savings roll-up, or before a portfolio number goes into a deck, board paper or business case. Second job with its own trigger: ranks competing candidate use cases for one plant or region into a prioritization record. Read-only; changes no list. Not for building a case (bc-build). |
 
 | Folder | Holds |
 |---|---|

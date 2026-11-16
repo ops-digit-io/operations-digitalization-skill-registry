@@ -8,6 +8,15 @@ tags: [analytical-support-service, practice, templates]
 ---
 # Capability templates and placement
 
+## Contents
+
+- 1. The 11 templates
+- 2. The 13 placement rules
+- 3. How to place a new asset (procedure)
+- 4. Case groups (template x process family)
+- 5. Documentation standard (what "described" means)
+- Sources
+
 An asset that is not placed in a template is not counted in the portfolio. This file is the rule
 set (`Graph/Use Case Views/template-standards.json`, "AI-drafted; not reviewed by a human"; the
 Standardization note lists the cases for review), so the key user can file a new dashboard the same

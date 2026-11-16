@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Requirements breakdown](SKILL.md) | Agent Skill | Turn an accepted demand into a requirement another lane can act on: signals, testable acceptance criteria, handover packet and epic. Not for choosing the tool (invest-screen). |
+| [Requirements breakdown](SKILL.md) | Agent Skill | Turn an accepted demand into a requirement another lane can act on: a verified signal list, testable acceptance criteria, a lane variant, a handover packet and one epic. Use when a demand or use case has been accepted and someone must write the requirement, spec or handover for integration, a project or an analysis, when a requirement needs checking before it crosses a lane boundary, or when a request is vague ("we need a dashboard", "connect this machine"). Drafts the requirement; accepting or refusing stays with intake, approvals are human. Not for choosing the tool (invest-screen), splitting into stories (funnel-features) or defining the use case (funnel-use-case). |
 
 | Folder | Holds |
 |---|---|

@@ -9,6 +9,15 @@ tags: [information-integration-service, technical]
 
 # Vendor and protocol routes
 
+## Contents
+
+- Reading rules
+- By controller vendor - how to read each family
+- By PLC model - patterns
+- By network protocol - patterns
+- What the records do not give
+- Sources
+
 Use this when someone says "we have Rockwell machines at the plant, what happens to them?". It
 tells you **how to read the written-down status** per family and what patterns to expect. It does
 not rank difficulty (that is `barrier-classes.md`, an elicited judgement)

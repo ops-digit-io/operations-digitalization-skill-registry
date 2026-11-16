@@ -8,6 +8,12 @@ tags: [grafana, alerts]
 ---
 # annotations_and_alerts.md — Annotations and panel alerts
 
+## Contents
+
+- Annotations — overlaying events on time series
+- Panel alerts — notifying when a metric breaches threshold
+- When to skip both
+
 Two Grafana features that show up at the operations and analyst tiers but are absent from this skill's main patterns. Both have specific design constraints in the ops context.
 
 ---

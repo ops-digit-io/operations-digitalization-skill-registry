@@ -10,6 +10,24 @@ tags: [prototype, click-dummy, department-package]
 
 # Build Patterns
 
+## Contents
+
+- Layout
+- Order of construction
+- State
+- Hash router
+- Dispatch
+- Shared render helpers
+- Create flows
+- Transient panels: clear, never remove
+- CSS tokens
+- Verification script
+- Selector discipline in verification
+- Checking the demo makes the case
+- Coverage assertions in the verification script
+- Walking the demo story as a user
+
+
 Battle-tested structure for a single-file click dummy. This shell has carried a
 19-route enterprise CRM with full create flows in one 2,500-line file with no
 build step. Swap the route cases and the `render*` bodies; the rest is

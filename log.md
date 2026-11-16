@@ -445,3 +445,10 @@ not a concept.
   `validate_registry.py` fail on any disagreement or on a placeholder inside metadata.
 - Added the epic and user stories output to `od-requirements-breakdown`.
 - Added multilingual tag handling to `od-signal-standardization`.
+
+## [2026-11-16] improve | All 51 skills improved from the Anthropic best-practice review
+
+- Eight improver agents rewrote descriptions (what and when), added examples, pitfalls, reasons, contents lists, script fixes and `evals/evals.json` for every skill; `outputs.md` and the indexes regenerated.
+- Eight new blind reviewers and one control reviewer rated the result: criteria score 80.7 to 92.2, 0 gaps left (19 before); the control shows +3.8 points of reviewer drift on unchanged skills. See [docs/skill-improvement.md](docs/skill-improvement.md).
+- SkillEvaluator mean 89.8 to 91.3 overall, but core skills fell 95.6 to 93.4 (its 150-character description convention).
+- Not done: skill splits, owner confirmations, running the evals.

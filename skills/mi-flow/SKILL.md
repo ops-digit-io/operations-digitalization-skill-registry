@@ -1,7 +1,7 @@
 ---
 name: mi-flow
 description: >-
-  Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf, topics, error handling). Not for choosing signal names (mi-signals).
+  Build, review, document, troubleshoot and port Node-RED flows to the OESL estate standard (MQTT, protobuf PLCPacket, topics, sysTime, error handling), and build calculated datapoints with the rule engine. Use when a connected machine needs a flow to the data platform, a flow publishes nothing, a dashboard is flat or shows wrong timestamps or values, a flow must be ported to another machine or plant, reviewed before a prod import, or a derived value (cycle time, part count, status mapping, delta) is needed. Not for choosing signal names or the data model (mi-signals), connecting the machine (mi-equipment) or acceptance sign-off (deploy-acceptance).
 license: MIT
 allowed-tools: Read Grep Glob Write Edit Bash(python3 scripts/analyze_flow.py:*)
 metadata:
@@ -54,11 +54,12 @@ metadata:
 
 ## Procedure
 
-1. Read the Shared rules.
-2. Build: follow "Build (step 3b4)" in order; for derived values use "Calculated datapoints - the rule engine".
-3. Troubleshoot: follow "Troubleshoot (step 3b5)": Step A analyser, Step B order of findings, Step C what it cannot see.
-4. Test on a `test` instance and hand to `deploy-acceptance`; a prod import goes to the human approver.
-5. Close against "Done when".
+1. Pick the mode from the request: **Build** (new or ported flow), **Troubleshoot** (broken, silent or wrong values), **Rule engine** (a derived value from existing data points); load only that mode's references.
+2. Read the Shared rules.
+3. Build: follow "Build (step 3b4)" in order; for derived values use "Calculated datapoints - the rule engine".
+4. Troubleshoot: follow "Troubleshoot (step 3b5)": Step A analyser, Step B order of findings, Step C what it cannot see.
+5. Test on a `test` instance and hand to `deploy-acceptance`; a prod import goes to the human approver.
+6. Close against "Done when".
 
 ## Where a flow sits
 
@@ -72,13 +73,13 @@ PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node
                                                                         (Parquet)
 ```
 
-- Flows publish back onto the MQTT spine; the platform offloads via **Databricks** to an **Azure Storage Account** (**Parquet**) that dashboards read, so the output UUID and `isDelta` semantics matter beyond the flow.
+- Flows publish back onto the MQTT spine; the IIoT Edge Platform offloads via **Databricks** to an **Azure Storage Account** (**Parquet**) that dashboards read, so the output UUID and `isDelta` semantics matter beyond the flow.
 - The machine is connected per `mi-equipment` (guidance route); the signal standard is set per `mi-signals`; the flow turns raw `PLCPacket` messages into the derived signal a use case consumes (cycle time, part count, quality event, alert).
 
 - Instances are named **`ct-oesl-<plant-code>-nodered-<prod|test>[N]`** ([`references/instances.md`](references/instances.md)).
 
-- > **Build and fix on a `test` instance.
-- Deploying to a `prod` instance is human-approved.**
+- **Build and fix on a `test` instance** because a bad flow on `prod` corrupts live data points for every consumer.
+- Deploying to a `prod` instance is human-approved.
 
 ## Shared rules (build and troubleshoot)
 
@@ -92,7 +93,7 @@ PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node
 - **`measured_value` is a protobuf `oneof`**: exactly one `value*` field reaches the encode;
   `prepare for protob encoding` deletes the rest. Also delete `msg.parts`, `msg.protobufType`,
   `msg._msgid` and `payload.label` (not a PLCPacket field) before the encode.
-- **`uuid` is the data point and the join key**; the human label lives in the edge platform's data-point config.
+- **`uuid` is the data point and the join key**; the human label lives in the IIoT Edge Platform's data-point config.
    - Never hardcode a label as identity; never invent a UUID (fetch the config; the output data point must already be registered there or consumers ignore the packet).
 - **Set the output UUID from config and `isDelta` explicitly** on a derived packet; do not inherit.
 - **Flow context is per tab and cleared on deploy.** Tolerate `undefined`
@@ -138,12 +139,21 @@ PLC ──(ingress variant)──► IIoT Edge Platform ──MQTT──► Node
    - Prod import is a request to the human approver with the analyser result and test evidence.
    - File the flow-library entry (new, standard or plant-specific).
 
+- Build checklist (tick each before step 7):
+
+```text
+[ ] config contract filled by the plant key user      [ ] pattern chosen (P1-P13) or four-question method used
+[ ] every UUID and limit in `Set flow config`          [ ] sysTime pair present, standard functions copied
+[ ] oneof cleared, output UUID registered and set      [ ] catch with the flow name, tab description, named nodes
+[ ] analyser: zero blockers                            [ ] deployed to `test`, handed to deploy-acceptance
+```
+
 - Review of someone else's flow: eight questions and standards table in [`references/build-guide.md`](references/build-guide.md#reviewing-someone-elses-flow).
 - Wire and topic detail (`datatroniq/data/protob/plc/<edge-device>/<driver>/<id>`, ISA-95 `CT/<BA>/...`): [`plc-packet.md`](references/plc-packet.md), [`topic-conventions.md`](references/topic-conventions.md); corpus census (read live): [`corpus-census.md`](references/corpus-census.md).
 
 ## Calculated datapoints - the rule engine (steps 1a2, 1b4, 3b4)
 
-- A new value derived from existing DATATRON datapoints is built as a **rule-engine flow** with `scripts/build_flow.py`, never by hand-writing the flow JSON.
+- A new value derived from existing data points is built as a **rule-engine flow** with `scripts/build_flow.py`, never by hand-writing the flow JSON.
 - The five-step workflow (collect the requirement, pick the pattern, write the spec and generate, test before delivering, deliver) is in [`references/rule-engine.md`](references/rule-engine.md), section "Workflow for calculated datapoints".
 
 ## Troubleshoot (step 3b5)
@@ -192,7 +202,7 @@ python3 scripts/analyze_flow.py Flow.json --json                              # 
 
 ### Step C - what the analyser cannot see
 
-- It reads a static export, not the broker, edge platform, PLC or runtime state.
+- It reads a static export, not the broker, IIoT Edge Platform, PLC or runtime state.
 - Walk the path outward from the machine, not inward from the dashboard; the symptom tables and the full method are in [`references/symptoms-extended.md`](references/symptoms-extended.md), section "What the analyser cannot see".
 
 ### Silent corruptions and fast triage
@@ -201,7 +211,7 @@ python3 scripts/analyze_flow.py Flow.json --json                              # 
 - error with no node name) are in [`references/symptoms.md`](references/symptoms.md) § *Silent corruptions and fast triage*.
 
 - Fill [`assets/triage-record.md`](assets/triage-record.md) while diagnosing (cheapest checks first, analyser result, what the analyser cannot see, decision).
-- Route outcomes: a signal or topic problem to `mi-signals` as a data-model change, a connection or machine problem to `mi-equipment` / `mi-equipment`, an ownership gap to `dept-decision-rights`.
+- Route outcomes: a signal or topic problem to `mi-signals` as a data-model change, a connection or machine problem to `mi-equipment`, an ownership gap to `dept-decision-rights`.
 
 ## Human gate and AI-agent notes
 
@@ -220,57 +230,46 @@ python3 scripts/analyze_flow.py Flow.json --json                              # 
 | [`scripts/e2e_runner.js`](scripts/e2e_runner.js) | Helper called by `e2e_test.sh` | `<batchFile> <inTopic> <outTopic> <outUuid>` |
 | [`scripts/test_plcschema.proto`](scripts/test_plcschema.proto) | Stand-in PLCPacket schema for the end-to-end test; the production schema is authoritative | not run |
 
+- Requirements: Python 3 standard library for the analyser and generator; Node.js for `simulate.js`; Node-RED, a local broker and `node-red-contrib-protobuf` for `e2e_test.sh`.
 - An agent runs a script with its code or shell tool (`run_script` in tools that expose it) and reads the exit code and output.
 
 ## Example
 
 ```text
-$ python3 scripts/analyze_flow.py ExampleFlow.json
+$ python3 scripts/analyze_flow.py ExampleFlow.json        # (fictional flow)
 === Example Flow
   BLOCKER systime-not-repacked
   WARN    no-catch
     1 blocker . 1 warn . 0 info          -> exit 2
 ```
 
+- Typical fix of a literal UUID or `hardcoded-threshold` finding in a function node (fictional values):
+
+```text
+Before:  const uuids = ["11111111-2222-3333-4444-555555555555"];       // literal: porting = editing code
+         if (msg.payload.value > 85) { ... }
+After:   const uuids = [flow.get("datapointTotalPartCounter")];        // from `Set flow config`
+         const limit = flow.get("maxTemperature");
+         if (msg.payload.value > limit) { ... } else { node.warn("below limit: dropped"); return null; }
+```
+
+- Rule-engine bug and fix as complete flows: `references/rule-engine-examples/13_helium09_leakrate_BROKEN.json` against `13b_helium09_leakrate_FIXED.json`.
+
 ## Pitfalls
 
 - Fixing a symptom in a function body (a UUID, a threshold, a topic) instead of in the config node or the data model.
 - Reading the dashboard inward instead of walking outward from the machine.
 - Treating a clean static analysis as proof: it cannot see the broker, the PLC or runtime state.
-- Hand-writing rule-engine flow JSON instead of generating it.
+- Hand-writing rule-engine flow JSON instead of generating it, because the generator guarantees the house layout and the sysTime pair.
+- Rewriting the standard sysTime functions from memory: a subtly wrong pair corrupts every timestamp without an error.
+- Widening `filter uuids` until data shows: it hides a wrong UUID or a silent machine.
+- Letting a rule-engine calculation run before all inputs are stored (wait-for-all-inputs bug): see the BROKEN and FIXED examples.
+- Assuming flow context survives a redeploy: it is cleared, so a counter restarts from `undefined`.
 
 ## Done when
 
 - A flow passes when the analyser reports **zero blockers**, the tab carries a description, `Set flow config` holds every UUID, the sysTime pair is present, a `catch` reports with the flow name, and the output UUID differs from the input.
 - The same bar serves a new flow (build) and a repaired one (troubleshoot: cause named as flow, configuration, machine, connector, platform change or ownership; fix tested on `test`; triage record filled; plant key user confirmed correct values).
-
-## Files
-
-| Path | Use |
-|---|---|
-| `references/build-guide.md` | Layout, message, standard functions, config, topics, standards, error handling, documentation, review checklist |
-| `references/plc-packet.md`, `topic-conventions.md`, `standard-functions.js`, `deployable-flow.md`, `instances.md`, `corpus-census.md` | Wire, topics, functions, deployable file, instances, live census |
-| `assets/flow-config-contract.md`, `protobuf-schema-bootstrap.flow.json`, `triage-record.md` | Config form, importable schema flow, triage record |
-| [`references/rule-engine.md`](references/rule-engine.md), [`rule-engine-patterns.md`](references/rule-engine-patterns.md), [`rule-engine-standard-flow.md`](references/rule-engine-standard-flow.md), the examples below | Calculated datapoints: the department's rule-engine workflow, patterns, standard flow, production examples |
-
-### Rule-engine examples
-
-| File | Kind |
-|---|---|
-| [`references/rule-engine-examples/12_ac402_machine_status_mapping.json`](references/rule-engine-examples/12_ac402_machine_status_mapping.json) | Rule-engine production example |
-| [`references/rule-engine-examples/13_helium09_leakrate_BROKEN.json`](references/rule-engine-examples/13_helium09_leakrate_BROKEN.json) | Rule-engine production example |
-| [`references/rule-engine-examples/13b_helium09_leakrate_FIXED.json`](references/rule-engine-examples/13b_helium09_leakrate_FIXED.json) | Rule-engine production example |
-| [`references/rule-engine-examples/14_m1072_shift_part_counter.json`](references/rule-engine-examples/14_m1072_shift_part_counter.json) | Rule-engine production example |
-| [`references/rule-engine-examples/15_m1072_part_counter_trigger.json`](references/rule-engine-examples/15_m1072_part_counter_trigger.json) | Rule-engine production example |
-| [`references/rule-engine-examples/16_m1072_machine_mode_normalization.json`](references/rule-engine-examples/16_m1072_machine_mode_normalization.json) | Rule-engine production example |
-| [`references/rule-engine-examples/17_m1072_alert_counter_trigger.json`](references/rule-engine-examples/17_m1072_alert_counter_trigger.json) | Rule-engine production example |
-| [`references/rule-engine-examples/18_m1072_cycle_time_normalization.json`](references/rule-engine-examples/18_m1072_cycle_time_normalization.json) | Rule-engine production example |
-| [`references/rule-engine-examples/19_blm_ast30_status_code_lookup.json`](references/rule-engine-examples/19_blm_ast30_status_code_lookup.json) | Rule-engine production example |
-| [`references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json`](references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json) | Rule-engine production example |
-| [`references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json`](references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json) | Rule-engine production example |
-| [`references/rule-engine-examples/22_grazioli_downtime_duration.json`](references/rule-engine-examples/22_grazioli_downtime_duration.json) | Rule-engine production example |
-| [`references/rule-engine-examples/23_erlas2_nok_part_trigger.json`](references/rule-engine-examples/23_erlas2_nok_part_trigger.json) | Rule-engine production example |
-| [`references/rule-engine-examples/24_erlas2_ok_part_trigger.json`](references/rule-engine-examples/24_erlas2_ok_part_trigger.json) | Rule-engine production example |
 
 ## Outputs
 
@@ -279,6 +278,33 @@ $ python3 scripts/analyze_flow.py ExampleFlow.json
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/background.md`](references/background.md) | You need the context and rationale; never an instruction |
+| [`references/build-guide.md`](references/build-guide.md) | Building: layout, standard functions, config, error handling, documentation, review checklist |
+| [`references/plc-packet.md`](references/plc-packet.md), [`references/topic-conventions.md`](references/topic-conventions.md) | A wire format, topic or ISA-95 topic question comes up |
+| [`references/standard-functions.js`](references/standard-functions.js) | You need the sysTime, filter and error functions to copy |
+| [`references/deployable-flow.md`](references/deployable-flow.md) | Generating an importable file (config nodes, protobuf module) |
+| [`references/instances.md`](references/instances.md), [`references/corpus-census.md`](references/corpus-census.md) | Naming an instance or counting flows live |
+| [`assets/flow-config-contract.md`](assets/flow-config-contract.md), [`assets/protobuf-schema-bootstrap.flow.json`](assets/protobuf-schema-bootstrap.flow.json) | Collecting the config from the key user; first setup of a new instance |
+| [`assets/triage-record.md`](assets/triage-record.md) | Diagnosing a flow: the record to fill |
+| [`references/rule-engine.md`](references/rule-engine.md), [`references/rule-engine-patterns.md`](references/rule-engine-patterns.md), [`references/rule-engine-standard-flow.md`](references/rule-engine-standard-flow.md) | A calculated datapoint is needed |
+| `references/rule-engine-examples/` (examples 12 to 24, production flows) | Choosing a pattern by example; 13 BROKEN against 13b FIXED shows the classic bug |
+| [`references/artefacts.md`](references/artefacts.md), [`references/transformation-patterns.md`](references/transformation-patterns.md), [`references/composing-transformations.md`](references/composing-transformations.md), [`references/streaming.md`](references/streaming.md), [`references/architecture.md`](references/architecture.md) | Build steps 2 to 4: artefact lookup, P1-P13, multi-input shapes, real-time guarantees, layout |
+| [`references/symptoms.md`](references/symptoms.md), [`references/symptoms-extended.md`](references/symptoms-extended.md) | Troubleshooting: symptom table, what the analyser cannot see |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Chain handoffs, placement of logic, agent operating notes |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |
+| [`references/rule-engine-examples/12_ac402_machine_status_mapping.json`](references/rule-engine-examples/12_ac402_machine_status_mapping.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/13_helium09_leakrate_BROKEN.json`](references/rule-engine-examples/13_helium09_leakrate_BROKEN.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/13b_helium09_leakrate_FIXED.json`](references/rule-engine-examples/13b_helium09_leakrate_FIXED.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/14_m1072_shift_part_counter.json`](references/rule-engine-examples/14_m1072_shift_part_counter.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/15_m1072_part_counter_trigger.json`](references/rule-engine-examples/15_m1072_part_counter_trigger.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/16_m1072_machine_mode_normalization.json`](references/rule-engine-examples/16_m1072_machine_mode_normalization.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/17_m1072_alert_counter_trigger.json`](references/rule-engine-examples/17_m1072_alert_counter_trigger.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/18_m1072_cycle_time_normalization.json`](references/rule-engine-examples/18_m1072_cycle_time_normalization.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/19_blm_ast30_status_code_lookup.json`](references/rule-engine-examples/19_blm_ast30_status_code_lookup.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json`](references/rule-engine-examples/20_pink_total_parts_ok_plus_nok.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json`](references/rule-engine-examples/21_line15_toolid_to_partnumber_lookup.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/22_grazioli_downtime_duration.json`](references/rule-engine-examples/22_grazioli_downtime_duration.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/23_erlas2_nok_part_trigger.json`](references/rule-engine-examples/23_erlas2_nok_part_trigger.json) | A worked input or output to copy the shape from |
+| [`references/rule-engine-examples/24_erlas2_ok_part_trigger.json`](references/rule-engine-examples/24_erlas2_ok_part_trigger.json) | A worked input or output to copy the shape from |

@@ -1,7 +1,7 @@
 ---
 name: funnel-prototype
 description: >-
-  Prove a new use case cheaply before the business case: choose click-dummy, proof of concept or neither, and record the result. Not for costing value (bc-build) or dashboards.
+  Prove a new use case cheaply before the business case: choose click-dummy (mock-up), proof of concept (PoC) or no prototype, write the pass criterion first, show it to the plant users and record the result in a validation record, never as "proven". Use when a defined Lane 2 use case has an open question such as "will the shift read this", "does the data separate good from bad" or "can we run a pilot", when someone asks for a mock-up, click-dummy, PoC or quick test with the plant. Drafts only; the plant confirms the value. Not for costing value (bc-build), the capital request (bc-capital-request), dashboard build (ops-dashboard-engine) or the requirement (funnel-requirements).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -28,10 +28,8 @@ metadata:
 
 - Read `dept-context` first.
 
-- **Status: ready (awaiting sign-off).** The new-state flow lists "Prototype / validate" (Lane 2, step 3) as a thin spot.
-- It credits `ops-analytics-asset` with "click-dummy only", but that skill has no prototype, click-dummy or proof-of-concept content (`docs/new-state-conformance.md`).
-- This skill is grounded in what the knowledge base actually holds: one AI pilot (the Gemba App), PoC labels in two AI decks, business cases that each carry a validation plan, and the dashboard specs.
-- It is **not** a validated OD method: nothing in the sources says OD has run this step to a stated standard.
+- Status is ready (awaiting sign-off) and this is not a validated OD method: nothing in the sources says OD has run this step to a stated standard.
+- Provenance, what rests on the single Gemba App pilot and what is inference: `references/background.md`.
 
 ## Purpose
 
@@ -60,6 +58,15 @@ Open items: data for the second view not yet checked
 
 - If the inputs are missing or the criterion is not written first, treat the result as invalid and return to step 1 of the procedure.
 
+## Terms used in this skill
+
+| Term | Meaning here |
+|---|---|
+| Prototype | Umbrella word for any early version built to answer one open question |
+| Click-dummy (also mock-up) | Prototype without real data or backend; answers usability and scope questions |
+| PoC | Prototype on real data in a narrow case; answers data or model questions |
+| Four-stage ladder | PoC, prototype, pilot, rollout (strategy material): a PoC maps to the PoC label, a click-dummy to the mock-up label, then pilot and rollout |
+
 ## Pilot, PoC and rollout are three different claims
 
 - State which one you mean, every time.
@@ -72,25 +79,41 @@ Open items: data for the second view not yet checked
 | **Pilot** | It runs with real users in one place for a time-boxed period | That it scales; that the saving is real |
 | **Rollout** | It is deployed and used at more than the pilot site | Proven value: that is only SPRINT (`bc-build`) |
 
-- The strategy material works with four working stages - PoC, prototype, pilot, rollout - where the PoC validates feasibility, the prototype the benefit with real users and the pilot validates operational scalability ([`references/process-chain-practice.md`](references/process-chain-practice.md)).
+- The ladder: PoC validates feasibility, the prototype the benefit with real users, the pilot operational scalability ([`references/process-chain-practice.md`](references/process-chain-practice.md)).
 - A prototype outside the standard needs a path to the reference architecture.
-- A pilot or PoC result is evidence for the business case.
-- It is never "proven".
-- The two AI decks even disagree on the same items; quote the label with its deck and date.
+- A pilot or PoC result is evidence for the business case, never "proven", because value is only proven by the savings process (`bc-build`).
+- The two AI decks disagree on the same items; quote the label with its deck and date.
 
-## The references are the substance
+## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/status-labels.md`](references/status-labels.md) | The label ladder the decks use, how labels mislead (disagreement between decks, "rollout" is not proven value), and the rule for quoting one |
-| [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | The Gemba App requirements-to-mockup pilot as a method: process, click-dummy prompt system, what to copy, what the sources do not show |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | **How the step runs in the chain**: the PoC, prototype, pilot, rollout stages, scope-limiting as a gate strategy, AI-assisted mock-ups, handoff contract, AI agent operating notes |
-| [`references/validation-patterns.md`](references/validation-patterns.md) | How the AI business cases define a validation plan and pass criterion; wording patterns to copy (placeholder thresholds) |
-| [`references/click-dummy.md`](references/click-dummy.md), [`references/build-patterns.md`](references/build-patterns.md) | The department package's click-dummy stage (`funnel-prototype`, master): eight stages, verification, fidelity ledger, handover; layout, navigation, states and data-stub patterns |
-| [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) | The brief to write before anyone builds a mock-up |
-| [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) | The record this skill produces; `bc-build` and `bc-capital-request` read it next |
+| [`references/status-labels.md`](references/status-labels.md) | You must quote a label (PoC, pilot, rollout) and need to know how labels mislead |
+| [`references/gemba-app-pilot.md`](references/gemba-app-pilot.md) | You build a mock-up with an AI model from a written brief and want the one known pilot as a method |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | You need the stages, scope-limiting as a gate strategy, the handoff contract or agent notes |
+| [`references/validation-patterns.md`](references/validation-patterns.md) | You write the pass criterion (step 5) and need wording patterns |
+| [`references/click-dummy.md`](references/click-dummy.md) | The type is click-dummy: the eight build stages, verification, fidelity ledger, handover |
+| [`references/build-patterns.md`](references/build-patterns.md) | You are in the build stage: layout, navigation, states, data stubs, verification script |
+| [`references/background.md`](references/background.md) | You need status, provenance or the output table; never an instruction |
+| [`assets/click-dummy-brief.md`](assets/click-dummy-brief.md) | Before anyone builds a mock-up |
+| [`assets/prototype-validation-record.md`](assets/prototype-validation-record.md) | You write the result; `bc-build` and `bc-capital-request` read it next |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |
 
 ## Procedure
+
+- Copy this checklist and tick it off:
+
+```text
+[ ] 1 Inputs exist (use case, requirements, data verdict)
+[ ] 2 Library checked, no proven solution
+[ ] 3 Open question named in the plant's words
+[ ] 4 Type picked: click-dummy, PoC or none
+[ ] 5 Pass criterion written BEFORE building
+[ ] 6 Brief filled, mock-up or PoC built
+[ ] 7 Shown to the plant users at the moment of use
+[ ] 8 Result judged, record written
+[ ] 9 Handed on or stopped
+```
 
 1. **Check the inputs exist.** A defined use case (`funnel-use-case`), requirements with acceptance
    criteria (`funnel-requirements`), and a data verdict (`mi-data-availability`). If the data
@@ -135,20 +158,16 @@ Open items: data for the second view not yet checked
 
 ## Do not
 
-- Do not call a pilot or PoC "proven", or put a euro figure on a mock-up. Value goes through `bc-build`.
-- Do not prototype on data that `mi-data-availability` says is not there.
-- Do not build a prototype without a written pass criterion and a named plant validator.
-- Do not use real plant data, credentials or personal data in a mock-up; mock-ups carry invented example values, marked as such.
-- Do not add a tool: the strategy is a small operational footprint (`ops-analytics-asset`).
+- Do not call a pilot or PoC "proven", or put a euro figure on a mock-up, because a demo cannot show value. Value goes through `bc-build`.
+- Do not prototype on data that `mi-data-availability` says is not there, because the result would prove nothing.
+- Do not build without a written pass criterion and a named plant validator, because without them any result can be read as success.
+- Do not use real plant data, credentials or personal data in a mock-up, because mock-ups get shown and forwarded; use invented values marked as such.
+- Do not add a tool, because the strategy is a small operational footprint (`ops-analytics-asset`).
 - Do not publish a mock-up outside the department without the responsible human.
+- Do not let the plant validate by saying "looks good" only: record what they did, because liking is not use.
+- Do not build a PoC when the open question is a value question; it cannot be answered by a prototype.
 
 ## Outputs
 
 - [`outputs.yaml`](outputs.yaml): required outputs, criteria, checks and sign-offs.
 - One run record per call: `python scripts/run_record.py new <skill-id>` (registry root).
-
-## References
-
-| File | Use it for |
-|---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |

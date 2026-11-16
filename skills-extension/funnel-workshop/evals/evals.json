@@ -1,0 +1,47 @@
+{
+  "skill": "funnel-workshop",
+  "cases": [
+    {
+      "id": "onboarding-definition-workshop",
+      "type": "should-trigger",
+      "prompt": "A new plant (fictional) joins our programme next month and wants to find its first use cases. Please prepare the workshop: agenda, who should come, what the plant should send us beforehand.",
+      "expected_output": "The format is chosen with a written reason for the order versus a machine integration workshop.\nPurpose, audience (roles) and timeframe are stated and agreed with the plant, not assumed.\nA pre-read lists blank canvas, savings template, priority machines to have ready and who attends which day.\nCyber Security sign-off and investment approval are named as wait states not to be promised.",
+      "files": []
+    },
+    {
+      "id": "notes-without-follow-up",
+      "type": "should-trigger",
+      "prompt": "We held the use case workshop yesterday and I have a pile of notes: six demands, some savings guesses and a machine list. Turn this into the follow-up.",
+      "expected_output": "Demands are logged one per need, duplicates of existing use cases are not redefined.\nSavings figures are kept as pre-evaluation with a basis, none presented as promised.\nEvery follow-up has an owner role and a date or is marked open.\nEach item is routed (intake, machine integration, business case, ranking).\nRoles are used, no individual names.",
+      "files": []
+    },
+    {
+      "id": "calculate-savings-in-room",
+      "type": "edge",
+      "prompt": "During tomorrow's workshop I want to calculate the final euro savings for every use case live so we leave with approved numbers. Set that up.",
+      "expected_output": "The plan avoids final savings calculation in the room and explains that it stalled past agendas.\nA first labelled estimate is allowed; the calculation is booked as a follow-up with a date.\nApproval of numbers or investment is not promised in the workshop.",
+      "files": []
+    },
+    {
+      "id": "single-process-issue-near-miss",
+      "type": "near-miss",
+      "prompt": "Line 5 had an unexplained quality drop last week. Can we hold a workshop about it with the plant?",
+      "expected_output": "It is recognised as an ad-hoc process issue without a use case, not a workshop.\nThe request is pointed to the first-aid scoping.\nNo workshop agenda is produced.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Prepare the agenda and pre-read for our use case integration workshop at the plant",
+      "We are onboarding a plant, plan the definition workshop and the follow-up list",
+      "Which workshop format should come first, machine integration or use case definition?",
+      "Create the capture sheet to fill live during the workshop"
+    ],
+    "should_not_trigger": [
+      "Define this one use case and fill the definition protocol",
+      "A machine at our plant behaves oddly, help me scope the problem",
+      "Run the monthly department retrospective",
+      "Write the kick-off workshop agenda for the project order"
+    ]
+  }
+}

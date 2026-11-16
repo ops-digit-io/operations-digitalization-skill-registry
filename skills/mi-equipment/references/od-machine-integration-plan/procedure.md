@@ -13,6 +13,16 @@ tags:
 ---
 # Machine integration plan
 
+## Contents
+
+- Where it sits in the chain
+- Purpose and definition of done
+- References and assets
+- Procedure
+- Handoff contract
+- AI agent operating notes
+- Do not
+
 > **Absorbed.** This was the skill `od-machine-integration-plan`. It now runs as a mode of [`mi-equipment`](../../SKILL.md) (merged 2026-11-10, see `log.md`). Its authority stays as it was: draft.
 
 Read `dept-context` first. This skill turns a **machine list** into an **integration wave plan** that can
@@ -33,7 +43,7 @@ wave, in which order, with which route, and what must be true before the plant k
 
 Upstream: `dept-intake` (lane), `mi-data-availability` (which machines lack data),
 `funnel-workshop` (the workshop where the list is finalised). Downstream:
-`bc-capital-request`, `mi-equipment` Route B per machine, `mi-signals`,
+`bc-capital-request`, `mi-equipment` Mode B per machine, `mi-signals`,
 `mi-flow`, `deploy-acceptance`, `deploy-cybersec`.
 
 ## Purpose and definition of done
@@ -68,7 +78,7 @@ decision is missing, its cost of non-decision.
    missing network drop or an IT platform that cannot carry more machines go into the barrier log now,
    not at the second wave.
 5. **Choose the route per machine type** with `route-choice-per-machine-type`: native OPC-UA, aggregation
-   server, edge device, low-cost address translation, or a custom connector. Run Route A/B of
+   server, edge device, low-cost address translation, or a custom connector. Run Mode A/B of
    `mi-equipment` for the detail of each machine.
 6. **Prepare the integration workshop** with `assets/workshop-prep-checklist.md`; IT and OT are assessed
    in separate meetings.
@@ -78,7 +88,7 @@ decision is missing, its cost of non-decision.
 8. **Enter the weekly micro-process** for the wave and set the status colour per plant.
 9. **Keep the barrier log** and state the cost of non-decision for every barrier that waits on a decision.
    Classify stuck machines with `mi-equipment`; escalate decisions with `dept-decision-rights`.
-10. **Hand over** per machine to `mi-equipment` Route B, then tag list,
+10. **Hand over** per machine to `mi-equipment` Mode B, then tag list,
     `mi-signals` and flow design; at the end of the wave recommend the next wave and the
     training for self-service.
 

@@ -8,6 +8,16 @@ tags: [all, practice, scorecard, metrics]
 ---
 # Metric reading guide
 
+## Contents
+
+- 1 The shape of a lane metric row
+- 2 The rule types behind "intervene from"
+- 3 Labels for a missing target
+- 4 Lane metric definitions
+- 5 Companion pairs
+- 6 Reading a number against a manual baseline
+- AI agent operating notes
+
 Derived from the lane `metrics.md` notes and the department metrics note. **Definitions and ways of reading only: no targets, no
 actuals, no read dates.** Targets and actuals are looked up on the Scorecard and the two reports, with their read date, before any
 figure is quoted. Own synthesis is marked `PROPOSAL`; unknowns are `<...>`.

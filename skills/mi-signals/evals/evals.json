@@ -1,0 +1,47 @@
+{
+  "skill": "mi-signals",
+  "cases": [
+    {
+      "id": "raw-plc-tags-in-export",
+      "type": "should-trigger",
+      "prompt": "We just connected a new injection moulding machine. The tag export has names like DB12.DBX0.1 and DB12.DBD4. Can plant B reuse what we have, and what do we need to fix first?",
+      "expected_output": "Runs the signal analyser on the export and reports raw PLC tags as blockers. Asks for machine context (PLC program, sequence chart, handbook) because a tag list alone gives names without meanings. Proposes canonical names qualified, not coined, and checks public models (EUROMAP, OPC UA for Machinery) first. Does not fix the gap in a flow or query.",
+      "files": []
+    },
+    {
+      "id": "local-language-tags",
+      "type": "should-trigger",
+      "prompt": "The tag list from our German plant has Ruestzeit, Stueckzaehler and Heizungsart. Our Spanish plant has Contador. How do we line these up so a dashboard works at both?",
+      "expected_output": "Maps each local name to an English canonical name and keeps the original as an alias in the report and Machine CV. Does not machine-translate into the label without a native reading from the plant. Notes the two spellings of one counter are both aliases of the same canonical signal. Fills a binding row with unit, scale and collection method.",
+      "files": []
+    },
+    {
+      "id": "rename-live-signal",
+      "type": "edge",
+      "prompt": "One live signal is misspelled MachineStaus and about a dozen flows use it. Just rename it in the data-point config today, right?",
+      "expected_output": "Says a live signal rename is a breaking change that needs a migration, not a quick edit. Recommends renaming to canonical before new consumers use it and listing the dependent flows. A signal-standard change is a consultation decided by the IIAE; the agent only proposes.",
+      "files": []
+    },
+    {
+      "id": "near-miss-build-flow",
+      "type": "near-miss",
+      "prompt": "Write the Node-RED function that unpacks sysTime and publishes a delta of the part counter.",
+      "expected_output": "Does not do signal standardization. Routes the request to the flow-building skill (mi-flow), mentioning only that canonical names and units come from the signal report.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Which signal names should we standardize for the new press so plant two can use the same dashboard?",
+      "The tag list from our Chinese plant has non-Latin tag names, what do we do?",
+      "Two plants both have a part counter but the values do not compare, why?",
+      "Does a public data model like EUROMAP already cover these machine signals?"
+    ],
+    "should_not_trigger": [
+      "Connect the new machine to the edge platform and check cyber security",
+      "Is data actually being collected for the tags in this list?",
+      "Fix my Node-RED flow that publishes nothing",
+      "Build a dashboard panel for cycle time"
+    ]
+  }
+}

@@ -8,6 +8,19 @@ tags: [lane, use-case-support-service]
 ---
 # Lane service flow - detail
 
+## Contents
+
+- Handover / rework rule
+- Error paths
+- Wait states
+- Recurring tasks
+- Systems and access
+- Autonomy
+- Metrics for this lane
+- Coordinate, states and portfolio stages (detail)
+- Lane flow table (from demand to adoption)
+
+
 Compact flow table, trigger and definition of done: `../SKILL.md`. Lane 2 steps 21 to 26 plus the
 use-case half of Lane 1.
 
@@ -84,3 +97,18 @@ Cyber Security sign-off before any connection action. Escalation: OD lead.
   Planned/Implementation -> Handed over -> Effective`. Collect gives *Captured*, Analyse *Evaluated*,
   Assess the literal *Assessed*, Control moves a use case into *Planned*. A use case stuck at a
   stage has stalled in the matching phase: look there first.
+
+## Lane flow table (from demand to adoption)
+
+Step 21 is the definition (`funnel-use-case`); every step has one control point.
+
+| Flow step | Step | Who | Control point | Skill |
+|---|---|---|---|---|
+| intake | Collect plant use-case demand | DBVE + Plant ME | Demand logged against the plant roadmap; no nameable business case: refuse per intake | `dept-intake` |
+| 21 | Plant- and process-specific definition; process diagnostics | both | Use case scoped with a clear objective | this skill |
+| 22 | Requirements, features and data check; assess (legacy) MF IT systems | DBVE | Requirement and data verdict agreed | `funnel-requirements`, `mi-data-availability`, `invest-screen` |
+| 23 | Prototype / validate with the recipient | DBVE + Plant | Prototype validated | `funnel-prototype`, `ops-analytics-asset` |
+| 24 | Benefit calculation, business case, rank | both | Business case and priority agreed with Plant ME | `bc-build`, `bc-assess` |
+| 25 | Capital request, if investment is needed | DBVE; humans approve | Approved by MPEE / BA Operations | `dept-decision-rights`, `bc-capital-request` |
+| 26 | Implement; evaluate impact; ensure adoption; catalogue | both | Use case running; recipient confirms adoption | `deploy-handover`, `catalog-standardization`, `catalog-usecase` |
+

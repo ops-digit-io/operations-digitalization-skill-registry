@@ -10,6 +10,13 @@ tags: [business-case, worked-example, department-package]
 
 # BC Assessment Report — Gemba App
 
+## Contents
+
+- 1. Maturity-gate verdict
+- 2. Criteria scorecard
+- 3. Provenance & conflict register
+- 4. Prioritized gaps to close the number
+
 **Case:** Gemba App — digital shopfloor Gemba management (Levels 1–3 + walk)
 **Assessed against:** `30-skills` → `bc-assess` rubric (`criteria-checklist.md`)
 **Backbone:** `Business-Cases/gemba-app/business-case.md`

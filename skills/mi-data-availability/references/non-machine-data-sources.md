@@ -9,6 +9,14 @@ tags: [analytical-support-service, practice]
 
 # Non-machine data sources
 
+## Contents
+
+- 1. How to read the legacy application records
+- 2. Per plant: where the legacy applications sit
+- 3. Reaching the data - what exists
+- 4. Where the Grafana and data platform split matters
+- Sources
+
 The six steps start at the machine. A good share of the data people ask for is not on a PLC:
 a leak-test value in the tester's own software, a measurement in a laboratory application, an
 image on a camera PC, a paper checklist, a kWh reading in the energy logger. For those, steps

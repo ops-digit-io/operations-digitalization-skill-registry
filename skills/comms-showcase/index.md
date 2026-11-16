@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Showcase selection](SKILL.md) | Agent Skill | Decide which use case is ready to be told company-wide and which claims it may carry (Lane 4): go, hold or no. Not for writing the story (comms-brief). |
+| [Showcase selection](SKILL.md) | Agent Skill | Decides whether a live, adopted use case is ready to be told company-wide and which claims it may carry, and returns go, hold or no with the audience and the evidence class per claim (Lane 4). Use when a use case has gone productive, when someone asks to publicise or announce a result, a success story or a savings figure, or before a story is briefed to Internal Communications. Not for writing the story (comms-brief), not for follow-up after publication (comms-followup), not for proving the saving (bc-build). |
 
 | Folder | Holds |
 |---|---|

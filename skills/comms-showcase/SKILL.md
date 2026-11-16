@@ -1,7 +1,7 @@
 ---
 name: comms-showcase
 description: >-
-  Decide which use case is ready to be told company-wide and which claims it may carry (Lane 4): go, hold or no. Not for writing the story (comms-brief).
+  Decides whether a live, adopted use case is ready to be told company-wide and which claims it may carry, and returns go, hold or no with the audience and the evidence class per claim (Lane 4). Use when a use case has gone productive, when someone asks to publicise or announce a result, a success story or a savings figure, or before a story is briefed to Internal Communications. Not for writing the story (comms-brief), not for follow-up after publication (comms-followup), not for proving the saving (bc-build).
 license: MIT
 metadata:
   id: comms-showcase
@@ -42,15 +42,15 @@ metadata:
 
 ## The gate, in order
 
-1. **Live and adopted.** Delivery status `PRODUCTIVE`, and the recipient confirmed adoption into the daily process. Implemented is not adopted; a use case with utilization `NEVER` is not a story yet.
+1. **Live and adopted.** Delivery status `PRODUCTIVE`, and the recipient confirmed adoption into the daily process. Implemented is not adopted; a use case with utilization `NEVER` is not a story yet (the story would promise unseen use).
 2. **The plant owner agrees,** in writing, to be named as the plant (not as a person) and to the claims.
 3. **Evidence per claim.** Every figure gets one class: `CALCULATION` (with its method), `ESTIMATION`, or `not yet assessed`.
    - A saving counts as a **result** only when a plant savings project and a baseline are registered; before that it is a **claim** and is worded as one.
-   - Never invent or round up a figure.
-4. **Sensitivity screen.** No individual named, no host name, address or credential, no supplier or customer detail, nothing that exposes the cyber posture of a plant ([`references/readiness-gate.md`](references/readiness-gate.md)).
-5. **People content.** A photo, video or quote of a member of staff needs that person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only.
+   - Never invent or round up a figure, because readers at other plants plan on it and a corrected figure costs trust.
+4. **Sensitivity screen** (a story cannot be recalled). No individual named, no host name, address or credential, no supplier or customer detail, nothing that exposes the cyber posture of a plant ([`references/readiness-gate.md`](references/readiness-gate.md)).
+5. **People content** (silence is not consent). A photo, video or quote of a member of staff needs that person's consent or a documented balancing of interests; otherwise the story uses roles and screenshots only.
    - A balancing of interests lists the employer's reasons, the employees' counter-reasons and the weighing ([`references/readiness-gate.md`](references/readiness-gate.md)).
-6. **Audience fit.** Name the audiences the story is for and what each should do next ([`references/readiness-gate.md`](references/readiness-gate.md)).
+6. **Audience fit** (a story for everyone moves no one to act). Name the audiences the story is for and what each should do next ([`references/readiness-gate.md`](references/readiness-gate.md)).
 
 ## Verdicts
 
@@ -65,13 +65,29 @@ metadata:
 - Work the six gate steps in order ("The gate, in order"), fill the selection record, and give one verdict from the table above.
 - If a gate step fails validation (a failure, not a pass), the verdict is Hold (something is missing) or No (the owner declines or a sensitive detail cannot be removed); record the reason either way.
 
-- Fictional example (plant and figures invented for illustration):
+- Fictional examples (plant and figures invented for illustration):
 
 ```text
+GO
 Use case: U at plant X, status PRODUCTIVE, adoption confirmed
 Claim: "saves 1,000 EUR per year" - ESTIMATION (fictional figure), no baseline registered -> worded as a claim
 Sensitivity screen: pass; people content: roles and screenshots only
 Verdict: Go -> comms-brief
+```
+
+```text
+HOLD
+Use case: V at plant Y, status PRODUCTIVE, utilization not yet confirmed by the recipient
+Claim: "saves 20 percent scrap" - not yet assessed
+Plant owner: no answer after one request
+Verdict: Hold. Missing: adoption confirmation (owner: recipient), plant owner answer (owner: DBVE). Revisit at next review.
+```
+
+```text
+NO
+Use case: W at plant Z, story needs a screenshot showing a host name and a supplier price
+Plant owner: declines the plant being named
+Verdict: No. Reason recorded; do not retry through another channel.
 ```
 
 ## Human gate and AI-agent notes
@@ -79,6 +95,7 @@ Verdict: Go -> comms-brief
 - **Agent may:** read the use-case record, draft the selection record, list what is missing. **Humans decide:** the plant owner (consent and claims), the OD lead (whether OD tells it).
 - **Evidence to cite:** the status and adoption date, the savings register entry or its absence, the owner's consent.
 - A use case chosen only because it is impressive fails step 3 sooner than it passes.
+- Gate source status: the consent or balancing rule is proposed, not confirmed; see `references/readiness-gate.md`.
 
 ## Pitfalls
 
@@ -86,6 +103,8 @@ Verdict: Go -> comms-brief
 - Quoting the savings from the business case as if they were measured.
 - Naming the engineer who built it. Name the role and the plant.
 - Treating a published story as permanent: it ages (see `comms-followup`).
+- Reading silence from the plant owner as consent: record Hold, never assume.
+- Saying "plants" when the use case runs at one line of one plant: state the exact scope.
 
 ## Definition of done
 
@@ -106,3 +125,4 @@ Verdict: Go -> comms-brief
 | [`references/readiness-gate.md`](references/readiness-gate.md) | The gate criteria, the sensitivity screen, the audience table, refusal patterns |
 | [`assets/selection-record.md`](assets/selection-record.md) | The record to fill, one per use case |
 | [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

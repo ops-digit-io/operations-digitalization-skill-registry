@@ -1,12 +1,13 @@
 ---
 name: dept-risk
 description: >-
-  Read the department's early indicators against the six-row risk register each month and say
-  which escalation triggers are hit - for every risk, find the monitorable value, read it from
-  its source with a date, compare it with the trigger, and classify the risk as triggered, on
-  watch, clear or unreadable (no source), then draft the risk reading for the OD lead. Use when
-  the monthly risk review is due, before a COP round, after a blocked rollout or a
-  Cyber Security finding, or when someone asks whether any risk has crossed its escalation trigger.
+  Answers "has any department risk crossed its escalation trigger this month?". Reads the early
+  indicators against the six-row risk register: finds the monitorable value per risk, reads it from its
+  source with a date, compares it with the trigger, classifies each risk as triggered, on watch, clear or
+  unreadable (no source), and drafts the risk reading for the OD lead. It never scores risks. Use when the
+  monthly risk review is due, before a COP round, after a blocked rollout or a Cyber Security finding, or
+  when someone asks whether a risk needs escalation. Not for the monthly improvement decision
+  (dept-retro) or for judging one use case or project risk (deploy-project-order).
 license: MIT
 allowed-tools: Read Grep Glob
 metadata:
@@ -30,12 +31,8 @@ metadata:
 # Risk watch
 
 - Read `dept-context` first.
-
-- Plan item O-07 of the department's skill map.
-- The risk register (`09-risks.md`, review cadence **monthly**) is built so that an agent can watch it: "an early indicator is a monitorable value - a register an agent can watch, not a table opened once a year".
-- It deliberately has **no probability x damage matrix** ("false precision; the early indicator does more").
-- This skill therefore never scores risks; it reads indicators and tests triggers.
-
+- The risk register (`09-risks.md`) is reviewed monthly and built so that an agent can watch it: an early indicator is a monitorable value.
+- It has **no probability x damage matrix** (false precision; the early indicator does more), so this skill never scores risks: it reads indicators and tests triggers.
 - **Outputs:** [`references/outputs.md`](references/outputs.md) lists what this skill must deliver, to whom, and when each output is complete.
 
 ## What it produces
@@ -46,11 +43,12 @@ metadata:
 
 ## The references
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/risk-indicators.md`](references/risk-indicators.md) | The six risks, one by one: where the indicator is read, how to read the indicator live (source, field, filter), the trigger test, the kinds of gap that make an indicator unreadable |
-| [`assets/risk-reading.md`](assets/risk-reading.md) | The monthly reading to fill |
-| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Supporting indicators the chain produces, the blocker brief, cadence formats, the scoring conflict to avoid, and what an agent may draft |
+| [`references/risk-indicators.md`](references/risk-indicators.md) | Step 2: you read an indicator and need its source, field, filter, trigger test and the gaps that make it unreadable |
+| [`assets/risk-reading.md`](assets/risk-reading.md) | Step 1: you start the monthly reading to fill |
+| [`references/process-chain-practice.md`](references/process-chain-practice.md) | Steps 5-7: you need supporting indicators from the chain, the blocker brief, cadence formats or the scoring conflict to avoid |
+| [`references/background.md`](references/background.md) | You need the provenance, the open points or the required-output table; never an instruction |
 
 ## Statuses
 
@@ -61,28 +59,24 @@ metadata:
 | **Clear** | The indicator is read from a source and the trigger is not met |
 | **Unreadable** | No source for the indicator, or the trigger parameter is `⟨n⟩` (undefined). This is a finding, not a pass |
 
-- "Unreadable" is not "clear".
-- Some indicators typically have no named source or an undefined parameter (see the reference); reporting them as clear would be the exact failure the honesty rules forbid.
+- "Unreadable" is not "clear". Some indicators typically have no named source or an undefined parameter (see `references/risk-indicators.md`).
+- Reporting them as clear would be the exact failure the honesty rules forbid.
 
 ## Procedure
 
-1. **Open the register** (`09-risks.md`) and note its `last-verified` date. If the register itself is older than the
-   month, say so in the reading's header; the register is the thing being watched.
-2. **For each risk, read the indicator** at the source named in
-   [`risk-indicators.md`](references/risk-indicators.md). Refetch live figures (Power BI, lists); treat any knowledge base aggregate only
-   as a labelled, dated snapshot and never as the reading.
-3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩
-   months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
+1. **Open the register** (`09-risks.md`) and note its `last-verified` date. If the register itself is older than the month, say so in the reading's header; the register is the thing being watched.
+2. **For each risk, read the indicator** at the source named in `references/risk-indicators.md`. Refetch live figures (Power BI, lists); treat any knowledge base aggregate only as a labelled, dated snapshot and never as the reading.
+3. **Test the trigger** exactly as written in the register. Where it contains a parameter in brackets (`open role > ⟨n⟩ months`), the trigger cannot be tested: status *Unreadable*, with the parameter named for the OD lead to set.
 4. **Classify** per the statuses above. Write the evidence in one sentence.
 5. **List triggers hit** and route each: the risk owner is given in the register;
    - the forum is the OD lead or the deciding role named in the current approval policy (look up) for strategy, priority and rollout matters, COP for technical ones (`06-operating-rhythm.md`); use `dept-decision-rights` for any decision outside OD.
    - Cyber Security items go through the gate in `deploy-cybersec` (planned).
-6. **Name the countermeasure in the register** next to each triggered or on-watch risk. The register already lists it;
-   do not invent others. A new countermeasure is a proposal for the OD lead and is marked as one.
-7. **Hand to the retro.** The reading is an input of `dept-retro`. A trigger hit two months running is a candidate for the
-   retro's one adjustment.
-8. **Check the register for staleness:** a risk whose indicator has been *Unreadable* three months in a row means the
-   register row needs a source or a rewrite; propose that.
+6. **Name the countermeasure in the register** next to each triggered or on-watch risk. The register already lists it; do not invent others. A new countermeasure is a proposal for the OD lead and is marked as one.
+7. **Hand to the retro.** The reading is an input of `dept-retro`. A trigger hit two months running is a candidate for the retro's one adjustment.
+8. **Check the register for staleness:** a risk whose indicator has been *Unreadable* three months in a row means the register row needs a source or a rewrite; propose that.
+9. **Check completeness before the draft goes to the OD lead.** All six risks carry value, source, read date, trigger and status.
+   - Every status has one sentence of evidence; every unreadable row names what is missing and which role could supply it.
+   - Fix the gaps and check again.
 
 ## Decision table: what a triggered risk goes to
 
@@ -95,22 +89,33 @@ metadata:
 | Cyber Security / OT exposure | Security gap on connected asset | COP for the technical aspect; Cyber Security sign-off gate; never act on an external machine connection without sign-off |
 | Value not materializing | Impact < target for the quarter | OD lead / deciding role per the current approval policy; DBVE owns; gauge value delivery before scale-out (a metric not captured today) |
 
-## What is still open
+## Example (fictional)
 
-- **Parameters:** `open role > ⟨n⟩ months` has no n unless the OD lead has set one; "impact < target" needs a defined target for use-case impact.
-- **Sources with no system named:** support tickets, open-role list, "dependence on few individuals".
-- **Owner of the external-tooling risk** is `⟨to confirm⟩` in the register.
-- **Escalation window** of COP and the deciding role is `⟨to confirm⟩`.
-- **Who may declare a trigger "triggered"**: the register names risk owners, not a declarer. The skill drafts; the OD lead role confirms.
+```text
+Risk reading 2026-03 (fictional). Register last-verified 2026-02-10 (older than the month: stated).
+Risk                        | Value read            | Source, date      | Trigger                 | Status
+Missing operations concept  | 1 rollout blocked     | rollout list 03-02| blocked at strategic pl.| triggered
+Key-person / staffing       | 1 open role, age 5 mo | HR view 03-02     | open role > <n> months  | unreadable (n undefined)
+Limited internal IT know-how| no single point named | COP notes 03-05   | single point of failure | clear
+External tooling dependence| decision 2 weeks late | decision log 03-03| delayed past plan       | on watch (approaching)
+Cyber Security / OT         | 0 open findings       | CS tracker 03-04  | gap on connected asset  | clear
+Value not materializing     | no target defined     | -                 | impact < target         | unreadable (no target)
+Triggers hit: row 1 -> deciding role per approval policy. Unreadable twice -> proposal to the OD lead.
+```
 
-## Do not
+## Pitfalls
 
-- Do not import probability or impact scoring from project plans into the register (`references/process-chain-practice.md`).
-- Do not assign probabilities, impact scores or colours that the register excludes by design.
-- Do not report an unreadable indicator as clear.
-- Do not take a knowledge base aggregate as a live reading; label the snapshot date.
-- Do not add risks to the register; propose them to the OD lead.
-- Do not escalate by e-mail or by name; use the round and the role.
+- **Importing probability or impact scoring** from project plans into the register. The register excludes it by design (`references/process-chain-practice.md`).
+- **Assigning colours or scores** the register does not have; the status is one of four words.
+- **Reporting an unreadable indicator as clear.** Silence is a finding, because a risk nobody can read is not a risk that is absent.
+- **Taking a knowledge base aggregate as a live reading.** Label the snapshot date, because aggregates lag the lists.
+- **Adding risks to the register.** Propose them to the OD lead.
+- **Escalating by e-mail or by name.** Use the round and the role.
+
+## Human gate and AI-agent notes
+
+- The register names risk owners, not who may declare a trigger "triggered": the skill drafts; the OD lead role confirms.
+- The agent is read-only on sources and never changes the register, a countermeasure or a status the OD lead has confirmed.
 
 ## Outputs
 
@@ -119,6 +124,7 @@ metadata:
 
 ## References
 
-| File | Use it for |
+| File | Open when |
 |---|---|
-| [`references/background.md`](references/background.md) | Context, rationale, examples and notes moved out of this file; never an instruction |
+| [`references/background.md`](references/background.md) | You need the provenance, the open points or the required-output table; never an instruction |
+| [`evals/evals.json`](evals/evals.json) | Test cases and trigger queries to run with and without this skill |

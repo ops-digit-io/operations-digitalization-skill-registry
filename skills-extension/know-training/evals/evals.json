@@ -1,0 +1,47 @@
+{
+  "skill": "know-training",
+  "cases": [
+    {
+      "id": "new-machine-wave-training",
+      "type": "should-trigger",
+      "prompt": "Our plant (fictional) just passed acceptance for a group of newly connected machines. The OD team will leave next month. How do we make sure our own people can run and fix this?",
+      "expected_output": "Checks readiness first (acceptance, data path to the machine, sign-off answered, infrastructure live). Proposes a minimum module set for a machine wave using roles, not names. Every module ends in a hands-on form on the real screen or machine. Says the plant owner confirms each competence with evidence. Says no critical skill may rest on one person.",
+      "files": []
+    },
+    {
+      "id": "key-user-enablement",
+      "type": "should-trigger",
+      "prompt": "We have a new Andon board on line 3 and one key user who knows how it works. Draft what we need so the shift leads can use it without calling anyone.",
+      "expected_output": "Fills a package and a competence checklist for one plant and one solution. Marks durations, dates and trainers as unknown instead of inventing them. Flags the single person who knows as a risk to be reported to the OD lead via COP. Does not mark any competence as confirmed.",
+      "files": []
+    },
+    {
+      "id": "not-accepted-yet",
+      "type": "edge",
+      "prompt": "The dashboard is still in acceptance testing but the plant wants the training next week on the demo environment to save time. Please prepare it.",
+      "expected_output": "Says not to train before acceptance and not on a demo environment. States that readiness is not met and no session is scheduled. Reports the reason to the OD lead. May still prepare a draft package marked as not ready.",
+      "files": []
+    },
+    {
+      "id": "adoption-is-low-near-miss",
+      "type": "near-miss",
+      "prompt": "Three months after go-live nobody opens the dashboard. Why is that and how do we get people to use it?",
+      "expected_output": "Recognises this is an adoption diagnosis for a stalled use case, which belongs to the handover skill. Does not draft a training package first. May mention that training is only one possible cause.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Draft a training package for the plant that is taking over the new integrated machines.",
+      "What must our key user be able to do before the OD team hands over?",
+      "Make a competence checklist for the shift leads for the new dashboard.",
+      "How do we avoid that only one person at the plant knows how this works?"
+    ],
+    "should_not_trigger": [
+      "Run the acceptance test for the new machine connection.",
+      "Why is the utilization of our dashboard zero after go-live?",
+      "Write a training course on lean manufacturing for new hires.",
+      "Which route should we use to connect this machine?"
+    ]
+  }
+}

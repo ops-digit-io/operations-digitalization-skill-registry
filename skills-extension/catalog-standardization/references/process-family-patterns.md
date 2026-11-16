@@ -8,6 +8,14 @@ tags: [all, practice]
 ---
 # Process family patterns
 
+## Contents
+
+- The two axes
+- Pattern per family
+- What the family inference is worth
+- What recurs as a blocker, by capability (themes, not counts)
+- Using this in the chain
+
 Source: knowledge base `Graph/Process Groups` (one note per process group, with an authored definition and the target types aimed at it),
 `Graph/Use Case Views` (the capability pages and `Use Case Views - Standardization`), `Case Groups` (including `Process Family
 Inference`) and the workshop requirement note for the shared vulcanization use case (cited on the Rubber Vulcanization

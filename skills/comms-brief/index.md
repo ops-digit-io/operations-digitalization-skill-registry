@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Communications brief](SKILL.md) | Agent Skill | Turn a selected use case into a brief and draft pack Internal Communications can publish (Lane 4): message, sourced proof points, audiences, call to action. Use after comms-showcase says go. |
+| [Communications brief](SKILL.md) | Agent Skill | Write the brief that Internal Communications can publish for a use case that comms-showcase cleared (Lane 4): one message, two to four sourced proof points with evidence class, audience variants, a call to action and the approvals list, then run the brief check script. Use when someone says "write the story for this use case", "brief Internal Communications", "draft the article or one-pager for the use case", or "check the claims in this draft story". Drafts only: the plant owner, OD lead and Internal Communications approve, and OD never publishes. Not for deciding whether a use case may be told (comms-showcase) or for follow-up after publication (comms-followup). |
 
 | Folder | Holds |
 |---|---|

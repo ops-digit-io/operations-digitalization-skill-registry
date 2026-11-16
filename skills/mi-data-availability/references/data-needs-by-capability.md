@@ -9,6 +9,14 @@ tags: [analytical-support-service, practice]
 
 # Data needs by capability
 
+## Contents
+
+- The eleven templates
+- How to use the table at the data check
+- What the capability and process epic records tell you (and do not)
+- Data items named by the standardization knowledge base
+- Sources
+
 Use this at step 1 and step 6 of the six steps: *which signals does this kind of use case
 need, and which part of that is already known to be fragile?* A request arrives as "we want an
 Andon board" or "we want OEE". The capability template tells you the data classes behind it,

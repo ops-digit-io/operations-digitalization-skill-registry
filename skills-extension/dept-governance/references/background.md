@@ -26,3 +26,8 @@ tags: [background]
 - **Receives from:** `metrics-scorecard` (live figures), `dept-risk` (risk readings), `dept-decision-rights` (rights and escalation), `funnel-use-case` (the use case entering a sprint).
 - **Next in the flow:** the OD lead for packs; the owner named in `dept-decision-rights` for routed requests; `dept-retro` for round feedback; `dept-risk` for indicator gaps; `know-training` for the training programme. Proposed on step 23 of `docs/new-state/process.yaml`.
 - **Stops here when:** a sprint lacks an expert for the process, a defined baseline or agreed architecture and access; the machine is not connected (a wave first); or an escalation, route, budget or priority would be decided by the agent. Recorded demand is not proven saving; ODEC is not a current forum.
+
+## Dates moved out of SKILL.md
+
+- ODEC was held monthly until 2025-12 and no longer is; no fixed replacement forum exists.
+- Open question: whether the sprint runbook and the training programme should become their own skills (the review noted six routines in one skill); out of scope for this improvement run.

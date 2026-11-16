@@ -1,0 +1,47 @@
+{
+  "skill": "mi-data-availability",
+  "cases": [
+    {
+      "id": "can-we-get-this-data",
+      "type": "should-trigger",
+      "prompt": "A plant (fictional) wants a downtime dashboard for their press line. They think the machine state signal is already available. Can we promise it for the next quarter?",
+      "expected_output": "Does not promise a turnaround. Checks the machine, its integration status, the connector and the offload to the data platform in order. Names the path step where the request stops, not just yes or no. Lists missing signals up front as signal id, label, why needed. Says fitness for use stays unproven unless a source records it.",
+      "files": []
+    },
+    {
+      "id": "blank-status",
+      "type": "edge",
+      "prompt": "The Machine List shows no integration status at all for most machines of this plant (fictional). Does that mean none of them are integrated, so we should ask the integration team to start from zero?",
+      "expected_output": "Says a blank is not a no. Says the plant cannot answer the integration check from the list and reports it as not recorded. Does not route a fabricated gap to the integration lane. Suggests measuring completeness and asking the plant key user.",
+      "files": []
+    },
+    {
+      "id": "lab-data-request",
+      "type": "should-trigger",
+      "prompt": "A quality engineer wants to correlate lab results with scrap on one line. The lab results sit in a standalone legacy application. Is the data available?",
+      "expected_output": "Recognises the data is not a PLC signal. Points to the legacy application records and their connectors. Checks whether an existing asset already answers it. Records a gap as a dependency on the use case instead of filling it. Labels what can and cannot be answered now.",
+      "files": []
+    },
+    {
+      "id": "connect-the-machine-near-miss",
+      "type": "near-miss",
+      "prompt": "We know the machine is not integrated. Which connector and route should we use to connect it, and what does it cost?",
+      "expected_output": "Recognises this is a machine integration question, which belongs to the equipment skill. Does not walk the availability path again. May reference the verdict as input.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "Do we have the signals for this use case at the plant?",
+      "Is this machine in the Machine List and is it integrated?",
+      "Before we scope the dashboard, can we actually get the data?",
+      "Which data is missing for the cycle time analysis on this line?"
+    ],
+    "should_not_trigger": [
+      "Define the naming standard for our machine signals.",
+      "Plan the integration waves for the plant's unconnected machines.",
+      "Build the Grafana dashboard for the downtime data.",
+      "Calculate the savings of the downtime use case."
+    ]
+  }
+}

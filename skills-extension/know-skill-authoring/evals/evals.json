@@ -1,0 +1,47 @@
+{
+  "skill": "know-skill-authoring",
+  "cases": [
+    {
+      "id": "new-skill-from-recurring-procedure",
+      "type": "should-trigger",
+      "prompt": "Our team does the same monthly list check in every region and each one does it a bit differently. I think this should become one of our skills. Where do I start?",
+      "expected_output": "Starts by searching the registry for an existing skill and naming an owner. Says to mine the department record before general knowledge. Asks for a one-page brief agreed by the owner before writing. Mentions three test cases. Does not mark anything reviewed or verified.",
+      "files": []
+    },
+    {
+      "id": "weak-skill-rework",
+      "type": "should-trigger",
+      "prompt": "One of our skills got a C in the quality check and people say it is vague. How do we fix it properly?",
+      "expected_output": "Points to the gates in order and the findings table. Warns against adding text only to please the checker. Asks for a worked example, a pitfalls list and a description with a not-for boundary. Keeps status draft and leaves review to the owner.",
+      "files": []
+    },
+    {
+      "id": "topic-already-owned",
+      "type": "edge",
+      "prompt": "Please make a new skill about how to score a business case. We have no owner for it yet but it should be quick.",
+      "expected_output": "Notes that a skill for this topic may already exist and asks to check the registry. Refuses to proceed without a named owner. Says extend the existing skill instead of adding a second one.",
+      "files": []
+    },
+    {
+      "id": "single-note-near-miss",
+      "type": "near-miss",
+      "prompt": "Write me a short note summarising yesterday's workshop for the plant team.",
+      "expected_output": "Recognises this is a one-off note, not a skill. Does not run the authoring method or the scaffold script.",
+      "files": []
+    }
+  ],
+  "trigger_queries": {
+    "should_trigger": [
+      "How do I turn this recurring OD procedure into a skill for the registry?",
+      "Our skill was rated below B, how do we improve it?",
+      "Scaffold a new skill folder and tell me what the registry entry should look like.",
+      "What are the gates a new skill has to pass before the pull request?"
+    ],
+    "should_not_trigger": [
+      "Write a prompt that summarises my meeting notes.",
+      "Update the business case skill with the new savings figures from the plant.",
+      "Which skill decides whether a request is accepted into a lane?",
+      "Create a PowerPoint deck about our skills."
+    ]
+  }
+}

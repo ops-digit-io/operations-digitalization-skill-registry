@@ -1,0 +1,47 @@
+{
+ "skill": "dept-decision-rights",
+ "cases": [
+  {
+   "id": "row-found-connection-kit",
+   "type": "should-trigger",
+   "prompt": "Plant North (fictional) wants to order a connection kit for a press and hook it to our network next month. Is that something the plant can just approve on its own?",
+   "expected_output": "Finds the equipment-integration row and names its role, the co-decider, the mode (Tandem) and that approval is required. Says an external connection needs Cyber Security sign-off. States the agent level as recommend and fills a decision request. Records the gate as a dependency.",
+   "files": []
+  },
+  {
+   "id": "gate-outside-od",
+   "type": "should-trigger",
+   "prompt": "Our dashboard use case is finished and the savings are booked. Can OD just mark it as proven and in daily use so the numbers count?",
+   "expected_output": "Names the two gates outside OD: the plant makes it productive, and value is proven only after the SPRINT portfolio review. Does not mark anything itself. Routes to the owning roles and records the dependency.",
+   "files": []
+  },
+  {
+   "id": "no-row-fits",
+   "type": "edge",
+   "prompt": "We want to allow a supplier's engineer to read our line data remotely for a pilot. I can't find who decides that. What now?",
+   "expected_output": "Says no table row fits cleanly and does not invent one. Writes decision rights pending re-verification and routes to the OD lead. Flags that the external connection needs Cyber Security sign-off. Does not act above recommend.",
+   "files": []
+  },
+  {
+   "id": "lane-question-near-miss",
+   "type": "near-miss",
+   "prompt": "A plant sent a new request about a scrap dashboard. Is it a catalogued use case or a new one, and which lane does it go in?",
+   "expected_output": "Recognises this is a lane-sorting question, not a decision-rights question. Hands it to the intake skill instead of building a decision request.",
+   "files": []
+  }
+ ],
+ "trigger_queries": {
+  "should_trigger": [
+   "Who has to approve changing our signal naming standard?",
+   "Am I allowed to commit this spend or does it go to someone else?",
+   "Does OD decide the rollout of a new tool at a plant, or is it IT?",
+   "Why is the saving stuck waiting on the capital request, who owns that gate?"
+  ],
+  "should_not_trigger": [
+   "Which lane does this new request belong to?",
+   "Fill in the capital request form for the new gateway purchase.",
+   "Run the monthly risk reading against the register.",
+   "What does cluster tag C05 mean?"
+  ]
+ }
+}

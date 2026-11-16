@@ -35,3 +35,9 @@ or a non-standard interface (`dept-decision-rights`). A small initiative uses th
 - **Receives from:** `funnel-use-case` (use case, scope, demand), `bc-portfolio`, `bc-build` (benefit rows with firmness), `bc-cost` and `bc-capital-request` (cost, option, funding gate), `dept-decision-rights`, `invest-screen` (tool decision, IT gate).
 - **Next in the flow:** `bc-capital-request` (step 25, funding trail where money follows; also 33), OpenSpec IT demand (external) (step 3a4), `deploy-handover` (step 26, closure), `dept-retro`, `dept-risk`, `dept-decision-rights` for open questions to the steering committee.
 - **Stops here when:** the work is a small change (few days of effort, budget available, standard interface), which goes through the ticket and change process with no order. Nothing is sent with a silent blank, and the order is not approved or signed by the skill.
+
+## Sources of the chapter rules
+
+- The references mark the registry's own rules as PROPOSAL; unmarked chapter rules are as the references state them.
+- The pre-send check and the customer-mandated intake variant are PROPOSAL (this skill's own).
+- Open question: the original source documents of the chapter rules are not named here; the department owner should add them.

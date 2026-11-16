@@ -8,6 +8,16 @@ tags: [information-integration-service, technical, process-chain, draft]
 ---
 # Process-chain practice - integration wave, planning workflow and lessons
 
+## Contents
+
+- Where it sits in the chain
+- 1 Method in practice
+- 2 Decision rules at a glance
+- 3 Handoff contract
+- 4 Pitfalls and lessons
+- 5 Questions to ask and definition of done
+- 6 AI agent operating notes
+
 Derived from the Operations Digitalization slide decks (integration, energy-monitoring, MES, edge-platform and community-call
 decks), abstracted into process guidance. No figures. `PROPOSAL` = synthesis not stated in a deck; `<...>` = unknown or to
 confirm. Connector, route and gate detail stays in the neighbouring references; this file adds how the work is run.
@@ -53,7 +63,7 @@ only the live connection and live operation; planning, build and the wave's prep
   HMI addresses and programs stay unchanged: one switch configuration instead of per-device changes. Trial one device on one
   machine before ordering more. Not for high-frequency signals.
 - More integrated machines do not equal more savings. A plant with many connected machines and no pull from Production produced
-  none. Ask for the use-case demand and the plant owner before sizing (this sharpens Route A step 2).
+  none. Ask for the use-case demand and the plant owner before sizing (this sharpens Mode A step 2).
 
 ### Per-plant planning workflow (tool-shop model)
 
@@ -174,7 +184,7 @@ reconfiguring edge devices; one checklist file per location with a traffic light
 - Does the plant have the people and skill to run its part of the wave?
 
 Done = hardware and software commissioned, master data set, import and monitoring running, key users trained, backup integrated,
-documentation complete, old process switched off, plus the Route A or B definition of done.
+documentation complete, old process switched off, plus the Mode A or B definition of done.
 
 ## 6 AI agent operating notes
 

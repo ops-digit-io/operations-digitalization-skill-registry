@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Use-case standardization](SKILL.md) | Agent Skill | Make one plant's solution into every plant's — check a use case against the cross-plant capability templates and the reference library before anything is specified, apply the cluster classification (C01-C12), take a use case through the CSP (Common Solution Portfolio) gate, and measure standardization by adoption rather than by how many templates exist. Use when a use case is declared standard, when a second plant wants something a first plant already has, when a library entry is proposed for rollout, when a cluster tag needs assigning or checking, or when someone asks why the catalogue has not scaled. Also decides whether a recurring ad-hoc asset becomes a standard use case and assembles the promotion package (formerly od-use-case-promotion). |
+| [Use-case standardization](SKILL.md) | Agent Skill | Check one use case against the cross-plant capability templates and the reference library before anything is specified, assign its cluster tag (C01-C12) with the baseline KPIs and checklist, and prepare it for the CSP (Common Solution Portfolio) gate. Use when someone says a use case is "standard", when a second plant wants something a first plant already has, when a library entry is proposed for rollout, when a cluster tag must be assigned or checked, when a dashboard or report built for one request keeps coming back and might become a standard use case, or when asked why the catalog has not scaled. Recommends only; the CSP decision sits outside OD. Not for matching a plant request to the catalog (catalog-usecase) or for the value case (bc-build). |
 
 | Folder | Holds |
 |---|---|

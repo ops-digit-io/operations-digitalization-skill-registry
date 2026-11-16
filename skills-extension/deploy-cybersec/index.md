@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [Cyber Security sign-off gate](SKILL.md) | Agent Skill | Assemble the sign-off package that goes to Cyber Security / OT before an external machine connection or an app deployment - classify the case, list what leaves the machine or the plant network and where it lands, collect the evidence the neighbouring skills already produce, route the request, and record the wait state and the answer. Drafts and recommends only; the Cyber Security sign-off itself is human-only and has no expedited path. Use before scheduling a machine connection, before an app goes to the platform, when a plant asks what Cyber Security needs, or when a connection waits on sign-off. |
+| [Cyber Security sign-off gate](SKILL.md) | Agent Skill | Assembles the sign-off package for Cyber Security / OT before a machine is connected externally or an app goes to the platform: classifies the case, lists what leaves the machine or plant network and where it lands, collects evidence the neighbouring skills already produce, routes the request and records the wait state and the answer. Use when a plant asks what Cyber Security needs, before scheduling a machine connection or an app deployment, or when a connection waits on sign-off. Drafts and recommends only; the sign-off is human-only with no expedited path. Not for the acceptance test (deploy-acceptance) or the app deployment package (deploy-appstore). |
 
 | Folder | Holds |
 |---|---|

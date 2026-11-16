@@ -8,6 +8,22 @@ tags: [signals, analyser, standardization]
 ---
 # Procedure detail
 
+## Contents
+
+- Why this is the most-recorded blocker
+- Two inputs
+- Step 1 - the data-point contract
+- Step 2 - the analyser
+- Step 2b - how the machine works
+- Step 3 - public models
+- Step 4 - cluster and rank
+- Step 5 - classes
+- Step 6 - missing signal, two owners
+- Step 7 - the four things
+- Step 8 - derived outputs
+- Step 9 - context situation
+- Language
+
 Moved out of `SKILL.md`. The procedure and rules stay there; the tables and reasoning are here.
 
 ## Why this is the most-recorded blocker

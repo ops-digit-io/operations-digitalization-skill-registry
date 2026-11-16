@@ -8,6 +8,15 @@ tags: [all, practice]
 ---
 # Template coverage
 
+## Contents
+
+- The eleven templates
+- How to read coverage live
+- Peer plants per template
+- What each template needs - the preconditions for branch 1a
+- Which template does the request belong to
+- Typical components of a matching screen
+
 This file holds **no counts, plant lists or rankings**. Sources to read live: knowledge base `Graph/Use Cases` (plant use cases;
 frontmatter fields `use_case_template`, `status`, `plant`, `scalable`), `Graph/Use Case Views` (the eleven template pages,
 `Use Case Views.md`, `Use Case Views - Standardization.md`) and `Graph/Target Types`. The template pages are AI-drafted from a

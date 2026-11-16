@@ -10,7 +10,10 @@ exclusive and inclusive splits with labelled outgoing flows, every flow node in 
 alternative or exception path, and a diagram (bpmndi) so the model can be shown. These are the structural rules this skill
 applies; they are good practice, not requirements of the BPMN standard.
 
-Exit code 0 prints READY; 1 prints the findings. Nothing is changed.
+Scope: it checks the structure of the records and of the model, not their truth. A typed "passed" satisfies the gate row;
+open the three records to confirm they exist and say so.
+
+Exit code 0 prints READY; 1 prints the findings; 2 means a usage error or a file that cannot be read. Nothing is changed.
 """
 from __future__ import annotations
 
@@ -106,17 +109,28 @@ def model_findings(xml_text: str) -> list[str]:
     return out
 
 
+def read(path: str) -> str:
+    try:
+        return Path(path).read_text(encoding="utf-8-sig")                          # utf-8-sig: tolerate a byte-order mark
+    except (OSError, UnicodeDecodeError) as e:
+        print(f"cannot read {path}: {e}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main(argv: list[str]) -> int:
-    if not argv or argv[0] in ("-h", "--help"):
+    if argv and argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0
+    if not argv:
         print(__doc__)
         return 2
     if argv[0].lower().endswith(".bpmn"):                                          # a lone model file: structure only
-        findings = model_findings(Path(argv[0]).read_text(encoding="utf-8-sig"))
+        findings = model_findings(read(argv[0]))
         argv = []
     else:
-        findings = gate_findings(Path(argv[0]).read_text(encoding="utf-8-sig"))      # utf-8-sig: tolerate a byte-order mark
+        findings = gate_findings(read(argv[0]))
     if len(argv) > 1:
-        findings += model_findings(Path(argv[1]).read_text(encoding="utf-8-sig"))
+        findings += model_findings(read(argv[1]))
     if findings:
         print("NOT READY")
         for f in findings:

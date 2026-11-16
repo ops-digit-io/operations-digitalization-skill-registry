@@ -8,6 +8,18 @@ tags: [node-red, transformation]
 ---
 # When no pattern fits — composing a transformation
 
+## Contents
+
+- The four questions
+- Q1 · Inputs — and the majority case the catalogue under-sells
+- Q2 · History — and what clears it
+- Q3 · What drives the output
+- Q4 · The output
+- Composition rules
+- Two timestamp conventions, not one
+- Before you build: the pre-flight
+- After you build
+
 The catalogue tells you what exists. This tells you what to do when the thing you need is
 not in it, which is the normal case for any genuinely new use case.
 

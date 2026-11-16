@@ -13,7 +13,8 @@ In the estate's leaf user stories, very few carry an "I want" tag, almost none m
 acceptance criteria, and none carry a "so that" that differs from the generated one. The
 structure was never the problem.
 
-Exit code: 2 if any BLOCKER, 1 if any WARN, 0 otherwise.
+Exit code: 2 if any BLOCKER or the file cannot be read or no file is given, 1 if any WARN,
+0 otherwise. Requires Python 3.9 or newer, standard library only. Input is UTF-8 markdown.
 """
 
 from __future__ import annotations
@@ -277,18 +278,23 @@ def analyze(path: str) -> list[dict]:
 
 
 def main(argv):
+    if "--help" in argv or "-h" in argv:
+        print(__doc__)
+        return 0
     args = [a for a in argv[1:] if not a.startswith("--")]
     as_json = "--json" in argv
     if not args:
-        print(__doc__)
-        return 0
+        print(__doc__, file=sys.stderr)
+        print("error: give the epic file to check (see usage above)", file=sys.stderr)
+        return 2
     worst, out = 0, []
     for path in args:
         try:
             findings = analyze(path)
         except Exception as exc:  # noqa: BLE001
-            print(f"{path}: could not check — {exc}", file=sys.stderr)
-            worst = max(worst, 1)
+            print(f"{path}: could not check - {exc}. Give the path of an existing UTF-8 markdown file.",
+                  file=sys.stderr)
+            worst = max(worst, 2)
             continue
         c = Counter(f["severity"] for f in findings)
         worst = max(worst, 2 if c["BLOCKER"] else 1 if c["WARN"] else 0)
@@ -312,6 +318,11 @@ def main(argv):
 
 def _run(argv: list[str]) -> int:
     """Wrap main so piping into `head` or `less` exits quietly instead of tracebacking."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8")
+        except (AttributeError, ValueError):
+            pass
     try:
         return main(argv)
     except BrokenPipeError:

@@ -4,7 +4,7 @@
 
 | Concept | Type | Description |
 |---|---|---|
-| [System fit check](SKILL.md) | Agent Skill | Intake fit check and Lane 3 tool-decision gate: catch requests needing a system outside the lean footprint; route make/buy/integrate/connect. Not for requirements (funnel-requirements). |
+| [System fit check](SKILL.md) | Agent Skill | Check whether a plant request quietly needs a system outside the lean footprint (MES, EMS or similar) and, in Lane 3, run the tool-decision gate that routes a demand to reuse, self-develop, external build, integrate an app or a new connector. Gives a fit verdict (fits, redesign, escalate) or a gate verdict (Go, PoC-first, Reduce-complexity, Hold, Reject, Blocked) with a named next step. Use when a request sounds like live scheduling, full order genealogy or traceability across processes, when someone asks make or buy, integrate or connect, "do we need an MES for this", when an application design question needs a recommendation, or when an invest list needs screening. Recommends only; the OD lead decides. Not for writing the requirement (funnel-requirements) or intake lane triage (dept-intake). |
 
 | Folder | Holds |
 |---|---|

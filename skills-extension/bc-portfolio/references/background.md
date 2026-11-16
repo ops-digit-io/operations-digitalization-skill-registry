@@ -31,3 +31,12 @@ document per review round, built from `know-sharepoint-export`'s capture and
 - **Receives from:** `know-sharepoint-export` (dated capture of the use-case and savings lists), `bc-build` (the saving rows and their firmness).
 - **Next in the flow:** `metrics-scorecard` (round prep), `dept-plant-diagnosis` (savings by plant, status cut), `catalog-standardization`, `deploy-project-order` (use case, scope, demand); the ranking feeds step 24 and `dept-decision-rights`.
 - **Stops here when:** a figure has no read date, a rate has no denominator, or a "no potential" conclusion would rest on zero reported saving for a scaled use case. Mark it for further investigation instead of publishing the number.
+
+## Standing findings (context for reading the portfolio)
+
+- The catalogue is built to standardize and has not scaled: capabilities are instantiated at (nearly) every plant, so templates are not the constraint, adoption of the proven instance is. Verify on the live capability instance list.
+- The savings ledger is mostly empty scaffolding. Pattern: the tracker was actively maintained for a period and then largely abandoned, so the reliability field is mostly empty and few use cases carry a figure. Verify by counting blank reliability.
+- The regions are not variations of one another. A low-converting region is a different problem from a high-converting one, not a smaller one; a plan that treats regions as scaled copies fails in the weakest one. The best-converting region's rate is the one worth interrogating for what it does differently.
+- C12 "Other and plant-specific" is a data-quality signal, not only a topical one; track its size over time rather than quoting it once.
+- Version history carries text the current record does not: rationale, blockers and comments were written during active work and later tidied back to `-`. An analysis over the current snapshot alone misses part of the narrative.
+- The absorbed prioritization job (formerly `od-use-case-prioritization`, merged 2026-11-10) keeps its own references and assets under `references/od-use-case-prioritization/` and the authority it had (recommend).

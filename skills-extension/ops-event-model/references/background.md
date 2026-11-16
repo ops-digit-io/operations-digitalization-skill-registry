@@ -42,3 +42,12 @@ named skill at step `22`.
 - **Receives from:** `dept-intake` and `funnel-use-case` (the accepted demand in the plant's words, owner role, the decision that follows), `mi-data-availability` and `mi-equipment` (tag list, PLC metadata, machine connected or not).
 - **Next in the flow:** `funnel-use-case`, `funnel-requirements` and `mi-signals`; `mi-data-availability` for a missing relation; `catalog-standardization` and `ops-analytics-asset` for archetype and method. Proposed on steps i1, 21 and 22 of `docs/new-state/process.yaml`.
 - **Stops here when:** purpose, objective, timeframe or a named stakeholder is missing (back to `dept-intake`), the case is unique (impact analysis first, the OD lead or DBVE decides), or a derived event has no named method. Do not promise a trace or per-order analysis without the object relation.
+
+## Open questions
+
+- The method rests on internal Operations Digitalization decks only (status draft). Public event-log sources (process-mining event-log standards) and one real plant case have not been added; add them only after opening the sources.
+- The worked example in `SKILL.md` is fictional; no plant run is recorded.
+
+## Sources used in the improvement run
+
+- `V:\jakobgabriel\obsidian\personalvault\Work-OpsDigit-Knowledge\Deck Texts\Neuer Ordner\2025-01-21-Workshop-Realized_Use_Cases_2024-Use_Case_Strategy_2025.md` (confirms that object-driven event mining and cycle time analysis were topics of the 2025 use-case workshop; no further content used).

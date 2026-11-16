@@ -8,6 +8,15 @@ tags: [practice, maturity, routing, process-chain, draft]
 ---
 # Routing and handoff - the profile as a signal, not a verdict
 
+## Contents
+
+- 1 Route signals per step
+- 2 Decision rules
+- 3 Handoff contract
+- 4 Pitfalls and lessons
+- 5 Questions to ask and definition of done
+
+
 All rules below are `PROPOSAL`: the knowledge base gives the model, the rubric and the target guidance; the mapping onto the route decisions is this
 skill's synthesis, to be confirmed with the OD lead (`<to confirm>`). A signal is evidence for the neighbouring skill, which owns the verdict;
 quote the rule with the signal.
