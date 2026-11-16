@@ -15,7 +15,7 @@ Run from the repository root. Gates 1 to 4 also run in CI (`.github/workflows/va
 | 1 | Registry and frontmatter | `python scripts/validate_registry.py` | A name, description length, required metadata field, listing, flow placement or authority mismatch; the message names the file |
 | 2 | Agent Skills specification | `python scripts/agent_skills_spec.py --export dist` | The strict export is invalid: an unknown top-level key, a name that is not the folder, a link into another skill the export cannot rewrite. Warnings (references that link on to other references) do not fail |
 | 3 | OKF conformance | `python scripts/build_okf_index.py` then `python scripts/verify_okf.py` | A file without frontmatter, a `title` that does not slug to the file name, a source path that does not exist. The check takes minutes |
-| 4 | Generated pages current | `python scripts/build_okf_index.py --check`, `build_skill_map.py --check`, `build_new_state_skill_map.py --check`, `build_skill_quality.py --check` | A generated page is stale: run the generator, do not edit the page |
+| 4 | Generated pages current | `python scripts/build_okf_index.py --check`, `build_bpmn.py --check`, `build_skill_quality.py --check` | A generated page is stale: run the generator, do not edit the page |
 | 5 | No invented figures | `python scripts/check_no_figures.py <name>` | Lines that look like a company figure. It is a heuristic with many false positives (colours, ids, years): read each line, remove or mask what is a real claim |
 | 6 | Quality rating | see below | A grade below the target, or findings worth fixing |
 

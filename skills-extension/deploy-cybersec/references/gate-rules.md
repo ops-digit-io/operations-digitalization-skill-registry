@@ -27,7 +27,7 @@ All rows are read from the department documents on 2026-11-05. Nothing here is a
 | 11 | Endpoints are connected per the OT cyber-security rules in the Connext Wiki | `mi-equipment` `references/iiot-edge-platform.md` (bridge task 7), `references/decision-paths.md` |
 | 12 | Strategy bet: bundle the sign-off with the wave rather than per machine | `mi-equipment` `references/fallbacks.md` section 4 |
 | 13 | A new system at Lane 3a goes to the platform "with Cyber Security sign-off"; the sign-off is human-only; the step is marked "weeks" | `deploy-appstore`; registry `docs/new-state-flow.md` |
-| 14 | Lane 1b "Order and connect" and Lane 3b "Acceptance + CS to live" carry a Cyber Security sign-off as the external wait | `docs/new-state/OD_NewState_VSM_SkillMap.html` |
+| 14 | Lane 1b "Order and connect" and Lane 3b "Acceptance + CS to live" carry a Cyber Security sign-off as the external wait | owner's VSM diagram (removed from the repository 2026-11-16; see git history) |
 | 15 | The "Cyber Security / OT interface" is listed with access `consult` for the lane, not write | `20-lanes/information-integration-service/skills.md` |
 
 ## Where the gate sits in the lanes

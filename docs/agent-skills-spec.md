@@ -46,7 +46,7 @@ The specification does not say where a client looks for skills; that depends on 
 
 ## Getting the skills of a process step
 
-1. Open the documentation site's **process map** (built by `python scripts/build_site.py`, output in `site/`, static, works from the file system; also `docs/new-state-skill-map.md` for the same mapping as a table).
+1. Open the documentation site's **process map** (the BPMN flow, built by `python scripts/build_site.py`, output in `site/`, static, works from the file system).
 2. Pick a lane and a step. Each skill chip opens its description, its authority level, where else it sits in the process, and links to the skill page and its download.
 3. **Download the lane** (all skills of that lane) or a single skill as a `.zip` and place the folders where your client reads skills.
 

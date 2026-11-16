@@ -3,6 +3,15 @@
 History of this bundle. Reserved under OKF §9: headings are ISO 8601 dates, and this file is
 not a concept.
 
+## 2026-11-16 - BPMN labels are placed without overlaps
+
+- `scripts/build_bpmn.py` now places every gateway, event and flow label itself: shapes, flow lines, skill chips, notes and drill-down buttons are obstacles, and a label goes to the nearest free spot. `--check` fails when a label has no free spot, so CI catches overlaps. Gateway labels sit above, event labels below, flow labels on the last leg before the target; the OpenSpec header pills sit above the tasks of the 3a4 view; extra room after the intake routing keeps its three labels readable.
+
+## 2026-11-16 - the BPMN flow is the only process map
+
+- Removed every other map: the owner's `OD_NewState_ProcessFlow.html`, `OD_NewState_BPMN.html` and `OD_NewState_VSM_SkillMap.html`, `OD_NewState_Flow.mermaid`, `docs/process-overview.html`, `docs/new-state-skill-map.md`, `docs/skill-map.md`, `docs/skill-state-map.md` and their generators (`build_process_overview.py`, `build_new_state_skill_map.py`, `build_skill_map.py`) and CI checks. They stay in git history.
+- The site's front page is the BPMN map (`scripts/build_site.py`); the skill explorer and the skill-map table page are gone; skill chips link to the skill pages. `validate_registry.py` now checks that every skill on `process.yaml` is drawn on the BPMN map. The spine skill `dept-context` hangs on the foundation note.
+
 ## 2026-11-16 - deploy-it-demand removed; OpenSpec is external; the process map is BPMN
 
 - `deploy-it-demand` (with the absorbed `od-project-support-consultancy` and `it-demand-package` content) and the OpenSpec 1.17.0 copy inside it are removed, together with `sync_openspec_vendor.py`, `check_openspec_conformance.py` and the two CI steps for them. Other skills no longer list it in `composes`; prose mentions say 'OpenSpec IT demand (external)'.
